@@ -1,0 +1,141 @@
+/* banner */
+.b_slider {
+    width: 100%;
+    height: 550px;
+    position: relative;
+}
+.b_slide {
+    width: 100%;
+    height: 550px;
+    color: #FFF;
+    text-align: center;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.b_text {
+    font-size: 73px;
+    font-weight: bold;
+    line-height: 85px;
+    margin: 0 0 60px 0;
+}
+.b_undertext {
+    font-size: 37px;
+}
+/* mosaic */
+.c_mosaic {
+    max-width: 1150px;
+    background: #fff;
+}
+.c_mosaic:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.c_mosaic_item {
+    width: 224px;
+    height: 206px;
+    float: left;
+    background: #ccc;
+    margin-bottom: 7px;
+    cursor: pointer;
+    position: relative;
+}
+.c_mosaic_item_width {
+    width: 456px;
+}
+.c_mosaic_item_height {
+    height: 419px;
+}
+.c_mosaic_item_text {
+    font-size: 22px;
+    font-weight: bold;
+    color: #FFF;
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    cursor: pointer;
+}
+.c_mosaic_link {
+    opacity: 1;
+    -webkit-transition: opacity .3s;
+       -moz-transition: opacity .3s;
+        -ms-transition: opacity .3s;
+         -o-transition: opacity .3s;
+            transition: opacity .3s;
+}
+.c_mosaic_link:hover {
+    opacity: .8;
+    -webkit-transition: opacity .3s;
+       -moz-transition: opacity .3s;
+        -ms-transition: opacity .3s;
+         -o-transition: opacity .3s;
+            transition: opacity .3s;
+}
+.c_mosaic_delivery {
+    color: #FFF;
+    text-align: center;
+    background: #5ea424;
+    cursor: pointer;
+}
+.c_mosaic_delivery_header {
+    font-size: 22px;
+    cursor: pointer;
+}
+.c_mosaic_delivery_body_left_top, .c_mosaic_delivery_body_right_top {
+    color: #b92a3e;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 15px auto 4px;
+    cursor: pointer;
+}
+.c_mosaic_delivery_body_left_bottom, .c_mosaic_delivery_body_center, .c_mosaic_delivery_body_right_bottom {
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.c_mosaic_delivery_body_left, .c_mosaic_delivery_body_center, .c_mosaic_delivery_body_right {
+    display: inline-block;
+    cursor: pointer;
+}
+.c_mosaic_delivery_body {
+    cursor: pointer;
+}
+.c_mosaic_delivery_icon {
+    width: 43px;
+    height: 26px;
+    background-position: -185px -356px;
+    margin: 20px auto 12px;
+    cursor: pointer;
+}
+.c_mosaic_delivery_footer {
+    width: 100%;
+    height: 15px;
+    background-position: -11px -443px;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    cursor: pointer;
+}
+.c_mosaic_delivery_subbody {
+    margin: 17px auto 0;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+.c_mosaic_delivery_subbody_circle {
+    width: 4px;
+    height: 4px;
+    background: #FFF;
+    margin: 0 3px 0 0;
+    -webkit-border-radius: 3px;
+            border-radius: 3px;
+    cursor: pointer;
+}
+.c_mosaic_delivery_subbody_border {
+    width: 100%;
+    height: 1px;
+    background: #FFF;
+    margin: 3px 0 0 -2px;
+    cursor: pointer;
+}
