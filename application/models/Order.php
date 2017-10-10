@@ -59,7 +59,7 @@ class Order extends Fruitcrm {
 				if( $use_bonus ) {
 					$account->clear_bonus();
 				} else {
-					$bonus = $this->get_order_summ()*0.1;
+					$bonus = $this->get_order_summ(true)*0.1;
 					$account->set_bonus($bonus);
 				}
 				
@@ -89,7 +89,7 @@ class Order extends Fruitcrm {
 		return true;
 	}
 	
-	public function get_order_summ() {
+	public function get_order_summ($only_products = false) {
 		if(!(empty($this->_id))) {
 			if(!array_key_exists("order_id" , $this->_data)) {
 				$this->get_data();
@@ -101,8 +101,10 @@ class Order extends Fruitcrm {
 				$summ = $summ + $product['price']*$product['quantity'];
 			}
 			
-			$summ = $summ+$this->_data['shipping_price'];
-			$summ = $summ-$this->_data['used_bonus'];
+			if(!$only_products) {
+				$summ = $summ+$this->_data['shipping_price'];
+				$summ = $summ-$this->_data['used_bonus'];
+			}
 			
 			return $summ;
 		}
