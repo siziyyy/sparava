@@ -106,6 +106,7 @@ class Main extends CI_Controller {
 		}
 	
 		$data['totals']['totals'] = $this->get_totals_for_cart($data['totals']['totals']);
+		$data['cart_info']['summ'] = $data['totals']['totals']['with_shipping']['value'];
 		
 		if(!$this->is_logged()) {
 			
@@ -131,7 +132,7 @@ class Main extends CI_Controller {
 		$account->set_id($account_id);
 		
 		$data['cart_info']['account'] = $account->get_data();
-		$data['cart_info']['orders'] = $account->get_account_orders();
+		//$data['cart_info']['orders'] = $account->get_account_orders();
 
 		if(!is_null($this->session->userdata('shipping_address'))) {
 			$data['cart_info']['account']['shipping_address'] = $this->session->userdata('shipping_address');
@@ -161,13 +162,21 @@ class Main extends CI_Controller {
 				$quantity = $cart['p-'.$this->input->post('product_id')]['quantity'];
 			}
 			
+			$quantity_in_request = 0;
+			
+			if(!is_null($this->input->post('quantity'))) {
+				if($this->input->post('quantity') > 0) {
+					$quantity_in_request = $this->input->post('quantity');
+				}
+			}
+			
 			if($this->input->post('action') == 'add') {
 				$cart['p-'.$this->input->post('product_id')] = array(
-					'quantity' => $quantity+$this->input->post('quantity')
+					'quantity' => $quantity_in_request+$this->input->post('quantity')
 				);
 			} elseif($this->input->post('action') == 'update') {
 				$cart['p-'.$this->input->post('product_id')] = array(
-					'quantity' => $this->input->post('quantity')
+					'quantity' => $quantity_in_request
 				);
 			} elseif($this->input->post('action') == 'remove') {
 				unset($cart['p-'.$this->input->post('product_id')]);
@@ -266,7 +275,7 @@ class Main extends CI_Controller {
 		
 		$payment_summ = $totals['summ']['value'] + 
 		( isset($totals['shipping']) ? $totals['shipping']['value'] : 0 ) -
-		( $totals['bonus']['use_bonus'] ? $totals['bonus']['value'] : 0 );
+		( isset($totals['bonus']) ? ( $totals['bonus']['use_bonus'] ? $totals['bonus']['value'] : 0 ) : 0 );
 
 		$totals['payment'] = array(
 			'title' => 'к оплате',

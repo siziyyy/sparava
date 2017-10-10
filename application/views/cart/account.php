@@ -1,6 +1,6 @@
 <aside class="c_inners_left_side fl_l">
 	<div class="c_inners_side_header">
-		<span class="c_inners_amount_text">сумма к оплате, без доставки</span>
+		<span class="c_inners_amount_text">сумма к оплате</span>
 		<span class="c_inners_amount_num"><?php echo $summ ?> <span class="rouble">o</span></span>
 	</div>
 	<div class="c_inners_left_side_content">
@@ -34,17 +34,19 @@
 		</div>
 		
 	</div>
-	<div class="c_inners_left_side_content c_inners_left_side_content_after">
-		<div class="c_inners_left_side_text_h3">
-			История заказов
-		</div>
-		<?php foreach($orders as $order) { ?>
-			<div class="c_inners_left_side_order_line">
-				<div class="c_inners_left_side_order_line_td_short fl_l"><?php echo date('d.m.Y',$order['create_date']) ?></div>
-				<div class="c_inners_left_side_order_line_td_short fl_l"><?php echo $order['order_summ'] ?> руб.</div>
-				<a href="/" target="_blank" class="c_inners_left_side_order_line_td fl_r">посмотреть</a>
-				<div class="clear"></div>
+	<?php if(false) { ?>
+		<div class="c_inners_left_side_content c_inners_left_side_content_after">
+			<div class="c_inners_left_side_text_h3">
+				История заказов
 			</div>
-		<?php } ?>
-	</div>
+			<?php foreach($orders as $order) { ?>
+				<div class="c_inners_left_side_order_line">
+					<div class="c_inners_left_side_order_line_td_short fl_l"><?php echo date('d.m.Y',$order['create_date']) ?></div>
+					<div class="c_inners_left_side_order_line_td_short fl_l"><?php echo $order['order_summ'] ?> руб.</div>
+					<a href="/" target="_blank" class="c_inners_left_side_order_line_td fl_r">посмотреть</a>
+					<div class="clear"></div>
+				</div>
+			<?php } ?>
+		</div>
+	<?php } ?>
 </aside>
