@@ -80,6 +80,9 @@
     -o-transition: background .3s ease;
     transition: background .3s ease;
     margin-right: 10px;
+    border: none;
+    font-family:Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif;
+    cursor: pointer;
 }
 .black_small_button:hover {
     background: #666;
@@ -106,6 +109,7 @@
     -webkit-transition: background .3s ease;
     -o-transition: background .3s ease;
     transition: background .3s ease;
+    margin-right: 10px;
 }
 .orange_small_button:hover {
     background: #fe4517;
