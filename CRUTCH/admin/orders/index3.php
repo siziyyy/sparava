@@ -19,6 +19,182 @@
         <link rel="stylesheet" href="/assets/admin/css/main.css"><!-- always -->
     </head>
     <body>
+        <div class="order_mask"></div>
+        <div class="order_modal">
+            <div class="modal_id">14</div>
+            <table class="modal_orders">
+                <? for ($i=0; $i < 3; $i++) { ?>
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="chck_in_modal">
+                        </td>
+                        <td>
+                            <div class="modal_photo" style="background: url('/assets/img/goods/1.jpg')"></div>
+                        </td>
+                        <td>
+                            <table class="modal_name">
+                                <tr>
+                                    <td class="modal_name_name">Dr Pepper - Cherry vanilla</td>
+                                </tr>
+                                <tr>
+                                    <td class="modal_name_desc">Первый отжим из оливок</td>
+                                </tr>
+                                <tr>
+                                    <td class="modal_name_country">Cirio - Греция - 300 гр.</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td class="modal_status modal_status_succ">готов к сборке</td>
+                        <td class="modal_price">4300 ₽</td>
+                        <td class="modal_count">
+                            <input type="text" class="modal_count_inp" value="1">
+                        </td>
+                        <td class="modal_price">4300 ₽</td>
+                        <td class="modal_action"><div class="modal_act modal_act_del"></div></td>
+                        <td class="modal_action"><div class="modal_act modal_act_inf"></div></td>
+                    </tr>
+                <? } ?>
+                <tr class="modal_tbl_footer modal_first_tbl_footer">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Итого, без доставки</td>
+                    <td></td>
+                    <td></td>
+                    <td class="modal_price">4300</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="modal_tbl_footer">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Доставка</td>
+                    <td></td>
+                    <td></td>
+                    <td class="modal_price"><input type="text" class="modal_count_inp" value="199"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="modal_tbl_footer">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Скидка</td>
+                    <td></td>
+                    <td></td>
+                    <td class="modal_price"><input type="text" class="modal_count_inp" value="100"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="modal_tbl_footer">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Итого, без доставки</td>
+                    <td></td>
+                    <td></td>
+                    <td class="modal_price">4300</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            <div class="modal_tbl_bor"></div>
+            <div class="modal_info">
+                <table class="modal_info_tbl">
+                    <tr>
+                        <td>Фамилия</td>
+                        <td><input type="text" class="modal_info_inp"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Имя</td>
+                        <td><input type="text" class="modal_info_inp"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Отчество</td>
+                        <td><input type="text" class="modal_info_inp"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Территория</td>
+                        <td>
+                            <select type="text" class="modal_info_inp">
+                                <option value="">Москва</option>
+                            </select>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Почта</td>
+                        <td><input type="text" class="modal_info_inp"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Телефон</td>
+                        <td><input type="text" class="modal_info_inp"></td>
+                        <td><input type="text" class="modal_info_inp"></td>
+                    </tr>
+                    <tr>
+                        <td>Метро</td>
+                        <td><input type="text" class="modal_info_inp"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Адрес</td>
+                        <td><input type="text" class="modal_info_inp long_modal_info_inp"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Доставка</td>
+                        <td><input type="text" class="modal_info_inp"></td>
+                        <td class="modal_info_deliv">с 9 до 18</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><a href="" target="_blank" class="modal_print orders_button">печать накладной</a></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Статус</td>
+                        <td>
+                            <select type="text" class="modal_info_inp">
+                                <option value="">Готов к отправке</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select type="text" class="modal_info_inp">
+                                <option value="">Курьер</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <a href="" target="_blank" class="modal_print orders_button">сохранить</a>
+                            <div class="modal_print orders_button">дублировать</div>
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
         <section class="admin">
             <div class="admin_header_menu">
                 <a class="admin_header_menu_item current_admin_header_menu_item" href="/admin/orders/">Заказы</a>

@@ -13,29 +13,50 @@
                                 Доставка
                             </div>
                             <div class="c_inners_left_side_text_deliv">
-                                <div class="c_inners_left_side_deliv_left fl_l">
-                                    <input type="checkbox" class="c_inners_left_side_deliv_chck">
-                                </div> 
-                                <div class="c_inners_left_side_deliv_right fl_l">
-                                    <div class="c_inners_left_side_deliv_right_header">Обычная доставка - 199 руб.</div>
-                                    <div class="c_inners_left_side_deliv_right_body">
-                                        доставим завтра в любое удобное Вам время
-                                        <br>с интервалом 1 час, с 10:00 до 21:00  
+                                <div class="c_inners_left_side_deliv_right">
+                                    <div class="c_inners_left_side_deliv_right_header">Обычная доставка</div>
+                                    <div class="c_inners_left_side_deliv_right_meth">
+                                        <div class="c_inners_left_side_deliv_left fl_l">
+                                            <input type="checkbox" class="c_inners_left_side_deliv_chck">
+                                        </div> 
+                                        <div class="c_inners_left_side_del_meth_hdr fl_l">Москва - 199 руб.</div>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div class="c_inners_left_side_deliv_right_meth">
+                                        <div class="c_inners_left_side_deliv_left fl_l">
+                                            <input type="checkbox" class="c_inners_left_side_deliv_chck">
+                                        </div> 
+                                        <div class="c_inners_left_side_del_meth_hdr fl_l">МO (до 25 км от мкада) - 350 руб.</div>
+                                        <div class="clear"></div>
+                                        <div class="c_inners_left_side_deliv_right_body">
+                                            доставим завтра в любое удобное Вам время
+                                            <br>с интервалом 1 час, с 10:00 до 21:00  
+                                        </div>
                                     </div>
                                 </div> 
-                                <div class="clear"></div>
                             </div>
                             <div class="c_inners_left_side_text_deliv">
-                                <div class="c_inners_left_side_deliv_left fl_l">
-                                    <input type="checkbox" class="c_inners_left_side_deliv_chck">
-                                </div> 
-                                <div class="c_inners_left_side_deliv_right fl_l">
-                                    <div class="c_inners_left_side_deliv_right_header">Экспресс доставка - 399 руб.</div>
-                                    <div class="c_inners_left_side_deliv_right_body">
-                                        доставим в течении 2 часов, с 10:00 до 21:00    
+                                <div class="c_inners_left_side_deliv_right">
+                                    <div class="c_inners_left_side_deliv_right_header">Обычная доставка</div>
+                                    <div class="c_inners_left_side_deliv_right_meth">
+                                        <div class="c_inners_left_side_deliv_left fl_l">
+                                            <input type="checkbox" class="c_inners_left_side_deliv_chck">
+                                        </div> 
+                                        <div class="c_inners_left_side_del_meth_hdr fl_l">Москва - 199 руб.</div>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div class="c_inners_left_side_deliv_right_meth">
+                                        <div class="c_inners_left_side_deliv_left fl_l">
+                                            <input type="checkbox" class="c_inners_left_side_deliv_chck">
+                                        </div> 
+                                        <div class="c_inners_left_side_del_meth_hdr fl_l">МO (до 25 км от мкада) - 350 руб.</div>
+                                        <div class="clear"></div>
+                                        <div class="c_inners_left_side_deliv_right_body">
+                                            доставим завтра в любое удобное Вам время
+                                            <br>с интервалом 1 час, с 10:00 до 21:00  
+                                        </div>
                                     </div>
                                 </div> 
-                                <div class="clear"></div>
                             </div>
                             <div class="c_inners_left_side_text_b">
                                 Минимальная сумма заказа 1500 руб.
