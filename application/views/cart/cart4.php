@@ -16,8 +16,8 @@
                             <div class="c_inners_left_side_text_b2">Марина</div>
                             <div class="c_inners_left_side_text_b2">8 916 578 61 58</div>
                             <div class="c_inners_left_side_text_b2">ул. Пушкина, дом Колотушкина 14/88</div>
-                            <a class="c_inners_left_side_button black_small_button">далее</a>
                             <a class="c_inners_left_side_button orange_small_button">изменить</a>
+                            <a class="c_inners_left_side_button black_small_button">далее</a>
                         </div>
                         <div class="c_inners_left_side_content c_inners_left_side_content_after">
                             <div class="c_inners_left_side_text_h3">

@@ -13,8 +13,8 @@
 			<div class="c_inners_left_side_text_b2"><?php echo $account['name'] ?></div>
 			<div class="c_inners_left_side_text_b2"><?php echo $account['phone'] ?></div>
 			<div class="c_inners_left_side_text_b2"><?php echo $account['shipping_address'] ?></div>
-			<a class="c_inners_left_side_button black_small_button send" data-type="create_order">далее</a>
 			<a class="c_inners_left_side_button orange_small_button" id="change_account_details">изменить</a>
+			<a class="c_inners_left_side_button black_small_button send" data-type="create_order">далее</a>
 		</div>
 		
 		<div class="c_inners_left_side_form" id="account_details_edit">
