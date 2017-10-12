@@ -25,6 +25,7 @@
         <link rel="stylesheet" href="/assets/css/cart.css"><!-- only cart -->
 	</head>
 	<body>
+        <div class="closer blah_closer"></div>
         <? // require '_modal.php'; ?><!-- modal -->
 		<header>
 			<div class="content_helper">

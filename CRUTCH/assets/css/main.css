@@ -324,6 +324,16 @@ footer {
     border-bottom: 1px solid #ccc;
     padding: 10px 0 30px;
 }
+.closer {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9998;
+    background: transparent;
+    display: none;
+}
 /* modal */
 .mm_mask {
     position: fixed;

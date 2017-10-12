@@ -25,7 +25,53 @@
                 <a class="admin_header_menu_item current_admin_header_menu_item" href="/admin/purchaser/">Закупка</a>
                 <a class="admin_header_menu_item" href="/admin/storehouse/">Склад</a>
             </div>
-        
+            <div class="cour_selc">
+                <select class="modal_info_inp" name="" id="">
+                    <option value="">Оганесян Оганес</option>
+                </select>
+            </div>
+            <table class="purch">
+                <? for ($i=0; $i < 3; $i++) { ?>
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="chck_in_modal">
+                        </td>
+                        <td>
+                            <div class="no_modal_photo modal_photo" style="background: url('/assets/img/goods/1.jpg')"></div>
+                        </td>
+                        <td>
+                            <table class="modal_name">
+                                <tr>
+                                    <td class="modal_name_name">Dr Pepper - Cherry vanilla</td>
+                                </tr>
+                                <tr>
+                                    <td class="modal_name_desc">Первый отжим из оливок</td>
+                                </tr>
+                                <tr>
+                                    <td class="modal_name_country">Cirio - Греция - 300 гр.</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td class="modal_price">4300 ₽</td>
+                        <td class="modal_count">
+                            <input type="text" class="modal_count_inp" value="1">
+                        </td>
+                        <td class="modal_price">4300 ₽</td>
+                        <td class="modal_action"><div class="modal_act modal_act_del"></div></td>
+                        <td class="modal_action"><div class="modal_act">ок</div></td>
+                    </tr>
+                <? } ?>
+                <tr class="purch_foot">
+                    <td></td>
+                    <td><div class="orders_button no_modal_button">принять</div></td>
+                    <td></td>
+                    <td>итого потрачено</td>                    
+                    <td></td>
+                    <td class="modal_price">4300 ₽</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script><!-- always -->
         <script src="/assets/admin/js/main.js"></script><!-- always -->
     </body>
