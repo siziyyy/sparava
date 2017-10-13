@@ -118,32 +118,17 @@ input {
     line-height: 26px;
     margin-left: 50px;
 }
-.h_dirty_link {
-    text-shadow: 0 0 47px rgba(0,0,0, .7);
-    -webkit-transition: text-shadow .3s ease;
-       -moz-transition: text-shadow .3s ease;
-        -ms-transition: text-shadow .3s ease;
-         -o-transition: text-shadow .3s ease;
-            transition: text-shadow .3s ease;
-}
-.h_dirty_link:hover {
-    text-shadow: 0 0 80px rgba(0,0,0, 1);
-    -webkit-transition: text-shadow .3s ease;
-       -moz-transition: text-shadow .3s ease;
-        -ms-transition: text-shadow .3s ease;
-         -o-transition: text-shadow .3s ease;
-            transition: text-shadow .3s ease;
-}
 .h_cart_icon {
     width: 43px;
     height: 26px;
-    background: #f0f0f0;
+    background-color: #f0f0f0;
     cursor: pointer;
-    -webkit-transition: background .3s ease;
-       -moz-transition: background .3s ease;
-        -ms-transition: background .3s ease;
-         -o-transition: background .3s ease;
-            transition: background .3s ease;
+    background-position: -266px -27px;
+    -webkit-transition: background-color .3s ease;
+       -moz-transition: background-color .3s ease;
+        -ms-transition: background-color .3s ease;
+         -o-transition: background-color .3s ease;
+            transition: background-color .3s ease;
 }
 .h_logo_img {
     cursor: pointer;
@@ -176,7 +161,7 @@ input {
     margin-right: 100px;
 }
 .h_cart, .h_phones, .h_menu {
-    margin-top: 15px;
+    margin-top: 24px;
 }
 .h_cart:hover .h_cart_text {
     background: #e05236;
@@ -187,16 +172,16 @@ input {
             transition: background .3s ease;
 }
 .h_cart:hover .h_cart_icon {
-    background: #ded5d5;
-    -webkit-transition: background .3s ease;
-       -moz-transition: background .3s ease;
-        -ms-transition: background .3s ease;
-         -o-transition: background .3s ease;
-            transition: background .3s ease;
+    background-color: #ded5d5;
+    -webkit-transition: background-color .3s ease;
+       -moz-transition: background-color .3s ease;
+        -ms-transition: background-color .3s ease;
+         -o-transition: background-color .3s ease;
+            transition: background-color .3s ease;
 }
 header .content_helper {
     line-height: 26px;
-    padding: 35px 0;
+    padding: 25px 0;
 }
 /* menu */
 .c_menu {
@@ -268,7 +253,9 @@ footer .content_helper {
     font-size: 14px;
 }
 footer {
-    margin: 80px 0;
+    margin: 50px 0 80px;
+    padding-top: 50px;
+    border-top: 10px solid #f0f0f0;
 }
 .f_block_link {
     display: inline-block;
@@ -289,16 +276,24 @@ footer {
     line-height: 17px;
 }
 .f_logo {
-    width: 150px;
+    width: 165px;
     height: 111px;
     background-position: 0 -270px;
     cursor: pointer;
 }
 .f_delivery_icon {
-    width: 82px;
+    width: 44px;
     height: 41px;
-    margin: 0 auto 0;
-    background-position: -247px -348px;
+    background-position: -267px -353px;
+    margin-bottom: 18px;
+}
+.f_block_link_foot {
+    color: #666;
+    font-size: 14px;
+    margin-top: 5px;
+}
+.f_socials {
+    margin: 30px 0 0 0;
 }
 .f_social {
     width: 33px;
@@ -317,6 +312,45 @@ footer {
 }
 .f_social_vk {
     background-position: -189px -188px;    
+}
+.f_block_search_inp {
+    width: 78px;
+    height: 21px;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    display: inline-block;
+    text-align: center;
+    font-size: 12px;
+}
+.f_block_search_butt {
+    display: inline-block;
+    border: none;
+    border-color: transparent;
+    background: #b3b3b3;
+    color: #000;
+    font-size: 12px;
+    padding: 3px 10px 4px;
+    margin: 0 0 0 5px;
+    cursor: pointer;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+.f_block_search_butt:hover {
+    background: #ccc;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+.f_block_search_butt:active {
+    background: #b3b3b3;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+.f_block_search_butt:focus {
+    outline: none;
 }
 /* inners */
 .c_inners_header {

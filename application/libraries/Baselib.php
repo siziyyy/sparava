@@ -8,7 +8,7 @@ class Baselib {
     	$this->_ci =& get_instance();
     }
 	
-	public function get_categories($current_category = false) {
+	public function get_categories($current_category = false,$all_in_first_line = false) {
 		
 		$categories = array();
 		$query = $this->_ci->db->select("*")->from("categories")->order_by('sort_order', 'ASC')->get();
@@ -31,7 +31,11 @@ class Baselib {
 				}
 			
 				if($row['parent_id'] == 0) {
-					$line = ($row['first_line'] == 1 ? 'categories_first_line' : 'categories_second_line');
+					if($all_in_first_line) {
+						$line = 'categories_first_line';
+					} else {
+						$line = ($row['first_line'] == 1 ? 'categories_first_line' : 'categories_second_line');
+					}
 					
 					if(isset($categories[$line][$row['category_id']])) {
 						if(!isset($categories[$line][$row['category_id']]['current_category']) or !$categories[$line][$row['category_id']]['current_category']) {
@@ -47,7 +51,12 @@ class Baselib {
 						$categories[$line][$row['category_id']] = $row;
 					}
 				} else {
-					$line = ($result[$row['parent_id']]['first_line'] == 1 ? 'categories_first_line' : 'categories_second_line');
+					if($all_in_first_line) {
+						$line = 'categories_first_line';
+					} else {
+						$line = ($result[$row['parent_id']]['first_line'] == 1 ? 'categories_first_line' : 'categories_second_line');
+					}
+					
 					$row['current_category'] = $mark_as_current_category;
 					$categories[$line][$row['parent_id']]['childs'][$row['category_id']] = $row;
 					
@@ -123,7 +132,130 @@ class Baselib {
 		
 		ksort($products);
 		
+		return $this->handle_special_price($products);
+	}
+	
+	public function get_products($type) {
+		
+		$products = array();
+		
+		$query = $this->_ci->db->select("*")->from("products");
+		
+		if($type == 'farm') {
+			$query = $query->where('farm','1');
+		} elseif($type == 'eko') {
+			$query = $query->where('eko','1');
+		}
+		
+		$query = $query->order_by('product_id', 'ASC')->get();
+		
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $row) {
+				$products[$row['product_id']] = $row;
+			}
+		}
+
+		return $this->handle_special_price($products);
+	}
+	
+	private function handle_special_price($products) {
+		if(!isset($products['product_id'])) {
+			foreach($products as $product_id => $product) {
+				$special_begin = false;
+				$special_end = false;
+				$products[$product_id]['special_end_date'] = false;
+				
+				if(!is_null($product['special_begin'])) {
+					$special_begin = strtotime($product['special_begin']);
+				}
+				
+				if(!is_null($product['special_end'])) {
+					$special_end = strtotime($product['special_end']);
+				}
+				
+				if($special_begin and $special_end) {
+					if($special_begin < time() and time() < $special_end and $product['special'] > 0) {
+						$products[$product_id]['old_price'] = $product['price'];
+						$products[$product_id]['price'] = $product['special'];
+						$products[$product_id]['special_end_date'] = date('d.m', $special_end);
+					}
+				} elseif(!$special_begin) {
+					if(time() < $special_end and $product['special'] > 0) {
+						$products[$product_id]['old_price'] = $product['price'];
+						$products[$product_id]['price'] = $product['special'];
+						$products[$product_id]['special_end_date'] = date('d.m', $special_end);
+					}
+				} else {
+					if($product['special'] > 0) {
+						$products[$product_id]['old_price'] = $product['price'];
+						$products[$product_id]['price'] = $product['special'];
+					}				
+				}
+			}
+		} else {
+			$special_begin = false;
+			$special_end = false;
+			$products['special_end_date'] = false;
+			
+			if(!is_null($products['special_begin'])) {
+				$special_begin = strtotime($products['special_begin']);
+			}
+			
+			if(!is_null($products['special_end'])) {
+				$special_end = strtotime($products['special_end']);
+			}
+			
+			if($special_begin and $special_end) {
+				if($special_begin < time() and time() < $special_end and $products['special'] > 0) {
+					$products['old_price'] = $products['price'];
+					$products['price'] = $products['special'];
+					$products['special_end_date'] = date('d.m', $special_end);
+				}
+			} elseif(!$special_begin) {
+				if(time() < $special_end and $products['special'] > 0) {
+					$products['old_price'] = $products['price'];
+					$products['price'] = $products['special'];
+					$products['special_end_date'] = date('d.m', $special_end);
+				}
+			} elseif($products['special'] > 0) {
+				$products['old_price'] = $products['price'];
+				$products['price'] = $products['special'];	
+			}
+		}
+		
 		return $products;
+	}
+
+	public function handle_attributes($products) {
+		$attributes = array(
+			'countries' => array(),
+			'compositions' => array(),
+			'weights' => array()
+		);
+		
+		foreach($products as $product_id => $product) {
+			if(!is_null($product['country'])) {
+				$attributes['countries'][] = $product['country'];
+			}
+			
+			if(!is_null($product['composition'])) {
+				$attributes['compositions'][] = $product['composition'];
+			}
+
+			if(!is_null($product['weight'])) {
+				$attributes['weights'][] = $product['weight'];
+			}
+		}
+		
+		$attributes['countries'] = array_unique($attributes['countries']);
+		$attributes['compositions'] = array_unique($attributes['compositions']);
+		$attributes['weights'] = array_unique($attributes['weights']);
+		
+		ksort($attributes['countries']);
+		ksort($attributes['compositions']);
+		ksort($attributes['weights']);
+		
+		return $attributes;
 	}
 
 	public function get_product_by_id($product_id) {
@@ -131,7 +263,8 @@ class Baselib {
 		$query = $this->_ci->db->get_where("products", array("product_id" => $product_id));
 		
 		if ($query->num_rows() > 0) {
-			return $query->row_array();
+			$product = $query->row_array();			
+			return $this->handle_special_price($product);
 		}
 		
 		return false;
