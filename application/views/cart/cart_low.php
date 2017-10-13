@@ -7,12 +7,10 @@
 		<div class="c_inners_left_side_text_h">
 			Минимальный заказ
 		</div>
-		<div class="c_inners_left_side_text_f">
-			Минимальный заказ на нашем сайте 1000 руб.
-		</div>
 		<div class="c_inners_left_side_text_b">
-			Вам надо добавить еще продукты на сумму <?php echo $need ?> руб.   
+		Минимальная сумма заказа 1000 руб.
 		</div>
-		<a href="/" class="c_inners_left_side_button orange_small_button">добавить</a>
+		<a href="/" class="c_inners_left_side_button black_small_button">&lt; добрать</a>
 	</div>
+	<img src="/assets/img/commons/cart.jpg" alt="sparava | корзина" class="c_inners_left_side_img">
 </aside>

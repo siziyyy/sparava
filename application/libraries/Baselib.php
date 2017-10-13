@@ -156,24 +156,64 @@ class Baselib {
 		
 		return $products;
 	}
-
-	public function get_shipping_methods() {
+	
+	public function get_shipping_gropus() {
 		
 		return array(
 			'1' => array(
-				'shipping_id' => 1,
 				'title' => 'Обычная доставка',
-				'price' => '199',
 				'description' => 'доставим завтра в любое удобное Вам время<br>с интервалом 1 час, с 10:00 до 21:00'
 			),
 			'2' => array(
-				'shipping_id' => 2,
 				'title' => 'Экспресс доставка',
-				'price' => '399',
 				'description' => 'доставим в течении 2 часов, с 10:00 до 21:00'
 			),			
 		);
 		
+	}	
+
+	public function get_shipping_methods($group_id = false) {
+		
+		$shipping_methods = array(
+			'1' => array(
+				'shipping_id' => 1,
+				'title' => 'Москва',
+				'price' => '199',
+				'group_id' => 1
+			),
+			'2' => array(
+				'shipping_id' => 2,
+				'title' => 'МO (до 25 км от мкада) - 350 руб.',
+				'price' => '350',
+				'group_id' => 1
+			),
+			'3' => array(
+				'shipping_id' => 3,
+				'title' => 'Москва',
+				'price' => '199',
+				'group_id' => 2
+			),
+			'4' => array(
+				'shipping_id' => 4,
+				'title' => 'МO (до 25 км от мкада) - 350 руб.',
+				'price' => '350',
+				'group_id' => 2
+			)	
+		);
+		
+		if($group_id) {
+			$result = array();
+			
+			foreach($shipping_methods as $method) {
+				if($method['group_id'] == $group_id) {
+					$result[$method['shipping_id']] = $method;
+				}
+			}
+			
+			return $result;
+		}
+		
+		return $shipping_methods;
 	}	
 	
 }

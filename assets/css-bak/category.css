@@ -51,39 +51,11 @@
 .g_good_photo {
     width: 100%;
 }
-.g_old_good_price {
-    font-weight: bold;
-    font-size: 20px;
-    color: #FA8A75;
-    margin: 20px 0;
-    position: relative;
-    display: inline-block;
-    margin-right: 10px;
-}
-.g_old_good_price:after {
-    width: 100%;
-    height: 1px;
-    background: #000;
-    display: block;
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 11px;
-}
-.g_old_good_price_date {
-    display: inline-block;
-    color: #4d4d4d;
-    font-size: 14px;
-    margin: 0px 0 0 10px;
-    position: relative;
-    top: -3px;
-}
 .g_good_price {
     font-weight: bold;
     font-size: 20px;
     color: #f2593a;
     margin: 20px 0;
-    display: inline-block;
 }
 .g_good_name {
     font-size: 20px;
@@ -92,8 +64,8 @@
 .g_good_country {
     font-size: 14px;
     font-weight: normal;
-    margin-top: -10px;
-    margin-bottom: 20px;
+    color: #4d4d4d;
+    margin-top: 5px;
 }
 .g_good_description {
     font-size: 14px;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="">
+<html class="no-js" lang="ru">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -21,33 +21,55 @@
         <link rel="stylesheet" href="/assets/css/index.css"><!-- only index -->
         <link rel="stylesheet" href="/assets/mdl/slick/slick.css"><!-- only index -->
         <link rel="stylesheet" href="/assets/css/category.css"><!-- only catalog -->
+        <link rel="stylesheet" href="/assets/css/contacts.css"><!-- only contacts -->
         <link rel="stylesheet" href="/assets/css/cart.css"><!-- only cart -->
 	</head>
 	<body>
+        <div class="closer blah_closer"></div>
+        <? // require '_modal.php'; ?><!-- modal -->
 		<header>
 			<div class="content_helper">
-				<a href="/">
-                    <div class="h_logo fl_l">
-    					<img src="/assets/img/h_logo.jpg" class="h_logo_img" alt="sparava">
-    				</div>
-                </a>
-				<a href="/cart">
-                    <div class="h_cart fl_r">
-    					<div class="h_cart_icon sprite fl_l"></div>
-    					<div class="h_cart_text fl_l">
-							<span id="h_cart_text_total"><?php echo $cart['total'] ?></span> <span id="h_cart_text_word"><?php echo $cart['word'] ?></span> на <span id="h_cart_text_summ"><?php echo $cart['summ'] ?></span> руб.
+                <div class="mobile_header">
+                    <div class="m_h_hamb sprite fl_l"></div>
+                    <div class="m_h_call sprite fl_l"></div>
+                    <a href="/">
+                        <div class="m_h_logo">
+                            <img src="/assets/img/h_logo.jpg" class="m_h_logo_img" alt="sparava">
+                        </div>
+                    </a>
+                    <a href="/cart">
+                        <div class="m_h_cart fl_r">
+                            <div class="m_h_cart_icon sprite fl_l"></div>
+                            <div class="m_h_cart_text fl_l">- 0</div>
+                            <div class="clear"></div>
+                        </div>
+                    </a>
+                    <div class="clear"></div>
+                </div>			
+				<div class="main_header">
+					<a href="/">
+						<div class="h_logo fl_l">
+							<img src="/assets/img/h_logo.jpg" class="h_logo_img" alt="sparava">
 						</div>
-    					<div class="clear"></div>
-    				</div>
-                </a>
-				<div class="h_phones fl_r">
-					<a href="tel:88004501025" class="h_phone">8 800 450 10 25</a>
-					<a href="tel:88004501025" class="h_phone">8 495 541 20 20</a>
+					</a>
+					<a href="/cart">
+						<div class="h_cart fl_r">
+							<div class="h_cart_icon sprite fl_l"></div>
+							<div class="h_cart_text fl_l">
+								<span id="h_cart_text_total"><?php echo $cart['total'] ?></span> <span id="h_cart_text_word"><?php echo $cart['word'] ?></span> на <span id="h_cart_text_summ"><?php echo $cart['summ'] ?></span> руб.
+							</div>
+							<div class="clear"></div>
+						</div>
+					</a>
+					<div class="h_phones fl_r">
+						<a href="tel:88004501025" class="h_phone">8 800 450 10 25</a>
+						<a href="tel:88004501025" class="h_phone">8 495 541 20 20</a>
+					</div>
+					<div class="h_menu fl_r">
+						<a href="/" class="h_link h_dirty_link">клубная карта</a>
+						<a href="/" class="h_link">условия доставки</a>
+					</div>
+					<div class="clear"></div>
 				</div>
-				<div class="h_menu fl_r">
-					<a href="/" class="h_link h_dirty_link">клубная карта</a>
-					<a href="/" class="h_link">условия доставки</a>
-				</div>
-				<div class="clear"></div>
 			</div>
 		</header>

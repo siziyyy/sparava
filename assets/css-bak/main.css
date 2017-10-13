@@ -66,43 +66,6 @@ input {
     font-family:Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif;font-weight:500
 }
 /* header */
-.mobile_header {
-    display: none;
-    text-align: center;
-}
-.m_h_hamb {
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
-    background-position: -29px -521px;
-    margin: 8px 0 0 0;
-}
-.m_h_call {
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
-    background-position: -111px -520px;
-    margin: 8px 0 0 20px;
-}
-.m_h_cart_icon {
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
-    background-position: -276px -522px;
-    margin: 8px 0 0 20px;
-}
-.m_h_cart_text {
-    color: #fe4517;
-    font-size: 9px;
-    height: 25px;
-    margin: 10px 0 0 0px;
-}
-.m_h_logo_img {
-    width: 100px;
-}
-.m_h_logo {
-    display: inline-block;
-}
 .h_phone {
     font-size: 18px;
     font-weight: 900;
@@ -324,117 +287,9 @@ footer {
     border-bottom: 1px solid #ccc;
     padding: 10px 0 30px;
 }
-.closer {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9998;
-    background: transparent;
-    display: none;
-}
-/* modal */
-.mm_mask {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: rgba(88,88,88, .7);
-    z-index: 99;
-}
-.mm_modal {
-    position: fixed;
-    width: 1018px;
-    height: 366px;
-    top: 50%;
-    left: 50%;
-    margin: -178px 0 0 -509px;
-    background: #666;
-    z-index: 100;
-    padding: 100px 135px;
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
-    color: #FFF;
-}
-.mm_modal_header {
-    font-size: 24px;
-}
-.mm_modal_body {
-    font-size: 36px;
-    margin: 40px 0;
-}
-.mm_butt {
-    width: 82px;
-    height: 32px;
-    line-height: 32px;
-    text-align: center;
-    font-size: 17px;
-    cursor: pointer;
-    -webkit-transition: opacity .3s;
-    -o-transition: opacity .3s;
-    transition: opacity .3s;
-}
-.mm_butt:hover {
-    opacity: .7;
-    -webkit-transition: opacity .3s;
-    -o-transition: opacity .3s;
-    transition: opacity .3s;
-}
-.mm_yes {
-    background: #6FA326;
-    margin-right: 7px;
-}
-.mm_no {
-    background: #D24D5E;
-}
 /* media */
 @media all and (max-width: 1200px) {
-    .content_helper {
-        padding: 0 50px;
-    }
     header .content_helper {
-        padding: 35px 50px;
-        line-height: 20px;
-    }
-    .c_menu {
-        font-size: 12px;
-    }
-    .h_phone {
-        font-size: 14px;
-    }
-    .h_link {
-        font-size: 11px;
-    }
-    .h_cart_text {
-        font-size: 11px;
-        height: 20px;
-        line-height: 20px;
-    }
-    .h_cart_icon {
-        height: 20px;
-    }
-    .h_menu {
-        margin-right: 50px;
-    }
-    .h_logo_img {
-        width: 106px;
-    }
-    .h_cart, .h_phones, .h_menu {
-        margin-top: 11px;
-        line-height: 20px;
-    }
-}
-@media all and (max-width: 980px) {
-    .mobile_header {
-        display: block;
-    }
-    .main_header {
-        display: none;
-    }
-    header .content_helper {
-        padding: 15px;
+        padding: 35px;
     }
 }

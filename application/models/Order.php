@@ -45,11 +45,17 @@ class Order extends Fruitcrm {
 				'create_date' => time()
 			);
 			
+			if(is_null($this->session->userdata('shipping_metro'))) {
+				$data['shipping_metro'] = $account->get_data()['shipping_metro'];
+			} else {
+				$data['shipping_metro'] = $this->session->userdata('shipping_metro');
+			}
+			
 			if(is_null($this->session->userdata('shipping_address'))) {
 				$data['shipping_address'] = $account->get_data()['shipping_address'];
 			} else {
 				$data['shipping_address'] = $this->session->userdata('shipping_address');
-			}
+			}			
 
 			if ($this->db->insert("orders", $data))  {
 				$this->_id = $this->db->insert_id();

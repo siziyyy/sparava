@@ -98,6 +98,7 @@ $(document).ready(function(){
 					type : type,
 					account_details_name : ($('#account_details_name').val() || 0 ),
 					account_details_phone : ($('#account_details_phone').val() || 0 ),
+					account_details_metro : ($('#account_details_metro').val() || -1 ),
 					account_details_address : ($('#account_details_address').val() || -1 )
 				}
 				

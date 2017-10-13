@@ -12,6 +12,7 @@
 			<div class="c_inners_left_side_text_sh">Вами были указаны следующие данные</div>
 			<div class="c_inners_left_side_text_b2"><?php echo $account['name'] ?></div>
 			<div class="c_inners_left_side_text_b2"><?php echo $account['phone'] ?></div>
+			<div class="c_inners_left_side_text_b2"><?php echo $account['shipping_metro'] ?></div>
 			<div class="c_inners_left_side_text_b2"><?php echo $account['shipping_address'] ?></div>
 			<a class="c_inners_left_side_button orange_small_button" id="change_account_details">изменить</a>
 			<a class="c_inners_left_side_button black_small_button send" data-type="create_order">далее</a>
@@ -26,6 +27,10 @@
 				<div class="c_inners_input_label">телефон</div>
 				<input type="email" class="c_inners_input" id="account_details_phone" value="<?php echo $account['phone'] ?>">
 			</div>
+			<div class="c_inners_input_line">
+				<div class="c_inners_input_label">метро</div>
+				<input type="email" class="c_inners_input" id="account_details_metro" value="<?php echo $account['shipping_metro'] ?>">
+			</div>		
 			<div class="c_inners_input_line">
 				<div class="c_inners_input_label">адрес доставки</div>
 				<textarea class="c_inners_input" id="account_details_address"><?php echo $account['shipping_address'] ?></textarea>
