@@ -11,4 +11,20 @@ $(document).ready(function(){
         $('.blah_blah').toggle();
         $('.blah_closer').toggle();
     });
+    $('.g_good_show_full_desc').click(function() {
+        $('.g_good_big_description').toggle();
+        $('.g_g_desc_closer').toggle();
+    });
+    $('.g_g_desc_closer').click(function() {
+        $('.g_good_big_description').toggle();
+        $('.g_g_desc_closer').toggle();
+    });
+    $('.c_new_menu_line_item_right').click(function() {
+        $('.c_new_menu_dropdown').toggle();
+        $('.new_menu_closer').toggle();
+    });
+    $('.new_menu_closer').click(function() {
+        $('.c_new_menu_dropdown').toggle();
+        $('.new_menu_closer').toggle();
+    });
 });

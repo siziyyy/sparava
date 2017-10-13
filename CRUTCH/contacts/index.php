@@ -1,6 +1,6 @@
 <? require '../modules/_header.php'; ?>
         <div class="contacts_bg_helper"></div>
-        <section class="content">
+        <section class="content contacts_content">
             <div class="content_helper">
                 <div class="c_cart">
                     <div class="c_inners_header">Контакты</div>
@@ -17,7 +17,7 @@
                             </div>
                             <a href="tel:84955321409" class="c_contacts_line_right_phone">+7 495 532 14 09</a>
                         </div>
-                        <div class="clear"></div>
+                        <div class="clear" id="about"></div>
                     </div>
                     <div class="c_inners_header">О нас</div>
                     <div class="c_contacts_line">
@@ -52,7 +52,7 @@
                             </div>
                             <a href="mailto:ceo@sparava.ru" class="c_contacts_line_right_phone">ceo@sparava.ru</a>
                         </div>
-                        <div class="clear"></div>
+                        <div class="clear" id="first_order"></div>
                     </div>
                     <div class="c_inners_header">Преимущества первого заказа</div>
                     <div class="c_contacts_line">
@@ -67,7 +67,7 @@
                         <div class="pineappleapplepen_fatha c_contacts_line_right c_contacts_line_right_about fl_r">
                             <img class="pineappleapplepen" src="/assets/img/commons/pineappleapplepen.jpg" alt="sparava">
                         </div>
-                        <div class="clear"></div>
+                        <div class="clear" id="second_order"></div>
                     </div>
                     <div class="c_inners_header">Преимущества второго заказа</div>
                     <div class="c_contacts_line">

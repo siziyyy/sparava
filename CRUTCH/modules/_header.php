@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>Sparava</title>
+		<title>Aydaeda - Продукты с Фуд Сити</title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -26,6 +26,8 @@
 	</head>
 	<body>
         <div class="closer blah_closer"></div>
+        <div class="closer g_g_desc_closer"></div>
+        <div class="closer new_menu_closer"></div>
         <? // require '_modal.php'; ?><!-- modal -->
 		<header>
 			<div class="content_helper">
@@ -66,7 +68,7 @@
     					<a href="tel:88004501025" class="h_phone">8 495 541 20 20</a>
     				</div>
     				<div class="h_menu fl_r">
-    					<a href="/" class="h_link h_dirty_link">клубная карта</a>
+    					<a href="/" class="h_link">клубная карта</a>
     					<a href="/" class="h_link">условия доставки</a>
     				</div>
     				<div class="clear"></div>
