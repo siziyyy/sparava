@@ -37,19 +37,75 @@ class Main extends CI_Controller {
 	}	
 	
 	public function category($category) {
+
+		var_dump($category);
+		die();
+		
+		$menu = $this->baselib->get_categories($category,true);
+		$menu_childs = array();		
+		
+		foreach($menu as $line) {
+			foreach($line as $lcategory) {
+				if($lcategory['current_category']) {
+					$menu_childs = $lcategory['childs'];
+				}
+			}
+		}
 		
 		$data = array(
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
-			'menu' => $this->baselib->get_categories($category),
+			'menu' => $menu,
 			'products' => $this->baselib->get_category_products($category),
 			'category' => $category
 		);
 		
+		ksort($menu_childs);
+		
+		$data['menu']['menu_childs'] = $menu_childs;
+		$data['menu']['products_count'] = count($data['products']);
+		$data['menu']['attributes'] = $this->baselib->handle_attributes($data['products']);
+		
+		$this->load->view('category', $data);
+	}
+	
+	public function eko() {
+		
+		$menu = $this->baselib->get_categories(false,true);
+		
+		$data = array(
+			'header' => array(
+				'cart' => $this->get_cart_info_for_header()
+			),
+			'menu' => $menu,
+			'products' => $this->baselib->get_products('eko')
+		);
+		
+		$data['menu']['products_count'] = count($data['products']);
+		$data['menu']['attributes'] = $this->baselib->handle_attributes($data['products']);
+		
 		$this->load->view('category', $data);
 	}
 
+	public function farm() {
+		
+		$menu = $this->baselib->get_categories(false,true);
+		
+		$data = array(
+			'header' => array(
+				'cart' => $this->get_cart_info_for_header()
+			),
+			'menu' => $menu,
+			'products' => $this->baselib->get_products('farm')
+		);
+		
+		$data['menu']['products_count'] = count($data['products']);
+		$data['menu']['attributes'] = $this->baselib->handle_attributes($data['products']);
+		
+		$this->load->view('category', $data);
+	}
+	
 	public function cart() {
 		
 		$this->load->model('account');
