@@ -228,24 +228,18 @@
 .c_inners_left_side_deliv_chck {
     width: 12px;
     height: 12px;
-    margin-right: 10px;
 }
 .c_inners_left_side_deliv_right {
     display: inline-block;
-    margin-left: 0px;
+    margin-left: 10px;
 }
 .c_inners_left_side_deliv_right_header {
     font-size: 16px;
-    margin: 0 0 20px 26px;
-    font-weight: 900;
 }
 .c_inners_left_side_deliv_right_body {
     font-size: 14px;
     color: #666;
     margin-top: 15px;
-}
-.c_inners_left_side_del_meth_hdr {
-    margin: 0px 0 10px 0;
 }
 .c_inners_left_side_text_deliv {
     margin-top: 30px;
@@ -253,7 +247,6 @@
 .c_inners_left_side_form {
     margin-top: 30px;
     margin-bottom: 30px;
-    position: relative;
 }
 .c_inners_input_line {
     margin-bottom: 20px;
@@ -367,31 +360,5 @@ textarea.c_inners_input {
     line-height: 20px;
 }
 #account_details_edit {
-    display:none;
-}
-.blah_link {
-    color: #808080;
-    font-size: 14px;
-    text-decoration: underline;
-    margin-left: 15px;
-}
-.blah_blah_header {
-    font-weight: 900;
-    margin-bottom: 10px;
-}
-.blah_blah {
-    font-size: 14px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background: #FFF;
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
-    padding: 30px 20px;
-    border: 5px solid #e6e6e6;
-    z-index: 9999;
-    display: none;
+	display:none;
 }

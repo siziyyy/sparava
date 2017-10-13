@@ -1,3 +1,4 @@
+		<?php //$this->load->view('common/modal');?>
 		<footer>
 			<div class="content_helper">
 				<a href="/"><div class="f_block f_logo sprite"></div></a>
@@ -20,7 +21,7 @@
 					<div class="f_block_header">Информация <br>о нас</div>
 					<div><a href="/" class="f_block_link">О нас</a></div>
 					<div><a href="/" class="f_block_link">Отзывы о нас</a></div>
-					<div><a href="/" class="f_block_link">Контакты</a></div>
+					<div><a href="/contacts" class="f_block_link">Контакты</a></div>
 				</div>
 				<div class="f_block f_socials">
 					<a href="/" target="_blank" class="f_social sprite f_social_in"></a>

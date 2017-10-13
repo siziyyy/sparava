@@ -19,6 +19,7 @@ class Main extends CI_Controller {
 		$session = array(
 			'shipping_method' => NULL,
 			'use_bonus' => NULL,
+			'shipping_metro' => NULL,
 			'shipping_address' => NULL,
 			'cart' => NULL
 		);
@@ -92,10 +93,14 @@ class Main extends CI_Controller {
 			return;
 		}
 		
-		$shipping_methods = $this->baselib->get_shipping_methods();
+		$shipping_gruops = $this->baselib->get_shipping_gropus();
 		
+		foreach($shipping_gruops as $group_id => $group) {
+			$shipping_gruops[$group_id]['methods'] = $this->baselib->get_shipping_methods($group_id);
+		}
+
 		if(is_null($this->session->userdata('shipping_method')) and is_null($this->input->post('shipping_method'))) {
-			$data['cart_info']['shipping_methods'] = $shipping_methods;
+			$data['cart_info']['shipping_methods'] = $shipping_gruops;
 			$data['cart_info_tpl'] = 'shipping_methods';
 			
 			$this->load->view('cart/cart', $data);
@@ -116,6 +121,10 @@ class Main extends CI_Controller {
 			
 			return;
 		}
+		
+		if(!is_null($this->input->post('shipping_metro'))) {
+			$this->session->set_userdata('shipping_metro', $this->input->post('shipping_metro'));
+		}
 			
 		if(!is_null($this->input->post('shipping_address'))) {
 			$this->session->set_userdata('shipping_address', $this->input->post('shipping_address'));
@@ -124,7 +133,7 @@ class Main extends CI_Controller {
 		if(!is_null($this->input->post('shipping_comment'))) {
 			$this->session->set_userdata('shipping_comment', $this->input->post('shipping_comment'));
 		}
-		
+
 		$account_id = $this->session->userdata('account_id');
 		
 		
@@ -134,15 +143,20 @@ class Main extends CI_Controller {
 		$data['cart_info']['account'] = $account->get_data();
 		//$data['cart_info']['orders'] = $account->get_account_orders();
 
+		if(!is_null($this->session->userdata('shipping_metro'))) {
+			$data['cart_info']['account']['shipping_metro'] = $this->session->userdata('shipping_metro');
+		}
+		
 		if(!is_null($this->session->userdata('shipping_address'))) {
 			$data['cart_info']['account']['shipping_address'] = $this->session->userdata('shipping_address');
-		}
+		}		
 		
 		$data['totals']['totals'] = $this->get_totals_for_cart($data['totals']['totals']);
 
 		$data['cart_info_tpl'] = 'account';		
 		
 		$this->load->view('cart/cart', $data);
+		
 		return;
 	}	
 	
@@ -369,6 +383,10 @@ class Main extends CI_Controller {
 							if(!is_null($this->input->post('account_details_address'))) {
 								$this->session->set_userdata('shipping_address', $this->input->post('account_details_address'));
 							}
+							
+							if(!is_null($this->input->post('account_details_metro'))) {
+								$this->session->set_userdata('shipping_metro', $this->input->post('account_details_metro'));
+							}							
 							
 							$json['redirect'] = '/cart';
 							break;	

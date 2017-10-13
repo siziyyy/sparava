@@ -13,8 +13,10 @@ class Account extends Fruitcrm {
 					
 					if ($address->num_rows() > 0) {
 						$this->_data['shipping_address'] = $address->row_array()['shipping_address'];
+						$this->_data['shipping_metro'] = $address->row_array()['shipping_metro'];
 					} else {
 						$this->_data['shipping_address'] = '';
+						$this->_data['shipping_metro'] = '';
 					}
 				}
 			}

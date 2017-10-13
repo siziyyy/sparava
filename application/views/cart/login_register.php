@@ -34,9 +34,13 @@
 			<div class="c_inners_input_line">
 				<div class="c_inners_input_label">телефон</div>
 				<input type="phone" class="c_inners_input" id="register_phone">
-			</div>
+			</div>		
 		</div>
 		<form class="c_inners_left_side_form" action="" method="post" id="shipping_form">
+			<div class="c_inners_input_line">
+				<div class="c_inners_input_label">метро</div>
+				<input type="text" class="c_inners_input" name="shipping_metro">
+			</div>			
 			<div class="c_inners_input_line">
 				<div class="c_inners_input_label">адрес доставки</div>
 				<textarea class="c_inners_input" name="shipping_address"></textarea>

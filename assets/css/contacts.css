@@ -1,0 +1,113 @@
+.contacts_bg_helper {
+    width: 100%;
+    height: 275px;
+    background: #f0f0f0;
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    margin-top: -20px;
+}
+.c_contacts_line {
+    width: 100%;
+    padding-top: 50px;
+    margin-bottom: 75px;
+}
+.c_contacts_line_first {
+    padding-top: 70px;
+}
+.c_contacts_line_right {
+    width: 340px;
+    border-left: 1px solid #e6e6e6;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    height: 100%;
+    padding-left: 65px;
+    padding-top: 30px;
+    padding-bottom: 25px;
+}
+.c_contacts_line_left {
+    width: calc(100% - 340px);
+}
+.c_contacts_big_phone {
+    display: block;
+    font-size: 100px;
+    font-weight: 900;
+    color: #000;
+    margin: 0px 0 60px 0;
+}
+.c_contacts_big_phone:hover {
+    color: #666;
+}
+.c_contacts_small_phone {
+    display: block;
+    font-size: 36px;
+    color: #000;
+}
+.c_contacts_small_phone:hover {
+    color: #666;
+}
+.c_contacts_line_right_header {
+    font-size: 18px;
+    font-weight: 900;
+}
+.c_contacts_line_right_subheader {
+    margin-top: 30px;
+}
+.c_contacts_line_right_messenger {
+    font-size: 16px;
+    margin-right: 25px;
+    color: #000;
+}
+.c_contacts_line_right_phone {
+    color: #fe4517;
+    display: block;
+    font-size: 22px;
+    font-weight: 900;
+    margin-top: 65px;
+}
+.c_contacts_line_right_phone:hover {
+    color: #666;
+}
+.c_contacts_about_text {
+    width: 100%;
+    max-width: 700px;
+    font-size: 16px;
+    line-height: 20px;
+    padding-top: 15px;
+}
+.c_contacts_line_right_about {
+    padding-top: 15px;
+}
+.markin_vadim {
+    margin-top: 40px;
+}
+.markin_vadim_text {
+    margin-left: 35px;
+}
+.markin_vadim_text_body {
+    font-size: 16px;
+    color: #666;
+    margin: 10px 0 20px 0px;
+}
+.markin_vadim_phone {
+    color: #fe4517;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 900;
+    margin-right: 25px;
+}
+.markin_vadim_phone:hover {
+    color: #666;
+}
+.markin_vadim_email {
+    font-size: 12px;
+    color: #666;
+}
+.pineappleapplepen {
+    margin: 0 auto;
+    display: block;
+}
+.pineappleapplepen_fatha {
+    padding: 0;
+}
