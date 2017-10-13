@@ -493,3 +493,50 @@ td {
 .no_modal_button {
     margin-right: -50px;
 }
+.add_please_input_in_mo {
+   display: inline-block;
+   border: 1px solid #ccc; 
+   height: 26px;
+   width: 80px;
+   text-align: center;
+   -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+           box-sizing: border-box;
+           margin: 0 10px 0 0;
+}
+.count_add_please_input_in_mo {
+    display: inline-block;
+    border: 1px solid #ccc;
+    height: 26px;
+    width: 42px;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            margin: 0 10px 0 0;
+}
+.add_more_im {
+    position: absolute;
+    width: 300px;
+    z-index: +1;
+}
+.add_please_in_mo {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    padding: 7px 15px;
+}
+.add_please_in_mo:hover {
+    color: #000;
+}
+.purch_foot_sec td {
+    padding: 10px 12px 10px;
+}
+.purch_foot_sec .add_please_in_mo {
+    color: #fff;
+    background: #009933;
+}
+.purch_foot_sec .add_please_in_mo:hover {
+    color: #fff;
+    background: #12C24C;
+}

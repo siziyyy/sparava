@@ -56,7 +56,13 @@
                 <? } ?>
                 <tr class="modal_tbl_footer modal_first_tbl_footer">
                     <td></td>
-                    <td></td>
+                    <td>
+                        <div class="add_more_im">
+                            <input type="text" class="add_please_input_in_mo">
+                            <input type="text" class="count_add_please_input_in_mo">
+                            <a class="add_please_in_mo orders_button">добавить</a>
+                        </div>
+                    </td>
                     <td></td>
                     <td>Итого, без доставки</td>
                     <td></td>

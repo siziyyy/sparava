@@ -61,15 +61,31 @@
                         <td class="modal_action"><div class="modal_act">ок</div></td>
                     </tr>
                 <? } ?>
+                <tr class="purch_foot purch_foot_sec">
+                    <td>&nbsp;</td>
+                    <td>
+                        <div class="add_more_im">
+                            <input type="text" class="add_please_input_in_mo">
+                            <input type="text" class="count_add_please_input_in_mo">
+                            <a class="add_please_in_mo orders_button">добавить</a>
+                        </div>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>                    
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
                 <tr class="purch_foot">
-                    <td></td>
+                    <td>&nbsp;</td>
                     <td><div class="orders_button no_modal_button">принять</div></td>
-                    <td></td>
+                    <td>&nbsp;</td>
                     <td>итого потрачено</td>                    
-                    <td></td>
+                    <td>&nbsp;</td>
                     <td class="modal_price">4300 ₽</td>
-                    <td></td>
-                    <td></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
                 </tr>
             </table>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script><!-- always -->
