@@ -105,6 +105,12 @@ class Baselib {
 		return $categories;
 	}
 	
+	public function get_category_attributes($category) {
+		$products = get_category_products($category);
+		
+		
+	}
+	
 	public function get_category_products($category) {
 		
 		$products = array();
@@ -120,7 +126,9 @@ class Baselib {
 			$category_id = $category;
 		}
 		
-		$query = $this->_ci->db->query('SELECT p.* FROM products AS p, product_to_category AS ptc WHERE p.product_id = ptc.product_id AND ptc.category_id = ' . (int)$category_id . ' ORDER BY product_id ASC');
+		$sql = 'SELECT p.* FROM products AS p, product_to_category AS ptc WHERE p.product_id = ptc.product_id AND ptc.category_id = ' . (int)$category_id . ' ORDER BY product_id ASC';
+				
+		$query = $this->_ci->db->query($sql);
 
 		if ($query->num_rows() > 0) {
 			foreach ($query->result_array() as $row) {
@@ -128,7 +136,9 @@ class Baselib {
 			}			
 		}
 		
-		$query = $this->_ci->db->query('SELECT p.* FROM products AS p, product_to_category AS ptc WHERE p.product_id = ptc.product_id AND ptc.category_id IN (SELECT category_id FROM categories WHERE parent_id = ' . (int)$category_id . ' ) ORDER BY product_id ASC');
+		$sql = 'SELECT p.* FROM products AS p, product_to_category AS ptc WHERE p.product_id = ptc.product_id AND ptc.category_id IN (SELECT category_id FROM categories WHERE parent_id = ' . (int)$category_id . ' ) ORDER BY product_id ASC';
+		
+		$query = $this->_ci->db->query($sql);
 		
 		if ($query->num_rows() > 0) {
 			foreach ($query->result_array() as $row) {

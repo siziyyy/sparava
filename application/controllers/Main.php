@@ -95,6 +95,8 @@ class Main extends CI_Controller {
 			'price' => (!is_null($this->input->get('price')) ? $this->input->get('price') : 0)
 		);
 
+		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
+		
 		$menu = $this->baselib->get_categories($category,true);
 		$menu_childs = array();
 		
@@ -148,13 +150,34 @@ class Main extends CI_Controller {
 			}			
 		}
 		
+		$prodcuts_in_page = array();
+		$page_start = ($page-1)*10;
+		$page_end = $page*10;
+		$i = 0;
+		$pages_count = ((int)count($products)/10);
+		
+		if(count($products)%10 > 0)  {
+			$pages_count++;
+		}
+		
+		foreach($products as $product_id => $product) {
+			if($i >= $page_start and $i <$page_end) {
+				$prodcuts_in_page[] = $product;
+			}
+			
+			$i++;
+		}
+			
+		
 		if($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'asc') {
 			array_multisort($price_sort,SORT_ASC, $products);
 		} elseif($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'desc') {
 			array_multisort($price_sort,SORT_DESC, $products);
 		}
 			
-		$data['products'] = $products;
+		$data['products'] = $prodcuts_in_page;
+		$data['pages_count'] = $pages_count;
+		$data['current_page'] = $page;
 		$data['menu']['products_count'] = count($products);
 		
 		$this->load->view('category', $data);
