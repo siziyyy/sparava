@@ -260,6 +260,16 @@ var cart = {
 	}
 }
 
+
+$(document).on('click','.c_page',function(e) {
+	tail = window.location.search;	
+	params = URLToArray(tail);
+	
+	params['page'] = $(this).attr('data-page');
+	
+	window.location = window.location.origin + window.location.pathname + '?' + ArrayToURL(params); 
+});
+
 function filter_select(obj) {
 	tail = window.location.search;	
 	params = URLToArray(tail);

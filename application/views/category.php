@@ -36,6 +36,14 @@
                     <?php } ?>
                     <div class="clear"></div>
                 </div>
+				<div class="c_paginator">
+                    <div class="c_show_more_goods">показать еще</div>
+                    <div class="c_pages">
+						<?php for( $i = 1 ; $i <= $pages_count ; $i++ ) { ?>
+							<div class="c_page <?php echo ($i == $current_page ? 'c_current_page' : '') ?>" data-page="<?php echo $i ?>"><?php echo $i ?></div>
+						<?php } ?>
+                    </div>
+                </div>
             </div>
         </section>
 <?php $this->load->view('common/footer',$footer);?>
