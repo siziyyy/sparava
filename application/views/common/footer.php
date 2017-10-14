@@ -1,5 +1,5 @@
 		<?php
-			if(isset($account) and $account) {
+			if(isset($account_confirm) and $account_confirm) {
 				$this->load->view('common/modal');
 			}
 		?>

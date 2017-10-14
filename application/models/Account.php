@@ -47,6 +47,7 @@ class Account extends Fruitcrm {
 		if(array_key_exists("account_id" , $this->_data)) {
 			if(md5(md5($password)) == $this->_data['password']) {
 				$this->session->set_userdata('account_id', $this->_data['account_id']);
+				$this->session->set_userdata('is_login_confirmed',time());
 				return true;
 			}
 		}
