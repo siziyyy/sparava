@@ -78,6 +78,38 @@ class Account extends Fruitcrm {
 		return false;
 	}
 	
+	public function reset_password() {
+		$password = substr(sha1(uniqid(mt_rand(), true)), 0, 10);
+		
+		$data = array(
+			'password' => md5(md5( $password ))
+		);
+		
+		if ($this->db->update("accounts", $data, array("account_id" => $this->_id)))  {
+			
+			$this->send_password($password);
+			
+			return true;
+		}
+		
+		return false;
+	}
+
+	private function send_password($password) {
+		$message = $password;
+		$this->load->library('email');
+		
+		$this->email->from('info@neurobasket.ru', 'Robot');
+		$this->email->to($this->_data['email']);
+
+		$this->email->subject('Новый пароль');
+		$this->email->message($message);	
+		
+		$this->email->send();
+		
+		return true;
+	}	
+	
 	public function update() {
 		$data = array(
 			'name' => $this->_data['name'],

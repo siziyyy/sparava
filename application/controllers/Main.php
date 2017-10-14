@@ -8,11 +8,61 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
-			'menu' => $this->baselib->get_categories()
+			'menu' => $this->baselib->get_categories(),
+			'footer' => array(
+				'account_confirm' => $this->baselib->get_account_data_for_confirm()
+			)
 		);
 		
 		$this->load->view('main', $data);
 	}
+	
+	public function search() {		
+		if(is_null($this->input->post('articul')) or empty($this->input->post('articul'))) {
+			redirect(base_url('/'), 'refresh');
+		} else {
+			$product_id = $this->baselib->get_product_id_from_articul($this->input->post('articul'));
+		}
+		
+		$product = $this->baselib->get_product_by_id($product_id);
+	
+		if(!$product) {
+			redirect(base_url('/'), 'refresh');
+		}
+		
+		$products = array();
+		
+		foreach($this->baselib->get_product_categories($product_id) as $category_id) {
+			$products = array_merge($products,$this->baselib->get_products($category_id));
+			
+			if(count($products) > 5) {
+				break;
+			}
+		}
+		
+		$products_to_show = array();
+		$i = 0;
+		
+		foreach($products as $product) {
+			if($i > 4) {
+				break;
+			}
+			
+			$products_to_show[] = $product;
+			$i++;
+		}	
+	
+		$data = array(
+			'cart' => $this->get_cart_info_for_header(),
+			'product' => $product,
+			'products' => $products_to_show,
+			'articul' => $this->input->post('articul')
+		);
+		
+		
+		
+		$this->load->view('search', $data);
+	}	
 	
 	public function checkout_success() {	
 
@@ -37,12 +87,16 @@ class Main extends CI_Controller {
 	}	
 	
 	public function category($category) {
-
-		var_dump($category);
-		die();
 		
+		$filters = array(
+			'country' => (!is_null($this->input->get('country')) ? $this->input->get('country') : 0),
+			'weight' => (!is_null($this->input->get('weight')) ? $this->input->get('weight') : 0),
+			'composition' => (!is_null($this->input->get('composition')) ? $this->input->get('composition') : 0),
+			'price' => (!is_null($this->input->get('price')) ? $this->input->get('price') : 0)
+		);
+
 		$menu = $this->baselib->get_categories($category,true);
-		$menu_childs = array();		
+		$menu_childs = array();
 		
 		foreach($menu as $line) {
 			foreach($line as $lcategory) {
@@ -57,51 +111,171 @@ class Main extends CI_Controller {
 				'cart' => $this->get_cart_info_for_header()
 			),
 			'menu' => $menu,
-			'products' => $this->baselib->get_category_products($category),
-			'category' => $category
+			'category' => $category,
+			'footer' => array(
+				'account_confirm' => $this->baselib->get_account_data_for_confirm()
+			)
 		);
 		
 		ksort($menu_childs);
 		
+		$products = $this->baselib->get_category_products($category);
+		
 		$data['menu']['menu_childs'] = $menu_childs;
-		$data['menu']['products_count'] = count($data['products']);
-		$data['menu']['attributes'] = $this->baselib->handle_attributes($data['products']);
+		$data['menu']['attributes'] = $this->baselib->handle_attributes($products);
+		$data['menu']['filters'] = $filters;
+		
+		$price_sort = array();
+		
+		foreach($products as $product_id => $product) {
+			if($filters['country'] and $product['country'] != $filters['country']) {
+				unset($products[$product_id]);
+				continue;
+			}
+			
+			if($filters['weight'] and $product['weight'] != $filters['weight']) {
+				unset($products[$product_id]);
+				continue;
+			}	
+
+			if($filters['composition'] and $product['composition'] != $filters['composition']) {
+				unset($products[$product_id]);
+				continue;
+			}
+			
+			if($filters['price']) {
+				$price_sort[$product_id] = $product['price'];
+			}			
+		}
+		
+		if($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'asc') {
+			array_multisort($price_sort,SORT_ASC, $products);
+		} elseif($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'desc') {
+			array_multisort($price_sort,SORT_DESC, $products);
+		}
+			
+		$data['products'] = $products;
+		$data['menu']['products_count'] = count($products);
 		
 		$this->load->view('category', $data);
 	}
 	
 	public function eko() {
 		
+		$filters = array(
+			'country' => (!is_null($this->input->get('country')) ? $this->input->get('country') : 0),
+			'weight' => (!is_null($this->input->get('weight')) ? $this->input->get('weight') : 0),
+			'composition' => (!is_null($this->input->get('composition')) ? $this->input->get('composition') : 0),
+			'price' => (!is_null($this->input->get('price')) ? $this->input->get('price') : 0)
+		);
+		
 		$menu = $this->baselib->get_categories(false,true);
+		$products = $this->baselib->get_products('eko');
 		
 		$data = array(
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
 			'menu' => $menu,
-			'products' => $this->baselib->get_products('eko')
+			'footer' => array(
+				'account_confirm' => $this->baselib->get_account_data_for_confirm()
+			)
 		);
 		
-		$data['menu']['products_count'] = count($data['products']);
-		$data['menu']['attributes'] = $this->baselib->handle_attributes($data['products']);
+		$data['menu']['attributes'] = $this->baselib->handle_attributes($products);
+		$data['menu']['filters'] = $filters;
+		
+		$price_sort = array();
+		
+		foreach($products as $product_id => $product) {
+			if($filters['country'] and $product['country'] != $filters['country']) {
+				unset($products[$product_id]);
+				continue;
+			}
+			
+			if($filters['weight'] and $product['weight'] != $filters['weight']) {
+				unset($products[$product_id]);
+				continue;
+			}	
+
+			if($filters['composition'] and $product['composition'] != $filters['composition']) {
+				unset($products[$product_id]);
+				continue;
+			}
+			
+			if($filters['price']) {
+				$price_sort[$product_id] = $product['price'];
+			}			
+		}
+		
+		if($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'asc') {
+			array_multisort($price_sort,SORT_ASC, $products);
+		} elseif($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'desc') {
+			array_multisort($price_sort,SORT_DESC, $products);
+		}
+			
+		$data['products'] = $products;
+		$data['menu']['products_count'] = count($products);		
 		
 		$this->load->view('category', $data);
 	}
 
 	public function farm() {
 		
+		$filters = array(
+			'country' => (!is_null($this->input->get('country')) ? $this->input->get('country') : 0),
+			'weight' => (!is_null($this->input->get('weight')) ? $this->input->get('weight') : 0),
+			'composition' => (!is_null($this->input->get('composition')) ? $this->input->get('composition') : 0),
+			'price' => (!is_null($this->input->get('price')) ? $this->input->get('price') : 0)
+		);
+		
 		$menu = $this->baselib->get_categories(false,true);
+		$products = $this->baselib->get_products('farm');
 		
 		$data = array(
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
 			'menu' => $menu,
-			'products' => $this->baselib->get_products('farm')
+			'footer' => array(
+				'account_confirm' => $this->baselib->get_account_data_for_confirm()
+			)
 		);
 		
-		$data['menu']['products_count'] = count($data['products']);
-		$data['menu']['attributes'] = $this->baselib->handle_attributes($data['products']);
+		$data['menu']['attributes'] = $this->baselib->handle_attributes($products);
+		$data['menu']['filters'] = $filters;
+
+		$price_sort = array();
+		
+		foreach($products as $product_id => $product) {
+			if($filters['country'] and $product['country'] != $filters['country']) {
+				unset($products[$product_id]);
+				continue;
+			}
+			
+			if($filters['weight'] and $product['weight'] != $filters['weight']) {
+				unset($products[$product_id]);
+				continue;
+			}	
+
+			if($filters['composition'] and $product['composition'] != $filters['composition']) {
+				unset($products[$product_id]);
+				continue;
+			}
+			
+			if($filters['price']) {
+				$price_sort[$product_id] = $product['price'];
+			}			
+		}
+		
+		if($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'asc') {
+			array_multisort($price_sort,SORT_ASC, $products);
+		} elseif($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'desc') {
+			array_multisort($price_sort,SORT_DESC, $products);
+		}
+			
+		$data['products'] = $products;
+		$data['menu']['products_count'] = count($products);			
 		
 		$this->load->view('category', $data);
 	}
@@ -169,7 +343,7 @@ class Main extends CI_Controller {
 		$data['totals']['totals'] = $this->get_totals_for_cart($data['totals']['totals']);
 		$data['cart_info']['summ'] = $data['totals']['totals']['with_shipping']['value'];
 		
-		if(!$this->is_logged()) {
+		if(!$this->baselib->is_logged()) {
 			
 			$data['cart_info_tpl'] = 'login_register';
 			
@@ -242,7 +416,7 @@ class Main extends CI_Controller {
 			
 			if($this->input->post('action') == 'add') {
 				$cart['p-'.$this->input->post('product_id')] = array(
-					'quantity' => $quantity_in_request+$this->input->post('quantity')
+					'quantity' => $quantity_in_request + $quantity
 				);
 			} elseif($this->input->post('action') == 'update') {
 				$cart['p-'.$this->input->post('product_id')] = array(
@@ -294,18 +468,6 @@ class Main extends CI_Controller {
 		} elseif ($count >= 5 and $count < 10) {
 			return 'товаров';
 		}
-	}
-	
-	private function is_logged() {
-		$account_id = $this->session->userdata('account_id');
-		
-		if(!is_null($account_id)) {
-			if($account_id > 0) {
-				return true;
-			}
-		}
-		
-		return false;
 	}
 	
 	private function get_totals_for_cart($totals) {
@@ -481,7 +643,40 @@ class Main extends CI_Controller {
 					}
 				}
 				
-				break;	
+				break;
+
+			case 'confirm_account_in_modal':
+			
+				if(!is_null($this->input->post('confirm'))) {
+					if($this->input->post('confirm') == 'yes') {
+						if($this->baselib->confirm_login()) {
+							$json['success'] = 'success';
+						}
+					} else {
+						if($this->baselib->logout()) {
+							$json['success'] = 'success';
+						}
+					}
+				}
+				
+				break;
+
+			case 'remind':
+			
+				if(!is_null($this->input->post('email'))) {
+					if(!valid_email($this->input->post('email'))) {
+						break;
+					}
+					
+					$this->load->model("account");
+					$account = new Account();
+					$account->set_id_by_email($this->input->post('email'));
+					if($account->reset_password()) {
+						$json['success'] = 'success';
+					}
+				}
+				
+				break;				
 		}
 		
 		if(isset($json)) {
