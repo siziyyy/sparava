@@ -365,7 +365,6 @@ class Baselib {
 
 	public function logout() {
 		$this->_ci->session->set_userdata('account_id',NULL);
-		$this->_ci->session->set_userdata('cart',array());
 		return true;
 	}
 	
