@@ -15,28 +15,28 @@
 							
                         </div>
                         <div class="c_new_menu_filters">
-                            <select class="c_new_menu_filter">
+                            <select class="c_new_menu_filter" name="country" onchange="filter_select( this );">
 								<option value="0">страна</option>
 								<?php foreach($attributes['countries'] as $attribute) { ?>
-									<option value="<?php echo $attribute ?>"><?php echo $attribute ?></option>
+									<option value="<?php echo $attribute ?>" <?php echo ($filters['country'] === $attribute ? 'selected' : '' ) ?>><?php echo $attribute ?></option>
 								<?php } ?>
                             </select>
-                            <select class="c_new_menu_filter">
+                            <select class="c_new_menu_filter" name="composition" onchange="filter_select( this );">
                                 <option value="0">состав</option>
 								<?php foreach($attributes['compositions'] as $attribute) { ?>
-									<option value="<?php echo $attribute ?>"><?php echo $attribute ?></option>
+									<option value="<?php echo $attribute ?>" <?php echo ($filters['composition'] === $attribute ? 'selected' : '' ) ?>><?php echo $attribute ?></option>
 								<?php } ?>								
                             </select>
-                            <select class="c_new_menu_filter">
+                            <select class="c_new_menu_filter" name="weight" onchange="filter_select( this );">
                                 <option value="0">вес упаковки</option>
 								<?php foreach($attributes['weights'] as $attribute) { ?>
-									<option value="<?php echo $attribute ?>"><?php echo $attribute ?></option>
+									<option value="<?php echo $attribute ?>" <?php echo ($filters['weight'] === $attribute ? 'selected' : '' ) ?>><?php echo $attribute ?></option>
 								<?php } ?>									
                             </select>
-                            <select class="c_new_menu_filter">
+                            <select class="c_new_menu_filter" name="price" onchange="filter_select( this );">
                                 <option value="0">цена</option>
-								<option value="asc">по возрастанию</option>
-								<option value="desc">по убыванию</option>
+								<option value="asc" <?php echo ($filters['price'] === 'asc' ? 'selected' : '' ) ?>>по возрастанию</option>
+								<option value="desc" <?php echo ($filters['price'] === 'desc' ? 'selected' : '' ) ?>>по убыванию</option>
                             </select>
                             <div class="c_new_menu_filters_count fl_r">всего товаров: <?php echo $products_count ?></div>
                             <div class="clear"></div>

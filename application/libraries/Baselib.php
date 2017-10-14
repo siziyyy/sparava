@@ -8,6 +8,20 @@ class Baselib {
     	$this->_ci =& get_instance();
     }
 	
+	public function get_product_categories($product_id) {
+		$result = array();
+		
+		$query = $this->_ci->db->select("*")->from("product_to_category")->where("product_id",$product_id)->get();
+		
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $row) {				
+				$result[] = $row['category_id'];
+			}
+		}
+		
+		return $result;
+	}
+	
 	public function get_categories($current_category = false,$all_in_first_line = false) {
 		
 		$categories = array();
@@ -110,11 +124,7 @@ class Baselib {
 
 		if ($query->num_rows() > 0) {
 			foreach ($query->result_array() as $row) {
-				$products[$row['product_id']] = $row;
-				
-				//if($row['category_id'] > 0) {
-				//	$products[$row['product_id']]['image'] = $row['category_id'].'/'.$row['image'];
-				//}				
+				$products[$row['product_id']] = $row;		
 			}			
 		}
 		
@@ -122,11 +132,7 @@ class Baselib {
 		
 		if ($query->num_rows() > 0) {
 			foreach ($query->result_array() as $row) {
-				$products[$row['product_id']] = $row;
-				
-				//if($row['category_id'] > 0) {
-				//	$products[$row['product_id']]['image'] = $row['category_id'].'/'.$row['image'];
-				//}				
+				$products[$row['product_id']] = $row;		
 			}			
 		}
 		
@@ -161,6 +167,8 @@ class Baselib {
 	private function handle_special_price($products) {
 		if(!isset($products['product_id'])) {
 			foreach($products as $product_id => $product) {
+				$products[$product_id]['articul'] = $this->get_product_articul($product['product_id']);
+				
 				$special_begin = false;
 				$special_end = false;
 				$products[$product_id]['special_end_date'] = false;
@@ -193,6 +201,8 @@ class Baselib {
 				}
 			}
 		} else {
+			$products['articul'] = $this->get_product_articul($products['product_id']);
+			
 			$special_begin = false;
 			$special_end = false;
 			$products['special_end_date'] = false;
@@ -303,7 +313,82 @@ class Baselib {
 			),			
 		);
 		
+	}
+	
+	public function is_logged() {
+		$account_id = $this->_ci->session->userdata('account_id');
+		$this->_ci->load->model('account');
+		
+		if(!is_null($account_id)) {
+			if($account_id > 0) {
+				$account = new Account();
+				$account->set_id($this->_ci->session->userdata('account_id'));
+				return $account->get_data();
+			}
+		}
+		
+		return false;
 	}	
+	
+	public function get_account_data_for_confirm() {
+		$account_id = $this->_ci->session->userdata('account_id');
+		$this->_ci->load->model('account');
+		
+		if(!is_null($account_id) and !is_null($this->_ci->session->userdata('is_login_confirmed'))) {
+			if($account_id > 0 and $this->_ci->session->userdata('is_login_confirmed') < (time() - 86400)) {
+				$account = new Account();
+				$account->set_id($this->_ci->session->userdata('account_id'));
+				return $account->get_data();				
+			}
+		} elseif(!is_null($account_id) and is_null($this->_ci->session->userdata('is_login_confirmed'))) {
+			if($account_id > 0) {
+				$account = new Account();
+				$account->set_id($this->_ci->session->userdata('account_id'));
+				return $account->get_data();
+			}
+		}
+		
+		return false;
+	}
+	
+	public function confirm_login() {
+		$account_id = $this->_ci->session->userdata('account_id');
+		$this->_ci->load->model('account');
+		
+		if(!is_null($account_id)) {
+			$this->_ci->session->set_userdata('is_login_confirmed',time());
+			return true;
+		}
+		
+		return false;
+	}
+
+	public function logout() {
+		$this->_ci->session->set_userdata('account_id',NULL);
+		$this->_ci->session->set_userdata('cart',array());
+		return true;
+	}
+	
+	public function get_product_articul($product_id) {
+		$articul = (string)$product_id;
+		
+		for ($i = strlen($articul); $i <= 4; $i++) {
+			$articul = '0'.$articul;
+		}
+		
+		return $articul;
+	}
+	
+	public function get_product_id_from_articul($articul) {
+		$product_id = (string)$articul;
+		
+		while (substr ( $product_id , 0 ,1 ) == 0) {
+			$product_id = substr ( $product_id , 1);
+		}
+		
+		return $product_id ;
+	}
+	
 
 	public function get_shipping_methods($group_id = false) {
 		

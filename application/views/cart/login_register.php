@@ -18,7 +18,7 @@
 			</div>
 		</form>
 		<a class="c_inners_left_side_button black_small_button send" data-type="check_login">войти</a>
-		<a href="/" class="c_inners_left_side_button_pass">Забыли пароль?</a>
+		<a href="/" class="c_inners_left_side_button_pass send" data-type="remind">Забыли пароль?</a>
 		<div class="c_inners_left_side_text_h c_inners_left_side_text_h2">
 			Гость
 		</div>

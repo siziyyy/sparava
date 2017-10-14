@@ -200,4 +200,4 @@
                 </div>
 			</div>
 		</section>
-<?php $this->load->view('common/footer');?>
+<?php $this->load->view('common/footer',$footer);?>
