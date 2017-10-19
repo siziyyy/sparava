@@ -63,10 +63,10 @@
 							<div class="clear"></div>
 						</div>
 					</a>
-    				<div class="h_phones fl_r">
-    					<a href="tel:88004501025" class="h_phone">8 800 450 10 25</a>
-    					<a href="tel:88004501025" class="h_phone">8 495 541 20 20</a>
-    				</div>
+					<div class="h_phones fl_r">
+						<a href="tel:88004501025" class="h_phone">8 800 450 10 25</a>
+						<a href="tel:88004501025" class="h_phone">8 495 541 20 20</a>
+					</div>
     				<div class="h_menu fl_r">
     					<a href="/" class="h_link green_text dirty_link">наш вкусный блог</a>
     					<a href="/" class="h_link">вся информация</a>
