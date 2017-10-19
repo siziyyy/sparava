@@ -470,6 +470,129 @@ footer {
     margin: 0;
     margin-bottom: 25px;
 }
+/* menu */
+.c_new_menu_link {
+    color: #000;
+}
+.c_new_menu {
+    position: relative;
+}
+.c_new_menu_line_item {
+    margin-right: 45px;
+    color: #000;
+    font-size: 16px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+.c_new_menu_line_item {
+    cursor: pointer;
+}
+.c_new_menu_line_item_right {
+    cursor: pointer;
+    color: #5EA424;
+}
+.c_new_menu_line {
+    padding-top: 40px;
+    position: relative;
+    padding-bottom: 40px;
+}
+.c_new_menu_more {
+    cursor: pointer;
+}
+.c_new_menu_more_icon {
+    display: inline-block;
+    position: relative;
+    width: 21px;
+    height: 2px;
+    background: #000;
+    margin-left: 15px;
+    cursor: pointer;
+}
+.c_new_menu_filter {
+    width: 185px;
+    height: 35px;
+    border: 1px solid #e6e6e6;
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 0 15px;
+    font-size: 13px;
+    -webkit-border-radius: 3px;
+            border-radius: 3px;
+    margin-right: 23px;
+}
+.c_new_menu_dropdown {
+    background: #FFF;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+    right: 0;
+    top: 70px;
+    padding: 25px 40px;
+    border: 5px solid #e6e6e6;
+    columns: 4;
+    height: 310px;
+    width: 734px;
+    z-index: 99999;
+    display: none;
+}
+.c_new_menu_dropdown_link_helper {
+    font-size: 16px;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 23px;
+}
+.c_new_menu_dropdown_link {
+    font-size: 16px;
+    font-weight: 900;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 23px;
+    color: #000;
+}
+.c_new_menu_dropdown .green_text:hover {
+    color: #000 !important;
+}
+.c_new_menu_filter:hover {
+    border-color: #ccc;
+}
+.c_new_menu_more_icon:after {
+    content: '';
+    display: block;
+    background: #000;
+    width: 21px;
+    height: 2px;
+    position: absolute;
+    top: -4px;
+    left: 0;
+    cursor: pointer;
+}
+.c_new_menu_more_icon:before {
+    content: '';
+    display: block;
+    background: #000;
+    width: 21px;
+    height: 2px;
+    position: absolute;
+    top: -8px;
+    cursor: pointer;
+    left: 0;
+}
+.c_new_menu_line_item_right:hover {
+    color: #000;
+}
+.c_new_menu_line_item_right {
+    margin: 0;
+}
+.c_new_menu_filters_count {
+    font-size: 16px;
+    line-height: 32px;
+}
+.index_c_new_menu .c_new_menu_line_item {
+    margin-right: 30px; 
+}
 /* media */
 @media all and (max-width: 1200px) {
     .content_helper {
