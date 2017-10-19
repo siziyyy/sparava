@@ -138,6 +138,19 @@ class Main extends CI_Controller {
 		$this->load->view('category', $data);
 	}
 	
+	public function catalog() {
+		$data = array(
+			'header' => array(
+				'cart' => $this->get_cart_info_for_header()
+			),
+			'menu' => $this->baselib->get_categories(false,true),
+			'category' => $this->baselib->get_categories(false,true),
+			'footer' => array()
+		);
+		
+		$this->load->view('catalog', $data);
+	}	
+	
 	private function filter_products($products,$filters,$page) {
 		$price_sort = array();
 		
