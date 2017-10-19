@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
 -- Дамп данных таблицы fruit.accounts: 1 rows
 /*!40000 ALTER TABLE `accounts` DISABLE KEYS */;
 INSERT IGNORE INTO `accounts` (`account_id`, `email`, `password`, `name`, `phone`, `bonus`, `create_date`) VALUES
-	(7, 'tural.pro@gmail.com', 'ec6a6536ca304edf844d1d248a4f08dc', 'Турал11', '111', 100, 1507141325);
+	(7, 'tural.pro@gmail.com', '41285485fa57c940323d4145970c2d5d', 'Турал11', '111', 0, 1507141325);
 /*!40000 ALTER TABLE `accounts` ENABLE KEYS */;
 
 -- Дамп структуры для таблица fruit.categories
@@ -159,9 +159,9 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `used_bonus` int(11) unsigned NOT NULL,
   `create_date` int(11) unsigned NOT NULL,
   PRIMARY KEY (`order_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы fruit.orders: 17 rows
+-- Дамп данных таблицы fruit.orders: 18 rows
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
 INSERT IGNORE INTO `orders` (`order_id`, `account_id`, `shipping_address`, `shipping_metro`, `shipping_method`, `shipping_price`, `used_bonus`, `create_date`) VALUES
 	(1, 7, '', '', 'Экспресс доставка', 399, 1, 1507148521),
@@ -180,7 +180,8 @@ INSERT IGNORE INTO `orders` (`order_id`, `account_id`, `shipping_address`, `ship
 	(14, 7, '555', '', 'Обычная доставка', 199, 0, 1507151590),
 	(15, 7, '555', '', 'Экспресс доставка', 399, 0, 1507151888),
 	(16, 7, '555', '', 'Экспресс доставка', 399, 910, 1507151930),
-	(17, 7, '555', 'Авиа', 'МO (до 25 км от мкада) - 350 руб.', 350, 0, 1507883724);
+	(17, 7, '555', 'Авиа', 'МO (до 25 км от мкада) - 350 руб.', 350, 0, 1507883724),
+	(18, 7, '555', 'Авиа', 'Москва', 199, 100, 1507965959);
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
 -- Дамп структуры для таблица fruit.order_inners
@@ -192,9 +193,9 @@ CREATE TABLE IF NOT EXISTS `order_inners` (
   `price` int(11) unsigned NOT NULL,
   `product_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`order_inners_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы fruit.order_inners: 17 rows
+-- Дамп данных таблицы fruit.order_inners: 18 rows
 /*!40000 ALTER TABLE `order_inners` DISABLE KEYS */;
 INSERT IGNORE INTO `order_inners` (`order_inners_id`, `order_id`, `title`, `quantity`, `price`, `product_id`) VALUES
 	(1, 6, 'Мясо 1', 20, 50, 28),
@@ -213,7 +214,8 @@ INSERT IGNORE INTO `order_inners` (`order_inners_id`, `order_id`, `title`, `quan
 	(14, 15, 'Мясо 1', 154, 50, 28),
 	(15, 15, 'Мясо 2', 20, 50, 29),
 	(16, 16, 'Мясо 1', 100, 50, 28),
-	(17, 17, 'Мясо 1', 20, 50, 28);
+	(17, 17, 'Мясо 1', 20, 50, 28),
+	(18, 18, 'Мясо 1', 20, 80, 28);
 /*!40000 ALTER TABLE `order_inners` ENABLE KEYS */;
 
 -- Дамп структуры для таблица fruit.products
@@ -221,12 +223,11 @@ CREATE TABLE IF NOT EXISTS `products` (
   `product_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(256) NOT NULL,
   `brand` varchar(256) NOT NULL,
-  `articul` varchar(256) NOT NULL,
   `quantity` int(11) unsigned DEFAULT '0',
   `type` varchar(50) DEFAULT '',
   `cost` int(11) unsigned NOT NULL DEFAULT '0',
-  `price` int(11) unsigned NOT NULL DEFAULT '0',
   `percent` int(11) unsigned NOT NULL DEFAULT '0',
+  `price` int(11) unsigned NOT NULL DEFAULT '0',
   `image` varchar(256) DEFAULT NULL,
   `description` varchar(256) DEFAULT NULL,
   `country` varchar(256) DEFAULT NULL,
@@ -240,22 +241,27 @@ CREATE TABLE IF NOT EXISTS `products` (
   `farm` tinyint(1) unsigned DEFAULT '0',
   `weight` varchar(64) DEFAULT NULL,
   `composition` varchar(64) DEFAULT NULL,
+  `provider` varchar(64) DEFAULT NULL,
+  `pack` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`product_id`),
   KEY `product_id` (`product_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы fruit.products: 9 rows
+-- Дамп данных таблицы fruit.products: 12 rows
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT IGNORE INTO `products` (`product_id`, `title`, `brand`, `articul`, `quantity`, `type`, `cost`, `price`, `percent`, `image`, `description`, `country`, `special`, `special_begin`, `special_end`, `subtract`, `status`, `condition_id`, `eko`, `farm`, `weight`, `composition`) VALUES
-	(34, 'Мясо 7', 'Valio', '7', 100, 'кг', 20, 50, 0, 'yabloko_1.jpg', 'Сочное мясо', 'Россия', 80, NULL, NULL, 0, 1, 1, 0, 0, NULL, NULL),
-	(33, 'Мясо 6', 'Valio', '6', 100, 'кг', 20, 50, 0, 'yabloko_2.jpg', 'Сочное мясо', 'Россия', 80, NULL, NULL, 0, 1, 1, 0, 0, NULL, NULL),
-	(32, 'Мясо 5', 'Valio', '5', 100, 'кг', 20, 50, 0, 'yabloko_3.jpg', 'Сочное мясо', 'Россия', 80, NULL, NULL, 0, 1, 1, 0, 1, NULL, NULL),
-	(31, 'Мясо 4', 'Valio', '4', 100, 'кг', 20, 50, 0, 'yabloko_4.jpg', 'Сочное мясо', 'Россия', 80, NULL, NULL, 0, 1, 1, 0, 1, NULL, NULL),
-	(30, 'Мясо 3', 'Valio', '3', 100, 'кг', 20, 50, 0, 'yabloko_5.jpg', 'Сочное мясо', 'Россия', 80, NULL, NULL, 0, 1, 1, 0, 0, NULL, NULL),
-	(29, 'Мясо 2', 'Valio', '2', 100, 'кг', 20, 50, 0, 'yabloko_6.jpg', 'Сочное мясо', 'Россия', 40, '2017-09-27', '2017-10-30', 0, 1, 1, 1, 0, NULL, NULL),
-	(28, 'Мясо 1', 'Valio', '1', 100, 'кг', 20, 50, 0, 'yabloko_7.jpg', 'Сочное мясо', 'Россия', 80, '2017-09-29', '2017-10-30', 0, 1, 1, 1, 0, NULL, NULL),
-	(35, 'Мясо 8', 'Valio', '1', 100, 'кг', 20, 50, 0, 'yabloko_7.jpg', 'Сочное мясо', 'Российская Федерация', 80, '2017-09-29', '2017-10-10', 0, 1, 1, 0, 0, NULL, NULL),
-	(36, 'Мясо 9', 'Valio', '1', 100, 'кг', 20, 50, 0, 'yabloko_7.jpg', 'Сочное мясо', 'Россия', 80, '2017-09-29', '2017-10-30', 0, 1, 1, 0, 0, NULL, NULL);
+INSERT IGNORE INTO `products` (`product_id`, `title`, `brand`, `quantity`, `type`, `cost`, `percent`, `price`, `image`, `description`, `country`, `special`, `special_begin`, `special_end`, `subtract`, `status`, `condition_id`, `eko`, `farm`, `weight`, `composition`, `provider`, `pack`) VALUES
+	(34, 'Мясо 7', 'Valio', 100, 'кг', 20, 50, 35, 'yabloko_1.jpg', 'Сочное мясо', 'Россия', 80, NULL, NULL, 0, 1, 1, 0, 0, NULL, NULL, NULL, 'тип 1'),
+	(33, 'Мясо 6', 'Valio', 100, 'кг', 20, 50, 40, 'yabloko_2.jpg', 'Сочное мясо', 'Россия', 80, NULL, NULL, 0, 1, 1, 0, 0, NULL, NULL, NULL, 'тип 2'),
+	(32, 'Мясо 5', 'Valio', 100, 'кг', 20, 50, 50, 'yabloko_3.jpg', 'Сочное мясо', 'Россия', 80, NULL, NULL, 0, 1, 1, 0, 1, NULL, NULL, NULL, NULL),
+	(31, 'Мясо 4', 'Valio', 100, 'кг', 20, 50, 0, 'yabloko_4.jpg', 'Сочное мясо', 'Россия', 80, NULL, NULL, 0, 1, 1, 0, 1, '400', 'говядина', NULL, NULL),
+	(30, 'Мясо 3', 'Valio', 100, 'кг', 20, 50, 0, 'yabloko_5.jpg', 'Сочное мясо', 'Россия', 80, NULL, NULL, 0, 1, 1, 0, 0, '300', 'говядина', NULL, NULL),
+	(29, 'Мясо 2', 'Valio', 100, 'кг', 20, 50, 0, 'yabloko_6.jpg', 'Сочное мясо', 'Россия', 40, '2017-09-27', '2017-10-30', 0, 1, 1, 1, 0, '200', 'свинина', NULL, NULL),
+	(28, 'Мясо 1', 'Valio', 100, 'кг', 20, 50, 0, 'yabloko_7.jpg', 'Сочное мясо', 'Россия', 80, '2017-09-29', '2017-10-30', 0, 1, 1, 1, 0, '100', 'мясо', NULL, NULL),
+	(35, 'Мясо 8', 'Valio', 100, 'кг', 20, 50, 0, 'yabloko_7.jpg', 'Сочное мясо', 'Российская Федерация', 80, '2017-09-29', '2017-10-10', 0, 1, 1, 0, 0, NULL, NULL, NULL, NULL),
+	(36, 'Мясо 9', 'Valio', 100, 'кг', 20, 50, 50, 'yabloko_7.jpg', 'Сочное мясо', 'Россия', 80, '2017-09-29', '2017-10-30', 0, 1, 1, 0, 0, NULL, NULL, NULL, NULL),
+	(37, 'Мясо 1', 'Valio', 100, 'кг', 20, 50, 0, 'yabloko_7.jpg', 'Сочное мясо', 'Россия', 80, '2017-09-29', '2017-10-30', 0, 1, 1, 1, 0, '100', 'мясо', NULL, NULL),
+	(38, 'Мясо 2', 'Valio', 100, 'кг', 20, 50, 0, 'yabloko_6.jpg', 'Сочное мясо', 'Россия', 40, '2017-09-27', '2017-10-30', 0, 1, 1, 1, 0, '200', 'свинина', NULL, NULL),
+	(39, 'Мясо 3', 'Valio', 100, 'кг', 20, 50, 0, 'yabloko_5.jpg', 'Сочное мясо', 'Россия', 80, NULL, NULL, 0, 1, 1, 0, 0, '300', 'говядина', NULL, NULL);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 
 -- Дамп структуры для таблица fruit.product_to_category
@@ -266,7 +272,7 @@ CREATE TABLE IF NOT EXISTS `product_to_category` (
   KEY `category_id` (`category_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы fruit.product_to_category: 9 rows
+-- Дамп данных таблицы fruit.product_to_category: 13 rows
 /*!40000 ALTER TABLE `product_to_category` DISABLE KEYS */;
 INSERT IGNORE INTO `product_to_category` (`product_id`, `category_id`) VALUES
 	(28, 24),
@@ -277,7 +283,11 @@ INSERT IGNORE INTO `product_to_category` (`product_id`, `category_id`) VALUES
 	(33, 24),
 	(34, 24),
 	(35, 24),
-	(36, 24);
+	(36, 24),
+	(36, 25),
+	(37, 25),
+	(38, 24),
+	(38, 25);
 /*!40000 ALTER TABLE `product_to_category` ENABLE KEYS */;
 
 -- Дамп структуры для таблица fruit.rights
