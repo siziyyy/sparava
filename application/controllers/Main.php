@@ -91,6 +91,7 @@ class Main extends CI_Controller {
 		$filters = array(
 			'country' => (!is_null($this->input->get('country')) ? $this->input->get('country') : 0),
 			'weight' => (!is_null($this->input->get('weight')) ? $this->input->get('weight') : 0),
+			'pack' => (!is_null($this->input->get('pack')) ? $this->input->get('pack') : 0),
 			'composition' => (!is_null($this->input->get('composition')) ? $this->input->get('composition') : 0),
 			'price' => (!is_null($this->input->get('price')) ? $this->input->get('price') : 0)
 		);
@@ -150,6 +151,11 @@ class Main extends CI_Controller {
 				unset($products[$product_id]);
 				continue;
 			}	
+			
+			if($filters['pack'] and $product['pack'] != $filters['pack']) {
+				unset($products[$product_id]);
+				continue;
+			}
 
 			if($filters['composition'] and $product['composition'] != $filters['composition']) {
 				unset($products[$product_id]);
@@ -197,9 +203,12 @@ class Main extends CI_Controller {
 		$filters = array(
 			'country' => (!is_null($this->input->get('country')) ? $this->input->get('country') : 0),
 			'weight' => (!is_null($this->input->get('weight')) ? $this->input->get('weight') : 0),
+			'pack' => (!is_null($this->input->get('pack')) ? $this->input->get('pack') : 0),
 			'composition' => (!is_null($this->input->get('composition')) ? $this->input->get('composition') : 0),
 			'price' => (!is_null($this->input->get('price')) ? $this->input->get('price') : 0)
 		);
+		
+		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
 		
 		$menu = $this->baselib->get_categories(false,true);
 		$products = $this->baselib->get_products('eko');
@@ -240,14 +249,35 @@ class Main extends CI_Controller {
 			}			
 		}
 		
+		$prodcuts_in_page = array();
+		$page_start = ($page-1)*10;
+		$page_end = $page*10;
+		$i = 0;
+		$pages_count = ((int)count($products)/10);
+		
+		if(count($products)%10 > 0)  {
+			$pages_count++;
+		}
+		
+		foreach($products as $product_id => $product) {
+			if($i >= $page_start and $i <$page_end) {
+				$prodcuts_in_page[] = $product;
+			}
+			
+			$i++;
+		}
+			
+		
 		if($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'asc') {
 			array_multisort($price_sort,SORT_ASC, $products);
 		} elseif($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'desc') {
 			array_multisort($price_sort,SORT_DESC, $products);
 		}
 			
-		$data['products'] = $products;
-		$data['menu']['products_count'] = count($products);		
+		$data['products'] = $prodcuts_in_page;
+		$data['pages_count'] = $pages_count;
+		$data['current_page'] = $page;
+		$data['menu']['products_count'] = count($products);
 		
 		$this->load->view('category', $data);
 	}
@@ -257,9 +287,12 @@ class Main extends CI_Controller {
 		$filters = array(
 			'country' => (!is_null($this->input->get('country')) ? $this->input->get('country') : 0),
 			'weight' => (!is_null($this->input->get('weight')) ? $this->input->get('weight') : 0),
+			'pack' => (!is_null($this->input->get('pack')) ? $this->input->get('pack') : 0),
 			'composition' => (!is_null($this->input->get('composition')) ? $this->input->get('composition') : 0),
 			'price' => (!is_null($this->input->get('price')) ? $this->input->get('price') : 0)
 		);
+		
+		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
 		
 		$menu = $this->baselib->get_categories(false,true);
 		$products = $this->baselib->get_products('farm');
@@ -300,13 +333,34 @@ class Main extends CI_Controller {
 			}			
 		}
 		
+		$prodcuts_in_page = array();
+		$page_start = ($page-1)*10;
+		$page_end = $page*10;
+		$i = 0;
+		$pages_count = ((int)count($products)/10);
+		
+		if(count($products)%10 > 0)  {
+			$pages_count++;
+		}
+		
+		foreach($products as $product_id => $product) {
+			if($i >= $page_start and $i <$page_end) {
+				$prodcuts_in_page[] = $product;
+			}
+			
+			$i++;
+		}
+			
+		
 		if($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'asc') {
 			array_multisort($price_sort,SORT_ASC, $products);
 		} elseif($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'desc') {
 			array_multisort($price_sort,SORT_DESC, $products);
 		}
 			
-		$data['products'] = $products;
+		$data['products'] = $prodcuts_in_page;
+		$data['pages_count'] = $pages_count;
+		$data['current_page'] = $page;
 		$data['menu']['products_count'] = count($products);			
 		
 		$this->load->view('category', $data);

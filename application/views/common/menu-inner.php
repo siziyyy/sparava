@@ -27,6 +27,12 @@
 									<option value="<?php echo $attribute ?>" <?php echo ($filters['composition'] === $attribute ? 'selected' : '' ) ?>><?php echo $attribute ?></option>
 								<?php } ?>								
                             </select>
+                            <select class="c_new_menu_filter" name="pack" onchange="filter_select( this );">
+                                <option value="0">тип упаковки</option>
+								<?php foreach($attributes['packs'] as $attribute) { ?>
+									<option value="<?php echo $attribute ?>" <?php echo ($filters['pack'] === $attribute ? 'selected' : '' ) ?>><?php echo $attribute ?></option>
+								<?php } ?>									
+                            </select>							
                             <select class="c_new_menu_filter" name="weight" onchange="filter_select( this );">
                                 <option value="0">вес упаковки</option>
 								<?php foreach($attributes['weights'] as $attribute) { ?>
