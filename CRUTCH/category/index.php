@@ -104,7 +104,7 @@
                                 </div>
                             </div>
                             <div class="g_good_country">
-                                Cirio - Греция <span class="g_good_id">13548</span>
+                                Cirio - Греция <span class="g_good_weight">- 0,250 мл</span><span class="g_good_id">13548</span>
                             </div>
                             <div class="g_good_actions">
                                 <div class="g_good_count">
