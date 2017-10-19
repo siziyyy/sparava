@@ -773,6 +773,7 @@ class Main extends CI_Controller {
 					$filters = array(
 						'country' => (isset($filters_post->country) ? $filters_post->country : 0),
 						'weight' => (isset($filters_post->weight) ? $filters_post->weight : 0),
+						'pack' => (isset($filters_post->pack) ? $filters_post->pack : 0),
 						'composition' => (isset($filters_post->composition) ? $filters_post->composition : 0),
 						'price' => (isset($filters_post->price) ? $filters_post->price : 0)
 					);
