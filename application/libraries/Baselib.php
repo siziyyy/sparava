@@ -177,6 +177,11 @@ class Baselib {
 	private function handle_special_price($products) {
 		if(!isset($products['product_id'])) {
 			foreach($products as $product_id => $product) {
+				if($product['price'] == 0) {
+					$product['price'] = (($product['cost']*$product['percent'])/100) + $product['cost'];
+					$products[$product_id]['price'] = $product['price'];
+				}
+				
 				$products[$product_id]['articul'] = $this->get_product_articul($product['product_id']);
 				
 				$special_begin = false;
@@ -211,6 +216,11 @@ class Baselib {
 				}
 			}
 		} else {
+			
+			if($products['price'] == 0) {
+				$products['price'] = (($products['cost']*$products['percent'])/100) + $products['cost'];
+			}
+			
 			$products['articul'] = $this->get_product_articul($products['product_id']);
 			
 			$special_begin = false;
@@ -250,7 +260,8 @@ class Baselib {
 		$attributes = array(
 			'countries' => array(),
 			'compositions' => array(),
-			'weights' => array()
+			'weights' => array(),
+			'packs' => array()
 		);
 		
 		foreach($products as $product_id => $product) {
@@ -265,15 +276,22 @@ class Baselib {
 			if(!is_null($product['weight'])) {
 				$attributes['weights'][] = $product['weight'];
 			}
+			
+			if(!is_null($product['pack'])) {
+				$attributes['packs'][] = $product['pack'];
+			}			
 		}
+		
 		
 		$attributes['countries'] = array_unique($attributes['countries']);
 		$attributes['compositions'] = array_unique($attributes['compositions']);
 		$attributes['weights'] = array_unique($attributes['weights']);
+		$attributes['packs'] = array_unique($attributes['packs']);
 		
 		ksort($attributes['countries']);
 		ksort($attributes['compositions']);
 		ksort($attributes['weights']);
+		ksort($attributes['packs']);
 		
 		return $attributes;
 	}
