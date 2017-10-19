@@ -127,6 +127,17 @@ class Main extends CI_Controller {
 		$data['menu']['attributes'] = $this->baselib->handle_attributes($products);
 		$data['menu']['filters'] = $filters;
 		
+		$products_in_page = $this->filter_products($products,$filters,$page);
+		
+		$data['products'] = $products_in_page['products'];
+		$data['pages_count'] = $products_in_page['pages_count'];
+		$data['current_page'] = $page;
+		$data['menu']['products_count'] = $products_in_page['products_count'];
+		
+		$this->load->view('category', $data);
+	}
+	
+	private function filter_products($products,$filters,$page) {
 		$price_sort = array();
 		
 		foreach($products as $product_id => $product) {
@@ -154,10 +165,16 @@ class Main extends CI_Controller {
 		$page_start = ($page-1)*10;
 		$page_end = $page*10;
 		$i = 0;
-		$pages_count = ((int)count($products)/10);
+		$pages_count = (int)(count($products)/10);
 		
 		if(count($products)%10 > 0)  {
 			$pages_count++;
+		}
+
+		if($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'asc') {
+			array_multisort($price_sort,SORT_ASC, $products);
+		} elseif($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'desc') {
+			array_multisort($price_sort,SORT_DESC, $products);
 		}
 		
 		foreach($products as $product_id => $product) {
@@ -167,20 +184,12 @@ class Main extends CI_Controller {
 			
 			$i++;
 		}
-			
 		
-		if($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'asc') {
-			array_multisort($price_sort,SORT_ASC, $products);
-		} elseif($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'desc') {
-			array_multisort($price_sort,SORT_DESC, $products);
-		}
-			
-		$data['products'] = $prodcuts_in_page;
-		$data['pages_count'] = $pages_count;
-		$data['current_page'] = $page;
-		$data['menu']['products_count'] = count($products);
-		
-		$this->load->view('category', $data);
+		return array(
+			'products' => $prodcuts_in_page,
+			'pages_count' => $pages_count,
+			'products_count' => count($products)
+		);
 	}
 	
 	public function eko() {
@@ -697,6 +706,60 @@ class Main extends CI_Controller {
 					if($account->reset_password()) {
 						$json['success'] = 'success';
 					}
+				}
+				
+				break;	
+
+			case 'load_products':
+			
+				if(!is_null($this->input->post('category_id')) and !is_null($this->input->post('page'))) {
+					
+					$filters_post = json_decode($this->input->post('filters'));
+										
+					$filters = array(
+						'country' => (isset($filters_post->country) ? $filters_post->country : 0),
+						'weight' => (isset($filters_post->weight) ? $filters_post->weight : 0),
+						'composition' => (isset($filters_post->composition) ? $filters_post->composition : 0),
+						'price' => (isset($filters_post->price) ? $filters_post->price : 0)
+					);
+					
+					$products = $this->baselib->get_category_products($this->input->post('category_id'));
+					$products_in_page = $this->filter_products($products,$filters,$this->input->post('page'));
+					
+					$html = '';
+					
+					foreach($products_in_page['products'] as $product) {
+						$html .= '<div class="g_good fl_l">';
+						$html .= '<div class="g_good_photo_block">';
+						$html .= '<img src="/images/'.$product["image"].'" alt="'.$product["title"].'" class="g_good_photo">';
+						$html .= '</div>';
+						
+                        if(isset($product["old_price"])) { 
+							$html .= '<div class="g_old_good_price">'.$product["old_price"].' <span class="rouble">o</span></div>';
+						}
+						
+						$html .= '<div class="g_good_price"><span class="g_good_price_value">'.$product["price"].'</span> <span class="rouble">o</span></div>';
+						$html .= '<div class="g_old_good_price_date">'.($product["special_end_date"] ? "до ".$product["special_end_date"] : "").'</div>';
+						$html .= '<div class="g_good_name">'.$product["title"].'</div>';
+						$html .= '<div class="g_good_description">';
+						$html .= $product["description"];
+						$html .= '</div>';
+						$html .= '<div class="g_good_country">'.$product["brand"].' - '.$product["country"].'<span class="g_good_id">'.$product["articul"].'</span></div>';
+                        $html .= '<div class="g_good_actions">';
+                        $html .= '<div class="g_good_count">';
+						$html .= '<input type="text" class="g_good_counter" value="1">';
+						$html .= '<span class="g_good_count_legend">'.$product["type"].'</span>';
+						$html .= '</div>';
+                        $html .= '<div class="g_good_to_cart" data-product-id="'.$product["product_id"].'">';
+						$html .= '<span class="g_good_to_cart_text"><span class="g_good_to_cart_value">'.$product["price"].'</span> <span class="rouble">o</span></span>';
+						$html .= '<span class="g_good_to_cart_icon sprite"></span>';
+						$html .= '</div>';
+                        $html .= '</div>';   
+                        $html .= '</div>';       
+
+					}
+					
+					$json['success'] = $html;
 				}
 				
 				break;				

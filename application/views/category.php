@@ -34,16 +34,21 @@
                             </div>
                         </div>						
                     <?php } ?>
+					<div id="wrapper_for_product_load"></div>
                     <div class="clear"></div>
                 </div>
-				<div class="c_paginator">
-                    <div class="c_show_more_goods">показать еще</div>
-                    <div class="c_pages">
-						<?php for( $i = 1 ; $i <= $pages_count ; $i++ ) { ?>
-							<div class="c_page <?php echo ($i == $current_page ? 'c_current_page' : '') ?>" data-page="<?php echo $i ?>"><?php echo $i ?></div>
+				<?php if($pages_count > 1) { ?>
+					<div class="c_paginator">
+						<?php if($current_page == 1) { ?>
+							<div class="c_show_more_goods" data-category-id="<?php echo $category ?>">показать еще</div>
 						<?php } ?>
-                    </div>
-                </div>
+						<div class="c_pages">
+							<?php for( $i = 1 ; $i <= $pages_count ; $i++ ) { ?>
+								<div class="c_page <?php echo ($i == $current_page ? 'c_current_page' : '') ?>" data-page="<?php echo $i ?>"><?php echo $i ?></div>
+							<?php } ?>
+						</div>
+					</div>
+				<?php } ?>
             </div>
         </section>
 <?php $this->load->view('common/footer',$footer);?>
