@@ -1,28 +1,40 @@
-                <div class="c_menu">
-                    <a href="/category" class="c_menu_link">мясо</a> 
-                    <a href="/category" class="c_menu_link">птица</a> 
-                    <a href="/category" class="c_menu_link">рыба</a> 
-                    <a href="/category" class="c_menu_link">молочка</a> 
-                    <a href="/category" class="c_menu_link">овощи</a> 
-                    <a href="/category" class="c_menu_link">фрукты</a> 
-                    <a href="/category" class="c_menu_link c_current_menu_link">зелень</a> 
-                    <a href="/category" class="c_menu_link">орехи и сухофрукты</a> 
-                    <a href="/category" class="c_menu_link">чай</a> 
-                    <a href="/category" class="c_menu_link">кофе</a> 
-                    <a href="/category" class="c_menu_link green_text">фермерское</a> 
-                    <a href="/category" class="c_menu_link green_text">эко</a> 
-                    <a class="c_menu_more">еще <span class="c_menu_more_span sprite"></span></a>            
-                </div>
-                <div class="c_menu c_menu_secondary c_menu_hidden">
-                    <a href="/category" class="c_menu_link">сыр</a> 
-                    <a href="/category" class="c_menu_link">яйцо</a> 
-                    <a href="/category" class="c_menu_link">деликатесы</a> 
-                    <a href="/category" class="c_menu_link">макароны</a> 
-                    <a href="/category" class="c_menu_link">специи и приправы</a> 
-                    <a href="/category" class="c_menu_link">масло</a> 
-                    <a href="/category" class="c_menu_link">крупы</a> 
-                    <a href="/category" class="c_menu_link">консервация</a> 
-                    <a href="/category" class="c_menu_link">мед</a> 
-                    <a href="/category" class="c_menu_link">сладости</a> 
-                    <a href="/category" class="c_menu_link">напитки</a>         
-                </div>
+               <div class="c_new_menu_line index_c_new_menu">
+                    <div class="c_new_menu_line_item fl_l">
+                        <a href="/" class="c_new_menu_link">мясо</a>
+                    </div>
+                    <div class="c_new_menu_line_item fl_l">
+                        <a href="/" class="c_new_menu_link">птица</a>
+                    </div>
+                    <div class="c_new_menu_line_item fl_l">
+                        <a href="/" class="c_new_menu_link">рыба</a>
+                    </div>
+                    <div class="c_new_menu_line_item fl_l">
+                        <a href="/" class="c_new_menu_link">молочка</a>
+                    </div>
+                    <div class="c_new_menu_line_item fl_l">
+                        <a href="/" class="c_new_menu_link">овощи</a>
+                    </div>
+                    <div class="c_new_menu_line_item fl_l">
+                        <a href="/" class="c_new_menu_link">фрукты</a>
+                    </div>
+                    <div class="c_new_menu_line_item fl_l">
+                        <a href="/" class="c_new_menu_link">орехи и сухофрукты</a>
+                    </div>
+                    <div class="c_new_menu_line_item fl_l">
+                        <a href="/" class="c_new_menu_link">бакалея</a>
+                    </div>
+                    <div class="c_new_menu_line_item fl_l">
+                        <a href="/" class="c_new_menu_link">чай</a>
+                    </div>
+                    <div class="c_new_menu_line_item fl_l">
+                        <a href="/" class="c_new_menu_link">кофе</a>
+                    </div>
+                    <div class="c_new_menu_line_item fl_l">
+                        <a href="/" class="c_new_menu_link">мед</a>
+                    </div>
+                    <div class="c_new_menu_line_item c_new_menu_line_item_right fl_r">
+                        <span class="c_new_menu_more">все продукты</span>
+                        <span class="c_new_menu_more_icon"></span>
+                    </div>
+                    <div class="clear"></div>
+              </div>
