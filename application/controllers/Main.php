@@ -101,13 +101,16 @@ class Main extends CI_Controller {
 		$menu = $this->baselib->get_categories($category,true);
 		$menu_childs = array();
 		
+		
 		foreach($menu as $line) {
 			foreach($line as $lcategory) {
 				if($lcategory['current_category']) {
-					$menu_childs = $lcategory['childs'];
+					if(isset($lcategory['childs'])) {
+						$menu_childs = $lcategory['childs'];
+					}
 				}
 			}
-		}
+		}		
 		
 		$data = array(
 			'header' => array(
