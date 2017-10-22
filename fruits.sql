@@ -97,10 +97,13 @@ CREATE TABLE IF NOT EXISTS `couriers` (
   `comments` text,
   PRIMARY KEY (`courier_id`),
   KEY `courier_id` (`courier_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы fruit.couriers: 0 rows
+-- Дамп данных таблицы fruit.couriers: 2 rows
 /*!40000 ALTER TABLE `couriers` DISABLE KEYS */;
+INSERT IGNORE INTO `couriers` (`courier_id`, `name`, `phone`, `comments`) VALUES
+	(2, 'Иванов Иван', '123', ''),
+	(3, 'Петров Василий', '456', '');
 /*!40000 ALTER TABLE `couriers` ENABLE KEYS */;
 
 -- Дамп структуры для таблица fruit.devices
@@ -155,33 +158,35 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `shipping_address` varchar(256) NOT NULL,
   `shipping_metro` varchar(256) NOT NULL,
   `shipping_method` varchar(256) NOT NULL,
+  `shipping_method_id` smallint(5) unsigned NOT NULL,
   `shipping_price` int(11) unsigned NOT NULL,
   `used_bonus` int(11) unsigned NOT NULL,
   `create_date` int(11) unsigned NOT NULL,
+  `status` smallint(5) unsigned NOT NULL DEFAULT '1',
   PRIMARY KEY (`order_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы fruit.orders: 18 rows
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT IGNORE INTO `orders` (`order_id`, `account_id`, `shipping_address`, `shipping_metro`, `shipping_method`, `shipping_price`, `used_bonus`, `create_date`) VALUES
-	(1, 7, '', '', 'Экспресс доставка', 399, 1, 1507148521),
-	(2, 7, '777', '', 'Экспресс доставка', 399, 1, 1507148665),
-	(3, 7, '777', '', 'Экспресс доставка', 399, 1, 1507148771),
-	(4, 7, '777', '', 'Экспресс доставка', 399, 1, 1507148797),
-	(5, 7, '777', '', 'Экспресс доставка', 399, 1, 1507148806),
-	(6, 7, '777', '', 'Экспресс доставка', 399, 1, 1507148987),
-	(7, 7, '777', '', 'Экспресс доставка', 399, 200, 1507149084),
-	(8, 7, '777', '', 'Экспресс доставка', 399, 0, 1507149093),
-	(9, 7, '777', '', 'Экспресс доставка', 399, 200, 1507149143),
-	(10, 7, '777', '', 'Экспресс доставка', 399, 200, 1507149228),
-	(11, 7, '777', '', 'Экспресс доставка', 399, 200, 1507149298),
-	(12, 7, '777', '', 'Экспресс доставка', 399, 0, 1507151164),
-	(13, 7, '555', '', 'Обычная доставка', 199, 0, 1507151579),
-	(14, 7, '555', '', 'Обычная доставка', 199, 0, 1507151590),
-	(15, 7, '555', '', 'Экспресс доставка', 399, 0, 1507151888),
-	(16, 7, '555', '', 'Экспресс доставка', 399, 910, 1507151930),
-	(17, 7, '555', 'Авиа', 'МO (до 25 км от мкада) - 350 руб.', 350, 0, 1507883724),
-	(18, 7, '555', 'Авиа', 'Москва', 199, 100, 1507965959);
+INSERT IGNORE INTO `orders` (`order_id`, `account_id`, `shipping_address`, `shipping_metro`, `shipping_method`, `shipping_method_id`, `shipping_price`, `used_bonus`, `create_date`, `status`) VALUES
+	(1, 7, '', '', 'Экспресс доставка', 0, 399, 1, 1507148521, 0),
+	(2, 7, '777', '', 'Экспресс доставка', 0, 399, 1, 1507148665, 0),
+	(3, 7, '777', '', 'Экспресс доставка', 0, 399, 1, 1507148771, 0),
+	(4, 7, '777', '', 'Экспресс доставка', 0, 399, 1, 1507148797, 0),
+	(5, 7, '777', '', 'Экспресс доставка', 0, 399, 1, 1507148806, 0),
+	(6, 7, '777', '', 'Экспресс доставка', 0, 399, 1, 1507148987, 0),
+	(7, 7, '777', '', 'Экспресс доставка', 0, 399, 200, 1507149084, 0),
+	(8, 7, '777', '', 'Экспресс доставка', 0, 399, 0, 1507149093, 0),
+	(9, 7, '777', '', 'Экспресс доставка', 0, 399, 200, 1507149143, 0),
+	(10, 7, '777', '', 'Экспресс доставка', 0, 399, 200, 1507149228, 0),
+	(11, 7, '777', '', 'Экспресс доставка', 0, 399, 200, 1507149298, 0),
+	(12, 7, '777', '', 'Экспресс доставка', 0, 399, 0, 1507151164, 0),
+	(13, 7, '555', '', 'Обычная доставка', 0, 199, 0, 1507151579, 0),
+	(14, 7, '555', '', 'Обычная доставка', 1, 199, 0, 1507151590, 2),
+	(15, 7, '555', '', 'Экспресс доставка', 4, 399, 0, 1507151888, 1),
+	(16, 7, '555', '', 'Экспресс доставка', 3, 399, 910, 1507151930, 1),
+	(17, 7, '555', 'Авиа', 'МO (до 25 км от мкада) - 350 руб.', 2, 350, 0, 1508544000, 1),
+	(18, 7, '555', 'Авиа', 'Москва', 1, 199, 100, 1508651688, 1);
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
 -- Дамп структуры для таблица fruit.order_inners
@@ -348,6 +353,41 @@ INSERT IGNORE INTO `rules` (`id`, `group_id`, `right_id`, `value`) VALUES
 	(15, 1, 15, 1);
 /*!40000 ALTER TABLE `rules` ENABLE KEYS */;
 
+-- Дамп структуры для таблица fruit.shipping_gropus
+CREATE TABLE IF NOT EXISTS `shipping_gropus` (
+  `shipping_gropu_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(64) NOT NULL,
+  `description` varchar(128) NOT NULL,
+  PRIMARY KEY (`shipping_gropu_id`),
+  KEY `shipping_gropu_id` (`shipping_gropu_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы fruit.shipping_gropus: ~2 rows (приблизительно)
+/*!40000 ALTER TABLE `shipping_gropus` DISABLE KEYS */;
+INSERT IGNORE INTO `shipping_gropus` (`shipping_gropu_id`, `title`, `description`) VALUES
+	(1, 'Обычная доставка', 'доставим завтра в любое удобное Вам время<br>с интервалом 1 час, с 10:00 до 21:00'),
+	(2, 'Экспресс доставка', 'доставим в течении 2 часов, с 10:00 до 21:00');
+/*!40000 ALTER TABLE `shipping_gropus` ENABLE KEYS */;
+
+-- Дамп структуры для таблица fruit.shipping_methods
+CREATE TABLE IF NOT EXISTS `shipping_methods` (
+  `shipping_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(64) NOT NULL,
+  `price` smallint(6) unsigned NOT NULL,
+  `group_id` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`shipping_id`),
+  KEY `shipping_method_id` (`shipping_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы fruit.shipping_methods: ~4 rows (приблизительно)
+/*!40000 ALTER TABLE `shipping_methods` DISABLE KEYS */;
+INSERT IGNORE INTO `shipping_methods` (`shipping_id`, `title`, `price`, `group_id`) VALUES
+	(1, 'Москва', 199, 1),
+	(2, 'МO (до 25 км от мкада)', 350, 1),
+	(3, 'Москва', 199, 2),
+	(4, 'МO (до 25 км от мкада)', 350, 2);
+/*!40000 ALTER TABLE `shipping_methods` ENABLE KEYS */;
+
 -- Дамп структуры для таблица fruit.statuses
 CREATE TABLE IF NOT EXISTS `statuses` (
   `status_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -355,10 +395,17 @@ CREATE TABLE IF NOT EXISTS `statuses` (
   `description` text,
   PRIMARY KEY (`status_id`),
   KEY `status_id` (`status_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы fruit.statuses: 0 rows
+-- Дамп данных таблицы fruit.statuses: 6 rows
 /*!40000 ALTER TABLE `statuses` DISABLE KEYS */;
+INSERT IGNORE INTO `statuses` (`status_id`, `title`, `description`) VALUES
+	(1, 'Ожидают подтверждения', ''),
+	(2, 'Подтвержденные', ''),
+	(3, 'Готовы к отправке', ''),
+	(4, 'У курьера', ''),
+	(5, 'Доставленные', ''),
+	(6, 'Отмененные', '');
 /*!40000 ALTER TABLE `statuses` ENABLE KEYS */;
 
 -- Дамп структуры для таблица fruit.users
