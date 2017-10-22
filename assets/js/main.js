@@ -2,7 +2,16 @@ var block_send_button = false;
 var current_page = 1;
 
 $(document).ready(function(){
-	
+
+ 	$('.cool_select').click(function() {
+ 		$(this).parent().toggleClass('opened_cool_select');
+        $('.select_closer').toggle();
+ 	});
+ 	$('.select_closer').click(function() {
+ 		$('.opened_cool_select').toggleClass('opened_cool_select');
+        $('.select_closer').toggle();
+ 	});
+
 	if($('.c_menu_secondary').find('.c_current_menu_link').length > 0 ) {
         $('.c_menu_more_span').toggleClass('c_menu_more_span_opened');
         $('.c_menu_secondary').toggleClass('c_menu_hidden');	
