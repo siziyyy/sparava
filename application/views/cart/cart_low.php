@@ -12,5 +12,4 @@
 		</div>
 		<a href="/" class="c_inners_left_side_button black_small_button">&lt; добрать</a>
 	</div>
-	<img src="/assets/img/commons/cart.jpg" alt="sparava | корзина" class="c_inners_left_side_img">
 </aside>
