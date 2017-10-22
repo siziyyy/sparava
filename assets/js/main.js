@@ -12,6 +12,15 @@ $(document).ready(function(){
         $('.select_closer').toggle();
  	});
 
+ 	$('.count_cool_select').click(function() {
+ 		$(this).parent().toggleClass('count_cool_select_opened');
+        $('.count_select_closer').toggle();
+ 	});
+ 	$('.count_select_closer').click(function() {
+ 		$('.count_cool_select_opened').toggleClass('count_cool_select_opened');
+        $('.count_select_closer').toggle();
+ 	});
+
 	if($('.c_menu_secondary').find('.c_current_menu_link').length > 0 ) {
         $('.c_menu_more_span').toggleClass('c_menu_more_span_opened');
         $('.c_menu_secondary').toggleClass('c_menu_hidden');	

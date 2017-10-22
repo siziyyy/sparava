@@ -29,6 +29,7 @@
         <div class="closer g_g_desc_closer"></div>
         <div class="closer new_menu_closer"></div>
         <div class="closer select_closer"></div>
+        <div class="closer count_select_closer"></div>
         <? // require '_modal.php'; ?><!-- modal -->
 		<header>
 			<div class="content_helper">

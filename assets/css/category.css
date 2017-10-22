@@ -84,7 +84,8 @@
 .g_good_counter {
     width: 40px;
     height: 26px;
-    border: 1px solid #f0f0f0;
+    border: 1px solid #ccc;
+    /*border: 1px solid #f0f0f0;*/
     background: #FFF;
     text-align: center;
     font-size: 14px;
@@ -363,11 +364,11 @@
         -ms-transform: rotate(180deg);
          -o-transform: rotate(180deg);
             transform: rotate(180deg);
-    float: right;
-    margin: 13px 10px 0 0;
     -webkit-transition: transform .1s;
     -o-transition: transform .1s;
     transition: transform .1s;
+    float: right;
+    margin: 13px 10px 0 0;
 }
 .cool_select_option {
     cursor: pointer;
@@ -410,4 +411,79 @@
     -webkit-transition: opacity .3s;
     -o-transition: opacity .3s;
     transition: opacity .3s;
+}
+.count_cool_select_pack {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+}
+.count_cool_select {
+    line-height: 28px;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+}
+.count_cool_select_arrow {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-position: -282px -281px;
+    margin: 0 -4px 0 5px;
+    cursor: pointer;
+    -webkit-transform: rotate(0deg);
+       -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+         -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+    -webkit-transition: transform .1s;
+    -o-transition: transform .1s;
+    transition: transform .1s;
+}
+.count_cool_select_opened .count_cool_select_arrow {
+    -webkit-transform: rotate(180deg);
+       -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+         -o-transform: rotate(180deg);
+            transform: rotate(180deg);
+    -webkit-transition: transform .1s;
+    -o-transition: transform .1s;
+    transition: transform .1s;
+}
+.count_cool_select_opened .count_cool_options {
+    display: block;
+}
+.count_cool_options {
+    display: none;
+    position: absolute;
+    cursor: pointer;
+    width: 100%;
+    background: #FFF;
+    border: 1px solid #ccc;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    margin: -1px 0 0 0;
+    font-size: 14px;
+    z-index: 9999;
+    font-weight: 900;
+    border-top: none;
+}
+.count_cool_option {
+    margin: 0 6px;
+    padding: 5px 3px;
+    border-bottom: 1px solid #e0e0e0;
+    cursor: pointer;
+}
+.count_cool_option:last-child {
+    border: none;
+}
+.count_cool_select_opened .count_cool_select:after {
+    display: block;
+    content: "";
+    position: absolute;
+    margin: -2px 6px 0;
+    height: 1px;
+    background: #e0e0e0;
+    width: 28px;
+    z-index: 99999;
 }
