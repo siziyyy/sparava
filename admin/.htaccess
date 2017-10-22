@@ -1,5 +1,0 @@
-DirectoryIndex index.php
-
-RewriteEngine on
-RewriteCond $1 !^(index\.php|dist|bootstrap|plugins|robots\.txt)
-RewriteRule ^(.*)$ /admin/index.php/$1 [NC,L]
