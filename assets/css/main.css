@@ -163,7 +163,10 @@ input {
 .h_cart, .h_phones, .h_menu {
     margin-top: 17px;
 }
-.dirty_link {
+.h_cart_text span {
+    cursor: pointer;
+}
+/*.dirty_link {
     text-shadow: 0 0 60px rgba(0,0,0, 1);
     -webkit-transition: text-shadow .3s ease;
        -moz-transition: text-shadow .3s ease;
@@ -178,6 +181,9 @@ input {
         -ms-transition: text-shadow .3s ease;
          -o-transition: text-shadow .3s ease;
             transition: text-shadow .3s ease;
+}*/
+.dirty_link:hover {
+    color: #000 !important;
 }
 .h_cart:hover .h_cart_text {
     background: #e05236;
@@ -452,6 +458,8 @@ footer {
     font-size: 20px;
     font-weight: 900;
     margin: 0 0 30px 0;
+    display: block;
+    color: #000;
 }
 .catalog_pack {
     -webkit-columns: 4;

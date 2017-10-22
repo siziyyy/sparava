@@ -15,6 +15,7 @@
 							
                         </div>
                         <div class="c_new_menu_filters">
+                        	<? /*
 							<?php if(count($attributes['countries']) > 0) { ?>
 								<select class="c_new_menu_filter" name="country" onchange="filter_select( this );">
 									<option value="0">страна</option>
@@ -53,6 +54,49 @@
 								<option value="desc" <?php echo ($filters['price'] === 'desc' ? 'selected' : '' ) ?>>по убыванию</option>
                             </select>
                             <div class="c_new_menu_filters_count fl_r">всего товаров: <?php echo $products_count ?></div>
+                            <div class="clear"></div>
+							 */ ?>
+							 <? for ($i=0; $i < 6; $i++) { ?>
+								<div class="cool_select_pack fl_l">
+									<div class="cool_select">
+										<span>Заголовок</span>
+										<span class="cool_select_arrow sprite"></span>
+									</div>
+									<div class="cool_select_options">
+										<div class="cool_select_option">
+											<label>
+												<input type="checkbox" class="cool_select_check">
+												Пункт списка
+											</label>
+										</div>
+										<div class="cool_select_option">
+											<label>
+												<input type="checkbox" class="cool_select_check">
+												Пункт списка
+											</label>
+										</div>
+										<div class="cool_select_option">
+											<label>
+												<input type="checkbox" class="cool_select_check">
+												Пункт списка
+											</label>
+										</div>
+										<div class="cool_select_option">
+											<label>
+												<input type="checkbox" class="cool_select_check">
+												Пункт списка
+											</label>
+										</div>
+										<div class="cool_select_option">
+											<label>
+												<input type="checkbox" class="cool_select_check">
+												Пункт списка очень длинный
+											</label>
+										</div>
+									</div>
+								</div>
+							 <? } ?>
+							 <div class="cool_select_reset fl_r">сбросить фильтр/ы</div>
                             <div class="clear"></div>
                         </div>
                         <div class="c_new_menu_dropdown">
