@@ -12,6 +12,8 @@
     display: flex !important;
     flex-direction: column;
     justify-content: space-around;
+    background-size: cover !important;
+    background-position: center !important;
 }
 .b_text {
     font-size: 73px;
