@@ -15,7 +15,7 @@
 							
                         </div>
                         <div class="c_new_menu_filters">
-                        	<? /*
+                        	
 							<?php if(count($attributes['countries']) > 0) { ?>
 								<select class="c_new_menu_filter" name="country" onchange="filter_select( this );">
 									<option value="0">страна</option>
@@ -55,7 +55,7 @@
                             </select>
                             <div class="c_new_menu_filters_count fl_r">всего товаров: <?php echo $products_count ?></div>
                             <div class="clear"></div>
-							 */ ?>
+							 <? /*
 							 <? for ($i=0; $i < 6; $i++) { ?>
 								<div class="cool_select_pack fl_l">
 									<div class="cool_select">
@@ -96,7 +96,8 @@
 									</div>
 								</div>
 							 <? } ?>
-							 <div class="cool_select_reset fl_r">сбросить фильтр/ы</div>
+							
+							 <div class="cool_select_reset fl_r">сбросить фильтр/ы</div> */ ?>
                             <div class="clear"></div>
                         </div>
                         <div class="c_new_menu_dropdown">

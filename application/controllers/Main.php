@@ -17,6 +17,19 @@ class Main extends CI_Controller {
 		$this->load->view('main', $data);
 	}
 	
+	public function information() {		
+		$data = array(
+			'header' => array(
+				'cart' => $this->get_cart_info_for_header()
+			),
+			'footer' => array(
+				'account_confirm' => $this->baselib->get_account_data_for_confirm()
+			)
+		);
+		
+		$this->load->view('information', $data);
+	}	
+	
 	public function search() {		
 		if(is_null($this->input->post('articul')) or empty($this->input->post('articul'))) {
 			redirect(base_url('/'), 'refresh');
