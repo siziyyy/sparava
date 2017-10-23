@@ -24,8 +24,8 @@
                             <div class="g_good_country"><?php echo $product['brand'] ?> - <?php echo $product['country'] ?><span class="g_good_id"><?php echo $product['articul'] ?></span></div>
                             <div class="g_good_actions">
                                 <div class="g_good_count">
-                                    <!--<input type="text" class="g_good_counter" value="1">-->
-                                    <div class="count_cool_select_pack">
+                                    <input type="text" class="g_good_counter" value="1">
+                                    <!-- <div class="count_cool_select_pack">
                                         <div class="g_good_counter count_cool_select">
                                             1
                                             <span class="count_cool_select_arrow sprite"></span>
@@ -36,7 +36,7 @@
                                             <div class="count_cool_option">4</div>
                                             <div class="count_cool_option">5</div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <span class="g_good_count_legend"><?php echo $product['type'] ?></span>
                                 </div>
                                 <div class="g_good_to_cart" data-product-id="<?php echo $product['product_id'] ?>">
