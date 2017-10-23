@@ -1,4 +1,7 @@
 /* main */
+@font-face{font-family:Calibri Bold;src:local("Calibri Bold"),url(/commons/fonts/CalibriBold.woff) format("woff"),url(/commons/fonts/CalibriBold.woff2) format("woff2")}
+@font-face{font-family:Calibri;src:local(Calibri),url(/commons/fonts/Calibri.woff) format("woff"),url(/commons/fonts/Calibri.woff2) format("woff2")}
+body,html,textarea{font-family:Calibri}
 @font-face {
   font-family: 'rouble';
   src: url('/assets/fnt/rouble-webfont.eot');
