@@ -54,9 +54,9 @@
 		<section class="content">
 			<div class="content_helper">
                 <?php $this->load->view('common/menu', $menu);?>
-                <div class="c_mosaic">                
+                <div class="c_mosaic">    
                     <div class="c_mosaic_grid_sizer"></div>   
-                    <div class="c_mosaic_gutter_sizer"></div>  
+                    <div class="c_mosaic_gutter_sizer"></div>            
                     <a class="c_mosaic_link" href="/category">
                         <div class="c_mosaic_item c_mosaic_item_width c_mosaic_item_height">
                             <span class="c_mosaic_item_text">мясо</span>

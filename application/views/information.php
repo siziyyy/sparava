@@ -1,4 +1,4 @@
-<? require '../modules/_header.php'; ?>
+<?php $this->load->view('common/header',$header);?>
         <div class="contacts_bg_helper"></div>
         <section class="content contacts_content">
             <div class="content_helper">
@@ -232,4 +232,4 @@
                 </div>
             </div>
         </section>
-<? require '../modules/_footer.php'; ?>
+<?php $this->load->view('common/footer',$footer);?>

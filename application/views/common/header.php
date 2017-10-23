@@ -70,8 +70,8 @@
     					<a href="tel:88004501025" class="h_phone">8 495 541 20 20</a>
     				</div>
     				<div class="h_menu fl_r">
-    					<a href="/" class="h_link green_text dirty_link">наш вкусный блог</a>
-    					<a href="/" class="h_link">вся информация</a>
+    					<a href="/" class="h_link green_text dirty_link">Наш вкусный блог</a>
+    					<a href="/information" class="h_link">Вся информация</a>
     				</div>
 					<div class="clear"></div>
 				</div>
