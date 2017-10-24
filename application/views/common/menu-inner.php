@@ -15,89 +15,91 @@
 							
                         </div>
                         <div class="c_new_menu_filters">
-                        	
-							<?php if(count($attributes['countries']) > 0) { ?>
-								<select class="c_new_menu_filter" name="country" onchange="filter_select( this );">
-									<option value="0">страна</option>
-									<?php foreach($attributes['countries'] as $attribute) { ?>
-										<option value="<?php echo $attribute ?>" <?php echo ($filters['country'] === $attribute ? 'selected' : '' ) ?>><?php echo $attribute ?></option>
-									<?php } ?>
-								</select>
-							<?php } ?>
-							<?php if(count($attributes['compositions']) > 0) { ?>
-								<select class="c_new_menu_filter" name="composition" onchange="filter_select( this );">
-									<option value="0">состав</option>
-									<?php foreach($attributes['compositions'] as $attribute) { ?>
-										<option value="<?php echo $attribute ?>" <?php echo ($filters['composition'] === $attribute ? 'selected' : '' ) ?>><?php echo $attribute ?></option>
-									<?php } ?>								
-								</select>
-							<?php } ?>
-							<?php if(count($attributes['packs']) > 0) { ?>
-								<select class="c_new_menu_filter" name="pack" onchange="filter_select( this );">
-									<option value="0">тип упаковки</option>
-									<?php foreach($attributes['packs'] as $attribute) { ?>
-										<option value="<?php echo $attribute ?>" <?php echo ($filters['pack'] === $attribute ? 'selected' : '' ) ?>><?php echo $attribute ?></option>
-									<?php } ?>									
-								</select>
-							<?php } ?>
-							<?php if(count($attributes['weights']) > 0) { ?>
-								<select class="c_new_menu_filter" name="weight" onchange="filter_select( this );">
-									<option value="0">вес упаковки</option>
-									<?php foreach($attributes['weights'] as $attribute) { ?>
-										<option value="<?php echo $attribute ?>" <?php echo ($filters['weight'] === $attribute ? 'selected' : '' ) ?>><?php echo $attribute ?></option>
-									<?php } ?>									
-								</select>
-							<?php } ?>
-                            <select class="c_new_menu_filter" name="price" onchange="filter_select( this );">
-                                <option value="0">цена</option>
-								<option value="asc" <?php echo ($filters['price'] === 'asc' ? 'selected' : '' ) ?>>по возрастанию</option>
-								<option value="desc" <?php echo ($filters['price'] === 'desc' ? 'selected' : '' ) ?>>по убыванию</option>
-                            </select>
-                            <div class="c_new_menu_filters_count fl_r">всего товаров: <?php echo $products_count ?></div>
-                            <div class="clear"></div>
-							 <? /*
-							 <? for ($i=0; $i < 6; $i++) { ?>
-								<div class="cool_select_pack fl_l">
-									<div class="cool_select">
-										<span>Заголовок</span>
-										<span class="cool_select_arrow sprite"></span>
-									</div>
-									<div class="cool_select_options">
-										<div class="cool_select_option">
-											<label>
-												<input type="checkbox" class="cool_select_check">
-												Пункт списка
-											</label>
-										</div>
-										<div class="cool_select_option">
-											<label>
-												<input type="checkbox" class="cool_select_check">
-												Пункт списка
-											</label>
-										</div>
-										<div class="cool_select_option">
-											<label>
-												<input type="checkbox" class="cool_select_check">
-												Пункт списка
-											</label>
-										</div>
-										<div class="cool_select_option">
-											<label>
-												<input type="checkbox" class="cool_select_check">
-												Пункт списка
-											</label>
-										</div>
-										<div class="cool_select_option">
-											<label>
-												<input type="checkbox" class="cool_select_check">
-												Пункт списка очень длинный
-											</label>
-										</div>
-									</div>
+							<div class="cool_select_pack fl_l">
+								<div class="cool_select">
+									<span>страна</span>
+									<span class="cool_select_arrow sprite"></span>
 								</div>
-							 <? } ?>
-							
-							 <div class="cool_select_reset fl_r">сбросить фильтр/ы</div> */ ?>
+								<div class="cool_select_options">
+									<?php foreach($attributes['countries'] as $attribute) { ?>
+										<div class="cool_select_option">
+											<label>
+												<input type="checkbox" class="cool_select_check" value="<?php echo $attribute ?>" data-name="country" <?php echo (in_array($attribute,explode(';',$filters['country'])) ? 'checked' : '' ) ?>>
+												<?php echo $attribute ?>
+											</label>
+										</div>
+									<?php } ?>
+								</div>
+							</div>	
+							<div class="cool_select_pack fl_l">
+								<div class="cool_select">
+									<span>состав</span>
+									<span class="cool_select_arrow sprite"></span>
+								</div>
+								<div class="cool_select_options">
+									<?php foreach($attributes['compositions'] as $attribute) { ?>
+										<div class="cool_select_option">
+											<label>
+												<input type="checkbox" class="cool_select_check" value="<?php echo $attribute ?>" data-name="composition" <?php echo (in_array($attribute,explode(';',$filters['composition'])) ? 'checked' : '' ) ?>>
+												<?php echo $attribute ?>
+											</label>
+										</div>
+									<?php } ?>
+								</div>
+							</div>							
+							<div class="cool_select_pack fl_l">
+								<div class="cool_select">
+									<span>упаковка</span>
+									<span class="cool_select_arrow sprite"></span>
+								</div>
+								<div class="cool_select_options">
+									<?php foreach($attributes['packs'] as $attribute) { ?>
+										<div class="cool_select_option">
+											<label>
+												<input type="checkbox" class="cool_select_check" value="<?php echo $attribute ?>" data-name="pack" <?php echo (in_array($attribute,explode(';',$filters['pack'])) ? 'checked' : '' ) ?>>
+												<?php echo $attribute ?>
+											</label>
+										</div>
+									<?php } ?>
+								</div>
+							</div>
+							<div class="cool_select_pack fl_l">
+								<div class="cool_select">
+									<span>вес</span>
+									<span class="cool_select_arrow sprite"></span>
+								</div>
+								<div class="cool_select_options">
+									<?php foreach($attributes['weights'] as $attribute) { ?>
+										<div class="cool_select_option">
+											<label>
+												<input type="checkbox" class="cool_select_check" value="<?php echo $attribute ?>" data-name="weight" <?php echo (in_array($attribute,explode(';',$filters['weight'])) ? 'checked' : '' ) ?>>
+												<?php echo $attribute ?>
+											</label>
+										</div>
+									<?php } ?>
+								</div>
+							</div>
+							<div class="cool_select_pack fl_l">
+								<div class="cool_select">
+									<span>цена</span>
+									<span class="cool_select_arrow sprite"></span>
+								</div>
+								<div class="cool_select_options">
+										<div class="cool_select_option">
+											<label>
+												<input type="radio" class="cool_select_check" value="asc" name="price" data-name="price" <?php echo ($filters['price'] === 'asc' ? 'checked' : '' ) ?>>
+												по возрастанию
+											</label>
+										</div>
+										<div class="cool_select_option">
+											<label>
+												<input type="radio" class="cool_select_check" value="desc" name="price" data-name="price" <?php echo ($filters['price'] === 'desc' ? 'checked' : '' ) ?>>
+												по убыванию
+											</label>
+										</div>
+								</div>
+							</div>							
+							<div class="cool_select_reset fl_r">сбросить фильтр/ы</div> 
                             <div class="clear"></div>
                         </div>
                         <div class="c_new_menu_dropdown">

@@ -170,23 +170,30 @@ class Main extends CI_Controller {
 	private function filter_products($products,$filters,$page) {
 		$price_sort = array();
 		
+		$filters_arr = array(
+			'country' => ($filters['country'] ? explode(';',$filters['country']) : 0),
+			'weight' => ($filters['weight'] ? explode(';',$filters['weight']) : 0),
+			'pack' => ($filters['pack'] ? explode(';',$filters['pack']) : 0),
+			'composition' => ($filters['composition'] ? explode(';',$filters['composition']) : 0)
+		);		
+		
 		foreach($products as $product_id => $product) {
-			if($filters['country'] and $product['country'] != $filters['country']) {
+			if($filters_arr['country'] and !in_array($product['country'], $filters_arr['country'])) {
 				unset($products[$product_id]);
 				continue;
 			}
 			
-			if($filters['weight'] and $product['weight'] != $filters['weight']) {
+			if($filters_arr['weight'] and !in_array($product['weight'], $filters_arr['weight'])) {
 				unset($products[$product_id]);
 				continue;
 			}	
 			
-			if($filters['pack'] and $product['pack'] != $filters['pack']) {
+			if($filters_arr['pack'] and !in_array($product['pack'], $filters_arr['pack'])) {
 				unset($products[$product_id]);
 				continue;
 			}
 
-			if($filters['composition'] and $product['composition'] != $filters['composition']) {
+			if($filters_arr['composition'] and !in_array($product['composition'], $filters_arr['composition'])) {
 				unset($products[$product_id]);
 				continue;
 			}
