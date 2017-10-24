@@ -19,15 +19,7 @@ $(document).ready(function(){
         gutter: '.c_mosaic_gutter_sizer',
         percentPosition: true
     });
-	
- 	$('.cool_select').click(function() {
- 		$(this).parent().toggleClass('opened_cool_select');
-        $('.select_closer').toggle();
- 	});
- 	$('.select_closer').click(function() {
- 		$('.opened_cool_select').toggleClass('opened_cool_select');
-        $('.select_closer').toggle();
- 	});
+
 
  	$('.count_cool_select').click(function() {
  		$(this).parent().toggleClass('count_cool_select_opened');
@@ -328,6 +320,46 @@ $(document).on('click','.c_page',function(e) {
 	params['page'] = $(this).attr('data-page');
 	
 	window.location = window.location.origin + window.location.pathname + '?' + ArrayToURL(params); 
+});
+
+$('.cool_select').click(function() {
+	$(this).parent().toggleClass('opened_cool_select');
+	$('.select_closer').toggle();
+});
+
+$('.select_closer').click(function() {
+	
+	tail = window.location.search;	
+	params = URLToArray(tail);
+	
+	$('.cool_select_check').each(function() {
+		name = $(this).attr('data-name');
+		value = $(this).val();
+		values = params[name];
+
+		if(values) {
+			values = values.split(';');
+		} else {
+			values = [];
+		}
+		
+		index = values.indexOf(value);
+		
+		if ( $(this).prop("checked") && index < 0 ) {
+			values.push(value);
+		} else if( !$(this).prop("checked") && index >= 0 ) {
+			values.splice(index, 1);
+		}
+
+		params[name] = values.join(';');
+	});
+	
+	window.location = window.location.origin+window.location.pathname+'?'+ArrayToURL(params); 
+
+});
+
+$(document).on('click','.cool_select_reset',function(e) {
+	window.location = window.location.origin+window.location.pathname;
 });
 
 function filter_select(obj) {
