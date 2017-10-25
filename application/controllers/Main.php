@@ -686,6 +686,11 @@ class Main extends CI_Controller {
 					'phone' => $this->input->post('register_phone')
 				);
 				
+				if(!valid_email($data['email'])) {
+					$json['error'] = 'Укажите корректный Email';
+					break;
+				}
+				
 				$this->load->model("account");
 				$account = new Account();
 				

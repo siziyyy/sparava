@@ -152,6 +152,12 @@ $(document).ready(function(){
 				break;
 				
 			case 'register':
+			
+				if(!$('#license_agreement').prop('checked')) {
+					alert('Необходимо согласиться с условиями');
+					block_send_button = false;
+					return;
+				}
 				
 				send_data = {
 					type : type,
