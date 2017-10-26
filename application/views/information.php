@@ -145,10 +145,10 @@
                             <br>на других сайтах</div>
                             <div class="more_answ_pack">
                                 <div class="mor_hlp"><a href="/" class="more_answ_link">otzyv.ru</a></div>
-                                <div class="mor_hlp"><a href="/" class="more_answ_link">otzyv.ru</a></div>
-                                <div class="mor_hlp"><a href="/" class="more_answ_link">otzyv.ru</a></div>
-                                <div class="mor_hlp"><a href="/" class="more_answ_link">otzyv.ru</a></div>
-                                <div class="mor_hlp"><a href="/" class="more_answ_link">otzyv.ru</a></div>
+                                <div class="mor_hlp"><a href="/" class="more_answ_link">komandirovka.ru</a></div>
+                                <div class="mor_hlp"><a href="/" class="more_answ_link">irecommend.ru</a></div>
+                                <div class="mor_hlp"><a href="/" class="more_answ_link">otzovik.ru</a></div>
+                                <div class="mor_hlp"><a href="/" class="more_answ_link">imho24.ru</a></div>
                             </div>
                             <div class="more_answ_foot">
                                 Оставите отзыв о нас на этих 
