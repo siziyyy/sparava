@@ -19,15 +19,17 @@
 		</form>
 		<div class="blaah">
 			<div class="restorepass">
-				<div class="blah_blah_header">Восстановление пароля</div>
-				<div class="blah_blah_body">
-					Для восстановления пароля введите вашу почту
+				<div class="close_me_on_send2">
+					<div class="blah_blah_header">Восстановление пароля</div>
+					<div class="blah_blah_body">
+						Для восстановления пароля введите вашу почту
+					</div>
+					<input type="text" class="email_error_input">
+					<div class="blah_blah_body">
+						Если Вы забыли пароль, запросите повторную отправку
+					</div>
+					<a href="" class="black_small_button email_error_gimme_again2">восстановить пароль</a>
 				</div>
-				<input type="text" class="email_error_input">
-				<div class="blah_blah_body">
-					Если Вы забыли пароль, запросите повторную отправку
-				</div>
-				<a href="" class="black_small_button email_error_gimme_again2">восстановить пароль</a>
 				<!--<div class="email_error2text">
 					На вашу почту было выслано письмо с дальнейшими инструкциями
 				</div>-->
@@ -75,16 +77,18 @@
 				<div class="clear"></div>
 			</div>
 			<div class="email_error">
-				<div class="blah_blah_header">Данная почта уже занята</div>
-				<div class="blah_blah_body">
-					Если данная почта является Вашей, введите
-					пароль, который был отправлен на почту
+				<div class="close_me_on_send">
+					<div class="blah_blah_header">Данная почта уже занята</div>
+					<div class="blah_blah_body">
+						Если данная почта является Вашей, введите
+						пароль, который был отправлен на почту
+					</div>
+					<input type="text" class="email_error_input">
+					<div class="blah_blah_body">
+						Если Вы забыли пароль, запросите повторную отправку
+					</div>
+					<a href="" class="email_error_gimme_again">отправить пароль повторно</a>
 				</div>
-				<input type="text" class="email_error_input">
-				<div class="blah_blah_body">
-					Если Вы забыли пароль, запросите повторную отправку
-				</div>
-				<a href="" class="email_error_gimme_again">отправить пароль повторно</a>
 				<!--<div class="email_error2text">
 					На вашу почту было выслано письмо с дальнейшими инструкциями
 				</div>-->
