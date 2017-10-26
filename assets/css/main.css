@@ -610,6 +610,7 @@ footer {
     border: 5px solid #e6e6e6;
     padding: 25px 35px;
     z-index: 99;
+    display: none;
 }
 .c_new_index_menu_dropdown_ls {
     border-right: 1px solid #e6e6e6;
