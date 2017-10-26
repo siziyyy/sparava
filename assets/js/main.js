@@ -56,11 +56,11 @@ $(document).ready(function(){
         $('.g_g_desc_closer').toggle();
     });
     $('.c_new_menu_line_item_right').click(function() {
-        $('.c_new_menu_dropdown').toggle();
+        $('.c_new_index_menu_dropdown').toggle();
         $('.new_menu_closer').toggle();
     });
     $('.new_menu_closer').click(function() {
-        $('.c_new_menu_dropdown').toggle();
+        $('.c_new_index_menu_dropdown').toggle();
         $('.new_menu_closer').toggle();
     });	
 	
