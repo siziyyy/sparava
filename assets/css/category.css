@@ -301,7 +301,7 @@
     border: 1px solid #ccc;
     box-sizing: border-box;
     margin: 5px 0 0 0;
-    padding: 0px 0;
+    padding: 0px 0 7px 0;
     z-index: 9999;
 }
 .opened_cool_select .cool_select_options {
@@ -374,7 +374,7 @@
     height: 30px;
     line-height: 30px;
     border-bottom: 1px solid #e0e0e0;
-    font-size: 13px;
+    font-size: 14px;
     margin: 0 10px 0;
     white-space: nowrap;
 }
@@ -383,8 +383,8 @@
 }
 .cool_select_option input {
     cursor: pointer;
-    width: 10px;
-    height: 11px;
+    width: 13px;
+    height: 13px;
     margin: 0 3px 0 0px;
     display: inline-block;
     position: relative;
