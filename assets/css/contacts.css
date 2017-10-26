@@ -2,12 +2,20 @@
     width: 100%;
     height: 85px;
     background: #f0f0f0;
-    position: absolute;
+    position: fixed;
     left: 0;
-    z-index: -1;
+    z-index: +1;
 }
 .contacts_content {
-    margin-top: 20px;
+    margin-top: 122px;
+    padding-top: 20px;
+}
+.c_inners_header {
+    font-size: 24px;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0 30px;
+    z-index: 2;
+    position: relative;
 }
 .c_contacts_line {
     width: 100%;
@@ -297,4 +305,49 @@ textarea.call_me_form_inp {
     -webkit-transition: background .3s;
     -o-transition: background .3s;
     transition: background .3s;
+}
+#anch1 {
+   position: relative;
+    top: 14px;
+    width: 100%;
+    height: 1px;
+}
+#anch2 {
+   position: relative;
+    top: -66px;
+    width: 100%;
+    height: 1px;
+}
+#anch3 {
+   position: relative;
+    top: -66px;
+    width: 100%;
+    height: 1px;
+}
+#anch4 {
+   position: relative;
+    top: -66px;
+    width: 100%;
+    height: 1px;
+}
+#anch5 {
+   position: relative;
+    top: -66px;
+    width: 100%;
+    height: 1px;
+}
+#anch6 {
+   position: relative;
+    top: -66px;
+    width: 100%;
+    height: 1px;
+}
+#anch7 {
+   position: relative;
+    top: -66px;
+    width: 100%;
+    height: 1px;
+}
+.bigmarg {
+    margin-bottom: 30px;
 }
