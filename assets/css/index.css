@@ -37,6 +37,12 @@
 .c_mosaic_gutter_sizer {
     width: 1%;
 }
+.c_mosaic_item {
+    -webkit-background-size: cover !important;
+         -o-background-size: cover !important;
+            background-size: cover !important;
+        background-position: center !important;
+}
 .c_mosaic_grid_sizer, .c_mosaic_item {
     width: 19%;
     height: 206px;
