@@ -537,7 +537,7 @@ footer {
     margin-right: 23px;
 }
 .c_new_index_menu_dropdown_incat {
-    right: 0;
+    right: 0 !important;
 }
 .c_new_menu_dropdown_link_helper {
     font-size: 16px;
@@ -596,12 +596,12 @@ footer {
 }
 .c_new_index_menu_dropdown {
     position: absolute;
-    top: 82px;
+    top: 68px;
     right: 11px;
     background: #FFF;
     border: 5px solid #e6e6e6;
     padding: 25px 35px;
-    z-index: 99;
+    z-index: 9999;
     display: none;
 }
 .c_new_index_menu_dropdown_ls {
