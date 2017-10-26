@@ -517,6 +517,7 @@
     margin: -395px 0 0 -322px;
     z-index: 9999;
     border: 5px solid #e6e6e6;
+    display: none;
 }
 .g_good_admin_info_modal_left {
     width: 310px;
