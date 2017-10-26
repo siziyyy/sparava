@@ -490,14 +490,13 @@
     display: inline-block;
     font-size: 14px;
     font-weight: bold;
-    margin-left: 10px;
+    margin-left: 3px;
     background: #e6e6e6;
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    display: inline-block;
-    height: 25px;
-    line-height: 25px;
-    padding: 0 8px 0 9px;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 5px 0 5px;
     cursor: pointer;
     border: 1px solid #ccc;
     -webkit-transition: background .3s ease;
