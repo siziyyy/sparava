@@ -17,6 +17,22 @@
 				<input type="password" class="c_inners_input" id="login_password">
 			</div>
 		</form>
+		<div class="blaah">
+			<div class="restorepass">
+				<div class="blah_blah_header">Восстановление пароля</div>
+				<div class="blah_blah_body">
+					Для восстановления пароля введите вашу почту
+				</div>
+				<input type="text" class="email_error_input">
+				<div class="blah_blah_body">
+					Если Вы забыли пароль, запросите повторную отправку
+				</div>
+				<a href="" class="black_small_button email_error_gimme_again2">восстановить пароль</a>
+				<!--<div class="email_error2text">
+					На вашу почту было выслано письмо с дальнейшими инструкциями
+				</div>-->
+			</div>
+		</div>
 		<a class="c_inners_left_side_button black_small_button send" data-type="check_login">войти</a>
 		<a href="/" class="c_inners_left_side_button_pass send" data-type="remind">Забыли пароль?</a>
 		<div class="c_inners_left_side_text_h c_inners_left_side_text_h2">
@@ -57,6 +73,21 @@
 					<a class="blah_link">принимаю условия</a>
 				</div>
 				<div class="clear"></div>
+			</div>
+			<div class="email_error">
+				<div class="blah_blah_header">Данная почта уже занята</div>
+				<div class="blah_blah_body">
+					Если данная почта является Вашей, введите
+					пароль, который был отправлен на почту
+				</div>
+				<input type="text" class="email_error_input">
+				<div class="blah_blah_body">
+					Если Вы забыли пароль, запросите повторную отправку
+				</div>
+				<a href="" class="email_error_gimme_again">отправить пароль повторно</a>
+				<!--<div class="email_error2text">
+					На вашу почту было выслано письмо с дальнейшими инструкциями
+				</div>-->
 			</div>
 			<div class="blah_blah">
 				<div class="blah_blah_header">Условия пользования</div>

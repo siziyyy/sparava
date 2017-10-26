@@ -397,3 +397,64 @@ textarea.c_inners_input {
     z-index: 9999;
     display: none;
 }
+.email_error {
+    font-size: 14px;
+    position: absolute;
+    bottom: 39px;
+    width: 100%;
+    height: 273px;
+    overflow: auto;
+    background: #FFF;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 30px 20px;
+    border: 5px solid #e6e6e6;
+    z-index: 9999;
+}
+.email_error_gimme_again {
+    text-decoration: underline;
+    display: block;
+    color: #336699;
+    margin-top: 30px;
+}
+.email_error_input {
+    width: 173px;
+    margin: 25px 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    padding: 0 7px;
+    height: 27px;
+    display: block;
+    -webkit-box-shadow: inset 0 0 7px rgba(0,0,0, .1);
+    box-shadow: inset 0 0 7px rgba(0,0,0, .1);
+}
+.email_error2text {
+    margin: 86px 0 0 25px;
+}
+.blaah {
+    position: relative;
+}
+.restorepass {
+    font-size: 14px;
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    height: 273px;
+    overflow: auto;
+    background: #FFF;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 30px 20px;
+    border: 5px solid #e6e6e6;
+    z-index: 9999;
+}
+.email_error_gimme_again2 {
+    background: #006633;
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: -5px;
+}
