@@ -11,6 +11,11 @@ body,html,textarea{font-family:Calibri}
   font-weight: normal;
   font-style: normal;
 }
+header {
+    height: 122px;
+    box-sizing: border-box;
+    padding: 8px 0 0 0;
+}
 .rouble {
   font-family: 'rouble';
   font-size: 0.9em;
@@ -159,7 +164,7 @@ input {
             transition: background .3s ease;
 }
 .h_menu {
-    margin-right: 50px;
+    margin-right: 70px;
 }
 .h_cart, .h_phones, .h_menu {
     margin-top: 17px;
@@ -501,9 +506,9 @@ footer {
     color: #5EA424;
 }
 .c_new_menu_line {
-    padding-top: 40px;
+    padding-top: 28px;
     position: relative;
-    padding-bottom: 40px;
+    padding-bottom: 37px;
 }
 .c_new_menu_more {
     cursor: pointer;
