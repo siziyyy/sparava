@@ -602,6 +602,52 @@ footer {
 .index_c_new_menu .c_new_menu_line_item {
     margin-right: 30px; 
 }
+.c_new_index_menu_dropdown {
+    position: absolute;
+    top: 82px;
+    right: 11px;
+    background: #FFF;
+    border: 5px solid #e6e6e6;
+    padding: 25px 35px;
+    z-index: 99;
+}
+.c_new_index_menu_dropdown_ls {
+    border-right: 1px solid #e6e6e6;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+.c_new_index_menu_to_cat {
+    font-weight: 900;
+    color: #f2593a;
+    padding-bottom: 15px;
+    display: block;
+}
+.c_new_index_menu_dropdown_firstls {
+    padding-left: 0;
+    width: 161px;
+}
+.c_new_index_menu_dropdown_link {
+    display: block;
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 20px;
+}
+.c_new_index_menu_dropdown_l_mar {
+    margin-bottom: 38px;
+}
+.c_new_index_menu_dropdown_l_mar2 {
+    margin-bottom: 57px;
+}
+.c_new_index_menu_dropdown_secls {
+    padding: 0 0 0 54px;
+    width: 284px;
+}
+.c_new_index_menu_dropdown_thrdls {
+    padding: 0 0 0 54px;
+    width: 233px;
+    border: none;
+}
 /* media */
 @media all and (max-width: 1200px) {
     .content_helper {

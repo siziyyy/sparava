@@ -1,6 +1,41 @@
                <div class="c_new_menu_line index_c_new_menu">
                     <div class="c_new_index_menu_dropdown">
-                        
+                        <div class="c_new_index_menu_dropdown_ls fl_l c_new_index_menu_dropdown_firstls">
+                            <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Мясо</a>
+                            <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Птица</a>
+                            <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Рыба</a>
+                            <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Морепродукты</a>
+                            <a href="/category/myaso" class="c_new_index_menu_dropdown_link c_new_index_menu_dropdown_l_mar">Деликатесы</a>
+                            <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Полуфабрикаты</a>
+                            <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Кулинария</a>
+                            <a href="/category/myaso" class="c_new_index_menu_dropdown_link c_new_index_menu_dropdown_l_mar2">Соления</a>
+                            <a href="/catalog" class="c_new_index_menu_to_cat">Полный каталог</a>
+                        </div>
+                        <div class="c_new_index_menu_dropdown_ls fl_l c_new_index_menu_dropdown_secls">
+                            <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Фрукты, ягоды</a>
+                            <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Овощи, зелень, грибы</a>
+                            <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Орехи и сухофрукты</a>
+                            <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Специи и приправы</a>
+                            <a href="/category/myaso" class="c_new_index_menu_dropdown_link c_new_index_menu_dropdown_l_mar">Замороженные продукты</a>
+                            <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Молочные продукты</a>
+                            <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Бакалея</a>
+                            <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Растительное масло</a>
+                            <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Консервация</a>
+                            <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Соусы</a>
+                        </div>
+                        <div class="c_new_index_menu_dropdown_ls fl_l c_new_index_menu_dropdown_thrdls">
+                            <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Хлеб, лаваш</a>
+                            <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Хлебцы и снеки</a>
+                            <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Сладости</a>
+                            <a href="/category/myaso" class="c_new_index_menu_dropdown_link c_new_index_menu_dropdown_l_mar">Торты и пирожные</a>
+                            <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Чай</a>
+                            <a href="/category/myaso" class="c_new_index_menu_dropdown_link c_new_index_menu_dropdown_l_mar">Кофе</a>
+                            <a href="/category/myaso" class="c_new_index_menu_dropdown_link c_new_index_menu_dropdown_l_mar">Мед</a>
+                            <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Соки и компоты</a>
+                            <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Вода и напитки</a>
+                        </div>
+                        <div class="c_new_index_menu_dropdown_ls fl_l"></div>
+                        <div class="clear"></div>
                     </div>
 					<div class="c_new_menu_line_item fl_l">
                         <a href="/category/myaso" class="c_new_menu_link c_new_menu_l">Мясо</a>
