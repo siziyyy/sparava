@@ -162,6 +162,29 @@
 .index_c_new_menu .c_new_menu_line_item {
     margin: 0 11px 0 0px !important;
 }
+.second_banner_header {
+    font-size: 48px;
+    font-weight: 900;
+    color: #FFF;
+}
+.second_banner_body_link {
+    font-size: 36px;
+    color: #FFF;
+    font-weight: normal;
+}
+.second_banner_body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 100px 0;
+}
+.second_banner_footer_button {
+    font-size: 24px;
+    color: #FFF;
+    display: inline-block;
+    background: #5ea424;
+    padding: 5px 30px 8px;
+}
 /* media */
 @media all and (max-width: 1200px) {
     .b_text {
