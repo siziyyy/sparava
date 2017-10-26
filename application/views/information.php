@@ -47,6 +47,7 @@
                                 <br>терминала у курьеров)</div>
                             </div>
                         <div class="clear" id="second_order"></div>
+                        <div id="anch3"></div>
                     </div>
                     <div class="c_inners_header contacts_new_h">Преимущества первого заказа</div>
                     <div class="c_contacts_line">
@@ -79,6 +80,7 @@
                             <div class="contacts_null">7</div>
                         </div>
                         <div class="clear" id="second_order"></div>
+                        <div id="anch5"></div>
                     </div>
                     <div class="c_inners_header contacts_new_h">О нас</div>
                     <div class="c_contacts_line">
@@ -103,6 +105,7 @@
                             <a href="mailto:ceo@sparava.ru" class="c_contacts_line_right_phone">ceo@sparava.ru</a>
                         </div>
                         <div class="clear" id="second_order"></div>
+                        <div id="anch6"></div>
                     </div>
                     <div class="c_inners_header contacts_new_h">Отзывы о нас</div>
                     <div class="c_contacts_line">
@@ -153,9 +156,11 @@
                             </div>
                         </div>
                         <div class="clear" id="first_order"></div>
+                        <div id="anch4"></div>
                     </div>
-                    <div class="c_inners_header contacts_new_h">Если вы блоггер</div>
+                    <div class="c_inners_header contacts_new_h">Если вы блогер</div>
                     <div class="c_contacts_line">
+                            <div id="anch1"></div>
                         <div class="c_contacts_line_left fl_l">
                             <div class="c_contacts_about_text">
                                 Мы рады сотрудничить с блогерами, готовы расмотривать все Ваши предложения 
@@ -196,6 +201,7 @@
                             </div>
                         </div>
                         <div class="clear" id="second_order"></div>
+                        <div id="anch2"></div>
                     </div>
                     <div class="c_inners_header contacts_new_h">Условия доставки (договора-оферты)</div>
                     <div class="c_contacts_line">
@@ -212,6 +218,7 @@
                             <div class="deliv_sprite sprite"></div>
                         </div>
                         <div class="clear" id="second_order"></div>
+                        <div id="anch7"></div>
                     </div>
                     <div class="c_inners_header contacts_new_h">Контакты</div>
                     <div class="c_contacts_line c_contacts_line_first">
@@ -227,9 +234,19 @@
                             </div>
                             <a href="tel:84955321409" class="c_contacts_line_right_phone">+7 495 532 14 09</a>
                         </div>
-                        <div class="clear" id="about"></div>
+                        <div class="clear bigmarg"></div>
                     </div>
                 </div>
             </div>
         </section>
+        <style>            
+            header {
+                position: fixed;
+                width: 100%;
+                top: 0;
+                left: 0;
+                z-index: 99999;
+                background: #fff;
+            }
+        </style>
 <?php $this->load->view('common/footer',$footer);?>
