@@ -1,4 +1,79 @@
 <?php $this->load->view('common/header',$header);?>
+        <div class="g_good_admin_info_modal">
+            <div class="g_good_admin_info_modal_header">Постоянный клиент</div>
+            <aside class="g_good_admin_info_modal_left fl_l">
+                <div class="g_good_admin_info_modal_photo">
+                    <img src="/assets/img/goods/1.jpg" alt="">
+                </div>
+                <label class="fl_l">
+                    <span class="g_good_admin_info_modal_inpname">Мера</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short">
+                </label>
+                <label class="fl_r">
+                    <span class="g_good_admin_info_modal_inpname">Вес</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_med">
+                </label>
+                <div class="clear"></div>
+                <label>
+                    <span class="g_good_admin_info_modal_inpname">Страна</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long">
+                </label>
+                <label class="fl_l">
+                    <span class="g_good_admin_info_modal_inpname">Цена</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short">
+                </label>
+                <label class="fl_r">
+                    <span class="g_good_admin_info_modal_inpname">Упаковка</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_med">
+                </label>
+                <div class="clear"></div>
+                <label>
+                    <span class="g_good_admin_info_modal_inpname">Состав</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long">
+                </label>
+                <div class="g_good_admin_info_modal_save black_small_button">сохранить</div>
+            </aside>
+            <aside class="g_good_admin_info_modal_right fl_r">
+                <label>
+                    <span class="g_good_admin_info_modal_inpname nom">Название</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long">
+                </label>
+                <label>
+                    <span class="g_good_admin_info_modal_inpname">Фото</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long">
+                </label>
+                <label>
+                    <span class="g_good_admin_info_modal_inpname">Подкатегория</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long">
+                </label>
+                <label>
+                    <span class="g_good_admin_info_modal_inpname">Бренд</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long">
+                </label>
+                <label>
+                    <span class="g_good_admin_info_modal_inpname">Название</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long">
+                </label>
+                <label>
+                    <span class="g_good_admin_info_modal_inpname">Описание</span>
+                    <textarea type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long"></textarea>
+                </label>
+                <label class="fl_l">
+                    <span class="g_good_admin_info_modal_inpname">Цена</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short2">
+                </label>
+                <label class="fl_l">
+                    <span class="g_good_admin_info_modal_inpname">Начало</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short2">
+                </label>
+                <label class="fl_l">
+                    <span class="g_good_admin_info_modal_inpname">Конец</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short2 nom2">
+                </label>
+                <div class="clear"></div>
+            </aside>
+            <div class="clear"></div>
+        </div>
         <section class="content">
             <div class="category_bg_helper">
                 <div class="content_helper">
@@ -43,6 +118,7 @@
                                     <span class="g_good_to_cart_text"><span class="g_good_to_cart_value"><?php echo $product['price'] ?></span> <span class="rouble">o</span></span>
                                     <span class="g_good_to_cart_icon sprite"></span>
                                 </div>
+                                <div class="g_admin_info">inf</div>
                             </div>
                         </div>						
                     <?php } ?>

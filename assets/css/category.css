@@ -487,3 +487,103 @@
     width: 28px;
     z-index: 99999;
 }
+.g_admin_info {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 10px;
+    background: #e6e6e6;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 8px 0 9px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    -webkit-transition: background .3s ease;
+    -moz-transition: background .3s ease;
+    -ms-transition: background .3s ease;
+    -o-transition: background .3s ease;
+    transition: background .3s ease;
+}
+.g_good_admin_info_modal {
+    width: 645px;
+    height: 793px;
+    background: #FFF;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: -395px 0 0 -322px;
+    z-index: 9999;
+    border: 5px solid #e6e6e6;
+}
+.g_good_admin_info_modal_left {
+    width: 310px;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        display: block;
+        padding-left: 45px;
+        padding-right: 45px;
+}
+.g_good_admin_info_modal_header {
+    padding-top: 45px;
+    font-size: 22px;
+    font-weight: 900;
+        padding-left: 45px;
+}
+.g_good_admin_info_modal_right {
+    width: 50%;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        display: block;
+        padding-right: 25px;
+}
+.g_good_admin_info_modal_photo {
+    margin-top: 15px;
+    margin-bottom: -15px;
+}
+.g_good_admin_info_modal_inpname {
+    font-size: 16px;
+    font-weight: 900;
+    margin-bottom: 5px;
+    display: block;
+    margin-top: 25px;
+}
+.g_good_admin_info_modal_input {
+    height: 30px;
+    display: block;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    border: 1px solid #ccc;
+    padding-left: 10px;
+}
+.g_good_admin_info_modal_input_short {
+    width: 65px;
+}
+.g_good_admin_info_modal_input_med {
+    width: 117px;
+}
+.g_good_admin_info_modal_input_long {
+    width: 100%;
+}
+.nom {
+    margin-top: 15px;
+}
+textarea.g_good_admin_info_modal_input {
+    height: 111px;
+    resize: none;
+}
+.g_good_admin_info_modal_input_short2 {
+    width: 85px;
+    margin-right: 21px;
+}
+.nom2 {
+    margin-right: 0;
+}
+.g_good_admin_info_modal_save {
+    margin-top: 43px;
+}
