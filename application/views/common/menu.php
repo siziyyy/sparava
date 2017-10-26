@@ -3,7 +3,7 @@
                         
                     </div>
 					<div class="c_new_menu_line_item fl_l">
-                        <a href="/category/" class="c_new_menu_link c_new_menu_l">Мясо</a>
+                        <a href="/category/myaso" class="c_new_menu_link c_new_menu_l">Мясо</a>
                         <a href="/category/" class="c_new_menu_link c_new_menu_l">Птица</a>
                         <a href="/category/" class="c_new_menu_link c_new_menu_l">Рыба</a>
                         <a href="/category/" class="c_new_menu_link c_new_menu_l">Молочка</a>
