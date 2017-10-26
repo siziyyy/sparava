@@ -13,42 +13,21 @@
                         </div>
                     </div>
                 </div>  
-                <div class="b_slide" style="background:url('/assets/img/slider/1.jpg')">
+                <div class="b_slide" style="background:url('/assets/img/slider/2.jpg')">
                     <div class="content_helper">
-                        <div class="b_text">
-                            Доставка отборных продуктов  
-                            <br>с <span class="green_text">Фуд Сити</span> по супер ценам!
+                        <div class="second_banner_header">Линия орехов по супер ценам</div>
+                        <div class="second_banner_body">
+                            <a href="/" class="second_banner_body_link">грецкие орехи</a>
+                            <a href="/" class="second_banner_body_link">фундюк</a>
+                            <a href="/" class="second_banner_body_link">миндаль</a>
+                            <a href="/" class="second_banner_body_link">фисташки</a>
+                            <a href="/" class="second_banner_body_link">пекан</a>
                         </div>
-                        <div class="b_undertext">
-                            Экономите до 40% от рыночной цены, кушайте 
-                            <br>наисвежайшие продукты каждый день
+                        <div class="second_banner_footer">
+                            <a href="/" class="second_banner_footer_button">перейти</a>
                         </div>
                     </div>
-                </div>  
-                <div class="b_slide" style="background:url('/assets/img/slider/1.jpg')">
-                    <div class="content_helper">
-                        <div class="b_text">
-                            Доставка отборных продуктов  
-                            <br>с <span class="green_text">Фуд Сити</span> по супер ценам!
-                        </div>
-                        <div class="b_undertext">
-                            Экономите до 40% от рыночной цены, кушайте 
-                            <br>наисвежайшие продукты каждый день
-                        </div>
-                    </div>
-                </div>     
-                <div class="b_slide" style="background:url('/assets/img/slider/1.jpg')">
-                    <div class="content_helper">
-                        <div class="b_text">
-                            Доставка отборных продуктов  
-                            <br>с <span class="green_text">Фуд Сити</span> по супер ценам!
-                        </div>
-                        <div class="b_undertext">
-                            Экономите до 40% от рыночной цены, кушайте 
-                            <br>наисвежайшие продукты каждый день
-                        </div>
-                    </div>
-                </div>            
+                </div>             
             </div>
 		</section>
 		<section class="content">
