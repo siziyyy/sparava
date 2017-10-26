@@ -1,4 +1,7 @@
                <div class="c_new_menu_line index_c_new_menu">
+                    <div class="c_new_index_menu_dropdown">
+                        
+                    </div>
 					<div class="c_new_menu_line_item fl_l">
                         <a href="/category/" class="c_new_menu_link c_new_menu_l">Мясо</a>
                         <a href="/category/" class="c_new_menu_link c_new_menu_l">Птица</a>
