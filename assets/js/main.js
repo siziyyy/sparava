@@ -1,7 +1,101 @@
 var block_send_button = false;
 var current_page = 1;
 
+function send_msg(msg) {
+	window.frames['admin'].postMessage(send_data, "http://fruit.local");
+}
+
+function listener(event) {
+	if (event.origin != 'http://fruit.local') {
+		return;
+	}
+	
+	if (event.data == 'iframe_ready') {
+		$('.g_admin_info').css('display','inline-block');
+	} else if(event.data.type == 'product_details') {
+		product = event.data.data;
+		
+		$('#product_form .product_id').val(product.product_id);
+		$('#product_form .product_name_text').text(product.title);
+		$('#product_form .product_image').attr('src','/images/'+product.image);
+		$('#product_form .product_type').val(product.type);
+		$('#product_form .product_weight').val(product.weight);
+		$('#product_form .product_country').val(product.country);
+		$('#product_form .product_price').val(product.price);
+		$('#product_form .product_percent').val(product.percent);
+		$('#product_form .product_pack').val(product.pack);
+		$('#product_form .product_composition').val(product.composition);
+		
+		$('#product_form .product_name').val(product.title);
+		$('#product_form .product_image_src').val(product.image);
+		$('#product_form .product_category').val(product.category);
+		$('#product_form .product_brand').val(product.brand);
+		$('#product_form .product_status').val(product.status);
+		$('#product_form .product_description').text(product.description);
+		$('#product_form .product_special').val(product.special);
+		$('#product_form .product_special_begin').val(product.special_begin);
+		$('#product_form .product_special_end').val(product.special_end);
+		
+		$('.admin_window_closer').show();
+		$('#product_form').show();
+	} else if (event.data.type == 'save_product' && event.data.data == 'success') {
+		$('.admin_window_closer').hide();
+		$('#product_form').hide();		
+	}
+}
+
+if (window.addEventListener) {
+	window.addEventListener("message", listener);
+} else {
+	window.attachEvent("onmessage", listener);
+}
+
 $(document).ready(function(){
+	
+	$(document).on('click','.save_product_details',function(e) {
+		
+		product = {
+			product_id: $('#product_form .product_id').val(),
+			type: $('#product_form .product_type').val(),
+			weight: $('#product_form .product_weight').val(),
+			country: $('#product_form .product_country').val(),
+			price: $('#product_form .product_price').val(),
+			percent: $('#product_form .product_percent').val(),
+			pack: $('#product_form .product_pack').val(),
+			composition: $('#product_form .product_composition').val(),
+			title: $('#product_form .product_name').val(),
+			image: $('#product_form .product_image_src').val(),
+			category: $('#product_form .product_category').val(),
+			brand: $('#product_form .product_brand').val(),
+			status: $('#product_form .product_status').val(),
+			description: $('#product_form .product_description').val(),
+			special: $('#product_form .product_special').val(),
+			special_begin: $('#product_form .product_special_begin').val(),
+			special_end: $('#product_form .product_special_end').val()
+		}
+		
+		send_data = {
+			type : 'save_product',
+			data : product
+		}
+		
+		send_msg(send_data);
+	});	
+	
+	$(document).on('click','.admin_window_closer',function(e) {
+		$('#product_form').hide();
+		$('.admin_window_closer').hide();		
+	});
+	
+	$(document).on('click','.g_admin_info',function(e) {
+		send_data = {
+			type : 'product_details',
+			product_id : $(this).attr('data-product-id'),
+		}
+		
+		send_msg(send_data);
+	});
+
     /* slider */
     $('.b_slider').slick({
         dots: true,
