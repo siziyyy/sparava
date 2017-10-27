@@ -850,6 +850,7 @@ class Main extends CI_Controller {
 						$html .= '<span class="g_good_to_cart_text"><span class="g_good_to_cart_value">'.$product["price"].'</span> <span class="rouble">o</span></span>';
 						$html .= '<span class="g_good_to_cart_icon sprite"></span>';
 						$html .= '</div>';
+						$html .= '<div class="g_admin_info" data-product-id="'.$product["product_id"].'" style="display: inline-block;">inf</div>';
                         $html .= '</div>';   
                         $html .= '</div>';       
 

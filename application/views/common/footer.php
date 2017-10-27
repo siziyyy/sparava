@@ -48,6 +48,6 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script><!-- always -->
         <script src="/assets/mdl/slick/slick.min.js"></script><!-- only index -->
         <script src="/assets/mdl/masonry/masonry.js"></script><!-- only index -->
-        <script src="/assets/js/main.js"></script><!-- always -->
+        <script src="/assets/js/main.js"></script>
 	</body>
 </html>
