@@ -24,26 +24,29 @@
 					<div class="blah_blah_body">
 						Для восстановления пароля введите вашу почту
 					</div>
-					<input type="text" class="email_error_input">
+					<input type="text" class="email_error_input" id="remind_email">
 					<div class="blah_blah_body">
 						Если Вы забыли пароль, запросите повторную отправку
 					</div>
-					<a href="" class="black_small_button email_error_gimme_again2">восстановить пароль</a>
+					<a href="" class="black_small_button email_error_gimme_again2 send" data-type="remind">восстановить пароль</a>
 				</div>
-				<!--<div class="email_error2text">
+				<div class="email_error2text remind_error">
+					Ошибка при восстановлении пароля
+				</div>
+				<div class="email_error2text remind_success">
 					На вашу почту было выслано письмо с дальнейшими инструкциями
-				</div>-->
+				</div>				
 			</div>
 		</div>
 		<a class="c_inners_left_side_button black_small_button send" data-type="check_login">войти</a>
-		<a href="/" class="c_inners_left_side_button_pass send" data-type="remind">Забыли пароль?</a>
+		<a href="/" class="c_inners_left_side_button_pass remind_password">Забыли пароль?</a>
 		<div class="c_inners_left_side_text_h c_inners_left_side_text_h2">
 			Гость
 		</div>
 		<div class="c_inners_left_side_form">
 			<div class="c_inners_input_line">
 				<div class="c_inners_input_label">электронная почта</div>
-				<input type="email" class="c_inners_input" id="register_email">
+				<input type="email" class="c_inners_input remind_email2" id="register_email">
 			</div>
 			<div class="c_inners_input_line">
 				<div class="c_inners_input_label">имя</div>
@@ -83,15 +86,19 @@
 						Если данная почта является Вашей, введите
 						пароль, который был отправлен на почту
 					</div>
-					<input type="text" class="email_error_input">
+					<input type="password" class="email_error_input" id="remind_password2">
 					<div class="blah_blah_body">
-						Если Вы забыли пароль, запросите повторную отправку
+						Если Вы забыли пароль, запросите восстановление пароля
 					</div>
-					<a href="" class="email_error_gimme_again">отправить пароль повторно</a>
+					<a class="c_inners_left_side_button black_small_button send" data-type="check_login2">войти</a>
+					<a href="" class="email_error_gimme_again send" data-type="remind2">отправить пароль</a>
 				</div>
-				<!--<div class="email_error2text">
+				<div class="email_error2text remind_error2">
+					Логин и пароль введены неверно
+				</div>
+				<div class="email_error2text remind_success2">
 					На вашу почту было выслано письмо с дальнейшими инструкциями
-				</div>-->
+				</div>				
 			</div>
 			<div class="blah_blah">
 				<div class="blah_blah_header">Условия пользования</div>

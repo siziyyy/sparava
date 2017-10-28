@@ -88,27 +88,34 @@ class Account extends Fruitcrm {
 		
 		if ($this->db->update("accounts", $data, array("account_id" => $this->_id)))  {
 			
-			$this->send_password($password);
-			
-			return true;
+			if($this->send_password($password)) {
+				return true;
+			}
 		}
 		
 		return false;
 	}
 
 	private function send_password($password) {
-		$message = $password;
-		$this->load->library('email');
+		$query = $this->db->get_where("accounts", array("account_id" => $this->_id));
+		if ($query->num_rows() > 0) {
+			$this->_data = $query->row_array();
 		
-		$this->email->from('info@neurobasket.ru', 'Robot');
-		$this->email->to($this->_data['email']);
+			$message = $password;
+			$this->load->library('email');
+			
+			$this->email->from('info@neurobasket.ru', 'Robot');
+			$this->email->to($this->_data['email']);
 
-		$this->email->subject('Новый пароль');
-		$this->email->message($message);	
+			$this->email->subject('Новый пароль');
+			$this->email->message($message);	
+			
+			$this->email->send();
+			
+			return true;
+		}
 		
-		$this->email->send();
-		
-		return true;
+		return false;
 	}	
 	
 	public function update() {

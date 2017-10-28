@@ -52,6 +52,30 @@ if (window.addEventListener) {
 
 $(document).ready(function(){
 	
+	$(document).on('click','.remind_password',function(e) {
+		e.preventDefault();
+		$('.blaah').show();
+		$('.blah_closer').show();
+	});
+	
+	$(document).on('click','.blah_closer',function(e) {
+		$('.blaah').hide();
+		$('.blah_closer').hide();
+		$('.close_me_on_send2').show();
+		$('.remind_error').hide();
+		$('.remind_success').hide();
+		$('.email_error').hide();
+		$('.blah_blah').hide();
+		$('.close_me_on_send').show();
+		$('.remind_error2').hide();	
+		$('.remind_success2').hide();			
+	});	
+
+    $('.blah_link').click(function() {
+        $('.blah_blah').show();
+        $('.blah_closer').show();
+    });
+	
 	$(document).on('click','.save_product_details',function(e) {
 		
 		product = {
@@ -132,14 +156,6 @@ $(document).ready(function(){
     $('.c_menu_more').click(function() {
         $('.c_menu_more_span').toggleClass('c_menu_more_span_opened');
         $('.c_menu_secondary').toggleClass('c_menu_hidden');
-    });
-    $('.blah_link').click(function() {
-        $('.blah_blah').toggle();
-        $('.blah_closer').toggle();
-    });
-    $('.blah_closer').click(function() {
-        $('.blah_blah').toggle();
-        $('.blah_closer').toggle();
     });
     $('.g_good_show_full_desc').click(function() {
         $('.g_good_big_description').toggle();
@@ -318,9 +334,34 @@ $(document).ready(function(){
 			case 'remind':
 				send_data = {
 					type : type,
-					email : ($('#login_email').val() || -1 )
+					remind_email : ($('#remind_email').val() || -1 )
 				}
 				
+				for(var key in send_data) {
+					if(send_data[key] == -1) {
+						$('#'+key).addClass('input_error');
+						error = true;
+					}
+				}				
+				
+				break;	
+
+			case 'remind2':
+				send_data = {
+					type : type,
+					remind_email : ($('.remind_email2').val() || -1 )
+				}
+				
+				break;
+				
+			case 'check_login2':
+				
+				send_data = {
+					type : 'check_login',
+					login_email : ($('.remind_email2').val() || 0 ),
+					login_password : ($('#remind_password2').val() || 0 )
+				}
+
 				break;				
 				
 			default:
@@ -353,12 +394,24 @@ $(document).ready(function(){
 						} else if(send_data.type == 'confirm_account_in_modal') {
 							$('.mm_modal_and_mask').hide();
 						} else if(send_data.type == 'remind') {
-							alert('Пароль был отправлен');
+							$('.close_me_on_send2').hide();
+							$('.remind_success').show();
+						} else if(send_data.type == 'remind2') {
+							$('.remind_success2').show();
 						}
 					} else if (json['redirect']) {
 						location.href = json['redirect'];
 					} else if(json['error']) {
-						alert(json['error']);
+						if(send_data.type == 'remind') {
+							$('.close_me_on_send2').hide();
+							$('.remind_error').show();
+						} else if(json['error'] == 'busy_email') {
+							$('.email_error').show();
+							$('.blah_closer').show();
+						} else if(send_data.type == 'check_login') {
+							$('.close_me_on_send').hide();
+							$('.remind_error2').show();
+						}
 					}
 				}
 			},
