@@ -661,7 +661,7 @@ class Main extends CI_Controller {
 					}
 				}
 				
-				break;
+				break;				
 				
 			case 'check_email':
 				
@@ -695,7 +695,7 @@ class Main extends CI_Controller {
 				$account = new Account();
 				
 				if($account->set_id_by_email($data['email'])) {
-					$json['error'] = 'Данный Email уже занят';
+					$json['error'] = 'busy_email';
 				} else {
 					$account->set_data($data);
 					
@@ -789,21 +789,24 @@ class Main extends CI_Controller {
 				break;
 
 			case 'remind':
+			case 'remind2':
 			
-				if(!is_null($this->input->post('email'))) {
-					if(!valid_email($this->input->post('email'))) {
+				if(!is_null($this->input->post('remind_email'))) {
+					if(!valid_email($this->input->post('remind_email'))) {
 						break;
 					}
 					
 					$this->load->model("account");
 					$account = new Account();
-					$account->set_id_by_email($this->input->post('email'));
+					$account->set_id_by_email($this->input->post('remind_email'));
 					if($account->reset_password()) {
 						$json['success'] = 'success';
+					} else {
+						$json['error'] = 'error';
 					}
 				}
 				
-				break;	
+				break;					
 
 			case 'load_products':
 			
