@@ -34,7 +34,19 @@
                             <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Соки и компоты</a>
                             <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Вода и напитки</a>
                         </div>
-                        <div class="c_new_index_menu_dropdown_ls fl_l"></div>
+                        <div class="c_new_index_menu_dropdown_ls c_new_index_menu_dropdown_frthls fl_l">
+                            <div class="c_new_index_menu_dropdown_head">Продукты из стран мира</div>
+                             <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Россия</a>
+                             <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Италия</a>
+                             <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Испания</a>
+                             <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Греция</a>
+                             <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Швейцария</a>
+                             <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Армения</a>
+                             <div class="c_new_index_menu_dropdown_footer">
+                                 <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Фермерские продукты</a>
+                                 <a href="/category/myaso" class="c_new_index_menu_dropdown_link">Эко и органик продукты</a>
+                             </div>
+                        </div>
                         <div class="clear"></div>
                     </div>
 					<div class="c_new_menu_line_item fl_l">

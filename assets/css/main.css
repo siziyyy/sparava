@@ -624,10 +624,10 @@ footer {
     display: block;
     font-size: 16px;
     color: #000;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 .c_new_index_menu_dropdown_l_mar {
-    margin-bottom: 38px;
+    margin-bottom: 30px;
 }
 .c_new_index_menu_dropdown_l_mar2 {
     margin-bottom: 57px;
@@ -639,7 +639,25 @@ footer {
 .c_new_index_menu_dropdown_thrdls {
     padding: 0 0 0 54px;
     width: 233px;
+}
+.c_new_index_menu_dropdown_frthls {
+    padding-left: 45px;
     border: none;
+    width: 273px;
+}
+.c_new_index_menu_dropdown_footer {
+    position: absolute;
+    bottom: 37px;
+}
+.c_new_index_menu_dropdown_footer .c_new_index_menu_dropdown_link {
+    color: #508f1d;
+}
+.c_new_index_menu_dropdown_footer .c_new_index_menu_dropdown_link:hover {
+    color: #000;
+}
+.c_new_index_menu_dropdown_head {
+    font-weight: 900;
+    margin-bottom: 20px;
 }
 /* media */
 @media all and (max-width: 1200px) {
