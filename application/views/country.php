@@ -1,6 +1,6 @@
 <?php $this->load->view('common/header',$header);?>
         <div class="g_good_admin_info_modal" id="product_form">
-			<input type="hidden" class="product_id">		
+            <input type="hidden" class="product_id">        
             <div class="g_good_admin_info_modal_header product_name_text">Постоянный клиент</div>
             <aside class="g_good_admin_info_modal_left fl_l">
                 <div class="g_good_admin_info_modal_photo">
@@ -27,7 +27,7 @@
                 <label class="fl_l">
                     <span class="g_good_admin_info_modal_inpname">Цена</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_price">
-                </label>	       
+                </label>           
                 <label class="fl_r">
                     <span class="g_good_admin_info_modal_inpname">Процент наценки</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_med product_percent">
@@ -81,21 +81,21 @@
             <div class="clear"></div>
         </div>
         <section class="content">
-            <div class="category_bg_helper">
+            <div class="category_bg_helper category_bg_helper_country">
                 <div class="content_helper">
-                    <?php $this->load->view('common/menu-inner', $menu);?>
+                    <?php $this->load->view('common/menu-country', $menu);?>
                 </div>
             </div>
             <div class="content_helper">
                 <div class="goods">
-                    <?php foreach($products as $product) { ?>						
+                    <?php foreach($products as $product) { ?>                       
                         <div class="g_good fl_l">
                             <div class="g_good_photo_block">
                                 <img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo">
                             </div>
                             <?php if(isset($product['old_price'])) { ?>
-								<div class="g_old_good_price"><?php echo $product['old_price'] ?> <span class="rouble">o</span></div>
-							<?php } ?>
+                                <div class="g_old_good_price"><?php echo $product['old_price'] ?> <span class="rouble">o</span></div>
+                            <?php } ?>
                             <div class="g_good_price"><span class="g_good_price_value"><?php echo $product['price'] ?></span> <span class="rouble">o</span></div>
                             <div class="g_old_good_price_date"><?php echo ($product['special_end_date'] ? 'до '.$product['special_end_date'] : '') ?></div>
                             <div class="g_good_name"><?php echo $product['title'] ?></div>
@@ -126,24 +126,24 @@
                                 </div>
                                 <div class="g_admin_info" data-product-id="<?php echo $product['product_id'] ?>">inf</div>
                             </div>
-                        </div>						
+                        </div>                      
                     <?php } ?>
-					<div id="wrapper_for_product_load"></div>
+                    <div id="wrapper_for_product_load"></div>
                     <div class="clear"></div>
                 </div>
-				<?php if($pages_count > 1) { ?>
-					<div class="c_paginator">
-						<?php if($current_page == 1) { ?>
-							<div class="c_show_more_goods" data-category-id="<?php echo $category ?>">показать еще</div>
-						<?php } ?>
-						<div class="c_pages">
-							<?php for( $i = 1 ; $i <= $pages_count ; $i++ ) { ?>
-								<div class="c_page <?php echo ($i == $current_page ? 'c_current_page' : '') ?>" data-page="<?php echo $i ?>"><?php echo $i ?></div>
-							<?php } ?>
-						</div>
-					</div>
-				<?php } ?>
+                <?php if($pages_count > 1) { ?>
+                    <div class="c_paginator">
+                        <?php if($current_page == 1) { ?>
+                            <div class="c_show_more_goods" data-category-id="<?php echo $category ?>">показать еще</div>
+                        <?php } ?>
+                        <div class="c_pages">
+                            <?php for( $i = 1 ; $i <= $pages_count ; $i++ ) { ?>
+                                <div class="c_page <?php echo ($i == $current_page ? 'c_current_page' : '') ?>" data-page="<?php echo $i ?>"><?php echo $i ?></div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                <?php } ?>
             </div>
         </section>
-		<iframe src="http://fruit.local/main/iframe" height="1" width="1" name="admin"></iframe>
+        <iframe src="http://fruit.local/main/iframe" height="1" width="1" name="admin"></iframe>
 <?php $this->load->view('common/footer',$footer);?>
