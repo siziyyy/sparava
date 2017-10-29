@@ -28,6 +28,10 @@ class Main extends CI_Controller {
 		);
 		
 		$this->load->view('information', $data);
+	}
+	
+	public function country() {
+		$this->load->view('country');
 	}	
 	
 	public function search() {		
