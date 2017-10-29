@@ -590,3 +590,21 @@ textarea.g_good_admin_info_modal_input {
 .g_good_admin_info_modal_save {
     margin-top: 43px;
 }
+.c_new_menu_link_country {
+    color: #F2593A;
+}
+.cool_select_country {
+    width: 400px;
+        margin: -10px 0 0 0px;
+}
+.cool_select_country_pack {
+    
+}
+.category_bg_helper_country {
+    height: 89px;
+}
+.c_new_menu_line_country {
+        padding-top: 38px;
+    position: relative;
+    padding-bottom: 16px;
+}
