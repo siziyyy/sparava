@@ -163,6 +163,11 @@
                         <td class="modal_info_deliv">с 9 до 18</td>
                     </tr>
                     <tr>
+                        <td style="position: relative; height: 50px"><div class="time_range"><input type="text" id="range_03" name="example_name" value="" /></div></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
                         <td></td>
                         <td><a href="" target="_blank" class="modal_print orders_button">печать накладной</a></td>
                         <td></td>
@@ -279,6 +284,26 @@
             </table>
         </section>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script><!-- always -->
+        <script src="/assets/admin/js/ion.rangeSlider.min.js"></script>
+        <link rel="stylesheet" href="/assets/admin/css/ion.rangeSlider.css">
+        <link rel="stylesheet" href="/assets/admin/css/ion.rangeSlider.skinSimple.css">
         <script src="/assets/admin/js/main.js"></script><!-- always -->
+        <script>
+            $("#range_03").ionRangeSlider({
+    type: "double",
+    min: 9,
+    max: 23,
+    from: 9,
+    to: 23
+});
+        </script>
+        <style>
+            .time_range {
+                    width: 859px;
+    position: absolute;
+    display: block;
+    margin: -28px 0 0 104px;
+            }
+        </style>
     </body>
 </html>
