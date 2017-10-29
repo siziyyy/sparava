@@ -515,12 +515,12 @@
 }
 .g_good_admin_info_modal {
     width: 645px;
-    height: 793px;
+    height: 840px;
     background: #FFF;
     position: fixed;
     top: 50%;
     left: 50%;
-    margin: -395px 0 0 -322px;
+    margin: -420px 0 0 -322px;
     z-index: 9999;
     border: 5px solid #e6e6e6;
     display: none;
