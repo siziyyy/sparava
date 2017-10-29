@@ -99,7 +99,8 @@
 										</div>
 								</div>
 							</div>							
-							<div class="cool_select_reset fl_r">сбросить фильтр/ы</div> 
+                            <div class="cool_select_goods_count fl_r">всего товаров: 528</div> 
+                            <!--<div class="cool_select_reset fl_r">сбросить фильтр/ы</div> -->
                             <div class="clear"></div>
                         </div>
                         <div class="c_new_index_menu_dropdown c_new_index_menu_dropdown_incat">
