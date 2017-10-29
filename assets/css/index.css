@@ -157,14 +157,14 @@
     cursor: pointer;
 }
 .c_new_menu_l {
-    margin-right: 29px;
+    margin-right: 27px;
 }
 .index_c_new_menu .c_new_menu_line_item {
     margin: 0 11px 0 0px !important;
 }
 .second_banner_header {
     font-size: 48px;
-    font-weight: 900;
+    font-family:Calibri Bold;
     color: #FFF;
 }
 .second_banner_body_link {

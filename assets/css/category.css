@@ -71,7 +71,7 @@
 }
 .g_good_country {
     font-size: 14px;
-    font-weight: 900;
+    font-family:Calibri Bold;
     margin-bottom: 20px;
 }
 .g_good_weight {
@@ -224,7 +224,7 @@
     border-color: transparent #e6e6e6 transparent transparent;
 }
 .search_header {
-    font-weight: 900;
+    font-family:Calibri Bold;
     padding-top: 35px;
     margin-bottom: -5px;
 }
@@ -244,7 +244,7 @@
 }
 .twin_header {
     font-size: 20px;
-    font-weight: 900;
+    font-family:Calibri Bold;
     margin-top: 40px;
 }
 .c_paginator {
@@ -273,7 +273,7 @@
     height: 30px;
     line-height: 30px;
     font-size: 14px;
-    font-weight: 900;
+    font-family:Calibri Bold;
     cursor: pointer;
     background: #f0f0f0;
     border: 1px solid #f0f0f0;
@@ -468,7 +468,7 @@
     margin: -1px 0 0 0;
     font-size: 14px;
     z-index: 9999;
-    font-weight: 900;
+    font-family:Calibri Bold;
     border-top: none;
 }
 .count_cool_option {
@@ -533,7 +533,7 @@
 .g_good_admin_info_modal_header {
     padding-top: 45px;
     font-size: 22px;
-    font-weight: 900;
+    font-family:Calibri Bold;
         padding-left: 45px;
 }
 .g_good_admin_info_modal_right {
@@ -550,7 +550,7 @@
 }
 .g_good_admin_info_modal_inpname {
     font-size: 16px;
-    font-weight: 900;
+    font-family:Calibri Bold;
     margin-bottom: 5px;
     display: block;
     margin-top: 25px;

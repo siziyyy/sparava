@@ -1,6 +1,6 @@
 /* main */
-@font-face{font-family:Calibri Bold;src:local("Calibri Bold"),url(/commons/fonts/CalibriBold.woff) format("woff"),url(/commons/fonts/CalibriBold.woff2) format("woff2")}
-@font-face{font-family:Calibri;src:local(Calibri),url(/commons/fonts/Calibri.woff) format("woff"),url(/commons/fonts/Calibri.woff2) format("woff2")}
+@font-face{font-family:Calibri Bold;src:local("Calibri Bold"),url(/assets/fnt/CalibriBold.woff) format("woff"),url(/assets/fnt/CalibriBold.woff2) format("woff2")}
+@font-face{font-family:Calibri;src:local(Calibri),url(/assets/fnt/Calibri.woff) format("woff"),url(/assets/fnt/Calibri.woff2) format("woff2")}
 body,html,textarea{font-family:Calibri}
 @font-face {
   font-family: 'rouble';
@@ -113,7 +113,7 @@ input {
 }
 .h_phone {
     font-size: 18px;
-    font-weight: 900;
+    font-family:Calibri Bold;
     color: #000;
     line-height: 26px;
     margin: 0 30px 0 0;
@@ -456,13 +456,13 @@ footer {
 .catalog_header {
     color: #fe4517;
     font-size: 24px;
-    font-weight: 900;
+    font-family:Calibri Bold;
     text-transform: uppercase;
     margin: 30px 0 0 0;
 }
 .catalog_line_header {
     font-size: 20px;
-    font-weight: 900;
+    font-family:Calibri Bold;
     margin: 0 0 30px 0;
     display: block;
     color: #000;
@@ -495,7 +495,7 @@ footer {
     margin-right: 45px;
     color: #000;
     font-size: 16px;
-    font-weight: 900;
+    font-family:Calibri Bold;
     text-transform: uppercase;
 }
 .c_new_menu_line_item {
@@ -541,13 +541,13 @@ footer {
 }
 .c_new_menu_dropdown_link_helper {
     font-size: 16px;
-    font-weight: 900;
+    font-family:Calibri Bold;
     text-transform: uppercase;
     margin-bottom: 23px;
 }
 .c_new_menu_dropdown_link {
     font-size: 16px;
-    font-weight: 900;
+    font-family:Calibri Bold;
     text-transform: uppercase;
     display: block;
     margin-bottom: 23px;
@@ -611,7 +611,7 @@ footer {
             box-sizing: border-box;
 }
 .c_new_index_menu_to_cat {
-    font-weight: 900;
+    font-family:Calibri Bold;
     color: #f2593a;
     padding-bottom: 15px;
     display: block;
@@ -656,7 +656,7 @@ footer {
     color: #000;
 }
 .c_new_index_menu_dropdown_head {
-    font-weight: 900;
+    font-family:Calibri Bold;
     margin-bottom: 20px;
 }
 /* media */
