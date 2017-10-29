@@ -8,7 +8,7 @@
     width: calc(100% - 450px);
 }
 .c_inners_amount_num {
-    font-weight: 900;
+    font-family:Calibri Bold;
     font-size: 20px;
     margin-left: 20px;
 }
@@ -55,7 +55,7 @@
 }
 .c_inners_left_side_text_h {
     font-size: 18px;
-    font-weight: 900;
+    font-family:Calibri Bold;
 }
 .c_inners_left_side_text_f {
     font-size: 16px;
@@ -72,7 +72,7 @@
     display: inline-block;
     color: #FFF;
     font-size: 15px;
-    font-weight: 900;
+    font-family:Calibri Bold;
     -webkit-border-radius: 3px;
             border-radius: 3px;
     padding: 7px 15px;
@@ -102,7 +102,7 @@
     display: inline-block;
     color: #FFF;
     font-size: 15px;
-    font-weight: 900;
+    font-family:Calibri Bold;
     -webkit-border-radius: 3px;
             border-radius: 3px;
     padding: 7px 15px;
@@ -131,11 +131,11 @@
 }
 .c_inners_side_tr .c_inners_second_td {
     color: #fe4517;
-    font-weight: 900;
+    font-family:Calibri Bold;
     font-size: 18px;
 }
 .c_inners_side_tr .c_inners_fourth_td {
-    font-weight: 900;
+    font-family:Calibri Bold;
     font-size: 18px;
 }
 .c_inners_photo {
@@ -178,7 +178,7 @@
     text-align: center;
     margin: -5px auto 0;
     font-size: 14px;
-    font-weight: 900;
+    font-family:Calibri Bold;
 }
 .c_inners_count_del {
     width: 10px;
@@ -221,7 +221,7 @@
     font-size: 18px;
 }
 .c_inners_right_footer_num {
-    font-weight: 900;
+    font-family:Calibri Bold;
     font-size: 20px;
     margin-left: 20px;
     padding-right: 25px;
@@ -239,7 +239,7 @@
 .c_inners_left_side_deliv_right_header {
     font-size: 16px;
     margin: 0 0 20px 0px;
-    font-weight: 900;
+    font-family:Calibri Bold;
 }
 .c_inners_left_side_deliv_right_body {
     font-size: 14px;
@@ -378,7 +378,7 @@ textarea.c_inners_input {
     margin-left: 15px;
 }
 .blah_blah_header {
-    font-weight: 900;
+    font-family:Calibri Bold;
     margin-bottom: 10px;
 }
 .blah_blah {
