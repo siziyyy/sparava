@@ -15,6 +15,10 @@
 .g_good:nth-child(5n) {
     margin: 0;
 }
+.g_good_admin_info_modal_inpname2 {
+    font-size: 13px !important;
+    margin-bottom: 8px !important;
+}
 .g_good_photo_block {
     width: 220px;
     height: auto;
