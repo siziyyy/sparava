@@ -27,7 +27,7 @@
 								<a href="/category/myaso" class="c_new_index_menu_dropdown_link">Хлебцы и снеки</a>
 								<a href="/category/myaso" class="c_new_index_menu_dropdown_link">Сладости</a>
 								<a href="/category/myaso" class="c_new_index_menu_dropdown_link c_new_index_menu_dropdown_l_mar">Торты и пирожные</a>
-								<a href="/category/myaso" class="c_new_index_menu_dropdown_link">Чай</a>
+								<a href="/category/9" class="c_new_index_menu_dropdown_link">Чай</a>
 								<a href="/category/myaso" class="c_new_index_menu_dropdown_link c_new_index_menu_dropdown_l_mar">Кофе</a>
 								<a href="/category/myaso" class="c_new_index_menu_dropdown_link c_new_index_menu_dropdown_l_mar">Мед</a>
 								<a href="/category/myaso" class="c_new_index_menu_dropdown_link">Соки и компоты</a>
