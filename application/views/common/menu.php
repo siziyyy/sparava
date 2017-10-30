@@ -68,3 +68,37 @@
                     </div>
                     <div class="clear"></div>
               </div>
+              <div class="c_new_mobile_menu">
+                <a href="/category/myaso" class="c_mobile_menu_link">Мясо</a>
+                <a href="/category/" class="c_mobile_menu_link">Птица</a>
+                <a href="/category/" class="c_mobile_menu_link">Рыба</a>
+                <a href="/category/" class="c_mobile_menu_link">Молочка</a>
+                <a href="/category/" class="c_mobile_menu_link">Овощи</a>
+                <a href="/category/" class="c_mobile_menu_link">Фрукты</a>
+                <a href="/category/" class="c_mobile_menu_link">Орехи и сухофрукты</a>
+                <a href="/category/" class="c_mobile_menu_link">Бакалея</a>
+                <a href="/category/" class="c_mobile_menu_link">Чай</a>
+                <a href="/category/" class="c_mobile_menu_link">Кофе</a>
+                <a href="/category/" class="c_mobile_menu_link">Мёд</a>
+                <a href="/category/" class="c_mobile_menu_link">Птица</a>
+                <a href="/category/" class="c_mobile_menu_link">Рыба</a>
+                <a href="/category/" class="c_mobile_menu_link">Молочка</a>
+                <a href="/category/" class="c_mobile_menu_link">Овощи</a>
+                <a href="/category/" class="c_mobile_menu_link">Фрукты</a>
+                <a href="/category/" class="c_mobile_menu_link">Орехи и сухофрукты</a>
+                <a href="/category/" class="c_mobile_menu_link">Бакалея</a>
+                <a href="/category/" class="c_mobile_menu_link">Чай</a>
+                <a href="/category/" class="c_mobile_menu_link">Кофе</a>
+                <a href="/category/" class="c_mobile_menu_link">Мёд</a>
+                <a href="/category/" class="c_mobile_menu_link">Мёд</a>
+                <a href="/category/" class="c_mobile_menu_link">Птица</a>
+                <a href="/category/" class="c_mobile_menu_link">Рыба</a>
+                <a href="/category/" class="c_mobile_menu_link">Молочка</a>
+                <a href="/category/" class="c_mobile_menu_link">Овощи</a>
+                <a href="/category/" class="c_mobile_menu_link">Фрукты</a>
+                <a href="/category/" class="c_mobile_menu_link">Орехи и сухофрукты</a>
+                <a href="/category/" class="c_mobile_menu_link">Бакалея</a>
+                <a href="/category/" class="c_mobile_menu_link">Чай</a>
+                <a href="/category/" class="c_mobile_menu_link">Кофе</a>
+                <a href="/category/" class="c_mobile_menu_link">Мёд</a>
+              </div>

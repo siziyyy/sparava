@@ -30,6 +30,52 @@
                 </div>             
             </div>
 		</section>
+        <section class="mobile_banner">
+            <div class="mobile_banner_text">
+                <div class="mobile_banner_text_header">
+                    Доставка отборных продуктов  
+                    <br>с <span style="color: #397f00;">Фуд Сити</span> по супер ценам!
+                </div>
+                <div class="mobile_banner_text_subheader">
+                    Экономьте до 40% от рыночной цены, 
+                    <br>кушайте наисвежайшие продукты 
+                    <br>каждый день
+                </div>
+            </div>
+            <div class="mobile_banner_icons">
+                <div class="mobile_banner_icons_icon fl_l">
+                    <div class="mobile_banner_icons_icon_img sprite"></div>
+                    <div class="mobile_banner_icons_icon_text">
+                        только
+                        <br><span class="m_b_b_i_t_bold">наисвежайшее</span>
+                    </div>
+                </div>
+                <div class="mobile_banner_icons_icon fl_l">
+                    <div class="mobile_banner_icons_icon_img sprite"></div>
+                    <div class="mobile_banner_icons_icon_text">
+                        только
+                        <br><span class="m_b_b_i_t_bold">качественное</span>
+                    </div>
+                </div>
+                <div class="mobile_banner_icons_icon fl_l">
+                    <div class="mobile_banner_icons_icon_img sprite"></div>
+                    <div class="mobile_banner_icons_icon_text">
+                        только
+                        <br><span class="m_b_b_i_t_bold">по суперценам</span>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <a href="/" class="mobile_banner_banner">
+                <img src="/assets/img/slider/mobile.jpg" alt="" class="fl_l">
+                <div class="mobile_banner_banner_text fl_l">
+                    <div class="mobile_banner_banner_text_header">Семеринка</div>
+                    <div class="mobile_banner_banner_text_body">60 <span class="rouble">o</span></div>
+                    <div class="mobile_banner_banner_text_footer">на рынке 100 <span class="rouble">o</span></div>
+                </div>
+                <div class="clear"></div>
+            </a>
+        </section>
 		<section class="content">
 			<div class="content_helper">
                 <?php $this->load->view('common/menu', $menu);?>
@@ -97,12 +143,12 @@
                         </div>
                     </a>
                     <a class="c_mosaic_link" href="/category">
-                        <div class="c_mosaic_item" style="background:url('/assets/img/cats/8.jpg')">
+                        <div class="c_mosaic_item c_mosaic_item_width_for_mobile_long" style="background:url('/assets/img/cats/8.jpg')">
                             <span class="c_mosaic_item_text black_text">ягоды</span>
                         </div>
                     </a>
                     <a class="c_mosaic_link" href="/category">
-                        <div class="c_mosaic_item c_mosaic_item_width" style="background:url('/assets/img/cats/9.jpg')">
+                        <div class="c_mosaic_item c_mosaic_item_width c_mosaic_item_width_for_mobile" style="background:url('/assets/img/cats/9.jpg')">
                             <span class="c_mosaic_item_text black_text">зелень</span>
                         </div>
                     </a>

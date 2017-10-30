@@ -3,7 +3,6 @@
 				$this->load->view('common/modal');
 			}
 		?>
-		
 		<footer>
 			<div class="content_helper">
 				<div class="f_block">
