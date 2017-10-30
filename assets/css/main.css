@@ -183,6 +183,10 @@ input {
 .h_cart, .h_phones, .h_menu {
     margin-top: 17px;
 }
+.g_good_actions {
+    position: absolute;
+    bottom: 44px;
+}
 .h_cart_text span {
     cursor: pointer;
 }

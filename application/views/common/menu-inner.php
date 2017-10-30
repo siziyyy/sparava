@@ -123,7 +123,7 @@
                 <a href="/category/" class="c_mobile_menu_link">Мёд</a>
                 <a href="/category/" class="c_mobile_menu_link">Птица</a>
                 <a href="/category/" class="c_mobile_menu_link">Рыба</a>
-                <a href="/category/" class="c_mobile_menu_link">Молочка</a>
+                <a href="/category/" class="c_mobile_menu_link c_current_menu_mobile_link">Молочка</a>
                 <a href="/category/" class="c_mobile_menu_link">Овощи</a>
                 <a href="/category/" class="c_mobile_menu_link">Фрукты</a>
                 <a href="/category/" class="c_mobile_menu_link">Орехи и сухофрукты</a>
@@ -142,4 +142,14 @@
                 <a href="/category/" class="c_mobile_menu_link">Чай</a>
                 <a href="/category/" class="c_mobile_menu_link">Кофе</a>
                 <a href="/category/" class="c_mobile_menu_link">Мёд</a>
+              </div>
+              <div class="c_new_mobile_submenu">
+                    <div class="c_new_mobile_submenu_hamb_pack fl_l">
+                    	<div class="c_new_mobile_submenu_hamb"></div>
+                    </div>
+                    <a href="/" class="fl_l c_new_mobile_submenu_link c_new_mobile_submenu_link_cur">Ай да фрукты</a>
+                    <a href="/" class="fl_l c_new_mobile_submenu_link">Свежие</a>
+                    <a href="/" class="fl_l c_new_mobile_submenu_link">Ягоды</a>
+                    <div class="c_new_mobile_submenu_more">еще ...</div>
+                    <div class="clear"></div>
               </div>

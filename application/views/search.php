@@ -8,6 +8,27 @@
                     </div>
                 </div>
             </div>
+            <style>
+                @media all and (max-width: 1200px) {
+                    .mobile_search {
+                        display: block !important;
+                        height: 30px !important;
+                    }
+                    .m_h_search {
+                        opacity: 0;
+                    }
+                    .mobile_search_header_number {
+                        display: block;
+                    }
+                    .category_bg_helper {
+                        display: none;
+                    }
+                    .homm {
+                        display: none;
+                    }
+                }
+            </style>
+            <div class="mobile_search_header_number"><?php echo $articul ?></div>
             <div class="content_helper">
                 <div class="goods">
 					<div class="g_good fl_l">
@@ -35,14 +56,14 @@
 							</div>
 						</div>
 					</div>	 
-                    <div class="search_banner fl_r">
+                    <div class="search_banner homm fl_r">
                         <img src="/assets/img/commons/search_banner.jpg" alt="">
                     </div>
                     <div class="clear"></div>
                 </div>
             </div>
-            <div class="search_separator"></div>
-            <div class="content_helper">
+            <div class="search_separator homm"></div>
+            <div class="content_helper homm">
                 <div class="twin_header">Похожие товары</div>
                 <div class="goods">
                    <?php foreach($products as $product) { ?>						

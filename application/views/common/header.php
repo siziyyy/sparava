@@ -37,11 +37,55 @@ body,html,textarea{font-family:Calibri}
         <div class="closer all_menu_closer"></div>
         <div class="closer admin_window_closer"></div>
         <? // require '_modal.php'; ?><!-- modal -->
+        <div class="aside_mobile_menu">
+            <div class="aside_mobile_menu_header">
+                <div class="aside_mobile_menu_back sprite fl_l"></div>
+                <div class="aside_mobile_menu_logo fl_l">
+                    <img src="/assets/img/h_logo.jpg" class="m_h_logo_img" alt="sparava">
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="aside_mobile_menu_body">
+                <div class="aside_mobile_menu_label">Доставка и способы оплаты</div>
+                <div class="aside_mobile_menu_line">Обычная доставка</div>
+                <div class="aside_mobile_menu_text">Москва - 199 руб.</div>
+                <div class="aside_mobile_menu_text">МO (до 25 км от мкада) - 350 руб.</div>
+                <div class="aside_mobile_menu_subtext">
+                    Доставим завтра в любое удобное Вам время
+                    <br>с интервалом 1 час, с 10:00 до 21:00
+                </div>
+                <div class="aside_mobile_menu_line">Экспресс-доставка</div>
+                <div class="aside_mobile_menu_text">Москва - 199 руб.</div>
+                <div class="aside_mobile_menu_text">МO (до 25 км от мкада) - 350 руб.</div>
+                <div class="aside_mobile_menu_subtext">
+                    Доставим завтра в любое удобное Вам время
+                    <br>с интервалом 1 час, с 10:00 до 21:00
+                </div>
+                <div class="aside_mobile_menu_line">Минимальный заказ</div>
+                <div class="aside_mobile_menu_text">Минимальный заказ 1500 руб.</div>
+                <div class="aside_mobile_menu_subtext"></div>
+                <div class="aside_mobile_menu_line">Способы оплаты</div>
+                <div class="aside_mobile_menu_text">Наличными курьеру</div>
+                <div class="aside_mobile_menu_text">По карте</div>
+                <div class="aside_mobile_menu_subtext"></div>
+                <div class="aside_mobile_menu_label">Контакты</div>
+                <a href="tel:84955001020" class="aside_mobile_menu_big aside_menu_phone">8 495 500 10 20</a>
+                <a href="tel:84955001020" class="aside_mobile_menu_text aside_menu_phone">+7 495 542 1025</a>
+                <div class="aside_mobile_menu_label">Преимущества первого заказа</div>
+                <div class="aside_mobile_menu_bigsubtext">
+                    Мы обеспечиваем сходство, благодаря приме
+                    нению уникальной методики подбора Донора, 
+                    максимально совместимого с конкретным 
+                    Реципиентом. Позволяет сделать это специально 
+                    разработанная программа «ASTIGO».
+                </div>
+            </div>
+        </div>
 		<header>
 			<div class="content_helper">
                 <div class="mobile_header">
                     <div class="m_h_hamb sprite fl_l"></div>
-                    <div class="m_h_call sprite fl_l"></div>
+                    <a href="tel:84955001020"><div class="m_h_call sprite fl_l"></div></a>
                     <a href="/">
                         <div class="m_h_logo">
                             <img src="/assets/img/h_logo.jpg" class="m_h_logo_img" alt="sparava">
