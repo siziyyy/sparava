@@ -211,15 +211,25 @@ $(document).ready(function(){
 		e.preventDefault();
 		
 		current_page++;
-		category_id = $( this ).attr('data-category-id');
-		
 		tail = window.location.search;	
 		params = URLToArray(tail);
+		
+		send_data = {
+			type : 'load_products',
+			page : current_page,
+			filters : JSON.stringify(params)
+		}
+		
+		if($( this ).attr('data-category-id')) {
+			send_data.category_id = $( this ).attr('data-category-id');
+		} else if($( this ).attr('data-country-id')) {
+			send_data.country_id = $( this ).attr('data-country-id');
+		}
 
 		$.ajax({
 			url: '/ajax_handler',
 			type: 'post',
-			data: 'type=load_products&category_id=' + category_id + '&page=' + current_page + '&filters=' + JSON.stringify(params),
+			data: send_data,
 			dataType: 'json',
 			success: function(json) {
 				if(json['success']) {
