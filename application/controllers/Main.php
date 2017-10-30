@@ -30,10 +30,6 @@ class Main extends CI_Controller {
 		$this->load->view('information', $data);
 	}
 	
-	public function country() {
-		$this->load->view('country');
-	}	
-	
 	public function search() {		
 		if(is_null($this->input->post('articul')) or empty($this->input->post('articul'))) {
 			redirect(base_url('/'), 'refresh');
@@ -103,7 +99,113 @@ class Main extends CI_Controller {
 		$this->load->view('cart/checkout_success', $data);
 	}	
 	
-	public function category($category) {
+	public function country($country_id) {
+		
+		switch ($country_id) {
+			case 1:
+				$country = 'Россия';
+				break;
+			case 2:
+				$country = 'Италия';
+				break;
+			case 3:
+				$country = 'Испания';
+				break;
+			case 4:
+				$country = 'Греция';
+				break;
+			case 5:
+				$country = 'Швейцария';
+				break;
+			case 6:
+				$country = 'Армения';
+				break;
+			default:
+				$country = 'Россия';
+				break;				
+		}
+
+		$products = $this->baselib->get_country_products($country);
+		$categories = $this->baselib->get_all_categories();
+		$categories_for_country = array();
+
+		foreach($products as $product) {
+			foreach($product['categories'] as $category) {
+				if(isset($categories[$category])) {
+					$categories_for_country[$category] = $categories[$category];
+				}
+			}
+		}
+		
+		$filters = array(
+			'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
+		);
+
+		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
+		
+		$filters_arr = array(
+			'categories' => ($filters['category'] ? explode(';',$filters['category']) : 0)
+		);
+		
+		foreach($products as $product_id => $product) {
+			$categories_to_compare = array();
+			
+			foreach($product['categories'] as $category_id) {
+				if(isset($categories[$category_id])) {
+					$categories_to_compare[] = $categories[$category_id]['title'];
+				}
+			}
+			
+			if($filters_arr['categories'] and count(array_intersect($filters_arr['categories'],$categories_to_compare)) == 0) {
+				unset($products[$product_id]);
+				continue;
+			}			
+		}
+		
+		$prodcuts_in_page = array();
+		$page_start = ($page-1)*10;
+		$page_end = $page*10;
+		$i = 0;
+		$pages_count = (int)(count($products)/10);
+		
+		if(count($products)%10 > 0)  {
+			$pages_count++;
+		}
+		
+		foreach($products as $product_id => $product) {
+			if($i >= $page_start and $i <$page_end) {
+				$prodcuts_in_page[] = $product;
+			}
+			
+			$i++;
+		}	
+
+		$data = array(
+			'header' => array(
+				'cart' => $this->get_cart_info_for_header()
+			),
+			'menu' => array(
+				'filters' => $filters
+			),
+			'products' => $prodcuts_in_page,
+			'current_page' => $page,
+			'pages_count' => $pages_count,
+			'country_id' => $country_id,
+			'country' => $country,
+			'categories' => $categories_for_country,
+			'footer' => array(
+				'account_confirm' => $this->baselib->get_account_data_for_confirm()
+			)
+		);
+		
+		$this->load->view('country',$data);
+	}
+	
+	public function category($category = false) {
+		
+		if(!$category) {
+			redirect(base_url('/'), 'refresh');
+		}
 		
 		$filters = array(
 			'country' => (!is_null($this->input->get('country')) ? $this->input->get('country') : 0),
@@ -152,6 +254,7 @@ class Main extends CI_Controller {
 		
 		$data['products'] = $products_in_page['products'];
 		$data['pages_count'] = $products_in_page['pages_count'];
+		$data['filters_used'] = $products_in_page['filters_used'];
 		$data['current_page'] = $page;
 		$data['menu']['products_count'] = $products_in_page['products_count'];
 		
@@ -179,31 +282,38 @@ class Main extends CI_Controller {
 			'weight' => ($filters['weight'] ? explode(';',$filters['weight']) : 0),
 			'pack' => ($filters['pack'] ? explode(';',$filters['pack']) : 0),
 			'composition' => ($filters['composition'] ? explode(';',$filters['composition']) : 0)
-		);		
+		);
+
+		$filters_used = false;
 		
 		foreach($products as $product_id => $product) {
 			if($filters_arr['country'] and !in_array($product['country'], $filters_arr['country'])) {
 				unset($products[$product_id]);
+				$filters_used = true;
 				continue;
 			}
 			
 			if($filters_arr['weight'] and !in_array($product['weight'], $filters_arr['weight'])) {
 				unset($products[$product_id]);
+				$filters_used = true;
 				continue;
 			}	
 			
 			if($filters_arr['pack'] and !in_array($product['pack'], $filters_arr['pack'])) {
 				unset($products[$product_id]);
+				$filters_used = true;
 				continue;
 			}
 
 			if($filters_arr['composition'] and !in_array($product['composition'], $filters_arr['composition'])) {
 				unset($products[$product_id]);
+				$filters_used = true;
 				continue;
 			}
 			
 			if($filters['price']) {
 				$price_sort[$product_id] = $product['price'];
+				$filters_used = true;
 			}			
 		}
 		
@@ -234,7 +344,8 @@ class Main extends CI_Controller {
 		return array(
 			'products' => $prodcuts_in_page,
 			'pages_count' => $pages_count,
-			'products_count' => count($products)
+			'products_count' => count($products),
+			'filters_used' => $filters_used
 		);
 	}
 	
@@ -265,59 +376,14 @@ class Main extends CI_Controller {
 		
 		$data['menu']['attributes'] = $this->baselib->handle_attributes($products);
 		$data['menu']['filters'] = $filters;
-		
-		$price_sort = array();
-		
-		foreach($products as $product_id => $product) {
-			if($filters['country'] and $product['country'] != $filters['country']) {
-				unset($products[$product_id]);
-				continue;
-			}
-			
-			if($filters['weight'] and $product['weight'] != $filters['weight']) {
-				unset($products[$product_id]);
-				continue;
-			}	
 
-			if($filters['composition'] and $product['composition'] != $filters['composition']) {
-				unset($products[$product_id]);
-				continue;
-			}
+		$products_in_page = $this->filter_products($products,$filters,$page);
 			
-			if($filters['price']) {
-				$price_sort[$product_id] = $product['price'];
-			}			
-		}
-		
-		$prodcuts_in_page = array();
-		$page_start = ($page-1)*10;
-		$page_end = $page*10;
-		$i = 0;
-		$pages_count = ((int)count($products)/10);
-		
-		if(count($products)%10 > 0)  {
-			$pages_count++;
-		}
-		
-		foreach($products as $product_id => $product) {
-			if($i >= $page_start and $i <$page_end) {
-				$prodcuts_in_page[] = $product;
-			}
-			
-			$i++;
-		}
-			
-		
-		if($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'asc') {
-			array_multisort($price_sort,SORT_ASC, $products);
-		} elseif($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'desc') {
-			array_multisort($price_sort,SORT_DESC, $products);
-		}
-			
-		$data['products'] = $prodcuts_in_page;
-		$data['pages_count'] = $pages_count;
+		$data['products'] = $products_in_page['products'];
+		$data['pages_count'] = $products_in_page['pages_count'];
+		$data['filters_used'] = $products_in_page['filters_used'];
 		$data['current_page'] = $page;
-		$data['menu']['products_count'] = count($products);
+		$data['menu']['products_count'] = $products_in_page['products_count'];
 		
 		$this->load->view('category', $data);
 	}
@@ -350,58 +416,13 @@ class Main extends CI_Controller {
 		$data['menu']['attributes'] = $this->baselib->handle_attributes($products);
 		$data['menu']['filters'] = $filters;
 
-		$price_sort = array();
+		$products_in_page = $this->filter_products($products,$filters,$page);
 		
-		foreach($products as $product_id => $product) {
-			if($filters['country'] and $product['country'] != $filters['country']) {
-				unset($products[$product_id]);
-				continue;
-			}
-			
-			if($filters['weight'] and $product['weight'] != $filters['weight']) {
-				unset($products[$product_id]);
-				continue;
-			}	
-
-			if($filters['composition'] and $product['composition'] != $filters['composition']) {
-				unset($products[$product_id]);
-				continue;
-			}
-			
-			if($filters['price']) {
-				$price_sort[$product_id] = $product['price'];
-			}			
-		}
-		
-		$prodcuts_in_page = array();
-		$page_start = ($page-1)*10;
-		$page_end = $page*10;
-		$i = 0;
-		$pages_count = ((int)count($products)/10);
-		
-		if(count($products)%10 > 0)  {
-			$pages_count++;
-		}
-		
-		foreach($products as $product_id => $product) {
-			if($i >= $page_start and $i <$page_end) {
-				$prodcuts_in_page[] = $product;
-			}
-			
-			$i++;
-		}
-			
-		
-		if($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'asc') {
-			array_multisort($price_sort,SORT_ASC, $products);
-		} elseif($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'desc') {
-			array_multisort($price_sort,SORT_DESC, $products);
-		}
-			
-		$data['products'] = $prodcuts_in_page;
-		$data['pages_count'] = $pages_count;
+		$data['products'] = $products_in_page['products'];
+		$data['pages_count'] = $products_in_page['pages_count'];
+		$data['filters_used'] = $products_in_page['filters_used'];
 		$data['current_page'] = $page;
-		$data['menu']['products_count'] = count($products);			
+		$data['menu']['products_count'] = $products_in_page['products_count'];
 		
 		$this->load->view('category', $data);
 	}
@@ -814,7 +835,7 @@ class Main extends CI_Controller {
 
 			case 'load_products':
 			
-				if(!is_null($this->input->post('category_id')) and !is_null($this->input->post('page'))) {
+				if((!is_null($this->input->post('category_id')) or !is_null($this->input->post('country_id'))) and !is_null($this->input->post('page'))) {
 					
 					$filters_post = json_decode($this->input->post('filters'));
 										
@@ -826,41 +847,98 @@ class Main extends CI_Controller {
 						'price' => (isset($filters_post->price) ? $filters_post->price : 0)
 					);
 					
-					$products = $this->baselib->get_category_products($this->input->post('category_id'));
-					$products_in_page = $this->filter_products($products,$filters,$this->input->post('page'));
+					if(!is_null($this->input->post('category_id'))) {
+						$products = $this->baselib->get_category_products($this->input->post('category_id'));
+						$products_in_page = $this->filter_products($products,$filters,$this->input->post('page'));
+					} elseif(!is_null($this->input->post('country_id'))) {
+
+						switch ($this->input->post('country_id')) {
+							case 1:
+								$country = 'Россия';
+								break;
+							case 2:
+								$country = 'Италия';
+								break;
+							case 3:
+								$country = 'Испания';
+								break;
+							case 4:
+								$country = 'Греция';
+								break;
+							case 5:
+								$country = 'Швейцария';
+								break;
+							case 6:
+								$country = 'Армения';
+								break;
+							default:
+								$country = 'Россия';
+								break;				
+						}
+
+						$products = $this->baselib->get_country_products($country);	
+
+						$categories = $this->baselib->get_all_categories();
+						$categories_for_country = array();
+
+						foreach($products as $product) {
+							foreach($product['categories'] as $category) {
+								if(isset($categories[$category])) {
+									$categories_for_country[$category] = $categories[$category];
+								}
+							}
+						}
+						
+						$filters = array(
+							'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
+						);
+
+						$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
+						
+						$filters_arr = array(
+							'categories' => ($filters['category'] ? explode(';',$filters['category']) : 0)
+						);
+						
+						foreach($products as $product_id => $product) {
+							$categories_to_compare = array();
+							
+							foreach($product['categories'] as $category_id) {
+								if(isset($categories[$category_id])) {
+									$categories_to_compare[] = $categories[$category_id]['title'];
+								}
+							}
+							
+							if($filters_arr['categories'] and count(array_intersect($filters_arr['categories'],$categories_to_compare)) == 0) {
+								unset($products[$product_id]);
+								continue;
+							}			
+						}
+						
+						$products_in_page = array();
+						$page_start = ($page-1)*10;
+						$page_end = $page*10;
+						$i = 0;
+						
+						foreach($products as $product_id => $product) {
+							if($i >= $page_start and $i <$page_end) {
+								$products_in_page['products'][] = $product;
+							}
+							
+							$i++;
+						}
+					}
+					
+					
 					
 					$html = '';
 					
 					foreach($products_in_page['products'] as $product) {
-						$html .= '<div class="g_good fl_l">';
-						$html .= '<div class="g_good_photo_block">';
-						$html .= '<img src="/images/'.$product["image"].'" alt="'.$product["title"].'" class="g_good_photo">';
-						$html .= '</div>';
 						
-                        if(isset($product["old_price"])) { 
-							$html .= '<div class="g_old_good_price">'.$product["old_price"].' <span class="rouble">o</span></div>';
-						}
+						$data = array(
+							'product' => $product
+						);
 						
-						$html .= '<div class="g_good_price"><span class="g_good_price_value">'.$product["price"].'</span> <span class="rouble">o</span></div>';
-						$html .= '<div class="g_old_good_price_date">'.($product["special_end_date"] ? "до ".$product["special_end_date"] : "").'</div>';
-						$html .= '<div class="g_good_name">'.$product["title"].'</div>';
-						$html .= '<div class="g_good_description">';
-						$html .= $product["description"];
-						$html .= '</div>';
-						$html .= '<div class="g_good_country">'.$product["brand"].' - '.$product["country"].'<span class="g_good_id">'.$product["articul"].'</span></div>';
-                        $html .= '<div class="g_good_actions">';
-                        $html .= '<div class="g_good_count">';
-						$html .= '<input type="text" class="g_good_counter" value="1">';
-						$html .= '<span class="g_good_count_legend">'.$product["type"].'</span>';
-						$html .= '</div>';
-                        $html .= '<div class="g_good_to_cart" data-product-id="'.$product["product_id"].'">';
-						$html .= '<span class="g_good_to_cart_text"><span class="g_good_to_cart_value">'.$product["price"].'</span> <span class="rouble">o</span></span>';
-						$html .= '<span class="g_good_to_cart_icon sprite"></span>';
-						$html .= '</div>';
-						$html .= '<div class="g_admin_info" data-product-id="'.$product["product_id"].'" style="display: inline-block;">inf</div>';
-                        $html .= '</div>';   
-                        $html .= '</div>';       
-
+						$html .= $this->load->view('common/load-product', $data, true);
 					}
 					
 					$json['success'] = $html;

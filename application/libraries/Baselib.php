@@ -22,6 +22,20 @@ class Baselib {
 		return $result;
 	}
 	
+	public function get_all_categories() {
+		
+		$categories = array();
+		$query = $this->_ci->db->select("*")->from("categories")->get();
+		
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $row) {				
+				$categories[$row['category_id']] = $row;
+			}
+		}
+		
+		return $categories;
+	}
+	
 	public function get_categories($current_category = false,$all_in_first_line = false) {
 		
 		$categories = array();
@@ -151,6 +165,42 @@ class Baselib {
 		return $this->handle_special_price($products);
 	}
 	
+	public function get_country_products($country) {
+		
+		$ptc = array();
+		
+		$sql = 'SELECT * FROM product_to_category';
+				
+		$query = $this->_ci->db->query($sql);
+
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $row) {
+				$ptc[$row['product_id']][] = $row['category_id'];		
+			}			
+		}			
+		
+		$products = array();
+		
+		$sql = 'SELECT * FROM products WHERE country = "' . $country . '" ORDER BY product_id ASC';
+				
+		$query = $this->_ci->db->query($sql);
+
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $row) {
+				$products[$row['product_id']] = $row;
+				if(isset($ptc[$row['product_id']])) {
+					$products[$row['product_id']]['categories'] = $ptc[$row['product_id']];
+				} else {
+					$products[$row['product_id']]['categories'] = array();
+				}
+			}			
+		}
+		
+		ksort($products);
+		
+		return $this->handle_special_price($products);
+	}	
+	
 	public function get_products($type) {
 		
 		$products = array();
@@ -202,7 +252,7 @@ class Baselib {
 						$products[$product_id]['price'] = $product['special'];
 						$products[$product_id]['special_end_date'] = date('d.m', $special_end);
 					}
-				} elseif(!$special_begin) {
+				} elseif(!$special_begin and $special_end) {
 					if(time() < $special_end and $product['special'] > 0) {
 						$products[$product_id]['old_price'] = $product['price'];
 						$products[$product_id]['price'] = $product['special'];
@@ -241,7 +291,7 @@ class Baselib {
 					$products['price'] = $products['special'];
 					$products['special_end_date'] = date('d.m', $special_end);
 				}
-			} elseif(!$special_begin) {
+			} elseif(!$special_begin and $special_end) {
 				if(time() < $special_end and $products['special'] > 0) {
 					$products['old_price'] = $products['price'];
 					$products['price'] = $products['special'];
