@@ -22,12 +22,14 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `create_date` int(11) unsigned NOT NULL,
   PRIMARY KEY (`account_id`),
   KEY `account_id` (`account_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы fruit.accounts: 1 rows
+-- Дамп данных таблицы fruit.accounts: 3 rows
 /*!40000 ALTER TABLE `accounts` DISABLE KEYS */;
 INSERT IGNORE INTO `accounts` (`account_id`, `email`, `password`, `name`, `phone`, `bonus`, `create_date`) VALUES
-	(7, 'tural.pro@gmail.com', '41285485fa57c940323d4145970c2d5d', 'Турал', '12312312', 0, 1507141325);
+	(7, 'tural.pro@gmail.com', '99a13ba9b0dc746b7d348a80c27de6b8', 'Турал', '12312312', 0, 1507141325),
+	(8, 'qwe', 'c30b912ab2beb36c3c1fb8413fd98026', 'qwe', 'qwe', 0, 1508956131),
+	(9, 'qwe@ya.ru', '9c538527828fb0a115d24f170f9e6a03', 'qwe', 'qwe', 0, 1508957075);
 /*!40000 ALTER TABLE `accounts` ENABLE KEYS */;
 
 -- Дамп структуры для таблица fruit.categories
@@ -168,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   PRIMARY KEY (`order_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы fruit.orders: 18 rows
+-- Дамп данных таблицы fruit.orders: 20 rows
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
 INSERT IGNORE INTO `orders` (`order_id`, `account_id`, `shipping_address`, `shipping_metro`, `shipping_method`, `shipping_method_id`, `shipping_price`, `shipping_date`, `courier_id`, `used_bonus`, `create_date`, `status`) VALUES
 	(1, 7, '', '', 'Экспресс доставка', 0, 399, '', 0, 1, 1507148521, 0),
@@ -204,7 +206,7 @@ CREATE TABLE IF NOT EXISTS `order_inners` (
   PRIMARY KEY (`order_inners_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы fruit.order_inners: 19 rows
+-- Дамп данных таблицы fruit.order_inners: 24 rows
 /*!40000 ALTER TABLE `order_inners` DISABLE KEYS */;
 INSERT IGNORE INTO `order_inners` (`order_inners_id`, `order_id`, `title`, `quantity`, `price`, `product_id`) VALUES
 	(1, 6, 'Мясо 1', 20, 50, 28),
@@ -265,17 +267,17 @@ CREATE TABLE IF NOT EXISTS `products` (
 -- Дамп данных таблицы fruit.products: 12 rows
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
 INSERT IGNORE INTO `products` (`product_id`, `title`, `brand`, `quantity`, `type`, `cost`, `percent`, `price`, `image`, `description`, `country`, `special`, `special_begin`, `special_end`, `subtract`, `status`, `condition_id`, `eko`, `farm`, `weight`, `composition`, `provider`, `pack`) VALUES
-	(34, 'Мясо 7', 'Valio', 100, 'кг', 20, 50, 35, 'yabloko_1.jpg', 'Сочное мясо', 'Россия', 80, NULL, NULL, 0, 1, 1, 0, 0, NULL, NULL, NULL, 'тип 1'),
+	(34, 'Мясо 7', 'Valio', 100, 'кг', 20, 50, 35, 'yabloko_1.jpg', 'Сочное мясо', 'Россия', 80, '0000-00-00', '0000-00-00', 0, 1, 1, 0, 0, '', '', NULL, 'тип 1'),
 	(33, 'Мясо 6', 'Valio', 100, 'кг', 20, 50, 40, 'yabloko_2.jpg', 'Сочное мясо', 'Россия', 80, NULL, NULL, 0, 1, 1, 0, 0, NULL, NULL, NULL, 'тип 2'),
 	(32, 'Мясо 5', 'Valio', 100, 'кг', 20, 50, 50, 'yabloko_3.jpg', 'Сочное мясо', 'Россия', 80, NULL, NULL, 0, 1, 1, 0, 1, NULL, NULL, NULL, NULL),
 	(31, 'Мясо 4', 'Valio', 100, 'кг', 20, 50, 0, 'yabloko_4.jpg', 'Сочное мясо', 'Россия', 80, NULL, NULL, 0, 1, 1, 0, 1, '400', 'говядина', NULL, NULL),
 	(30, 'Мясо 3', 'Valio', 100, 'кг', 20, 50, 0, 'yabloko_5.jpg', 'Сочное мясо', 'Россия', 80, NULL, NULL, 0, 1, 1, 0, 0, '300', 'говядина', NULL, NULL),
-	(29, 'Мясо 2', 'Valio', 100, 'кг', 20, 50, 0, 'yabloko_6.jpg', 'Сочное мясо', 'Россия', 40, '2017-09-27', '2017-10-30', 0, 1, 1, 1, 0, '200', 'свинина', NULL, NULL),
-	(28, 'Мясо 1', 'Valio', 100, 'кг', 20, 50, 0, 'yabloko_7.jpg', 'Сочное мясо', 'Россия', 80, '2017-09-29', '2017-10-30', 0, 1, 1, 1, 0, '100', 'мясо', NULL, NULL),
-	(35, 'Мясо 8', 'Valio', 100, 'кг', 20, 50, 0, 'yabloko_7.jpg', 'Сочное мясо', 'Российская Федерация', 80, '2017-09-29', '2017-10-10', 0, 1, 1, 0, 0, NULL, NULL, NULL, NULL),
-	(36, 'Мясо 9', 'Valio', 100, 'кг', 20, 50, 50, 'yabloko_7.jpg', 'Сочное мясо', 'Россия', 80, '2017-09-29', '2017-10-30', 0, 1, 1, 0, 0, NULL, NULL, NULL, NULL),
-	(37, 'Мясо 1', 'Valio', 100, 'кг', 20, 50, 0, 'yabloko_7.jpg', 'Сочное мясо', 'Россия', 80, '2017-09-29', '2017-10-30', 0, 1, 1, 1, 0, '100', 'мясо', NULL, NULL),
-	(38, 'Мясо 2', 'Valio', 100, 'кг', 20, 50, 0, 'yabloko_6.jpg', 'Сочное мясо', 'Россия', 40, '2017-09-27', '2017-10-30', 0, 1, 1, 1, 0, '200', 'свинина', NULL, NULL),
+	(29, 'Мясо 2', 'Valio', 100, 'кг', 20, 50, 0, 'yabloko_6.jpg', 'Сочное мясо', 'Россия', 40, '2017-09-27', '2017-11-30', 0, 1, 1, 1, 0, '200', 'свинина', NULL, NULL),
+	(28, 'Мясо 1', 'Valio', 100, 'кг', 20, 50, 0, 'yabloko_7.jpg', 'Сочное мясо', 'Россия', 80, '2017-09-29', '2017-11-30', 0, 1, 1, 1, 0, '100', 'мясо', NULL, NULL),
+	(35, 'Мясо 8', 'Valio', 100, 'кг', 20, 50, 0, 'yabloko_7.jpg', 'Сочное мясо 123', 'Российская Федерация', 80, '2017-09-29', '2017-10-10', 0, 1, 1, 0, 0, '', '', NULL, ''),
+	(36, 'Мясо 9', 'Valio', 100, 'кг', 20, 50, 50, 'yabloko_7.jpg', 'Сочное мясо', 'Россия', 80, '2017-09-29', '2017-11-30', 0, 1, 1, 0, 0, '', '', NULL, ''),
+	(37, 'Мясо 1', 'Valio', 100, 'кг', 20, 50, 0, 'yabloko_7.jpg', 'Сочное мясо', 'Россия', 80, '2017-09-29', '2017-11-30', 0, 1, 1, 1, 0, '100', 'мясо', NULL, NULL),
+	(38, 'Мясо 2', 'Valio', 100, 'кг', 20, 50, 0, 'yabloko_6.jpg', 'Сочное мясо', 'Россия', 40, '2017-09-27', '2017-11-30', 0, 1, 1, 1, 0, '200', 'свинина', NULL, NULL),
 	(39, 'Мясо 3', 'Valio', 100, 'кг', 20, 50, 0, 'yabloko_5.jpg', 'Сочное мясо', 'Россия', 80, NULL, NULL, 0, 1, 1, 0, 0, '300', 'говядина', NULL, NULL);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 
@@ -287,7 +289,7 @@ CREATE TABLE IF NOT EXISTS `product_to_category` (
   KEY `category_id` (`category_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы fruit.product_to_category: 13 rows
+-- Дамп данных таблицы fruit.product_to_category: 14 rows
 /*!40000 ALTER TABLE `product_to_category` DISABLE KEYS */;
 INSERT IGNORE INTO `product_to_category` (`product_id`, `category_id`) VALUES
 	(28, 24),
@@ -298,6 +300,7 @@ INSERT IGNORE INTO `product_to_category` (`product_id`, `category_id`) VALUES
 	(33, 24),
 	(34, 24),
 	(35, 24),
+	(35, 25),
 	(36, 24),
 	(36, 25),
 	(37, 25),
