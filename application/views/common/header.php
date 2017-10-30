@@ -50,10 +50,11 @@ body,html,textarea{font-family:Calibri}
                     <a href="/cart">
                         <div class="m_h_cart fl_r">
                             <div class="m_h_cart_icon sprite fl_l"></div>
-                            <div class="m_h_cart_text fl_l">- 0</div>
+                            <div class="m_h_cart_text fl_l">0</div>
                             <div class="clear"></div>
                         </div>
                     </a>
+                    <div class="m_h_search sprite fl_r"></div>
                     <div class="clear"></div>
                 </div>			
 				<div class="main_header">
@@ -83,3 +84,11 @@ body,html,textarea{font-family:Calibri}
 				</div>
 			</div>
 		</header>
+        <div class="mobile_search">
+            <div class="f_block_search">
+                <form method="post" action="/search">
+                    <input type="text" class="f_block_search_inp" name="articul" placeholder="поиск по артикулу">
+                    <button type="submit" class="f_block_search_butt sprite"></button>
+                </form>
+            </div>
+        </div>

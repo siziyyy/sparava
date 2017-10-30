@@ -185,6 +185,12 @@
     background: #5ea424;
     padding: 5px 30px 8px;
 }
+.c_new_mobile_menu {
+    display: none;
+}
+.mobile_banner {
+    display: none;
+}
 /* media */
 @media all and (max-width: 1200px) {
     .b_text {
@@ -194,15 +200,295 @@
     .b_undertext {
         font-size: 27px;
     }
+    .c_new_menu_line_item {
+        font-size: 14px;
+    }
+    .c_new_menu_line_item {
+        font-size: 14px;
+    }
+    .c_new_index_menu_dropdown {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        right: 10px;
+    }
+    .index_c_new_menu {
+        display: none;
+    }
+    .c_new_mobile_menu {
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: auto;
+        height: 50px;
+        line-height: 50px;
+        overflow-y: hidden;
+    }
+    .c_mobile_menu_link {
+        font-size: 16px;
+        font-family:Calibri Bold;
+        color: #000;
+        text-transform: uppercase;
+        margin-right: 28px;
+    }
+    .c_new_menu_hide {
+        display: none;
+    }
+    .category_bg_helper {
+        width: 100% !important;
+        background: #f7f7f7 !important;
+        height: 142px !important;
+        margin: 13px 0 -126px 0 !important;
+    }
+    .g_good {
+        width: 24% !important;
+    }
+    .g_good_photo_block {
+        width: 100% !important;
+    }
+    .g_good:nth-child(4n) {
+        margin: 0;
+    }
+    .g_good:nth-child(5n) {
+        margin: 0 12px 0 0 !important;
+    }
 }
 @media all and (max-width: 980px) {
     .c_mosaic_grid_sizer, .c_mosaic_item {
         height: 100px;
+    }
+    .g_good {
+        width: 32% !important;
+    }
+    .g_good_photo_block {
+        width: 100% !important;
+    }
+    .g_good:nth-child(3n) {
+        margin: 0;
+    }
+    .g_good:nth-child(4n) {
+        margin: 0 12px 0 0 !important;
+    }
+    .g_good:nth-child(5n) {
+        margin: 0 12px 0 0 !important;
     }
     .c_mosaic_item_height {
         height: 207px;
     }
     .c_mosaic_item_text {
         font-size: 16px;
+    }
+    .c_mosaic_delivery {
+        display: none;
+    }
+    header {
+        height: 70px;
+    }
+}
+@media all and (max-width: 800px) {
+    .g_good {
+        width: 48% !important;
+    }
+    .g_good_photo_block {
+        width: 100% !important;
+    }
+    .g_good:nth-child(2n) {
+        margin: 0 0 30px 0;
+    }
+    .g_good:nth-child(3n) {
+        margin: 0 12px 30px 0 !important;
+    }
+    .g_good:nth-child(4n) {
+        margin: 0 12px 30px 0 !important;
+    }
+    .g_good:nth-child(5n) {
+        margin: 0 12px 30px 0 !important;
+    }
+    .mobile_banner_text_header {
+        font-family:Calibri Bold;
+        margin-top: 25px;
+    }
+    .mobile_banner_banner {
+        color: #000;
+        text-align: left;
+        width: 80%;
+        margin: 0 auto;
+        display: none;
+    }
+    .mobile_banner_icons {
+        display: block;
+        width: 80%;
+        margin: 0 auto 25px;
+    }
+    .mobile_banner_icons_icon {
+        width: 33%;
+    }
+    .mobile_banner_icons_icon_img {
+        width: 82px;
+        height: 82px;
+        margin: 0 auto 0px;
+    }
+    .mobile_banner_text {
+        margin-bottom: 30px;
+    }
+    .m_b_b_i_t_bold {
+        font-family:Calibri Bold;
+    }
+    .mobile_banner_icons_icon_text {
+        font-size: 15px;
+        color: #fe4517;
+    }
+    .mobile_banner_text_header {
+        font-size: 25px;
+    }
+    .mobile_banner_text_subheader {
+        font-size: 16px;
+        margin-top: 32px;
+    }
+    .c_mosaic_grid_sizer, .c_mosaic_item {
+        height: 200px;
+        width: 49%;
+    }
+    .c_mosaic_item_height {
+        height: 200px;
+    }
+    .c_mosaic_item_width {
+        width: 99%;
+    }
+    .c_mosaic_item_text {
+        font-size: 16px;
+    }
+    .c_mosaic_item_width_for_mobile {
+        width: 49%;
+    }
+    .c_mosaic_item_width_for_mobile_long {
+        width: 99%;
+    }
+    .banner {
+        display: none;
+    }
+    .mobile_banner {
+        display: block;
+        text-align: center;
+    }
+    .m_h_logo_img {
+        width: 130px;
+    }
+    .m_h_call {
+        margin: 8px 0 0 5px;
+    }
+    .m_h_logo {
+        margin: 2px 0 0 0;
+    }
+    .mobile_banner_banner_text_header {
+        font-size: 10px;
+        font-family:Calibri Bold;
+    }
+    .mobile_banner_banner_text {
+        margin-top: 55px;
+        margin-right: 20px;
+    }
+    .mobile_banner_banner_text_body {
+        font-size: 12px;
+        font-family:Calibri Bold;
+        color: #5ea424;
+        margin: 10px 0 5px;
+    }
+    .mobile_banner_banner_text_footer {
+        font-size: 10px;
+    }
+    .c_mobile_menu_link {
+        font-size: 11px;
+    }
+    footer {
+        display: none;
+    }
+    .content_helper {
+        padding: 0 10px;
+    }
+}
+@media all and (max-width: 425px) {
+    .mobile_banner_text_header {
+        font-size: 17px;
+        font-family:Calibri Bold;
+        margin-top: 25px;
+    }
+    .mobile_banner_text {
+        margin-bottom: 0px;
+    }
+    .mobile_banner_text_subheader {
+        font-size: 12px;
+        margin-top: 25px;
+    }
+    .mobile_banner_banner {
+        color: #000;
+        text-align: left;
+        display: block;
+        width: 80%;
+        margin: 0 auto;
+    }
+    .mobile_banner_icons {
+        display: block;
+        width: 80%;
+        margin: 0 auto 25px;
+    }
+    .mobile_banner_icons_icon {
+        width: 33%;
+    }
+    .mobile_banner_icons_icon_img {
+        width: 82px;
+        height: 82px;
+        -webkit-transform: scale(.5);
+           -moz-transform: scale(.5);
+            -ms-transform: scale(.5);
+             -o-transform: scale(.5);
+                transform: scale(.5);
+        margin: 0 auto -20px;
+    }
+    .m_b_b_i_t_bold {
+        font-family:Calibri Bold;
+    }
+    .mobile_banner_icons_icon_text {
+        font-size: 9px;
+        color: #fe4517;
+    }
+    .c_mosaic_grid_sizer, .c_mosaic_item {
+        height: 100px;
+        width: 49%;
+    }
+    .c_mosaic_item_height {
+        height: 100px;
+    }
+    .c_mosaic_item_width {
+        width: 99%;
+    }
+    .c_mosaic_item_text {
+        font-size: 12px;
+    }
+    .c_mosaic_item_width_for_mobile {
+        width: 49%;
+    }
+    .c_mosaic_item_width_for_mobile_long {
+        width: 99%;
+    }
+    .content {
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f0f0f0+100 */
+        background: #ffffff; /* Old browsers */
+        background: -moz-linear-gradient(top, #ffffff 0%, #f0f0f0 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, #ffffff 0%,#f0f0f0 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, #ffffff 0%,#f0f0f0 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f0f0f0',GradientType=0 ); /* IE6-9 */
+        margin: 0 0 -21px 0;
+        padding: 0 0 30px 0;
+    }
+    .g_good_photo_block {
+        width: 100% !important;
+    }
+    .g_good {
+        width: 100% !important;
+    }
+    .g_good {
+        height: auto !important;
+         margin: 0 0 30px 0 !important;
     }
 }
