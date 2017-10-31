@@ -65,5 +65,4 @@
 				<?php } ?>
             </div>
         </section>
-		<iframe src="http://fruit.local/main/iframe" height="1" width="1" name="admin"></iframe>
 <?php $this->load->view('common/footer',$footer);?>

