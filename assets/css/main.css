@@ -20,6 +20,9 @@ header {
   font-family: 'rouble';
   font-size: 0.9em;
 }
+.product_image {
+	width: 220px;
+}
 .content {
     min-height: calc(100% - 475px);
 }
@@ -702,6 +705,9 @@ footer {
 .c_new_index_menu_dropdown_head {
     font-family:Calibri Bold;
     margin-bottom: 20px;
+}
+.hide_select {
+	display:none;
 }
 /* media */
 @media all and (max-width: 1200px) {

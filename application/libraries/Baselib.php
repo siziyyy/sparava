@@ -140,7 +140,7 @@ class Baselib {
 			$category_id = $category;
 		}
 		
-		$sql = 'SELECT p.* FROM products AS p, product_to_category AS ptc WHERE p.product_id = ptc.product_id AND ptc.category_id = ' . (int)$category_id . ' ORDER BY product_id ASC';
+		$sql = 'SELECT p.* FROM products AS p, product_to_category AS ptc WHERE p.product_id = ptc.product_id AND p.status = 1  AND ptc.category_id = ' . (int)$category_id . ' ORDER BY product_id ASC';
 				
 		$query = $this->_ci->db->query($sql);
 
@@ -150,7 +150,7 @@ class Baselib {
 			}			
 		}
 		
-		$sql = 'SELECT p.* FROM products AS p, product_to_category AS ptc WHERE p.product_id = ptc.product_id AND ptc.category_id IN (SELECT category_id FROM categories WHERE parent_id = ' . (int)$category_id . ' ) ORDER BY product_id ASC';
+		$sql = 'SELECT p.* FROM products AS p, product_to_category AS ptc WHERE p.product_id = ptc.product_id AND p.status = 1 AND ptc.category_id IN (SELECT category_id FROM categories WHERE parent_id = ' . (int)$category_id . ' ) ORDER BY product_id ASC';
 		
 		$query = $this->_ci->db->query($sql);
 		
@@ -181,7 +181,7 @@ class Baselib {
 		
 		$products = array();
 		
-		$sql = 'SELECT * FROM products WHERE country = "' . $country . '" ORDER BY product_id ASC';
+		$sql = 'SELECT * FROM products WHERE status = 1 AND country = "' . $country . '" ORDER BY product_id ASC';
 				
 		$query = $this->_ci->db->query($sql);
 
@@ -205,7 +205,7 @@ class Baselib {
 		
 		$products = array();
 		
-		$query = $this->_ci->db->select("*")->from("products");
+		$query = $this->_ci->db->select("*")->from("products")->where("status",1);
 		
 		if($type == 'farm') {
 			$query = $query->where('farm','1');
@@ -348,7 +348,7 @@ class Baselib {
 
 	public function get_product_by_id($product_id) {
 		
-		$query = $this->_ci->db->get_where("products", array("product_id" => $product_id));
+		$query = $this->_ci->db->get_where("products", array("product_id" => $product_id,"status" => 1));
 		
 		if ($query->num_rows() > 0) {
 			$product = $query->row_array();			
@@ -448,7 +448,7 @@ class Baselib {
 	public function get_product_articul($product_id) {
 		$articul = (string)$product_id;
 		
-		for ($i = strlen($articul); $i <= 4; $i++) {
+		for ($i = strlen($articul); $i <= 3; $i++) {
 			$articul = '0'.$articul;
 		}
 		

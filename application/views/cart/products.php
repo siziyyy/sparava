@@ -8,7 +8,7 @@
 	<?php foreach($products as $product) { ?>
 		<div class="c_inners_side_tr">
 			<div class="c_inners_td fl_l c_inners_first_td">
-				<div class="c_inners_photo fl_l" style="background: url(/assets/img/goods/1.jpg);"></div>
+				<div class="c_inners_photo fl_l" style="background: url(images/<?php echo $product['image'] ?>);"></div>
 				<div class="c_inners_photo_legend fl_r">
 					<? /*
 					<div class="c_inners_photo_legend_name"><?php echo $product['title'] ?></div>

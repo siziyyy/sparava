@@ -8,7 +8,7 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
-			'menu' => $this->baselib->get_categories(),
+			'menu' => $this->baselib->get_categories(false,true),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
@@ -38,7 +38,7 @@ class Main extends CI_Controller {
 		}
 		
 		$product = $this->baselib->get_product_by_id($product_id);
-	
+		
 		if(!$product) {
 			redirect(base_url('/'), 'refresh');
 		}
@@ -56,12 +56,12 @@ class Main extends CI_Controller {
 		$products_to_show = array();
 		$i = 0;
 		
-		foreach($products as $product) {
+		foreach($products as $product_data) {
 			if($i > 4) {
 				break;
 			}
 			
-			$products_to_show[] = $product;
+			$products_to_show[] = $product_data;
 			$i++;
 		}	
 	
@@ -126,60 +126,15 @@ class Main extends CI_Controller {
 		}
 
 		$products = $this->baselib->get_country_products($country);
-		$categories = $this->baselib->get_all_categories();
-		$categories_for_country = array();
-
-		foreach($products as $product) {
-			foreach($product['categories'] as $category) {
-				if(isset($categories[$category])) {
-					$categories_for_country[$category] = $categories[$category];
-				}
-			}
-		}
 		
 		$filters = array(
 			'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
 		);
-
+		
 		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
 		
-		$filters_arr = array(
-			'categories' => ($filters['category'] ? explode(';',$filters['category']) : 0)
-		);
+		$products_in_page = $this->filter_products_for_country($products,$filters,$page);
 		
-		foreach($products as $product_id => $product) {
-			$categories_to_compare = array();
-			
-			foreach($product['categories'] as $category_id) {
-				if(isset($categories[$category_id])) {
-					$categories_to_compare[] = $categories[$category_id]['title'];
-				}
-			}
-			
-			if($filters_arr['categories'] and count(array_intersect($filters_arr['categories'],$categories_to_compare)) == 0) {
-				unset($products[$product_id]);
-				continue;
-			}			
-		}
-		
-		$prodcuts_in_page = array();
-		$page_start = ($page-1)*10;
-		$page_end = $page*10;
-		$i = 0;
-		$pages_count = (int)(count($products)/10);
-		
-		if(count($products)%10 > 0)  {
-			$pages_count++;
-		}
-		
-		foreach($products as $product_id => $product) {
-			if($i >= $page_start and $i <$page_end) {
-				$prodcuts_in_page[] = $product;
-			}
-			
-			$i++;
-		}	
-
 		$data = array(
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
@@ -187,12 +142,12 @@ class Main extends CI_Controller {
 			'menu' => array(
 				'filters' => $filters
 			),
-			'products' => $prodcuts_in_page,
+			'products' => $products_in_page['products'],
 			'current_page' => $page,
-			'pages_count' => $pages_count,
+			'pages_count' => $products_in_page['pages_count'],
 			'country_id' => $country_id,
 			'country' => $country,
-			'categories' => $categories_for_country,
+			'categories' => $products_in_page['categories_for_country'],
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
@@ -349,6 +304,78 @@ class Main extends CI_Controller {
 		);
 	}
 	
+	private function filter_products_for_country($products,$filters,$page) {
+		$categories = $this->baselib->get_all_categories();
+		$categories_for_country = array();
+		
+		$filters_arr = array(
+			'categories' => ($filters['category'] ? explode(';',$filters['category']) : 0)
+		);
+		
+		$allowed_categories = array();
+		
+		if(is_array($filters_arr['categories'])) {
+			foreach($filters_arr['categories'] as $category_name) {
+				foreach($categories as $category_id => $category) {
+					if($category['title'] == $category_name) {
+						$allowed_categories[] = $category_id;
+					}
+				}
+			}
+		}
+		
+		foreach($products as $product) {
+			foreach($product['categories'] as $category) {
+				if(isset($categories[$category])) {
+					$parent_id = $categories[$category]['parent_id'];
+					$categories_for_country[$parent_id] = $categories[$parent_id];
+				}
+			}
+		}		
+		
+		if(count($allowed_categories) > 0) {
+			foreach($products as $product_id => $product) {
+				$categories_to_compare = array();
+				
+				foreach($product['categories'] as $category_id) {
+					if(isset($categories[$category_id])) {
+						$categories_to_compare[] = $categories[$category_id]['parent_id'];
+					}
+				}
+				
+				if(count(array_intersect($allowed_categories,$categories_to_compare)) == 0) {
+					unset($products[$product_id]);
+					continue;
+				}
+			}
+		}
+		
+		$prodcuts_in_page = array();
+		$page_start = ($page-1)*10;
+		$page_end = $page*10;
+		$i = 0;
+		$pages_count = (int)(count($products)/10);
+		
+		if(count($products)%10 > 0)  {
+			$pages_count++;
+		}
+		
+		foreach($products as $product_id => $product) {
+			if($i >= $page_start and $i <$page_end) {
+				$prodcuts_in_page[] = $product;
+			}
+			
+			$i++;
+		}	
+		
+		return array(
+			'products' => $prodcuts_in_page,
+			'pages_count' => $pages_count,
+			'products_count' => count($products),
+			'categories_for_country' => $categories_for_country
+		);
+	}
+	
 	public function eko() {
 		
 		$filters = array(
@@ -369,6 +396,7 @@ class Main extends CI_Controller {
 				'cart' => $this->get_cart_info_for_header()
 			),
 			'menu' => $menu,
+			'category' => 'eko',
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
@@ -408,6 +436,7 @@ class Main extends CI_Controller {
 				'cart' => $this->get_cart_info_for_header()
 			),
 			'menu' => $menu,
+			'category' => 'farm',
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
@@ -848,7 +877,18 @@ class Main extends CI_Controller {
 					);
 					
 					if(!is_null($this->input->post('category_id'))) {
-						$products = $this->baselib->get_category_products($this->input->post('category_id'));
+						switch ($this->input->post('category_id')) {
+							case 'eko':
+								$products = $this->baselib->get_products('eko');
+								break;
+							case 'farm':
+								$products = $this->baselib->get_products('farm');
+								break;
+							default:
+								$products = $this->baselib->get_category_products($this->input->post('category_id'));
+								break;
+						}
+						
 						$products_in_page = $this->filter_products($products,$filters,$this->input->post('page'));
 					} elseif(!is_null($this->input->post('country_id'))) {
 
@@ -877,55 +917,16 @@ class Main extends CI_Controller {
 						}
 
 						$products = $this->baselib->get_country_products($country);	
-
-						$categories = $this->baselib->get_all_categories();
-						$categories_for_country = array();
-
-						foreach($products as $product) {
-							foreach($product['categories'] as $category) {
-								if(isset($categories[$category])) {
-									$categories_for_country[$category] = $categories[$category];
-								}
-							}
-						}
+						
+						$filters_post = json_decode($this->input->post('filters'));
 						
 						$filters = array(
-							'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
+							'category' => (isset($filters_post->category) ? $filters_post->category : 0)
 						);
 
-						$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
+						$page = (!is_null($this->input->post('page')) ? $this->input->post('page') : 1);
 						
-						$filters_arr = array(
-							'categories' => ($filters['category'] ? explode(';',$filters['category']) : 0)
-						);
-						
-						foreach($products as $product_id => $product) {
-							$categories_to_compare = array();
-							
-							foreach($product['categories'] as $category_id) {
-								if(isset($categories[$category_id])) {
-									$categories_to_compare[] = $categories[$category_id]['title'];
-								}
-							}
-							
-							if($filters_arr['categories'] and count(array_intersect($filters_arr['categories'],$categories_to_compare)) == 0) {
-								unset($products[$product_id]);
-								continue;
-							}			
-						}
-						
-						$products_in_page = array();
-						$page_start = ($page-1)*10;
-						$page_end = $page*10;
-						$i = 0;
-						
-						foreach($products as $product_id => $product) {
-							if($i >= $page_start and $i <$page_end) {
-								$products_in_page['products'][] = $product;
-							}
-							
-							$i++;
-						}
+						$products_in_page = $this->filter_products_for_country($products,$filters,$page);
 					}
 					
 					

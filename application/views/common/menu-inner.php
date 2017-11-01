@@ -15,6 +15,7 @@
 							
                         </div>
                         <div class="c_new_menu_filters">
+							<?php if(count($attributes['countries']) > 0) { ?>
 							<div class="cool_select_pack fl_l">
 								<div class="cool_select">
 									<span>страна</span>
@@ -30,7 +31,9 @@
 										</div>
 									<?php } ?>
 								</div>
-							</div>	
+							</div>
+							<?php } ?>
+							<?php if(count($attributes['compositions']) > 0) { ?>
 							<div class="cool_select_pack fl_l">
 								<div class="cool_select">
 									<span>состав</span>
@@ -46,7 +49,9 @@
 										</div>
 									<?php } ?>
 								</div>
-							</div>							
+							</div>
+							<?php } ?>
+							<?php if(count($attributes['packs']) > 0) { ?>							
 							<div class="cool_select_pack fl_l">
 								<div class="cool_select">
 									<span>упаковка</span>
@@ -63,6 +68,8 @@
 									<?php } ?>
 								</div>
 							</div>
+							<?php } ?>
+							<?php if(count($attributes['weights']) > 0) { ?>
 							<div class="cool_select_pack fl_l">
 								<div class="cool_select">
 									<span>вес</span>
@@ -79,6 +86,7 @@
 									<?php } ?>
 								</div>
 							</div>
+							<?php } ?>
 							<div class="cool_select_pack fl_l">
 								<div class="cool_select">
 									<span>цена</span>
@@ -98,10 +106,10 @@
 											</label>
 										</div>
 								</div>
-							</div>	
+							</div>
 							
 							<?php if(!$filters_used) { ?>
-								<div class="cool_select_goods_count fl_r">всего товаров: 528</div> 
+								<div class="cool_select_goods_count fl_r">всего товаров: <?php echo $products_count ?></div> 
 							<?php } else { ?>
 								<div class="cool_select_reset fl_r">сбросить фильтр/ы</div>
 							<?php } ?>
@@ -110,38 +118,9 @@
 						<?php $this->load->view('common/menu-categories');?>
                     </div>
               <div class="c_new_mobile_menu">
-                <a href="/category/myaso" class="c_mobile_menu_link">Мясо</a>
-                <a href="/category/" class="c_mobile_menu_link">Птица</a>
-                <a href="/category/" class="c_mobile_menu_link">Рыба</a>
-                <a href="/category/" class="c_mobile_menu_link">Молочка</a>
-                <a href="/category/" class="c_mobile_menu_link">Овощи</a>
-                <a href="/category/" class="c_mobile_menu_link">Фрукты</a>
-                <a href="/category/" class="c_mobile_menu_link">Орехи и сухофрукты</a>
-                <a href="/category/" class="c_mobile_menu_link">Бакалея</a>
-                <a href="/category/" class="c_mobile_menu_link">Чай</a>
-                <a href="/category/" class="c_mobile_menu_link">Кофе</a>
-                <a href="/category/" class="c_mobile_menu_link">Мёд</a>
-                <a href="/category/" class="c_mobile_menu_link">Птица</a>
-                <a href="/category/" class="c_mobile_menu_link">Рыба</a>
-                <a href="/category/" class="c_mobile_menu_link c_current_menu_mobile_link">Молочка</a>
-                <a href="/category/" class="c_mobile_menu_link">Овощи</a>
-                <a href="/category/" class="c_mobile_menu_link">Фрукты</a>
-                <a href="/category/" class="c_mobile_menu_link">Орехи и сухофрукты</a>
-                <a href="/category/" class="c_mobile_menu_link">Бакалея</a>
-                <a href="/category/" class="c_mobile_menu_link">Чай</a>
-                <a href="/category/" class="c_mobile_menu_link">Кофе</a>
-                <a href="/category/" class="c_mobile_menu_link">Мёд</a>
-                <a href="/category/" class="c_mobile_menu_link">Мёд</a>
-                <a href="/category/" class="c_mobile_menu_link">Птица</a>
-                <a href="/category/" class="c_mobile_menu_link">Рыба</a>
-                <a href="/category/" class="c_mobile_menu_link">Молочка</a>
-                <a href="/category/" class="c_mobile_menu_link">Овощи</a>
-                <a href="/category/" class="c_mobile_menu_link">Фрукты</a>
-                <a href="/category/" class="c_mobile_menu_link">Орехи и сухофрукты</a>
-                <a href="/category/" class="c_mobile_menu_link">Бакалея</a>
-                <a href="/category/" class="c_mobile_menu_link">Чай</a>
-                <a href="/category/" class="c_mobile_menu_link">Кофе</a>
-                <a href="/category/" class="c_mobile_menu_link">Мёд</a>
+				<?php foreach($categories_first_line as $category) { ?>
+					<a href="/category/<?php echo $category['category_id'] ?>" class="c_mobile_menu_link <?php echo ( $category['current_category'] ? 'c_current_menu_mobile_link' : '' ) ?>"><?php echo $category['title'] ?></a>
+				<?php } ?>
               </div>
               <div class="c_new_mobile_submenu">
                     <div class="c_new_mobile_submenu_hamb_pack fl_l">
