@@ -204,6 +204,23 @@ $(document).ready(function(){
         $('.new_menu_closer').toggle();
     });	
 	
+	$(document).on('click','.count_cool_option',function(e) {
+		quantity = $(this).text();
+		price = $(this).parents('.g_good').find('.g_good_price_value').text();
+		
+		$('.count_cool_select_opened').removeClass('count_cool_select_opened');
+        $('.count_select_closer').hide();
+		
+		if(quantity == 1) {
+			$('.hide_select').hide();
+		} else {
+			$('.hide_select').show();
+		}
+		
+		$(this).parents('.g_good').find('.product_count').text(quantity);
+		$(this).parents('.g_good_actions').find('.g_good_to_cart_value').text(quantity*price);
+	});	
+	
 	$(document).on('keyup','.g_good_counter',function(e) {
 		quantity = $(this).val();
 		price = $(this).parents('.g_good').find('.g_good_price_value').text();
@@ -216,7 +233,7 @@ $(document).ready(function(){
 	});
 	
 	$(document).on('click','.g_good_to_cart',function(e) {
-		quantity = $(this).parents('.g_good').find('.g_good_counter').val();
+		quantity = $(this).parents('.g_good').find('.product_count').text();
 		product_id = $(this).attr('data-product-id');
 		cart.add(product_id, quantity);
 	});
