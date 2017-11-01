@@ -404,7 +404,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   KEY `product_id` (`product_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=92 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы fruit.products: 12 rows
+-- Дамп данных таблицы fruit.products: 52 rows
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
 INSERT IGNORE INTO `products` (`product_id`, `title`, `brand`, `quantity`, `type`, `cost`, `percent`, `price`, `image`, `description`, `country`, `special`, `special_begin`, `special_end`, `subtract`, `status`, `condition_id`, `eko`, `farm`, `weight`, `composition`, `provider`, `pack`) VALUES
 	(40, 'Дянь Хун', 'CHEF TEA', 100, 'г', 100, 30, NULL, '2017-09-3015-59-24_16-03-22.JPG', 'Красный китайский чай с типсами. Послевкусие чернослива', 'Россия', 10, '0000-00-00', '0000-00-00', 1, 1, 1, 1, 1, '100 гр', 'чай например', 'TC-1-18-012', 'пакетики'),
@@ -469,7 +469,7 @@ CREATE TABLE IF NOT EXISTS `product_to_category` (
   KEY `category_id` (`category_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы fruit.product_to_category: 14 rows
+-- Дамп данных таблицы fruit.product_to_category: 66 rows
 /*!40000 ALTER TABLE `product_to_category` DISABLE KEYS */;
 INSERT IGNORE INTO `product_to_category` (`product_id`, `category_id`) VALUES
 	(28, 24),
