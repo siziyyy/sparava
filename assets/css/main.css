@@ -235,6 +235,32 @@ input {
          -o-transition: text-shadow .3s ease;
             transition: text-shadow .3s ease;
 }*/
+.g_good_added_to_cart_text {
+    display: none;
+    color: #FFF;
+    font-size: 14px;
+}
+.g_good_added_to_cart .g_good_to_cart {
+    background: #fe4517;
+    border: none;
+    padding: 0 25px;
+    margin: 0;
+}
+.g_good_added_to_cart .g_good_to_cart:hover {
+    background: #fe4517;
+}
+.g_good_added_to_cart .g_good_added_to_cart_text {
+    display: inline-block;
+}
+.g_good_added_to_cart .g_good_count {
+    display: none;
+}
+.g_good_added_to_cart .g_good_to_cart_text {
+    display: none;
+}
+.g_good_added_to_cart .g_good_to_cart_icon {
+    background-position: -111px -767px;
+}
 .dirty_link:hover {
     color: #000 !important;
 }
