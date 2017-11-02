@@ -514,20 +514,28 @@ textarea.c_inners_input {
     border: 5px solid #e6e6e6;
     z-index: 9999;
 }
+.c_inners_mobile_cart_line {
+    display: none;
+}
 @media all and (max-width: 425px) {
+    .c_inners_mobile_cart_line {
+        display: block;
+    }
     .no_on_mob {
         display: none;
     }
     .c_inners_header {
         font-size: 14px !important;
         border: none !important;
+        padding: 10px 0 0px;
     }
     .c_inners_side_header {
         display: none;
     }
     .c_inners_left_side_content {
         margin: 0 !important;
-        padding: 30px 30px 30px 30px;
+        padding: 0;
+        border: none;
     }
     .c_inners_left_side {
         width: 100%;
@@ -536,6 +544,7 @@ textarea.c_inners_input {
     .c_inners_right_content {
         float: none;
         width: 100%;
+        margin: 0 0 40px 0;
     } 
     .mobile_cart_good_photo {
         width: 85px;
@@ -610,7 +619,7 @@ textarea.c_inners_input {
     }
     .c_inners_left_side_text_b {
         font-size: 10px;
-        margin: 12px 0;
+        margin: 20px 0;
     }
     .black_small_button {
         font-size: 12px;
@@ -624,5 +633,49 @@ textarea.c_inners_input {
         margin-left: 0px;
         padding-right: 0px;
         width: 55px;
+    }
+    .c_inners_input_label {
+        font-size: 11px;
+    }
+    .c_inners_left_side_form {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        position: relative;
+    }
+    .c_inners_left_side_button_pass {
+        font-size: 11px;
+    }
+    .blah_link {
+        font-size: 11px;
+    }
+    .c_cart {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .c_inners_left_side_deliv_right_header {
+        font-size: 12px;
+    }
+    .c_inners_left_side_del_meth_hdr {
+        font-size: 12px;
+    }
+    .c_inners_left_side_deliv_right_body {
+        font-size: 10px;
+    }
+    .c_inners_left_side_text_deliv {
+        margin-top: 30px;
+        background: #f0f0f0;
+        box-sizing: border-box;
+        padding: 13px;
+    }
+    .c_inners_left_side_deliv_chck {
+        margin-left: 0;
+    }
+    .blah_blah {
+        font-size: 11px;
+        height: auto;
+        max-height: 100%;
+    }
+    .blah_blah_accept_agreement_text {
+        font-size: 11px;
     }
 }

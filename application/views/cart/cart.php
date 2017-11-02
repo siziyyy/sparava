@@ -1,8 +1,9 @@
 <?php $this->load->view('common/header',$header);?>
         <section class="content">
             <div class="content_helper">
+                <div class="c_inners_header">Корзина</div>
                 <div class="c_cart">
-                    <div class="c_inners_header">Корзина</div>
+                    <div class="c_inners_header no_on_mob">Корзина</div>
                     <?php $this->load->view('cart/'.$cart_info_tpl, $cart_info);?>
 					<section class="c_inners_right_content fl_l">
 						<?php $this->load->view('cart/products', $cart_content);?>

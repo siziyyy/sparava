@@ -167,9 +167,9 @@
                             <span class="c_mosaic_item_text">бакалея</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category">
+                    <a class="c_mosaic_link" href="/category/5">
                         <div class="c_mosaic_item c_mosaic_item_width" style="background:url('/assets/img/cats/13.jpg')">
-                            <span class="c_mosaic_item_text">мясная гастрономия!!!!!!!!!</span>
+                            <span class="c_mosaic_item_text">деликатесы</span>
                         </div>
                     </a>
                     <a class="c_mosaic_link" href="/category">
