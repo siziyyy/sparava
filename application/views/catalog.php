@@ -1,4 +1,14 @@
 <?php $this->load->view('common/header',$header);?>
+    <style>
+        .contacts_bg_helper {
+            position: static !important;
+            margin: 0px 0 -105px 0;
+        }
+        .contacts_content {
+            margin-top: 0 !important;
+            padding-top: 20px;
+        }
+    </style>
         <div class="contacts_bg_helper"></div>
         <section class="content contacts_content">
             <div class="content_helper">
