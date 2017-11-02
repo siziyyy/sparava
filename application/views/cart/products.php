@@ -7,7 +7,7 @@
 	</div>
 	<?php foreach($products as $product) { ?>
 		<div class="c_inners_side_tr">
-			<div class="c_inners_td fl_l c_inners_first_td">
+			<div class="c_inners_td fl_l c_inners_first_td no_on_mob">
 				<div class="c_inners_photo fl_l" style="background: url(images/<?php echo $product['image'] ?>);"></div>
 				<div class="c_inners_photo_legend fl_r">
 					<? /*
@@ -25,8 +25,8 @@
 				</div>
 				<div class="clear"></div>
 			</div>
-			<div class="c_inners_td fl_l c_inners_second_td"><?php echo $product['price'] ?> <span class="rouble">o</span></div>
-			<div class="c_inners_td fl_l c_inners_third_td">
+			<div class="c_inners_td fl_l c_inners_second_td no_on_mob"><?php echo $product['price'] ?> <span class="rouble">o</span></div>
+			<div class="c_inners_td fl_l c_inners_third_td no_on_mob">
 				<div class="c_inners_count">
 					<input type="text" class="c_inners_count_input" value="<?php echo $product['quantity_in_cart'] ?>" data-product-id="<?php echo $product['product_id'] ?>">
 					<div class="c_inners_count_delete">
@@ -35,8 +35,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="c_inners_td fl_l c_inners_fourth_td"><?php echo $product['quantity_in_cart']*$product['price'] ?> <span class="rouble">o</span></div>
+			<div class="c_inners_td fl_l c_inners_fourth_td no_on_mob"><?php echo $product['quantity_in_cart']*$product['price'] ?> <span class="rouble">o</span></div>
 			<div class="clear"></div>
+			<div class="c_inners_mobile_cart_line">
+				
+			</div>
 		</div>
 	<?php } ?>
 
