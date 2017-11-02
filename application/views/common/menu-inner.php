@@ -30,6 +30,8 @@
 											</label>
 										</div>
 									<?php } ?>
+									<div class="cool_select_button">применить</div>
+									<!-- добавить .cool_select_button_ready когда выбран фильтр, до этого кнопка неактивна -->
 								</div>
 							</div>
 							<?php } ?>
