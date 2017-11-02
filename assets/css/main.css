@@ -93,7 +93,7 @@ input {
     height: 25px;
     cursor: pointer;
     background-position: -193px -275px;
-    margin: 8px 0 0 0px;
+    margin: 8px 9px 0 -8px;
 }
 .m_h_call {
     width: 25px;
@@ -106,11 +106,11 @@ input {
     position: relative;
 } 
 .m_h_cart_icon {
-    width: 25px;
+    width: 29px;
     height: 25px;
     cursor: pointer;
-    background-position: -278px -600px;
-    margin: 7px 0 0 5px;
+    background-position: -273px -600px;
+    margin: 7px 0 0 -2px;
 }
 .m_h_cart_text {
     color: #fe4517;
