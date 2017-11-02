@@ -17,14 +17,14 @@
                     <div class="content_helper">
                         <div class="second_banner_header">Линия орехов по супер ценам</div>
                         <div class="second_banner_body">
-                            <a href="/" class="second_banner_body_link">грецкие орехи</a>
-                            <a href="/" class="second_banner_body_link">фундюк</a>
-                            <a href="/" class="second_banner_body_link">миндаль</a>
-                            <a href="/" class="second_banner_body_link">фисташки</a>
-                            <a href="/" class="second_banner_body_link">пекан</a>
+                            <a class="second_banner_body_link">грецкие орехи</a>
+                            <a class="second_banner_body_link">фундюк</a>
+                            <a class="second_banner_body_link">миндаль</a>
+                            <a class="second_banner_body_link">фисташки</a>
+                            <a class="second_banner_body_link">пекан</a>
                         </div>
                         <div class="second_banner_footer">
-                            <a href="/" class="second_banner_footer_button">перейти</a>
+                            <a href="/category/107" class="second_banner_footer_button">перейти</a>
                         </div>
                     </div>
                 </div>             
@@ -82,17 +82,17 @@
                 <div class="c_mosaic">    
                     <div class="c_mosaic_grid_sizer"></div>   
                     <div class="c_mosaic_gutter_sizer"></div>            
-                    <a class="c_mosaic_link" href="/category">
+                    <a class="c_mosaic_link" href="/category/1">
                         <div class="c_mosaic_item c_mosaic_item_width c_mosaic_item_height" style="background:url('/assets/img/cats/1.jpg')">
                             <span class="c_mosaic_item_text">мясо</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category">
+                    <a class="c_mosaic_link" href="/category/3">
                         <div class="c_mosaic_item c_mosaic_item_height" style="background:url('/assets/img/cats/2.jpg')">
                             <span class="c_mosaic_item_text">рыба</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/delivery">
+                    <a class="c_mosaic_link" href="/information">
                         <div class="c_mosaic_item c_mosaic_delivery">
                             <div class="c_mosaic_delivery_icon sprite"></div>
                             <div class="c_mosaic_delivery_header">доставка</div>
@@ -117,132 +117,132 @@
                             <div class="c_mosaic_delivery_footer sprite"></div>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category">
+                    <a class="c_mosaic_link" href="/category/14">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/3.jpg')">
                             <span class="c_mosaic_item_text">фрукты</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category">
+                    <a class="c_mosaic_link" href="/category/2">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/4.jpg')">
                             <span class="c_mosaic_item_text">птица</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category">
+                    <a class="c_mosaic_link" href="/category/103">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/5.jpg')">
                             <span class="c_mosaic_item_text">овощи</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category">
+                    <a class="c_mosaic_link" href="/category/13">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/6.jpg')">
                             <span class="c_mosaic_item_text">молочка</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category">
+                    <a class="c_mosaic_link" href="/category/95">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/7.jpg')">
                             <span class="c_mosaic_item_text">сыр</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category">
+                    <a class="c_mosaic_link" href="/category/101">
                         <div class="c_mosaic_item c_mosaic_item_width_for_mobile_long" style="background:url('/assets/img/cats/8.jpg')">
                             <span class="c_mosaic_item_text">ягоды</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category">
+                    <a class="c_mosaic_link" href="/category/104">
                         <div class="c_mosaic_item c_mosaic_item_width c_mosaic_item_width_for_mobile" style="background:url('/assets/img/cats/9.jpg')">
                             <span class="c_mosaic_item_text">зелень</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category">
+                    <a class="c_mosaic_link" href="/category/96">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/10.jpg')">
                             <span class="c_mosaic_item_text">масло</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category">
+                    <a class="c_mosaic_link" href="/category/10">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/11.jpg')">
                             <span class="c_mosaic_item_text">консервация</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category">
+                    <a class="c_mosaic_link" href="/category/9">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/12.jpg')">
                             <span class="c_mosaic_item_text">бакалея</span>
                         </div>
                     </a>
                     <a class="c_mosaic_link" href="/category">
                         <div class="c_mosaic_item c_mosaic_item_width" style="background:url('/assets/img/cats/13.jpg')">
-                            <span class="c_mosaic_item_text">мясная гастрономия</span>
+                            <span class="c_mosaic_item_text">мясная гастрономия!!!!!!!!!</span>
                         </div>
                     </a>
                     <a class="c_mosaic_link" href="/category">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/14.jpg')">
-                            <span class="c_mosaic_item_text">эко</span>
+                            <span class="c_mosaic_item_text">эко!!!!!!!!</span>
                         </div>
                     </a>
                     <a class="c_mosaic_link" href="/category">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/15.jpg')">
-                            <span class="c_mosaic_item_text">фермерские</span>
+                            <span class="c_mosaic_item_text">фермерские!!!!!</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category">
+                    <a class="c_mosaic_link" href="/category/51">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/16.jpg')">
                             <span class="c_mosaic_item_text">раки живые</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category">
+                    <a class="c_mosaic_link" href="/category/12">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/17.jpg')">
                             <span class="c_mosaic_item_text">соусы</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category">
+                    <a class="c_mosaic_link" href="/category/23">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/18.jpg')">
                             <span class="c_mosaic_item_text">мед</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category">
+                    <a class="c_mosaic_link" href="/category/107">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/19.jpg')">
                             <span class="c_mosaic_item_text">орехи</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category">
+                    <a class="c_mosaic_link" href="/category/17">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/20.jpg')">
                             <span class="c_mosaic_item_text">приправы</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category">
+                    <a class="c_mosaic_link" href="/category/24">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/21.jpg')">
                             <span class="c_mosaic_item_text">чай</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category">
+                    <a class="c_mosaic_link" href="/category/25">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/22.jpg')">
                             <span class="c_mosaic_item_text">кофе</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category">
+                    <a class="c_mosaic_link" href="/category/70">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/23.jpg')">
                             <span class="c_mosaic_item_text">крупы</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category">
+                    <a class="c_mosaic_link" href="/category/26">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/24.jpg')">
                             <span class="c_mosaic_item_text">напитки</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category">
+                    <a class="c_mosaic_link" href="/category/164">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/25.jpg')">
                             <span class="c_mosaic_item_text">соки</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category">
+                    <a class="c_mosaic_link" href="/category/122">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/26.jpg')">
                             <span class="c_mosaic_item_text">хлеб</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category">
+                    <a class="c_mosaic_link" href="/category/21">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/27.jpg')">
                             <span class="c_mosaic_item_text">сладости</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category">
+                    <a class="c_mosaic_link" href="/category/22">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/28.jpg')">
                             <span class="c_mosaic_item_text">пирожные</span>
                         </div>
