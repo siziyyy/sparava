@@ -13,7 +13,6 @@
 					<div class="f_socials">
 						<a href="/" target="_blank" class="f_social sprite f_social_in"></a>
 						<a href="/" target="_blank" class="f_social sprite f_social_fb"></a>
-						<a href="/" target="_blank" class="f_social sprite f_social_vk"></a>
 					</div>
 				</div>
 				<div class="f_block">

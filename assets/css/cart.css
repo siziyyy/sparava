@@ -72,16 +72,18 @@
     display: inline-block;
     color: #FFF;
     font-size: 15px;
-    font-family:Calibri Bold;
+    font-family: Calibri Bold;
     -webkit-border-radius: 3px;
-            border-radius: 3px;
-    padding: 7px 15px;
+    border-radius: 3px;
+    padding: 7px 0;
+    text-align: center;
+    width: 88px;
+    box-sizing: border-box;
     -webkit-transition: background .3s ease;
     -o-transition: background .3s ease;
     transition: background .3s ease;
     margin-right: 10px;
     border: none;
-    font-family:Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif;
     cursor: pointer;
 }
 .black_small_button:hover {
@@ -97,29 +99,62 @@
     -o-transition: background .3s ease;
     transition: background .3s ease;
 }
-.orange_small_button {
-    background: #f78c76;
+.green_small_button {
+    background: #5ea424;
     display: inline-block;
     color: #FFF;
     font-size: 15px;
     font-family:Calibri Bold;
     -webkit-border-radius: 3px;
             border-radius: 3px;
-    padding: 7px 15px;
+    padding: 7px 0;
+    text-align: center;
+    width: 88px;
+    box-sizing: border-box;
+    -webkit-transition: background .3s ease;
+    -o-transition: background .3s ease;
+    transition: background .3s ease;
+    margin-right: 10px;
+}
+.green_small_button:hover {
+    background: #87B53D;
+    color: #FFF;
+    -webkit-transition: background .3s ease;
+    -o-transition: background .3s ease;
+    transition: background .3s ease;
+}
+.green_small_button:active {
+    background: #5ea424;
+    -webkit-transition: background .3s ease;
+    -o-transition: background .3s ease;
+    transition: background .3s ease;
+}
+.orange_small_button {
+    background: #fe4517;
+    display: inline-block;
+    color: #FFF;
+    font-size: 15px;
+    font-family:Calibri Bold;
+    -webkit-border-radius: 3px;
+            border-radius: 3px;
+    padding: 7px 0;
+    text-align: center;
+    width: 88px;
+    box-sizing: border-box;
     -webkit-transition: background .3s ease;
     -o-transition: background .3s ease;
     transition: background .3s ease;
     margin-right: 10px;
 }
 .orange_small_button:hover {
-    background: #fe4517;
+    background: #f78c76;
     color: #FFF;
     -webkit-transition: background .3s ease;
     -o-transition: background .3s ease;
     transition: background .3s ease;
 }
 .orange_small_button:active {
-    background: #f78c76;
+    background: #fe4517;
     -webkit-transition: background .3s ease;
     -o-transition: background .3s ease;
     transition: background .3s ease;
@@ -386,7 +421,7 @@ textarea.c_inners_input {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 100%;
+    height: 708px;
     overflow: auto;
     background: #FFF;
     -webkit-box-sizing: border-box;
