@@ -23,7 +23,7 @@
                                 <?php echo $product['description'] ?>
                             </div>
                             <div class="g_good_country"><?php echo $product['brand'] ?> - <?php echo $product['country'] ?> - <?php echo $product['weight'] ?><span class="g_good_id"><?php echo $product['articul'] ?></span></div>
-                            <div class="g_good_actions">
+                            <div class="g_good_actions g_good_added_to_cart">
                                 <div class="g_good_count">
                                     <div class="count_cool_select_pack">
                                         <div class="g_good_counter count_cool_select">
@@ -43,6 +43,9 @@
                                 </div>
                                 <div class="g_good_to_cart" data-product-id="<?php echo $product['product_id'] ?>">
                                     <span class="g_good_to_cart_text"><span class="g_good_to_cart_value"><?php echo $product['price'] ?></span> <span class="rouble">o</span></span>
+                                    <span class="g_good_added_to_cart_text">
+                                        1.5 кг в корзине
+                                    </span>
                                     <span class="g_good_to_cart_icon sprite"></span>
                                 </div>
                                 <div class="g_admin_info" data-product-id="<?php echo $product['product_id'] ?>">inf</div>
