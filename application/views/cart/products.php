@@ -42,6 +42,7 @@
 				<div class="mobile_cart_good_text fl_l">
 					<div class="mobile_cart_good_text_header"><?php echo $product['title'] ?></div>
 					<div class="mobile_cart_good_text_subheader"><?php echo $product['country'] ?></div>
+					<div class="mobile_cart_good_text_subsubheader"><?php echo $product['description'] ?></div>
 					<div class="mobile_cart_good_text_body">
 						<div class="mobile_cart_good_text_price fl_l"><?php echo $product['price'] ?> <span class="rouble">o</span></div>
 						<div class="mobile_cart_good_text_count fl_l">
@@ -53,7 +54,7 @@
 						<div class="clear"></div>
 					</div>
 					<div class="c_inners_count_delete">
-						<div class="c_inners_count_del sprite"></div>
+						<div class="c_inners_count_del">&times;</div>
 					</div>
 				</div>
 				<div class="clear"></div>
