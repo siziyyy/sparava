@@ -100,6 +100,12 @@
 					На вашу почту было выслано письмо с дальнейшими инструкциями
 				</div>				
 			</div>
+			<div class="blah_blah_accept_agreement">
+				<div class="blah_blah_accept_agreement_text">
+					Для продолжения оформления
+					заказа необходимо принять условия  
+				</div>
+			</div>
 			<div class="blah_blah">
 				<div class="blah_blah_header">Условия пользования</div>
 				<div class="blah_blah_text">
