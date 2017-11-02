@@ -1,4 +1,5 @@
 <?php $this->load->view('common/header',$header);?>
+        <div class="contacts_bg_helper"></div>
         <section class="content contacts_content">
             <div class="content_helper">
                 <div class="c_cart" id="fullpage">
@@ -264,8 +265,6 @@
                 left: 0;
                 z-index: 99999;
                 background: #fff;
-                -webkit-box-shadow: 0 0 41px -20px rgba(0,0,0, .5);
-                        box-shadow: 0 0 41px -20px rgba(0,0,0, .5);
             }
         </style>
 <?php $this->load->view('common/footer',$footer);?>
