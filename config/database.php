@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'h710192822.mysql',
-	'username' => 'h710192822_aydae',
-	'password' => '_E?]q9Xv',
-	'database' => 'h710192822_aydaeda',
+	'hostname' => 'localhost',
+	'username' => 'turalhw5_main',
+	'password' => '46JB*8p]',
+	'database' => 'turalhw5_main',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
