@@ -71,6 +71,18 @@ $(document).ready(function(){
 	$('.m_h_search').click(function() {
 		$('.mobile_search').toggle();
 	});
+	$('.c_new_mobile_submenu_hamb_pack ').click(function() {
+		$('.mobile_category_dropdown').toggle();
+		$('.mobile_category_dropdown_closer').toggle();
+	});
+	$('.mobile_category_dropdown_closer ').click(function() {
+		$('.mobile_category_dropdown').toggle();
+		$('.mobile_category_dropdown_closer').toggle();
+	});
+	$('.c_new_mobile_submenu_more ').click(function() {
+		$('.c_new_mobile_submenu_link_closed').toggle();
+		$('.c_new_mobile_submenu_more').toggle();
+	});
 
 
 

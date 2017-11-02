@@ -641,3 +641,52 @@ textarea.g_good_admin_info_modal_input {
     position: relative;
     padding-bottom: 16px;
 }
+.mobile_category_dropdown {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #f0f0f0;
+    text-align: center;
+    font-size: 12px;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 5px;
+    display: none;
+    z-index: 99999;
+}
+.mobile_category_dropdown_line {
+    height: 26px;
+    line-height: 26px;
+    background: #FFF;
+    border: 1px solid #bdbdbd;
+    border-bottom: none;
+}
+.mobile_category_dropdown_cur {
+    color: #fe4517;
+}
+.fbbmd {
+    border-bottom: 1px solid #bdbdbd;
+}
+.mobile_category_dropdown_cancel {
+    height: 26px;
+    line-height: 26px;
+    background: #FFF;
+    border: 1px solid #bdbdbd;
+    margin: 5px 0;
+}
+.c_new_mobile_submenu_link_closed {
+    display: none;
+}
+.c_new_mobile_submenu {
+    white-space: nowrap;
+    overflow: auto;
+    -ms-overflow-y: hidden;
+        overflow-y: hidden;
+    width: 100%;
+}
+.c_new_mobile_submenu_hamb_pack, .c_new_mobile_submenu_more {
+    display: inline-block;
+    float: none;
+}

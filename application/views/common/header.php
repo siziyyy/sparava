@@ -36,7 +36,15 @@ body,html,textarea{font-family:Calibri}
         <div class="closer count_select_closer"></div>
         <div class="closer all_menu_closer"></div>
         <div class="closer admin_window_closer"></div>
+        <div class="closer mobile_category_dropdown_closer"></div>
         <? // require '_modal.php'; ?><!-- modal -->
+        <div class="mobile_category_dropdown">
+            <div class="mobile_category_dropdown_line">по рейтингу</div>
+            <div class="mobile_category_dropdown_line">по добавлению товара</div>
+            <div class="mobile_category_dropdown_line mobile_category_dropdown_cur">по удаленности</div>
+            <div class="mobile_category_dropdown_line fbbmd">по алфавиту</div>
+            <div class="mobile_category_dropdown_cancel">отменить сортировку</div>
+        </div>
         <div class="aside_mobile_menu">
             <div class="aside_mobile_menu_header">
                 <div class="aside_mobile_menu_back sprite fl_l"></div>
