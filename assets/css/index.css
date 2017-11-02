@@ -52,6 +52,9 @@
     cursor: pointer;
     position: relative;
 }
+.c_mosaic_item_width_for_desktop {
+    width: 19%;
+}
 .c_mosaic_grid_sizer {
     background: transparent;
 }
@@ -381,6 +384,9 @@
     .c_mosaic_grid_sizer, .c_mosaic_item {
         height: 100px;
     }
+    .c_mosaic_item_width_for_desktop {
+        width: 39%;
+    }
     .g_good {
         width: 32% !important;
     }
@@ -488,6 +494,9 @@
     }
     .c_mosaic_item_width_for_mobile {
         width: 49%;
+    }
+    .c_mosaic_item_width_for_desktop {
+        width: 99%;
     }
     .c_mosaic_item_width_for_mobile_long {
         width: 99%;
@@ -612,6 +621,9 @@
     .g_good {
         height: auto !important;
          margin: 0 0 30px 0 !important;
+    }
+    .c_mosaic_item_width_for_desktop {
+        width: 99%;
     }
 }
 .noscrlbr::-webkit-scrollbar { width: 0; }
