@@ -529,7 +529,7 @@
         display: none;
     }
     .content_helper {
-        padding: 0 10px;
+        padding: 0 15px;
     }
 }
 @media all and (max-width: 425px) {
