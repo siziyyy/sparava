@@ -307,6 +307,9 @@
 }
 /* media */
 @media all and (max-width: 1200px) {
+    .goods {
+        margin-top: 143px !important;
+    }
     .b_text {
         font-size: 53px;
         line-height: 55px;
@@ -611,3 +614,6 @@
          margin: 0 0 30px 0 !important;
     }
 }
+.noscrlbr::-webkit-scrollbar { width: 0; }
+.noscrlbr { -ms-overflow-style: none; }
+.noscrlbr { overflow: -moz-scrollbars-none; }

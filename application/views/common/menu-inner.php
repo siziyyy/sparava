@@ -119,18 +119,26 @@
                         </div>
 						<?php $this->load->view('common/menu-categories');?>
                     </div>
-              <div class="c_new_mobile_menu">
+              <div class="c_new_mobile_menu noscrlbr">
 				<?php foreach($categories_first_line as $category) { ?>
 					<a href="/category/<?php echo $category['category_id'] ?>" class="c_mobile_menu_link <?php echo ( $category['current_category'] ? 'c_current_menu_mobile_link' : '' ) ?>"><?php echo $category['title'] ?></a>
 				<?php } ?>
               </div>
-              <div class="c_new_mobile_submenu">
-                    <div class="c_new_mobile_submenu_hamb_pack fl_l">
+              <div class="c_new_mobile_submenu noscrlbr">
+                    <div class="c_new_mobile_submenu_hamb_pack">
                     	<div class="c_new_mobile_submenu_hamb"></div>
                     </div>
-                    <a href="/" class="fl_l c_new_mobile_submenu_link c_new_mobile_submenu_link_cur">Ай да фрукты</a>
-                    <a href="/" class="fl_l c_new_mobile_submenu_link">Свежие</a>
-                    <a href="/" class="fl_l c_new_mobile_submenu_link">Ягоды</a>
+                    <a href="/" class="c_new_mobile_submenu_link c_new_mobile_submenu_link_cur">Ай да фрукты</a>
+                    <a href="/" class="c_new_mobile_submenu_link">Свежие</a>
+                    <a href="/" class="c_new_mobile_submenu_link">Ягоды</a>
+                    <a href="/" class="c_new_mobile_submenu_link c_new_mobile_submenu_link_closed">Свежие</a>
+                    <a href="/" class="c_new_mobile_submenu_link c_new_mobile_submenu_link_closed">Ягоды</a>
+                    <a href="/" class="c_new_mobile_submenu_link c_new_mobile_submenu_link_closed">Свежие</a>
+                    <a href="/" class="c_new_mobile_submenu_link c_new_mobile_submenu_link_closed">Ягоды</a>
+                    <a href="/" class="c_new_mobile_submenu_link c_new_mobile_submenu_link_closed">Свежие</a>
+                    <a href="/" class="c_new_mobile_submenu_link c_new_mobile_submenu_link_closed">Ягоды</a>
+                    <a href="/" class="c_new_mobile_submenu_link c_new_mobile_submenu_link_closed">Свежие</a>
+                    <a href="/" class="c_new_mobile_submenu_link c_new_mobile_submenu_link_closed">Ягоды</a>
                     <div class="c_new_mobile_submenu_more">еще ...</div>
                     <div class="clear"></div>
               </div>
