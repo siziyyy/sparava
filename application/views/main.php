@@ -243,7 +243,7 @@
                         </div>
                     </a>
                     <a class="c_mosaic_link" href="/category/22">
-                        <div class="c_mosaic_item" style="background:url('/assets/img/cats/28.jpg')">
+                        <div class="c_mosaic_item c_mosaic_item_width_for_desktop" style="background:url('/assets/img/cats/28.jpg')">
                             <span class="c_mosaic_item_text">пирожные</span>
                         </div>
                     </a>
