@@ -497,3 +497,20 @@ textarea.c_inners_input {
     margin-top: 20px;
     margin-bottom: -5px;
 }
+.blah_blah_accept_agreement_text {
+    
+}
+.blah_blah_accept_agreement {
+    font-size: 14px;
+    position: absolute;
+    bottom: 39px;
+    width: 100%;
+    overflow: auto;
+    background: #FFF;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 40px 20px;
+    border: 5px solid #e6e6e6;
+    z-index: 9999;
+}
