@@ -545,6 +545,11 @@ textarea.c_inners_input {
              -o-background-size: cover !important;
                 background-size: cover !important;
     }
+    .c_inners_mobile_cart_line {
+        margin: 0 0 10px 0;
+        padding: 0 0 10px 0;
+        border-bottom: 1px solid #d5d9da;
+    }
     .mobile_cart_good_text_header {
         font-size: 12px;
         margin-bottom: 8px;
@@ -593,5 +598,31 @@ textarea.c_inners_input {
     .c_inners_count_del {
         line-height: 10px;
         font-size: 13px;
+    }
+    .c_inners_side_tr {
+        border: none;
+        margin: 0;
+        padding: 0;
+        margin-top: 20px;
+    }
+    .c_inners_left_side_text_h {
+        font-size: 12px;
+    }
+    .c_inners_left_side_text_b {
+        font-size: 10px;
+        margin: 12px 0;
+    }
+    .black_small_button {
+        font-size: 12px;
+    }
+    .c_inners_right_footer_text {
+        font-size: 12px;
+    }
+    .c_inners_right_footer_num {
+        font-family: Calibri Bold;
+        font-size: 12px;
+        margin-left: 0px;
+        padding-right: 0px;
+        width: 55px;
     }
 }
