@@ -533,4 +533,8 @@ textarea.c_inners_input {
         width: 100%;
         float: none;
     }
+    .c_inners_right_content {
+        float: none;
+        width: 100%;
+    } 
 }
