@@ -379,7 +379,7 @@ INSERT IGNORE INTO `order_inners` (`order_inners_id`, `order_id`, `title`, `quan
 CREATE TABLE IF NOT EXISTS `products` (
   `product_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(256) NOT NULL,
-  `brand` varchar(256) NOT NULL,
+  `brand` varchar(256) DEFAULT '',
   `quantity` int(11) unsigned DEFAULT '0',
   `type` varchar(50) DEFAULT '',
   `cost` int(11) unsigned DEFAULT '0',
