@@ -107,7 +107,7 @@ class Baselib {
 						
 						$categories[$line_id][$category['category_id']]['childs'][0] = array(
 							'category_id' => $category['category_id'],
-							'title' => 'Хиты продаж',
+							'title' => 'Хиты',
 							'current_category' => $mark_as_current_category,
 							'seo_url' => NULL
 						);

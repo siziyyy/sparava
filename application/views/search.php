@@ -44,7 +44,26 @@
 						<div class="g_good_description">
 							<?php echo $product['description'] ?>
 						</div>
-						<div class="g_good_country"><?php echo $product['brand'] ?> - <?php echo $product['country'] ?><span class="g_good_id"><?php echo $product['articul'] ?></span></div>
+						<div class="g_good_country">
+							<?php if($product['brand']) { ?>
+								<?php echo $product['brand'] ?>
+								<?php $show_minus = true; ?>
+							<?php } ?>
+							<?php if($show_minus and $product['country']) { ?>
+								 - 
+							<?php } ?>
+							<?php if($product['country']) { ?>
+								<?php echo $product['country'] ?>
+								<?php $show_minus = true; ?>
+							<?php } ?>
+							<?php if($show_minus and $product['weight']) { ?>
+								 - 
+							<?php } ?>
+							<?php if($product['weight']) { ?>
+								<?php echo $product['weight'] ?>
+							<?php } ?>
+							<span class="g_good_id"><?php echo $product['articul'] ?></span>
+						</div>
 						<div class="g_good_actions">
 							<div class="g_good_count">
 								<div class="count_cool_select_pack">
@@ -67,6 +86,7 @@
 								<span class="g_good_to_cart_text"><span class="g_good_to_cart_value"><?php echo $product['price'] ?></span> <span class="rouble">o</span></span>
 								<span class="g_good_to_cart_icon sprite"></span>
 							</div>
+							<div class="g_admin_info" data-product-id="<?php echo $product['product_id'] ?>">inf</div>
 						</div>
 					</div>	 
                     <div class="search_banner homm fl_r">
