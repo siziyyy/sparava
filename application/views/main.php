@@ -1,5 +1,16 @@
 <?php $this->load->view('common/header',$header);?>
 		<section class="banner">
+            <style>
+            @media all and (max-width: 425px) {
+                .content {
+                    background: #ffffff; /* Old browsers */
+                    background: -moz-linear-gradient(top, #ffffff 0%, #f0f0f0 100%); /* FF3.6-15 */
+                    background: -webkit-linear-gradient(top, #ffffff 0%,#f0f0f0 100%); /* Chrome10-25,Safari5.1-6 */
+                    background: linear-gradient(to bottom, #ffffff 0%,#f0f0f0 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f0f0f0',GradientType=0 ); /* IE6-9 */
+                }
+            }
+            </style>
 			<div class="b_slider">
                 <div class="b_slide" style="background:url('/assets/img/slider/1.jpg')">
                     <div class="content_helper">
@@ -42,43 +53,82 @@
                     <br>каждый день
                 </div>
             </div>
-            <div class="mobile_banner_icons">
-                <div class="mobile_banner_icons_icon fl_l">
-                    <div class="mobile_banner_icons_icon_img sprite"></div>
-                    <div class="mobile_banner_icons_icon_text">
-                        только
-                        <br><span class="m_b_b_i_t_bold">наисвежайшее</span>
-                    </div>
-                </div>
-                <div class="mobile_banner_icons_icon fl_l">
-                    <div class="mobile_banner_icons_icon_img sprite"></div>
-                    <div class="mobile_banner_icons_icon_text">
-                        только
-                        <br><span class="m_b_b_i_t_bold">качественное</span>
-                    </div>
-                </div>
-                <div class="mobile_banner_icons_icon fl_l">
-                    <div class="mobile_banner_icons_icon_img sprite"></div>
-                    <div class="mobile_banner_icons_icon_text">
-                        только
-                        <br><span class="m_b_b_i_t_bold">по суперценам</span>
-                    </div>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <a href="/" class="mobile_banner_banner">
-                <img src="/assets/img/slider/mobile.jpg" alt="" class="fl_l">
-                <div class="mobile_banner_banner_text fl_l">
-                    <div class="mobile_banner_banner_text_header">Семеринка</div>
-                    <div class="mobile_banner_banner_text_body">60 <span class="rouble">o</span></div>
-                    <div class="mobile_banner_banner_text_footer">на рынке 100 <span class="rouble">o</span></div>
-                </div>
-                <div class="clear"></div>
-            </a>
         </section>
 		<section class="content">
 			<div class="content_helper">
                 <?php $this->load->view('common/menu', $menu);?>
+                <div class="mobile_mosaic">
+                    <a href="/category/1" style="background: url('/assets/img/cats/mob/1.jpg')" class="mob_mos_it mob_mos_it_big">
+                        <span class="mob_mos_it_text">мясо</span>
+                    </a>
+                    <a href="/category/3" style="background: url('/assets/img/cats/mob/2.jpg')" class="mob_mos_it">
+                        <span class="mob_mos_it_text bl_txt_mob">рыба</span>
+                    </a>
+                    <a href="/category/2" style="background: url('/assets/img/cats/mob/3.jpg')" class="mob_mos_it">
+                        <span class="mob_mos_it_text bl_txt_mob">птица</span>
+                    </a>
+                    <a href="/category/14" style="background: url('/assets/img/cats/mob/4.jpg')" class="mob_mos_it">
+                        <span class="mob_mos_it_text">фрукты</span>
+                    </a>
+                    <a href="/category/103" style="background: url('/assets/img/cats/mob/5.jpg')" class="mob_mos_it">
+                        <span class="mob_mos_it_text">овощи</span>
+                    </a>
+                    <a href="/category/104" style="background: url('/assets/img/cats/mob/6.jpg')" class="mob_mos_it mob_mos_it_wide">
+                        <span class="mob_mos_it_text bl_txt_mob">зелень</span>
+                    </a>
+                    <a href="/category/95" style="background: url('/assets/img/cats/mob/7.jpg')" class="mob_mos_it">
+                        <span class="mob_mos_it_text">сыр</span>
+                    </a>
+                    <a href="" style="background: url('/assets/img/cats/mob/8.jpg')" class="mob_mos_it">
+                        <span class="mob_mos_it_text">яйцо !!!!!!</span>
+                    </a>
+                    <a href="/category/92" style="background: url('/assets/img/cats/mob/9.jpg')" class="mob_mos_it">
+                        <span class="mob_mos_it_text">молочка</span>
+                    </a>
+                    <a href="/category/96" style="background: url('/assets/img/cats/mob/10.jpg')" class="mob_mos_it">
+                        <span class="mob_mos_it_text">масло</span>
+                    </a>
+                    <a href="/category/69" style="background: url('/assets/img/cats/mob/11.jpg')" class="mob_mos_it mob_mos_it_wide">
+                        <span class="mob_mos_it_text">макароны</span>
+                    </a>
+                    <a href="/category/107" style="background: url('/assets/img/cats/mob/12.jpg')" class="mob_mos_it">
+                        <span class="mob_mos_it_text">орехи</span>
+                    </a>
+                    <a href="/category/17" style="background: url('/assets/img/cats/mob/13.jpg')" class="mob_mos_it">
+                        <span class="mob_mos_it_text">специи</span>
+                    </a>
+                    <a href="/category/24" style="background: url('/assets/img/cats/mob/14.jpg')" class="mob_mos_it">
+                        <span class="mob_mos_it_text">чай</span>
+                    </a>
+                    <a href="/category/25" style="background: url('/assets/img/cats/mob/15.jpg')" class="mob_mos_it">
+                        <span class="mob_mos_it_text">кофе</span>
+                    </a>
+                    <a href="/category/70" style="background: url('/assets/img/cats/mob/16.jpg')" class="mob_mos_it">
+                        <span class="mob_mos_it_text bl_txt_mob">крупы</span>
+                    </a>
+                    <a href="/category/10" style="background: url('/assets/img/cats/mob/17.jpg')" class="mob_mos_it">
+                        <span class="mob_mos_it_text">консервация</span>
+                    </a>
+                    <a href="/category/5" style="background: url('/assets/img/cats/mob/18.jpg')" class="mob_mos_it">
+                        <span class="mob_mos_it_text">деликатесы</span>
+                    </a>
+                    <a href="/category/26" style="background: url('/assets/img/cats/mob/19.jpg')" class="mob_mos_it">
+                        <span class="mob_mos_it_text bl_txt_mob">напитки</span>
+                    </a>
+                    <a href="" style="background: url('/assets/img/cats/mob/20.jpg')" class="mob_mos_it">
+                        <span class="mob_mos_it_text">эко !!!</span>
+                    </a>
+                    <a href="" style="background: url('/assets/img/cats/mob/21.jpg')" class="mob_mos_it">
+                        <span class="mob_mos_it_text">фермерское !!!!</span>
+                    </a>
+                    <a href="/category/21" style="background: url('/assets/img/cats/mob/22.jpg')" class="mob_mos_it">
+                        <span class="mob_mos_it_text bl_txt_mob">сладости</span>
+                    </a>
+                    <a href="/category/23" style="background: url('/assets/img/cats/mob/23.jpg')" class="mob_mos_it">
+                        <span class="mob_mos_it_text">мед</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
                 <div class="c_mosaic">    
                     <div class="c_mosaic_grid_sizer"></div>   
                     <div class="c_mosaic_gutter_sizer"></div>            

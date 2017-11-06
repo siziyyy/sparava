@@ -106,10 +106,19 @@
 .g_good_count {
     display: inline-block;
 }
+.c_page_dots {
+    display: inline-block;
+    width: 30px;
+    letter-spacing: 1px;
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+    top: -2px;
+}
 .g_good_to_cart {
     font-size: 14px;
     font-weight: bold;
-    margin-left: 10px;
+    margin-left: 15px;
     background: #e6e6e6;
     -webkit-border-radius: 10px;
             border-radius: 10px;
@@ -525,22 +534,12 @@
 }
 .g_admin_info {
     display: none;
-    font-size: 14px;
-    font-weight: bold;
-    margin-left: 3px;
-    background: #e6e6e6;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    height: 20px;
-    line-height: 20px;
-    padding: 0 5px 0 5px;
+    font-size: 12px;
     cursor: pointer;
-    border: 1px solid #ccc;
-    -webkit-transition: background .3s ease;
-    -moz-transition: background .3s ease;
-    -ms-transition: background .3s ease;
-    -o-transition: background .3s ease;
-    transition: background .3s ease;
+    text-decoration: underline;
+    float: right;
+    margin: 25px 10px 0px 0;
+    color: #666;
 }
 .g_good_admin_info_modal {
     width: 645px;

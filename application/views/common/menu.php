@@ -68,8 +68,3 @@
                     </div>
                     <div class="clear"></div>
               </div>
-              <div class="c_new_mobile_menu noscrlbr">
-				<?php foreach($categories_first_line as $category) { ?>
-					<a href="/category/<?php echo $category['category_id'] ?>" class="c_mobile_menu_link"><?php echo $category['title'] ?></a>
-				<?php } ?>
-              </div>

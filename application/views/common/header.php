@@ -82,10 +82,107 @@ body,html,textarea{font-family:Calibri}
                 <div class="aside_mobile_menu_label">Преимущества первого заказа</div>
                 <div class="aside_mobile_menu_bigsubtext">
                     Мы обеспечиваем сходство, благодаря приме
-                    нению уникальной методики подбора Донора, 
-                    максимально совместимого с конкретным 
-                    Реципиентом. Позволяет сделать это специально 
-                    разработанная программа «ASTIGO».
+                    <br>нению уникальной методики подбора Донора, 
+                    <br>максимально совместимого с конкретным 
+                    <br>Реципиентом. Позволяет сделать это специально 
+                    <br>разработанная программа «ASTIGO».
+                </div>
+                <div class="aside_mobile_menu_label">Бонусы</div>
+                <div class="aside_mobile_menu_bigsubtext">
+                    7 % от суммы с каждого заказа 
+                    <br>накапливается балы. 1 бал = 1 рублю. 
+                    <br>Эти балы Вы можете использовать в 
+                    <br>дальнейших покупках. 
+                </div>
+                <div class="aside_mobile_menu_label">Бонусы</div>
+                <div class="aside_mobile_menu_bigsubtext">
+                   У нас одна миссия - доставить Вам 
+                    <br>свежие, высококачественные продукты 
+                    <br>посупер ценам! Мы собрали в команду 
+                    <br>людей которые как и мы фанати супер
+                    <br>обслуживания. Если какой то продукт 
+                    <br>вызывает у нас сомнения мы некогда не 
+                    <br>доставим Вам его! Максимум что мы 
+                    <br>можем делать не так то опадать на 10 
+                    <br>минут, во всем остальном Вы можете 
+                    <br>быть уверении!
+                    <br><br>
+                    Чтобы сталь еще лучше нам нужна Ваша 
+                    <br>помощь - советами и предложениями.
+                    <br>Что бы вы еще хотели увидеть в нашем 
+                    <br>магазине, или что у нас не так, или что
+                    <br>бы вы поменяли! Пишите нам, мы будем 
+                    <br>очень благодарны!
+                </div>
+                <div class="aside_mobile_menu_label">Отзывы о нас</div>
+                <div class="mobile_info_mv">
+                    <img src="/assets/img/commons/markin_vadim.jpg" alt="" class="mobile_info_mv_img fl_l">
+                    <div class="mobile_info_mv_name fl_l">Елена Летучая</div>
+                    <div class="clear"></div>
+                    <div class="mobile_info_mv_txet">
+                        Чтобы сталь еще лучше нам нужна Ваша 
+                        <br>помощь - советами предложениями.
+                        <br>Что бы вы еще хотели увидеть в нашем 
+                        <br>будем очень благодарны!
+                    </div>
+                </div>
+                <div class="mobile_info_mv">
+                    <img src="/assets/img/commons/markin_vadim.jpg" alt="" class="mobile_info_mv_img fl_l">
+                    <div class="mobile_info_mv_name fl_l">Елена Летучая</div>
+                    <div class="clear"></div>
+                    <div class="mobile_info_mv_txet">
+                        Чтобы сталь еще лучше нам нужна Ваша 
+                        <br>помощь - советами предложениями.
+                        <br>Что бы вы еще хотели увидеть в нашем 
+                        <br>будем очень благодарны!
+                    </div>
+                </div>
+                <div class="aside_mobile_menu_label">Если вы блогер</div>
+                <div class="aside_mobile_menu_bigsubtext">
+                    Мы рады сотрудничить с блогерами, 
+                    <br>готовы расмотривать все Ваши 
+                    <br>предложения и проекты. По этим 
+                    <br>вопросам у нас занимается 
+                    <br>Марина - 8 910 495 60 22
+                </div>
+                <div class="aside_mobile_menu_label">Претензии и предложения</div>
+                <div class="contact_me_mobile">
+                    <form>
+                        <div class="contact_me_mobile_line">
+                            <label>
+                                <span class="contact_me_mobile_span">Вид предложения</span>
+                                <input type="text" class="contact_me_mobile_input">
+                            </label>
+                        </div>
+                        <div class="contact_me_mobile_line">
+                            <label>
+                                <span class="contact_me_mobile_span">Почта или телефон</span>
+                                <input type="text" class="contact_me_mobile_input">
+                            </label>
+                        </div>
+                        <div class="contact_me_mobile_line">
+                            <label>
+                                <span class="contact_me_mobile_span">Комментарий</span>
+                                <textarea class="contact_me_mobile_input"></textarea>
+                            </label>
+                        </div>
+                        <button class="contact_me_mobile_button">отправить</button>
+                    </form>
+                </div>
+                <div class="aside_mobile_menu_label">Бонусы</div>
+                <div class="mobile_agree">
+                    <div class="mobile_agree_height">
+                        ООО «Аядаеда», именуемое далее 
+                        <br>«Moscowfresh» публикует настоящее 
+                        <br>Пользовательское соглашение, 
+                        <br>представляющее собой публичную 
+                        <br>оферту в отношении пользователей 
+                        <br>портала moscowfresh.ru (далее 
+                        <br>«Пользователь»). Перед началом 
+                        <br>использования портала moscowfresh.ru 
+                        <br>(далее «Сервис») просим 
+                    </div>
+                    <div class="mobile_agree_more"> еще</div>
                 </div>
             </div>
         </div>
