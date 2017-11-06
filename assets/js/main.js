@@ -84,7 +84,12 @@ $(document).ready(function(){
 		$('.c_new_mobile_submenu_more').toggle();
 	});
 
+	$('.new_mob_submenu_filter').click(function() {
+  		$('.new_mob_submenu_dropdown').toggle();
+  		$('.new_mob_submenu').toggle();
+  		$('body').toggleClass('fmfilter');
 
+  	});
 
 	//////////////////////////////////////////////
 	//////////////////////////////////////////////

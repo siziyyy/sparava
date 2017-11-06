@@ -524,6 +524,9 @@ textarea.c_inners_input {
     .no_on_mob {
         display: none;
     }
+    .no_on_desk {
+        display: block;
+    }
     .c_inners_header {
         font-size: 14px !important;
         border: none !important;

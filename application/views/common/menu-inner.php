@@ -124,7 +124,7 @@
 					<a href="/category/<?php echo $category['category_id'] ?>" class="c_mobile_menu_link <?php echo ( $category['current_category'] ? 'c_current_menu_mobile_link' : '' ) ?>"><?php echo $category['title'] ?></a>
 				<?php } ?>
               </div>
-              <div class="c_new_mobile_submenu noscrlbr">
+              <!--<div class="c_new_mobile_submenu noscrlbr">
                     <div class="c_new_mobile_submenu_hamb_pack">
                     	<div class="c_new_mobile_submenu_hamb"></div>
                     </div>
@@ -141,4 +141,48 @@
                     <a href="/" class="c_new_mobile_submenu_link c_new_mobile_submenu_link_closed">Ягоды</a>
                     <div class="c_new_mobile_submenu_more">еще ...</div>
                     <div class="clear"></div>
+              </div>-->
+              <div class="new_mob_submenu">
+              	<div class="new_mob_submenu_name fl_l">ай да фрукты</div>
+              	<div class="new_mob_submenu_filter fl_r">фильтры <div class="new_mob_submenu_arrow sprite"></div></div>
+              	<div class="new_mob_submenu_filter fl_r">категории <div class="new_mob_submenu_arrow sprite"></div></div>
+              	<div class="clear"></div>
+              </div>
+              <div class="new_mob_submenu_dropdown">
+              	<div class="new_mob_submenu_dropdown_header">
+              		<div class="new_mob_submenu_filter fl_r">категории <div class="new_mob_submenu_arrow sprite"></div></div>
+              		<div class="clear"></div>
+              	</div>
+              	<div class="new_mob_submenu_filter_items">
+              		<div class="new_mob_submenu_filter_item">
+              			<div class="new_mob_submenu_filter_item_name fl_l">Страна</div>
+              			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
+              			<div class="clear"></div>
+              		</div>
+              		<div class="new_mob_submenu_filter_item">
+              			<div class="new_mob_submenu_filter_item_name fl_l">Бренд</div>
+              			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
+              			<div class="clear"></div>
+              		</div>
+              		<div class="new_mob_submenu_filter_item">
+              			<div class="new_mob_submenu_filter_item_name fl_l">Состав</div>
+              			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
+              			<div class="clear"></div>
+              		</div>
+              		<div class="new_mob_submenu_filter_item">
+              			<div class="new_mob_submenu_filter_item_name fl_l">Упаковка</div>
+              			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
+              			<div class="clear"></div>
+              		</div>
+              		<div class="new_mob_submenu_filter_item">
+              			<div class="new_mob_submenu_filter_item_name fl_l">Вес</div>
+              			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
+              			<div class="clear"></div>
+              		</div>
+              		<div class="new_mob_submenu_filter_item">
+              			<div class="new_mob_submenu_filter_item_name fl_l">Цена</div>
+              			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
+              			<div class="clear"></div>
+              		</div>
+              	</div>
               </div>
