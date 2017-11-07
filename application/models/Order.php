@@ -90,6 +90,17 @@ class Order extends Fruitcrm {
 			);
 			
 			$this->db->insert("order_inners", $data);
+			
+			$query = $this->db->get_where("products", array("product_id" => $product['product_id']));
+			if ($query->num_rows() > 0) {
+				$quantity = $query->row_array()['quantity'];
+			}
+			
+			$data = array(
+				'quantity' => $quantity - $product['quantity_in_cart']
+			);
+
+			$this->db->update("products", $data, array("product_id" => $product['product_id']));			
 		}
 		
 		return true;
