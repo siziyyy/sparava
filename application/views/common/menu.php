@@ -16,7 +16,7 @@
 							<a href="/category/15" class="c_new_index_menu_dropdown_link">Овощи, зелень, грибы</a>
 							<a href="/category/16" class="c_new_index_menu_dropdown_link">Орехи и сухофрукты</a>
 							<a href="/category/17" class="c_new_index_menu_dropdown_link">Специи и приправы</a>
-							<a href="/category/18" class="c_new_index_menu_dropdown_link c_new_index_menu_dropdown_l_mar">Замороженные продукты</a>
+							<a href="/" class="c_new_index_menu_dropdown_link c_new_index_menu_dropdown_l_mar">Замороженные продукты</a>
 							<a href="/category/13" class="c_new_index_menu_dropdown_link">Молочные продукты</a>
 							<a href="/category/9" class="c_new_index_menu_dropdown_link">Бакалея</a>
 							<a href="/category/18" class="c_new_index_menu_dropdown_link">Растительное масло</a>

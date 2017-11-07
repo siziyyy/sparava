@@ -36,7 +36,8 @@
             </div>
             <div class="content_helper">
                 <div class="goods">
-                    <?php foreach($products as $product) { ?>                       
+                    <?php foreach($products as $product) { ?>
+						<?php $show_minus = false; ?>
                         <div class="g_good fl_l">
                             <div class="g_good_photo_block">
                                 <img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo">
@@ -46,6 +47,7 @@
                             <?php } ?>
                             <div class="g_good_price"><span class="g_good_price_value"><?php echo $product['price'] ?></span> <span class="rouble">o</span></div>
                             <div class="g_old_good_price_date"><?php echo ($product['special_end_date'] ? 'до '.$product['special_end_date'] : '') ?></div>
+							 <div class="g_admin_info" data-product-id="<?php echo $product['product_id'] ?>">inf</div>
                             <div class="g_good_name"><?php echo $product['title'] ?></div>
                             <div class="g_good_description">
                                 <?php echo $product['description'] ?>
@@ -92,7 +94,6 @@
                                     <span class="g_good_to_cart_text"><span class="g_good_to_cart_value"><?php echo $product['price'] ?></span> <span class="rouble">o</span></span>
                                     <span class="g_good_to_cart_icon sprite"></span>
                                 </div>
-                                <div class="g_admin_info" data-product-id="<?php echo $product['product_id'] ?>">inf</div>
                             </div>
                         </div>                      
                     <?php } ?>
