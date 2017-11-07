@@ -19,32 +19,96 @@
             </style>
 			<div class="b_slider">
                 <div class="b_slide" style="background:url('/assets/img/slider/1.jpg')">
-                    <div class="content_helper">
-                        <div class="b_text">
-                            Доставка отборных продуктов  
-                            <br>из <span class="green_text">Фуд Сити</span> по супер ценам!
+                        <div class="content_helper">
+                            <div class="b_text">
+                                Доставка отборных продуктов  
+                                <br>из <span class="green_text">Фуд Сити</span> по супер ценам!
+                            </div>
+                            <div class="b_undertext">
+                                Экономьте до 40% от рыночной цены, кушайте 
+                                <br>наисвежайшие продукты каждый день
+                            </div>
                         </div>
-                        <div class="b_undertext">
-                            Экономьте до 40% от рыночной цены, кушайте 
-                            <br>наисвежайшие продукты каждый день
-                        </div>
-                    </div>
                 </div>  
                 <div class="b_slide" style="background:url('/assets/img/slider/2.jpg')">
+                        <a href="/category/104">
                     <div class="content_helper">
-                        <div class="second_banner_header">Линия орехов по супер ценам</div>
-                        <div class="second_banner_body">
-                            <a class="second_banner_body_link">грецкие орехи</a>
-                            <a class="second_banner_body_link">фундюк</a>
-                            <a class="second_banner_body_link">миндаль</a>
-                            <a class="second_banner_body_link">фисташки</a>
-                            <a class="second_banner_body_link">пекан</a>
-                        </div>
-                        <div class="second_banner_footer">
-                            <a href="/category/107" class="second_banner_footer_button">перейти</a>
-                        </div>
+                            <div class="slider_2 fl_r">
+                                <div class="slider_2_header">
+                                    Пустите свежесть
+                                    <br>к вам домой!
+                                </div>
+                                <div class="slider_2_body">
+                                    Помните, как пахнет свежая мята?
+                                    <br>Доставим в течении 2 часов
+                                    <div class="slider_2_accent slider_sprite"></div>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
                     </div>
-                </div>             
+                        </a>
+                </div>
+                <div class="b_slide" style="background:url('/assets/img/slider/3.jpg')">
+                        <a href="/category/3">
+                    <div class="content_helper">
+                            <div class="banner_3">более 500 видов рыбы</div>
+                    </div>
+                        </a>
+                </div>   
+                <div class="b_slide" style="background:url('/assets/img/slider/4.jpg')">
+                        <a href="/category/1">
+                    <div class="content_helper">
+                            <div class="banner_4 fl_r">
+                                <div class="banner_4_header">
+                                    Огромный выбор
+                                    <br>парного мяса
+                                    <div class="banner_4_accent slider_sprite"></div>
+                                </div>
+                                <div class="banner_4_body">
+                                    Говядина, телятина, свинина, 
+                                    <br>баранина (Дагестан) 
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                    </div>
+                        </a>
+                </div>   
+                <div class="b_slide" style="background:url('/assets/img/slider/5.jpg')">
+                        <a href="/category/25">
+                    <div class="content_helper">
+                            <div class="banner_5 fl_l">
+                                <div class="banner_5_header">
+                                    Более 750 видов кофе из 
+                                    <br>Бразилии, Италии и Африки
+                                </div>
+                                <div class="banner_5_body">
+                                    пейте качественный кофе, окунитесь 
+                                    <br>в мир <span class="banner_5_body_acc">безумных ароматов</span> 
+                                    <div class="banner_5_accent slider_sprite"></div>
+                                    <div class="banner_5_accent_2">arabica & robusta</div>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                    </div>
+                        </a>
+                </div>   
+                <div class="b_slide" style="background:url('/assets/img/slider/6.jpg')">
+                        <a href="/country/2">
+                    <div class="content_helper">
+                            <div class="slider_6 fl_r">
+                                <div class="slider_6_header">
+                                    Много эксклюзивных продуктов
+                                    <br>из разных стран мира
+                                </div>
+                                <div class="slider_6_body">
+                                    Италия, Испания, Греция и еще более 30 стран
+                                    <div class="slider_6_accent slider_sprite"></div>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                    </div>
+                        </a>
+                </div>            
             </div>
 		</section>
         <section class="mobile_banner">
@@ -327,29 +391,29 @@
                             <span class="c_mosaic_item_text">пирожные</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category/">
+                    <a class="c_mosaic_link" href="/country/2">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/34.jpg')">
-                            <span class="c_mosaic_item_text">из Италии !!!!</span>
+                            <span class="c_mosaic_item_text">из Италии</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category/">
+                    <a class="c_mosaic_link" href="/country/4">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/35.jpg')">
-                            <span class="c_mosaic_item_text">из Греции !!!</span>
+                            <span class="c_mosaic_item_text">из Греции</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category/">
+                    <a class="c_mosaic_link" href="/country/6">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/36.jpg')">
-                            <span class="c_mosaic_item_text">из Армении !!!!</span>
+                            <span class="c_mosaic_item_text">из Армении</span>
                         </div>
                     </a>
                     <a class="c_mosaic_link" href="/category/22">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/37.jpg')">
-                            <span class="c_mosaic_item_text">эко !!!!!!!!</span>
+                            <span class="c_mosaic_item_text">эко</span>
                         </div>
                     </a>
                     <a class="c_mosaic_link" href="/category/22">
                         <div class="c_mosaic_item c_mosaic_item_width_for_desktop" style="background:url('/assets/img/cats/38.jpg')">
-                            <span class="c_mosaic_item_text">фермерское !!</span>
+                            <span class="c_mosaic_item_text">фермерское</span>
                         </div>
                     </a>
                 </div>
