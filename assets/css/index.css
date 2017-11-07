@@ -152,7 +152,7 @@
     cursor: pointer;
 }
 .banner {
-    margin: 0 0 16px 0;
+    margin: 0 0 40px 0;
 }
 .c_mosaic_delivery_subbody_border {
     width: 100%;
@@ -458,6 +458,13 @@ textarea.contact_me_mobile_input {
 }
 .bl_txt_mob {
     color: #000;
+}
+.index_c_new_menu .c_new_menu_line_item {
+    margin: 0 0px 0 0px !important;
+}
+.c_new_index_menu_dropdown {
+    top: 60px;
+    right: 0;
 }
 /* media */
 @media all and (max-width: 1200px) {
