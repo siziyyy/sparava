@@ -12,10 +12,10 @@
         <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
         <link rel="manifest" href="/manifest.json">
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5ea424">
-        <meta name="msapplication-TileColor" content="#5ea424">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#fe4517">
+        <meta name="msapplication-TileColor" content="#fe4517">
         <meta name="msapplication-TileImage" content="/mstile-144x144.png">
-        <meta name="theme-color" content="#5ea424">
+        <meta name="theme-color" content="#fe4517">
 		<style>
 @font-face{font-family:Calibri Bold;src:local("Calibri Bold"),url(/assets/fnt/CalibriBold.woff) format("woff"),url(/assets/fnt/CalibriBold.woff2) format("woff2")}
 @font-face{font-family:Calibri;src:local(Calibri),url(/assets/fnt/Calibri.woff) format("woff"),url(/assets/fnt/Calibri.woff2) format("woff2")}
