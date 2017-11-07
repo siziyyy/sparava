@@ -496,6 +496,5 @@ class Baselib {
 		}
 		
 		return $shipping_methods;
-	}	
-	
+	}
 }
