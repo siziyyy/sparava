@@ -8,7 +8,8 @@
             </div>
             <div class="content_helper">
                 <div class="goods">
-                    <?php foreach($products as $product) { ?>						
+                    <?php foreach($products as $product) { ?>
+						<?php $show_minus = false; ?>
                         <div class="g_good fl_l">
                             <div class="g_good_photo_block">
                                 <img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo">
@@ -43,17 +44,26 @@
 								<?php } ?>
 								<span class="g_good_id"><?php echo $product['articul'] ?></span>
 							</div>
-                            <div class="g_good_actions g_good_added_to_cart">
+                            <div class="g_good_actions">
                                 <div class="g_good_count">
-                                    <div class="g_good_count_act g_good_count_rem sprite"></div>
-                                    <input type="text" class="g_good_count_input" value="150 <?php echo $product['type'] ?>">
-                                    <div class="g_good_count_act g_good_count_add sprite"></div>
+                                    <div class="count_cool_select_pack">
+                                        <div class="g_good_counter count_cool_select">
+                                            <span class="product_count">1</span>
+                                            <span class="count_cool_select_arrow sprite"></span>
+                                        </div>
+                                        <div class="count_cool_options">
+											<div class="count_cool_option hide_select">1</div>
+                                            <div class="count_cool_option">2</div>
+                                            <div class="count_cool_option">3</div>
+                                            <div class="count_cool_option">4</div>
+                                            <div class="count_cool_option">5</div>
+											<div class="count_cool_option">6</div>
+                                        </div>
+                                    </div>
+                                    <span class="g_good_count_legend"><?php echo $product['type'] ?></span>
                                 </div>
                                 <div class="g_good_to_cart" data-product-id="<?php echo $product['product_id'] ?>">
                                     <span class="g_good_to_cart_text"><span class="g_good_to_cart_value"><?php echo $product['price'] ?></span> <span class="rouble">o</span></span>
-                                    <span class="g_good_added_to_cart_text">
-                                        1.5 кг в
-                                    </span>
                                     <span class="g_good_to_cart_icon sprite"></span>
                                 </div>
                             </div>
@@ -62,7 +72,7 @@
 					<div id="wrapper_for_product_load"></div>
                     <div class="clear"></div>
                 </div>
-				<?php /* if($pages_count > 1) { ?>
+				<?php if($pages_count > 1) { ?>
 					<div class="c_paginator">
 						<?php if($current_page == 1) { ?>
 							<div class="c_show_more_goods" data-category-id="<?php echo $category ?>">показать еще</div>
@@ -73,19 +83,21 @@
 							<?php } ?>
 						</div>
 					</div>
-				<?php } */?>
+				<?php } ?>
+				<!--
                 <div class="c_paginator">
-                        <div class="c_show_more_goods" data-category-id="<?php echo $category ?>">показать еще</div>
-                        <div class="c_pages">
-                                <div class="c_page">1</div>
-                                <div class="c_page">2</div>
-                                <div class="c_page">3</div>
-                                <div class="c_page_dots">...</div>
-                                <div class="c_page">6</div>
-                                <div class="c_page">7</div>
-                                <div class="c_page">8</div>
-                        </div>
-                    </div>
+					<div class="c_show_more_goods" data-category-id="<?php echo $category ?>">показать еще</div>
+					<div class="c_pages">
+							<div class="c_page">1</div>
+							<div class="c_page">2</div>
+							<div class="c_page">3</div>
+							<div class="c_page_dots">...</div>
+							<div class="c_page">6</div>
+							<div class="c_page">7</div>
+							<div class="c_page">8</div>
+					</div>
+				</div>
+				-->
             </div>
         </section>
 <?php $this->load->view('common/footer',$footer);?>

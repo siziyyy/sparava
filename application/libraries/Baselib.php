@@ -311,7 +311,8 @@ class Baselib {
 			'countries' => array(),
 			'compositions' => array(),
 			'weights' => array(),
-			'packs' => array()
+			'packs' => array(),
+			'brands' => array()
 		);
 		
 		foreach($products as $product_id => $product) {
@@ -330,6 +331,10 @@ class Baselib {
 			if(!is_null($product['pack'])) {
 				$attributes['packs'][] = $product['pack'];
 			}			
+			
+			if(!is_null($product['brand'])) {
+				$attributes['brands'][] = $product['brand'];
+			}				
 		}
 		
 		
@@ -337,11 +342,13 @@ class Baselib {
 		$attributes['compositions'] = array_unique($attributes['compositions']);
 		$attributes['weights'] = array_unique($attributes['weights']);
 		$attributes['packs'] = array_unique($attributes['packs']);
+		$attributes['brands'] = array_unique($attributes['brands']);
 		
 		ksort($attributes['countries']);
 		ksort($attributes['compositions']);
 		ksort($attributes['weights']);
 		ksort($attributes['packs']);
+		ksort($attributes['brands']);
 		
 		return $attributes;
 	}

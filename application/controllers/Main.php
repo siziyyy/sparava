@@ -164,6 +164,7 @@ class Main extends CI_Controller {
 		
 		$filters = array(
 			'country' => (!is_null($this->input->get('country')) ? $this->input->get('country') : 0),
+			'brand' => (!is_null($this->input->get('brand')) ? $this->input->get('brand') : 0),
 			'weight' => (!is_null($this->input->get('weight')) ? $this->input->get('weight') : 0),
 			'pack' => (!is_null($this->input->get('pack')) ? $this->input->get('pack') : 0),
 			'composition' => (!is_null($this->input->get('composition')) ? $this->input->get('composition') : 0),
@@ -234,6 +235,7 @@ class Main extends CI_Controller {
 		
 		$filters_arr = array(
 			'country' => ($filters['country'] ? explode(';',$filters['country']) : 0),
+			'brand' => ($filters['brand'] ? explode(';',$filters['brand']) : 0),
 			'weight' => ($filters['weight'] ? explode(';',$filters['weight']) : 0),
 			'pack' => ($filters['pack'] ? explode(';',$filters['pack']) : 0),
 			'composition' => ($filters['composition'] ? explode(';',$filters['composition']) : 0)
@@ -247,6 +249,12 @@ class Main extends CI_Controller {
 				$filters_used = true;
 				continue;
 			}
+			
+			if($filters_arr['brand'] and !in_array($product['brand'], $filters_arr['brand'])) {
+				unset($products[$product_id]);
+				$filters_used = true;
+				continue;
+			}			
 			
 			if($filters_arr['weight'] and !in_array($product['weight'], $filters_arr['weight'])) {
 				unset($products[$product_id]);
@@ -387,7 +395,8 @@ class Main extends CI_Controller {
 			'weight' => (!is_null($this->input->get('weight')) ? $this->input->get('weight') : 0),
 			'pack' => (!is_null($this->input->get('pack')) ? $this->input->get('pack') : 0),
 			'composition' => (!is_null($this->input->get('composition')) ? $this->input->get('composition') : 0),
-			'price' => (!is_null($this->input->get('price')) ? $this->input->get('price') : 0)
+			'price' => (!is_null($this->input->get('price')) ? $this->input->get('price') : 0),
+			'brand' => (!is_null($this->input->get('brand')) ? $this->input->get('brand') : 0)
 		);
 		
 		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
@@ -427,7 +436,8 @@ class Main extends CI_Controller {
 			'weight' => (!is_null($this->input->get('weight')) ? $this->input->get('weight') : 0),
 			'pack' => (!is_null($this->input->get('pack')) ? $this->input->get('pack') : 0),
 			'composition' => (!is_null($this->input->get('composition')) ? $this->input->get('composition') : 0),
-			'price' => (!is_null($this->input->get('price')) ? $this->input->get('price') : 0)
+			'price' => (!is_null($this->input->get('price')) ? $this->input->get('price') : 0),
+			'brand' => (!is_null($this->input->get('brand')) ? $this->input->get('brand') : 0),
 		);
 		
 		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
