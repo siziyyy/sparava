@@ -14,27 +14,7 @@
 							<div class="clear"></div>
 							
                         </div>
-                        <div class="c_new_menu_filters">
-							<?php if(count($attributes['brands']) > 0) { ?>
-							<div class="cool_select_pack fl_l">
-								<div class="cool_select">
-									<span>бренд</span>
-									<span class="cool_select_arrow sprite"></span>
-								</div>
-								<div class="cool_select_options">
-									<?php foreach($attributes['brands'] as $attribute) { ?>
-										<div class="cool_select_option">
-											<label>
-												<input type="checkbox" class="cool_select_check" value="<?php echo $attribute ?>" data-name="brand" <?php echo (in_array($attribute,explode(';',$filters['brand'])) ? 'checked' : '' ) ?>>
-												<?php echo $attribute ?>
-											</label>
-										</div>
-									<?php } ?>
-									<div class="cool_select_button">применить</div>
-									<!-- добавить .cool_select_button_ready когда выбран фильтр, до этого кнопка неактивна -->
-								</div>
-							</div>
-							<?php } ?>						
+                        <div class="c_new_menu_filters">						
 							<?php if(count($attributes['countries']) > 0) { ?>
 							<div class="cool_select_pack fl_l">
 								<div class="cool_select">
@@ -55,6 +35,26 @@
 								</div>
 							</div>
 							<?php } ?>
+							<?php if(count($attributes['brands']) > 0) { ?>
+							<div class="cool_select_pack fl_l">
+								<div class="cool_select">
+									<span>бренд</span>
+									<span class="cool_select_arrow sprite"></span>
+								</div>
+								<div class="cool_select_options">
+									<?php foreach($attributes['brands'] as $attribute) { ?>
+										<div class="cool_select_option">
+											<label>
+												<input type="checkbox" class="cool_select_check" value="<?php echo $attribute ?>" data-name="brand" <?php echo (in_array($attribute,explode(';',$filters['brand'])) ? 'checked' : '' ) ?>>
+												<?php echo $attribute ?>
+											</label>
+										</div>
+									<?php } ?>
+									<div class="cool_select_button">применить</div>
+									<!-- добавить .cool_select_button_ready когда выбран фильтр, до этого кнопка неактивна -->
+								</div>
+							</div>
+							<?php } ?>							
 							<?php if(count($attributes['compositions']) > 0) { ?>
 							<div class="cool_select_pack fl_l">
 								<div class="cool_select">
