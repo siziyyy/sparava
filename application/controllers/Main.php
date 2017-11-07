@@ -328,7 +328,11 @@ class Main extends CI_Controller {
 			foreach($product['categories'] as $category) {
 				if(isset($categories[$category])) {
 					$parent_id = $categories[$category]['parent_id'];
-					$categories_for_country[$parent_id] = $categories[$parent_id];
+					if($parent_id > 0) {
+						$categories_for_country[$parent_id] = $categories[$parent_id];
+					} else {
+						$categories_for_country[$categories[$category]['category_id']] = $categories[$categories[$category]['category_id']];
+					}
 				}
 			}
 		}		
