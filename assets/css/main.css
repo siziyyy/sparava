@@ -274,7 +274,7 @@ input {
     top: 9px;
     cursor: pointer;
 }
-.g_good_count_act:hover {
+.g_good_count_act_disable, .g_good_count_act:hover {
     opacity: .7;
 }
 .g_good_count_act:active {
