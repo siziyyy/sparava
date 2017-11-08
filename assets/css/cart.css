@@ -513,6 +513,7 @@ textarea.c_inners_input {
     padding: 40px 20px;
     border: 5px solid #e6e6e6;
     z-index: 9999;
+	display:none;
 }
 .c_inners_mobile_cart_line {
     display: none;

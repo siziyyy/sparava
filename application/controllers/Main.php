@@ -286,12 +286,12 @@ class Main extends CI_Controller {
 		}
 		
 		$prodcuts_in_page = array();
-		$page_start = ($page-1)*10;
-		$page_end = $page*10;
+		$page_start = ($page-1)*30;
+		$page_end = $page*30;
 		$i = 0;
-		$pages_count = (int)(count($products)/10);
+		$pages_count = (int)(count($products)/30);
 		
-		if(count($products)%10 > 0)  {
+		if(count($products)%30 > 0)  {
 			$pages_count++;
 		}
 
@@ -368,12 +368,12 @@ class Main extends CI_Controller {
 		}
 		
 		$prodcuts_in_page = array();
-		$page_start = ($page-1)*10;
-		$page_end = $page*10;
+		$page_start = ($page-1)*30;
+		$page_end = $page*30;
 		$i = 0;
-		$pages_count = (int)(count($products)/10);
+		$pages_count = (int)(count($products)/30);
 		
-		if(count($products)%10 > 0)  {
+		if(count($products)%30 > 0)  {
 			$pages_count++;
 		}
 		
@@ -871,7 +871,12 @@ class Main extends CI_Controller {
 					
 					$this->load->model("account");
 					$account = new Account();
-					$account->set_id_by_email($this->input->post('remind_email'));
+					
+					if(!$account->set_id_by_email($this->input->post('remind_email'))) {
+						$json['error'] = 'Данный e-mail не зарегистрирован в системе';
+						break;
+					}
+					
 					if($account->reset_password()) {
 						$json['success'] = 'success';
 					} else {
@@ -879,7 +884,7 @@ class Main extends CI_Controller {
 					}
 				}
 				
-				break;					
+				break;
 
 			case 'load_products':
 			
@@ -892,7 +897,8 @@ class Main extends CI_Controller {
 						'weight' => (isset($filters_post->weight) ? $filters_post->weight : 0),
 						'pack' => (isset($filters_post->pack) ? $filters_post->pack : 0),
 						'composition' => (isset($filters_post->composition) ? $filters_post->composition : 0),
-						'price' => (isset($filters_post->price) ? $filters_post->price : 0)
+						'price' => (isset($filters_post->price) ? $filters_post->price : 0),
+						'brand' => (isset($filters_post->brand) ? $filters_post->brand : 0)
 					);
 					
 					if(!is_null($this->input->post('category_id'))) {
@@ -962,6 +968,8 @@ class Main extends CI_Controller {
 					}
 					
 					$json['success'] = $html;
+					
+					$json['load_status'] = (count($products_in_page['products']) == 30 ? 'show' : 'hide');
 				}
 				
 				break;				
