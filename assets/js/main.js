@@ -115,7 +115,8 @@ $(document).ready(function(){
 		$('.blah_blah').hide();
 		$('.close_me_on_send').show();
 		$('.remind_error2').hide();	
-		$('.remind_success2').hide();			
+		$('.remind_success2').hide();	
+		$('.blah_blah_accept_agreement').hide();	
 	});	
 
     $('.blah_link').click(function() {
@@ -257,6 +258,11 @@ $(document).ready(function(){
 	
 	$( ".c_inners_count_input" ).change(function() {
 		quantity = $(this).val();
+		
+		if(quantity <= 0) {
+			quantity = 1;
+		}
+		
 		product_id = $(this).attr('data-product-id');
 		cart.update(product_id, quantity);
 	});
@@ -300,6 +306,12 @@ $(document).ready(function(){
 					$( "#wrapper_for_product_load" ).append(json['success']);
 					$( ".c_pages" ).hide();
 				}
+				
+				if(json['success']) {
+					if(json['load_status'] == 'hide') {
+						$( ".c_show_more_goods" ).hide();
+					}
+				}				
 			}
 		});
 	});
@@ -338,7 +350,8 @@ $(document).ready(function(){
 			case 'register':
 			
 				if(!$('#license_agreement').prop('checked')) {
-					alert('Необходимо согласиться с условиями');
+					$('.blah_blah_accept_agreement').show();
+					$('.blah_closer').show();
 					block_send_button = false;
 					return;
 				}
@@ -471,6 +484,7 @@ $(document).ready(function(){
 							$('.close_me_on_send2').hide();
 							$('.remind_success').show();
 						} else if(send_data.type == 'remind2') {
+							$('.close_me_on_send').hide();
 							$('.remind_success2').show();
 						}
 					} else if (json['redirect']) {
@@ -478,6 +492,7 @@ $(document).ready(function(){
 					} else if(json['error']) {
 						if(send_data.type == 'remind') {
 							$('.close_me_on_send2').hide();
+							$('.remind_error').text(json['error']);
 							$('.remind_error').show();
 						} else if(json['error'] == 'busy_email') {
 							$('.email_error').show();

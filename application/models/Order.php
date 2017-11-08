@@ -30,6 +30,7 @@ class Order extends Fruitcrm {
 		$shipping_method = $this->session->userdata('shipping_method');
 		$use_bonus = $this->session->userdata('use_bonus');
 		$products = $this->baselib->get_cart();
+		
 
 		if(!is_null($account_id) and !is_null($shipping_method) and !is_null($use_bonus) and count($products) > 0) {
 
@@ -40,6 +41,7 @@ class Order extends Fruitcrm {
 			$data = array(
 				'account_id' => $account_id,
 				'shipping_method' => $shipping_methods[$shipping_method]['title'],
+				'shipping_method_id' => $shipping_method,
 				'shipping_price' => $shipping_methods[$shipping_method]['price'],
 				'used_bonus' => ( $use_bonus ? $account->get_data()['bonus'] : 0 ),
 				'create_date' => time()
