@@ -249,9 +249,9 @@ input {
     color: #FFF;
     font-size: 14px;
 }
-.g_good_added_to_cart .g_good_to_cart {
-    background: #fe4517;
-    border: none;
+.g_good_added_to_cart {
+    background: #fe4517 !important;
+    border: none !important;
 }
 .g_good_added_to_cart .g_good_to_cart:hover {
     background: #fe4517;
