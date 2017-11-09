@@ -155,7 +155,8 @@ class Main extends CI_Controller {
 			'categories' => $products_in_page['categories_for_country'],
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
-			)
+			),
+			'pages' => $this->baselib->create_pager($products_in_page['pages_count'],$page)
 		);
 		
 		$this->load->view('country',$data);
@@ -218,9 +219,12 @@ class Main extends CI_Controller {
 		$data['filters_used'] = $products_in_page['filters_used'];
 		$data['current_page'] = $page;
 		$data['menu']['products_count'] = $products_in_page['products_count'];
+		$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);
 		
 		$this->load->view('category', $data);
 	}
+	
+
 	
 	public function catalog() {
 		$data = array(
@@ -430,6 +434,7 @@ class Main extends CI_Controller {
 		$data['filters_used'] = $products_in_page['filters_used'];
 		$data['current_page'] = $page;
 		$data['menu']['products_count'] = $products_in_page['products_count'];
+		$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);
 		
 		$this->load->view('category', $data);
 	}
@@ -471,6 +476,7 @@ class Main extends CI_Controller {
 		$data['filters_used'] = $products_in_page['filters_used'];
 		$data['current_page'] = $page;
 		$data['menu']['products_count'] = $products_in_page['products_count'];
+		$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);
 		
 		$this->load->view('category', $data);
 	}

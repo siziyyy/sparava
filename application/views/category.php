@@ -70,26 +70,16 @@
 							<div class="c_show_more_goods" data-category-id="<?php echo $category ?>">показать еще</div>
 						<?php } ?>
 						<div class="c_pages">
-							<?php for( $i = 1 ; $i <= $pages_count ; $i++ ) { ?>
-								<div class="c_page <?php echo ($i == $current_page ? 'c_current_page' : '') ?>" data-page="<?php echo $i ?>"><?php echo $i ?></div>
+							<?php foreach($pages as $page) { ?>
+								<?php if ($page['dots']) { ?>
+									<div class="c_page_dots">...</div>
+								<?php } else { ?>
+									<div class="c_page <?php echo ($page['current_page'] ? 'c_current_page' : '') ?>" data-page="<?php echo $page['page'] ?>"><?php echo $page['page'] ?></div>
+								<?php } ?>
 							<?php } ?>
 						</div>
 					</div>
 				<?php } ?>
-				<!--
-                <div class="c_paginator">
-					<div class="c_show_more_goods" data-category-id="<?php echo $category ?>">показать еще</div>
-					<div class="c_pages">
-							<div class="c_page">1</div>
-							<div class="c_page">2</div>
-							<div class="c_page">3</div>
-							<div class="c_page_dots">...</div>
-							<div class="c_page">6</div>
-							<div class="c_page">7</div>
-							<div class="c_page">8</div>
-					</div>
-				</div>
-				-->
             </div>
         </section>
 <?php $this->load->view('common/footer',$footer);?>

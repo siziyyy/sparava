@@ -32,7 +32,7 @@
             <div class="mobile_search_header_number"><?php echo $articul ?></div>
             <div class="content_helper">
                 <div class="goods">
-					<div class="g_good fl_l">
+					<div class="g_good fl_l" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>">
 						<div class="g_good_photo_block">
 							<img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo">
 						</div>
@@ -68,24 +68,13 @@
 						</div>
 						<div class="g_good_actions">
 							<div class="g_good_count">
-								<div class="count_cool_select_pack">
-									<div class="g_good_counter count_cool_select">
-										<span class="product_count">1</span>
-										<span class="count_cool_select_arrow sprite"></span>
-									</div>
-									<div class="count_cool_options">
-										<div class="count_cool_option hide_select">1</div>
-										<div class="count_cool_option">2</div>
-										<div class="count_cool_option">3</div>
-										<div class="count_cool_option">4</div>
-										<div class="count_cool_option">5</div>
-										<div class="count_cool_option">6</div>
-									</div>
-								</div>
-								<span class="g_good_count_legend"><?php echo $product['type'] ?></span>
+								<div class="g_good_count_act g_good_count_rem sprite"></div>
+								<input type="text" class="g_good_count_input" value="<?php echo ($product['type'] == 'шт' ? 1 : ($product['bm'] == 1 ? 1 : '0.1')) ?> <?php echo $product['type'] ?>" disabled>
+								<div class="g_good_count_act g_good_count_add sprite"></div>
 							</div>
 							<div class="g_good_to_cart" data-product-id="<?php echo $product['product_id'] ?>">
 								<span class="g_good_to_cart_text"><span class="g_good_to_cart_value"><?php echo $product['price'] ?></span> <span class="rouble">o</span></span>
+								<span class="g_good_added_to_cart_text"></span>									
 								<span class="g_good_to_cart_icon sprite"></span>
 							</div>
 						</div>
@@ -101,7 +90,7 @@
                 <div class="twin_header">Похожие товары</div>
                 <div class="goods">
                    <?php foreach($products as $product) { ?>						
-                        <div class="g_good fl_l">
+                        <div class="g_good fl_l" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>">
                             <div class="g_good_photo_block">
                                 <img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo">
                             </div>
@@ -137,24 +126,13 @@
 							</div>
                             <div class="g_good_actions">
                                 <div class="g_good_count">
-                                    <div class="count_cool_select_pack">
-                                        <div class="g_good_counter count_cool_select">
-                                            <span class="product_count">1</span>
-                                            <span class="count_cool_select_arrow sprite"></span>
-                                        </div>
-                                        <div class="count_cool_options">
-											<div class="count_cool_option hide_select">1</div>
-                                            <div class="count_cool_option">2</div>
-                                            <div class="count_cool_option">3</div>
-                                            <div class="count_cool_option">4</div>
-                                            <div class="count_cool_option">5</div>
-											<div class="count_cool_option">6</div>
-                                        </div>
-                                    </div>
-                                    <span class="g_good_count_legend"><?php echo $product['type'] ?></span>
+                                    <div class="g_good_count_act g_good_count_rem sprite"></div>
+                                    <input type="text" class="g_good_count_input" value="<?php echo ($product['type'] == 'шт' ? 1 : ($product['bm'] == 1 ? 1 : '0.1')) ?> <?php echo $product['type'] ?>" disabled>
+                                    <div class="g_good_count_act g_good_count_add sprite"></div>
                                 </div>
                                 <div class="g_good_to_cart" data-product-id="<?php echo $product['product_id'] ?>">
                                     <span class="g_good_to_cart_text"><span class="g_good_to_cart_value"><?php echo $product['price'] ?></span> <span class="rouble">o</span></span>
+                                    <span class="g_good_added_to_cart_text"></span>									
                                     <span class="g_good_to_cart_icon sprite"></span>
                                 </div>
                             </div>

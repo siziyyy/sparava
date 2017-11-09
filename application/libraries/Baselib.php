@@ -497,4 +497,55 @@ class Baselib {
 		
 		return $shipping_methods;
 	}
+	
+	public function create_pager($pages_count,$page) {
+		$pages = array();
+		
+		if($pages_count > 2) {
+			$dots_used = false;
+			
+			for( $i = 1 ; $i <= $pages_count ; $i++ ) {
+				if($i == 1) {
+					$pages[] = array(
+						'page' => $i,
+						'current_page' => ($i == $page ? true : false),
+						'dots' => false
+					);
+				} elseif($i == $pages_count) {
+					$pages[] = array(
+						'page' => $i,
+						'current_page' => ($i == $page ? true : false),
+						'dots' => false
+					);					
+				} elseif(abs($page - $i) <= 1 ) {
+					$pages[] = array(
+						'page' => $i,
+						'current_page' => ($i == $page ? true : false),
+						'dots' => false
+					);
+					
+					$dots_used = false;
+				} elseif(($i - 1) > 1 or ($i + 1) < $pages_count) {
+					if(!$dots_used) {
+						$pages[] = array(
+							'current_page' => false,
+							'dots' => true
+						);
+						
+						$dots_used = true;
+					}
+				}
+			}
+		} else {
+			for( $i = 1 ; $i <= $pages_count ; $i++ ) {
+				$pages[] = array(
+					'page' => $i,
+					'current_page' => ($i == $page ? true : false),
+					'dots' => false
+				);
+			}		
+		}
+		
+		return $pages;
+	}	
 }
