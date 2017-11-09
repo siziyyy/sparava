@@ -278,7 +278,7 @@ $(document).ready(function(){
 		quantity = parseFloat($(this).parents('.g_good').find('.g_good_count_input').val());
 		type_num = $(this).parents('.g_good').attr('data-type');
 		
-		quantity = get_quantity_by_type(quantity,type_num,false);
+		quantity = get_quantity_by_type(quantity,type_num,false,$(this));
 		
 		$(this).parents('.g_good').find('.g_good_count_input').val(quantity);
 	});
@@ -292,23 +292,27 @@ $(document).ready(function(){
 		quantity = parseFloat($(this).parents('.g_good').find('.g_good_count_input').val());
 		type_num = $(this).parents('.g_good').attr('data-type');
 		
-		quantity = get_quantity_by_type(quantity,type_num,true);
+		quantity = get_quantity_by_type(quantity,type_num,true,$(this));
 		
 		$(this).parents('.g_good').find('.g_good_count_input').val(quantity);
 	});	
 	
-	function get_quantity_by_type(quantity,type_num,minus) {
+	function get_quantity_by_type(quantity,type_num,minus,obj) {
 		if(minus) {
 			if(type_num == 0) {
+				obj.parents('.g_good_actions').find('.g_good_count_rem').removeClass('g_good_count_act_disable');
 				type = 'шт';
 				quantity--;
 				
-				if(quantity < 1) {
+				
+				if(quantity <= 1) {
 					quantity = 1;
+					obj.parents('.g_good_actions').find('.g_good_count_rem').addClass('g_good_count_act_disable');
 				}
 				
 				return quantity+' '+type;
 			} else if(type_num == 1) {
+				obj.parents('.g_good_actions').find('.g_good_count_rem').removeClass('g_good_count_act_disable');
 				type = 'кг';
 				
 				if(quantity >= 1) {
@@ -322,13 +326,16 @@ $(document).ready(function(){
 					quantity = 0.5;
 				} else if(quantity > 0.3) {
 					quantity = 0.3;
+					obj.parents('.g_good_actions').find('.g_good_count_rem').addClass('g_good_count_act_disable');
 				} else if(quantity < 0.3) {
 					quantity = 0.3;
+					obj.parents('.g_good_actions').find('.g_good_count_rem').addClass('g_good_count_act_disable');
 				}
-					
+				
 				return quantity+' '+type;
 			} else if(type_num == 2) {
 				type = 'кг';
+				obj.parents('.g_good_actions').find('.g_good_count_rem').removeClass('g_good_count_act_disable');
 				
 				if(quantity >= 1) {
 					quantity = quantity - 0.5;
@@ -339,28 +346,34 @@ $(document).ready(function(){
 				
 				if(quantity > 0.5) {
 					quantity = 0.5;
+					
 				} else if(quantity > 0.3) {
 					quantity = 0.3;
 				} else if(quantity > 0.1) {
 					quantity = 0.1;
+					obj.parents('.g_good_actions').find('.g_good_count_rem').addClass('g_good_count_act_disable');
 				} else if(quantity < 0.1) {
 					quantity = 0.1;
+					obj.parents('.g_good_actions').find('.g_good_count_rem').addClass('g_good_count_act_disable');
 				}
 					
 				return quantity+' '+type;
 			}			
 		} else {
 			if(type_num == 0) {
+				obj.parents('.g_good_actions').find('.g_good_count_rem').removeClass('g_good_count_act_disable');
 				type = 'шт';
 				quantity++;
 				
-				if(quantity < 1) {
+				if(quantity <= 1) {
 					quantity = 1;
+					obj.parents('.g_good_actions').find('.g_good_count_rem').addClass('g_good_count_act_disable');
 				}				
 				
 				return quantity+' '+type;
 			} else if(type_num == 1) {
 				type = 'кг';
+				obj.parents('.g_good_actions').find('.g_good_count_rem').removeClass('g_good_count_act_disable');
 				
 				if(quantity >= 1) {
 					quantity = quantity + 0.5;
@@ -371,6 +384,7 @@ $(document).ready(function(){
 				
 				if(quantity < 0.3) {
 					quantity = 0.3;
+					obj.parents('.g_good_actions').find('.g_good_count_rem').addClass('g_good_count_act_disable');
 				} else if(quantity < 0.5) {
 					quantity = 0.5;
 				} else if(quantity < 1) {
@@ -380,6 +394,7 @@ $(document).ready(function(){
 				return quantity+' '+type;
 			} else if(type_num == 2) {
 				type = 'кг';
+				obj.parents('.g_good_actions').find('.g_good_count_rem').removeClass('g_good_count_act_disable');
 				
 				if(quantity >= 1) {
 					quantity = quantity + 0.5;
@@ -390,6 +405,7 @@ $(document).ready(function(){
 				
 				if(quantity < 0.1) {
 					quantity = 0.1;
+					obj.parents('.g_good_actions').find('.g_good_count_rem').addClass('g_good_count_act_disable');
 				} else if(quantity < 0.3) {
 					quantity = 0.3;
 				} else if(quantity < 0.5) {
@@ -664,7 +680,7 @@ var cart = {
 		$.ajax({
 			url: '/cart_ajax',
 			type: 'post',
-			data: 'action=add&product_id=' + product_id + '&quantity=' + (typeof(quantity) != 'undefined' ? quantity : 1),
+			data: 'action=update&product_id=' + product_id + '&quantity=' + (typeof(quantity) != 'undefined' ? quantity : 1),
 			dataType: 'json',
 			success: function(json) {
 				if(json['success']) {
@@ -673,7 +689,6 @@ var cart = {
 					$('#h_cart_text_total').text(json['success']['total']);
 					
 					if(obj) {
-						obj.parents('.g_good_actions').find('.g_good_count_rem').addClass('g_good_count_act_disable');
 						obj.addClass('g_good_added_to_cart');
 						obj.parents('.g_good').find(".g_good_added_to_cart_text").show();
 						obj.parents('.g_good').find(".g_good_to_cart_text").hide();
