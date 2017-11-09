@@ -86,21 +86,35 @@ input {
     height: 25px;
     cursor: pointer;
     background-position: -29px -521px;
-    margin: 8px 0 0 0;
+    margin: 8px 0 0;
+}
+.m_h_login {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    background-position: -193px -848px;
+    margin: 8px 4px 0 0;
+}
+.m_h_fav {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    background-position: -29px -848px;
+    margin-top: 8px;
 }
 .m_h_search {
     width: 25px;
     height: 25px;
     cursor: pointer;
     background-position: -193px -275px;
-    margin: 8px 9px 0 -8px;
+    margin: 8px 0 0;
 }
 .m_h_call {
     width: 25px;
     height: 25px;
     cursor: pointer;
     background-position: -111px -520px;
-    margin: 8px 0 0 20px;
+    margin: 8px 0 0;
 }
 .m_h_cart {
     position: relative;
