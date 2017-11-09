@@ -214,7 +214,38 @@ body,html,textarea{font-family:Calibri}
                     <div class="m_h_login sprite fl_r"></div>
                     <div class="m_h_fav sprite fl_r"></div>
                     <div class="clear"></div>
-                </div>			
+                </div>	
+                <div class="mobile_modal">
+                    <div class="mobile_auth">
+                        <div class="mobile_auth_line">
+                            <input type="text" class="mobile_auth_input" placeholder="логин">
+                        </div>
+                        <div class="mobile_auth_line">
+                            <input type="password" class="mobile_auth_input" placeholder="пароль">
+                        </div>
+                        <div class="new_green_small_button mobgb">войти</div>
+                        <div class="clear"></div>
+                        <div class="respasmob">забыл пароль</div>
+                    </div>
+                    <div class="mobile_restore">
+                        <div class="mobile_restore_header">
+                            Восстановление пароля
+                            <div class="mobile_modal_close sprite"></div>
+                        </div>
+                        <div class="mobile_restore_subheader">
+                            Для восстановления пароля введите 
+                            <br>вашу почту
+                        </div>
+                        <div class="mobile_auth_line">
+                            <input type="text" class="mobile_restore_input" placeholder="почта">
+                        </div>
+                        <div class="mobile_restore_subheader">
+                            Если Вы забили пароль опросите и мы 
+                            <br>отправим повторно
+                        </div>
+                        <div class="new_green_small_button mobgb mobgb2">восстановить пароль</div>
+                    </div>
+                </div>		
 				<div class="main_header">
 					<a href="/">
 						<div class="h_logo fl_l">

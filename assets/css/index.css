@@ -709,7 +709,7 @@ textarea.contact_me_mobile_input {
         display: none;
     }
     header {
-        height: 70px;
+        height: auto;
     }
     .g_good_actions {
         position: static !important;

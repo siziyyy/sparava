@@ -222,6 +222,18 @@ $(document).ready(function(){
         $('.c_new_index_menu_dropdown').toggle();
         $('.new_menu_closer').toggle();
     });	
+    $('.m_h_login').click(function() {
+        $('.mobile_modal').toggle();
+        $('.mobile_auth').toggle();
+    });	
+    $('.respasmob').click(function() {
+        $('.mobile_auth').toggle();
+        $('.mobile_restore').toggle();
+    });	
+    $('.mobile_modal_close').click(function() {
+        $('.mobile_auth').show();
+        $('.mobile_restore').hide();
+    });	
 
 
 	/*
