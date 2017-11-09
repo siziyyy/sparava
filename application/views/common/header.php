@@ -188,6 +188,9 @@ body,html,textarea{font-family:Calibri}
         </div>
 		<header>
 			<div class="content_helper">
+                <!-- 
+                    @Tural тут до фига разных состояний у каждой кнопки...
+                 -->
                 <div class="mobile_header">
                     <div class="m_h_hamb sprite fl_l"></div>
                     <a href="tel:84955001020"><div class="m_h_call sprite fl_l"></div></a>
@@ -226,6 +229,53 @@ body,html,textarea{font-family:Calibri}
                     </div>
                     <div class="h_login fl_r">
                         <a class="h_login_button">войти</a>
+                        <div class="new_auth">
+                            <div class="new_auth_line">
+                                <label>
+                                    <span class="new_auth_inp_text">логин</span>
+                                    <input type="text" class="new_auth_inp">
+                                </label>
+                            </div>
+                            <div class="new_auth_line">
+                                <label>
+                                    <span class="new_auth_inp_text">пароль</span>
+                                    <input type="password" class="new_auth_inp">
+                                </label>
+                            </div>
+                            <div class="new_auth_actions">
+                                <div class="new_auth_button new_green_small_button fl_l">войти</div>
+                                <div class="new_auth_remind fl_r">забыл пароль</div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="new_auth_register">
+                                <div class="new_auth_register_header">
+                                    Зарегистрироваться
+                                    <span class="new_auth_register_arrow fl_r">></span>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="new_auth_register_body">
+                                    <div class="new_auth_line">
+                                        <label>
+                                            <span class="new_auth_inp_text">почта</span>
+                                            <input type="text" class="new_auth_inp">
+                                        </label>
+                                    </div>
+                                    <div class="new_auth_line">
+                                        <label>
+                                            <span class="new_auth_inp_text">имя</span>
+                                            <input type="text" class="new_auth_inp">
+                                        </label>
+                                    </div>
+                                    <div class="new_auth_line">
+                                        <label>
+                                            <span class="new_auth_inp_text">телефон</span>
+                                            <input type="text" class="new_auth_inp">
+                                        </label>
+                                    </div>
+                                    <div class="new_auth_button new_orange_small_button">зарегистрироваться</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
     				<div class="h_menu fl_r">
     					<a href="/" class="h_link green_text dirty_link">наш вкусный блог</a>
