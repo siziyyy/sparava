@@ -194,6 +194,7 @@ body,html,textarea{font-family:Calibri}
                 <div class="mobile_header">
                     <div class="m_h_hamb sprite fl_l"></div>
                     <a href="tel:84955001020"><div class="m_h_call sprite fl_l"></div></a>
+                    <div class="m_h_search sprite fl_l"></div>
                     <a href="/">
                         <div class="m_h_logo">
                             <img src="/assets/img/h_logo.jpg" class="m_h_logo_img" alt="sparava">
@@ -206,7 +207,8 @@ body,html,textarea{font-family:Calibri}
                             <div class="clear"></div>
                         </div>
                     </a>
-                    <div class="m_h_search sprite fl_r"></div>
+                    <div class="m_h_login sprite fl_r"></div>
+                    <div class="m_h_fav sprite fl_r"></div>
                     <div class="clear"></div>
                 </div>			
 				<div class="main_header">
