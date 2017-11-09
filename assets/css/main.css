@@ -112,6 +112,15 @@ input {
     background-position: -220px -931px;
     margin: 8px 0 7px 0;
 }
+.hide_it_visibh {
+    visibility: hidden;
+}
+.black_auth {
+    background-position: 53px -848px
+}
+.black_star {
+    background-position: -111px -848px
+}
 .mob_deliv_spr2 {
     width: 100%;
     height: 25px;
