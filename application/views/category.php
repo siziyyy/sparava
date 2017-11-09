@@ -19,7 +19,7 @@
 							<?php } ?>
                             <div class="g_good_price"><span class="g_good_price_value"><?php echo $product['price'] ?></span> <span class="rouble">o</span></div>
                             <div class="g_old_good_price_date">
-								<?php echo ($product['type'] == 'шт' ? ' - '.$product['weight'] : ($product['bm'] == 1 ? ' за 1 кг' : ' за 100 гр')) ?>
+								<?php echo ($product['type'] == 'шт' ? (!is_null($product['weight']) ? ' - '.$product['weight'] : '') : ($product['bm'] == 1 ? ' за 1 кг' : ' за 100 гр')) ?>
 							</div>
                             <div class="g_admin_info" data-product-id="<?php echo $product['product_id'] ?>">inf</div>
                             <div class="g_good_name"><?php echo $product['title'] ?></div>
@@ -36,13 +36,6 @@
 								<?php } ?>
 								<?php if($product['country']) { ?>
 									<?php echo $product['country'] ?>
-									<?php $show_minus = true; ?>
-								<?php } ?>
-								<?php if($show_minus and $product['weight']) { ?>
-									 - 
-								<?php } ?>
-								<?php if($product['weight']) { ?>
-									<?php echo $product['weight'] ?>
 								<?php } ?>
 								<span class="g_good_id"><?php echo $product['articul'] ?></span>
 							</div>

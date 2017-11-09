@@ -280,32 +280,39 @@ $(document).ready(function(){
 		$(this).parents('.g_good').find('.g_good_added_to_cart_text').text(quantity+' в ');
 	});
 	
+	$(document).on('click','.g_good_added_to_cart',function(e) {
+		window.location = '/cart';
+	});
+	
 	$(document).on('click','.g_good_count_add',function(e) {
 		
 		$(this).parents('.g_good').find(".g_good_added_to_cart_text").hide();
 		$(this).parents('.g_good').find(".g_good_to_cart_text").show();
 		$(this).parents('.g_good').find(".g_good_added_to_cart").removeClass('g_good_added_to_cart');
 		
-		
 		quantity = parseFloat($(this).parents('.g_good').find('.g_good_count_input').val());
 		type_num = $(this).parents('.g_good').attr('data-type');
-		
+	
 		quantity = get_quantity_by_type(quantity,type_num,false,$(this));
-		
+		price = $(this).parents('.g_good').find(".g_good_price_value").text();
+
+		$(this).parents('.g_good').find(".g_good_to_cart_value").text(parseFloat(quantity)*price);			
 		$(this).parents('.g_good').find('.g_good_count_input').val(quantity);
 	});
 	
 	$(document).on('click','.g_good_count_rem',function(e) {
 		
-		if($(this).hasClass('g_good_count_act_disable')) {
-			return false;
-		}
+		$(this).parents('.g_good').find(".g_good_added_to_cart_text").hide();
+		$(this).parents('.g_good').find(".g_good_to_cart_text").show();
+		$(this).parents('.g_good').find(".g_good_added_to_cart").removeClass('g_good_added_to_cart');
 		
 		quantity = parseFloat($(this).parents('.g_good').find('.g_good_count_input').val());
 		type_num = $(this).parents('.g_good').attr('data-type');
 		
 		quantity = get_quantity_by_type(quantity,type_num,true,$(this));
-		
+		price = $(this).parents('.g_good').find(".g_good_price_value").text();
+
+		$(this).parents('.g_good').find(".g_good_to_cart_value").text(parseFloat(quantity)*price);		
 		$(this).parents('.g_good').find('.g_good_count_input').val(quantity);
 	});	
 	
