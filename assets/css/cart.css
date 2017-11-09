@@ -160,6 +160,16 @@
     -o-transition: background .3s ease;
     transition: background .3s ease;
 }
+.mobgb {
+    font-size: 12px;
+    width: auto;
+    padding: 1px 10px;
+    display: inline-block;
+    margin: 25px auto;
+}
+.mobgb2 {
+    margin: 15px auto;
+}
 .orange_small_button {
     background: #fe4517;
     display: inline-block;
