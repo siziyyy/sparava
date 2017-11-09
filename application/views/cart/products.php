@@ -6,22 +6,35 @@
 		<div class="clear"></div>
 	</div>
 	<?php foreach($products as $product) { ?>
+		<?php $show_minus = false; ?>
 		<div class="c_inners_side_tr">
 			<div class="c_inners_td fl_l c_inners_first_td no_on_mob">
 				<div class="c_inners_photo fl_l" style="background: url(images/<?php echo $product['image'] ?>);"></div>
 				<div class="c_inners_photo_legend fl_r">
-					<? /*
-					<div class="c_inners_photo_legend_name"><?php echo $product['title'] ?></div>
-					<div class="c_inners_photo_legend_country"><?php echo $product['country'] ?></div>
-					<div class="c_inners_photo_legend_desc">
+					<div class="g_good_name"><?php echo $product['title'] ?></div>
+					<div class="g_good_description">
 						<?php echo $product['description'] ?>
 					</div>
-					*/ ?>
-					<div class="g_good_name"><?php echo $product['title'] ?></div>
-                            <div class="g_good_description">
-                                <?php echo $product['description'] ?>
-                            </div>
-                            <div class="g_good_country"><?php echo $product['brand'] ?> - <?php echo $product['country'] ?><span class="g_good_id"><?php echo $product['articul'] ?></span></div>
+					<div class="g_good_country">
+						<?php if($product['brand']) { ?>
+							<?php echo $product['brand'] ?>
+							<?php $show_minus = true; ?>
+						<?php } ?>
+						<?php if($show_minus and $product['country']) { ?>
+							 - 
+						<?php } ?>
+						<?php if($product['country']) { ?>
+							<?php echo $product['country'] ?>
+							<?php $show_minus = true; ?>
+						<?php } ?>
+						<?php if($show_minus and $product['weight']) { ?>
+							 - 
+						<?php } ?>
+						<?php if($product['weight']) { ?>
+							<?php echo $product['weight'] ?>
+						<?php } ?>
+						<span class="g_good_id"><?php echo $product['articul'] ?></span>
+					</div>
 				</div>
 				<div class="clear"></div>
 			</div>

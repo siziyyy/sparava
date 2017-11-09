@@ -175,7 +175,8 @@ $(document).ready(function(){
         speed: 300,
         arrows: false,
         autoplay: true,
-        autoplaySpeed: 5000,
+        autoplaySpeed: 3000,
+		pauseOnHover: false,
         cssEase: 'ease-in-out'
     });
     /* mosaic */

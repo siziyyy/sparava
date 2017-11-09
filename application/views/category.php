@@ -19,7 +19,6 @@
 							<?php } ?>
                             <div class="g_good_price"><span class="g_good_price_value"><?php echo $product['price'] ?></span> <span class="rouble">o</span></div>
                             <div class="g_old_good_price_date">
-								<?php //echo ($product['special_end_date'] ? 'до '.$product['special_end_date'] : '') ?>
 								<?php echo ($product['type'] == 'шт' ? ' - '.$product['weight'] : ($product['bm'] == 1 ? ' за 1 кг' : ' за 100 гр')) ?>
 							</div>
                             <div class="g_admin_info" data-product-id="<?php echo $product['product_id'] ?>">inf</div>
