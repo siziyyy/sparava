@@ -130,8 +130,28 @@
                     <a href="/category/1" style="background: url('/assets/img/cats/mob/1.jpg')" class="mob_mos_it mob_mos_it_big">
                         <span class="mob_mos_it_text">мясо</span>
                     </a>
-                    <a href="/category/3" style="background: url('/assets/img/cats/mob/2.jpg')" class="mob_mos_it">
+                    <a href="/category/3" style="height: 130px; background: url('/assets/img/cats/mob/2.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text bl_txt_mob">рыба</span>
+                    </a>
+                    <a class="mob_mos_it mob_mos_deliv">
+                        <div class="mob_deliv_spr sprite"></div>
+                        <div class="mob_deliv_head">доставка</div>
+                        <div class="mob_deliv_body">
+                            <div class="mob_deliv_body1 fl_l">
+                                <div class="mob_deliv_body_header">24 часа</div>
+                                <div class="mob_deliv_body_b">149</div>
+                            </div>
+                            <div class="mob_deliv_body3 fl_l">
+                                <div class="mob_deliv_body_header">&nbsp;</div>
+                                <div class="mob_deliv_body_b">/</div>
+                            </div>
+                            <div class="mob_deliv_body2 fl_l">
+                                <div class="mob_deliv_body_header">2 часа</div>
+                                <div class="mob_deliv_body_b">399</div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="mob_deliv_spr2 sprite"></div>
                     </a>
                     <a href="/category/2" style="background: url('/assets/img/cats/mob/3.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text bl_txt_mob">птица</span>
