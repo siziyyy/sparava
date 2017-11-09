@@ -268,6 +268,12 @@ $(document).ready(function(){
 	});
 	
 	$(document).on('click','.g_good_count_add',function(e) {
+		
+		$(this).parents('.g_good').find(".g_good_added_to_cart_text").hide();
+		$(this).parents('.g_good').find(".g_good_to_cart_text").show();
+		$(this).parents('.g_good').find(".g_good_added_to_cart").removeClass('g_good_added_to_cart');
+		
+		
 		quantity = parseFloat($(this).parents('.g_good').find('.g_good_count_input').val());
 		type_num = $(this).parents('.g_good').attr('data-type');
 		
@@ -668,6 +674,8 @@ var cart = {
 					if(obj) {
 						obj.parents('.g_good_actions').find('.g_good_count_rem').addClass('g_good_count_act_disable');
 						obj.addClass('g_good_added_to_cart');
+						obj.parents('.g_good').find(".g_good_added_to_cart_text").show();
+						obj.parents('.g_good').find(".g_good_to_cart_text").hide();
 					}
 				}
 			}

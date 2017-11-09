@@ -38,7 +38,7 @@
                 <div class="goods">
                     <?php foreach($products as $product) { ?>
 						<?php $show_minus = false; ?>
-                        <div class="g_good fl_l">
+                        <div class="g_good fl_l" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>">
                             <div class="g_good_photo_block">
                                 <img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo">
                             </div>
@@ -74,24 +74,13 @@
 							</div>
                             <div class="g_good_actions">
                                 <div class="g_good_count">
-                                    <div class="count_cool_select_pack">
-                                        <div class="g_good_counter count_cool_select">
-                                            <span class="product_count">1</span>
-                                            <span class="count_cool_select_arrow sprite"></span>
-                                        </div>
-                                        <div class="count_cool_options">
-											<div class="count_cool_option hide_select">1</div>
-                                            <div class="count_cool_option">2</div>
-                                            <div class="count_cool_option">3</div>
-                                            <div class="count_cool_option">4</div>
-                                            <div class="count_cool_option">5</div>
-											<div class="count_cool_option">6</div>
-                                        </div>
-                                    </div>
-                                    <span class="g_good_count_legend"><?php echo $product['type'] ?></span>
+                                    <div class="g_good_count_act g_good_count_rem sprite"></div>
+                                    <input type="text" class="g_good_count_input" value="<?php echo ($product['type'] == 'шт' ? 1 : ($product['bm'] == 1 ? 1 : '0.1')) ?> <?php echo $product['type'] ?>" disabled>
+                                    <div class="g_good_count_act g_good_count_add sprite"></div>
                                 </div>
                                 <div class="g_good_to_cart" data-product-id="<?php echo $product['product_id'] ?>">
                                     <span class="g_good_to_cart_text"><span class="g_good_to_cart_value"><?php echo $product['price'] ?></span> <span class="rouble">o</span></span>
+                                    <span class="g_good_added_to_cart_text"></span>									
                                     <span class="g_good_to_cart_icon sprite"></span>
                                 </div>
                             </div>
@@ -105,11 +94,15 @@
                         <?php if($current_page == 1) { ?>
                             <div class="c_show_more_goods" data-country-id="<?php echo $country_id ?>">показать еще</div>
                         <?php } ?>
-                        <div class="c_pages">
-                            <?php for( $i = 1 ; $i <= $pages_count ; $i++ ) { ?>
-                                <div class="c_page <?php echo ($i == $current_page ? 'c_current_page' : '') ?>" data-page="<?php echo $i ?>"><?php echo $i ?></div>
-                            <?php } ?>
-                        </div>
+						<div class="c_pages">
+							<?php foreach($pages as $page) { ?>
+								<?php if ($page['dots']) { ?>
+									<div class="c_page_dots">...</div>
+								<?php } else { ?>
+									<div class="c_page <?php echo ($page['current_page'] ? 'c_current_page' : '') ?>" data-page="<?php echo $page['page'] ?>"><?php echo $page['page'] ?></div>
+								<?php } ?>
+							<?php } ?>
+						</div>
                     </div>
                 <?php } ?>
             </div>
