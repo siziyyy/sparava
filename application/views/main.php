@@ -154,7 +154,7 @@
                     <a href="/category/92" style="background: url('/assets/img/cats/mob/9.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">молочка</span>
                     </a>
-                    <a href="/category/96" style="background: url('/assets/img/cats/mob/10.jpg')" class="mob_mos_it">
+                    <a href="/category/18" style="background: url('/assets/img/cats/mob/10.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">масло</span>
                     </a>
                     <a href="/category/69" style="background: url('/assets/img/cats/mob/11.jpg')" class="mob_mos_it mob_mos_it_wide">
@@ -271,7 +271,7 @@
                             <span class="c_mosaic_item_text">зелень</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category/96">
+                    <a class="c_mosaic_link" href="/category/18">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/10.jpg')">
                             <span class="c_mosaic_item_text">масло</span>
                         </div>

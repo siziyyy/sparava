@@ -313,8 +313,8 @@ CREATE TABLE IF NOT EXISTS `orders` (
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
 INSERT IGNORE INTO `orders` (`order_id`, `account_id`, `shipping_address`, `shipping_metro`, `shipping_method`, `shipping_method_id`, `shipping_price`, `shipping_date`, `courier_id`, `used_bonus`, `create_date`, `status`) VALUES
 	(1, 1, 'авава', 'вавававав', 'Обычная доставка - Москва', 1, 199, '', 0, 0, 1510049688, 1),
-	(2, 2, '', 'metro', 'Москва', 2, 199, '', 0, 0, 1510075360, 1),
-	(3, 2, '', 'metro', 'Экспресс доставка - Москва', 3, 350, '', 0, 100, 1510075437, 1);
+	(2, 2, '', 'metro', 'Обычная доставка - МO (до 25 км от мкада)', 2, 350, '', 0, 0, 1510075360, 6),
+	(3, 2, '', 'metro', 'Экспресс доставка - Москва', 3, 350, '', 0, 100, 1510075437, 2);
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
 -- Дамп структуры для таблица fruit.order_inners
@@ -326,18 +326,18 @@ CREATE TABLE IF NOT EXISTS `order_inners` (
   `price` int(11) unsigned NOT NULL,
   `product_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`order_inners_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы fruit.order_inners: 7 rows
 /*!40000 ALTER TABLE `order_inners` DISABLE KEYS */;
 INSERT IGNORE INTO `order_inners` (`order_inners_id`, `order_id`, `title`, `quantity`, `price`, `product_id`) VALUES
 	(1, 1, 'Ананас сушеный', 20, 10000, 321),
-	(3, 2, 'Перец острый зеленый', 1, 0, 127),
-	(4, 2, 'Аджика', 4, 0, 143),
-	(5, 2, 'Мате', 1, 0, 18),
-	(6, 2, 'Ананас сушеный', 3, 10000, 321),
-	(7, 2, 'Мясо краба в банке', 1, 0, 484),
-	(8, 3, 'Ананас сушеный', 1, 10000, 321);
+	(38, 2, 'Перец острый зеленый', 1, 0, 127),
+	(39, 2, 'Аджика', 4, 0, 143),
+	(40, 2, 'Мате', 1, 0, 18),
+	(41, 2, 'Ананас сушеный', 3, 10000, 321),
+	(42, 2, 'Мясо краба в банке', 1, 0, 484),
+	(16, 3, 'Mix & Bake с шоколадом', 5, 0, 13);
 /*!40000 ALTER TABLE `order_inners` ENABLE KEYS */;
 
 -- Дамп структуры для таблица fruit.products
@@ -617,9 +617,9 @@ INSERT IGNORE INTO `products` (`product_id`, `title`, `brand`, `quantity`, `type
 	(242, 'Перец маринованный', 'Ijevan', 0, 'шт', 0, 0, NULL, '2017-09-2714-33-37_12-22-30.JPG', 'Перец маринованный', 'Армения', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, NULL, 'Перец', 'TC-1-1-002', NULL),
 	(243, 'Томатная паста', 'Ijevan', 0, 'шт', 0, 0, NULL, '2017-09-2714-32-52_12-15-53.JPG', 'Томатная паста', 'Армения', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, NULL, 'Томат', 'TC-1-1-002', NULL),
 	(244, 'Овощи жаренные', 'Ijevan', 0, 'шт', 0, 0, NULL, '2017-09-2714-32-07_12-16-42.JPG', 'Овощи жаренные', 'Армения', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, NULL, NULL, 'TC-1-1-002', NULL),
-	(245, 'Рахат-лукум', 'Barakaturk', 0, 'шт', 0, 0, NULL, '2017-09-2913-46-22_13-59-04.JPG', 'Рахат-лукум со вкусом клубники', 'Турция', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, '250 г', 'Рахат-лукум', 'TC-1-6-064', NULL),
-	(246, 'Рахат-лукум', 'Barakaturk', 0, 'шт', 0, 0, NULL, '2017-09-2913-45-47_13-59-50.JPG', 'Рахат-лукум с фисташками', 'Турция', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, '250 г', 'Рахат-лукум', 'TC-1-6-064', NULL),
-	(247, 'Рахат-лукум', 'Barakaturk', 0, 'шт', 0, 0, 0, '2017-09-2913-45-41_14-00-30.JPG', 'Рахат-лукум c миндалем', 'Турция', 0, '0000-00-00', '0000-00-00', 1, 1, 1, NULL, NULL, 0, '250 г', 'Рахат-лукум', 'TC-1-6-064', ''),
+	(245, 'Рахат-лукум', 'Barakaturk', 0, 'шт', 0, 0, NULL, '2017-09-2913-46-22_13-59-04.JPG', 'Рахат-лукум со вкусом клубники', 'Турция', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, '250 г', 'Рахат-лукум', 'D-4-123-123', NULL),
+	(246, 'Рахат-лукум', 'Barakaturk', 0, 'шт', 0, 0, NULL, '2017-09-2913-45-47_13-59-50.JPG', 'Рахат-лукум с фисташками', 'Турция', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, '250 г', 'Рахат-лукум', 'S-2-1-123123', NULL),
+	(247, 'Рахат-лукум', 'Barakaturk', 0, 'шт', 0, 0, 0, '2017-09-2913-45-41_14-00-30.JPG', 'Рахат-лукум c миндалем', 'Турция', 0, '0000-00-00', '0000-00-00', 1, 0, 1, NULL, NULL, 0, '250 г', 'Рахат-лукум', 'TC-1-6-064', ''),
 	(248, 'Рахат-лукум', 'Barakaturk', 0, 'шт', 0, 0, NULL, '2017-09-2913-45-37_14-01-24.JPG', 'Рахат-лукум со вкусом граната', 'Турция', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, '250 г', 'Рахат-лукум', 'TC-1-6-064', NULL),
 	(249, 'Рахат-лукум', 'Barakaturk', 0, 'шт', 0, 0, NULL, '2017-09-2913-45-32_14-21-23.JPG', 'Рахат-лукум со вкусом мяты', 'Турция', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, '250 г', 'Рахат-лукум', 'TC-1-6-064', NULL),
 	(250, 'Рахат-лукум', 'Barakaturk', 0, 'шт', 0, 0, NULL, '2017-09-2913-45-23_14-22-02.JPG', 'Рахат-лукум со вкусом апельсина', 'Турция', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, '250 г', 'Рахат-лукум', 'TC-1-6-064', NULL),
@@ -732,7 +732,7 @@ INSERT IGNORE INTO `products` (`product_id`, `title`, `brand`, `quantity`, `type
 	(357, 'Фузилли', 'Bianca Ferrari', 0, 'шт', 0, 0, NULL, '2017-09-2913-02-16_16-38-15.JPG', 'Фузилли', 'Италия', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, '500 г', 'Фузилли', 'TC-1-7-047', NULL),
 	(358, 'Тальятелле', 'Bianca Ferrari', 0, 'шт', 0, 0, NULL, '2017-09-2913-02-03_16-39-08.JPG', 'Тальятелле', 'Италия', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, '500 г', 'Тальятелле', 'TC-1-7-047', NULL),
 	(359, 'Спагетти', 'Bianca Ferrari', 0, 'шт', 0, 0, NULL, '2017-09-2913-01-54_16-34-25.JPG', 'Спагетти', 'Италия', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, '500 г', 'Спагетти', 'TC-1-7-047', NULL),
-	(360, 'Оливки зеленые', NULL, 0, 'кг', 0, 0, NULL, '2017-10-0213-58-49_09-28-40.JPG', 'Оливки зеленые', 'Сирия', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, NULL, 'Оливки', 'TC-1-5-050', NULL),
+	(360, 'Оливки зеленые', NULL, 0, 'кг', 0, 0, NULL, '2017-10-0213-58-49_09-28-40.JPG', 'Оливки зеленые', 'Сирия', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, NULL, 'Оливки', 'D-3-123-456', NULL),
 	(361, 'Маслины малосольные', NULL, 0, 'кг', 0, 0, NULL, '2017-10-0213-58-43_09-29-37.JPG', 'Маслины малосольные', 'Сирия', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, NULL, 'Маслины', 'TC-1-5-050', NULL),
 	(362, 'Оливки в рассоле', NULL, 0, 'кг', 0, 0, NULL, '2017-10-0213-58-35_09-30-54.JPG', 'Оливки в рассоле', 'Сирия', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, NULL, 'Оливки', 'TC-1-5-050', NULL),
 	(363, 'Оливки KALAMATA', NULL, 0, 'кг', 0, 0, NULL, '2017-10-0213-58-19_09-32-02.JPG', 'Оливки KALAMATA с чабрецом', 'Сирия', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, NULL, 'Оливки', 'TC-1-5-050', NULL),
@@ -814,7 +814,7 @@ INSERT IGNORE INTO `products` (`product_id`, `title`, `brand`, `quantity`, `type
 	(439, 'Поставка оживается', NULL, 0, 'кг', 0, 0, NULL, '2017-10-0213-13-53_15-43-34.JPG', '-', NULL, NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, NULL, NULL, 'TC-1-9-036', NULL),
 	(440, 'Фрукты сушеные', NULL, 0, 'кг', 0, 0, NULL, '2017-10-0213-08-46_15-47-35.JPG', 'Фрукты сушеные', NULL, NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, NULL, NULL, 'TC-1-9-036', NULL),
 	(441, 'Сушеные фрукты', NULL, 0, 'кг', 0, 0, NULL, '2017-10-0213-08-43_15-48-14.JPG', 'Сушеные фрукты', NULL, NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, NULL, NULL, 'TC-1-9-036', NULL),
-	(442, 'Поставка оживается', NULL, 0, 'шт', 0, 0, NULL, '2017-09-3015-15-19_21-12-38.JPG', '-', 'Китай', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, NULL, NULL, 'TC-1-18-031', NULL),
+	(442, 'Поставка оживается', NULL, 0, 'шт', 0, 0, NULL, '2017-09-3015-15-19_21-12-38.JPG', '-', 'Китай', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, NULL, NULL, 'D-6-123-123', NULL),
 	(443, 'Поставка оживается', NULL, 0, 'шт', 0, 0, NULL, '2017-09-3015-15-02_21-13-22.JPG', '-', 'Китай', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, NULL, NULL, 'TC-1-18-031', NULL),
 	(444, 'Поставка оживается', NULL, 0, 'шт', 0, 0, NULL, '2017-09-3015-14-55_21-13-51.JPG', '-', 'Китай', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, NULL, NULL, 'TC-1-18-031', NULL),
 	(445, 'Поставка оживается', NULL, 0, 'шт', 0, 0, NULL, '2017-09-3015-14-22_21-14-29.JPG', '-', 'Китай', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, NULL, NULL, 'TC-1-18-031', NULL),
@@ -845,9 +845,9 @@ INSERT IGNORE INTO `products` (`product_id`, `title`, `brand`, `quantity`, `type
 	(470, 'Поставка оживается', NULL, 0, 'шт', 0, 0, NULL, '2017-09-3015-04-35_21-43-41.JPG', '-', 'Китай', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, NULL, NULL, 'TC-1-18-031', NULL),
 	(471, 'Поставка оживается', NULL, 0, 'шт', 0, 0, NULL, '2017-09-3015-04-18_21-44-32.JPG', '-', 'Китай', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, NULL, NULL, 'TC-1-18-031', NULL),
 	(472, 'Поставка оживается', NULL, 0, 'шт', 0, 0, NULL, '2017-09-3015-04-01_21-45-47.JPG', '-', 'Китай', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, NULL, NULL, 'TC-1-18-031', NULL),
-	(473, 'Набор для ухи. Лосось.', 'Сахалинский ИД', 0, 'шт', 0, 0, NULL, '2017-09-3014-56-03_16-14-00.JPG', 'Набор для ухи. Лосось.', 'Россия', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, NULL, 'Лосось', 'TC-1-16-031', NULL),
-	(474, 'Навага замороженная', 'Сахалинский ИД', 0, 'шт', 0, 0, NULL, '2017-09-3014-55-54_16-14-46.JPG', 'Навага замороженная', 'Россия', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, NULL, 'Навага', 'TC-1-16-031', NULL),
-	(475, 'Филе заморозка.', 'Сахалинский ИД', 0, 'шт', 0, 0, NULL, '2017-09-3014-55-42_16-15-25.JPG', 'Филе заморозка.', 'Россия', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, NULL, NULL, 'TC-1-16-031', NULL),
+	(473, 'Набор для ухи. Лосось.', 'Сахалинский ИД', 0, 'шт', 0, 0, NULL, '2017-09-3014-56-03_16-14-00.JPG', 'Набор для ухи. Лосось.', 'Россия', NULL, NULL, NULL, 1, 0, 1, NULL, NULL, 0, NULL, 'Лосось', 'TC-1-16-031', NULL),
+	(474, 'Навага замороженная', 'Сахалинский ИД', 0, 'шт', 0, 0, NULL, '2017-09-3014-55-54_16-14-46.JPG', 'Навага замороженная', 'Россия', NULL, NULL, NULL, 1, 0, 1, NULL, NULL, 0, NULL, 'Навага', 'TC-1-16-031', NULL),
+	(475, 'Филе заморозка.', 'Сахалинский ИД', 0, 'шт', 0, 0, NULL, '2017-09-3014-55-42_16-15-25.JPG', 'Филе заморозка.', 'Россия', NULL, NULL, NULL, 1, 0, 1, NULL, NULL, 0, NULL, NULL, 'TC-1-16-031', NULL),
 	(476, 'Нерка. Стейки.', 'Сахалинский ИД', 0, 'шт', 0, 0, NULL, '2017-09-3014-55-28_16-16-00.JPG', 'Нерка замороженная. Стейки.', 'Россия', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, NULL, 'Нерка', 'TC-1-16-031', NULL),
 	(477, 'Кета. Стейки.', 'Сахалинский ИД', 0, 'шт', 0, 0, NULL, '2017-09-3014-55-22_16-16-32.JPG', 'Кета замороженная. Стейки.', 'Россия', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, NULL, 'Кета', 'TC-1-16-031', NULL),
 	(478, 'Палтус. Стейки.', 'Сахалинский ИД', 0, 'шт', 0, 0, NULL, '2017-09-3014-55-14_16-17-07.JPG', 'Палтус замороженный. Стейки.', 'Россия', NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, NULL, 'Палтус', 'TC-1-16-031', NULL),
@@ -1061,7 +1061,7 @@ INSERT IGNORE INTO `products` (`product_id`, `title`, `brand`, `quantity`, `type
 	(686, 'Овсяная каша', 'The muesli', 0, 'шт', 0, 0, NULL, '2017-10-0317-06-03_13-48-26_16-27-38.JPG', 'Овсяная каша.', NULL, NULL, NULL, NULL, 1, 1, 1, 1, NULL, 0, '40 г', 'Овес', 'TC-2-7-051', NULL),
 	(687, 'Фитнес мюсли. Черника.', 'The muesli', 0, 'шт', 0, 0, NULL, '2017-10-0317-05-55_13-48-58_16-28-02.JPG', 'Просто добавь молока. Фитнес мюсли с черникой.', NULL, NULL, NULL, NULL, 1, 1, 1, 1, NULL, 0, '65 г', 'Мюсли', 'TC-2-7-051', NULL),
 	(688, 'Ягодные мюсли', 'The muesli', 0, 'шт', 0, 0, NULL, '2017-10-0317-05-33_13-49-44_16-28-25.JPG', 'Просто добавь молока. Ягодные мюсли.', NULL, NULL, NULL, NULL, 1, 1, 1, 1, NULL, 0, '65 г', 'Мюсли', 'TC-2-7-051', NULL),
-	(689, 'Шоколадные мюсли', 'The muesli', 0, 'шт', 0, 0, NULL, '2017-10-0317-05-17_13-57-01_16-28-47.JPG', 'Просто добавь молока. Шоколадно банановые мюсли.', NULL, NULL, NULL, NULL, 1, 1, 1, 1, NULL, 0, NULL, 'Мюсли', 'TC-2-7-051', NULL),
+	(689, 'Шоколадные мюсли', 'The muesli', 5, 'шт', 0, 0, NULL, '2017-10-0317-05-17_13-57-01_16-28-47.JPG', 'Просто добавь молока. Шоколадно банановые мюсли.', NULL, NULL, NULL, NULL, 1, 1, 1, 1, NULL, 0, NULL, 'Мюсли', 'TC-2-7-051', NULL),
 	(690, 'Овсяная каша', 'The muesli', 0, 'шт', 0, 0, NULL, '2017-10-0317-05-12_13-58-19_16-29-12.JPG', 'Овсяная ягодная каша за 3 минуты', NULL, NULL, NULL, NULL, 1, 1, 1, 1, NULL, 0, NULL, 'Овес', 'TC-2-7-051', NULL),
 	(691, 'Фитнес мюсли. Черника.', 'The muesli', 0, 'шт', 0, 0, NULL, '2017-10-0317-05-04_13-58-49_16-29-35.JPG', 'Фитнес мюсли с черникой', NULL, NULL, NULL, NULL, 1, 1, 1, 1, NULL, 0, NULL, 'Мюсли', 'TC-2-7-051', NULL),
 	(692, 'Мюсли с ягодами', 'The muesli', 0, 'шт', 0, 0, NULL, '2017-10-0317-05-00_13-59-18_16-30-08.JPG', 'Мюсли с ягодами', NULL, NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 0, NULL, 'Мюсли', 'TC-2-7-051', NULL),
@@ -4649,16 +4649,15 @@ CREATE TABLE IF NOT EXISTS `purchases` (
   `product_id` int(11) unsigned NOT NULL,
   `quantity` int(11) unsigned NOT NULL,
   `price` int(11) unsigned NOT NULL,
-  `provider` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`purchase_id`),
   KEY `purchase_id` (`purchase_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы fruit.purchases: 2 rows
 /*!40000 ALTER TABLE `purchases` DISABLE KEYS */;
-INSERT IGNORE INTO `purchases` (`purchase_id`, `user_id`, `product_id`, `quantity`, `price`, `provider`) VALUES
-	(5, 1, 29, 3, 190, NULL),
-	(6, 1, 29, 3, 190, NULL);
+INSERT IGNORE INTO `purchases` (`purchase_id`, `user_id`, `product_id`, `quantity`, `price`) VALUES
+	(5, 1, 29, 3, 190),
+	(6, 1, 29, 3, 190);
 /*!40000 ALTER TABLE `purchases` ENABLE KEYS */;
 
 -- Дамп структуры для таблица fruit.rights
