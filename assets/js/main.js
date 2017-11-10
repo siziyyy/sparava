@@ -275,7 +275,20 @@ $(document).ready(function(){
         $('.good_modal').hide();
         $('.good_modal_closer').hide();
     });	
+
     jQuery('.scrollbar-inner').scrollbar();
+
+    $('.h_login_button').click(function() {
+        $('.new_auth').show();
+        $('.login_closer').show();
+    });	
+    $('.login_closer').click(function() {
+        $('.new_auth').hide();
+        $('.login_closer').hide();
+    });	
+    $('.new_auth_register_header').click(function() {
+        $('.new_auth_register_body').toggle();
+    });	
 
 
 	/*
