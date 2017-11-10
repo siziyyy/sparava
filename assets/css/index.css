@@ -725,6 +725,9 @@ textarea.contact_me_mobile_input {
     }
 }
 @media all and (max-width: 800px) {
+    .good_modal, .good_modal_closer {
+        display: none !important; 
+    }
     .g_good {
         width: 48% !important;
         height: auto !important;
