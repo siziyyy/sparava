@@ -67,6 +67,25 @@ header {
     margin-bottom: 10px;
     position: relative;
 }
+.regmob_link {
+    font-size: 12px;
+        margin: 0px 0 20px 20px;
+}
+.regmob {
+    display: none;
+}
+.regb2 {
+    background: #fe4517;
+}
+.regmob_link_arr {
+    -webkit-transform: rotate(90deg);
+       -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+         -o-transform: rotate(90deg);
+            transform: rotate(90deg);
+        display: inline-block;
+        margin-left: 15px;
+}
 .mobile_modal_close {
     width: 20px;
     height: 20px;

@@ -258,6 +258,9 @@ $(document).ready(function(){
     $('.blah_blah_mobile_close2').click(function() {
         $('.blaah').toggle();
     });	
+    $('.regmob_link').click(function() {
+        $('.regmob').toggle();
+    });	
 
 
 	/*

@@ -226,6 +226,19 @@ body,html,textarea{font-family:Calibri}
                         <div class="new_green_small_button mobgb">войти</div>
                         <div class="clear"></div>
                         <div class="respasmob">забыл пароль</div>
+                        <div class="regmob_link">зарегистрироваться <span class="regmob_link_arr">></span></div>
+                        <div class="regmob">
+                            <div class="mobile_auth_line">
+                                <input type="text" class="mobile_auth_input" placeholder="почта">
+                            </div>
+                            <div class="mobile_auth_line">
+                                <input type="text" class="mobile_auth_input" placeholder="телефон">
+                            </div>
+                            <div class="mobile_auth_line">
+                                <input type="text" class="mobile_auth_input" placeholder="имя">
+                            </div>
+                            <div class="mobgb new_orange_small_button">зарегистрироваться</div>
+                        </div>
                     </div>
                     <div class="mobile_restore">
                         <div class="mobile_restore_header">
