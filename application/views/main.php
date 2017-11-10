@@ -130,7 +130,7 @@
                     <a href="/category/1" style="background: url('/assets/img/cats/mob/1.jpg')" class="mob_mos_it mob_mos_it_big">
                         <span class="mob_mos_it_text">мясо</span>
                     </a>
-                    <a href="/category/3" style="height: 130px; background: url('/assets/img/cats/mob/2.jpg')" class="mob_mos_it">
+                    <a href="/category/3" style="padding-bottom: calc(87% + 2px); background: url('/assets/img/cats/mob/2.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text bl_txt_mob">рыба</span>
                     </a>
                     <a class="mob_mos_it mob_mos_deliv">
