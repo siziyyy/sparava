@@ -355,6 +355,8 @@
     margin: 5px 0 0 0;
     padding: 0px 0 7px 0;
     z-index: 9999;
+    height: auto;
+    max-height: 218px;
 }
 .opened_cool_select .cool_select_options {
     display: block;
