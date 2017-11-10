@@ -196,6 +196,13 @@ body,html,textarea{font-family:Calibri}
                     черная звездочка - .black_star для .m_h_fav
                     черный замочек - .black_auth для .m_h_login
                     скрывать кнопки при помощи класса .hide_it_visibh (не через display:none, используем visibility:hidden и visibility:visible)
+
+                    (+)
+                    
+                    Надо починить инпуты в админке (модальное окно)
+                    .modal_info_inp {
+                        border: 1px solid #999;
+                    }
                  -->
                 <div class="mobile_header">
                     <div class="m_h_hamb sprite fl_l"></div>
