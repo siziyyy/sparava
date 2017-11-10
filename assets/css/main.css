@@ -88,6 +88,13 @@ header {
     background: #FFF;
     z-index: 999999;
     padding: 33px;
+    display: none;
+}
+.g_good_photo_block {
+    cursor: pointer;
+}
+.g_good_photo {
+    cursor: pointer;
 }
 .g_good_modal_photo {
     width: 100%;
