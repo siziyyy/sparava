@@ -12,8 +12,8 @@
 						<?php $show_minus = false; ?>
                         <div class="g_good fl_l" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>">
                             <div class="g_good_photo_block">
-                                <!--<img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo">-->
-                                <img src="/images/yabloko_2.jpg" alt="<?php echo $product['title'] ?>" class="g_good_photo">
+                                <img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo">
+                                <!--<img src="/images/yabloko_2.jpg" alt="<?php echo $product['title'] ?>" class="g_good_photo">-->
                             </div>
                             <div class="new_good_helper_mobile">
                                 <?php if(isset($product['old_price'])) { ?>
