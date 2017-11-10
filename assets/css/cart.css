@@ -563,7 +563,91 @@ textarea.c_inners_input {
 .c_inners_mobile_cart_line {
     display: none;
 }
+.blah_blah_mobile_close {
+    display: none;
+    width: 20px;
+    height: 20px;
+    background-position: -113px -113px !important; 
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: +1;
+}
+.blah_blah_mobile_close2 {
+    display: none;
+    width: 20px;
+    height: 20px;
+    background-position: -113px -113px !important; 
+    position: absolute;
+    top: 26px;
+    right: 20px;
+    z-index: +1;
+}
 @media all and (max-width: 425px) {
+    .blah_blah{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        border: none;
+        padding: 50px;
+        overflow: auto;
+    }
+    .remind_success {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        left: 0;
+        top: 0;
+        margin: 0;
+        padding: 110px 40px;
+        box-sizing: border-box;
+    }
+    .blah_closer {
+        display: none !important;
+    }
+    .blah_blah_header {
+        font-size: 12px;    
+        margin: 0 0 15px 0;
+    }
+    .restorepass {
+        width: 100%;
+        height: auto;
+        border: none;
+        position: relative;
+        text-align: center;
+        font-size: 12px;
+        margin: 0 0 -50px 0;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+    .restorepass .email_error_input {
+        margin: 25px auto;
+    }
+    .restorepass .email_error_gimme_again2 {
+        width: 135px !important;
+    }
+    .orange_small_button, .green_small_button, .black_small_button {
+        font-size: 12px;
+         width: 73px;
+    }
+    .c_inners_left_side_text_sh {
+        font-size: 12px;
+    }
+    .c_cart {
+        margin-bottom: 0px;
+    }
+    .blah_blah_mobile_close {
+        display: block;
+    }
+    .blah_blah_mobile_close2 {
+        display: block;
+    }
     .c_inners_mobile_cart_line {
         display: block;
     }
@@ -693,6 +777,8 @@ textarea.c_inners_input {
     }
     .c_inners_left_side_button_pass {
         font-size: 11px;
+        color: #45b3e4;
+        margin: 0;
     }
     .blah_link {
         font-size: 11px;
