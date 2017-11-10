@@ -19,6 +19,7 @@
 		</form>
 		<div class="blaah">
 			<div class="restorepass">
+				<div class="blah_blah_mobile_close2 sprite"></div>
 				<div class="close_me_on_send2">
 					<div class="blah_blah_header">Восстановление пароля</div>
 					<div class="blah_blah_body">
@@ -107,6 +108,7 @@
 				</div>
 			</div>
 			<div class="blah_blah">
+				<div class="blah_blah_mobile_close sprite"></div>
 				<div class="blah_blah_header">Условия пользования</div>
 				<div class="blah_blah_text">
 <br>ООО «Москоуфреш», именуемое далее 

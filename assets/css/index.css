@@ -521,7 +521,8 @@ textarea.contact_me_mobile_input {
     box-sizing: border-box;
 }
 .fmfilter {
-    max-width: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
     overflow: hidden;
 }
 .new_mob_submenu_filter_item {
@@ -713,12 +714,20 @@ textarea.contact_me_mobile_input {
     }
     .g_good_actions {
         position: static !important;
-        bottom:0 !important
+        bottom:0 !important;
+        padding: 0 15px;
+    }
+    .new_good_helper_mobile {
+        padding: 0 15px;
+    }
+    .g_good_mobile_fav {
+        display: block;
     }
 }
 @media all and (max-width: 800px) {
     .g_good {
         width: 48% !important;
+        height: auto !important;
     }
     .g_good_photo_block {
         width: 100% !important;

@@ -231,8 +231,32 @@ $(document).ready(function(){
         $('.mobile_restore').toggle();
     });	
     $('.mobile_modal_close').click(function() {
-        $('.mobile_auth').show();
         $('.mobile_restore').hide();
+        $('.mobile_modal').hide();
+        $('.mobile_restore_success').hide();
+        $('.mobile_auth').hide();
+    });	
+    $('.mobgb2').click(function() {
+        $('.mobile_restore_success').show();
+    });	
+    $('.mobile_modal_close_fav').click(function() {
+        $('.mobile_fav').hide();
+    });	
+    $('.m_h_fav').click(function() {
+        $('.mobile_fav').show();
+    });	
+    $('.g_good_mobile_fav').click(function() {
+        $('.mobile_cat_fav_modal').show();
+    });	
+    $('.mobile_cat_fav_modal_close').click(function() {
+        $('.mobile_cat_fav_modal').hide();
+    });
+    $('.blah_blah_mobile_close').click(function() {
+        $('.blah_blah').hide();
+        $('.blah_closer').hide();
+    });	
+    $('.blah_blah_mobile_close2').click(function() {
+        $('.blaah').toggle();
     });	
 
 

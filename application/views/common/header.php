@@ -244,8 +244,17 @@ body,html,textarea{font-family:Calibri}
                             <br>отправим повторно
                         </div>
                         <div class="new_green_small_button mobgb mobgb2">восстановить пароль</div>
+                        <div class="mobile_restore_success">
+                            На вашу почту было выслано письмо с 
+                            <br>дальнейшими инструкциями
+                        </div>
                     </div>
-                </div>		
+                </div>	
+                <div class="mobile_fav">
+                    <div class="mobile_modal_close_fav sprite"></div>
+                    Чтобы использовать функцию
+                    <br>избранное надо авторизоваться 
+                </div>	
 				<div class="main_header">
 					<a href="/">
 						<div class="h_logo fl_l">

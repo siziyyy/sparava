@@ -52,11 +52,11 @@
 }
 .g_old_good_price_date {
     display: inline-block;
-    color: #4d4d4d;
+    color: #808080;
     font-size: 14px;
     margin: 0px 0 0 10px;
     position: relative;
-    top: -3px;
+    top: -2px;
 }
 .g_good_price {
     font-weight: bold;
@@ -163,6 +163,12 @@
     height: 25px;
     line-height: 25px;
     display: inline-block;
+}
+.g_good_to_cart_value {
+    cursor: pointer;
+}
+.g_good_added_to_cart_text {
+    cursor: pointer;
 }
 .g_good_to_cart_text .rouble {
     cursor: pointer;    
