@@ -275,6 +275,7 @@ $(document).ready(function(){
         $('.good_modal').hide();
         $('.good_modal_closer').hide();
     });	
+    jQuery('.scrollbar-inner').scrollbar();
 
 
 	/*

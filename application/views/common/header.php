@@ -24,6 +24,7 @@ body,html,textarea{font-family:Calibri}
 		<link rel="stylesheet" href="/assets/css/main.css"><!-- always -->
         <link rel="stylesheet" href="/assets/css/index.css"><!-- only index -->
         <link rel="stylesheet" href="/assets/mdl/slick/slick.css"><!-- only index -->
+        <link rel="stylesheet" href="/assets/mdl/scroll/jquery.scrollbar.css"><!-- only index -->
         <link rel="stylesheet" href="/assets/css/category.css"><!-- only catalog -->
         <link rel="stylesheet" href="/assets/css/contacts.css"><!-- only contacts -->
         <link rel="stylesheet" href="/assets/css/cart.css"><!-- only cart -->

@@ -61,7 +61,7 @@
 									<span>состав</span>
 									<span class="cool_select_arrow sprite"></span>
 								</div>
-								<div class="cool_select_options">
+								<div class="cool_select_options scrollbar-inner">
 									<?php foreach($attributes['compositions'] as $attribute) { ?>
 										<div class="cool_select_option">
 											<label>
@@ -97,7 +97,7 @@
 									<span>вес</span>
 									<span class="cool_select_arrow sprite"></span>
 								</div>
-								<div class="cool_select_options">
+								<div class="cool_select_options scrollbar-inner">
 									<?php foreach($attributes['weights'] as $attribute) { ?>
 										<div class="cool_select_option">
 											<label>
