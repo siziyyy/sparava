@@ -285,6 +285,7 @@ $(document).ready(function(){
     $('.login_closer').click(function() {
         $('.new_auth').hide();
         $('.login_closer').hide();
+        $('.new_auth_register_body').hide();
     });	
     $('.new_auth_register_header').click(function() {
         $('.new_auth_register_body').toggle();
