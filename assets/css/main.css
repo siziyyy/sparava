@@ -77,6 +77,42 @@ header {
 .regb2 {
     background: #fe4517;
 }
+.new_mob_submenu_filter_button {
+        width: auto !important;
+    padding: 4px 8px !important;
+    font-family: Calibri, sans-serif !important;
+    font-weight: normal;
+    margin-top: 20px !important;
+}
+.new_mob_submenu_filter_items_turn {
+    width: 20px;
+    height: 20px;
+    background-position: -196px -523px !important;
+    margin: 0 0 0 0;
+    position: absolute;
+    top: -32px;
+    left: 16px;
+    transform: scale(.7);
+}
+.new_mob_submenu_filter_items_pack_inners {
+    display: none;
+    position: absolute;
+    background: #fff;
+    width: 100%;
+    left: 0;
+    box-sizing: border-box;
+    padding: 0 20px;
+    top: 50px;
+    height: 100%;
+}
+.new_mob_submenu_filter_item_checkbox {
+    display: block;
+    width: 12px;
+    margin: 0 15px 0 0;
+    height: 12px;
+    position: relative;
+    top: 15px;
+}
 .regmob_link_arr {
     -webkit-transform: rotate(90deg);
        -moz-transform: rotate(90deg);

@@ -261,6 +261,12 @@ $(document).ready(function(){
     $('.regmob_link').click(function() {
         $('.regmob').toggle();
     });	
+    $('.open_inner_filter').click(function() {
+        $('.new_mob_submenu_filter_items_pack_inners').show();
+    });	
+    $('.new_mob_submenu_filter_items_turn').click(function() {
+        $('.new_mob_submenu_filter_items_pack_inners').hide();
+    });	
 
 
 	/*

@@ -174,35 +174,55 @@
               		<div class="clear"></div>
               	</div>
               	<div class="new_mob_submenu_filter_items">
-              		<div class="new_mob_submenu_filter_item">
-              			<div class="new_mob_submenu_filter_item_name fl_l">Страна</div>
-              			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
-              			<div class="clear"></div>
-              		</div>
-              		<div class="new_mob_submenu_filter_item">
-              			<div class="new_mob_submenu_filter_item_name fl_l">Бренд</div>
-              			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
-              			<div class="clear"></div>
-              		</div>
-              		<div class="new_mob_submenu_filter_item">
-              			<div class="new_mob_submenu_filter_item_name fl_l">Состав</div>
-              			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
-              			<div class="clear"></div>
-              		</div>
-              		<div class="new_mob_submenu_filter_item">
-              			<div class="new_mob_submenu_filter_item_name fl_l">Упаковка</div>
-              			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
-              			<div class="clear"></div>
-              		</div>
-              		<div class="new_mob_submenu_filter_item">
-              			<div class="new_mob_submenu_filter_item_name fl_l">Вес</div>
-              			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
-              			<div class="clear"></div>
-              		</div>
-              		<div class="new_mob_submenu_filter_item">
-              			<div class="new_mob_submenu_filter_item_name fl_l">Цена</div>
-              			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
-              			<div class="clear"></div>
-              		</div>
+                    <div class="new_mob_submenu_filter_items_pack">
+                  		<div class="new_mob_submenu_filter_item open_inner_filter">
+                  			<div class="new_mob_submenu_filter_item_name fl_l">Страна</div>
+                  			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
+                  			<div class="clear"></div>
+                  		</div>
+                  		<div class="new_mob_submenu_filter_item open_inner_filter">
+                  			<div class="new_mob_submenu_filter_item_name fl_l">Бренд</div>
+                  			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
+                  			<div class="clear"></div>
+                  		</div>
+                  		<div class="new_mob_submenu_filter_item open_inner_filter">
+                  			<div class="new_mob_submenu_filter_item_name fl_l">Состав</div>
+                  			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
+                  			<div class="clear"></div>
+                  		</div>
+                  		<div class="new_mob_submenu_filter_item open_inner_filter">
+                  			<div class="new_mob_submenu_filter_item_name fl_l">Упаковка</div>
+                  			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
+                  			<div class="clear"></div>
+                  		</div>
+                  		<div class="new_mob_submenu_filter_item open_inner_filter">
+                  			<div class="new_mob_submenu_filter_item_name fl_l">Вес</div>
+                  			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
+                  			<div class="clear"></div>
+                  		</div>
+                  		<div class="new_mob_submenu_filter_item open_inner_filter">
+                  			<div class="new_mob_submenu_filter_item_name fl_l">Цена</div>
+                  			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
+                  			<div class="clear"></div>
+                  		</div>
+                    </div>
+                    <div class="new_mob_submenu_filter_items_pack_inners">
+                        <div class="new_mob_submenu_filter_items_turn sprite"></div>
+                        <div class="new_mob_submenu_filter_item">
+                            <label>
+                                <input type="checkbox" class="new_mob_submenu_filter_item_checkbox fl_l">
+                                <div class="new_mob_submenu_filter_item_name fl_l">Армения</div>
+                                <div class="clear"></div>
+                            </label>
+                        </div>
+                        <div class="new_mob_submenu_filter_item">
+                            <label>
+                                <input type="checkbox" class="new_mob_submenu_filter_item_checkbox fl_l">
+                                <div class="new_mob_submenu_filter_item_name fl_l">Дания</div>
+                                <div class="clear"></div>
+                            </label>
+                        </div>
+                        <div class="new_mob_submenu_filter_button new_orange_small_button">применить</div>
+                    </div>
               	</div>
               </div>
