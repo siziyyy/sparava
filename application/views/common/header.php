@@ -39,6 +39,7 @@ body,html,textarea{font-family:Calibri}
         <div class="closer admin_window_closer"></div>
         <div class="closer mobile_category_dropdown_closer"></div>
         <div class="closer good_modal_closer"></div>
+        <div class="closer login_closer"></div>
         <? // require '_modal.php'; ?><!-- modal -->
         <div class="mobile_category_dropdown">
             <div class="mobile_category_dropdown_line">по рейтингу</div>
