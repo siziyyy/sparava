@@ -84,11 +84,16 @@ header {
     position: fixed;
     top: 50%;
     left: 50%;
-    margin: -380px 0 0 -390px;
+    margin: 0px 0 0 -390px;
     background: #FFF;
     z-index: 999999;
     padding: 33px;
     display: none;
+    max-height: 90%;
+    overflow: auto;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 .g_good_photo_block {
     cursor: pointer;
@@ -196,7 +201,7 @@ header {
     width: 100%;
     font-size: 16px;
     border-bottom: 10px solid #f0f0f0;
-    margin-top: 40px;
+    margin-top: 37px;
     padding-bottom: 15px;
 }
 .good_modal_line2_body {
