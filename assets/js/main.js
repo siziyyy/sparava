@@ -267,6 +267,14 @@ $(document).ready(function(){
     $('.new_mob_submenu_filter_items_turn').click(function() {
         $('.new_mob_submenu_filter_items_pack_inners').hide();
     });	
+    $('.g_good_photo_block').click(function() {
+        $('.good_modal').show();
+        $('.good_modal_closer').show();
+    });	
+    $('.good_modal_closer').click(function() {
+        $('.good_modal').hide();
+        $('.good_modal_closer').hide();
+    });	
 
 
 	/*
