@@ -10,6 +10,6 @@
 		<div class="c_inners_left_side_text_b">
 		Минимальная сумма заказа 1000 руб.
 		</div>
-		<a href="/" class="c_inners_left_side_button black_small_button">&lt; добрать</a>
+		<a href="/" class="c_inners_left_side_button black_small_button"><span class="lt">&lt;</span> добрать</a>
 	</div>
 </aside>
