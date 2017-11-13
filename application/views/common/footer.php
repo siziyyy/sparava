@@ -17,21 +17,21 @@
 				</div>
 				<div class="f_block">
 					<div class="f_delivery_icon sprite"></div>
-					<div><a href="/information" class="f_block_link">Доставка и способы оплаты</a></div>
-					<div><a href="/information#anch1" class="f_block_link">Претензии и предложения</a></div>
-					<div><a href="/information#anch2" class="f_block_link">Условия доставки (договора-оферты)</a></div>
+					<div><a href="/information/delivery" class="f_block_link">Доставка и способы оплаты</a></div>
+					<div><a href="/information/claims" class="f_block_link">Претензии и предложения</a></div>
+					<div><a href="/information/agreement" class="f_block_link">Условия доставки (договора-оферты)</a></div>
 					<div class="f_block_link_foot">Минимальный заказ 1500 руб.</div>
 				</div>
 				<div class="f_block">
 					<div class="f_block_header">Программы <br>лояльности</div>
-					<div><a href="/information#anch3" class="f_block_link">Преимущества первого заказа</a></div>
-					<div><a href="/information#anch4" class="f_block_link">Если вы блогер</a></div>
+					<div><a href="/information/first" class="f_block_link">Преимущества первого заказа</a></div>
+					<div><a href="/information/bloger" class="f_block_link">Если вы блогер</a></div>
 				</div>
 				<div class="f_block">
 					<div class="f_block_header">Информация <br>о нас</div>
-					<div><a href="/information#anch5" class="f_block_link">О нас</a></div>
-					<div><a href="/information#anch6" class="f_block_link">Отзывы о нас</a></div>
-					<div><a href="/information#anch7" class="f_block_link">Контакты</a></div>
+					<div><a href="/information/about" class="f_block_link">О нас</a></div>
+					<div><a href="/information/testimonials" class="f_block_link">Отзывы о нас</a></div>
+					<div><a href="/information/contacts" class="f_block_link">Контакты</a></div>
 				</div>
 				<div class="f_block">
 					<div class="f_block_header">Поиск товара по<br>артикулу</div>
