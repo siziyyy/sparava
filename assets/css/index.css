@@ -859,10 +859,16 @@ textarea.contact_me_mobile_input {
     .mobile_mosaic {
         display: block;
     }
+    .mob_mos_deliv {
+        display: none;
+    }
 }
 @media all and (max-width: 425px) {
     .c_mosaic {
         display: none;
+    }
+    .mob_mos_deliv {
+        display: block;
     }
     .mobile_mosaic {
         display: block;
