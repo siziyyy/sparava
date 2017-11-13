@@ -436,7 +436,7 @@ input {
     height: 25px;
     cursor: pointer;
     background-position: -193px -848px;
-    margin: 8px 10px 0;
+    margin: 8px 5px 0 -1px;
 }
 .m_h_fav {
     width: 25px;
@@ -499,6 +499,9 @@ input {
     font-size: 19px;
     font-family:Calibri Bold;
     color: #FFF;
+}
+.c_mosaic_delivery_pad {
+    display: none;
 }
 .mob_mos_deliv {
     background: #5ea424;

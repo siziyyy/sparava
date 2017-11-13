@@ -71,7 +71,6 @@
 }
 .g_good_country {
     font-size: 14px;
-    font-family:Calibri Bold;
     margin-bottom: 20px;
 }
 .g_good_weight {
@@ -79,8 +78,8 @@
     font-size: 13px;
 }
 .g_good_description {
-    font-size: 14px;
-    margin: 12px 0;
+    font-size: 15px;
+    margin: 12px 0 20px;
     position: relative;
 }
 .g_good_counter {
@@ -547,7 +546,7 @@
     cursor: pointer;
     text-decoration: underline;
     float: right;
-    margin: 25px 10px 0px 0;
+    margin: 25px 34px 0px 0;
     color: #666;
 }
 .g_good_admin_info_modal {

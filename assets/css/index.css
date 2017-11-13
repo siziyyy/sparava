@@ -609,6 +609,15 @@ textarea.contact_me_mobile_input {
 }
 /* media */
 @media all and (max-width: 1200px) {
+    .c_inners_left_side_content {
+        max-width: 340px;
+    }
+    .c_inners_left_side {
+        width: 350px;
+    }
+    .c_inners_right_content {
+        width: calc(100% - 351px);
+    }
     .goods {
         margin-top: 143px !important;
     }
@@ -651,7 +660,7 @@ textarea.contact_me_mobile_input {
         font-family:Calibri Bold;
         color: #000;
         text-transform: uppercase;
-        margin-right: 28px;
+        margin-right: 25px;
         height: 50px;
     }
     .c_new_menu_hide {
@@ -659,12 +668,9 @@ textarea.contact_me_mobile_input {
     }
     .category_bg_helper {
         width: 100% !important;
-        background: #f7f7f7 !important;
-        border-bottom: 1px solid #e0e0e0;
+        background: #e8e8e8 !important;
         height: 50px !important;
         margin: 13px 0 -95px 0 !important;
-        -webkit-box-shadow: 0px 10px 25px -2px rgba(0,0,0, .1);
-                box-shadow: 0px 10px 25px -2px rgba(0,0,0, .1);
     }
     .g_good {
         width: 24% !important;
@@ -823,7 +829,7 @@ textarea.contact_me_mobile_input {
         margin: 4px 0 0 0;
     }
     .m_h_call {
-        margin: 8px 10px 0px;
+        margin: 8px 1px 0px 5px;
     }
     .m_h_logo {
         margin: 2px 0 0 0;
@@ -846,7 +852,7 @@ textarea.contact_me_mobile_input {
         font-size: 10px;
     }
     .c_mobile_menu_link {
-        font-size: 11px;
+        font-size: 12px;
     }
     footer {
         display: none;
@@ -864,8 +870,14 @@ textarea.contact_me_mobile_input {
     }
 }
 @media all and (max-width: 425px) {
+    .category_bg_helper {
+        background: #e8e8e8 !important;
+    }
     .c_mosaic {
         display: none;
+    }
+    .g_good_count_act {
+        margin: 0 7px 0;
     }
     .mob_mos_deliv {
         display: block;
