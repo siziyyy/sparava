@@ -112,7 +112,7 @@
                         <div class="g_good fl_l" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>">
                             <div class="g_good_photo_block">
                                 <img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo">
-                                <!--<img src="/images/yabloko_2.jpg" alt="<?php echo $product['title'] ?>" class="g_good_photo">-->
+                               <!-- <img src="/images/1.jpg" alt="<?php echo $product['title'] ?>" class="g_good_photo">-->
                             </div>
                             <div class="new_good_helper_mobile">
                                 <?php if(isset($product['old_price'])) { ?>
@@ -129,7 +129,7 @@
                                     <br>избранное надо авторизоваться 
                                 </div>
                                 <div class="g_admin_info" data-product-id="<?php echo $product['product_id'] ?>">inf</div>
-                                <div class="g_good_name"><?php echo $product['title'] ?></div>
+                                <!--<div class="g_good_name"><?php echo $product['title'] ?></div>-->
                                 <div class="g_good_description">
                                     <?php echo $product['description'] ?>
                                 </div>
