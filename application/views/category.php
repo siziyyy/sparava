@@ -1,6 +1,10 @@
 <?php $this->load->view('common/header',$header);?>
         <?php $this->load->view('common/product-edit-form.php');?>
         <div class="good_modal">
+            <div class="good_modal_arrows">
+                <div class="good_modal_arrow good_modal_arrow_left"></div>
+                <div class="good_modal_arrow good_modal_arrow_right"></div>
+            </div>
             <div class="good_modal_line">
                 <div class="good_modal_photo fl_l">
                     <img src="/images/yabloko_2.jpg" class="g_good_modal_photo">
