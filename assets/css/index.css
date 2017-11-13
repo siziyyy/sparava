@@ -853,6 +853,11 @@ textarea.contact_me_mobile_input {
     }
     .content_helper {
         padding: 0 15px;
+    }.c_mosaic {
+        display: none;
+    }
+    .mobile_mosaic {
+        display: block;
     }
 }
 @media all and (max-width: 425px) {
