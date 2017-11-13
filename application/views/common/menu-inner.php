@@ -151,7 +151,7 @@
 				<?php } ?>
               </div>
             <div class="new_mob_submenu">
-              	<div class="new_mob_submenu_name fl_l">ай да фрукты</div>
+              	<div class="new_mob_submenu_name fl_l">хиты</div>
               	<div class="new_mob_submenu_filter fl_r" data-target="filter-menu">фильтры <div class="new_mob_submenu_arrow sprite"></div></div>
               	<div class="new_mob_submenu_filter fl_r" data-target="category-menu">категории <div class="new_mob_submenu_arrow sprite"></div></div>
               	<div class="clear"></div>
