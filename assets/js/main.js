@@ -85,11 +85,27 @@ $(document).ready(function(){
 	});
 
 	$('.new_mob_submenu_filter').click(function() {
-  		$('.new_mob_submenu_dropdown').toggle();
+		target = $(this).attr('data-target');
+		
+  		$('#'+target).toggle();
   		$('.new_mob_submenu').toggle();
+		$('.new_mob_submenu_filter_items_pack_inners').hide();		
   		$('body').toggleClass('fmfilter');
-
   	});
+	
+	$('.open_inner_filter').click(function() {
+		target = $(this).attr('data-target');
+		
+  		$('#'+target).show();
+  		$('body').toggleClass('fmfilter');
+  	});	
+	
+	$('.new_mob_submenu_filter_items_turn').click(function() {
+		$(this).parents('.new_mob_submenu_filter_items_pack_inners').hide();
+  	});		
+	
+	
+	
 
 	//////////////////////////////////////////////
 	//////////////////////////////////////////////
@@ -260,13 +276,8 @@ $(document).ready(function(){
     });	
     $('.regmob_link').click(function() {
         $('.regmob').toggle();
-    });	
-    $('.open_inner_filter').click(function() {
-        $('.new_mob_submenu_filter_items_pack_inners').show();
-    });	
-    $('.new_mob_submenu_filter_items_turn').click(function() {
-        $('.new_mob_submenu_filter_items_pack_inners').hide();
-    });	
+    });
+	
     $('.g_good_photo_block').click(function() {
         $('.good_modal').show();
         $('.good_modal_closer').show();
@@ -813,12 +824,20 @@ $('.cool_select').click(function() {
 	$('.select_closer').toggle();
 });
 
-$('.select_closer').click(function() {
-	
+$('.select_closer').click(function() {	
+	$('.opened_cool_select').removeClass('opened_cool_select');
+	$('.select_closer').hide();
+});
+
+$('.cool_select_check').click(function() {
+	$('.cool_select_button').addClass('cool_select_button_ready');
+});
+
+$('.cool_select_button,.new_mob_submenu_filter_button').click(function() {
 	tail = window.location.search;	
 	params = URLToArray(tail);
 	
-	$('.cool_select_check').each(function() {
+	$(this).parents('.filters_holder').find('.cool_select_check').each(function() {
 		name = $(this).attr('data-name');
 		value = $(this).val();
 		values = params[name];

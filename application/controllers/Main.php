@@ -245,7 +245,6 @@ class Main extends CI_Controller {
 		$filters_arr = array(
 			'country' => ($filters['country'] ? explode(';',$filters['country']) : 0),
 			'brand' => ($filters['brand'] ? explode(';',$filters['brand']) : 0),
-			'weight' => ($filters['weight'] ? explode(';',$filters['weight']) : 0),
 			'pack' => ($filters['pack'] ? explode(';',$filters['pack']) : 0),
 			'composition' => ($filters['composition'] ? explode(';',$filters['composition']) : 0)
 		);
@@ -263,12 +262,6 @@ class Main extends CI_Controller {
 				unset($products[$product_id]);
 				$filters_used = true;
 				continue;
-			}			
-			
-			if($filters_arr['weight'] and !in_array($product['weight'], $filters_arr['weight'])) {
-				unset($products[$product_id]);
-				$filters_used = true;
-				continue;
 			}	
 			
 			if($filters_arr['pack'] and !in_array($product['pack'], $filters_arr['pack'])) {
@@ -282,6 +275,18 @@ class Main extends CI_Controller {
 				$filters_used = true;
 				continue;
 			}
+			
+			if($filters['weight']) {
+				if($filters['weight'] == 'raz' and $product['type'] == 'шт') {
+					unset($products[$product_id]);
+					$filters_used = true;
+					continue;
+				} elseif($filters['weight'] == 'upa' and $product['type'] != 'шт') {
+					unset($products[$product_id]);
+					$filters_used = true;
+					continue;
+				}
+			}			
 			
 			if($filters['price']) {
 				$price_sort[$product_id] = $product['price'];

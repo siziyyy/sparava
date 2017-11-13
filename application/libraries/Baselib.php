@@ -119,12 +119,6 @@ class Baselib {
 		return $categories;
 	}
 	
-	public function get_category_attributes($category) {
-		$products = get_category_products($category);
-		
-		
-	}
-	
 	public function get_category_products($category) {
 		
 		$products = array();
@@ -140,7 +134,7 @@ class Baselib {
 			$category_id = $category;
 		}
 		
-		$sql = 'SELECT p.* FROM products AS p, product_to_category AS ptc WHERE p.product_id = ptc.product_id AND p.status = 1  AND ptc.category_id = ' . (int)$category_id . ' ORDER BY product_id ASC';
+		$sql = 'SELECT p.*, c.bm FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND p.status = 1 AND ptc.category_id = c.category_id AND ptc.category_id = ' . (int)$category_id . ' ORDER BY product_id ASC';
 				
 		$query = $this->_ci->db->query($sql);
 
@@ -150,7 +144,7 @@ class Baselib {
 			}			
 		}
 		
-		$sql = 'SELECT p.* FROM products AS p, product_to_category AS ptc WHERE p.product_id = ptc.product_id AND p.status = 1 AND ptc.category_id IN (SELECT category_id FROM categories WHERE parent_id = ' . (int)$category_id . ' ) ORDER BY product_id ASC';
+		$sql = 'SELECT p.*, c.bm FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND p.status = 1 AND ptc.category_id = c.category_id AND ptc.category_id IN (SELECT category_id FROM categories WHERE parent_id = ' . (int)$category_id . ' ) ORDER BY product_id ASC';
 		
 		$query = $this->_ci->db->query($sql);
 		
@@ -177,7 +171,19 @@ class Baselib {
 			foreach ($query->result_array() as $row) {
 				$ptc[$row['product_id']][] = $row['category_id'];		
 			}			
-		}			
+		}
+
+		$categories = array();
+		
+		$sql = 'SELECT * FROM categories';
+				
+		$query = $this->_ci->db->query($sql);
+
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $row) {
+				$categories[$row['category_id']] = $row['bm'];		
+			}			
+		}
 		
 		$products = array();
 		
@@ -190,6 +196,7 @@ class Baselib {
 				$products[$row['product_id']] = $row;
 				if(isset($ptc[$row['product_id']])) {
 					$products[$row['product_id']]['categories'] = $ptc[$row['product_id']];
+					$products[$row['product_id']]['bm'] = $categories[$ptc[$row['product_id']][0]];
 				} else {
 					$products[$row['product_id']]['categories'] = array();
 				}
@@ -310,7 +317,6 @@ class Baselib {
 		$attributes = array(
 			'countries' => array(),
 			'compositions' => array(),
-			'weights' => array(),
 			'packs' => array(),
 			'brands' => array()
 		);
@@ -322,10 +328,6 @@ class Baselib {
 			
 			if(!is_null($product['composition'])) {
 				$attributes['compositions'][] = $product['composition'];
-			}
-
-			if(!is_null($product['weight'])) {
-				$attributes['weights'][] = $product['weight'];
 			}
 			
 			if(!is_null($product['pack'])) {
@@ -340,13 +342,11 @@ class Baselib {
 		
 		$attributes['countries'] = array_unique($attributes['countries']);
 		$attributes['compositions'] = array_unique($attributes['compositions']);
-		$attributes['weights'] = array_unique($attributes['weights']);
 		$attributes['packs'] = array_unique($attributes['packs']);
 		$attributes['brands'] = array_unique($attributes['brands']);
 		
 		ksort($attributes['countries']);
 		ksort($attributes['compositions']);
-		ksort($attributes['weights']);
 		ksort($attributes['packs']);
 		ksort($attributes['brands']);
 		
