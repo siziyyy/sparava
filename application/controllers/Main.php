@@ -22,11 +22,26 @@ class Main extends CI_Controller {
 		redirect(base_url('/'), 'refresh');
 	}	
 	
-	public function information() {		
+	public function information($page = false) {	
+
+		$blocks = array(
+			'delivery',
+			'first',
+			'bonus',
+			'about',
+			'testimonials',
+			'bloger',
+			'claims',
+			'agreement',
+			'contacts'
+		);
+	
 		$data = array(
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
+			'first_block' => $page,
+			'blocks' => $blocks,
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
