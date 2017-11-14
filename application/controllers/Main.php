@@ -146,6 +146,7 @@ class Main extends CI_Controller {
 		}
 
 		$products = $this->baselib->get_country_products($country);
+		$products = $this->baselib->sort_products('country',$country,$products);
 		
 		$filters = array(
 			'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
@@ -222,20 +223,21 @@ class Main extends CI_Controller {
 		ksort($menu_childs);
 		
 		$products = $this->baselib->get_category_products($category);
+		$products = $this->baselib->sort_products('category',$category,$products);
 		
 		$data['menu']['menu_childs'] = $menu_childs;
 		$data['menu']['attributes'] = $this->baselib->handle_attributes($products);
 		$data['menu']['filters'] = $filters;
 		
 		$products_in_page = $this->baselib->filter_products($products,$filters,$page);
-		
+
 		$data['products'] = $products_in_page['products'];
 		$data['pages_count'] = $products_in_page['pages_count'];
 		$data['filters_used'] = $products_in_page['filters_used'];
 		$data['current_page'] = $page;
 		$data['menu']['products_count'] = $products_in_page['products_count'];
 		$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);
-		//var_dump($filters);die();
+
 		$this->load->view('category', $data);
 	}
 	
@@ -270,6 +272,7 @@ class Main extends CI_Controller {
 		
 		$menu = $this->baselib->get_categories(false,true);
 		$products = $this->baselib->get_products('eko');
+		$products = $this->baselib->sort_products('category','eko',$products);
 		
 		$data = array(
 			'header' => array(
@@ -312,6 +315,7 @@ class Main extends CI_Controller {
 		
 		$menu = $this->baselib->get_categories(false,true);
 		$products = $this->baselib->get_products('farm');
+		$products = $this->baselib->sort_products('category','farm',$products);
 		
 		$data = array(
 			'header' => array(

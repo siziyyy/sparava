@@ -792,5 +792,38 @@ class Baselib {
 		);
 		
 		return $totals;
-	}	
+	}
+	
+	public function sort_products($type,$element_id,$products) {
+		
+		if(!is_numeric($element_id) and $type == 'categories') {
+			$query = $this->_ci->db->get_where("categories", array("seo_url" => $element_id));
+			if ($query->num_rows() > 0) {
+				$element_id = $query->row_array()['category_id'];
+			}
+		}
+		
+		$query = $this->_ci->db->get_where("sorts", array("type" => $type, "element_id" => $element_id));
+		if ($query->num_rows() > 0) {
+			
+			$products_sorted = array();
+			
+			$sort_order = unserialize($query->row_array()['sort_data']);
+			
+			foreach($sort_order as $index => $product_id) {
+				if(isset($products[$product_id])) {
+					$products_sorted[$index] = $products[$product_id];
+					unset($products[$product_id]);
+				}
+			}
+			
+			foreach($products as $product) {
+				$products_sorted[] = $product;
+			}
+			
+			return $products_sorted;
+		}
+		
+		return $products;
+	}
 }
