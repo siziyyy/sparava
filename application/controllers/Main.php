@@ -66,7 +66,7 @@ class Main extends CI_Controller {
 		$products = array();
 		
 		foreach($this->baselib->get_product_categories($product_id) as $category_id) {
-			$products = array_merge($products,$this->baselib->get_products($category_id));
+			$products = array_merge($products,$this->baselib->get_category_products($category_id));
 			
 			if(count($products) > 5) {
 				break;
@@ -153,7 +153,7 @@ class Main extends CI_Controller {
 		
 		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
 		
-		$products_in_page = $this->filter_products_for_country($products,$filters,$page);
+		$products_in_page = $this->baselib->filter_products_for_country($products,$filters,$page);
 		
 		$data = array(
 			'header' => array(
@@ -227,7 +227,7 @@ class Main extends CI_Controller {
 		$data['menu']['attributes'] = $this->baselib->handle_attributes($products);
 		$data['menu']['filters'] = $filters;
 		
-		$products_in_page = $this->filter_products($products,$filters,$page);
+		$products_in_page = $this->baselib->filter_products($products,$filters,$page);
 		
 		$data['products'] = $products_in_page['products'];
 		$data['pages_count'] = $products_in_page['pages_count'];
@@ -235,7 +235,7 @@ class Main extends CI_Controller {
 		$data['current_page'] = $page;
 		$data['menu']['products_count'] = $products_in_page['products_count'];
 		$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);
-		
+		//var_dump($filters);die();
 		$this->load->view('category', $data);
 	}
 	
@@ -253,169 +253,7 @@ class Main extends CI_Controller {
 		
 		$this->load->view('catalog', $data);
 	}	
-	
-	private function filter_products($products,$filters,$page) {
-		$price_sort = array();
-		
-		$filters_arr = array(
-			'country' => ($filters['country'] ? explode(';',$filters['country']) : 0),
-			'brand' => ($filters['brand'] ? explode(';',$filters['brand']) : 0),
-			'pack' => ($filters['pack'] ? explode(';',$filters['pack']) : 0),
-			'composition' => ($filters['composition'] ? explode(';',$filters['composition']) : 0)
-		);
 
-		$filters_used = false;
-		
-		foreach($products as $product_id => $product) {
-			if($filters_arr['country'] and !in_array($product['country'], $filters_arr['country'])) {
-				unset($products[$product_id]);
-				$filters_used = true;
-				continue;
-			}
-			
-			if($filters_arr['brand'] and !in_array($product['brand'], $filters_arr['brand'])) {
-				unset($products[$product_id]);
-				$filters_used = true;
-				continue;
-			}	
-			
-			if($filters_arr['pack'] and !in_array($product['pack'], $filters_arr['pack'])) {
-				unset($products[$product_id]);
-				$filters_used = true;
-				continue;
-			}
-
-			if($filters_arr['composition'] and !in_array($product['composition'], $filters_arr['composition'])) {
-				unset($products[$product_id]);
-				$filters_used = true;
-				continue;
-			}
-			
-			if($filters['weight']) {
-				if($filters['weight'] == 'raz' and $product['type'] == 'шт') {
-					unset($products[$product_id]);
-					$filters_used = true;
-					continue;
-				} elseif($filters['weight'] == 'upa' and $product['type'] != 'шт') {
-					unset($products[$product_id]);
-					$filters_used = true;
-					continue;
-				}
-			}			
-			
-			if($filters['price']) {
-				$price_sort[$product_id] = $product['price'];
-				$filters_used = true;
-			}			
-		}
-		
-		$prodcuts_in_page = array();
-		$page_start = ($page-1)*30;
-		$page_end = $page*30;
-		$i = 0;
-		$pages_count = (int)(count($products)/30);
-		
-		if(count($products)%30 > 0)  {
-			$pages_count++;
-		}
-
-		if($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'asc') {
-			array_multisort($price_sort,SORT_ASC, $products);
-		} elseif($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'desc') {
-			array_multisort($price_sort,SORT_DESC, $products);
-		}
-		
-		foreach($products as $product_id => $product) {
-			if($i >= $page_start and $i <$page_end) {
-				$prodcuts_in_page[] = $product;
-			}
-			
-			$i++;
-		}
-		
-		return array(
-			'products' => $prodcuts_in_page,
-			'pages_count' => $pages_count,
-			'products_count' => count($products),
-			'filters_used' => $filters_used
-		);
-	}
-	
-	private function filter_products_for_country($products,$filters,$page) {
-		$categories = $this->baselib->get_all_categories();
-		$categories_for_country = array();
-		
-		$filters_arr = array(
-			'categories' => ($filters['category'] ? explode(';',$filters['category']) : 0)
-		);
-		
-		$allowed_categories = array();
-		
-		if(is_array($filters_arr['categories'])) {
-			foreach($filters_arr['categories'] as $category_name) {
-				foreach($categories as $category_id => $category) {
-					if($category['title'] == $category_name) {
-						$allowed_categories[] = $category_id;
-					}
-				}
-			}
-		}
-		
-		foreach($products as $product) {
-			foreach($product['categories'] as $category) {
-				if(isset($categories[$category])) {
-					$parent_id = $categories[$category]['parent_id'];
-					if($parent_id > 0) {
-						$categories_for_country[$parent_id] = $categories[$parent_id];
-					} else {
-						$categories_for_country[$categories[$category]['category_id']] = $categories[$categories[$category]['category_id']];
-					}
-				}
-			}
-		}		
-		
-		if(count($allowed_categories) > 0) {
-			foreach($products as $product_id => $product) {
-				$categories_to_compare = array();
-				
-				foreach($product['categories'] as $category_id) {
-					if(isset($categories[$category_id])) {
-						$categories_to_compare[] = $categories[$category_id]['parent_id'];
-					}
-				}
-				
-				if(count(array_intersect($allowed_categories,$categories_to_compare)) == 0) {
-					unset($products[$product_id]);
-					continue;
-				}
-			}
-		}
-		
-		$prodcuts_in_page = array();
-		$page_start = ($page-1)*30;
-		$page_end = $page*30;
-		$i = 0;
-		$pages_count = (int)(count($products)/30);
-		
-		if(count($products)%30 > 0)  {
-			$pages_count++;
-		}
-		
-		foreach($products as $product_id => $product) {
-			if($i >= $page_start and $i <$page_end) {
-				$prodcuts_in_page[] = $product;
-			}
-			
-			$i++;
-		}	
-		
-		return array(
-			'products' => $prodcuts_in_page,
-			'pages_count' => $pages_count,
-			'products_count' => count($products),
-			'categories_for_country' => $categories_for_country
-		);
-	}
 	
 	public function eko() {
 		
@@ -447,7 +285,7 @@ class Main extends CI_Controller {
 		$data['menu']['attributes'] = $this->baselib->handle_attributes($products);
 		$data['menu']['filters'] = $filters;
 
-		$products_in_page = $this->filter_products($products,$filters,$page);
+		$products_in_page = $this->baselib->filter_products($products,$filters,$page);
 			
 		$data['products'] = $products_in_page['products'];
 		$data['pages_count'] = $products_in_page['pages_count'];
@@ -489,7 +327,7 @@ class Main extends CI_Controller {
 		$data['menu']['attributes'] = $this->baselib->handle_attributes($products);
 		$data['menu']['filters'] = $filters;
 
-		$products_in_page = $this->filter_products($products,$filters,$page);
+		$products_in_page = $this->baselib->filter_products($products,$filters,$page);
 		
 		$data['products'] = $products_in_page['products'];
 		$data['pages_count'] = $products_in_page['pages_count'];
@@ -508,7 +346,7 @@ class Main extends CI_Controller {
 		
 		$summ = 0;
 		
-		foreach($products as $product) {
+		foreach($products as $product) {			
 			$summ = $summ + $product['price']*$product['quantity_in_cart'];
 		}
 		
@@ -561,7 +399,7 @@ class Main extends CI_Controller {
 			$this->session->set_userdata('shipping_method', (int)$this->input->post('shipping_method'));
 		}
 	
-		$data['totals']['totals'] = $this->get_totals_for_cart($data['totals']['totals']);
+		$data['totals']['totals'] = $this->baselib->get_totals_for_cart($data['totals']['totals']);
 		$data['cart_info']['summ'] = $data['totals']['totals']['with_shipping']['value'];
 		
 		if(!$this->baselib->is_logged()) {
@@ -602,7 +440,7 @@ class Main extends CI_Controller {
 			$data['cart_info']['account']['shipping_address'] = $this->session->userdata('shipping_address');
 		}		
 		
-		$data['totals']['totals'] = $this->get_totals_for_cart($data['totals']['totals']);
+		$data['totals']['totals'] = $this->baselib->get_totals_for_cart($data['totals']['totals']);
 
 		$data['cart_info_tpl'] = 'account';		
 		
@@ -665,81 +503,41 @@ class Main extends CI_Controller {
 		$total = 0;
 		
 		foreach($products as $product) {
-			$summ = $summ + $product['price']*$product['quantity_in_cart'];
+			$summ = $summ +1*$product['quantity_in_cart'];
 			$total++;
 		}
 
 		return array(
 			'summ' => $summ,
 			'total' => $total,
-			'word' => $this->get_cart_word($total)
+			'word' => $this->baselib->get_cart_word($total)
 		);		
-	}	
-	
-	private function get_cart_word($count = 0) {
-		
-		$count = substr ( (string)$count , -1, 1 );		
-		
-		if ($count == 0) {
-			return 'товаров';
-		} elseif ($count == 1) {
-			return 'товар';
-		} elseif ($count > 1 and $count < 5) {
-			return 'товара';
-		} elseif ($count >= 5 and $count < 10) {
-			return 'товаров';
-		}
-	}
-	
-	private function get_totals_for_cart($totals) {
-		if(!is_null($this->session->userdata('shipping_method'))) {
-			
-			$shipping_methods = $this->baselib->get_shipping_methods();
-			
-			$totals['shipping'] = array(
-				'title' => 'доставка',
-				'value' => $shipping_methods[$this->session->userdata('shipping_method')]['price']
-			);
-			
-			$totals['with_shipping'] = array(
-				'title' => 'с доставкой',
-				'value' => $totals['summ']['value'] + $totals['shipping']['value']
-			);
-		}
-		
-		if(!is_null($this->session->userdata('account_id'))) {
-			
-			$account = new Account();
-			$account->set_id($this->session->userdata('account_id'));
-			$account = $account->get_data();
-			
-			$totals['bonus'] = array(
-				'title' => 'потратить бонусы на',
-				'value' => $account['bonus']
-			);
-			
-			if(!is_null($this->session->userdata('use_bonus'))) {
-				$totals['bonus']['use_bonus'] = $this->session->userdata('use_bonus');
-			} else {
-				$this->session->set_userdata('use_bonus',0);
-				$totals['bonus']['use_bonus'] = 0;
-			}
-		}		
-		
-		$payment_summ = $totals['summ']['value'] + 
-		( isset($totals['shipping']) ? $totals['shipping']['value'] : 0 ) -
-		( isset($totals['bonus']) ? ( $totals['bonus']['use_bonus'] ? $totals['bonus']['value'] : 0 ) : 0 );
-
-		$totals['payment'] = array(
-			'title' => 'к оплате',
-			'value' => $payment_summ
-		);
-		
-		return $totals;
 	}
 	
 	public function ajax_handler() {
 		switch ($this->input->post('type')) {
+			case 'get_product_info':
+			
+				$products = array();
+				
+				$product_id = $this->input->post('product_id');				
+				$product = $this->baselib->get_product_by_id($product_id);
+				
+				foreach($this->baselib->get_product_categories($product_id) as $category_id) {
+					$products = array_merge($products,$this->baselib->get_random_category_products($category_id));
+					
+					if(count($products) > 5) {
+						break;
+					}
+				}
+				
+				if($product) {
+					$json['success']['product'] = $product;
+					$json['success']['similar'] = $products;
+				}
+				
+				break;			
+			
 			case 'check_login':
 				
 				$email = $this->input->post('login_email');
@@ -940,7 +738,7 @@ class Main extends CI_Controller {
 								break;
 						}
 						
-						$products_in_page = $this->filter_products($products,$filters,$this->input->post('page'));
+						$products_in_page = $this->baselib->filter_products($products,$filters,$this->input->post('page'));
 					} elseif(!is_null($this->input->post('country_id'))) {
 
 						switch ($this->input->post('country_id')) {
@@ -977,7 +775,7 @@ class Main extends CI_Controller {
 
 						$page = (!is_null($this->input->post('page')) ? $this->input->post('page') : 1);
 						
-						$products_in_page = $this->filter_products_for_country($products,$filters,$page);
+						$products_in_page = $this->baselib->filter_products_for_country($products,$filters,$page);
 					}
 					
 					

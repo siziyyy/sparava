@@ -280,14 +280,14 @@
                         <div class="new_mob_submenu_filter_items_turn sprite"></div>
 						<div class="new_mob_submenu_filter_item">
 							<label>
-								<input type="radio" class="cool_select_check" value="raz" name="weight" data-name="weight" <?php echo ($filters['weight'] === 'raz' ? 'checked' : '' ) ?>>
+								<input type="radio" class="cool_select_check" value="raz" name="weight_mob" data-name="weight" <?php echo ($filters['weight'] === 'raz' ? 'checked' : '' ) ?>>
 								<div class="new_mob_submenu_filter_item_name fl_l">на развес</div>
 								<div class="clear"></div>
 							</label>
 						</div>
 						<div class="new_mob_submenu_filter_item">
 							<label>
-								<input type="radio" class="cool_select_check" value="upa"  name="weight" data-name="weight" <?php echo ($filters['weight'] === 'upa' ? 'checked' : '' ) ?>>
+								<input type="radio" class="cool_select_check" value="upa"  name="weight_mob" data-name="weight" <?php echo ($filters['weight'] === 'upa' ? 'checked' : '' ) ?>>
 								<div class="new_mob_submenu_filter_item_name fl_l">в упаковке</div>
 								<div class="clear"></div>
 							</label>
@@ -299,14 +299,14 @@
                         <div class="new_mob_submenu_filter_items_turn sprite"></div>
 						<div class="new_mob_submenu_filter_item">
 							<label>
-								<input type="radio" class="cool_select_check" value="asc" name="price" data-name="price" <?php echo ($filters['price'] === 'asc' ? 'checked' : '' ) ?>>
+								<input type="radio" class="cool_select_check" value="asc" name="price_mob" data-name="price" <?php echo ($filters['price'] === 'asc' ? 'checked' : '' ) ?>>
 								<div class="new_mob_submenu_filter_item_name fl_l">по возрастанию</div>
 								<div class="clear"></div>
 							</label>
 						</div>
 						<div class="new_mob_submenu_filter_item">
 							<label>
-								<input type="radio" class="cool_select_check" value="desc" name="price" data-name="price" <?php echo ($filters['price'] === 'desc' ? 'checked' : '' ) ?>>
+								<input type="radio" class="cool_select_check" value="desc" name="price_mob" data-name="price" <?php echo ($filters['price'] === 'desc' ? 'checked' : '' ) ?>>
 								<div class="new_mob_submenu_filter_item_name fl_l">по убыванию</div>
 								<div class="clear"></div>
 							</label>
