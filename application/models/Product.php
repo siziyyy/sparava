@@ -8,10 +8,6 @@ class Product extends Fruitcrm {
 				$query = $this->db->get_where("products", array("product_id" => $this->_id));
 				if ($query->num_rows() > 0) {
 					$this->_data = $query->row_array();
-					
-					if($this->_data['category_id'] > 0) {
-						$this->_data['image'] = $this->_data['category_id'].'/'.$this->_data['image'];
-					}
 				}
 			}
 			return $this->_data;

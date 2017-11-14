@@ -1,5 +1,6 @@
 <?php $this->load->view('common/header',$header);?>
         <?php $this->load->view('common/product-edit-form.php');?>
+		<?php $this->load->view('common/product-info');?>
         <section class="content">
             <div class="category_bg_helper category_bg_helper_country">
                 <div class="content_helper">
@@ -38,8 +39,8 @@
                 <div class="goods">
                     <?php foreach($products as $product) { ?>
 						<?php $show_minus = false; ?>
-                        <div class="g_good fl_l" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>">
-                            <div class="g_good_photo_block">
+                        <div class="g_good fl_l" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>" data-product-id="<?php echo $product['product_id'] ?>">
+                            <div class="g_good_photo_block send" data-type="get_product_info">
                                 <img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo">
                             </div>
                             <?php if(isset($product['old_price'])) { ?>
@@ -47,7 +48,7 @@
                             <?php } ?>
                             <div class="g_good_price"><span class="g_good_price_value"><?php echo $product['price'] ?></span> <span class="rouble">o</span></div>
                             <div class="g_old_good_price_date"><?php echo ($product['special_end_date'] ? 'до '.$product['special_end_date'] : '') ?></div>
-							 <div class="g_admin_info" data-product-id="<?php echo $product['product_id'] ?>">inf</div>
+							 <div class="g_admin_info">inf</div>
                             <div class="g_good_name"><?php echo $product['title'] ?></div>
                             <div class="g_good_description">
                                 <?php echo $product['description'] ?>
@@ -74,11 +75,11 @@
 							</div>
                             <div class="g_good_actions">
                                 <div class="g_good_count">
-                                    <div class="g_good_count_act g_good_count_rem sprite"></div>
+                                    <div class="g_good_count_act g_good_count_rem sprite <?php echo ( ($product['type'] == 'шт' or $product['bm'] == 0) ? 'g_good_count_act_disable' : '' ) ?>"></div>
                                     <input type="text" class="g_good_count_input" value="<?php echo ($product['type'] == 'шт' ? 1 : ($product['bm'] == 1 ? 1 : '0.1')) ?> <?php echo $product['type'] ?>">
                                     <div class="g_good_count_act g_good_count_add sprite"></div>
                                 </div>
-                                <div class="g_good_to_cart" data-product-id="<?php echo $product['product_id'] ?>">
+                                <div class="g_good_to_cart">
                                     <span class="g_good_to_cart_text"><span class="g_good_to_cart_value"><?php echo $product['price'] ?></span> <span class="rouble">o</span></span>
                                     <span class="g_good_added_to_cart_text"></span>									
                                     <span class="g_good_to_cart_icon sprite"></span>

@@ -118,6 +118,25 @@ class Baselib {
 		
 		return $categories;
 	}
+
+	public function get_random_category_products($category) {
+		
+		$products = array();
+
+		$category_id = $category;
+		
+		$sql = 'SELECT p.*, c.bm FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND p.status = 1 AND ptc.category_id = c.category_id AND ptc.category_id = ' . (int)$category_id . ' ORDER BY rand()';
+				
+		$query = $this->_ci->db->query($sql);
+
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $row) {
+				$products[$row['product_id']] = $row;		
+			}			
+		}
+		
+		return $this->handle_special_price($products);
+	}
 	
 	public function get_category_products($category) {
 		
@@ -358,7 +377,8 @@ class Baselib {
 		$query = $this->_ci->db->get_where("products", array("product_id" => $product_id,"status" => 1));
 		
 		if ($query->num_rows() > 0) {
-			$product = $query->row_array();			
+			$product = $query->row_array();
+			$product['youtube'] = explode(';',$product['youtube']);
 			return $this->handle_special_price($product);
 		}
 		
@@ -377,7 +397,7 @@ class Baselib {
 		foreach($cart as $element_id => $element) {
 			$product_id = explode('-',$element_id)[1];
 			$product = $this->get_product_by_id($product_id);
-			
+
 			$products[$product['product_id']] = $product;
 			$products[$product['product_id']]['quantity_in_cart'] = $element['quantity'];
 		}
@@ -547,5 +567,230 @@ class Baselib {
 		}
 		
 		return $pages;
+	}
+	
+	public function filter_products($products,$filters,$page) {
+		$price_sort = array();
+		
+		$filters_arr = array(
+			'country' => ($filters['country'] ? explode(';',$filters['country']) : 0),
+			'brand' => ($filters['brand'] ? explode(';',$filters['brand']) : 0),
+			'pack' => ($filters['pack'] ? explode(';',$filters['pack']) : 0),
+			'composition' => ($filters['composition'] ? explode(';',$filters['composition']) : 0)
+		);
+
+		$filters_used = false;
+		
+		foreach($products as $product_id => $product) {
+			if($filters_arr['country'] and !in_array($product['country'], $filters_arr['country'])) {
+				unset($products[$product_id]);
+				$filters_used = true;
+				continue;
+			}
+			
+			if($filters_arr['brand'] and !in_array($product['brand'], $filters_arr['brand'])) {
+				unset($products[$product_id]);
+				$filters_used = true;
+				continue;
+			}	
+			
+			if($filters_arr['pack'] and !in_array($product['pack'], $filters_arr['pack'])) {
+				unset($products[$product_id]);
+				$filters_used = true;
+				continue;
+			}
+
+			if($filters_arr['composition'] and !in_array($product['composition'], $filters_arr['composition'])) {
+				unset($products[$product_id]);
+				$filters_used = true;
+				continue;
+			}
+			
+			if($filters['weight']) {
+				if($filters['weight'] == 'raz' and $product['type'] == 'шт') {
+					unset($products[$product_id]);
+					$filters_used = true;
+					continue;
+				} elseif($filters['weight'] == 'upa' and $product['type'] != 'шт') {
+					unset($products[$product_id]);
+					$filters_used = true;
+					continue;
+				}
+			}			
+			
+			if($filters['price']) {
+				$price_sort[$product_id] = $product['price'];
+				$filters_used = true;
+			}			
+		}
+		
+		$prodcuts_in_page = array();
+		$page_start = ($page-1)*30;
+		$page_end = $page*30;
+		$i = 0;
+		$pages_count = (int)(count($products)/30);
+		
+		if(count($products)%30 > 0)  {
+			$pages_count++;
+		}
+
+		if($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'asc') {
+			array_multisort($price_sort,SORT_ASC, $products);
+		} elseif($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'desc') {
+			array_multisort($price_sort,SORT_DESC, $products);
+		}
+		
+		foreach($products as $product_id => $product) {
+			if($i >= $page_start and $i <$page_end) {
+				$prodcuts_in_page[] = $product;
+			}
+			
+			$i++;
+		}
+		
+		return array(
+			'products' => $prodcuts_in_page,
+			'pages_count' => $pages_count,
+			'products_count' => count($products),
+			'filters_used' => $filters_used
+		);
+	}
+	
+	public function filter_products_for_country($products,$filters,$page) {
+		$categories = $this->get_all_categories();
+		$categories_for_country = array();
+		
+		$filters_arr = array(
+			'categories' => ($filters['category'] ? explode(';',$filters['category']) : 0)
+		);
+		
+		$allowed_categories = array();
+		
+		if(is_array($filters_arr['categories'])) {
+			foreach($filters_arr['categories'] as $category_name) {
+				foreach($categories as $category_id => $category) {
+					if($category['title'] == $category_name) {
+						$allowed_categories[] = $category_id;
+					}
+				}
+			}
+		}
+		
+		foreach($products as $product) {
+			foreach($product['categories'] as $category) {
+				if(isset($categories[$category])) {
+					$parent_id = $categories[$category]['parent_id'];
+					if($parent_id > 0) {
+						$categories_for_country[$parent_id] = $categories[$parent_id];
+					} else {
+						$categories_for_country[$categories[$category]['category_id']] = $categories[$categories[$category]['category_id']];
+					}
+				}
+			}
+		}		
+		
+		if(count($allowed_categories) > 0) {
+			foreach($products as $product_id => $product) {
+				$categories_to_compare = array();
+				
+				foreach($product['categories'] as $category_id) {
+					if(isset($categories[$category_id])) {
+						$categories_to_compare[] = $categories[$category_id]['parent_id'];
+					}
+				}
+				
+				if(count(array_intersect($allowed_categories,$categories_to_compare)) == 0) {
+					unset($products[$product_id]);
+					continue;
+				}
+			}
+		}
+		
+		$prodcuts_in_page = array();
+		$page_start = ($page-1)*30;
+		$page_end = $page*30;
+		$i = 0;
+		$pages_count = (int)(count($products)/30);
+		
+		if(count($products)%30 > 0)  {
+			$pages_count++;
+		}
+		
+		foreach($products as $product_id => $product) {
+			if($i >= $page_start and $i <$page_end) {
+				$prodcuts_in_page[] = $product;
+			}
+			
+			$i++;
+		}	
+		
+		return array(
+			'products' => $prodcuts_in_page,
+			'pages_count' => $pages_count,
+			'products_count' => count($products),
+			'categories_for_country' => $categories_for_country
+		);
+	}	
+	
+	public function get_cart_word($count = 0) {
+		
+		$count = substr ( (string)$count , -1, 1 );		
+		
+		if ($count == 0) {
+			return 'товаров';
+		} elseif ($count == 1) {
+			return 'товар';
+		} elseif ($count > 1 and $count < 5) {
+			return 'товара';
+		} elseif ($count >= 5 and $count < 10) {
+			return 'товаров';
+		}
+	}
+
+	public function get_totals_for_cart($totals) {
+		if(!is_null($this->_ci->session->userdata('shipping_method'))) {
+			
+			$shipping_methods = $this->_ci->baselib->get_shipping_methods();
+			
+			$totals['shipping'] = array(
+				'title' => 'доставка',
+				'value' => $shipping_methods[$this->_ci->session->userdata('shipping_method')]['price']
+			);
+			
+			$totals['with_shipping'] = array(
+				'title' => 'с доставкой',
+				'value' => $totals['summ']['value'] + $totals['shipping']['value']
+			);
+		}
+		
+		if(!is_null($this->_ci->session->userdata('account_id'))) {
+			
+			$account = new Account();
+			$account->set_id($this->_ci->session->userdata('account_id'));
+			$account = $account->get_data();
+			
+			$totals['bonus'] = array(
+				'title' => 'потратить бонусы на',
+				'value' => $account['bonus']
+			);
+			
+			if(!is_null($this->_ci->session->userdata('use_bonus'))) {
+				$totals['bonus']['use_bonus'] = $this->_ci->session->userdata('use_bonus');
+			} else {
+				$this->_ci->session->set_userdata('use_bonus',0);
+				$totals['bonus']['use_bonus'] = 0;
+			}
+		}		
+		
+		$payment_summ = $totals['summ']['value'] + 
+		( isset($totals['shipping']) ? $totals['shipping']['value'] : 0 ) -
+		( isset($totals['bonus']) ? ( $totals['bonus']['use_bonus'] ? $totals['bonus']['value'] : 0 ) : 0 );
+
+		$totals['payment'] = array(
+			'title' => 'к оплате',
+			'value' => $payment_summ
+		);
+		
+		return $totals;
 	}	
 }
