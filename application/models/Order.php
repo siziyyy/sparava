@@ -42,6 +42,7 @@ class Order extends Fruitcrm {
 				'account_id' => $account_id,
 				'shipping_method' => $shipping_methods[$shipping_method]['title'],
 				'shipping_method_id' => $shipping_method,
+				'shipping_comment' => $this->session->userdata('shipping_comment'),
 				'shipping_price' => $shipping_methods[$shipping_method]['price'],
 				'used_bonus' => ( $use_bonus ? $account->get_data()['bonus'] : 0 ),
 				'create_date' => time()
@@ -57,7 +58,7 @@ class Order extends Fruitcrm {
 				$data['shipping_address'] = $account->get_data()['shipping_address'];
 			} else {
 				$data['shipping_address'] = $this->session->userdata('shipping_address');
-			}			
+			}		
 
 			if ($this->db->insert("orders", $data))  {
 				$this->_id = $this->db->insert_id();
