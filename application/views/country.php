@@ -9,12 +9,12 @@
                             <div class="c_new_menu_line_item fl_l">
                                 <a href="/category/" class="c_new_menu_link c_new_menu_link_country">ай да <?php echo $country ?></a>
                             </div>     
-                             <div class="cool_select_pack cool_select_country_pack fl_l">
+                            <div class="cool_select_pack cool_select_country_pack fl_l">
                                 <div class="cool_select cool_select_country">
 									<span>категория</span>
 									<span class="cool_select_arrow sprite"></span>
 								</div>
-								<div class="cool_select_options">
+								<div class="cool_select_options scrollbar-inner">
 									<?php foreach($categories as $category) { ?>
 										<div class="cool_select_option">
 											<label>
@@ -23,8 +23,9 @@
 											</label>
 										</div>
 									<?php } ?>
+									<div class="cool_select_button">применить</div>
 								</div>									
-                            </div>  
+                            </div>						
                             <div class="c_new_menu_line_item c_new_menu_line_item_right fl_r">
                                 <span class="c_new_menu_more">другие продукты</span>
                                 <span class="c_new_menu_more_icon"></span>
@@ -108,5 +109,4 @@
                 <?php } ?>
             </div>
         </section>
-        <iframe src="http://fruit.local/main/iframe" height="1" width="1" name="admin"></iframe>
 <?php $this->load->view('common/footer',$footer);?>
