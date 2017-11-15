@@ -153,29 +153,6 @@
                         </div>
                         <div class="mob_deliv_spr2 sprite"></div>
                     </a>
-                    <a href="/information" class="mob_mos_it mob_mos_deliv c_mosaic_delivery_pad">
-                        <div class="c_mosaic_delivery_icon sprite"></div>
-                        <div class="c_mosaic_delivery_header">доставка</div>
-                        <div class="c_mosaic_delivery_body">
-                            <div class="c_mosaic_delivery_body_left">
-                                <div class="c_mosaic_delivery_body_left_top">24 часа</div>
-                                <div class="c_mosaic_delivery_body_left_bottom">149</div>
-                            </div>
-                            <div class="c_mosaic_delivery_body_center">&nbsp;/&nbsp;</div>
-                            <div class="c_mosaic_delivery_body_right">
-                                <div class="c_mosaic_delivery_body_right_top">2 часа</div>
-                                <div class="c_mosaic_delivery_body_right_bottom">399</div>
-                            </div>
-                        </div>
-                        <div class="c_mosaic_delivery_subbody">
-                            <div class="c_mosaic_delivery_subbody_circle fl_l"></div>
-                            <div class="c_mosaic_delivery_subbody_circle fl_l"></div>
-                            <div class="c_mosaic_delivery_subbody_circle fl_l"></div>
-                            <div class="clear"></div>
-                            <div class="c_mosaic_delivery_subbody_border"></div>
-                        </div>
-                        <div class="c_mosaic_delivery_footer sprite"></div>
-                    </a>
                     <a href="/category/2" style="background: url('/assets/img/cats/mob/3.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text bl_txt_mob">птица</span>
                     </a>
