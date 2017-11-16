@@ -21,15 +21,17 @@
 									<span>страна</span>
 									<span class="cool_select_arrow sprite"></span>
 								</div>
-								<div class="cool_select_options scrollbar-inner">
-									<?php foreach($attributes['countries'] as $attribute) { ?>
-										<div class="cool_select_option">
-											<label>
-												<input type="checkbox" class="cool_select_check" value="<?php echo $attribute ?>" data-name="country" <?php echo (in_array($attribute,explode(';',$filters['country'])) ? 'checked' : '' ) ?>>
-												<?php echo $attribute ?>
-											</label>
-										</div>
-									<?php } ?>
+								<div class="cool_select_options">
+                                    <div class="scrollbar-inner scroll_helper">
+    									<?php foreach($attributes['countries'] as $attribute) { ?>
+    										<div class="cool_select_option">
+    											<label>
+    												<input type="checkbox" class="cool_select_check" value="<?php echo $attribute ?>" data-name="country" <?php echo (in_array($attribute,explode(';',$filters['country'])) ? 'checked' : '' ) ?>>
+    												<?php echo $attribute ?>
+    											</label>
+    										</div>
+    									<?php } ?>
+                                    </div>
 									<div class="cool_select_button <?php echo (!$filters_used ? '' : 'cool_select_button_ready') ?>">применить</div>
 								</div>
 							</div>
@@ -40,7 +42,8 @@
 									<span>бренд</span>
 									<span class="cool_select_arrow sprite"></span>
 								</div>
-								<div class="cool_select_options scrollbar-inner">
+                                <div class="cool_select_options">
+                                    <div class="scrollbar-inner scroll_helper">
 									<?php foreach($attributes['brands'] as $attribute) { ?>
 										<div class="cool_select_option">
 											<label>
@@ -49,6 +52,7 @@
 											</label>
 										</div>
 									<?php } ?>
+                                    </div>
 									<div class="cool_select_button <?php echo (!$filters_used ? '' : 'cool_select_button_ready') ?>">применить</div>
 								</div>
 							</div>
@@ -59,7 +63,8 @@
 									<span>состав</span>
 									<span class="cool_select_arrow sprite"></span>
 								</div>
-								<div class="cool_select_options scrollbar-inner">
+                                <div class="cool_select_options">
+                                    <div class="scrollbar-inner scroll_helper">
 									<?php foreach($attributes['compositions'] as $attribute) { ?>
 										<div class="cool_select_option">
 											<label>
@@ -68,6 +73,7 @@
 											</label>
 										</div>
 									<?php } ?>
+                                </div>
 									<div class="cool_select_button <?php echo (!$filters_used ? '' : 'cool_select_button_ready') ?>">применить</div>
 								</div>
 							</div>
@@ -78,7 +84,8 @@
 									<span>упаковка</span>
 									<span class="cool_select_arrow sprite"></span>
 								</div>
-								<div class="cool_select_options scrollbar-inner">
+                                <div class="cool_select_options">
+                                    <div class="scrollbar-inner scroll_helper">
 									<?php foreach($attributes['packs'] as $attribute) { ?>
 										<div class="cool_select_option">
 											<label>
@@ -87,6 +94,7 @@
 											</label>
 										</div>
 									<?php } ?>
+                                </div>
 									<div class="cool_select_button <?php echo (!$filters_used ? '' : 'cool_select_button_ready') ?>">применить</div>
 								</div>								
 							</div>
@@ -97,7 +105,8 @@
 									<span>вес</span>
 									<span class="cool_select_arrow sprite"></span>
 								</div>
-								<div class="cool_select_options scrollbar-inner">
+                                <div class="cool_select_options">
+                                    <div class="scrollbar-inner scroll_helper">
 									<div class="cool_select_option">
 										<label>
 											<input type="radio" class="cool_select_check" value="raz" name="weight" data-name="weight" <?php echo ($filters['weight'] === 'raz' ? 'checked' : '' ) ?>>
@@ -110,6 +119,7 @@
 											в упаковке
 										</label>
 									</div>
+                                </div>
 									<div class="cool_select_button <?php echo (!$filters_used ? '' : 'cool_select_button_ready') ?>">применить</div>
 								</div>
 							</div>
@@ -119,7 +129,8 @@
 									<span>цена</span>
 									<span class="cool_select_arrow sprite"></span>
 								</div>
-								<div class="cool_select_options scrollbar-inner">
+                                <div class="cool_select_options">
+                                    <div class="scrollbar-inner scroll_helper">
 									<div class="cool_select_option">
 										<label>
 											<input type="radio" class="cool_select_check" value="asc" name="price" data-name="price" <?php echo ($filters['price'] === 'asc' ? 'checked' : '' ) ?>>
@@ -132,6 +143,7 @@
 											по убыванию
 										</label>
 									</div>
+                                </div>
 									<div class="cool_select_button <?php echo (!$filters_used ? '' : 'cool_select_button_ready') ?>">применить</div>
 								</div>
 							</div>
