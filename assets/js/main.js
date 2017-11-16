@@ -2,11 +2,11 @@ var block_send_button = false;
 var current_page = 1;
 
 function send_msg(msg) {
-	window.frames['admin'].postMessage(send_data, "http://admin.aydaeda.ru");
+	window.frames['admin'].postMessage(send_data, "https://admin.aydaeda.ru");
 }
 
 function listener(event) {
-	if (event.origin != 'http://admin.aydaeda.ru') {
+	if (event.origin != 'https://admin.aydaeda.ru') {
 		return;
 	}
 	
