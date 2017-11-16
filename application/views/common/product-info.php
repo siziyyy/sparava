@@ -1,7 +1,7 @@
 		<div class="good_modal" id="product_info" data-product-id="" data-type="">
             <div class="good_modal_arrows">
-                <div class="good_modal_arrow good_modal_arrow_left"></div>
-                <div class="good_modal_arrow good_modal_arrow_right"></div>
+                <div class="good_modal_arrow sprite good_modal_arrow_left"></div>
+                <div class="good_modal_arrow sprite good_modal_arrow_right"></div>
             </div>
             <div class="good_modal_line">
                 <div class="good_modal_photo fl_l">
@@ -19,13 +19,13 @@
                         <div class="good_modal_header_actions fl_r">
                             <div class="good_modal_share fl_r sprite"></div>
                             <div class="good_modal_fav good_modal_fav_ylw fl_r sprite"></div>
+                            <div class="good_modal_id fl_r"></div>
                             <div class="clear"></div>
                         </div>
                         <div class="clear"></div>
                     </div>
                     <div class="good_modal_right_line">
                         <div class="good_modal_name fl_l"></div>
-                        <div class="good_modal_id fl_r"></div>
                         <div class="clear"></div>
                     </div>
                     <div class="good_modal_right_line">

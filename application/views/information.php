@@ -17,14 +17,4 @@
                 </div>
             </div>
         </section>
-        <style>            
-            header {
-                position: fixed;
-                width: 100%;
-                top: 0;
-                left: 0;
-                z-index: 99999;
-                background: #fff;
-            }
-        </style>
 <?php $this->load->view('common/footer',$footer);?>

@@ -2,12 +2,11 @@
     width: 100%;
     height: 85px;
     background: #f0f0f0;
-    position: fixed;
+    position: absolute;
     left: 0;
     top: 122px;
 }
 .contacts_content {
-    margin-top: 122px;
     padding-top: 20px;
 }
 .c_inners_header {

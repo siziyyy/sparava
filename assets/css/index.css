@@ -467,7 +467,7 @@ textarea.contact_me_mobile_input {
 }
 .new_mob_submenu_name {
     color: #f2593a;
-    font-size: 12px;
+    font-size: 13px;
 }
 .new_mob_submenu {
     height: 50px;
@@ -475,8 +475,8 @@ textarea.contact_me_mobile_input {
     display: none;
 }
 .new_mob_submenu_filter {
-    font-size: 12px;
-    margin-left: 15px;
+   font-size: 13px;
+    margin-left: 30px;
 }
 .mobile_agree_more {
     color: #336699;
@@ -498,8 +498,35 @@ textarea.contact_me_mobile_input {
     height: 50px;
     line-height: 50px;
 }
+.new_mob_submenu_filter_item a {
+    color: #000;
+}
 .no_on_desk {
     display: none;
+}
+.g_good_photo_block:hover {
+    opacity: .8;
+    -webkit-transition: opacity .3s ease;
+       -moz-transition: opacity .3s ease;
+        -ms-transition: opacity .3s ease;
+         -o-transition: opacity .3s ease;
+            transition: opacity .3s ease;
+}
+.g_good_photo_block:active {
+    opacity: 1;
+    -webkit-transition: opacity .3s ease;
+       -moz-transition: opacity .3s ease;
+        -ms-transition: opacity .3s ease;
+         -o-transition: opacity .3s ease;
+            transition: opacity .3s ease;
+}
+.g_good_photo_block {
+    opacity: 1;
+    -webkit-transition: opacity .3s ease;
+       -moz-transition: opacity .3s ease;
+        -ms-transition: opacity .3s ease;
+         -o-transition: opacity .3s ease;
+            transition: opacity .3s ease;
 }
 .new_mob_submenu_arrow {
     display: inline-block;
@@ -508,6 +535,7 @@ textarea.contact_me_mobile_input {
     background-position: -284px -205px;
     position: relative;
     top: -1px;
+    margin: 0 0 0 3px;
 }
 .new_mob_submenu_dropdown {
     width: 100vw;
@@ -635,7 +663,6 @@ textarea.contact_me_mobile_input {
         font-size: 14px;
     }
     .c_new_index_menu_dropdown {
-        display: block;
         width: 100%;
         box-sizing: border-box;
         right: 10px;
@@ -670,13 +697,25 @@ textarea.contact_me_mobile_input {
         width: 100% !important;
         background: #e8e8e8 !important;
         height: 50px !important;
+        border-bottom: 1px solid #e0e0e0;
         margin: 13px 0 -95px 0 !important;
+        -webkit-box-shadow: 0px 10px 25px -2px rgba(0,0,0, .1);
+                box-shadow: 0px 10px 25px -2px rgba(0,0,0, .1);
     }
     .g_good {
         width: 24% !important;
+        height: auto !important;
+    }
+    .g_good_actions {
+        position: static;
+        bottom: 0px;
+        margin: -10px 0 25px 0;
     }
     .g_good_photo_block {
         width: 100% !important;
+    }
+    .g_good_photo_block:hover {
+        opacity: 1;
     }
     .g_good:nth-child(4n) {
         margin: 0;

@@ -5,6 +5,10 @@
                 <div class="g_good_admin_info_modal_photo">
                     <img src="" alt="" class="product_image">
                 </div>
+                <label>
+                    <span class="g_good_admin_info_modal_inpname">Поставщик</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long">
+                </label>
                 <label class="fl_l">
                     <span class="g_good_admin_info_modal_inpname">Мера</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_type">
@@ -24,14 +28,34 @@
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_country">
                 </label>
                 <label class="fl_l">
-                    <span class="g_good_admin_info_modal_inpname">Цена</span>
+                    <span class="g_good_admin_info_modal_inpname">Цена - за.</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_price">
+                </label>  
+                <label class="fl_l">
+                    <span class="g_good_admin_info_modal_inpname proc">%</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_price proc_inp">
+                </label>  
+                <label class="fl_l">
+                    <span class="g_good_admin_info_modal_inpname">Цена - за.</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_price">
                 </label>           
-                <label class="fl_r">
+                <!--<label class="fl_r">
                     <span class="g_good_admin_info_modal_inpname">Процент наценки</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_med product_percent">
+                </label>  -->
+                <div class="clear"></div>  
+                <label class="fl_l">
+                    <span class="price_new_inf_mod">Цена опт</span>
                 </label>  
-                <div class="clear"></div>    
+                <label class="fl_l">
+                    <span class="g_good_admin_info_modal_inpname proc">%</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_price proc_inp">
+                </label>  
+                <label class="fl_l">
+                    <span class="g_good_admin_info_modal_inpname">Цена - за.</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_price">
+                </label>   
+                <div class="clear"></div>  
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Состав</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_composition">
@@ -63,6 +87,28 @@
                     <span class="g_good_admin_info_modal_inpname">Описание</span>
                     <textarea type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_description"></textarea>
                 </label>
+                <div class="clear"></div>
+                <label class="fl_l">
+                    <span class="g_good_admin_info_modal_inpname">Ккал</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short3 product_special">
+                </label>
+                <label class="fl_l">
+                    <span class="g_good_admin_info_modal_inpname">Белки</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short3 product_special">
+                </label>
+                <label class="fl_l">
+                    <span class="g_good_admin_info_modal_inpname">Жиры</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short3 product_special">
+                </label>
+                <label class="fl_l">
+                    <span class="g_good_admin_info_modal_inpname">Угл.</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short3 product_special">
+                </label>
+                <label class="fl_l">
+                    <span class="g_good_admin_info_modal_inpname">Gi</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short3 inpnom product_special">
+                </label>
+                <div class="clear"></div>
                 <label class="fl_l">
                     <span class="g_good_admin_info_modal_inpname">Акция</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short2 product_special">
@@ -74,6 +120,15 @@
                 <label class="fl_l">
                     <span class="g_good_admin_info_modal_inpname g_good_admin_info_modal_inpname2">Конец (Г-М-Д)</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short2 nom2 product_special_end">
+                </label>
+                <div class="clear"></div>
+                <label>
+                    <span class="g_good_admin_info_modal_inpname">Видео 1</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_pack">
+                </label>
+                <label>
+                    <span class="g_good_admin_info_modal_inpname">Видео 2</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_pack">
                 </label>
                 <div class="clear"></div>
             </aside>

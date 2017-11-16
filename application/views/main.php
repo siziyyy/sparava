@@ -127,10 +127,10 @@
 		<section class="content">
 			<div class="content_helper">
                 <div class="mobile_mosaic">
-                    <a href="/category/1" style="background: url('/assets/img/cats/mob/1.jpg')" class="mob_mos_it mob_mos_it_big">
+                    <a href="/category/1" style="background: url('/assets/img/cats/mob2/1.jpg')" class="mob_mos_it mob_mos_it_big">
                         <span class="mob_mos_it_text">мясо</span>
                     </a>
-                    <a href="/category/3" style="padding-bottom: calc(87% + 2px); background: url('/assets/img/cats/mob/2.jpg')" class="mob_mos_it">
+                    <a href="/category/3" style="padding-bottom: calc(87% + 2px); background: url('/assets/img/cats/mob2/2.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text bl_txt_mob">рыба</span>
                     </a>
                     <a class="mob_mos_it mob_mos_deliv">
@@ -153,109 +153,109 @@
                         </div>
                         <div class="mob_deliv_spr2 sprite"></div>
                     </a>
-                    <a href="/category/2" style="background: url('/assets/img/cats/mob/3.jpg')" class="mob_mos_it">
+                    <a href="/category/2" style="background: url('/assets/img/cats/mob2/3.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text bl_txt_mob">птица</span>
                     </a>
-                    <a href="/category/100" style="background: url('/assets/img/cats/mob/4.jpg')" class="mob_mos_it">
+                    <a href="/category/100" style="background: url('/assets/img/cats/mob2/4.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">фрукты</span>
                     </a>
-                    <a href="/category/103" style="background: url('/assets/img/cats/mob/5.jpg')" class="mob_mos_it">
+                    <a href="/category/103" style="background: url('/assets/img/cats/mob2/5.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">овощи</span>
                     </a>
-                    <a href="/category/101" style="background: url('/assets/img/cats/mob/6.jpg')" class="mob_mos_it">
+                    <a href="/category/101" style="background: url('/assets/img/cats/mob2/6.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text bl_txt_mob">ягоды</span>
                     </a>
-                    <a href="/category/104" style="background: url('/assets/img/cats/mob/7.jpg')" class="mob_mos_it">
+                    <a href="/category/104" style="background: url('/assets/img/cats/mob2/7.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text bl_txt_mob">зелень</span>
                     </a>
-                    <a href="/category/92" style="background: url('/assets/img/cats/mob/8.jpg')" class="mob_mos_it">
+                    <a href="/category/92" style="background: url('/assets/img/cats/mob2/8.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">молочка</span>
                     </a>
-                    <a href="/category/95" style="background: url('/assets/img/cats/mob/9.jpg')" class="mob_mos_it">
+                    <a href="/category/95" style="background: url('/assets/img/cats/mob2/9.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">сыр</span>
                     </a>
-                    <a href="/category/10" style="background: url('/assets/img/cats/mob/10.jpg')" class="mob_mos_it">
+                    <a href="/category/10" style="background: url('/assets/img/cats/mob2/10.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">консервация</span>
                     </a>
-                    <a href="/category/5" style="background: url('/assets/img/cats/mob/11.jpg')" class="mob_mos_it">
+                    <a href="/category/5" style="background: url('/assets/img/cats/mob2/11.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">деликатесы</span>
                     </a>
-                    <a href="/category/9" style="background: url('/assets/img/cats/mob/12.jpg')" class="mob_mos_it">
+                    <a href="/category/9" style="background: url('/assets/img/cats/mob2/12.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">бакалея</span>
                     </a>
-                    <a href="/category/18" style="background: url('/assets/img/cats/mob/13.jpg')" class="mob_mos_it">
+                    <a href="/category/18" style="background: url('/assets/img/cats/mob2/13.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">масло</span>
                     </a>
-                    <a href="/category/46" style="background: url('/assets/img/cats/mob/14.jpg')" class="mob_mos_it">
+                    <a href="/category/46" style="background: url('/assets/img/cats/mob2/14.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">соленая рыба</span>
                     </a>
-                    <a href="/category/18" style="background: url('/assets/img/cats/mob/15.jpg')" class="mob_mos_it">
+                    <a href="/category/18" style="background: url('/assets/img/cats/mob2/15.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">фермерское</span>
                     </a>
-                    <a href="/category/51" style="background: url('/assets/img/cats/mob/16.jpg')" class="mob_mos_it">
+                    <a href="/category/51" style="background: url('/assets/img/cats/mob2/16.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">раки живые</span>
                     </a>
-                    <a href="/category/12" style="background: url('/assets/img/cats/mob/17.jpg')" class="mob_mos_it">
+                    <a href="/category/12" style="background: url('/assets/img/cats/mob2/17.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">соусы</span>
                     </a>
-                    <a href="/category/70" style="background: url('/assets/img/cats/mob/18.jpg')" class="mob_mos_it">
+                    <a href="/category/70" style="background: url('/assets/img/cats/mob2/18.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">крупы</span>
                     </a>
-                    <a href="/category/8" style="background: url('/assets/img/cats/mob/19.jpg')" class="mob_mos_it">
+                    <a href="/category/8" style="background: url('/assets/img/cats/mob2/19.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">заморозка</span>
                     </a>
-                    <a href="/category/11" style="background: url('/assets/img/cats/mob/20.jpg')" class="mob_mos_it">
+                    <a href="/category/11" style="background: url('/assets/img/cats/mob2/20.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">соления</span>
                     </a>
-                    <a href="/category/56" style="background: url('/assets/img/cats/mob/21.jpg')" class="mob_mos_it">
+                    <a href="/category/56" style="background: url('/assets/img/cats/mob2/21.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">икра</span>
                     </a>
-                    <a href="/category/23" style="background: url('/assets/img/cats/mob/22.jpg')" class="mob_mos_it">
+                    <a href="/category/23" style="background: url('/assets/img/cats/mob2/22.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">мед</span>
                     </a>
-                    <a href="/category/20" style="background: url('/assets/img/cats/mob/23.jpg')" class="mob_mos_it">
+                    <a href="/category/20" style="background: url('/assets/img/cats/mob2/23.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">хлебцы</span>
                     </a>
-                    <a href="/category/107" style="background: url('/assets/img/cats/mob/24.jpg')" class="mob_mos_it">
+                    <a href="/category/107" style="background: url('/assets/img/cats/mob2/24.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">орехи</span>
                     </a>
-                    <a href="/category/108" style="background: url('/assets/img/cats/mob/25.jpg')" class="mob_mos_it">
+                    <a href="/category/108" style="background: url('/assets/img/cats/mob2/25.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">сухофрукты</span>
                     </a>
-                    <a href="/category/24" style="background: url('/assets/img/cats/mob/26.jpg')" class="mob_mos_it">
+                    <a href="/category/24" style="background: url('/assets/img/cats/mob2/26.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">чай</span>
                     </a>
-                    <a href="/category/25" style="background: url('/assets/img/cats/mob/27.jpg')" class="mob_mos_it">
+                    <a href="/category/25" style="background: url('/assets/img/cats/mob2/27.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">кофе</span>
                     </a>
-                    <a href="/category/26" style="background: url('/assets/img/cats/mob/28.jpg')" class="mob_mos_it">
+                    <a href="/category/26" style="background: url('/assets/img/cats/mob2/28.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">напитки</span>
                     </a>
-                    <a href="/category/27" style="background: url('/assets/img/cats/mob/29.jpg')" class="mob_mos_it">
+                    <a href="/category/27" style="background: url('/assets/img/cats/mob2/29.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">соки</span>
                     </a>
-                    <a href="/category/21" style="background: url('/assets/img/cats/mob/30.jpg')" class="mob_mos_it">
+                    <a href="/category/21" style="background: url('/assets/img/cats/mob2/30.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">сладости</span>
                     </a>
-                    <a href="/category/22" style="background: url('/assets/img/cats/mob/31.jpg')" class="mob_mos_it">
+                    <a href="/category/22" style="background: url('/assets/img/cats/mob2/31.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">пирожные</span>
                     </a>
-                    <a href="/category/18" style="background: url('/assets/img/cats/mob/32.jpg')" class="mob_mos_it">
+                    <a href="/category/18" style="background: url('/assets/img/cats/mob2/32.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">эко</span>
                     </a>
-                    <a href="/category/18" style="background: url('/assets/img/cats/mob/33.jpg')" class="mob_mos_it">
+                    <a href="/category/18" style="background: url('/assets/img/cats/mob2/33.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">фермерское</span>
                     </a>
-                    <a href="/country/2" style="background: url('/assets/img/cats/mob/34.jpg')" class="mob_mos_it">
+                    <a href="/country/2" style="background: url('/assets/img/cats/mob2/34.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">из Италии</span>
                     </a>
-                    <a href="/country/4" style="background: url('/assets/img/cats/mob/35.jpg')" class="mob_mos_it">
+                    <a href="/country/4" style="background: url('/assets/img/cats/mob2/35.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">из Греции</span>
                     </a>
-                    <a href="/country/6" style="background: url('/assets/img/cats/mob/36.jpg')" class="mob_mos_it">
+                    <a href="/country/6" style="background: url('/assets/img/cats/mob2/36.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">из Армении</span>
                     </a>
-                    <a href="/category/19" style="background: url('/assets/img/cats/mob/37.jpg')" class="mob_mos_it">
+                    <a href="/category/19" style="background: url('/assets/img/cats/mob2/37.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">хлеб</span>
                     </a>
                     <div class="clear"></div>

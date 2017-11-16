@@ -13,7 +13,8 @@
 						<?php $show_minus = false; ?>
                         <div class="g_good fl_l" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>" data-product-id="<?php echo $product['product_id'] ?>">
                             <div class="g_good_photo_block send" data-type="get_product_info">
-                               <img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo">
+                                <!--<img src="/images/1.jpg" alt="" class="g_good_photo">-->
+                                <img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo">
                             </div>
                             <div class="new_good_helper_mobile">
                                 <?php if(isset($product['old_price'])) { ?>
@@ -35,16 +36,18 @@
                                     <?php echo $product['description'] ?>
                                 </div>
                                 <div class="g_good_country">
-    								<?php if($product['brand']) { ?>
-    									<?php echo $product['brand'] ?>
-    									<?php $show_minus = true; ?>
-    								<?php } ?>
-    								<?php if($show_minus and $product['country']) { ?>
-    									 - 
-    								<?php } ?>
-    								<?php if($product['country']) { ?>
-    									<?php echo $product['country'] ?>
-    								<?php } ?>
+                                    <span class="g_good_country_margin">
+        								<?php if($product['brand']) { ?>
+        									<?php echo $product['brand'] ?>
+        									<?php $show_minus = true; ?>
+        								<?php } ?>
+        								<?php if($show_minus and $product['country']) { ?>
+        									 - 
+        								<?php } ?>
+        								<?php if($product['country']) { ?>
+        									<?php echo $product['country'] ?>
+        								<?php } ?>
+                                    </span>
     								<span class="g_good_id"><?php echo $product['articul'] ?></span>
     							</div>
                             </div>
