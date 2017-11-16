@@ -31,10 +31,10 @@
                                     <br>избранное надо авторизоваться 
                                 </div>
                                 <div class="g_admin_info">inf</div>
-                                <!--<div class="g_good_name"><?php echo $product['title'] ?></div>-->
-                                <div class="g_good_description">
+                                <div class="g_good_name"><?php echo $product['title'] ?></div>
+                               <!-- <div class="g_good_description">
                                     <?php echo $product['description'] ?>
-                                </div>
+                                </div>-->
                                 <div class="g_good_country">
                                     <span class="g_good_country_margin">
         								<?php if($product['brand']) { ?>
