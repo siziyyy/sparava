@@ -51,9 +51,9 @@
                             <div class="g_old_good_price_date"><?php echo ($product['special_end_date'] ? 'до '.$product['special_end_date'] : '') ?></div>
 							 <div class="g_admin_info">inf</div>
                             <div class="g_good_name"><?php echo $product['title'] ?></div>
-                            <div class="g_good_description">
+                            <!-- <div class="g_good_description">
                                 <?php echo $product['description'] ?>
-                            </div>
+                            </div> -->
 							<div class="g_good_country">
 								<?php if($product['brand']) { ?>
 									<?php echo $product['brand'] ?>
