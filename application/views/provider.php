@@ -11,15 +11,17 @@
 									<span>поставщик</span>
 									<span class="cool_select_arrow sprite"></span>
 								</div>
-								<div class="cool_select_options scrollbar-inner">
-									<?php foreach($providers as $provider) { ?>
-										<div class="cool_select_option">
-											<label>
-												<input type="checkbox" class="cool_select_check" value="<?php echo $provider ?>" data-name="provider" <?php echo (in_array($provider,explode(';',$menu['filters']['provider'])) ? 'checked' : '' ) ?>>
-												<?php echo $provider ?>
-											</label>
-										</div>
-									<?php } ?>
+								<div class="cool_select_options">
+									<div class="scrollbar-inner scroll_helper">
+										<?php foreach($providers as $provider) { ?>
+											<div class="cool_select_option">
+												<label>
+													<input type="checkbox" class="cool_select_check" value="<?php echo $provider ?>" data-name="provider" <?php echo (in_array($provider,explode(';',$menu['filters']['provider'])) ? 'checked' : '' ) ?>>
+													<?php echo $provider ?>
+												</label>
+											</div>
+										<?php } ?>
+									</div>
 									<div class="cool_select_button">применить</div>
 								</div>									
                             </div>						
