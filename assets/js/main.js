@@ -839,7 +839,7 @@ $(document).ready(function(){
 
 							if(product['youtube'][0].length > 0) {
 								for (k in product['youtube']) {
-									html = '<div class="good_modal_video" style="background:url(\'https://img.youtube.com/vi/'+product['youtube'][k]+'/default.jpg\')"><div class="good_modal_video_play sprite"></div></div>';
+									html = '<div class="good_modal_video" style="background:url(\'https://i1.ytimg.com/vi/'+product['youtube'][k]+'/default.jpg\')"><div class="good_modal_video_play sprite"></div></div>';
 									$('#product_info .good_modal_video_line').append(html);
 								}
 								$('#product_info .good_modal_video_line').show();

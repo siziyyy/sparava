@@ -225,9 +225,9 @@ class Baselib {
 		ksort($products);
 		
 		return $this->handle_special_price($products);
-	}	
+	}		
 	
-	public function get_products($type) {
+	public function get_products($type = false) {
 		
 		$products = array();
 		
@@ -731,6 +731,58 @@ class Baselib {
 			'categories_for_country' => $categories_for_country
 		);
 	}	
+	
+	public function filter_products_for_provider($input_products,$filters,$page) {
+		
+		$filters_arr = array(
+			'providers' => ($filters['provider'] ? explode(';',$filters['provider']) : 0)
+		);
+		
+		$providers_for_provider = array();
+		
+		foreach($input_products as $product_id => $product) {
+			$providers_for_provider[] = $product['provider'];
+		}		
+		
+		$providers_for_provider = array_unique($providers_for_provider);
+
+		$products = array();
+		
+		if(is_array($filters_arr['providers'])) {
+			foreach($input_products as $product_id => $product) {
+				if(in_array($product['provider'],$filters_arr['providers'])) {
+					$products[$product_id] = $product;
+				}
+			}
+		} else {
+			$products = $input_products;
+		}
+		
+		$prodcuts_in_page = array();
+		$page_start = ($page-1)*30;
+		$page_end = $page*30;
+		$i = 0;
+		$pages_count = (int)(count($products)/30);
+		
+		if(count($products)%30 > 0)  {
+			$pages_count++;
+		}
+		
+		foreach($products as $product_id => $product) {
+			if($i >= $page_start and $i <$page_end) {
+				$prodcuts_in_page[] = $product;
+			}
+			
+			$i++;
+		}	
+		
+		return array(
+			'products' => $prodcuts_in_page,
+			'pages_count' => $pages_count,
+			'products_count' => count($products),
+			'providers_for_provider' => $providers_for_provider
+		);
+	}		
 	
 	public function get_cart_word($count = 0) {
 		

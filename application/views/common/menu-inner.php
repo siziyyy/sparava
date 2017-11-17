@@ -159,7 +159,14 @@
                     </div>
               <div class="c_new_mobile_menu noscrlbr">
 				<?php foreach($categories_first_line as $category) { ?>
-					<a href="/category/<?php echo $category['category_id'] ?>" class="c_mobile_menu_link <?php echo ( $category['current_category'] ? 'c_current_menu_mobile_link' : '' ) ?>"><?php echo $category['title'] ?></a>
+					<?php if($category['current_category']) { ?>
+						<a href="/category/<?php echo $category['category_id'] ?>" class="c_mobile_menu_link c_current_menu_mobile_link"><?php echo $category['title'] ?></a>
+					<?php } ?>
+				<?php } ?>
+				<?php foreach($categories_first_line as $category) { ?>
+					<?php if(!$category['current_category']) { ?>
+						<a href="/category/<?php echo $category['category_id'] ?>" class="c_mobile_menu_link"><?php echo $category['title'] ?></a>
+					<?php } ?>
 				<?php } ?>
               </div>
             <div class="new_mob_submenu">
