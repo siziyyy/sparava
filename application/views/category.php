@@ -51,7 +51,7 @@
     								<span class="g_good_id"><?php echo $product['articul'] ?></span>
     							</div>
                             </div>
-                            <div class="g_good_actions">
+                            <div class="g_good_actions actions_holder">
                                 <div class="g_good_count">
                                     <div class="g_good_count_act g_good_count_rem sprite <?php echo ( ($product['type'] == 'шт' or $product['bm'] == 0) ? 'g_good_count_act_disable' : '' ) ?>"></div>
                                     <input type="text" class="g_good_count_input" value="<?php echo ($product['type'] == 'шт' ? 1 : ($product['bm'] == 1 ? 1 : '0.1')) ?> <?php echo $product['type'] ?>">
