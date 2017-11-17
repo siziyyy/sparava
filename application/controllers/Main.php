@@ -178,6 +178,37 @@ class Main extends CI_Controller {
 		$this->load->view('country',$data);
 	}
 	
+	public function provider() {
+		$products = $this->baselib->get_products();
+		
+		$filters = array(
+			'provider' => (!is_null($this->input->get('provider')) ? $this->input->get('provider') : 0)
+		);
+		
+		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
+		
+		$products_in_page = $this->baselib->filter_products_for_provider($products,$filters,$page);
+		
+		$data = array(
+			'header' => array(
+				'cart' => $this->get_cart_info_for_header()
+			),
+			'menu' => array(
+				'filters' => $filters
+			),
+			'products' => $products_in_page['products'],
+			'current_page' => $page,
+			'pages_count' => $products_in_page['pages_count'],
+			'providers' => $products_in_page['providers_for_provider'],
+			'footer' => array(
+				'account_confirm' => $this->baselib->get_account_data_for_confirm()
+			),
+			'pages' => $this->baselib->create_pager($products_in_page['pages_count'],$page)
+		);
+		
+		$this->load->view('provider',$data);
+	}
+	
 	public function category($category = false) {
 		
 		if(!$category) {

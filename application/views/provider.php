@@ -6,25 +6,20 @@
                 <div class="content_helper">
                     <div class="c_new_menu">
                         <div class="c_new_menu_line c_new_menu_line_country filters_holder">
-                            <div class="c_new_menu_line_item fl_l">
-                                <a href="/category/" class="c_new_menu_link c_new_menu_link_country">ай да <?php echo $country ?></a>
-                            </div>     
                             <div class="cool_select_pack cool_select_country_pack fl_l">
                                 <div class="cool_select cool_select_country">
-									<span>категория</span>
+									<span>поставщик</span>
 									<span class="cool_select_arrow sprite"></span>
 								</div>
-								<div class="cool_select_options">
-									<div class="scrollbar-inner scroll_helper">
-										<?php foreach($categories as $category) { ?>
-											<div class="cool_select_option">
-												<label>
-													<input type="checkbox" class="cool_select_check" value="<?php echo $category['title'] ?>" data-name="category" <?php echo (in_array($category['title'],explode(';',$menu['filters']['category'])) ? 'checked' : '' ) ?>>
-													<?php echo $category['title'] ?>
-												</label>
-											</div>
-										<?php } ?>
-									</div>
+								<div class="cool_select_options scrollbar-inner">
+									<?php foreach($providers as $provider) { ?>
+										<div class="cool_select_option">
+											<label>
+												<input type="checkbox" class="cool_select_check" value="<?php echo $provider ?>" data-name="provider" <?php echo (in_array($provider,explode(';',$menu['filters']['provider'])) ? 'checked' : '' ) ?>>
+												<?php echo $provider ?>
+											</label>
+										</div>
+									<?php } ?>
 									<div class="cool_select_button">применить</div>
 								</div>									
                             </div>						
@@ -42,7 +37,7 @@
                 <div class="goods">
                     <?php foreach($products as $product) { ?>
 						<?php $show_minus = false; ?>
-                        <div class="g_good fl_l" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>" data-product-id="<?php echo $product['product_id'] ?>">
+                        <div class="g_good fl_l" data-product-id="<?php echo $product['product_id'] ?>">
                             <div class="g_good_photo_block send" data-type="get_product_info">
                                 <img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo">
                             </div>
@@ -76,18 +71,6 @@
 								<?php } ?>
 								<span class="g_good_id"><?php echo $product['articul'] ?></span>
 							</div>
-                            <div class="g_good_actions">
-                                <div class="g_good_count">
-                                    <div class="g_good_count_act g_good_count_rem sprite <?php echo ( ($product['type'] == 'шт' or $product['bm'] == 0) ? 'g_good_count_act_disable' : '' ) ?>"></div>
-                                    <input type="text" class="g_good_count_input" value="<?php echo ($product['type'] == 'шт' ? 1 : ($product['bm'] == 1 ? 1 : '0.1')) ?> <?php echo $product['type'] ?>">
-                                    <div class="g_good_count_act g_good_count_add sprite"></div>
-                                </div>
-                                <div class="g_good_to_cart">
-                                    <span class="g_good_to_cart_text"><span class="g_good_to_cart_value"><?php echo $product['price'] ?></span> <span class="rouble">o</span></span>
-                                    <span class="g_good_added_to_cart_text"></span>									
-                                    <span class="g_good_to_cart_icon sprite"></span>
-                                </div>
-                            </div>
                         </div>                      
                     <?php } ?>
                     <div id="wrapper_for_product_load"></div>
@@ -95,9 +78,6 @@
                 </div>
                 <?php if($pages_count > 1) { ?>
                     <div class="c_paginator">
-                        <?php if($current_page == 1) { ?>
-                            <div class="c_show_more_goods" data-country-id="<?php echo $country_id ?>">показать еще</div>
-                        <?php } ?>
 						<div class="c_pages">
 							<?php foreach($pages as $page) { ?>
 								<?php if ($page['dots']) { ?>
