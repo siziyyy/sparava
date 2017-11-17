@@ -15,12 +15,16 @@ function listener(event) {
 	} else if(event.data.type == 'product_details') {
 		product = event.data.data;
 		
-		$('#product_form .product_id').val(product.product_id);
 		$('#product_form .product_name_text').text(product.title);
+		$('#product_form .product_description').val(product.description);
+		
+		$('#product_form .product_id').val(product.product_id);
 		$('#product_form .product_image').attr('src','/images/'+product.image);
+		$('#product_form .product_provider').val(product.provider);
 		$('#product_form .product_type').val(product.type);
 		$('#product_form .product_weight').val(product.weight);
 		$('#product_form .product_country').val(product.country);
+		$('#product_form .product_cost').val(product.cost);
 		$('#product_form .product_price').val(product.price);
 		$('#product_form .product_percent').val(product.percent);
 		$('#product_form .product_pack').val(product.pack);
@@ -31,10 +35,17 @@ function listener(event) {
 		$('#product_form .product_category').val(product.category);
 		$('#product_form .product_brand').val(product.brand);
 		$('#product_form .product_status').val(product.status);
-		$('#product_form .product_description').text(product.description);
 		$('#product_form .product_special').val(product.special);
 		$('#product_form .product_special_begin').val(product.special_begin);
 		$('#product_form .product_special_end').val(product.special_end);
+		
+		$('#product_form .product_kkal').val(product.kkal);
+		$('#product_form .product_belki').val(product.belki);
+		$('#product_form .product_jiri').val(product.jiri);
+		$('#product_form .product_uglevodi').val(product.uglevodi);
+		$('#product_form .product_gi').val(product.gi);
+		$('#product_form .product_video_1').val(product.youtube[0]);
+		$('#product_form .product_video_2').val(product.youtube[1]);
 		
 		$('.admin_window_closer').show();
 		$('#product_form').show();
@@ -149,9 +160,11 @@ $(document).ready(function(){
 		
 		product = {
 			product_id: $('#product_form .product_id').val(),
+			provider: $('#product_form .product_provider').val(),
 			type: $('#product_form .product_type').val(),
 			weight: $('#product_form .product_weight').val(),
 			country: $('#product_form .product_country').val(),
+			cost: $('#product_form .product_cost').val(),
 			price: $('#product_form .product_price').val(),
 			percent: $('#product_form .product_percent').val(),
 			pack: $('#product_form .product_pack').val(),
@@ -164,8 +177,15 @@ $(document).ready(function(){
 			description: $('#product_form .product_description').val(),
 			special: $('#product_form .product_special').val(),
 			special_begin: $('#product_form .product_special_begin').val(),
-			special_end: $('#product_form .product_special_end').val()
-		}
+			special_end: $('#product_form .product_special_end').val(),
+			kkal: $('#product_form .product_kkal').val(),
+			belki: $('#product_form .product_belki').val(),
+			jiri: $('#product_form .product_jiri').val(),
+			uglevodi: $('#product_form .product_uglevodi').val(),
+			gi: $('#product_form .product_gi').val(),
+			video_1: $('#product_form .product_video_1').val(),
+			video_2: $('#product_form .product_video_2').val()	
+		}	
 		
 		send_data = {
 			type : 'save_product',
@@ -305,7 +325,7 @@ $(document).ready(function(){
 	
 	$(document).on('click','.good_modal_arrow_right, .good_modal_arrow_left',function(e) {
 		product_id = $(this).attr('data-product-id');
-		$('.g_good[data-product-id="'+product_id+'"]').find('.g_good_photo_block').click();console.log($('.g_good[data-product-id="'+product_id+'"]'));
+		$('.g_good[data-product-id="'+product_id+'"]').find('.g_good_photo_block').click();
 	});
 	
 	$(document).on('click','.g_good_to_cart',function(e) {
