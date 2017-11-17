@@ -58,7 +58,7 @@
                             <div class="good_modal_kkal_body gi"></div>
                         </div>
                     </div>
-                    <div class="good_modal_right_line">
+                    <div class="good_modal_right_line actions_holder">
 						<div class="g_good_count">
 							<div class="g_good_count_act g_good_count_rem sprite"></div>
 							<input type="text" class="g_good_count_input" value="">

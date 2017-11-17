@@ -558,17 +558,14 @@ class Main extends CI_Controller {
 				$product_id = $this->input->post('product_id');				
 				$product = $this->baselib->get_product_by_id($product_id);
 				
-				foreach($this->baselib->get_product_categories($product_id) as $category_id) {
-					$products = array_merge($products,$this->baselib->get_random_category_products($category_id));
-					
-					if(count($products) > 5) {
-						break;
+				foreach($product as $attr_id => $attr) {
+					if(is_null($attr)) {
+						unset($product[$attr_id]);
 					}
 				}
 				
 				if($product) {
 					$json['success']['product'] = $product;
-					$json['success']['similar'] = $products;
 				}
 				
 				break;			
