@@ -230,6 +230,7 @@
 					<?php if(count($attributes['countries']) > 0) { ?>
                     <div class="new_mob_submenu_filter_items_pack_inners" id="filter-country">
                         <div class="new_mob_submenu_filter_items_turn sprite"></div>
+                        <div class="new_mob_submenu_filter_items_turn_scroll">
 						<?php foreach($attributes['countries'] as $attribute) { ?>
 							<div class="new_mob_submenu_filter_item">
 								<label>
@@ -239,12 +240,14 @@
 								</label>
 							</div>
 						<?php } ?>
+                        </div>
                         <div class="new_mob_submenu_filter_button new_orange_small_button">применить</div>
                     </div>
 					<?php } ?>					
 					<?php if(count($attributes['brands']) > 0) { ?>
                     <div class="new_mob_submenu_filter_items_pack_inners" id="filter-brand">
                         <div class="new_mob_submenu_filter_items_turn sprite"></div>
+                        <div class="new_mob_submenu_filter_items_turn_scroll">
 						<?php foreach($attributes['brands'] as $attribute) { ?>
 							<div class="new_mob_submenu_filter_item">
 								<label>
@@ -254,12 +257,14 @@
 								</label>
 							</div>
 						<?php } ?>
+                        </div>
                         <div class="new_mob_submenu_filter_button new_orange_small_button">применить</div>
                     </div>
 					<?php } ?>
 					<?php if(count($attributes['compositions']) > 0) { ?>
                     <div class="new_mob_submenu_filter_items_pack_inners" id="filter-composition">
                         <div class="new_mob_submenu_filter_items_turn sprite"></div>
+                        <div class="new_mob_submenu_filter_items_turn_scroll">
 						<?php foreach($attributes['compositions'] as $attribute) { ?>
 							<div class="new_mob_submenu_filter_item">
 								<label>
@@ -269,12 +274,14 @@
 								</label>
 							</div>
 						<?php } ?>
+                    </div>
                         <div class="new_mob_submenu_filter_button new_orange_small_button">применить</div>
                     </div>
 					<?php } ?>
 					<?php if(count($attributes['packs']) > 0) { ?>
                     <div class="new_mob_submenu_filter_items_pack_inners" id="filter-pack">
                         <div class="new_mob_submenu_filter_items_turn sprite"></div>
+                        <div class="new_mob_submenu_filter_items_turn_scroll">
 						<?php foreach($attributes['packs'] as $attribute) { ?>
 							<div class="new_mob_submenu_filter_item">
 								<label>
@@ -284,6 +291,7 @@
 								</label>
 							</div>
 						<?php } ?>
+                    </div>
                         <div class="new_mob_submenu_filter_button new_orange_small_button">применить</div>
                     </div>
 					<?php } ?>

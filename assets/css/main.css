@@ -328,15 +328,22 @@ header {
     padding: 0 20px;
     top: 50px;
     height: 100%;
+    z-index: 99999;
+}
+.new_mob_submenu_filter_items_turn_scroll {
+    max-height: calc(100vh - 248px);
+    -ms-overflow-y: auto;
+        overflow-y: auto;
 }
 .new_mob_submenu_filter_item_checkbox {
     display: block;
     width: 12px;
-    margin: 0 15px 0 0;
-    height: 12px;
-    position: relative;
-    top: 15px;
+    margin: 0px 15px 0px 0;
+    height: 100%;
 }
+.new_mob_submenu_filter_item_name {
+    line-height: 39px;
+} 
 .regmob_link_arr {
     -webkit-transform: rotate(90deg);
        -moz-transform: rotate(90deg);
@@ -487,7 +494,7 @@ input {
     height: 25px;
     cursor: pointer;
     background-position: -193px -848px;
-    margin: 8px 5px 0 -1px;
+    margin: 8px 8px 0 2px;
 }
 .m_h_fav {
     width: 25px;
