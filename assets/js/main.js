@@ -106,9 +106,7 @@ $(document).ready(function(){
 	
 	$('.open_inner_filter').click(function() {
 		target = $(this).attr('data-target');
-		
   		$('#'+target).show();
-  		$('body').toggleClass('fmfilter');
   	});	
 	
 	$('.new_mob_submenu_filter_items_turn').click(function() {
