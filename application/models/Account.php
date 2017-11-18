@@ -104,7 +104,7 @@ class Account extends Fruitcrm {
 			$message = $password;
 			$this->load->library('email');
 			
-			$this->email->from('info@neurobasket.ru', 'Aydaeda.ru');
+			$this->email->from('info@aydaeda.ru', 'Aydaeda.ru');
 			$this->email->to($this->_data['email']);
 
 			$this->email->subject('Новый пароль');

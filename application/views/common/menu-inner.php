@@ -203,31 +203,41 @@
               	</div>
               	<div class="new_mob_submenu_filter_items">		
 					<div class="new_mob_submenu_filter_items_pack">
+						<?php if(count($attributes['countries']) > 0) { ?>
                   		<div class="new_mob_submenu_filter_item open_inner_filter" data-target="filter-country">
                   			<div class="new_mob_submenu_filter_item_name fl_l">Страна</div>
                   			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
                   			<div class="clear"></div>
                   		</div>
+						<?php } ?>
+						<?php if(count($attributes['brands']) > 0) { ?>
                   		<div class="new_mob_submenu_filter_item open_inner_filter" data-target="filter-brand">
                   			<div class="new_mob_submenu_filter_item_name fl_l">Бренд</div>
                   			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
                   			<div class="clear"></div>
                   		</div>
+						<?php } ?>
+						<?php if(count($attributes['compositions']) > 0) { ?>
                   		<div class="new_mob_submenu_filter_item open_inner_filter" data-target="filter-composition">
                   			<div class="new_mob_submenu_filter_item_name fl_l">Состав</div>
                   			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
                   			<div class="clear"></div>
                   		</div>
+						<?php } ?>
+						<?php if(count($attributes['packs']) > 0) { ?>
                   		<div class="new_mob_submenu_filter_item open_inner_filter" data-target="filter-pack">
                   			<div class="new_mob_submenu_filter_item_name fl_l">Упаковка</div>
                   			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
                   			<div class="clear"></div>
                   		</div>
+						<?php } ?>
+						<?php if(count($attributes['brands']) > 0) { ?>
                   		<div class="new_mob_submenu_filter_item open_inner_filter" data-target="filter-weight">
                   			<div class="new_mob_submenu_filter_item_name fl_l">Вес</div>
                   			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
                   			<div class="clear"></div>
                   		</div>
+						<?php } ?>
                   		<div class="new_mob_submenu_filter_item open_inner_filter" data-target="filter-price">
                   			<div class="new_mob_submenu_filter_item_name fl_l">Цена</div>
                   			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
