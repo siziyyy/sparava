@@ -1345,7 +1345,12 @@ footer {
 }
 .hide_select {
 	display:none;
-}/* media */
+}
+.provider_link{
+	display:none;
+}
+
+/* media */
 @media all and (max-width: 1200px) {
     .content_helper {
         padding: 0 50px;
