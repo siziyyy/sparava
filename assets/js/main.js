@@ -12,6 +12,7 @@ function listener(event) {
 	
 	if (event.data == 'iframe_ready') {
 		$('.g_admin_info').css('display','inline-block');
+		$('.provider_link').show();
 	} else if(event.data.type == 'product_details') {
 		product = event.data.data;
 		
