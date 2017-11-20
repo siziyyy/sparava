@@ -703,7 +703,6 @@ textarea.contact_me_mobile_input {
                 box-shadow: 0px 10px 25px -2px rgba(0,0,0, .1);
     }
     .g_good {
-        width: 24% !important;
         height: auto !important;
     }
     .g_good_actions {
@@ -717,12 +716,12 @@ textarea.contact_me_mobile_input {
     .g_good_photo_block:hover {
         opacity: 1;
     }
-    .g_good:nth-child(4n) {
+    /*.g_good:nth-child(4n) {
         margin: 0;
     }
     .g_good:nth-child(5n) {
         margin: 0 12px 0 0 !important;
-    }
+    }*/
 }
 @media all and (max-width: 980px) {
     .c_mosaic_grid_sizer, .c_mosaic_item {
@@ -737,7 +736,7 @@ textarea.contact_me_mobile_input {
     .g_good_photo_block {
         width: 100% !important;
     }
-    .g_good:nth-child(3n) {
+    /*.g_good:nth-child(3n) {
         margin: 0;
     }
     .g_good:nth-child(4n) {
@@ -745,7 +744,7 @@ textarea.contact_me_mobile_input {
     }
     .g_good:nth-child(5n) {
         margin: 0 12px 0 0 !important;
-    }
+    }*/
     .c_mosaic_item_height {
         height: 207px;
     }
@@ -781,7 +780,7 @@ textarea.contact_me_mobile_input {
     .g_good_photo_block {
         width: 100% !important;
     }
-    .g_good:nth-child(2n) {
+    /*.g_good:nth-child(2n) {
         margin: 0 0 30px 0;
     }
     .g_good:nth-child(3n) {
@@ -792,7 +791,7 @@ textarea.contact_me_mobile_input {
     }
     .g_good:nth-child(5n) {
         margin: 0 12px 30px 0 !important;
-    }
+    }*/
     .mobile_banner_text_header {
         font-family:Calibri Bold;
         margin-top: 25px;
