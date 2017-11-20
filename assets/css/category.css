@@ -5,11 +5,17 @@
 }
 .goods {
     margin-top: 38px;
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
 }
 .g_good {
     width: 220px;
     height: 487px;
-    margin: 0 12px 0 0 ;
+    /*margin: 0 12px 0 0 ;*/
     position: relative;
 }
 .g_good:nth-child(5n) {
@@ -130,7 +136,7 @@
     display: inline-block;
     height: 25px;
     line-height: 25px;
-    padding: 0 12px 0 17px;
+    padding: 0 9px 0 13px;
     cursor: pointer;
     border: 1px solid #ccc;
     -webkit-transition: background .3s ease;
@@ -360,7 +366,7 @@
     min-width: 100%;
     border: 1px solid #e6e6e6;
     box-sizing: border-box;
-    margin: 5px 0 0 0;
+    margin: 0px 0 0 0;
     padding: 0px 0 7px 0;
     z-index: 9999;
     height: auto;
@@ -377,7 +383,7 @@
     background: #FFF;
     position: absolute;
     left: 0;
-    bottom: -6px;
+    bottom: -1px;
     z-index: 99999;
     border: 1px solid #e6e6e6;
     border-top: none;

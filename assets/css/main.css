@@ -508,10 +508,11 @@ input {
     height: 25px;
     cursor: pointer;
     background-position: -29px -848px;
-    margin-top: -36px;
+    margin-top: -26px;
     position: absolute;
     right: 10px;
     display: none;
+    transform: scale(.8);
 }
 .g_good_mobile_fav_orange {
     background-position: -29px -930px;
@@ -779,22 +780,25 @@ input {
 }
 .mobile_search .f_block_search_butt {
     display: inline-block;
-    width: 21px;
-    height: 15px;
-    background: url(/assets/img/sprite.png) #e0e0e0;
-    background-position: -194px -772px;
+    width: 32px;
+    height: 20px;
+    background: url(/assets/img/sprite.png) #cccccc;
+    background-position: -189px -770px;
+    margin: 0 0 0 10px;
+    position: relative;
+    top: 2px;
 }
 .mobile_search .f_block_search_inp {
     display: inline-block;
-    width: calc(100% - 70px);
-    height: 15px;
+    width: calc(100% - 80px);
+    height: 20px;
     text-align: left;
-    margin: 0 0 0 13px;
-    font-size: 9px;
+    margin: 0 0 0 15px;
+    font-size: 11px;
     padding-left: 10px;
 }
 .mobile_search .f_block_search {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 .mobile_search {
     height: 100%;
