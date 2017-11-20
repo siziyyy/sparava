@@ -82,10 +82,11 @@
     font-size: 13px;
 }
 .g_good_description {
-    font-size: 17px;
+    font-size: 14px;
     margin: 12px 0 15px;
-    font-family:Calibri Bold;
+    font-family:Calibri;
     position: relative;
+	display:none;
 }
 .g_good_counter {
     width: 40px;
@@ -722,4 +723,9 @@ textarea.g_good_admin_info_modal_input {
 .c_new_mobile_submenu_hamb_pack, .c_new_mobile_submenu_more {
     display: inline-block;
     float: none;
+}
+@media all and (max-width: 800px) {
+	.g_good_description {
+		display:block;
+	}
 }
