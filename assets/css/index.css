@@ -493,6 +493,7 @@ textarea.contact_me_mobile_input {
         -ms-transform: rotate(180deg);
          -o-transform: rotate(180deg);
             transform: rotate(180deg);
+        margin: 0 -5px 0 5px;
 }
 .new_mob_submenu_dropdown_header {
     height: 60px;
@@ -535,7 +536,28 @@ textarea.contact_me_mobile_input {
     background-position: -284px -205px;
     position: relative;
     top: -1px;
-    margin: 0 0 0 3px;
+        margin: 0 0 0 8px;
+}
+.cool_select_disabled {
+    background: #e6e6e6 !important;
+}
+.cool_select_disabled {
+    background: #e6e6e6 !important;
+}
+.cool_select_disabled .cool_select_arrow {
+    display: none;
+}
+.cool_select_arrow2 {
+    display: none;
+    width: 12px;
+    height: 10px;
+    float: right;
+    margin: 0px 10px 0 0;
+    font-size: 16px;
+    font-weight: 900;
+}
+.cool_select_disabled .cool_select_arrow2 {
+    display: block;
 }
 .new_mob_submenu_dropdown {
     width: 100vw;
@@ -558,11 +580,18 @@ textarea.contact_me_mobile_input {
     width: 100%;
     border-bottom: 1px solid #e0e0e0;
     font-size: 14px;
-    height: 40px;
-    line-height: 40px;
+    min-height: 50px;
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;
+    position: relative;
+    padding: 0 0 15px 0;
+}
+.new_mob_submenu_filter_item_arrow {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin: -7px 0 0 0;
 }
 .wrapper_for_product_load {
     display: flex;
