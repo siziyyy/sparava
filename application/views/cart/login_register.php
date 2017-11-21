@@ -36,6 +36,9 @@
 				</div>
 				<div class="email_error2text remind_success">
 					На вашу почту было выслано письмо с дальнейшими инструкциями
+				</div>
+				<div class="email_error2text remind_error3">
+					Логин и пароль введены неверно
 				</div>				
 			</div>
 		</div>

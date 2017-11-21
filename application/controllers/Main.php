@@ -92,8 +92,6 @@ class Main extends CI_Controller {
 			'articul' => $this->input->post('articul')
 		);
 		
-		
-		
 		$this->load->view('search', $data);
 	}	
 	
@@ -155,6 +153,12 @@ class Main extends CI_Controller {
 		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
 		
 		$products_in_page = $this->baselib->filter_products_for_country($products,$filters,$page);
+
+		$empty_products = count($products_in_page['products'])%5; 
+					
+		if($empty_products > 0) {
+			$empty_products = 5-$empty_products;
+		}	
 		
 		$data = array(
 			'header' => array(
@@ -172,7 +176,8 @@ class Main extends CI_Controller {
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			),
-			'pages' => $this->baselib->create_pager($products_in_page['pages_count'],$page)
+			'pages' => $this->baselib->create_pager($products_in_page['pages_count'],$page),
+			'empty_products' => $empty_products
 		);
 		
 		$this->load->view('country',$data);
@@ -189,6 +194,12 @@ class Main extends CI_Controller {
 		
 		$products_in_page = $this->baselib->filter_products_for_provider($products,$filters,$page);
 		
+		$empty_products = count($products_in_page['products'])%5; 
+					
+		if($empty_products > 0) {
+			$empty_products = 5-$empty_products;
+		}		
+		
 		$data = array(
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
@@ -203,7 +214,8 @@ class Main extends CI_Controller {
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			),
-			'pages' => $this->baselib->create_pager($products_in_page['pages_count'],$page)
+			'pages' => $this->baselib->create_pager($products_in_page['pages_count'],$page),
+			'empty_products' => $products_in_page['empty_products']
 		);
 		
 		$this->load->view('provider',$data);
@@ -262,12 +274,19 @@ class Main extends CI_Controller {
 		
 		$products_in_page = $this->baselib->filter_products($products,$filters,$page);
 
+		$empty_products = count($products_in_page['products'])%5; 
+					
+		if($empty_products > 0) {
+			$empty_products = 5-$empty_products;
+		}			
+		
 		$data['products'] = $products_in_page['products'];
 		$data['pages_count'] = $products_in_page['pages_count'];
 		$data['filters_used'] = $products_in_page['filters_used'];
 		$data['current_page'] = $page;
 		$data['menu']['products_count'] = $products_in_page['products_count'];
 		$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);
+		$data['empty_products'] = $empty_products;
 
 		$this->load->view('category', $data);
 	}
@@ -320,13 +339,20 @@ class Main extends CI_Controller {
 		$data['menu']['filters'] = $filters;
 
 		$products_in_page = $this->baselib->filter_products($products,$filters,$page);
-			
+
+		$empty_products = count($products_in_page['products'])%5; 
+					
+		if($empty_products > 0) {
+			$empty_products = 5-$empty_products;
+		}
+		
 		$data['products'] = $products_in_page['products'];
 		$data['pages_count'] = $products_in_page['pages_count'];
 		$data['filters_used'] = $products_in_page['filters_used'];
 		$data['current_page'] = $page;
 		$data['menu']['products_count'] = $products_in_page['products_count'];
 		$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);
+		$data['empty_products'] = $empty_products;
 		
 		$this->load->view('category', $data);
 	}
@@ -363,6 +389,12 @@ class Main extends CI_Controller {
 		$data['menu']['filters'] = $filters;
 
 		$products_in_page = $this->baselib->filter_products($products,$filters,$page);
+
+		$empty_products = count($products_in_page['products'])%5; 
+					
+		if($empty_products > 0) {
+			$empty_products = 5-$empty_products;
+		}
 		
 		$data['products'] = $products_in_page['products'];
 		$data['pages_count'] = $products_in_page['pages_count'];
@@ -370,6 +402,7 @@ class Main extends CI_Controller {
 		$data['current_page'] = $page;
 		$data['menu']['products_count'] = $products_in_page['products_count'];
 		$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);
+		$data['empty_products'] = $empty_products;
 		
 		$this->load->view('category', $data);
 	}
@@ -538,7 +571,7 @@ class Main extends CI_Controller {
 		$total = 0;
 		
 		foreach($products as $product) {
-			$summ = $summ +1*$product['quantity_in_cart'];
+			$summ = $summ + $product['price']*$product['quantity_in_cart'];
 			$total++;
 		}
 
@@ -811,7 +844,6 @@ class Main extends CI_Controller {
 					}
 					
 					
-					
 					$html = '';
 					
 					foreach($products_in_page['products'] as $product) {
@@ -823,9 +855,9 @@ class Main extends CI_Controller {
 						$html .= $this->load->view('common/load-product', $data, true);
 					}
 					
-					$json['success'] = $html;
-					
+					$json['success'] = $html;					
 					$json['load_status'] = (count($products_in_page['products']) == 30 ? 'show' : 'hide');
+					$json['empty_products'] = $products_in_page['empty_products'];
 				}
 				
 				break;				

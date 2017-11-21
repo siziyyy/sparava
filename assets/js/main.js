@@ -141,6 +141,7 @@ $(document).ready(function(){
 		$('.blah_blah').hide();
 		$('.close_me_on_send').show();
 		$('.remind_error2').hide();	
+		$('.remind_error3').hide();	
 		$('.remind_success2').hide();	
 		$('.blah_blah_accept_agreement').hide();	
 	});	
@@ -561,13 +562,17 @@ $(document).ready(function(){
 				if(json['success']) {
 					$( "#wrapper_for_product_load" ).append(json['success']);
 					$( ".c_pages" ).hide();
-				}
-				
-				if(json['success']) {
+					
 					if(json['load_status'] == 'hide') {
 						$( ".c_show_more_goods" ).hide();
 					}
-				}				
+
+					if(json['empty_products']) {
+						for(i=0;i<json['empty_products'];i++) {
+							$( '<div class="g_good fl_l hide_on_mobile">&nbsp;</div>' ).insertAfter( ".g_good:last-child" );
+						}
+					}
+				}	
 			}
 		});
 	});
@@ -864,9 +869,6 @@ $(document).ready(function(){
 								product = product.next();
 							}
 							
-							
-							
-							
 							$('.good_modal').show();
 							$('.good_modal_closer').show();
 						}
@@ -880,9 +882,14 @@ $(document).ready(function(){
 						} else if(json['error'] == 'busy_email') {
 							$('.email_error').show();
 							$('.blah_closer').show();
-						} else if(send_data.type == 'check_login') {
+						} else if(type == 'check_login2') {
 							$('.close_me_on_send').hide();
 							$('.remind_error2').show();
+						} else if(type == 'check_login') {
+							$('.blaah').show();
+							$('.blah_closer').show();
+							$('.close_me_on_send2').hide();
+							$('.remind_error3').show();
 						}
 					}
 				}
