@@ -521,7 +521,7 @@ textarea.c_inners_input {
     position: relative;
 	display: none;
 }
-.remind_error, .remind_success, .email_error, .remind_success2, .remind_error2 {
+.remind_error, .remind_success, .email_error, .remind_success2, .remind_error2, .remind_error3 {
 	display: none;
 }
 .restorepass {

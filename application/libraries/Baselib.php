@@ -364,10 +364,10 @@ class Baselib {
 		$attributes['packs'] = array_unique($attributes['packs']);
 		$attributes['brands'] = array_unique($attributes['brands']);
 		
-		ksort($attributes['countries']);
-		ksort($attributes['compositions']);
-		ksort($attributes['packs']);
-		ksort($attributes['brands']);
+		asort($attributes['countries']);
+		asort($attributes['compositions']);
+		asort($attributes['packs']);
+		asort($attributes['brands']);
 		
 		return $attributes;
 	}
@@ -648,11 +648,18 @@ class Baselib {
 			$i++;
 		}
 		
+		$empty_products = count($prodcuts_in_page)%5; 
+					
+		if($empty_products > 0) {
+			$empty_products = 5-$empty_products;
+		}		
+		
 		return array(
 			'products' => $prodcuts_in_page,
 			'pages_count' => $pages_count,
 			'products_count' => count($products),
-			'filters_used' => $filters_used
+			'filters_used' => $filters_used,
+			'empty_products' => $empty_products
 		);
 	}
 	
@@ -687,7 +694,9 @@ class Baselib {
 					}
 				}
 			}
-		}		
+		}
+
+		asort($categories_for_country);
 		
 		if(count($allowed_categories) > 0) {
 			foreach($products as $product_id => $product) {
@@ -722,13 +731,20 @@ class Baselib {
 			}
 			
 			$i++;
+		}
+		
+		$empty_products = count($prodcuts_in_page)%5; 
+					
+		if($empty_products > 0) {
+			$empty_products = 5-$empty_products;
 		}	
 		
 		return array(
 			'products' => $prodcuts_in_page,
 			'pages_count' => $pages_count,
 			'products_count' => count($products),
-			'categories_for_country' => $categories_for_country
+			'categories_for_country' => $categories_for_country,
+			'empty_products' => $empty_products
 		);
 	}	
 	
