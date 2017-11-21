@@ -467,15 +467,15 @@ textarea.contact_me_mobile_input {
 }
 .new_mob_submenu_name {
     color: #f2593a;
-    font-size: 13px;
+    font-size: 14px;
 }
 .new_mob_submenu {
-    height: 50px;
-    line-height: 50px;
+        height: 60px;
+    line-height: 60px;
     display: none;
 }
 .new_mob_submenu_filter {
-   font-size: 13px;
+   font-size: 14px;
     margin-left: 30px;
 }
 .mobile_agree_more {
@@ -495,8 +495,8 @@ textarea.contact_me_mobile_input {
             transform: rotate(180deg);
 }
 .new_mob_submenu_dropdown_header {
-    height: 50px;
-    line-height: 50px;
+    height: 60px;
+    line-height: 60px;
 }
 .new_mob_submenu_filter_item a {
     color: #000;
@@ -557,7 +557,7 @@ textarea.contact_me_mobile_input {
 .new_mob_submenu_filter_item {
     width: 100%;
     border-bottom: 1px solid #e0e0e0;
-    font-size: 13px;
+    font-size: 14px;
     height: 40px;
     line-height: 40px;
     -webkit-box-sizing: border-box;
