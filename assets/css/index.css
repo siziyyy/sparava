@@ -593,7 +593,7 @@ textarea.contact_me_mobile_input {
     right: 0;
     margin: -7px 0 0 0;
 }
-.wrapper_for_product_load {
+#wrapper_for_product_load {
     display: flex;
     flex-direction: row;
     align-content: space-between;
