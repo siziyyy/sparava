@@ -564,6 +564,14 @@ textarea.contact_me_mobile_input {
        -moz-box-sizing: border-box;
             box-sizing: border-box;
 }
+.wrapper_for_product_load {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
 .mobile_search_header_number {
     font-size: 11px;
     color: #87B53D;
