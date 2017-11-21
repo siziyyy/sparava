@@ -73,6 +73,18 @@
 }
 .c_inners_side_tr .g_good_name {
     margin: 0px 0 15px;
+    font-size: 20px;
+}
+.c_inners_side_tr .g_good_country {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.c_inners_side_tr .g_good_id {
+    font-size: 12px;
+    color: #87B53D;
+    font-weight: normal;
+    font-family: Calibri;
+    margin: 10px 0 0 0;
 }
 .g_good_name {
     font-size: 17px;
