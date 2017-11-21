@@ -314,7 +314,7 @@ header {
     background-position: -196px -523px !important;
     margin: 0 0 0 0;
     position: absolute;
-    top: -32px;
+    top: -38px;
     left: 16px;
     transform: scale(.7);
 }
@@ -326,7 +326,7 @@ header {
     left: 0;
     box-sizing: border-box;
     padding: 0 20px;
-    top: 50px;
+    top: 60px;
     height: 100%;
     z-index: 99999;
 }
@@ -335,6 +335,20 @@ header {
     -ms-overflow-y: auto;
         overflow-y: auto;
 }
+.new_mob_submenu_filter_item_name_selected {
+    font-size: 14px;
+    color: #999;
+    display: inline-block;
+    /* height: 20px; */
+    /* line-height: 20px; */
+    margin: 18px 0 0 80px;
+}
+.new_mob_submenu_filter_item_name_selected span {
+        color: #fe4517;
+    margin: 0 0 0 8px;
+    /* font-weight: 900; */
+    font-size: 16px;
+}
 .new_mob_submenu_filter_item_checkbox {
     display: block;
     width: 12px;
@@ -342,7 +356,9 @@ header {
     height: 100%;
 }
 .new_mob_submenu_filter_item_name {
-    line-height: 39px;
+    position: absolute;
+    top: 50%;
+    margin: -6px 0 0 0;
 } 
 .regmob_link_arr {
     -webkit-transform: rotate(90deg);

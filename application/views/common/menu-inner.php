@@ -19,7 +19,8 @@
 							<div class="cool_select_pack fl_l">
 								<div class="cool_select">
 									<span>страна</span>
-									<span class="cool_select_arrow sprite"></span>
+                                    <span class="cool_select_arrow sprite"></span>
+                                    <span class="cool_select_arrow2">×</span>
 								</div>
 								<div class="cool_select_options">
                                     <div class="scrollbar-inner scroll_helper">
@@ -38,9 +39,10 @@
 							<?php } ?>
 							<?php if(count($attributes['brands']) > 0) { ?>
 							<div class="cool_select_pack fl_l">
-								<div class="cool_select">
+								<div class="cool_select cool_select_disabled">
 									<span>бренд</span>
 									<span class="cool_select_arrow sprite"></span>
+                                    <span class="cool_select_arrow2">×</span>
 								</div>
                                 <div class="cool_select_options">
                                     <div class="scrollbar-inner scroll_helper">
@@ -61,7 +63,8 @@
 							<div class="cool_select_pack fl_l">
 								<div class="cool_select">
 									<span>состав</span>
-									<span class="cool_select_arrow sprite"></span>
+                                    <span class="cool_select_arrow sprite"></span>
+                                    <span class="cool_select_arrow2">×</span>
 								</div>
                                 <div class="cool_select_options">
                                     <div class="scrollbar-inner scroll_helper">
@@ -82,7 +85,8 @@
 							<div class="cool_select_pack fl_l">
 								<div class="cool_select">
 									<span>упаковка</span>
-									<span class="cool_select_arrow sprite"></span>
+                                    <span class="cool_select_arrow sprite"></span>
+                                    <span class="cool_select_arrow2">×</span>
 								</div>
                                 <div class="cool_select_options">
                                     <div class="scrollbar-inner scroll_helper">
@@ -103,7 +107,8 @@
 							<div class="cool_select_pack fl_l">
 								<div class="cool_select">
 									<span>вес</span>
-									<span class="cool_select_arrow sprite"></span>
+                                    <span class="cool_select_arrow sprite"></span>
+                                    <span class="cool_select_arrow2">×</span>
 								</div>
                                 <div class="cool_select_options">
                                     <div class="scrollbar-inner scroll_helper">
@@ -127,7 +132,8 @@
 							<div class="cool_select_pack fl_l">
 								<div class="cool_select">
 									<span>цена</span>
-									<span class="cool_select_arrow sprite"></span>
+                                    <span class="cool_select_arrow sprite"></span>
+                                    <span class="cool_select_arrow2">×</span>
 								</div>
                                 <div class="cool_select_options">
                                     <div class="scrollbar-inner scroll_helper">
@@ -170,8 +176,12 @@
 				<?php } ?>
               </div>
             <div class="new_mob_submenu">
-              	<div class="new_mob_submenu_name fl_l">Хиты</div>
-              	<div class="new_mob_submenu_filter fl_r" data-target="filter-menu">фильтры <div class="new_mob_submenu_arrow sprite"></div></div>
+                <div class="new_mob_submenu_name fl_l">Хиты</div>
+                <!--<div class="new_mob_submenu_name fl_l">
+                    Пирожные и рулеты
+                    <div class="new_mob_submenu_arrow sprite"></div>
+                </div>-->
+              	<div class="new_mob_submenu_filter fl_r" data-target="filter-menu">фильтры 8<div class="new_mob_submenu_arrow sprite"></div></div>
               	<div class="new_mob_submenu_filter fl_r" data-target="category-menu">категории <div class="new_mob_submenu_arrow sprite"></div></div>
               	<div class="clear"></div>
             </div>
@@ -198,7 +208,7 @@
 			</div>
             <div class="new_mob_submenu_dropdown filters_holder" id="filter-menu">
               	<div class="new_mob_submenu_dropdown_header">
-              		<div class="new_mob_submenu_filter fl_r" data-target="filter-menu">фильтры <div class="new_mob_submenu_arrow sprite"></div></div>
+              		<div class="new_mob_submenu_filter fl_r" data-target="filter-menu">фильтры 8 <div class="new_mob_submenu_arrow sprite"></div></div>
               		<div class="clear"></div>
               	</div>
               	<div class="new_mob_submenu_filter_items">		
@@ -213,6 +223,8 @@
 						<?php if(count($attributes['brands']) > 0) { ?>
                   		<div class="new_mob_submenu_filter_item open_inner_filter" data-target="filter-brand">
                   			<div class="new_mob_submenu_filter_item_name fl_l">Бренд</div>
+                            <span class="new_mob_submenu_filter_item_name_selected">Башкирский мед <span>&times;</span></span>
+                            <span class="new_mob_submenu_filter_item_name_selected">Медовуха <span>&times;</span></span>
                   			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
                   			<div class="clear"></div>
                   		</div>
