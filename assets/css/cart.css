@@ -1,6 +1,9 @@
 .c_cart {
     margin-bottom: 150px;
 }
+.c_inners_fifth_td {
+    width: 8%;
+}
 .c_inners_left_side {
     width: 450px;
 }
@@ -26,7 +29,7 @@
     text-align: center;
 }
 .c_inners_first_td {
-    width: 50%;
+    width: 40%;
     text-align: left;
 }
 .c_inners_second_td {
@@ -222,8 +225,12 @@
          -o-background-size: cover !important;
             background-size: cover !important;
 }
+.c_inners_first_td_pad {
+    padding: 0 0 0 120px;
+    box-sizing: border-box;
+}
 .c_inners_photo_legend {
-    width: 165px;
+    width: 135px;
     height: 134px;
     position: relative;
     float: left;
@@ -257,10 +264,10 @@
     font-family:Calibri Bold;
 }
 .c_inners_count_del {
-    width: 10px;
+    width: 8px;
     height: 10px;
-    background-position: -119px -118px;
-    margin: 12px auto;
+    background: url('/assets/img/cartdel.jpg');
+    margin: 5px auto;
     cursor: pointer;
 }
 .c_inners_count_del_legend {
@@ -300,7 +307,7 @@
     font-family:Calibri Bold;
     font-size: 20px;
     margin-left: 20px;
-    padding-right: 49px;
+    padding-right: 106px;
     width: 77px;
 }
 .c_inners_left_side_deliv_chck {
@@ -593,6 +600,16 @@ textarea.c_inners_input {
     }
     .c_inners_right_content {
         width: calc(100% - 270px);
+    }
+    .c_inners_left_side_del_meth_hdr {
+            font-size: 12px;
+            width: 80%;
+    }
+    .c_inners_amount_text {
+        font-size: 14px;
+    }
+    .c_inners_side_header div{
+        font-size: 14px !important;
     }
 }
 @media all and (max-width: 980px) {
