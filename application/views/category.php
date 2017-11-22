@@ -18,9 +18,9 @@
                             </div>
                             <div class="new_good_helper_mobile">
                                 <?php if(isset($product['old_price'])) { ?>
-    								<div class="g_old_good_price"><?php echo $product['old_price'] ?> <span class="rouble">o</span></div>
+    								<div class="g_old_good_price"><?php echo $product['old_price'] ?> руб.<!-- <span class="rouble">o</span> --></div>
     							<?php } ?>
-                                <div class="g_good_price"><span class="g_good_price_value"><?php echo $product['price'] ?></span> <span class="rouble">o</span></div>
+                                <div class="g_good_price"><span class="g_good_price_value"><?php echo $product['price'] ?></span> руб.<!-- <span class="rouble">o</span> --></div>
                                 <div class="g_old_good_price_date">
     								<?php echo ($product['type'] == 'шт' ? (!is_null($product['weight']) ? ' - '.$product['weight'] : '') : ($product['bm'] == 1 ? ' за 1 кг' : ' за 100 гр')) ?>
     							</div>
@@ -59,7 +59,7 @@
                                     <div class="g_good_count_act g_good_count_add sprite"></div>
                                 </div>
                                 <div class="g_good_to_cart">
-                                    <span class="g_good_to_cart_text"><span class="g_good_to_cart_value"><?php echo $product['price'] ?></span> <span class="rouble">o</span></span>
+                                    <span class="g_good_to_cart_text"><span class="g_good_to_cart_value"><?php echo $product['price'] ?></span> руб.<!-- <span class="rouble">o</span> --></span>
                                     <span class="g_good_added_to_cart_text"></span>									
                                     <span class="g_good_to_cart_icon sprite"></span>
                                 </div>
