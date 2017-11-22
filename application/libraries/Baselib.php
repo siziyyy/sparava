@@ -790,13 +790,20 @@ class Baselib {
 			}
 			
 			$i++;
-		}	
+		}
+		
+		$empty_products = count($prodcuts_in_page)%5; 
+					
+		if($empty_products > 0) {
+			$empty_products = 5-$empty_products;
+		}		
 		
 		return array(
 			'products' => $prodcuts_in_page,
 			'pages_count' => $pages_count,
 			'products_count' => count($products),
-			'providers_for_provider' => $providers_for_provider
+			'providers_for_provider' => $providers_for_provider,
+			'empty_products' => $empty_products
 		);
 	}		
 	
