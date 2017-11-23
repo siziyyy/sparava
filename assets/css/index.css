@@ -760,7 +760,7 @@ textarea.contact_me_mobile_input {
         margin: 0 12px 0 0 !important;
     }*/
 }
-@media all and (max-width: 980px) {
+@media all and (max-width: 1024px) {
     .c_mosaic_grid_sizer, .c_mosaic_item {
         height: 100px;
     }
@@ -805,8 +805,8 @@ textarea.contact_me_mobile_input {
     .g_good_mobile_fav {
         display: block;
     }
-}
-@media all and (max-width: 800px) {
+/*}
+@media all and (max-width: 800px) {*/
     .good_modal, .good_modal_closer {
         display: none !important; 
     }
