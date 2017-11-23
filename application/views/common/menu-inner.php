@@ -1,12 +1,36 @@
 					<div class="c_new_menu c_new_menu_hide">
                         <div class="c_new_menu_line">
-							<?php if(isset($menu_childs) and count($menu_childs) > 0) { ?>
+							<!--<?php if(isset($menu_childs) and count($menu_childs) > 0) { ?>
 								<?php foreach($menu_childs as $category) { ?>
 									<div class="c_new_menu_line_item fl_l">
 										<a href="/category/<?php echo ( $category['seo_url'] ? $category['seo_url'] : $category['category_id'] ) ?>" class="c_new_menu_link <?php echo ( $category['current_category'] ? 'orange_text' : '' ) ?>"><?php echo $category['title'] ?></a>
 									</div>									
 								<?php } ?>
-							<?php } ?>
+							<?php } ?>-->
+                            <!--  
+                                когда отображаются фильтры, то
+                                    .category_bg_helper {
+                                        height: 155px !important;
+                                    }
+                                Да, вот такая ерунда, иначе все вообще переделывать :-(
+                              -->
+                            <!-- NEW LOGIC -->
+                                <div class="c_new_menu_line_item fl_l">
+                                    <a href="/category/" class="c_new_menu_link gray_text parent_cat">Категория</a>
+                                </div>  
+                                <div class="c_new_menu_line_item fl_l">
+                                    <a href="/category/" class="c_new_menu_link orange_text">Подкатегория</a>
+                                </div>  
+                                <div class="c_new_menu_line_item fl_l">
+                                    <a href="/category/" class="c_new_menu_link">Подкатегория</a>
+                                </div>  
+                                <div class="c_new_menu_line_item fl_l">
+                                    <a href="/category/" class="c_new_menu_link">Подкатегория</a>
+                                </div>  
+                                <div class="c_new_menu_line_item fl_l">
+                                    <a href="/category/" class="c_new_menu_link">Подкатегория</a>
+                                </div>  
+                            <!-- /NEW LOGIC -->
 							<div class="c_new_menu_line_item c_new_menu_line_item_right fl_r">
 								<span class="c_new_menu_more">другие продукты</span>
 								<span class="c_new_menu_more_icon"></span>
@@ -14,7 +38,7 @@
 							<div class="clear"></div>
 							
                         </div>
-                        <div class="c_new_menu_filters filters_holder">						
+                        <!--<div class="c_new_menu_filters filters_holder">						
 							<?php if(count($attributes['countries']) > 0) { ?>
 							<div class="cool_select_pack fl_l">
 								<div class="cool_select">
@@ -160,7 +184,7 @@
 								<div class="cool_select_reset fl_r">сбросить фильтр/ы</div>
 							<?php } ?>
                             <div class="clear"></div>
-                        </div>
+                        </div>-->
 						<?php $this->load->view('common/menu-categories');?>
                     </div>
               <div class="c_new_mobile_menu noscrlbr">
