@@ -237,28 +237,28 @@ body,html,textarea{font-family:Calibri}
                     <div class="clear"></div>
                 </div>	
                 <div class="mobile_modal">
-                    <div class="mobile_auth">
+                    <div class="mobile_auth login_form3">
                         <div class="mobile_auth_line">
-                            <input type="text" class="mobile_auth_input" placeholder="логин">
+                            <input type="text" class="mobile_auth_input check_email3" placeholder="логин">
                         </div>
                         <div class="mobile_auth_line">
-                            <input type="password" class="mobile_auth_input" placeholder="пароль">
+                            <input type="password" class="mobile_auth_input check_password3" placeholder="пароль">
                         </div>
-                        <div class="new_green_small_button mobgb">войти</div>
+                        <div class="new_green_small_button mobgb send" data-type="check_login3">войти</div>
                         <div class="clear"></div>
                         <div class="respasmob">забыл пароль</div>
                         <div class="regmob_link">зарегистрироваться <span class="regmob_link_arr">></span></div>
                         <div class="regmob">
                             <div class="mobile_auth_line">
-                                <input type="text" class="mobile_auth_input" placeholder="почта">
+                                <input type="text" class="mobile_auth_input register_email3" placeholder="почта">
                             </div>
                             <div class="mobile_auth_line">
-                                <input type="text" class="mobile_auth_input" placeholder="телефон">
+                                <input type="text" class="mobile_auth_input register_phone3" placeholder="телефон">
                             </div>
                             <div class="mobile_auth_line">
-                                <input type="text" class="mobile_auth_input" placeholder="имя">
+                                <input type="text" class="mobile_auth_input register_name3" placeholder="имя">
                             </div>
-                            <div class="mobgb new_orange_small_button">зарегистрироваться</div>
+                            <div class="mobgb new_orange_small_button send" data-type="register3">зарегистрироваться</div>
                         </div>
                     </div>
                     <div class="mobile_restore">
@@ -309,21 +309,21 @@ body,html,textarea{font-family:Calibri}
                     </div>
                     <div class="h_login fl_r">
                         <a class="h_login_button">войти</a>
-                        <div class="new_auth">
+                        <div class="new_auth login_form3">
                             <div class="new_auth_line">
                                 <label>
                                     <span class="new_auth_inp_text">логин</span>
-                                    <input type="text" class="new_auth_inp">
+                                    <input type="text" class="new_auth_inp check_email3">
                                 </label>
                             </div>
                             <div class="new_auth_line">
                                 <label>
                                     <span class="new_auth_inp_text">пароль</span>
-                                    <input type="password" class="new_auth_inp">
+                                    <input type="password" class="new_auth_inp check_password3">
                                 </label>
                             </div>
                             <div class="new_auth_actions">
-                                <div class="new_auth_button new_green_small_button fl_l">войти</div>
+                                <div class="new_auth_button new_green_small_button fl_l send" data-type="check_login3">войти</div>
                                 <div class="new_auth_remind fl_r">забыл пароль</div>
                                 <div class="clear"></div>
                             </div>
@@ -337,22 +337,22 @@ body,html,textarea{font-family:Calibri}
                                     <div class="new_auth_line">
                                         <label>
                                             <span class="new_auth_inp_text">почта</span>
-                                            <input type="text" class="new_auth_inp">
+                                            <input type="text" class="new_auth_inp register_email3">
                                         </label>
                                     </div>
                                     <div class="new_auth_line">
                                         <label>
                                             <span class="new_auth_inp_text">имя</span>
-                                            <input type="text" class="new_auth_inp">
+                                            <input type="text" class="new_auth_inp register_name3">
                                         </label>
                                     </div>
                                     <div class="new_auth_line">
                                         <label>
                                             <span class="new_auth_inp_text">телефон</span>
-                                            <input type="text" class="new_auth_inp">
+                                            <input type="text" class="new_auth_inp register_phone3">
                                         </label>
                                     </div>
-                                    <div class="new_auth_button new_orange_small_button">зарегистрироваться</div>
+                                    <div class="new_auth_button new_orange_small_button send" data-type="register3">зарегистрироваться</div>
                                 </div>
                             </div>
                         </div>

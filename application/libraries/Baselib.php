@@ -7,6 +7,30 @@ class Baselib {
  	function __construct() {
     	$this->_ci =& get_instance();
     }
+
+	public function set_favourite($product_id) {
+		$favourites = $this->get_favourites();
+		
+		if(isset($favourites[$product_id])) {
+			unset($favourites[$product_id]);
+			$this->_ci->session->set_userdata('favourites',$favourites);
+			return false;
+		} else {
+			$favourites[$product_id] = $product_id;
+			$this->_ci->session->set_userdata('favourites',$favourites);
+			return true;
+		}
+	}	
+	
+	public function get_favourites() {
+		$favourites = $this->_ci->session->userdata('favourites');
+		
+		if(is_null($favourites)) {
+			$favourites = array();
+		}
+		
+		return $favourites;
+	}
 	
 	public function get_product_categories($product_id) {
 		$result = array();
@@ -25,7 +49,7 @@ class Baselib {
 	public function get_all_categories() {
 		
 		$categories = array();
-		$query = $this->_ci->db->select("*")->from("categories")->get();
+		$query = $this->_ci->db->select("*")->from("categories")->order_by('sort_order','ASC')->get();
 		
 		if ($query->num_rows() > 0) {
 			foreach ($query->result_array() as $row) {				
@@ -105,12 +129,15 @@ class Baselib {
 							}
 						}
 						
-						$categories[$line_id][$category['category_id']]['childs'][0] = array(
+						$first_element = array(
 							'category_id' => $category['category_id'],
-							'title' => 'Хиты',
+							'title' => $category['title'],
+							'sort_order' => 0,
 							'current_category' => $mark_as_current_category,
 							'seo_url' => NULL
 						);
+						
+						array_unshift($categories[$line_id][$category['category_id']]['childs'],$first_element);
 					}
 				}
 			}
@@ -250,7 +277,56 @@ class Baselib {
 		return $this->handle_special_price($products);
 	}
 	
+	public function get_products_by_ids($ids) {
+		
+		$ptc = array();
+		
+		$sql = 'SELECT * FROM product_to_category';
+				
+		$query = $this->_ci->db->query($sql);
+
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $row) {
+				$ptc[$row['product_id']][] = $row['category_id'];		
+			}			
+		}
+
+		$categories = array();
+		
+		$sql = 'SELECT * FROM categories';
+				
+		$query = $this->_ci->db->query($sql);
+
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $row) {
+				$categories[$row['category_id']] = $row['bm'];		
+			}			
+		}		
+		
+		$products = array();
+		
+		$query = $this->_ci->db->select("*")->from("products")->where("status",1)->where_in("product_id",$ids)->order_by('product_id', 'ASC')->get();
+		
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $row) {
+				$products[$row['product_id']] = $row;
+				if(isset($ptc[$row['product_id']])) {
+					$products[$row['product_id']]['categories'] = $ptc[$row['product_id']];
+					$products[$row['product_id']]['bm'] = $categories[$ptc[$row['product_id']][0]];
+				} else {
+					$products[$row['product_id']]['categories'] = array();
+				}
+			}			
+		}
+		
+		ksort($products);
+
+		return $this->handle_special_price($products);
+	}	
+	
 	private function handle_special_price($products) {
+		$favourites = $this->get_favourites();
+		
 		if(!isset($products['product_id'])) {
 			foreach($products as $product_id => $product) {
 				if($product['price'] == 0) {
@@ -290,6 +366,10 @@ class Baselib {
 						$products[$product_id]['price'] = $product['special'];
 					}				
 				}
+				
+				if(isset($favourites[$product_id])) {
+					$products[$product_id]['favourite'] = true;
+				}
 			}
 		} else {
 			
@@ -327,12 +407,18 @@ class Baselib {
 				$products['old_price'] = $products['price'];
 				$products['price'] = $products['special'];	
 			}
+			
+			if(isset($favourites[$products['product_id']])) {
+				$products['favourite'] = true;
+			}		
 		}
 		
 		return $products;
 	}
 
 	public function handle_attributes($products) {
+		$types = array();
+		
 		$attributes = array(
 			'countries' => array(),
 			'compositions' => array(),
@@ -341,23 +427,30 @@ class Baselib {
 		);
 		
 		foreach($products as $product_id => $product) {
-			if(!is_null($product['country'])) {
+			if(!is_null($product['country']) and !empty($product['country'])) {
 				$attributes['countries'][] = $product['country'];
 			}
 			
-			if(!is_null($product['composition'])) {
+			if(!is_null($product['composition']) and !empty($product['composition'])) {
 				$attributes['compositions'][] = $product['composition'];
 			}
 			
-			if(!is_null($product['pack'])) {
+			if(!is_null($product['pack']) and !empty($product['pack'])) {
 				$attributes['packs'][] = $product['pack'];
 			}			
 			
-			if(!is_null($product['brand'])) {
+			if(!is_null($product['brand']) and !empty($product['brand'])) {
 				$attributes['brands'][] = $product['brand'];
-			}				
+			}
+
+			$types[$product['type']] = $product['type'];
 		}
 		
+		if(count($types) > 1 and isset($types['шт'])) {
+			$attributes['show_weights'] = true;
+		} else {
+			$attributes['show_weights'] = false;
+		}
 		
 		$attributes['countries'] = array_unique($attributes['countries']);
 		$attributes['compositions'] = array_unique($attributes['compositions']);
@@ -805,7 +898,92 @@ class Baselib {
 			'providers_for_provider' => $providers_for_provider,
 			'empty_products' => $empty_products
 		);
-	}		
+	}
+
+	public function filter_products_for_favourites($products,$filters,$page) {
+		$categories = $this->get_all_categories();
+		$categories_for_country = array();
+		
+		$filters_arr = array(
+			'categories' => ($filters['category'] ? explode(';',$filters['category']) : 0)
+		);
+		
+		$allowed_categories = array();
+		
+		if(is_array($filters_arr['categories'])) {
+			foreach($filters_arr['categories'] as $category_name) {
+				foreach($categories as $category_id => $category) {
+					if($category['title'] == $category_name) {
+						$allowed_categories[] = $category_id;
+					}
+				}
+			}
+		}
+		
+		foreach($products as $product) {
+			foreach($product['categories'] as $category) {
+				if(isset($categories[$category])) {
+					$parent_id = $categories[$category]['parent_id'];
+					if($parent_id > 0) {
+						$categories_for_country[$parent_id] = $categories[$parent_id];
+					} else {
+						$categories_for_country[$categories[$category]['category_id']] = $categories[$categories[$category]['category_id']];
+					}
+				}
+			}
+		}
+
+		asort($categories_for_country);
+		
+		if(count($allowed_categories) > 0) {
+			foreach($products as $product_id => $product) {
+				$categories_to_compare = array();
+				
+				foreach($product['categories'] as $category_id) {
+					if(isset($categories[$category_id])) {
+						$categories_to_compare[] = $categories[$category_id]['parent_id'];
+					}
+				}
+				
+				if(count(array_intersect($allowed_categories,$categories_to_compare)) == 0) {
+					unset($products[$product_id]);
+					continue;
+				}
+			}
+		}
+		
+		$prodcuts_in_page = array();
+		$page_start = ($page-1)*30;
+		$page_end = $page*30;
+		$i = 0;
+		$pages_count = (int)(count($products)/30);
+		
+		if(count($products)%30 > 0)  {
+			$pages_count++;
+		}
+		
+		foreach($products as $product_id => $product) {
+			if($i >= $page_start and $i <$page_end) {
+				$prodcuts_in_page[] = $product;
+			}
+			
+			$i++;
+		}
+		
+		$empty_products = count($prodcuts_in_page)%5; 
+					
+		if($empty_products > 0) {
+			$empty_products = 5-$empty_products;
+		}	
+		
+		return array(
+			'products' => $prodcuts_in_page,
+			'pages_count' => $pages_count,
+			'products_count' => count($products),
+			'categories_for_favourites' => $categories_for_country,
+			'empty_products' => $empty_products
+		);
+	}	
 	
 	public function get_cart_word($count = 0) {
 		

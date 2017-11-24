@@ -36,6 +36,28 @@
 				<div class="c_inners_input_label">адрес доставки</div>
 				<textarea class="c_inners_input" id="account_details_address"><?php echo $account['shipping_address'] ?></textarea>
 			</div>
+			<div class="c_inners_left_side_text_deliv">
+				<?php foreach($shipping_methods as $group) { ?>
+					<div class="c_inners_left_side_text_deliv">
+						<div class="c_inners_left_side_deliv_right">
+							<div class="c_inners_left_side_deliv_right_header"><?php echo $group['title'] ?></div>
+							<?php foreach($group['methods'] as $method) { ?>
+								<div class="c_inners_left_side_deliv_right_meth">
+									<div class="c_inners_left_side_deliv_left fl_l">
+										<input type="radio" class="c_inners_left_side_deliv_chck" value="<?php echo $method['shipping_id'] ?>" name="account_details_shipping_method">
+									</div> 
+									<div class="c_inners_left_side_del_meth_hdr fl_l"><?php echo $method['title'] ?> - <?php echo $method['price'] ?> руб.</div>
+									<div class="clear"></div>
+								</div>
+							<?php } ?>
+							<div class="c_inners_left_side_deliv_right_body">
+								<?php echo $group['description'] ?>
+							</div>
+							
+						</div> 
+					</div>
+				<?php } ?>
+			</div>			
 			<a class="c_inners_left_side_button black_small_button send" data-type="account_details_change">далее</a>
 		</div>
 		

@@ -71,6 +71,9 @@ class Account extends Fruitcrm {
 				
 				if ($this->db->insert("accounts", $data))  {
 					$this->_id = $this->db->insert_id();
+					
+					$this->send_register_email($password);
+					
 					return true;
 				}
 			}
@@ -87,27 +90,75 @@ class Account extends Fruitcrm {
 		);
 		
 		if ($this->db->update("accounts", $data, array("account_id" => $this->_id)))  {
-			
-			if($this->send_password($password)) {
+			if($this->send_reseted_password($password)) {
 				return true;
 			}
 		}
 		
 		return false;
 	}
-
-	private function send_password($password) {
+	
+	private function send_reseted_password($password) {
 		$query = $this->db->get_where("accounts", array("account_id" => $this->_id));
 		if ($query->num_rows() > 0) {
 			$this->_data = $query->row_array();
+			
+			$this->email->attach('assets/img/emails/logoSmall.png');
+			$this->email->attach('assets/img/emails/profile.jpg');
 		
-			$message = $password;
+			$logo_cid = $this->email->attachment_cid('assets/img/emails/logoSmall.png');
+			$profile_cid = $this->email->attachment_cid('assets/img/emails/profile.jpg');
+
+			$data = array(
+				'name' => $this->_data['name'],
+				'password' => $password,
+				'logo_cid' => $logo_cid,
+				'profile_cid' => $profile_cid
+			);
+			
+			$message = $this->load->view('emails/reset', $data, true);
 			$this->load->library('email');
 			
-			$this->email->from('info@aydaeda.ru', 'Aydaeda.ru');
+			$this->email->from('info@aydaeda.ru', 'aydaeda.ru');
 			$this->email->to($this->_data['email']);
 
-			$this->email->subject('Новый пароль');
+			$this->email->subject('Новый пароль для входа');
+			$this->email->message($message);	
+			
+			$this->email->send();
+			
+			return true;
+		}
+		
+		return false;
+	}
+	
+	private function send_register_email($password) {
+		$query = $this->db->get_where("accounts", array("account_id" => $this->_id));
+		if ($query->num_rows() > 0) {
+			$this->_data = $query->row_array();
+			
+			$this->email->attach('assets/img/emails/logoSmall.png');
+			$this->email->attach('assets/img/emails/profile.jpg');			
+
+			$logo_cid = $this->email->attachment_cid('assets/img/emails/logoSmall.png');
+			$profile_cid = $this->email->attachment_cid('assets/img/emails/profile.jpg');
+			
+			$data = array(
+				'email' => $this->_data['email'],
+				'name' => $this->_data['name'],
+				'password' => $password,
+				'logo_cid' => $logo_cid,
+				'profile_cid' => $profile_cid
+			);
+			
+			$message = $this->load->view('emails/register', $data, true);
+			$this->load->library('email');
+			
+			$this->email->from('info@aydaeda.ru', 'aydaeda.ru');
+			$this->email->to($this->_data['email']);
+
+			$this->email->subject('Логин и пароль для входа');
 			$this->email->message($message);	
 			
 			$this->email->send();
