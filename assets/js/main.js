@@ -285,10 +285,7 @@ $(document).ready(function(){
     });	
     $('.m_h_fav').click(function() {
         $('.mobile_fav').show();
-    });	
-    $('.g_good_mobile_fav').click(function() {
-        $('.mobile_cat_fav_modal').show();
-    });	
+    });
     $('.mobile_cat_fav_modal_close').click(function() {
         $('.mobile_cat_fav_modal').hide();
     });
@@ -592,6 +589,21 @@ $(document).ready(function(){
 		obj = $(this);
 		
 		switch(type) {
+			case 'favourite':
+			
+				if($(this).parents('.g_good').length > 0) {
+					parent_object = $(this).parents('.g_good');
+				} else if($(this).parents('.good_modal').length > 0) {
+					parent_object = $(this).parents('.good_modal');
+				}
+				
+				send_data = {
+					type : type,
+					product_id : parent_object.attr('data-product-id')
+				}
+				
+				break;			
+			
 			case 'get_product_info':
 				
 				send_data = {
@@ -651,7 +663,8 @@ $(document).ready(function(){
 					account_details_name : ($('#account_details_name').val() || 0 ),
 					account_details_phone : ($('#account_details_phone').val() || 0 ),
 					account_details_metro : ($('#account_details_metro').val() || -1 ),
-					account_details_address : ($('#account_details_address').val() || -1 )
+					account_details_address : ($('#account_details_address').val() || -1 ),
+					account_details_shipping_method : ($('input[name="account_details_shipping_method"]:checked').val() || -1 )
 				}
 				
 				for(var key in send_data) {
@@ -721,6 +734,27 @@ $(document).ready(function(){
 					login_password : ($('#remind_password2').val() || 0 )
 				}
 
+				break;
+
+			case 'check_login3':
+				
+				send_data = {
+					type : 'check_login',
+					login_email : ($(this).parents('.login_form3').find('.check_email3').val() || 0 ),
+					login_password : ($(this).parents('.login_form3').find('.check_password3').val() || 0 )
+				}
+
+				break;
+
+			case 'register3':
+				
+				send_data = {
+					type : 'register',
+					register_email : ($(this).parents('.login_form3').find('.register_email3').val() || 0 ),
+					register_phone : ($(this).parents('.login_form3').find('.register_phone3').val() || 0 ),
+					register_name : ($(this).parents('.login_form3').find('.register_name3').val() || 0 )
+				}
+
 				break;				
 				
 			default:
@@ -747,7 +781,11 @@ $(document).ready(function(){
 						if(send_data.type == 'check_login') {
 							location.reload();
 						} else if(send_data.type == 'register') {
-							$('#shipping_form').submit();
+							if($('#shipping_form').length > 0) {
+								$('#shipping_form').submit();
+							} else {
+								location.reload();
+							}
 						} else if(send_data.type == 'use_bonus') {
 							location.reload();
 						} else if(send_data.type == 'confirm_account_in_modal') {
@@ -758,6 +796,9 @@ $(document).ready(function(){
 						} else if(send_data.type == 'remind2') {
 							$('.close_me_on_send').hide();
 							$('.remind_success2').show();
+						} else if(send_data.type == 'favourite') {
+							parent_object.find('.good_modal_fav').addClass('good_modal_fav_ylw');
+							parent_object.find('.g_good_mobile_fav').addClass('g_good_mobile_fav_orange');
 						} else if(send_data.type == 'get_product_info') {
 							
 							product = json['success']['product'];
@@ -832,6 +873,12 @@ $(document).ready(function(){
 								$('#product_info .good_modal_video_line').show();
 							}
 							
+							$('#product_info .good_modal_fav').removeClass('good_modal_fav_ylw');
+							
+							if(product['favourite']) {
+								$('#product_info .good_modal_fav').addClass('good_modal_fav_ylw');
+							}							
+							
 							$('#product_info .actions_holder').empty();
 							
 							$('#product_info .actions_holder').html(obj.parents('.g_good').find('.actions_holder').html());
@@ -890,6 +937,11 @@ $(document).ready(function(){
 							$('.blah_closer').show();
 							$('.close_me_on_send2').hide();
 							$('.remind_error3').show();
+						}
+					} else if(json['remove']) {
+						if(send_data.type == 'favourite') {
+							parent_object.find('.good_modal_fav').removeClass('good_modal_fav_ylw');
+							parent_object.find('.g_good_mobile_fav').removeClass('g_good_mobile_fav_orange');
 						}
 					}
 				}

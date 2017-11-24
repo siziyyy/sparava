@@ -16,7 +16,17 @@ class Main extends CI_Controller {
 		
 		$this->load->view('main', $data);
 	}
-	
+/*	
+	public function blog() {		
+		$data = array(
+			'header' => array(
+				'cart' => $this->get_cart_info_for_header()
+			)
+		);
+		
+		$this->load->view('blog/list', $data);
+	}	
+*/
 	public function logout() {		
 		$this->baselib->logout();
 		redirect(base_url('/'), 'refresh');
@@ -221,6 +231,45 @@ class Main extends CI_Controller {
 		$this->load->view('provider',$data);
 	}
 	
+	public function favourites() {
+		$products_ids = $this->baselib->get_favourites();
+		$products = $this->baselib->get_products_by_ids($products_ids);		
+		
+		$filters = array(
+			'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
+		);
+		
+		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
+		
+		$products_in_page = $this->baselib->filter_products_for_favourites($products,$filters,$page);
+		
+		$empty_products = count($products_in_page['products'])%5; 
+					
+		if($empty_products > 0) {
+			$empty_products = 5-$empty_products;
+		}		
+
+		$data = array(
+			'header' => array(
+				'cart' => $this->get_cart_info_for_header()
+			),
+			'menu' => array(
+				'filters' => $filters
+			),
+			'products' => $products_in_page['products'],
+			'current_page' => $page,
+			'pages_count' => $products_in_page['pages_count'],
+			'categories' => $products_in_page['categories_for_favourites'],
+			'footer' => array(
+				'account_confirm' => $this->baselib->get_account_data_for_confirm()
+			),
+			'pages' => $this->baselib->create_pager($products_in_page['pages_count'],$page),
+			'empty_products' => $products_in_page['empty_products']
+		);
+		
+		$this->load->view('favourites',$data);
+	}	
+	
 	public function category($category = false) {
 		
 		if(!$category) {
@@ -262,8 +311,6 @@ class Main extends CI_Controller {
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
 		);
-		
-		ksort($menu_childs);
 		
 		$products = $this->baselib->get_category_products($category);
 		$products = $this->baselib->sort_products('category',$category,$products);
@@ -508,6 +555,7 @@ class Main extends CI_Controller {
 			$data['cart_info']['account']['shipping_address'] = $this->session->userdata('shipping_address');
 		}		
 		
+		$data['cart_info']['shipping_methods'] = $shipping_gruops;
 		$data['totals']['totals'] = $this->baselib->get_totals_for_cart($data['totals']['totals']);
 
 		$data['cart_info_tpl'] = 'account';		
@@ -693,6 +741,10 @@ class Main extends CI_Controller {
 							
 							if(!is_null($this->input->post('account_details_metro'))) {
 								$this->session->set_userdata('shipping_metro', $this->input->post('account_details_metro'));
+							}
+
+							if(!is_null($this->input->post('account_details_shipping_method'))) {
+								$this->session->set_userdata('shipping_method', $this->input->post('account_details_shipping_method'));
 							}							
 							
 							$json['redirect'] = '/cart';
@@ -749,6 +801,18 @@ class Main extends CI_Controller {
 				}
 				
 				break;
+				
+			case 'favourite':
+			
+				if(!is_null($this->input->post('product_id'))) {
+					if($this->baselib->set_favourite($this->input->post('product_id'))) {
+						$json['success'] = 'success';
+					} else {
+						$json['remove'] = 'remove';
+					}
+				}
+				
+				break;				
 
 			case 'remind':
 			case 'remind2':

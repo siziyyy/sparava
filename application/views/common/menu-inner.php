@@ -127,7 +127,7 @@
 								</div>								
 							</div>
 							<?php } ?>
-							<?php if(count($attributes['brands']) > 0) { ?>
+							<?php if($attributes['show_weights']) { ?>
 							<div class="cool_select_pack fl_l">
 								<div class="cool_select">
 									<span>вес</span>
@@ -267,7 +267,7 @@
                   			<div class="clear"></div>
                   		</div>
 						<?php } ?>
-						<?php if(count($attributes['brands']) > 0) { ?>
+						<?php if($attributes['show_weights']) { ?>
                   		<div class="new_mob_submenu_filter_item open_inner_filter" data-target="filter-weight">
                   			<div class="new_mob_submenu_filter_item_name fl_l">Вес</div>
                   			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
@@ -348,7 +348,7 @@
                         <div class="new_mob_submenu_filter_button new_orange_small_button">применить</div>
                     </div>
 					<?php } ?>
-					<?php if(count($attributes['brands']) > 0) { ?>
+					<?php if($attributes['show_weights']) { ?>
                     <div class="new_mob_submenu_filter_items_pack_inners" id="filter-weight">
                         <div class="new_mob_submenu_filter_items_turn sprite"></div>
 						<div class="new_mob_submenu_filter_item">

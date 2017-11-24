@@ -18,7 +18,7 @@
                         <div class="good_modal_weight fl_l"></div>
                         <div class="good_modal_header_actions fl_r">
                             <div class="good_modal_share fl_r sprite"></div>
-                            <div class="good_modal_fav good_modal_fav_ylw fl_r sprite"></div>
+                            <div class="good_modal_fav fl_r sprite send" data-type="favourite"></div>
                             <div class="good_modal_id fl_r"></div>
                             <div class="clear"></div>
                         </div>
