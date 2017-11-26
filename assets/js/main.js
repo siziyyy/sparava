@@ -47,6 +47,18 @@ function listener(event) {
 		$('#product_form .product_gi').val(product.gi);
 		$('#product_form .product_video_1').val(product.youtube[0]);
 		$('#product_form .product_video_2').val(product.youtube[1]);
+				
+		$('#product_form .product_eko').prop('checked', false);
+		if(product.eko > 0) {
+			$('#product_form .product_eko').prop('checked', true);
+		}
+		
+		$('#product_form .product_farm').prop('checked', false);
+		if(product.farm > 0) {
+			$('#product_form .product_farm').prop('checked', true);
+		}		
+		
+		calculate_price();
 		
 		$('.admin_window_closer').show();
 		$('#product_form').show();
@@ -158,6 +170,17 @@ $(document).ready(function(){
 	
 	$(document).on('click','.save_product_details',function(e) {
 		
+		eko = 0;
+		farm = 0;
+		
+		if($('#product_form .product_eko').is(':checked')) {
+			eko = 1;
+		}
+		
+		if($('#product_form .product_farm').is(':checked')) {
+			farm = 1;
+		}		
+		
 		product = {
 			product_id: $('#product_form .product_id').val(),
 			provider: $('#product_form .product_provider').val(),
@@ -184,7 +207,9 @@ $(document).ready(function(){
 			uglevodi: $('#product_form .product_uglevodi').val(),
 			gi: $('#product_form .product_gi').val(),
 			video_1: $('#product_form .product_video_1').val(),
-			video_2: $('#product_form .product_video_2').val()	
+			video_2: $('#product_form .product_video_2').val(),
+			eko: eko,
+			farm: farm
 		}	
 		
 		send_data = {
@@ -194,6 +219,10 @@ $(document).ready(function(){
 		
 		send_msg(send_data);
 	});	
+	
+	$(document).on('change','#product_form .product_cost,#product_form .product_percent',function(e) {
+		calculate_price();
+	});
 	
 	$(document).on('click','.admin_window_closer',function(e) {
 		$('#product_form').hide();
@@ -1097,4 +1126,17 @@ function ArrayToURL(array) {
 
       pairs.push(encodeURIComponent(key) + '=' + encodeURIComponent(array[key]));
   return pairs.join('&');
+}
+	
+function calculate_price() {
+	percent = $('#product_form .product_percent').val();
+	cost = $('#product_form .product_cost').val();
+	
+	final_price = cost*((percent/100)+1);
+	
+	if(final_price % parseInt(final_price) > 0) {
+		final_price = parseInt(final_price)+1;
+	}
+	
+	$('#product_form .final_price').text(final_price);
 }

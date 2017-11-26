@@ -232,23 +232,11 @@ class Main extends CI_Controller {
 	}
 	
 	public function favourites() {
-		$products_ids = $this->baselib->get_favourites();
-		$products = $this->baselib->get_products_by_ids($products_ids);		
 		
 		$filters = array(
 			'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
 		);
 		
-		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
-		
-		$products_in_page = $this->baselib->filter_products_for_favourites($products,$filters,$page);
-		
-		$empty_products = count($products_in_page['products'])%5; 
-					
-		if($empty_products > 0) {
-			$empty_products = 5-$empty_products;
-		}		
-
 		$data = array(
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
@@ -256,16 +244,33 @@ class Main extends CI_Controller {
 			'menu' => array(
 				'filters' => $filters
 			),
-			'products' => $products_in_page['products'],
-			'current_page' => $page,
-			'pages_count' => $products_in_page['pages_count'],
-			'categories' => $products_in_page['categories_for_favourites'],
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
-			),
-			'pages' => $this->baselib->create_pager($products_in_page['pages_count'],$page),
-			'empty_products' => $products_in_page['empty_products']
+			)
 		);
+		
+		$products_ids = $this->baselib->get_favourites();
+	
+		if(count($products_ids) > 0) {
+			$products = $this->baselib->get_products_by_ids($products_ids);		
+			
+			$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
+			
+			$products_in_page = $this->baselib->filter_products_for_favourites($products,$filters,$page);
+			
+			$empty_products = count($products_in_page['products'])%5; 
+						
+			if($empty_products > 0) {
+				$empty_products = 5-$empty_products;
+			}
+			
+			$data['current_page'] = $page;
+			$data['products'] = $products_in_page['products'];
+			$data['pages_count'] = $products_in_page['pages_count'];
+			$data['categories'] = $products_in_page['categories_for_favourites'];
+			$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);
+			$data['empty_products'] = $products_in_page['empty_products'];
+		}
 		
 		$this->load->view('favourites',$data);
 	}	
