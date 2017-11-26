@@ -309,6 +309,63 @@ body,html,textarea{font-family:Calibri}
                     </div>
                     <div class="h_login fl_r">
                         <a class="h_login_button">войти</a>
+                        <div class="new_login_message">
+                            <div class="new_login_message_close">&times;</div>
+                            <!--<div class="new_login_message_restore">
+                                <div class="new_login_message_restore_header">Восстановление пароля</div>
+                                <div class="new_login_message_restore_subheader">
+                                    Для восстановления пароля введите 
+                                    <br>вашу почту
+                                </div>
+                                <div class="new_auth_line">
+                                    <label>
+                                        <input type="text" class="new_auth_inp">
+                                    </label>
+                                </div>
+                                <div class="new_login_message_restore_subheader">
+                                    Если Вы забили пароль опросите и мы 
+                                    <br>отправим повторно
+                                </div>
+                                <div class="restore_pass_new new_green_small_button fl_l" data-type="check_login3">восстановить пароль</div>
+                            </div>-->
+                            <!--<div class="new_login_message_next">
+                                <div class="new_login_message_body">
+                                    На вашу почту было выслано письмо с 
+                                    <br>дальнейшими инструкциями
+                                </div>
+                                <div class="new_login_message_back">
+                                    <span class="new_login_message_back_icon sprite"></span>
+                                    <span class="new_login_message_back_text">назад</span>
+                                </div>
+                            </div>-->
+                            <!--<div class="new_login_message_next">
+                                <div class="new_login_message_body">
+                                    Неправильные данные
+                                    <br>для входа в систему
+                                </div>
+                                <div class="new_login_message_back">
+                                    <span class="new_login_message_back_icon sprite"></span>
+                                    <span class="new_login_message_back_text">назад</span>
+                                </div>
+                            </div>-->
+                            <!--<div class="new_login_message_next">
+                                <div class="new_login_message_body">
+                                    На Вашу почту были
+                                    <br>отправлены данные для входа
+                                </div>
+                                <div class="new_login_message_login">войти</div>
+                            </div>-->
+                            <!--<div class="new_login_message_next">
+                                <div class="new_login_message_body">
+                                    Данная электронная почта
+                                    <br>уже занята
+                                </div>
+                                <div class="new_login_message_back">
+                                    <span class="new_login_message_back_icon sprite"></span>
+                                    <span class="new_login_message_back_text">назад</span>
+                                </div>
+                            </div>-->
+                        </div>
                         <div class="new_auth login_form3">
                             <div class="new_auth_line">
                                 <label>
@@ -330,7 +387,7 @@ body,html,textarea{font-family:Calibri}
                             <div class="new_auth_register">
                                 <div class="new_auth_register_header">
                                     Зарегистрироваться
-                                    <span class="new_auth_register_arrow fl_r">></span>
+                                    <span class="new_auth_register_arrow sprite"></span>
                                     <div class="clear"></div>
                                 </div>
                                 <div class="new_auth_register_body">
@@ -352,7 +409,7 @@ body,html,textarea{font-family:Calibri}
                                             <input type="text" class="new_auth_inp register_phone3">
                                         </label>
                                     </div>
-                                    <div class="new_auth_button new_orange_small_button send" data-type="register3">зарегистрироваться</div>
+                                    <div class="new_signup new_auth_button new_orange_small_button send" data-type="register3">зарегистрироваться</div>
                                 </div>
                             </div>
                         </div>
@@ -360,6 +417,8 @@ body,html,textarea{font-family:Calibri}
     				<div class="h_menu fl_r">
     					<a href="/" class="h_link green_text dirty_link">наш вкусный блог</a>
     					<a href="/information" class="h_link">вся информация</a>
+                        <a href="/" class="new_h_link new_h_link_fst h_link">мои заказы</a>
+                        <a href="/information" class="new_h_link h_link">избранное</a>
     				</div>
 					<div class="clear"></div>
 				</div>
