@@ -249,6 +249,11 @@ header {
     cursor: pointer;
     background-position: -273px -1010px !important;
         margin-right: 5px;
+        -webkit-transform: scale(.8);
+           -moz-transform: scale(.8);
+            -ms-transform: scale(.8);
+             -o-transform: scale(.8);
+                transform: scale(.8);
 }
 .good_modal_line2 {
     margin-left: -3px;
@@ -674,6 +679,7 @@ input {
     -webkit-transition: color .3s;
     -o-transition: color .3s;
     transition: color .3s;
+    margin: 2px 0 0 0;
 }
 .new_auth_remind:hover {
     color: #fe4517;
@@ -690,11 +696,97 @@ input {
     margin-bottom: 10px;
 }
 .new_auth_register_arrow {
-    -webkit-transform: rotate(90deg);
+    /*-webkit-transform: rotate(90deg);
        -moz-transform: rotate(90deg);
         -ms-transform: rotate(90deg);
          -o-transform: rotate(90deg);
-            transform: rotate(90deg);
+            transform: rotate(90deg);*/
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-position: -118px -1103px;
+    margin: 0 0 0 9px;
+}
+.new_login_message {
+    width: 311px;
+    height: 273px;
+    background: #FFF;
+    border: 5px solid #e6e6e6;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    position: absolute;
+    padding: 20px 30px 20px 40px;
+    z-index: 999999;
+    left: 50%;
+    margin: 0 0 0 -174px;
+    top: 45px;
+    font-size: 14px;
+    display: none;
+}
+.new_h_link {
+    color: #de5539 !important;
+    margin: 0 0 0 15px !important
+}
+.new_h_link:hover {
+    color: #000 !important;
+}
+.new_login_message_close {
+    position: absolute;
+    right: 13px;
+    top: 7px;
+    font-size: 22px;
+    color: #000;
+    cursor: pointer;
+}
+.new_login_message_restore_subheader {
+    line-height: 17px;
+    margin: 10px 0 19px 0;
+}
+.new_login_message_body {
+    text-align: center;
+    line-height: 18px;
+    margin: 87px 0 0 0;
+}
+.new_login_message_back_icon {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-position: -201px -1102px;
+    margin: 0 0 0 9px;
+    cursor: pointer;
+}
+.new_login_message_back_text {
+    display: inline-block;
+    font-size: 14px;
+    font-family:Calibri Bold;
+    cursor: pointer;
+}
+.restore_pass_new {
+    width: 152px !important;
+    height: 29px;
+    line-height: 29px;
+}
+.new_login_message_back {
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    cursor: pointer;
+}
+.new_login_message_login {
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    cursor: pointer;
+    color: #45b3e4;
+    font-family:Calibri Bold;
+}
+.new_login_message_restore_header {
+    font-family:Calibri Bold;
 }
 .new_orange_small_button {
     background: #fe4517;
@@ -740,8 +832,21 @@ input {
     font-size: 16px;
     color: #000;
     line-height: 26px;
-    margin-left: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
+.new_h_link_fst {
+    margin-left: 30px;
+}
+.new_signup {
+    margin: 15px 0 0 0;
+    height: 29px;
+    line-height: 29px;
+}
+.new_auth_button {
+    height: 29px;
+    line-height: 29px;
+} 
 .h_cart_icon {
     width: 43px;
     height: 26px;
@@ -782,7 +887,7 @@ input {
             transition: background .3s ease;
 }
 .h_menu {
-    margin-right: 50px;
+    margin-right: 20px;
 }
 .h_cart, .h_phones, .h_menu {
     margin-top: 17px;
@@ -1111,25 +1216,26 @@ footer {
 }
 .mm_modal {
     position: fixed;
-    width: 1018px;
-    height: 366px;
+    width: 779px;
+    height: 331px;
     top: 50%;
     left: 50%;
-    margin: -178px 0 0 -509px;
-    background: #666;
+    margin: -165px 0 0 -389px;
+    background: #fff;
     z-index: 100;
-    padding: 100px 135px;
+    padding: 71px 95px;
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;
-    color: #FFF;
+    border: 5px solid #e6e6e6;
+    color: #000;
 }
 .mm_modal_header {
     font-size: 24px;
 }
 .mm_modal_body {
     font-size: 36px;
-    margin: 40px 0;
+    margin: 40px 0 50px;
 }
 .mm_butt {
     width: 82px;
@@ -1141,6 +1247,7 @@ footer {
     -webkit-transition: opacity .3s;
     -o-transition: opacity .3s;
     transition: opacity .3s;
+    color: #FFF !important;
 }
 .mm_butt:hover {
     opacity: .7;
