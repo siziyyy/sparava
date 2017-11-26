@@ -16,7 +16,7 @@ class Main extends CI_Controller {
 		
 		$this->load->view('main', $data);
 	}
-/*	
+	
 	public function blog() {		
 		$data = array(
 			'header' => array(
@@ -26,7 +26,7 @@ class Main extends CI_Controller {
 		
 		$this->load->view('blog/list', $data);
 	}	
-*/
+
 	public function logout() {		
 		$this->baselib->logout();
 		redirect(base_url('/'), 'refresh');
