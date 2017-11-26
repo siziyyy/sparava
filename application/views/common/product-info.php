@@ -10,10 +10,10 @@
                 <div class="good_modal_right fl_r">
                     <div class="good_modal_right_line">
                         <div class="cgood_modal_price fl_l">
-                            <span class="cgood_modal_price_value g_good_price_value"></span> руб.<!-- <span class="rouble">o</span> -->
+                            <span class="cgood_modal_price_value g_good_price_value"></span> р.<!-- <span class="rouble">o</span> -->
                         </div>
                         <div class="cgood_modal_price cgood_modal_old_price fl_l">
-                            <span class="cgood_modal_old_price_value"></span> руб.<!-- <span class="rouble">o</span> -->
+                            <span class="cgood_modal_old_price_value"></span> р.<!-- <span class="rouble">o</span> -->
                         </div>						
                         <div class="good_modal_weight fl_l"></div>
                         <div class="good_modal_header_actions fl_r">
@@ -65,7 +65,7 @@
 							<div class="g_good_count_act g_good_count_add sprite"></div>
 						</div>
 						<div class="g_good_to_cart">
-							<span class="g_good_to_cart_text"><span class="g_good_to_cart_value"></span> руб.<!-- <span class="rouble">o</span> --></span>
+							<span class="g_good_to_cart_text"><span class="g_good_to_cart_value"></span> р.<!-- <span class="rouble">o</span> --></span>
 							<span class="g_good_added_to_cart_text"></span>									
 							<span class="g_good_to_cart_icon sprite"></span>
 						</div>

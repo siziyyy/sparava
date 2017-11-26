@@ -258,15 +258,15 @@ class Baselib {
 		
 		$products = array();
 		
-		$query = $this->_ci->db->select("*")->from("products")->where("status",1);
+		$sql = 'SELECT p.*, c.bm FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND p.status = 1 AND ptc.category_id = c.category_id';
 		
 		if($type == 'farm') {
-			$query = $query->where('farm','1');
+			$sql .= ' AND p.farm = 1';
 		} elseif($type == 'eko') {
-			$query = $query->where('eko','1');
+			$sql .= ' AND p.eko = 1';
 		}
 		
-		$query = $query->order_by('product_id', 'ASC')->get();
+		$query = $this->_ci->db->query($sql);
 		
 		if ($query->num_rows() > 0) {
 			foreach ($query->result_array() as $row) {
@@ -330,7 +330,14 @@ class Baselib {
 		if(!isset($products['product_id'])) {
 			foreach($products as $product_id => $product) {
 				if($product['price'] == 0) {
-					$product['price'] = (($product['cost']*$product['percent'])/100) + $product['cost'];
+					$product['price'] = $product['cost']*(($product['percent']/100)+1);
+					
+					if($product['price'] > 0) {
+						if($product['price'] / ((int)$product['price']) > 1) {
+							$product['price'] = ((int)$product['price'])+1;
+						}
+					}
+					
 					$products[$product_id]['price'] = $product['price'];
 				}
 				
@@ -374,7 +381,13 @@ class Baselib {
 		} else {
 			
 			if($products['price'] == 0) {
-				$products['price'] = (($products['cost']*$products['percent'])/100) + $products['cost'];
+				$products['price'] = $products['cost']*(($products['percent']/100)+1);
+				
+				if($products['price'] > 0) {
+					if($products['price'] / ((int)$products['price']) > 1) {
+						$products['price'] = ((int)$products['price'])+1;
+					}
+				}
 			}
 			
 			$products['articul'] = $this->get_product_articul($products['product_id']);

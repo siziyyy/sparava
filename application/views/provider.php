@@ -44,9 +44,9 @@
                                 <img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo">
                             </div>
                             <?php if(isset($product['old_price'])) { ?>
-                                <div class="g_old_good_price"><?php echo $product['old_price'] ?> <span class="rouble">o</span></div>
+                                <div class="g_old_good_price"><?php echo $product['old_price'] ?> р.</div>
                             <?php } ?>
-                            <div class="g_good_price"><span class="g_good_price_value"><?php echo $product['price'] ?></span> <span class="rouble">o</span></div>
+                            <div class="g_good_price"><span class="g_good_price_value"><?php echo $product['price'] ?></span> р.</div>
                             <div class="g_old_good_price_date"><?php echo ($product['special_end_date'] ? 'до '.$product['special_end_date'] : '') ?></div>
 							 <div class="g_admin_info">inf</div>
                             <div class="g_good_name"><?php echo $product['title'] ?></div>

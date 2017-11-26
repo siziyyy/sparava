@@ -34,9 +34,12 @@
                 <label class="fl_l">
                     <span class="g_good_admin_info_modal_inpname proc">%</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_percent proc_inp">
-                </label>  
+                </label>
                 <label class="fl_l">
-                    <span class="g_good_admin_info_modal_inpname">Цена - за.</span>
+					<span class="g_good_admin_info_modal_inpname final_price">Цена</span>
+				</label>  				
+                <label class="fl_l">
+                    <span class="g_good_admin_info_modal_inpname">Цена</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_price">
                 </label>           
                 <!--<label class="fl_r">
@@ -131,6 +134,12 @@
                     <span class="g_good_admin_info_modal_inpname">Видео 2</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_video_2">
                 </label>
+                <label>
+                    <input type="checkbox" class="product_eko" value="1"> Эко<br>
+                </label>
+				<label>
+					<input type="checkbox" class="product_farm" value="1"> Фермерское<br>
+                </label>				
                 <div class="clear"></div>
             </aside>
             <div class="clear"></div>

@@ -6,7 +6,7 @@
                     <aside class="c_inners_left_side fl_l">
                         <div class="c_inners_side_header">
                             <span class="c_inners_amount_text">сумма к оплате, без доставки</span>
-                            <span class="c_inners_amount_num">4300 <span class="rouble">o</span></span>
+                            <span class="c_inners_amount_num">4300 р.</span>
                         </div>
                         <div class="c_inners_left_side_content">
                             <div class="c_inners_left_side_text_h">
@@ -40,7 +40,7 @@
                                     </div>
                                     <div class="clear"></div>
                                 </div>
-                                <div class="c_inners_td fl_l c_inners_second_td">4300 <span class="rouble">o</span></div>
+                                <div class="c_inners_td fl_l c_inners_second_td">4300 р.</div>
                                 <div class="c_inners_td fl_l c_inners_third_td">
                                     <div class="c_inners_count">
                                         <input type="text" class="c_inners_count_input" value="1">
@@ -50,12 +50,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="c_inners_td fl_l c_inners_fourth_td">4300 <span class="rouble">o</span></div>
+                                <div class="c_inners_td fl_l c_inners_fourth_td">4300 р.</div>
                                 <div class="clear"></div>
                             </div>
                         <? } ?>
                         <div class="c_inners_right_footer">
-                            <div class="c_inners_right_footer_num fl_r">4300 <span class="rouble">o</span></div>
+                            <div class="c_inners_right_footer_num fl_r">4300 р.</div>
                             <div class="c_inners_right_footer_text fl_r">итого, без суммы доставки</div>
                             <div class="clear"></div>
                         </div>

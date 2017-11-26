@@ -5,7 +5,7 @@
 			<?php echo ( $total['use_bonus'] ? 'нет' : 'да' ) ?>
 		</div>
 	<?php } ?>
-	<div class="c_inners_right_footer_num fl_r"><?php echo $total['value'] ?> <span class="rouble">o</span></div>
+	<div class="c_inners_right_footer_num fl_r"><?php echo $total['value'] ?> р.</div>
 	<div class="c_inners_right_footer_text fl_r"><?php echo $total['title'] ?></div>
 	<div class="clear"></div>
 </div>
