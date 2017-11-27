@@ -7,6 +7,30 @@ class Baselib {
  	function __construct() {
     	$this->_ci =& get_instance();
     }
+	
+	public function get_blogs($blog_id = false) {
+		$result = array();
+		
+		$query = $this->_ci->db->select("*")->from("blogs");
+		
+		if($blog_id) {
+			$query = $query->where("blog_id",$blog_id);
+		}
+		
+		$query = $query->get();
+		
+		if ($query->num_rows() == 1) {		
+			$result = $query->row_array();
+			$result['content'] = htmlspecialchars_decode($result['content']);
+		} elseif($query->num_rows() > 0) {
+			foreach ($query->result_array() as $row) {				
+				$result[$row['blog_id']] = $row;
+				$result[$row['blog_id']]['content'] = htmlspecialchars_decode($row['content']);
+			}			
+		}
+		
+		return $result;
+	}	
 
 	public function set_favourite($product_id) {
 		$favourites = $this->get_favourites();
@@ -31,6 +55,34 @@ class Baselib {
 		
 		return $favourites;
 	}
+	
+	public function get_account_orders($account_id) {
+		$result = array();
+		
+		$query = $this->_ci->db->select("*")->from("orders")->where("account_id",$account_id)->get();
+		
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $row) {				
+				$result[$row['order_id']] = date('d.m.Y',$row['create_date']);
+			}
+		}
+		
+		return $result;
+	}
+	
+	public function get_order_products($order_id) {
+		$result = array();
+		
+		$query = $this->_ci->db->select("*")->from("order_inners")->where("order_id",$order_id)->get();
+		
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $row) {				
+				$result[] = $row['product_id'];
+			}
+		}
+		
+		return $result;
+	}	
 	
 	public function get_product_categories($product_id) {
 		$result = array();

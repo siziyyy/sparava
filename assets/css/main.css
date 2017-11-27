@@ -739,6 +739,9 @@ input {
     color: #000;
     cursor: pointer;
 }
+.new_login_message_restore,.new_login_message_next {
+	display:none;
+}
 .new_login_message_restore_subheader {
     line-height: 17px;
     margin: 10px 0 19px 0;
