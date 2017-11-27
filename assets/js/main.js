@@ -143,6 +143,26 @@ $(document).ready(function(){
 		$('.blah_closer').show();
 	});
 	
+	$(document).on('click','.new_auth_remind',function(e) {
+		e.preventDefault();
+		$('.new_auth').hide();
+		$('.new_login_message').show();
+		$('.new_login_message_restore').show();		
+		$('.new_login_message_next').hide();
+	});
+	
+	$(document).on('click','.new_login_message_back',function(e) {
+		e.preventDefault();
+		$('.new_auth').show();
+		$('.new_login_message').hide();
+		$('.new_login_message_next').hide();
+	});
+	
+	$(document).on('click','.new_login_message_login',function(e) {
+		e.preventDefault();
+		location.reload();
+	});
+	
 	$(document).on('click','.blah_closer',function(e) {
 		$('.blaah').hide();
 		$('.blah_closer').hide();
@@ -340,9 +360,11 @@ $(document).ready(function(){
         $('.new_auth').show();
         $('.login_closer').show();
     });	
-    $('.login_closer').click(function() {
+    $('.login_closer,.new_login_message_close').click(function() {
         $('.new_auth').hide();
         $('.login_closer').hide();
+		$('.new_login_message').hide();
+		$('.new_login_message_restore').hide();
         $('.new_auth_register_body').hide();
     });	
     $('.new_auth_register_header').click(function() {
@@ -755,6 +777,14 @@ $(document).ready(function(){
 				
 				break;
 				
+			case 'remind3':
+				send_data = {
+					type : type,
+					remind_email : ($('.remind_email3').val() || -1 )
+				}
+				
+				break;				
+				
 			case 'check_login2':
 				
 				send_data = {
@@ -809,6 +839,10 @@ $(document).ready(function(){
 					if(json['success']) {
 						if(send_data.type == 'check_login') {
 							location.reload();
+						} else if(type == 'register3') {
+							$('.new_auth').hide();
+							$('.new_login_message').show();
+							$('.text_register3').show();
 						} else if(send_data.type == 'register') {
 							if($('#shipping_form').length > 0) {
 								$('#shipping_form').submit();
@@ -825,6 +859,10 @@ $(document).ready(function(){
 						} else if(send_data.type == 'remind2') {
 							$('.close_me_on_send').hide();
 							$('.remind_success2').show();
+						} else if(send_data.type == 'remind3') {
+							$('.new_login_message_restore').hide();
+							$('.new_login_message').show();
+							$('.text_remind3').show();
 						} else if(send_data.type == 'favourite') {
 							parent_object.find('.good_modal_fav').addClass('good_modal_fav_ylw');
 							parent_object.find('.g_good_mobile_fav').addClass('g_good_mobile_fav_orange');
@@ -956,8 +994,14 @@ $(document).ready(function(){
 							$('.remind_error').text(json['error']);
 							$('.remind_error').show();
 						} else if(json['error'] == 'busy_email') {
-							$('.email_error').show();
-							$('.blah_closer').show();
+							if(type == 'register3') {
+								$('.new_auth').hide();
+								$('.new_login_message').show();
+								$('.text_busy3').show();
+							} else {
+								$('.email_error').show();
+								$('.blah_closer').show();								
+							}
 						} else if(type == 'check_login2') {
 							$('.close_me_on_send').hide();
 							$('.remind_error2').show();
@@ -966,6 +1010,10 @@ $(document).ready(function(){
 							$('.blah_closer').show();
 							$('.close_me_on_send2').hide();
 							$('.remind_error3').show();
+						} else if(type == 'check_login3') {
+							$('.new_auth').hide();
+							$('.new_login_message').show();
+							$('.text_error_login3').show();
 						}
 					} else if(json['remove']) {
 						if(send_data.type == 'favourite') {

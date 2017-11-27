@@ -17,14 +17,25 @@ class Main extends CI_Controller {
 		$this->load->view('main', $data);
 	}
 	
-	public function blog() {		
+	public function blogs($blog_id = false) {		
 		$data = array(
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
-			)
+			),
+			'blogs' => $this->baselib->get_blogs($blog_id)
 		);
 		
-		$this->load->view('blog/list', $data);
+		if($blog_id) {
+			$product = $this->baselib->get_product_by_id($data['blogs']['linked_product_id']);
+			
+			if($product) {
+				$data['price'] = $product['price'];
+			}
+			
+			$this->load->view('blog/post', $data);
+		} else {
+			$this->load->view('blog/list', $data);
+		}
 	}	
 
 	public function logout() {		
@@ -230,6 +241,51 @@ class Main extends CI_Controller {
 		
 		$this->load->view('provider',$data);
 	}
+	
+	public function orders() {
+		
+		$order_id = (!is_null($this->input->get('order_id')) ? $this->input->get('order_id') : 0);
+		
+		$data = array(
+			'header' => array(
+				'cart' => $this->get_cart_info_for_header()
+			),
+			'footer' => array(
+				'account_confirm' => $this->baselib->get_account_data_for_confirm()
+			)
+		);
+		
+		$account = $this->baselib->is_logged();
+		if($account) {
+			$account_id = $account['account_id'];
+		}
+		
+		$orders = $this->baselib->get_account_orders($account_id);
+
+		if(count($orders) > 0) {
+			
+			if($order_id == 0) {
+				$order_id = key($orders);
+			}
+			
+			$products_ids = $this->baselib->get_order_products($order_id);
+			
+			$products = $this->baselib->get_products_by_ids($products_ids);
+			
+			$empty_products = count($products)%5; 
+						
+			if($empty_products > 0) {
+				$empty_products = 5-$empty_products;
+			}
+			
+			$data['products'] = $products;
+			$data['orders'] = $orders;
+			$data['empty_products'] = $empty_products;
+			$data['order_id'] = $order_id;
+		}
+		
+		$this->load->view('orders',$data);
+	}	
 	
 	public function favourites() {
 		
@@ -821,6 +877,7 @@ class Main extends CI_Controller {
 
 			case 'remind':
 			case 'remind2':
+			case 'remind3':
 			
 				if(!is_null($this->input->post('remind_email'))) {
 					if(!valid_email($this->input->post('remind_email'))) {
