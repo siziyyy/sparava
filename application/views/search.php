@@ -2,6 +2,11 @@
         <?php $this->load->view('common/product-edit-form.php');?>
 		<?php $this->load->view('common/product-info');?>
         <section class="content">
+            <style>
+                .category_bg_helper {
+                    height: 85px !important;
+                }
+            </style>
             <div class="category_bg_helper">
                 <div class="content_helper">
                     <div class="search_header">

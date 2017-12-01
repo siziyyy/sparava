@@ -41,6 +41,20 @@ body,html,textarea{font-family:Calibri}
         <link rel="stylesheet" href="/assets/css/cart.css"><!-- only cart -->
 	</head>
 	<body>
+        <div class="test"></div>
+        <style>
+            .test {
+                position: fixed;
+                opacity: .5;
+                width: 100%;
+                height: 100%;
+                z-index: 999999999;
+                background: url('/images/test.jpg');
+                top: 0;
+                left: 0;
+                display: none;
+            }
+        </style>
         <div class="closer blah_closer"></div>
         <div class="closer g_g_desc_closer"></div>
         <div class="closer new_menu_closer"></div>
@@ -407,7 +421,7 @@ body,html,textarea{font-family:Calibri}
 										<div class="new_auth_line">
 											<label>
 												<span class="new_auth_inp_text">телефон</span>
-												<input type="text" class="new_auth_inp register_phone3">
+												<input type="text" class="new_auth_inp register_phone3" id="phone">
 											</label>
 										</div>
 										<div class="new_signup new_auth_button new_orange_small_button send" data-type="register3">зарегистрироваться</div>

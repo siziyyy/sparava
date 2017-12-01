@@ -31,7 +31,8 @@
 			<div class="c_inners_left_side_text_b">
 				Минимальная сумма заказа 1000 руб.
 			</div>
-			<button type="submit" class="c_inners_left_side_button black_small_button">далее</button>
+			<button type="submit" class="c_inners_left_side_button black_small_button new_hlp">далее</button>
+			<span class="deliv_error">Вы не выбрали способ доставки</span>
 		</form>
 	</div>	
 </aside>
