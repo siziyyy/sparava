@@ -43,7 +43,7 @@ body,html,textarea{font-family:Calibri}
 	<body>
         <div class="test"></div>
         <style>
-            .test {
+            /*.test {
                 position: fixed;
                 opacity: .5;
                 width: 100%;
@@ -53,7 +53,7 @@ body,html,textarea{font-family:Calibri}
                 top: 0;
                 left: 0;
                 display: none;
-            }
+            }*/
         </style>
         <div class="closer blah_closer"></div>
         <div class="closer g_g_desc_closer"></div>
