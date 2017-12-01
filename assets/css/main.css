@@ -1413,9 +1413,13 @@ footer {
     right: 11px;
     background: #FFF;
     border: 5px solid #e6e6e6;
-    padding: 25px 35px;
+    padding: 27px 31px;
     z-index: 9999;
     display: none;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
 }
 .c_new_index_menu_dropdown_ls {
     border-right: 1px solid #e6e6e6;
@@ -1432,13 +1436,13 @@ footer {
 }
 .c_new_index_menu_dropdown_firstls {
     padding-left: 0;
-    width: 161px;
+    width: 156px;
 }
 .c_new_index_menu_dropdown_link {
     display: block;
     font-size: 16px;
     color: #000;
-    margin-bottom: 15px;
+    margin-bottom: 14px;
 }
 .c_new_index_menu_dropdown_l_mar {
     margin-bottom: 30px;
@@ -1447,17 +1451,22 @@ footer {
     margin-bottom: 57px;
 }
 .c_new_index_menu_dropdown_secls {
-    padding: 0 0 0 54px;
-    width: 284px;
+    padding: 0 0 0 43px;
+    width: 261px;
 }
 .c_new_index_menu_dropdown_thrdls {
-    padding: 0 0 0 54px;
-    width: 233px;
+    padding: 0 0 0 43px;
+    width: 215px;
 }
 .c_new_index_menu_dropdown_frthls {
-    padding-left: 45px;
+    padding-left: 43px;
+    width: 215px;
+    height: 316px;
+}
+.c_new_index_menu_dropdown_ffthls {
+    padding-left: 43px;
+    width: 220px;
     border: none;
-    width: 273px;
 }
 .c_new_index_menu_dropdown_footer {
     position: absolute;
@@ -1471,7 +1480,7 @@ footer {
 }
 .c_new_index_menu_dropdown_head {
     font-family:Calibri Bold;
-    margin-bottom: 20px;
+    margin-bottom: 14px;
 }
 .hide_select {
 	display:none;
@@ -1479,7 +1488,11 @@ footer {
 .provider_link{
 	display:none;
 }
-
+.for_price_cart {
+    font-size: 12px;
+    color: #808080;
+    margin: 0 -38px 0 10px;
+}
 /* media */
 @media all and (max-width: 1200px) {
     .content_helper {

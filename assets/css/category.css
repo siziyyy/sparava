@@ -287,6 +287,7 @@
     padding: 9px 8px 6px 9px;
     border: 5px solid #e6e6e6;
     position: relative;
+    margin: 0 0 40px 0;
 }
 .search_banner:after {
     content: "";
@@ -302,7 +303,7 @@
 }
 .search_header {
     font-family:Calibri Bold;
-    padding-top: 35px;
+    padding-top: 32px;
     margin-bottom: -5px;
 }
 .search_header_text {

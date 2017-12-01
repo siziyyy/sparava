@@ -39,7 +39,7 @@
 				</div>
 				<div class="clear"></div>
 			</div>
-			<div class="c_inners_td fl_l c_inners_second_td no_on_mob"><?php echo $product['price'] ?> р.</div>
+			<div class="c_inners_td fl_l c_inners_second_td no_on_mob"><?php echo $product['price'] ?> р.<span class="for_price_cart">за 100 г</span></div>
 			<div class="c_inners_td fl_l c_inners_third_td no_on_mob">
 				<div class="c_inners_count">
 					<input type="text" class="c_inners_count_input" value="<?php echo $product['quantity_in_cart'] ?>" data-product-id="<?php echo $product['product_id'] ?>">
