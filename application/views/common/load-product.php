@@ -13,11 +13,6 @@
 			<?php echo ($product['type'] == 'шт' ? (!is_null($product['weight']) ? ' - '.$product['weight'] : '') : ($product['bm'] == 1 ? ' за 1 кг' : ' за 100 гр')) ?>
 		</div>
 		<div class="g_good_mobile_fav g_good_mobile_fav_orange sprite"></div>
-		<div class="mobile_cat_fav_modal">
-			<div class="mobile_cat_fav_modal_close sprite"></div>
-			Чтобы использовать функцию
-			<br>избранное надо авторизоваться 
-		</div>
 		<div class="g_admin_info">inf</div>
 		<div class="g_good_name"><?php echo $product['title'] ?></div>
 	   <!-- <div class="g_good_description">
