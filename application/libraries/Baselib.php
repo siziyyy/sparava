@@ -306,11 +306,15 @@ class Baselib {
 		return $this->handle_special_price($products);
 	}		
 	
-	public function get_products($type = false) {
+	public function get_products($type = false,$show_hidden = false) {
 		
 		$products = array();
 		
-		$sql = 'SELECT p.*, c.bm FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND p.status = 1 AND ptc.category_id = c.category_id';
+		$sql = 'SELECT p.*, c.bm FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND ptc.category_id = c.category_id';
+		
+		if(!$show_hidden) {
+			$sql .= ' AND p.status = 1';
+		}
 		
 		if($type == 'farm') {
 			$sql .= ' AND p.farm = 1';
@@ -532,7 +536,11 @@ class Baselib {
 
 	public function get_product_by_id($product_id) {
 		
-		$query = $this->_ci->db->get_where("products", array("product_id" => $product_id,"status" => 1));
+		//$query = $this->_ci->db->get_where("products", array("product_id" => $product_id,"status" => 1));
+		
+		$sql = 'SELECT p.*, c.bm FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND p.status = 1 AND ptc.category_id = c.category_id AND p.product_id = '.$product_id.' LIMIT 1';
+		
+		$query = $this->_ci->db->query($sql);
 		
 		if ($query->num_rows() > 0) {
 			$product = $query->row_array();

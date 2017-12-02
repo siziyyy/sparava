@@ -86,6 +86,9 @@
                 </div>
                 <?php if($pages_count > 1) { ?>
                     <div class="c_paginator">
+						<?php if($current_page == 1) { ?>
+							<div class="c_show_more_goods" data-provider-id="1">показать еще</div>
+						<?php } ?>				
 						<div class="c_pages">
 							<?php foreach($pages as $page) { ?>
 								<?php if ($page['dots']) { ?>

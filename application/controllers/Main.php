@@ -205,7 +205,7 @@ class Main extends CI_Controller {
 	}
 	
 	public function provider() {
-		$products = $this->baselib->get_products();
+		$products = $this->baselib->get_products(false,true);
 		
 		$filters = array(
 			'provider' => (!is_null($this->input->get('provider')) ? $this->input->get('provider') : 0)
@@ -903,20 +903,20 @@ class Main extends CI_Controller {
 
 			case 'load_products':
 			
-				if((!is_null($this->input->post('category_id')) or !is_null($this->input->post('country_id'))) and !is_null($this->input->post('page'))) {
-					
-					$filters_post = json_decode($this->input->post('filters'));
-										
-					$filters = array(
-						'country' => (isset($filters_post->country) ? $filters_post->country : 0),
-						'weight' => (isset($filters_post->weight) ? $filters_post->weight : 0),
-						'pack' => (isset($filters_post->pack) ? $filters_post->pack : 0),
-						'composition' => (isset($filters_post->composition) ? $filters_post->composition : 0),
-						'price' => (isset($filters_post->price) ? $filters_post->price : 0),
-						'brand' => (isset($filters_post->brand) ? $filters_post->brand : 0)
-					);
-					
+				if((!is_null($this->input->post('category_id')) or !is_null($this->input->post('country_id')) or !is_null($this->input->post('provider_id'))) and !is_null($this->input->post('page'))) {
 					if(!is_null($this->input->post('category_id'))) {
+					
+						$filters_post = json_decode($this->input->post('filters'));
+											
+						$filters = array(
+							'country' => (isset($filters_post->country) ? $filters_post->country : 0),
+							'weight' => (isset($filters_post->weight) ? $filters_post->weight : 0),
+							'pack' => (isset($filters_post->pack) ? $filters_post->pack : 0),
+							'composition' => (isset($filters_post->composition) ? $filters_post->composition : 0),
+							'price' => (isset($filters_post->price) ? $filters_post->price : 0),
+							'brand' => (isset($filters_post->brand) ? $filters_post->brand : 0)
+						);
+						
 						switch ($this->input->post('category_id')) {
 							case 'eko':
 								$products = $this->baselib->get_products('eko');
@@ -967,6 +967,19 @@ class Main extends CI_Controller {
 						$page = (!is_null($this->input->post('page')) ? $this->input->post('page') : 1);
 						
 						$products_in_page = $this->baselib->filter_products_for_country($products,$filters,$page);
+						
+					} elseif(!is_null($this->input->post('provider_id'))) {
+						$products = $this->baselib->get_products(false,true);
+						
+						$filters_post = json_decode($this->input->post('filters'));
+						
+						$filters = array(
+							'provider' => (isset($filters_post->provider) ? $filters_post->provider : 0)
+						);
+						
+						$page = (!is_null($this->input->post('page')) ? $this->input->post('page') : 1);
+
+						$products_in_page = $this->baselib->filter_products_for_provider($products,$filters,$page);
 					}
 					
 					

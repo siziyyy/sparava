@@ -1,5 +1,6 @@
 var block_send_button = false;
 var current_page = 1;
+var show_admin_info = false;
 
 function send_msg(msg) {
 	window.frames['admin'].postMessage(send_data, "https://admin.aydaeda.ru");
@@ -13,6 +14,7 @@ function listener(event) {
 	if (event.data == 'iframe_ready') {
 		$('.g_admin_info').css('display','inline-block');
 		$('.provider_link').show();
+		show_admin_info = true;
 	} else if(event.data.type == 'product_details') {
 		product = event.data.data;
 		
@@ -746,6 +748,8 @@ $(document).ready(function(){
 			send_data.category_id = $( this ).attr('data-category-id');
 		} else if($( this ).attr('data-country-id')) {
 			send_data.country_id = $( this ).attr('data-country-id');
+		} else if($( this ).attr('data-provider-id')) {
+			send_data.provider_id = $( this ).attr('data-provider-id');
 		}
 
 		$.ajax({
@@ -766,6 +770,10 @@ $(document).ready(function(){
 						for(i=0;i<json['empty_products'];i++) {
 							$( '<div class="g_good fl_l hide_on_mobile">&nbsp;</div>' ).insertAfter( ".g_good:last-child" );
 						}
+					}
+					
+					if(show_admin_info) {
+						$('.g_admin_info').css('display','inline-block');
 					}
 				}	
 			}
@@ -1281,6 +1289,8 @@ $('.cool_select_button,.new_mob_submenu_filter_button').click(function() {
 
 		params[name] = values.join(';');
 	});
+	
+	delete params['page'];
 	
 	window.location = window.location.origin+window.location.pathname+'?'+ArrayToURL(params); 
 
