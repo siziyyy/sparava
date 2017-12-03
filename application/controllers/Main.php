@@ -568,6 +568,10 @@ class Main extends CI_Controller {
 			$data['cart_info']['shipping_methods'] = $shipping_gruops;
 			$data['cart_info_tpl'] = 'shipping_methods';
 			
+			if(!is_null($this->input->post('shipping_form_submit'))) {
+				$data['cart_info']['shipping_form_submit_error'] = true;
+			}
+			
 			$this->load->view('cart/cart', $data);
 			
 			return;
@@ -614,7 +618,11 @@ class Main extends CI_Controller {
 		
 		if(!is_null($this->session->userdata('shipping_address'))) {
 			$data['cart_info']['account']['shipping_address'] = $this->session->userdata('shipping_address');
-		}		
+		}	
+
+		if(!is_null($this->session->userdata('shipping_method'))) {
+			$data['cart_info']['account']['shipping_method'] = $this->session->userdata('shipping_method');
+		}
 		
 		$data['cart_info']['shipping_methods'] = $shipping_gruops;
 		$data['totals']['totals'] = $this->baselib->get_totals_for_cart($data['totals']['totals']);

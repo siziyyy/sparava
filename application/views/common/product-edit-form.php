@@ -36,29 +36,25 @@
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_percent proc_inp">
                 </label>
                 <label class="fl_l">
-					<span class="g_good_admin_info_modal_inpname final_price">Цена</span>
-				</label>  				
+                    <span class="price_new_inf_mod final_price"></span>
+                </label>				
                 <label class="fl_l">
                     <span class="g_good_admin_info_modal_inpname">Цена</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_price">
-                </label>           
-                <!--<label class="fl_r">
-                    <span class="g_good_admin_info_modal_inpname">Процент наценки</span>
-                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_med product_percent">
-                </label>  
-                <div class="clear"></div>  
+                </label>
+                <div class="clear"></div> 
                 <label class="fl_l">
-                    <span class="price_new_inf_mod">Цена опт</span>
-                </label>  
+                    <span class="g_good_admin_info_modal_inpname">ЦКО</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_cko">
+                </label>				
                 <label class="fl_l">
-                    <span class="g_good_admin_info_modal_inpname proc">%</span>
-                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short proc_inp">
-                </label>  
+                    <span class="g_good_admin_info_modal_inpname">Кол</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_kol">
+                </label>
                 <label class="fl_l">
-                    <span class="g_good_admin_info_modal_inpname">Цена - за.</span>
-                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short">
-                </label>   
-				-->
+                    <span class="g_good_admin_info_modal_inpname">Мера</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_mera">
+                </label>
                 <div class="clear"></div>  
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Состав</span>
@@ -139,6 +135,9 @@
                 </label>
 				<label>
 					<input type="checkbox" class="product_farm" value="1"> Фермерское<br>
+                </label>
+				<label>
+					<input type="checkbox" class="product_diet" value="1"> Диетическое<br>
                 </label>				
                 <div class="clear"></div>
             </aside>

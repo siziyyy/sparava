@@ -8,6 +8,7 @@
 			Доставка
 		</div>
 		<form method="post" action="">
+			<input type="hidden" value="1" name="shipping_form_submit">
 			<?php foreach($shipping_methods as $group) { ?>
 				<div class="c_inners_left_side_text_deliv">
 					<div class="c_inners_left_side_deliv_right">
@@ -32,7 +33,9 @@
 				Минимальная сумма заказа 1000 руб.
 			</div>
 			<button type="submit" class="c_inners_left_side_button black_small_button new_hlp">далее</button>
-			<span class="deliv_error">Вы не выбрали способ доставки</span>
+			<?php if(isset($shipping_form_submit_error)) { ?>
+				<span class="deliv_error">Вы не выбрали способ доставки</span>
+			<?php } ?>
 		</form>
 	</div>	
 </aside>

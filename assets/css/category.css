@@ -620,7 +620,7 @@
         padding-right: 45px;
 }
 .g_good_admin_info_modal_header {
-    padding-top: 45px;
+    padding-top: 15px;
     font-size: 22px;
     font-family:Calibri Bold;
         padding-left: 45px;
@@ -677,7 +677,7 @@ textarea.g_good_admin_info_modal_input {
     margin-right: 0;
 }
 .g_good_admin_info_modal_save {
-    margin-top: 43px;
+    margin-top: 15px;
 }
 .c_new_menu_link_country {
     color: #F2593A;

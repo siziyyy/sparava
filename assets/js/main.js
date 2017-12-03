@@ -29,6 +29,9 @@ function listener(event) {
 		$('#product_form .product_country').val(product.country);
 		$('#product_form .product_cost').val(product.cost);
 		$('#product_form .product_price').val(product.price);
+		$('#product_form .product_cko').val(product.cko);
+		$('#product_form .product_kol').val(product.kol);
+		$('#product_form .product_mera').val(product.mera);
 		$('#product_form .product_percent').val(product.percent);
 		$('#product_form .product_pack').val(product.pack);
 		$('#product_form .product_composition').val(product.composition);
@@ -58,6 +61,11 @@ function listener(event) {
 		$('#product_form .product_farm').prop('checked', false);
 		if(product.farm > 0) {
 			$('#product_form .product_farm').prop('checked', true);
+		}
+
+		$('#product_form .product_diet').prop('checked', false);
+		if(product.diet > 0) {
+			$('#product_form .product_diet').prop('checked', true);
 		}		
 		
 		calculate_price();
@@ -341,6 +349,7 @@ $(document).ready(function(){
 		
 		eko = 0;
 		farm = 0;
+		diet = 0;
 		
 		if($('#product_form .product_eko').is(':checked')) {
 			eko = 1;
@@ -348,6 +357,10 @@ $(document).ready(function(){
 		
 		if($('#product_form .product_farm').is(':checked')) {
 			farm = 1;
+		}
+		
+		if($('#product_form .product_diet').is(':checked')) {
+			diet = 1;
 		}		
 		
 		product = {
@@ -359,6 +372,9 @@ $(document).ready(function(){
 			cost: $('#product_form .product_cost').val(),
 			price: $('#product_form .product_price').val(),
 			percent: $('#product_form .product_percent').val(),
+			cko: $('#product_form .product_cko').val(),
+			kol: $('#product_form .product_kol').val(),
+			mera: $('#product_form .product_mera').val(),
 			pack: $('#product_form .product_pack').val(),
 			composition: $('#product_form .product_composition').val(),
 			title: $('#product_form .product_name').val(),
@@ -378,7 +394,8 @@ $(document).ready(function(){
 			video_1: $('#product_form .product_video_1').val(),
 			video_2: $('#product_form .product_video_2').val(),
 			eko: eko,
-			farm: farm
+			farm: farm,
+			diet: diet
 		}	
 		
 		send_data = {
@@ -542,6 +559,28 @@ $(document).ready(function(){
 	
 	$(document).on('click','.g_good_added_to_cart',function(e) {
 		window.location = '/cart';
+	});
+	
+	$(document).on('change','.g_good_count_input',function(e) {
+		
+		if($(this).parents('.g_good').length == 0) {
+			parent_class = '.good_modal';
+		} else if($(this).parents('.g_good').length > 0) {
+			parent_class = '.g_good';
+		}
+		
+		quantity = parseFloat($(this).val());
+		type_num = $(this).parents(parent_class).attr('data-type');		
+		
+		if(type_num == 0) {
+			type = 'шт';
+		} else if(type_num == 1) {
+			type = 'кг';
+		} else if(type_num == 2) {
+			type = 'кг';
+		}
+		
+		$(this).val(quantity+' '+type);
 	});
 	
 	$(document).on('click','.g_good_count_add',function(e) {
@@ -717,12 +756,12 @@ $(document).ready(function(){
 			quantity = 1;
 		}
 		
-		product_id = $(this).attr('data-product-id');
+		product_id = $(this).parents('.c_inners_side_tr').attr('data-product-id');
 		cart.update(product_id, quantity);
 	});
 	
 	$( ".c_inners_count_delete" ).click(function() {
-		product_id = $(this).parents('.c_inners_count').find('.c_inners_count_input').attr('data-product-id');
+		product_id = $(this).parents('.c_inners_side_tr').attr('data-product-id');
 		cart.remove(product_id);
 	});
 	
