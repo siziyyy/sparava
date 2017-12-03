@@ -1,12 +1,15 @@
 					<div class="c_new_menu c_new_menu_hide">
                         <div class="c_new_menu_line">
 							<?php if(isset($menu_childs) and count($menu_childs) > 0) { ?>
-								<?php foreach($menu_childs as $category) { ?>
+								<?php $parent_category = true; ?>
+								<?php foreach($menu_childs as $category) { ?>									
 									<div class="c_new_menu_line_item fl_l">
-										<a href="/category/<?php echo ( $category['seo_url'] ? $category['seo_url'] : $category['category_id'] ) ?>" class="c_new_menu_link <?php echo ( $category['current_category'] ? 'orange_text' : '' ) ?>"><?php echo $category['title'] ?></a>
-									</div>									
+										<a href="/category/<?php echo ( $category['seo_url'] ? $category['seo_url'] : $category['category_id'] ) ?>" class="c_new_menu_link <?php echo ( $category['current_category'] ? 'orange_text' : '' ) ?> <?php echo ( $parent_category ? 'gray_text parent_cat' : '' ) ?>"><?php echo $category['title'] ?></a>
+									</div>
+									<?php $parent_category = false; ?>
 								<?php } ?>
-							<?php } ?>
+							<?php } ?>					
+							
 							<div class="c_new_menu_line_item c_new_menu_line_item_right fl_r">
 								<span class="c_new_menu_more">другие продукты</span>
 								<span class="c_new_menu_more_icon"></span>
@@ -16,9 +19,9 @@
                         </div>
                         <div class="c_new_menu_filters filters_holder">						
 							<?php if(count($attributes['countries']) > 0) { ?>
-							<div class="cool_select_pack fl_l">
-								<div class="cool_select">
-									<span>страна</span>
+							<div class="cool_select_pack fl_l" data-type="country">
+								<div class="cool_select <?php echo (isset($filters_text['country']) ? 'cool_select_disabled' : '') ?>">
+									<span><?php echo (isset($filters_text['country']) ? $filters_text['country'] : 'страна') ?></span>
                                     <span class="cool_select_arrow sprite"></span>
                                     <span class="cool_select_arrow2">×</span>
 								</div>
@@ -38,9 +41,9 @@
 							</div>
 							<?php } ?>
 							<?php if(count($attributes['brands']) > 0) { ?>
-							<div class="cool_select_pack fl_l">
-								<div class="cool_select cool_select_disabled">
-									<span>бренд</span>
+							<div class="cool_select_pack fl_l" data-type="brand">
+								<div class="cool_select <?php echo (isset($filters_text['brand']) ? 'cool_select_disabled' : '') ?>">
+									<span><?php echo (isset($filters_text['brand']) ? $filters_text['brand'] : 'бренд') ?></span>
 									<span class="cool_select_arrow sprite"></span>
                                     <span class="cool_select_arrow2">×</span>
 								</div>
@@ -60,9 +63,9 @@
 							</div>
 							<?php } ?>							
 							<?php if(count($attributes['compositions']) > 0) { ?>
-							<div class="cool_select_pack fl_l">
-								<div class="cool_select">
-									<span>состав</span>
+							<div class="cool_select_pack fl_l" data-type="composition">
+								<div class="cool_select <?php echo (isset($filters_text['composition']) ? 'cool_select_disabled' : '') ?>">
+									<span><?php echo (isset($filters_text['composition']) ? $filters_text['composition'] : 'состав') ?></span>
                                     <span class="cool_select_arrow sprite"></span>
                                     <span class="cool_select_arrow2">×</span>
 								</div>
@@ -82,9 +85,9 @@
 							</div>
 							<?php } ?>
 							<?php if(count($attributes['packs']) > 0) { ?>							
-							<div class="cool_select_pack fl_l">
-								<div class="cool_select">
-									<span>упаковка</span>
+							<div class="cool_select_pack fl_l" data-type="pack">
+								<div class="cool_select <?php echo (isset($filters_text['pack']) ? 'cool_select_disabled' : '') ?>">
+									<span><?php echo (isset($filters_text['pack']) ? $filters_text['pack'] : 'упаковка') ?></span>
                                     <span class="cool_select_arrow sprite"></span>
                                     <span class="cool_select_arrow2">×</span>
 								</div>
@@ -104,9 +107,9 @@
 							</div>
 							<?php } ?>
 							<?php if($attributes['show_weights']) { ?>
-							<div class="cool_select_pack fl_l">
-								<div class="cool_select">
-									<span>вес</span>
+							<div class="cool_select_pack fl_l" data-type="weight">
+								<div class="cool_select <?php echo (isset($filters_text['weight']) ? 'cool_select_disabled' : '') ?>">
+									<span><?php echo (isset($filters_text['weight']) ? $filters_text['weight'] : 'вес') ?></span>
                                     <span class="cool_select_arrow sprite"></span>
                                     <span class="cool_select_arrow2">×</span>
 								</div>
@@ -129,9 +132,9 @@
 								</div>
 							</div>
 							<?php } ?>
-							<div class="cool_select_pack fl_l">
-								<div class="cool_select">
-									<span>цена</span>
+							<div class="cool_select_pack fl_l" data-type="price">
+								<div class="cool_select <?php echo (isset($filters_text['price']) ? 'cool_select_disabled' : '') ?>">
+									<span><?php echo (isset($filters_text['price']) ? $filters_text['price'] : 'цена') ?></span>
                                     <span class="cool_select_arrow sprite"></span>
                                     <span class="cool_select_arrow2">×</span>
 								</div>

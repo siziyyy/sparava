@@ -818,14 +818,31 @@ class Baselib {
 					
 		if($empty_products > 0) {
 			$empty_products = 5-$empty_products;
-		}		
+		}
+		
+		$filters_text = array();
+		
+		foreach($filters_arr as $key => $value) {
+			if(isset($filters_arr[$key]) and $filters_arr[$key]) {
+				$filters_text[$key] = $this->get_filter_text($key,count($filters_arr[$key]));
+			}
+		}
+		
+		if($filters['price']) {
+			$filters_text['price'] = $this->get_filter_text('price',$filters['price']);
+		}
+		
+		if($filters['weight']) {
+			$filters_text['weight'] = $this->get_filter_text('weight',$filters['weight']);
+		}
 		
 		return array(
 			'products' => $prodcuts_in_page,
 			'pages_count' => $pages_count,
 			'products_count' => count($products),
 			'filters_used' => $filters_used,
-			'empty_products' => $empty_products
+			'empty_products' => $empty_products,
+			'filters_text' => $filters_text
 		);
 	}
 	
@@ -1151,5 +1168,67 @@ class Baselib {
 		}
 		
 		return $products;
+	}
+	
+	public function get_filter_text($type,$count) {
+		if($type == 'country') {
+			$number = (int)substr((string)$count, -1); 
+			
+			if($number == 1) {
+				$word = 'страна';
+			} elseif($number >= 2 and $number <= 4) {
+				$word = 'страны';
+			} else {
+				$word = 'стран';
+			}
+		} elseif($type == 'brand') {
+			$number = (int)substr((string)$count, -1); 
+			
+			if($number == 1 and (int)($count) != 11) {
+				$word = 'бренд';
+			} elseif($number >= 2 and $number <= 4 and ((int)($count) < 10 or (int)($count) > 20)) {
+				$word = 'бренда';
+			} else {
+				$word = 'брендов';
+			}			
+		} elseif($type == 'composition') {
+			$number = (int)substr((string)$count, -1); 
+			
+			if($number == 1 and (int)($count) != 11) {
+				$word = 'состав';
+			} elseif($number >= 2 and $number <= 4 and ((int)($count) < 10 or (int)($count) > 20)) {
+				$word = 'состава';
+			} else {
+				$word = 'составов';
+			}			
+		} elseif($type == 'pack') {
+			$number = (int)substr((string)$count, -1); 
+			
+			if($number == 1 and (int)($count) != 11) {
+				$word = 'упаковка';
+			} elseif($number >= 2 and $number <= 4 and ((int)($count) < 10 or (int)($count) > 20)) {
+				$word = 'упаковки';
+			} else {
+				$word = 'упаковок';
+			}			
+		} elseif($type == 'price') {
+			if($count == 'asc') {
+				$word = 'по возрастанию';
+			} elseif($count == 'desc') {
+				$word = 'по убыванию';
+			}
+
+			return $word;			
+		} elseif($type == 'weight') {
+			if($count == 'raz') {
+				$word = 'на развес';
+			} elseif($count == 'upa') {
+				$word = 'в упаковке';
+			}
+
+			return $word;			
+		}
+		
+		return $count.' '.$word;
 	}
 }

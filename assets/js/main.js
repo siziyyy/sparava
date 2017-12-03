@@ -308,6 +308,19 @@ $(document).ready(function(){
 		$('.new_login_message_next').hide();
 	});
 	
+	$(document).on('click','.cool_select_arrow2',function(e) {
+		e.preventDefault();
+		type = $(this).parents('.cool_select_pack').attr('data-type');
+		
+		tail = window.location.search;	
+		params = URLToArray(tail);
+		
+		delete params[type];
+		
+		window.location = window.location.origin+window.location.pathname+'?'+ArrayToURL(params);
+	});	
+	
+	
 	$(document).on('click','.new_login_message_back',function(e) {
 		e.preventDefault();
 		$('.new_auth').show();
