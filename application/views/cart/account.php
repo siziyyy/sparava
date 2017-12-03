@@ -45,7 +45,7 @@
 							<?php foreach($group['methods'] as $method) { ?>
 								<div class="c_inners_left_side_deliv_right_meth">
 									<div class="c_inners_left_side_deliv_left fl_l">
-										<input type="radio" class="c_inners_left_side_deliv_chck" value="<?php echo $method['shipping_id'] ?>" name="account_details_shipping_method">
+										<input type="radio" class="c_inners_left_side_deliv_chck" value="<?php echo $method['shipping_id'] ?>" name="account_details_shipping_method" <?php echo ($method['shipping_id'] == $account['shipping_method'] ? 'checked' : '') ?>>
 									</div> 
 									<div class="c_inners_left_side_del_meth_hdr fl_l"><?php echo $method['title'] ?> - <?php echo $method['price'] ?> руб.</div>
 									<div class="clear"></div>

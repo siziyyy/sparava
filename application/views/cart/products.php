@@ -8,7 +8,7 @@
 	</div>
 	<?php foreach($products as $product) { ?>
 		<?php $show_minus = false; ?>
-		<div class="c_inners_side_tr">
+		<div class="c_inners_side_tr" data-product-id="<?php echo $product['product_id'] ?>" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>">
 			<div class="c_inners_td fl_l c_inners_first_td no_on_mob">
 				<div class="c_inners_photo fl_l" style="background: url(images/<?php echo $product['image'] ?>);"></div>
 				<div class="c_inners_photo_legend fl_r">
@@ -39,10 +39,23 @@
 				</div>
 				<div class="clear"></div>
 			</div>
-			<div class="c_inners_td fl_l c_inners_second_td no_on_mob"><?php echo $product['price'] ?> р.<span class="for_price_cart">за 100 г</span></div>
+			<div class="c_inners_td fl_l c_inners_second_td no_on_mob"><?php echo $product['price'] ?> р.
+			<span class="for_price_cart">за 
+				<?php
+					if($product['type'] == 'шт') {
+						echo '1 шт';
+					} else {
+						if($product['bm'] == 1) {
+							echo '1 кг';
+						} else {
+							echo '100 гр';
+						}
+					}
+				?>
+			</span></div>
 			<div class="c_inners_td fl_l c_inners_third_td no_on_mob">
 				<div class="c_inners_count">
-					<input type="text" class="c_inners_count_input" value="<?php echo $product['quantity_in_cart'] ?>" data-product-id="<?php echo $product['product_id'] ?>">
+					<input type="text" class="c_inners_count_input" value="<?php echo $product['quantity_in_cart'] ?>">
 				</div>
 			</div>
 			<div class="c_inners_td fl_l c_inners_fourth_td no_on_mob"><?php echo $product['quantity_in_cart']*$product['price'] ?> р.</div>
