@@ -1493,6 +1493,16 @@ footer {
     color: #808080;
     margin: 0 -38px 0 10px;
 }
+.parent_cat {
+    border-right: 1px solid #ccc;
+    padding: 0 25px 0 0;
+}
+.gray_text {
+    color: #999;
+}
+.category_menu_content {
+    background: #f0f0f0;
+}
 /* media */
 @media all and (max-width: 1200px) {
     .content_helper {
