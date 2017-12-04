@@ -7,8 +7,8 @@
                     <div class="c_new_menu">
                         <div class="c_new_menu_line c_new_menu_line_country filters_holder">
                             <div class="cool_select_pack cool_select_country_pack fl_l">
-                                <div class="cool_select cool_select_country">
-									<span>поставщик</span>
+                                <div class="cool_select cool_select_country <?php echo (isset($filters_text['provider']) ? 'cool_select_disabled' : '') ?>">
+									<span><?php echo (isset($filters_text['provider']) ? $filters_text['provider'] : 'поставщик') ?></span>
 									<span class="cool_select_arrow sprite"></span>
 								</div>
 								<div class="cool_select_options">
