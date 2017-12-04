@@ -10,8 +10,8 @@
                                 <a href="/category/" class="c_new_menu_link c_new_menu_link_country">ай да <?php echo $country ?></a>
                             </div>     
                             <div class="cool_select_pack cool_select_country_pack fl_l">
-                                <div class="cool_select cool_select_country">
-									<span>категория</span>
+                                <div class="cool_select cool_select_country <?php echo (isset($filters_text['category']) ? 'cool_select_disabled' : '') ?>">
+									<span><?php echo (isset($filters_text['category']) ? $filters_text['category'] : 'категория') ?></span>
 									<span class="cool_select_arrow sprite"></span>
 								</div>
 								<div class="cool_select_options">

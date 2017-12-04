@@ -198,7 +198,8 @@ class Main extends CI_Controller {
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			),
 			'pages' => $this->baselib->create_pager($products_in_page['pages_count'],$page),
-			'empty_products' => $empty_products
+			'empty_products' => $empty_products,
+			'filters_text' => $products_in_page['filters_text']
 		);
 		
 		$this->load->view('country',$data);
@@ -236,7 +237,8 @@ class Main extends CI_Controller {
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			),
 			'pages' => $this->baselib->create_pager($products_in_page['pages_count'],$page),
-			'empty_products' => $products_in_page['empty_products']
+			'empty_products' => $products_in_page['empty_products'],
+			'filters_text' => $products_in_page['filters_text']
 		);
 		
 		$this->load->view('provider',$data);
@@ -400,7 +402,61 @@ class Main extends CI_Controller {
 		$this->load->view('category', $data);
 	}
 	
+	public function providers($provider = false) {
+		
+		if(!$provider) {
+			redirect(base_url('/'), 'refresh');
+		}
+		
+		$filters = array(
+			'country' => (!is_null($this->input->get('country')) ? $this->input->get('country') : 0),
+			'brand' => (!is_null($this->input->get('brand')) ? $this->input->get('brand') : 0),
+			'weight' => (!is_null($this->input->get('weight')) ? $this->input->get('weight') : 0),
+			'pack' => (!is_null($this->input->get('pack')) ? $this->input->get('pack') : 0),
+			'composition' => (!is_null($this->input->get('composition')) ? $this->input->get('composition') : 0),
+			'price' => (!is_null($this->input->get('price')) ? $this->input->get('price') : 0),
+			'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
+		);
 
+		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
+
+		$data = array(
+			'header' => array(
+				'cart' => $this->get_cart_info_for_header()
+			),
+			'footer' => array(
+				'account_confirm' => $this->baselib->get_account_data_for_confirm()
+			)
+		);
+		
+		$products = $this->baselib->get_provider_products($provider);
+		$products = $this->baselib->sort_products('provider',$provider,$products);
+		
+		$data['attributes'] = $this->baselib->handle_attributes($products);
+		$data['filters'] = $filters;
+		
+		$products_in_page = $this->baselib->filter_products_for_providers_full($products,$filters,$page);
+
+		$empty_products = count($products_in_page['products'])%5; 
+					
+		if($empty_products > 0) {
+			$empty_products = 5-$empty_products;
+		}
+		
+		$data['products'] = $products_in_page['products'];
+		$data['pages_count'] = $products_in_page['pages_count'];
+		$data['filters_used'] = $products_in_page['filters_used'];
+		$data['filters_text'] = $products_in_page['filters_text'];
+		$data['categories_for_provider'] = $products_in_page['categories_for_provider'];
+		$data['current_page'] = $page;
+		$data['products_count'] = $products_in_page['products_count'];
+		$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);
+		$data['empty_products'] = $empty_products;
+		$data['provider'] = $provider;
+
+		$this->load->view('providers', $data);
+	}
+	
 	
 	public function catalog() {
 		$data = array(
@@ -458,6 +514,7 @@ class Main extends CI_Controller {
 		$data['products'] = $products_in_page['products'];
 		$data['pages_count'] = $products_in_page['pages_count'];
 		$data['filters_used'] = $products_in_page['filters_used'];
+		$data['filters_text'] = $products_in_page['filters_text'];
 		$data['current_page'] = $page;
 		$data['menu']['products_count'] = $products_in_page['products_count'];
 		$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);
@@ -508,6 +565,7 @@ class Main extends CI_Controller {
 		$data['products'] = $products_in_page['products'];
 		$data['pages_count'] = $products_in_page['pages_count'];
 		$data['filters_used'] = $products_in_page['filters_used'];
+		$data['filters_text'] = $products_in_page['filters_text'];
 		$data['current_page'] = $page;
 		$data['menu']['products_count'] = $products_in_page['products_count'];
 		$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);
@@ -515,6 +573,57 @@ class Main extends CI_Controller {
 		
 		$this->load->view('category', $data);
 	}
+	
+	public function diet() {
+		
+		$filters = array(
+			'country' => (!is_null($this->input->get('country')) ? $this->input->get('country') : 0),
+			'weight' => (!is_null($this->input->get('weight')) ? $this->input->get('weight') : 0),
+			'pack' => (!is_null($this->input->get('pack')) ? $this->input->get('pack') : 0),
+			'composition' => (!is_null($this->input->get('composition')) ? $this->input->get('composition') : 0),
+			'price' => (!is_null($this->input->get('price')) ? $this->input->get('price') : 0),
+			'brand' => (!is_null($this->input->get('brand')) ? $this->input->get('brand') : 0),
+		);
+		
+		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
+		
+		$menu = $this->baselib->get_categories(false,true);
+		$products = $this->baselib->get_products('diet');
+		$products = $this->baselib->sort_products('category','farm',$products);
+		
+		$data = array(
+			'header' => array(
+				'cart' => $this->get_cart_info_for_header()
+			),
+			'menu' => $menu,
+			'category' => 'farm',
+			'footer' => array(
+				'account_confirm' => $this->baselib->get_account_data_for_confirm()
+			)
+		);
+		
+		$data['menu']['attributes'] = $this->baselib->handle_attributes($products);
+		$data['menu']['filters'] = $filters;
+
+		$products_in_page = $this->baselib->filter_products($products,$filters,$page);
+
+		$empty_products = count($products_in_page['products'])%5; 
+					
+		if($empty_products > 0) {
+			$empty_products = 5-$empty_products;
+		}
+		
+		$data['products'] = $products_in_page['products'];
+		$data['pages_count'] = $products_in_page['pages_count'];
+		$data['filters_used'] = $products_in_page['filters_used'];
+		$data['filters_text'] = $products_in_page['filters_text'];
+		$data['current_page'] = $page;
+		$data['menu']['products_count'] = $products_in_page['products_count'];
+		$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);
+		$data['empty_products'] = $empty_products;
+		
+		$this->load->view('category', $data);
+	}	
 	
 	public function cart() {
 		
@@ -912,7 +1021,7 @@ class Main extends CI_Controller {
 
 			case 'load_products':
 			
-				if((!is_null($this->input->post('category_id')) or !is_null($this->input->post('country_id')) or !is_null($this->input->post('provider_id'))) and !is_null($this->input->post('page'))) {
+				if((!is_null($this->input->post('category_id')) or !is_null($this->input->post('country_id')) or !is_null($this->input->post('provider_id')) or !is_null($this->input->post('provider_full_id'))) and !is_null($this->input->post('page'))) {
 					if(!is_null($this->input->post('category_id'))) {
 					
 						$filters_post = json_decode($this->input->post('filters'));
@@ -989,6 +1098,25 @@ class Main extends CI_Controller {
 						$page = (!is_null($this->input->post('page')) ? $this->input->post('page') : 1);
 
 						$products_in_page = $this->baselib->filter_products_for_provider($products,$filters,$page);
+					} elseif(!is_null($this->input->post('provider_full_id'))) {
+						
+						$products = $this->baselib->get_provider_products($this->input->post('provider_full_id'));
+						
+						$filters_post = json_decode($this->input->post('filters'));
+						
+						$filters = array(
+							'country' => (isset($filters_post->country) ? $filters_post->country : 0),
+							'weight' => (isset($filters_post->weight) ? $filters_post->weight : 0),
+							'pack' => (isset($filters_post->pack) ? $filters_post->pack : 0),
+							'composition' => (isset($filters_post->composition) ? $filters_post->composition : 0),
+							'price' => (isset($filters_post->price) ? $filters_post->price : 0),
+							'brand' => (isset($filters_post->brand) ? $filters_post->brand : 0),
+							'category' => (isset($filters_post->category) ? $filters_post->category : 0)
+						);
+						
+						$page = (!is_null($this->input->post('page')) ? $this->input->post('page') : 1);
+
+						$products_in_page = $this->baselib->filter_products_for_providers_full($products,$filters,$page);
 					}
 					
 					

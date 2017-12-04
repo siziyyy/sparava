@@ -802,6 +802,8 @@ $(document).ready(function(){
 			send_data.country_id = $( this ).attr('data-country-id');
 		} else if($( this ).attr('data-provider-id')) {
 			send_data.provider_id = $( this ).attr('data-provider-id');
+		} else if($( this ).attr('data-provider-full-id')) {
+			send_data.provider_full_id = $( this ).attr('data-provider-full-id');
 		}
 
 		$.ajax({
