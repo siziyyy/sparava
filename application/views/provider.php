@@ -38,42 +38,8 @@
             <div class="content_helper">
                 <div class="goods">
                     <?php foreach($products as $product) { ?>
-						<?php $show_minus = false; ?>
-                        <div class="g_good fl_l" data-product-id="<?php echo $product['product_id'] ?>">
-                            <div class="g_good_photo_block send" data-type="get_product_info">
-                                <img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo">
-                            </div>
-                            <?php if(isset($product['old_price'])) { ?>
-                                <div class="g_old_good_price"><?php echo $product['old_price'] ?> р.</div>
-                            <?php } ?>
-                            <div class="g_good_price"><span class="g_good_price_value"><?php echo $product['price'] ?></span> р.</div>
-                            <div class="g_old_good_price_date"><?php echo ($product['special_end_date'] ? 'до '.$product['special_end_date'] : '') ?></div>
-							 <div class="g_admin_info">inf</div>
-                            <div class="g_good_name"><?php echo $product['title'] ?></div>
-                            <!-- <div class="g_good_description">
-                                <?php echo $product['description'] ?>
-                            </div> -->
-							<div class="g_good_country">
-								<?php if($product['brand']) { ?>
-									<?php echo $product['brand'] ?>
-									<?php $show_minus = true; ?>
-								<?php } ?>
-								<?php if($show_minus and $product['country']) { ?>
-									 - 
-								<?php } ?>
-								<?php if($product['country']) { ?>
-									<?php echo $product['country'] ?>
-									<?php $show_minus = true; ?>
-								<?php } ?>
-								<?php if($show_minus and $product['weight']) { ?>
-									 - 
-								<?php } ?>
-								<?php if($product['weight']) { ?>
-									<?php echo $product['weight'] ?>
-								<?php } ?>
-								<span class="g_good_id"><?php echo $product['articul'] ?></span>
-							</div>
-                        </div>                      
+						<?php $info['product'] = $product; ?>
+						<?php $this->load->view('common/load-product',$info);?>	                      
                     <?php } ?>
 					
 					<?php if($empty_products) { ?>

@@ -8,7 +8,8 @@
 								<a href="/category/7" class="c_new_index_menu_dropdown_link">Кулинария</a>
 								<a href="/category/11" class="c_new_index_menu_dropdown_link c_new_index_menu_dropdown_l_mar2">Соления</a>
 								<a href="/catalog" class="c_new_index_menu_to_cat">Полный каталог</a>
-								<a href="/provider" class="c_new_index_menu_to_cat provider_link">Поставщики</a>
+								<!--<a href="/provider" class="c_new_index_menu_to_cat provider_link">Поставщики</a>-->
+								<a href="/provider" class="c_new_index_menu_to_cat">Поставщики</a>
 							</div>
 							<div class="c_new_index_menu_dropdown_ls fl_l c_new_index_menu_dropdown_secls">
 								<a href="/category/14" class="c_new_index_menu_dropdown_link">Фрукты, ягоды</a>
