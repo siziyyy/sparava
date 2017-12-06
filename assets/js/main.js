@@ -1252,6 +1252,8 @@ var cart = {
 			dataType: 'json',
 			success: function(json) {
 				if(json['success']) {
+					yaCounter46865034.reachGoal('cart-add');
+					
 					$('#h_cart_text_summ').text(json['success']['summ']);
 					$('#h_cart_text_word').text(json['success']['word']);
 					$('#h_cart_text_total').text(json['success']['total']);

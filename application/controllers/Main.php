@@ -409,12 +409,6 @@ class Main extends CI_Controller {
 		}
 		
 		$filters = array(
-			'country' => (!is_null($this->input->get('country')) ? $this->input->get('country') : 0),
-			'brand' => (!is_null($this->input->get('brand')) ? $this->input->get('brand') : 0),
-			'weight' => (!is_null($this->input->get('weight')) ? $this->input->get('weight') : 0),
-			'pack' => (!is_null($this->input->get('pack')) ? $this->input->get('pack') : 0),
-			'composition' => (!is_null($this->input->get('composition')) ? $this->input->get('composition') : 0),
-			'price' => (!is_null($this->input->get('price')) ? $this->input->get('price') : 0),
 			'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
 		);
 

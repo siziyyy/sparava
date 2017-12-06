@@ -575,7 +575,7 @@ class Baselib {
 		
 		//$query = $this->_ci->db->get_where("products", array("product_id" => $product_id,"status" => 1));
 		
-		$sql = 'SELECT p.*, c.bm FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND p.status = 1 AND ptc.category_id = c.category_id AND p.product_id = '.$product_id.' LIMIT 1';
+		$sql = 'SELECT p.*, c.bm FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND ptc.category_id = c.category_id AND p.product_id = '.$product_id.' LIMIT 1';
 		
 		$query = $this->_ci->db->query($sql);
 		
@@ -1051,10 +1051,6 @@ class Baselib {
 		$filters_used = false;
 		
 		$filters_arr = array(
-			'country' => ($filters['country'] ? explode(';',$filters['country']) : 0),
-			'brand' => ($filters['brand'] ? explode(';',$filters['brand']) : 0),
-			'pack' => ($filters['pack'] ? explode(';',$filters['pack']) : 0),
-			'composition' => ($filters['composition'] ? explode(';',$filters['composition']) : 0),
 			'category' => ($filters['category'] ? explode(';',$filters['category']) : 0)
 		);
 		
@@ -1104,52 +1100,6 @@ class Baselib {
 			}
 		}	
 
-		$price_sort = array();
-
-		
-		
-		foreach($products as $product_id => $product) {
-			if($filters_arr['country'] and !in_array($product['country'], $filters_arr['country'])) {
-				unset($products[$product_id]);
-				$filters_used = true;
-				continue;
-			}
-			
-			if($filters_arr['brand'] and !in_array($product['brand'], $filters_arr['brand'])) {
-				unset($products[$product_id]);
-				$filters_used = true;
-				continue;
-			}	
-			
-			if($filters_arr['pack'] and !in_array($product['pack'], $filters_arr['pack'])) {
-				unset($products[$product_id]);
-				$filters_used = true;
-				continue;
-			}
-
-			if($filters_arr['composition'] and !in_array($product['composition'], $filters_arr['composition'])) {
-				unset($products[$product_id]);
-				$filters_used = true;
-				continue;
-			}
-			
-			if($filters['weight']) {
-				if($filters['weight'] == 'raz' and $product['type'] == 'шт') {
-					unset($products[$product_id]);
-					$filters_used = true;
-					continue;
-				} elseif($filters['weight'] == 'upa' and $product['type'] != 'шт') {
-					unset($products[$product_id]);
-					$filters_used = true;
-					continue;
-				}
-			}			
-			
-			if($filters['price']) {
-				$price_sort[$product_id] = $product['price'];
-				$filters_used = true;
-			}			
-		}
 		
 		$prodcuts_in_page = array();
 		$page_start = ($page-1)*30;
@@ -1159,12 +1109,6 @@ class Baselib {
 		
 		if(count($products)%30 > 0)  {
 			$pages_count++;
-		}
-
-		if($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'asc') {
-			array_multisort($price_sort,SORT_ASC, $products);
-		} elseif($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'desc') {
-			array_multisort($price_sort,SORT_DESC, $products);
 		}
 		
 		foreach($products as $product_id => $product) {
@@ -1187,14 +1131,6 @@ class Baselib {
 			if(isset($filters_arr[$key]) and $filters_arr[$key]) {
 				$filters_text[$key] = $this->get_filter_text($key,count($filters_arr[$key]));
 			}
-		}
-		
-		if($filters['price']) {
-			$filters_text['price'] = $this->get_filter_text('price',$filters['price']);
-		}
-		
-		if($filters['weight']) {
-			$filters_text['weight'] = $this->get_filter_text('weight',$filters['weight']);
 		}
 		
 		return array(

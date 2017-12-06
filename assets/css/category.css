@@ -746,6 +746,9 @@ textarea.g_good_admin_info_modal_input {
     display: inline-block;
     float: none;
 }
+.inactive_good {
+	opacity:0.5;
+}
 @media all and (max-width: 800px) {
 	.g_good_description {
 		display:block;
