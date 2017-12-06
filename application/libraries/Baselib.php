@@ -101,7 +101,7 @@ class Baselib {
 	public function get_all_categories() {
 		
 		$categories = array();
-		$query = $this->_ci->db->select("*")->from("categories")->order_by('sort_order','ASC')->get();
+		$query = $this->_ci->db->select("*")->from("categories")->where('status',1)->order_by('sort_order','ASC')->get();
 		
 		if ($query->num_rows() > 0) {
 			foreach ($query->result_array() as $row) {				
@@ -115,7 +115,7 @@ class Baselib {
 	public function get_categories($current_category = false,$all_in_first_line = false) {
 		
 		$categories = array();
-		$query = $this->_ci->db->select("*")->from("categories")->order_by('sort_order', 'ASC')->get();
+		$query = $this->_ci->db->select("*")->from("categories")->where('status',1)->order_by('sort_order', 'ASC')->get();
 		
 		if ($query->num_rows() > 0) {
 			foreach ($query->result_array() as $row) {				
@@ -222,7 +222,7 @@ class Baselib {
 		$products = array();
 		
 		if(!is_numeric($category)) {
-			$c_query = $this->_ci->db->get_where("categories", array("seo_url" => $category));
+			$c_query = $this->_ci->db->get_where("categories", array("seo_url" => $category,"status" => 1));
 			if ($c_query->num_rows() > 0) {
 				$category_id = $c_query->row_array()['category_id'];
 			} else {

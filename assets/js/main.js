@@ -593,6 +593,9 @@ $(document).ready(function(){
 			type = 'кг';
 		}
 		
+		price = $(this).parents(parent_class).find(".g_good_price_value").text();		
+		$(this).parents(parent_class).find(".g_good_to_cart_value").text(quantity*price);
+		
 		$(this).val(quantity+' '+type);
 	});
 	
