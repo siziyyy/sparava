@@ -983,10 +983,27 @@ class Baselib {
 			'provider' => ($filters['provider'] ? explode(';',$filters['provider']) : 0)
 		);
 		
+		foreach($filters_arr as $key => $value) {
+			if(isset($filters_arr[$key]) and $filters_arr[$key]) {
+				foreach($filters_arr[$key] as $index_of_value_to_check => $value_to_check) {
+					if(empty($value_to_check)) {
+						unset($filters_arr[$key][$index_of_value_to_check]);
+					}
+				}
+				
+				if(empty($filters_arr[$key])) {
+					$filters_arr[$key] = 0;
+				}
+			}
+		}	
+		
+		
 		$providers_for_provider = array();
 		
 		foreach($input_products as $product_id => $product) {
-			$providers_for_provider[] = $product['provider'];
+			if(!empty($product['provider'])) {
+				$providers_for_provider[] = $product['provider'];
+			}
 		}		
 		
 		$providers_for_provider = array_unique($providers_for_provider);
@@ -1226,15 +1243,7 @@ class Baselib {
 			if(isset($filters_arr[$key]) and $filters_arr[$key]) {
 				$filters_text[$key] = $this->get_filter_text($key,count($filters_arr[$key]));
 			}
-		}
-		
-		if($filters['price']) {
-			$filters_text['price'] = $this->get_filter_text('price',$filters['price']);
-		}
-		
-		if($filters['weight']) {
-			$filters_text['weight'] = $this->get_filter_text('weight',$filters['weight']);
-		}		
+		}	
 		
 		return array(
 			'products' => $prodcuts_in_page,

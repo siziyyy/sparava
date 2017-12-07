@@ -320,12 +320,38 @@ $(document).ready(function(){
 		window.location = window.location.origin+window.location.pathname+'?'+ArrayToURL(params);
 	});	
 	
-	
 	$(document).on('click','.new_login_message_back',function(e) {
 		e.preventDefault();
 		$('.new_auth').show();
 		$('.new_login_message').hide();
 		$('.new_login_message_next').hide();
+	});
+	
+	$(document).on('click','.delete_selected_filter',function(e) {
+		e.preventDefault();
+		filter = $(this).attr('data-value');
+		type = $(this).attr('data-type');
+
+		tail = window.location.search;	
+		params = URLToArray(tail);
+		
+		if(type == 'price' || type == 'weight') {
+			delete params[type];
+		} else {
+			values = params[type];
+			
+			if(values) {
+				values = values.split(';');
+			}
+			
+			index = values.indexOf(filter);
+			
+			delete values[index];
+			
+			params[type] = values.join(';');
+		}
+
+		window.location = window.location.origin+window.location.pathname+'?'+ArrayToURL(params); 		
 	});
 	
 	$(document).on('click','.new_login_message_login',function(e) {
@@ -504,15 +530,10 @@ $(document).ready(function(){
         $('.mobile_modal').hide();
         $('.mobile_restore_success').hide();
         $('.mobile_auth').hide();
-    });	
-    $('.mobgb2').click(function() {
-        $('.mobile_restore_success').show();
-    });	
+    });
     $('.mobile_modal_close_fav').click(function() {
+		$('.mobile_modal').show();
         $('.mobile_fav').hide();
-    });	
-    $('.m_h_fav').click(function() {
-        $('.mobile_fav').show();
     });
     $('.mobile_cat_fav_modal_close').click(function() {
         $('.mobile_cat_fav_modal').hide();
@@ -995,7 +1016,15 @@ $(document).ready(function(){
 					remind_email : ($('.remind_email3').val() || -1 )
 				}
 				
-				break;				
+				break;
+
+			case 'remind4':
+				send_data = {
+					type : type,
+					remind_email : ($('.remind_email4').val() || -1 )
+				}
+				
+				break;					
 				
 			case 'check_login2':
 				
@@ -1055,6 +1084,8 @@ $(document).ready(function(){
 							$('.new_auth').hide();
 							$('.new_login_message').show();
 							$('.text_register3').show();
+							$('.mobile_modal').hide();
+							$('.register_succes_4').show();
 						} else if(send_data.type == 'register') {
 							if($('#shipping_form').length > 0) {
 								$('#shipping_form').submit();
@@ -1075,6 +1106,9 @@ $(document).ready(function(){
 							$('.new_login_message_restore').hide();
 							$('.new_login_message').show();
 							$('.text_remind3').show();
+						} else if(send_data.type == 'remind4') {
+							$('.mobile_modal').hide();
+							$('.mobile_restore_success').show();
 						} else if(send_data.type == 'favourite') {
 							parent_object.find('.good_modal_fav').addClass('good_modal_fav_ylw');
 							parent_object.find('.g_good_mobile_fav').addClass('g_good_mobile_fav_orange');
@@ -1210,6 +1244,8 @@ $(document).ready(function(){
 								$('.new_auth').hide();
 								$('.new_login_message').show();
 								$('.text_busy3').show();
+								$('.mobile_modal').hide();
+								$('.register_error_busy4').show();
 							} else {
 								$('.email_error').show();
 								$('.blah_closer').show();								
@@ -1226,7 +1262,12 @@ $(document).ready(function(){
 							$('.new_auth').hide();
 							$('.new_login_message').show();
 							$('.text_error_login3').show();
-						}
+							$('.mobile_modal').hide();
+							$('.login_error_4').show();							
+						} else if(type == 'remind4') {
+							$('.mobile_modal').hide();
+							$('.remind_error4').show();
+						}						
 					} else if(json['remove']) {
 						if(send_data.type == 'favourite') {
 							parent_object.find('.good_modal_fav').removeClass('good_modal_fav_ylw');

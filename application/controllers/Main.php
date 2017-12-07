@@ -990,9 +990,11 @@ class Main extends CI_Controller {
 			case 'remind':
 			case 'remind2':
 			case 'remind3':
+			case 'remind4':
 			
 				if(!is_null($this->input->post('remind_email'))) {
 					if(!valid_email($this->input->post('remind_email'))) {
+						$json['error'] = 'error';
 						break;
 					}
 					

@@ -219,6 +219,13 @@
 						<?php if(count($attributes['countries']) > 0) { ?>
                   		<div class="new_mob_submenu_filter_item open_inner_filter" data-target="filter-country">
                   			<div class="new_mob_submenu_filter_item_name fl_l">Страна</div>
+							<?php if(!empty($menu['filters']['country'])) { ?>
+								<?php foreach(explode(';',$menu['filters']['country']) as $filter) { ?>
+									<?php if(!empty($filter)) { ?>
+										<span class="new_mob_submenu_filter_item_name_selected"><?php echo $filter ?> <span class="delete_selected_filter" data-value="<?php echo $filter ?>" data-type="country"> × </span></span>
+									<?php } ?>
+								<?php } ?>
+							<?php } ?>
                   			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
                   			<div class="clear"></div>
                   		</div>
@@ -226,8 +233,13 @@
 						<?php if(count($attributes['brands']) > 0) { ?>
                   		<div class="new_mob_submenu_filter_item open_inner_filter" data-target="filter-brand">
                   			<div class="new_mob_submenu_filter_item_name fl_l">Бренд</div>
-                            <span class="new_mob_submenu_filter_item_name_selected">Башкирский мед <span>&times;</span></span>
-                            <span class="new_mob_submenu_filter_item_name_selected">Медовуха <span>&times;</span></span>
+							<?php if(!empty($menu['filters']['brand'])) { ?>
+								<?php foreach(explode(';',$menu['filters']['brand']) as $filter) { ?>
+									<?php if(!empty($filter)) { ?>
+										<span class="new_mob_submenu_filter_item_name_selected"><?php echo $filter ?> <span class="delete_selected_filter" data-value="<?php echo $filter ?>" data-type="brand"> × </span></span>
+									<?php } ?>
+								<?php } ?>
+							<?php } ?>
                   			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
                   			<div class="clear"></div>
                   		</div>
@@ -235,6 +247,13 @@
 						<?php if(count($attributes['compositions']) > 0) { ?>
                   		<div class="new_mob_submenu_filter_item open_inner_filter" data-target="filter-composition">
                   			<div class="new_mob_submenu_filter_item_name fl_l">Состав</div>
+							<?php if(!empty($menu['filters']['composition'])) { ?>
+								<?php foreach(explode(';',$menu['filters']['composition']) as $filter) { ?>
+									<?php if(!empty($filter)) { ?>
+										<span class="new_mob_submenu_filter_item_name_selected"><?php echo $filter ?> <span class="delete_selected_filter" data-value="<?php echo $filter ?>" data-type="composition"> × </span></span>
+									<?php } ?>
+								<?php } ?>
+							<?php } ?>							
                   			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
                   			<div class="clear"></div>
                   		</div>
@@ -246,15 +265,21 @@
                   			<div class="clear"></div>
                   		</div>
 						<?php } ?>
-						<?php if(count($attributes['brands']) > 0) { ?>
+						<?php if(count($attributes['show_weights']) > 0) { ?>
                   		<div class="new_mob_submenu_filter_item open_inner_filter" data-target="filter-weight">
                   			<div class="new_mob_submenu_filter_item_name fl_l">Вес</div>
+							<?php if($filters['weight']) { ?>
+								<span class="new_mob_submenu_filter_item_name_selected"><?php echo ($filters['weight'] === 'raz' ? 'на развес' : ($filters['weight'] === 'upa' ? 'в упаковке' : '' )) ?> <span class="delete_selected_filter" data-value="<?php echo $filter ?>" data-type="weight"> × </span></span>
+							<?php } ?>
                   			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
                   			<div class="clear"></div>
                   		</div>
 						<?php } ?>
                   		<div class="new_mob_submenu_filter_item open_inner_filter" data-target="filter-price">
                   			<div class="new_mob_submenu_filter_item_name fl_l">Цена</div>
+							<?php if($filters['price']) { ?>
+								<span class="new_mob_submenu_filter_item_name_selected"><?php echo ($filters['price'] === 'desc' ? 'по убыванию' : ($filters['price'] === 'asc' ? 'по возрастанию' : '' )) ?> <span class="delete_selected_filter" data-value="<?php echo $filter ?>" data-type="price"> × </span></span>
+							<?php } ?>
                   			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
                   			<div class="clear"></div>
                   		</div>

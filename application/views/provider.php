@@ -24,7 +24,18 @@
 									</div>
 									<div class="cool_select_button">применить</div>
 								</div>									
-                            </div>						
+                            </div>	
+							
+							<div class="cool_select_pack fl_l" data-type="country">
+								<?php if(!empty($menu['filters']['provider'])) { ?>
+									<?php foreach(explode(';',$menu['filters']['provider']) as $s_provider) { ?>
+										<?php if(!empty($s_provider)) { ?>
+											<?php echo $s_provider ?> <span class="delete_selected_filter" data-value="<?php echo $s_provider ?>" data-type="provider"> × </span>
+										<?php } ?>
+									<?php } ?>
+								<?php } ?>
+							</div>
+							
                             <div class="c_new_menu_line_item c_new_menu_line_item_right fl_r">
                                 <span class="c_new_menu_more">другие продукты</span>
                                 <span class="c_new_menu_more_icon"></span>

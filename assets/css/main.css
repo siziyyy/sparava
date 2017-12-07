@@ -58,6 +58,9 @@ header {
     -webkit-box-shadow: none;
             box-shadow: none;
 }
+.register_error_busy4,.register_succes_4,.login_error_4 {
+	display:none;
+}
 .mobile_restore {
     font-size: 12px;
     padding: 25px 15px 0;
@@ -532,7 +535,6 @@ input {
     margin-top: -26px;
     position: absolute;
     right: 10px;
-    display: none;
     transform: scale(.8);
 }
 .g_good_mobile_fav_orange {
