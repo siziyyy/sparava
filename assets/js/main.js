@@ -95,7 +95,6 @@ $(document).ready(function(){
 	//////////////////////////////////////////////
 	//////////////////////////////////////////////
 
-
 	$('.m_h_hamb').click(function() {
 		$('.aside_mobile_menu').toggle();
 	});
@@ -299,6 +298,31 @@ $(document).ready(function(){
 		$('.blaah').show();
 		$('.blah_closer').show();
 	});
+	
+	$(document).on('click','.good_modal_video',function(e) {
+		e.preventDefault();
+		
+		video_id = $(this).attr('data-video-id');
+		play_video(video_id);
+		
+		$('.player').show();
+		$('.video_closer').show();
+		$('.good_modal').hide();
+		$('.good_modal_closer').hide();		
+	});
+	
+	$(document).on('click','.select_video_in_playlist',function(e) {		
+		video_id = $(this).attr('data-video-id');		
+		play_video(video_id);	
+	});
+	
+	$(document).on('click','.video_closer',function(e) {
+		e.preventDefault();
+		$('.player').hide();
+		$('.video_closer').hide();	
+		$('#player_wrapper').empty();
+		$('#player_wrapper').append('<div id="player"></div>');
+	});	
 	
 	$(document).on('click','.new_auth_remind',function(e) {
 		e.preventDefault();
@@ -1151,7 +1175,8 @@ $(document).ready(function(){
 							
 							$('#product_info .composition').hide();
 							$('#product_info .good_modal_video_line').hide();
-							$('#product_info .good_modal_video_line').empty();							
+							$('#product_info .good_modal_video_line').empty();	
+							$('#playlist').empty();						
 							
 							if(product['kkal']) {
 								$('#product_info .kkal').text(product['kkal']);
@@ -1180,8 +1205,9 @@ $(document).ready(function(){
 
 							if(product['youtube'][0].length > 0) {
 								for (k in product['youtube']) {
-									html = '<div class="good_modal_video" style="background:url(\'https://i1.ytimg.com/vi/'+product['youtube'][k]+'/default.jpg\')"><div class="good_modal_video_play sprite"></div></div>';
+									html = '<div class="good_modal_video" data-video-id="'+product['youtube'][k]+'" style="background:url(\'https://i1.ytimg.com/vi/'+product['youtube'][k]+'/default.jpg\')"><div class="good_modal_video_play sprite"></div></div>';
 									$('#product_info .good_modal_video_line').append(html);
+									load_youtube_data(product['youtube'][k]);
 								}
 								$('#product_info .good_modal_video_line').show();
 							}
@@ -1444,4 +1470,69 @@ function calculate_price() {
 	}
 	
 	$('#product_form .final_price').text(final_price);
+}
+
+function load_youtube_data(youtube_id) {
+	video_data = [];
+	
+	xmlhttp = new XMLHttpRequest();
+	url = 'https://www.googleapis.com/youtube/v3/videos?id='+youtube_id+'&key=AIzaSyAFi-LQRSW4n09JAN_lZd-57XapbmDDQtE&part=snippet,contentDetails,statistics,status';
+
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			pre_video_data = JSON.parse(this.responseText);
+			
+			if(pre_video_data['items'][0]) {
+				video_data['title'] = pre_video_data['items'][0]['snippet']['title'];
+				video_data['image'] = pre_video_data['items'][0]['snippet']['thumbnails']['default']['url'];
+				
+				time = pre_video_data['items'][0]['contentDetails']['duration'].replace("PT","");
+				time = time.replace("S","");
+				time = time.split('M');
+				video_data['time'] = time;
+				
+				video_data['video_id'] = youtube_id;
+				
+				set_video_data_to_player(video_data);
+			}
+			
+		}
+	};
+	xmlhttp.open("GET", url, true);
+	xmlhttp.send();
+}
+
+function set_video_data_to_player(video_data) {
+	html = '<a href="#" data-video-id="'+video_data['video_id']+'" class="select_video_in_playlist">'
+	+ '<div class="video_first">'
+	+ '<div class="dot"></div>'
+	+ '<div class="cover"><img src="'+video_data['image']+'"></div>'
+	+ '<div class="description">'
+	+ '<span>'+video_data['title']+'</span><br>'
+	+ '<span class="date">'+video_data['time'][0]+':'+video_data['time'][1]+'</span>'
+	+ '</div>'
+	+ '</div>'
+	+ '</a>';
+	
+	$('#playlist').append(html);
+}
+
+function play_video(video_id) {
+	$('#player_wrapper').empty();
+	$('#player_wrapper').append('<div id="player"></div>');	
+	
+	var player;
+	
+	player = new YT.Player('player', {
+		height: '540',
+		width: '960',
+		videoId: video_id,
+		events: {
+			'onReady': onPlayerReady
+		}
+	});	
+}
+
+function onPlayerReady(event) {
+	event.target.playVideo();
 }

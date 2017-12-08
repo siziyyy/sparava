@@ -1209,6 +1209,13 @@ footer {
     background: transparent;
     display: none;
 }
+.video_closer {
+	background: #000;
+	opacity: 0.5;
+}
+.player {
+	position: fixed;
+}
 /* modal */
 .mm_mask {
     position: fixed;
