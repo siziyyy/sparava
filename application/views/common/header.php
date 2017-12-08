@@ -39,6 +39,8 @@ body,html,textarea{font-family:Calibri}
         <link rel="stylesheet" href="/assets/css/category.css"><!-- only catalog -->
         <link rel="stylesheet" href="/assets/css/contacts.css"><!-- only contacts -->
         <link rel="stylesheet" href="/assets/css/cart.css"><!-- only cart -->
+		<link rel="stylesheet" href="/assets/css/youtube.css">
+		<link rel="stylesheet" href="/assets/css/youtube.scroll.min.css">		
 	</head>
 	<body>
 	
@@ -115,6 +117,7 @@ body,html,textarea{font-family:Calibri}
         <div class="closer mobile_category_dropdown_closer"></div>
         <div class="closer good_modal_closer"></div>
         <div class="closer login_closer"></div>
+		<div class="closer video_closer"></div>
         <? // require '_modal.php'; ?><!-- modal -->
         <div class="mobile_category_dropdown">
             <div class="mobile_category_dropdown_line">по рейтингу</div>

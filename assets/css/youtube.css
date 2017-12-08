@@ -1,0 +1,170 @@
+.player {
+  font-size: 12px;
+  line-height: 1.6;
+  font-family: Arial;
+  overflow-x: hidden;
+  margin: 0;
+  text-align: center;
+	top: 0;
+    left: 0;
+    display: none;
+position: fixed;
+    z-index: 9999;
+}
+.mainVideo {
+  float: left;
+  width: 960px;
+  height: 540px;
+  -webkit-background-size: cover;
+          background-size: cover; }
+  .mainVideo .wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .mainVideo .wrapper .text {
+      position: absolute;
+      top: 12px;
+      left: 25px;
+      color: #000;
+      font-size: 15px; }
+    .mainVideo .wrapper .play {
+      display: block;
+      width: 50px;
+      height: 37px;
+      background: url(/assets/img/youtube/play.png) no-repeat center;
+      -webkit-background-size: contain;
+              background-size: contain; }
+
+.playlist {
+  float: left;
+  width: 406px; }
+  .playlist .wrapperVideo {
+    width: auto;
+    height: 455px;
+    overflow-y: scroll; }
+    .playlist .wrapperVideo::-webkit-scrollbar {
+      display: none; }
+
+.top {
+  background: #313030;
+  height: 42px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .top .wrapper {
+    width: 100%; }
+    .top .wrapper .text {
+      color: #6D6864;
+      display: block;
+      float: left;
+      font-size: 12px;
+      padding-left: 25px;
+      padding-top: 3px; }
+      .top .wrapper .text .italic {
+        font-style: italic; }
+    .top .wrapper .full_size {
+      display: block;
+      float: right;
+      width: 25px;
+      height: 25px;
+      background: url(/assets/img/youtube/full.png) no-repeat center;
+      -webkit-background-size: contain;
+              background-size: contain;
+      margin-right: 10px; }
+
+[class^="video"] {
+  background: #393737;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 11px 0;
+  }
+  [class^="video"] .dot {
+    width: 6.5px;
+    height: 6.5px;
+    background: #A6A199;
+    margin-left: 9px;
+    -webkit-border-radius: 50%;
+            border-radius: 50%;
+    margin-top: 34.75px; }
+  [class^="video"] .cover {
+    margin-left: 9px;
+    width: 116px;
+    height: 66px;
+    margin-top: 4px;
+    background: url(/assets/img/youtube/video.png) no-repeat center;
+    -webkit-background-size: cover;
+            background-size: cover; }
+  [class^="video"] .description {
+    padding-left: 14px;
+    width: 221px;
+    text-align: left;
+    color: #A6A199; }
+    [class^="video"] .description .date {
+      color: #7C7671; }
+
+.playing {
+  background: #4C4846; }
+  .playing .dot {
+    background: #E31E24; }
+  .playing .description {
+    color: #D7D5CE; }
+
+.video_first:hover {
+  background: #3E3B3B; }
+
+.bottom {
+  background: #313030;
+  height: 42px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top: 1px solid #464241; }
+  .bottom .wrapper {
+    width: 100%; }
+    .bottom .wrapper span {
+      padding-right: 14px; }
+    .bottom .wrapper .text {
+      color: #67625E;
+      display: block;
+      float: right;
+      font-size: 10px; }
+    .bottom .wrapper a {
+      display: block; }
+      .bottom .wrapper a:first-child {
+        padding-right: 33px;
+        padding-left: 6px; }
+
+.player a {
+  list-style: none;
+  text-decoration: none;
+  color: inherit; }
+  
+@media screen and (max-width: 1366px) {
+  .mainVideo {
+    width: 53.5%; }
+  .playlist {
+    width: 370px; } }
