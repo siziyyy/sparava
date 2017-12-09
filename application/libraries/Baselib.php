@@ -1034,6 +1034,7 @@ class Baselib {
 		}		
 		
 		$providers_for_provider = array_unique($providers_for_provider);
+		asort($providers_for_provider);
 
 		$products = array();
 		

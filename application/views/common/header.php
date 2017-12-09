@@ -505,9 +505,9 @@ body,html,textarea{font-family:Calibri}
     				<div class="h_menu fl_r">
     					<a href="/blogs" class="h_link green_text dirty_link">наш вкусный блог</a>
     					<a href="/information" class="h_link">вся информация</a>
+						<a href="/favourites" class="new_h_link h_link">избранное</a>
 						<?php if($this->baselib->is_logged()) { ?>
                         <a href="/orders" class="new_h_link new_h_link_fst h_link">мои заказы</a>
-                        <a href="/favourites" class="new_h_link h_link">избранное</a>
 						<a href="/logout" class="new_h_link h_link">выйти</a>
 						<?php } ?>
     				</div>

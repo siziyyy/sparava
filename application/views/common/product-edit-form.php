@@ -1,6 +1,6 @@
 		<div class="g_good_admin_info_modal" id="product_form">
             <input type="hidden" class="product_id">        
-            <div class="g_good_admin_info_modal_header product_name_text"></div>
+            <div class="g_good_admin_info_modal_header"><span class="product_id_text"></span> - <span class="product_name_text"></span></div>
             <aside class="g_good_admin_info_modal_left fl_l">
                 <div class="g_good_admin_info_modal_photo">
                     <img src="" alt="" class="product_image">
