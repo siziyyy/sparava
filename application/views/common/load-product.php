@@ -12,7 +12,7 @@
 		<div class="g_old_good_price_date">
 			<?php echo ($product['type'] == 'шт' ? (!is_null($product['weight']) ? ' - '.$product['weight'] : '') : ($product['bm'] == 1 ? ' за 1 кг' : ' за 100 гр')) ?>
 		</div>
-		<div class="g_good_mobile_fav sprite send" data-type="favourite"></div>
+		<div class="g_good_mobile_fav <?php echo (isset($product['favourite']) ? 'g_good_mobile_fav_orange' : '') ?> sprite send" data-type="favourite"></div>
 		<div class="g_admin_info">inf</div>
 		<div class="g_good_name"><?php echo $product['title'] ?></div>
 	   <!-- <div class="g_good_description">

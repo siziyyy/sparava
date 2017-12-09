@@ -22,6 +22,7 @@ function listener(event) {
 		$('#product_form .product_description').val(product.description);
 		
 		$('#product_form .product_id').val(product.product_id);
+		$('#product_form .product_id_text').text(product.product_id);
 		$('#product_form .product_image').attr('src','/images/'+product.image);
 		$('#product_form .product_provider').val(product.provider);
 		$('#product_form .product_type').val(product.type);
