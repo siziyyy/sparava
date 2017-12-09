@@ -11,6 +11,15 @@ body,html,textarea{font-family:Calibri}
   font-weight: normal;
   font-style: normal;
 }
+.dlt_provide {
+    margin: 0px 17px 0 3px;
+    display: inline-block;
+    cursor: pointer;
+    color: #999;
+}
+.dlt_provide:hover {
+    color: #fe4517;
+}
 .lt {
         position: relative;
     top: 1px;

@@ -30,7 +30,7 @@
 								<?php if(!empty($menu['filters']['provider'])) { ?>
 									<?php foreach(explode(';',$menu['filters']['provider']) as $s_provider) { ?>
 										<?php if(!empty($s_provider)) { ?>
-											<?php echo $s_provider ?> <span class="delete_selected_filter" data-value="<?php echo $s_provider ?>" data-type="provider"> × </span>
+											<?php echo $s_provider ?> <span class="dlt_provide delete_selected_filter" data-value="<?php echo $s_provider ?>" data-type="provider"> × </span>
 										<?php } ?>
 									<?php } ?>
 								<?php } ?>
