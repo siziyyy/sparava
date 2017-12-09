@@ -394,6 +394,7 @@ class Main extends CI_Controller {
 		$data['pages_count'] = $products_in_page['pages_count'];
 		$data['filters_used'] = $products_in_page['filters_used'];
 		$data['filters_text'] = $products_in_page['filters_text'];
+		$data['filters_count'] = $products_in_page['filters_count'];
 		$data['current_page'] = $page;
 		$data['menu']['products_count'] = $products_in_page['products_count'];
 		$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);

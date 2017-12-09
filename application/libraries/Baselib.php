@@ -774,6 +774,7 @@ class Baselib {
 	
 	public function filter_products($products,$filters,$page) {
 		$price_sort = array();
+		$filters_count = 0;
 		
 		$filters_arr = array(
 			'country' => ($filters['country'] ? explode(';',$filters['country']) : 0),
@@ -781,6 +782,31 @@ class Baselib {
 			'pack' => ($filters['pack'] ? explode(';',$filters['pack']) : 0),
 			'composition' => ($filters['composition'] ? explode(';',$filters['composition']) : 0)
 		);
+		
+		foreach($filters_arr as $key => $value) {
+			if(isset($filters_arr[$key]) and $filters_arr[$key]) {
+				foreach($filters_arr[$key] as $index_of_value_to_check => $value_to_check) {
+					$filters_count++;
+					
+					if(empty($value_to_check)) {
+						unset($filters_arr[$key][$index_of_value_to_check]);
+						$filters_count--;
+					}
+				}
+				
+				if(empty($filters_arr[$key])) {
+					$filters_arr[$key] = 0;
+				}
+			}
+		}
+
+		if($filters['price']) {
+			$filters_count++;
+		}
+
+		if($filters['weight']) {
+			$filters_count++;
+		}		
 
 		$filters_used = false;
 		
@@ -809,7 +835,7 @@ class Baselib {
 				continue;
 			}
 			
-			if($filters['weight']) {
+			if($filters['weight']) {				
 				if($filters['weight'] == 'raz' and $product['type'] == 'шт') {
 					unset($products[$product_id]);
 					$filters_used = true;
@@ -879,7 +905,8 @@ class Baselib {
 			'products_count' => count($products),
 			'filters_used' => $filters_used,
 			'empty_products' => $empty_products,
-			'filters_text' => $filters_text
+			'filters_text' => $filters_text,
+			'filters_count' => $filters_count
 		);
 	}
 	
