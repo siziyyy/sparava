@@ -184,7 +184,7 @@
                     Пирожные и рулеты
                     <div class="new_mob_submenu_arrow sprite"></div>
                 </div>-->
-              	<div class="new_mob_submenu_filter fl_r" data-target="filter-menu">фильтры 8<div class="new_mob_submenu_arrow sprite"></div></div>
+              	<div class="new_mob_submenu_filter fl_r" data-target="filter-menu">фильтры <?php echo ((isset($filters_count) and $filters_count>0) ? $filters_count : '') ?><div class="new_mob_submenu_arrow sprite"></div></div>
               	<div class="new_mob_submenu_filter fl_r" data-target="category-menu">категории <div class="new_mob_submenu_arrow sprite"></div></div>
               	<div class="clear"></div>
             </div>
@@ -211,7 +211,7 @@
 			</div>
             <div class="new_mob_submenu_dropdown filters_holder" id="filter-menu">
               	<div class="new_mob_submenu_dropdown_header">
-              		<div class="new_mob_submenu_filter fl_r" data-target="filter-menu">фильтры 8 <div class="new_mob_submenu_arrow sprite"></div></div>
+              		<div class="new_mob_submenu_filter fl_r" data-target="filter-menu">фильтры <?php echo ((isset($filters_count) and $filters_count>0) ? $filters_count : '') ?><div class="new_mob_submenu_arrow sprite"></div></div>
               		<div class="clear"></div>
               	</div>
               	<div class="new_mob_submenu_filter_items">		
