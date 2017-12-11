@@ -74,6 +74,10 @@
     color: #fe4517;
     margin: 30px 0 0px;
 }
+.cart_low_alert {
+	font-size: 17px;
+	margin-bottom: 15px;
+}
 .new_hlp {
     margin-top: 30px;
 }

@@ -1,71 +1,66 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="UTF-8">
-  <title>Document</title>
-
-  <link rel="stylesheet" href="/assets/css/blog.css">
-</head>
-<body>
-  <div class="wrapper">
-
-    <div class="menu">
-      <ul class="nav">
-        <li class="item1">ай да еда</li>
-        <li class="item2">наш вкусный блог</li>
-        <li class="item3"> вся информация</li>
-        <li class="item4">8 800 450 10 25</li>
-        <li class="item5">8 495 541 20 20</li>
-        <li class="item6">
-          <div class="cart"></div>
-          <div class="text"><a href="#">корзина пуста</a></div>
-        </li>
-      </ul>
-    </div>
-
-    <div class="add_info">
-      <span class="green">Вкусый блог</span>
-      <span class="grey">
-		<?php if(count($blogs) == 1) { ?>
-			<?php echo count($blogs) ?> публикация
-		<?php } elseif(count($blogs) >= 2 and count($blogs) <= 4) { ?>
-			<?php echo count($blogs) ?> публикации
-		<?php } else { ?>
-			<?php echo count($blogs) ?> публикаций
-		<?php } ?>
-	  </span>
-    </div>
-    <div class="row">
-	
-		<?php $large_post = array_shift($blogs); ?>
-		  <div class="post_large">
-			<div class="post_photo1">
-				<img src="https://aydaeda.ru/assets/img/blogs/<?php echo $large_post['image_file_1']; ?>">
-			</div>
-			<div class="post_text">
-			  <div class="date"><span><?php echo date('d.m',$large_post['create_date']); ?></span></div>
-			  <div class="header"><span><?php echo $large_post['title']; ?></span></div>
-			  <div class="body"><span><?php echo $large_post['content']; ?></span></div>
-			  <a href="/blogs/<?php echo $large_post['blog_id']; ?>" class="next"><span>дальше</span></a>
-			</div>
-		  </div> 
-
-		<?php foreach($blogs as $blog) { ?>
-		  <div class="post">
-			<div class="post_photo2">
-				<img src="https://aydaeda.ru/assets/img/blogs/<?php echo $blog['image_file_2']; ?>">
-			</div>
-			<div class="post_text">
-			  <div class="date"><span><?php echo date('d.m',$blog['create_date']); ?></span></div>
-			  <div class="header"><span><?php echo $blog['title']; ?></span></div>
-			  <div class="body"><span><?php echo $blog['content']; ?></span></div>
-			  <a href="/blogs/<?php echo $blog['blog_id']; ?>" class="next"><span>дальше</span></a>
-			</div>
-		  </div> 
-		<?php } ?>
-		
-    </div>
-  </div>
-</body>
-</html>
+<?php $this->load->view('common/header',$header);?>
+        <section class="content">
+            <div class="content_helper">
+                <div class="blog_header">
+                    <div class="blog_header_left fl_l">Вкусный блог</div>
+                    <div class="blog_header_right fl_r">
+						<?php if(count($blogs) == 1) { ?>
+							<?php echo count($blogs) ?> публикация
+						<?php } elseif(count($blogs) >= 2 and count($blogs) <= 4) { ?>
+							<?php echo count($blogs) ?> публикации
+						<?php } else { ?>
+							<?php echo count($blogs) ?> публикаций
+						<?php } ?>					
+					</div>
+                    <div class="clear"></div>
+                </div>
+				<?php foreach($blogs as $date => $blogs_for_date) { ?>
+					<div class="blog_date_sep">
+					<?php $date = explode('-',$date); ?>
+					<?php echo $months[$date[0]].' '.$date[1] ?>
+					</div>
+					<div class="blog_content">
+						<?php $large_post = array_shift($blogs_for_date); ?>
+						<div class="blog_item blog_wide">
+							<a href="/blogs/<?php echo $large_post['blog_id']; ?>">
+								<div class="blog_img" style="background: url('/assets/img/blogs/<?php echo $large_post['image_file_1']; ?>');"></div>
+							</a>
+							<div class="clog_date"><?php echo date('d.m',$large_post['create_date']); ?></div>
+							<a href="/blogs/<?php echo $large_post['blog_id']; ?>" class="blog_name_link">
+								<div class="blog_name">
+									<?php echo $large_post['title']; ?>
+								</div>
+							</a>
+							<div class="blog_text">
+								<?php echo $large_post['content']; ?> 
+							</div>
+							<a href="/blogs/<?php echo $large_post['blog_id']; ?>" class="blog_next_link">
+								<div class="blog_next">дальше</div>
+							</a>
+						</div>						
+						
+						<?php foreach($blogs_for_date as $blog) { ?>
+							<div class="blog_item">
+								<a href="/blogs/<?php echo $blog['blog_id']; ?>">
+									<div class="blog_img" style="background: url('/assets/img/blogs/<?php echo $blog['image_file_1']; ?>');"></div>
+								</a>
+								<div class="clog_date"><?php echo date('d.m',$blog['create_date']); ?></div>
+								<a href="/blogs/<?php echo $blog['blog_id']; ?>" class="blog_name_link">
+									<div class="blog_name">
+										<?php echo $blog['title']; ?>
+									</div>
+								</a>
+								<div class="blog_text">
+									<?php echo $blog['content']; ?>  
+								</div>
+								<a href="/blogs/<?php echo $blog['blog_id']; ?>" class="blog_next_link">
+									<div class="blog_next">дальше</div>
+								</a>
+							</div>
+						<? } ?>
+						<div class="clear"></div>
+					</div>
+				<?php } ?>
+            </div>
+        </section>
+<?php $this->load->view('common/footer',$footer);?>

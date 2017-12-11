@@ -19,13 +19,13 @@ class Baselib {
 		
 		$query = $query->get();
 		
-		if ($query->num_rows() == 1) {		
+		if ($query->num_rows() == 1) {
 			$result = $query->row_array();
 			$result['content'] = htmlspecialchars_decode($result['content']);
 		} elseif($query->num_rows() > 0) {
 			foreach ($query->result_array() as $row) {				
-				$result[$row['blog_id']] = $row;
-				$result[$row['blog_id']]['content'] = htmlspecialchars_decode($row['content']);
+				$result[date('m-Y',$row['create_date'])][$row['blog_id']] = $row;
+				$result[date('m-Y',$row['create_date'])][$row['blog_id']]['content'] = htmlspecialchars_decode($row['content']);
 			}			
 		}
 		
