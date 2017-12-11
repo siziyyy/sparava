@@ -200,7 +200,7 @@
 								<div class="new_mob_submenu_filter_item open_inner_filter">
 									<a href="/category/<?php echo ( $category['seo_url'] ? $category['seo_url'] : $category['category_id'] ) ?>">
 										<div class="new_mob_submenu_filter_item_name fl_l"><?php echo $category['title'] ?></div>
-										<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
+										<div class="sprite new_mob_submenu_filter_item_arrow fl_r"></div>
 									</a>
 									<div class="clear"></div>
 								</div>									
@@ -226,7 +226,7 @@
 									<?php } ?>
 								<?php } ?>
 							<?php } ?>
-                  			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
+                  			<div class="sprite new_mob_submenu_filter_item_arrow fl_r"></div>
                   			<div class="clear"></div>
                   		</div>
 						<?php } ?>
@@ -240,7 +240,7 @@
 									<?php } ?>
 								<?php } ?>
 							<?php } ?>
-                  			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
+                  			<div class="sprite new_mob_submenu_filter_item_arrow fl_r"></div>
                   			<div class="clear"></div>
                   		</div>
 						<?php } ?>
@@ -254,14 +254,14 @@
 									<?php } ?>
 								<?php } ?>
 							<?php } ?>							
-                  			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
+                  			<div class="sprite new_mob_submenu_filter_item_arrow fl_r"></div>
                   			<div class="clear"></div>
                   		</div>
 						<?php } ?>
 						<?php if(count($attributes['packs']) > 0) { ?>
                   		<div class="new_mob_submenu_filter_item open_inner_filter" data-target="filter-pack">
                   			<div class="new_mob_submenu_filter_item_name fl_l">Упаковка</div>
-                  			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
+                  			<div class="sprite new_mob_submenu_filter_item_arrow fl_r"></div>
                   			<div class="clear"></div>
                   		</div>
 						<?php } ?>
@@ -271,7 +271,7 @@
 							<?php if($filters['weight']) { ?>
 								<span class="new_mob_submenu_filter_item_name_selected"><?php echo ($filters['weight'] === 'raz' ? 'на развес' : ($filters['weight'] === 'upa' ? 'в упаковке' : '' )) ?> <span class="delete_selected_filter" data-value="<?php echo $filter ?>" data-type="weight"> × </span></span>
 							<?php } ?>
-                  			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
+                  			<div class="sprite new_mob_submenu_filter_item_arrow fl_r"></div>
                   			<div class="clear"></div>
                   		</div>
 						<?php } ?>
@@ -280,7 +280,7 @@
 							<?php if($filters['price']) { ?>
 								<span class="new_mob_submenu_filter_item_name_selected"><?php echo ($filters['price'] === 'desc' ? 'по убыванию' : ($filters['price'] === 'asc' ? 'по возрастанию' : '' )) ?> <span class="delete_selected_filter" data-value="<?php echo $filter ?>" data-type="price"> × </span></span>
 							<?php } ?>
-                  			<div class="new_mob_submenu_filter_item_arrow fl_r">&gt;</div>
+                  			<div class="sprite new_mob_submenu_filter_item_arrow fl_r"></div>
                   			<div class="clear"></div>
                   		</div>
                     </div>

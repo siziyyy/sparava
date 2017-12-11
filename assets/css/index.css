@@ -572,18 +572,22 @@ textarea.contact_me_mobile_input {
 .new_mob_submenu_dropdown {
     width: 100vw;
     left: 0;
-    position: absolute;
+    position: fixed;
     background: #FFF;
-    position: absolute;
     z-index: 1;
-    min-height: 100vh;
+    height: calc(100vh - 138px);
+    /*min-height: 100vh;*/
     display: none;
     padding: 0 20px;
     box-sizing: border-box;
 }
 .fmfilter {
+    position: fixed;
+    /*position: relative;*/
     max-width: 100vw;
     max-height: 100vh;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
 }
 .new_mob_submenu_filter_item {
