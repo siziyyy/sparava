@@ -17,12 +17,32 @@ class Main extends CI_Controller {
 		$this->load->view('main', $data);
 	}
 	
-	public function blogs($blog_id = false) {		
+	public function blogs($blog_id = false) {
+		
+		$months = array(
+			1 => 'Январь',
+			2 => 'Февраль',
+			3 => 'Март',
+			4 => 'Апрель',
+			5 => 'Май',
+			6 => 'Июнь',
+			7 => 'Июль',
+			8 => 'Август',
+			9 => 'Сентябрь',
+			10 => 'Октябрь',
+			11 => 'Ноябрь',
+			12 => 'Декабрь'
+		);
+		
 		$data = array(
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
-			'blogs' => $this->baselib->get_blogs($blog_id)
+			'blogs' => $this->baselib->get_blogs($blog_id),
+			'months' => $months,
+			'footer' => array(
+				'account_confirm' => $this->baselib->get_account_data_for_confirm()
+			)
 		);
 		
 		if($blog_id) {
