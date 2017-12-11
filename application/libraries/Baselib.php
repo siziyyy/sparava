@@ -325,7 +325,7 @@ class Baselib {
 		}
 		
 		if($show_hidden) {
-			$sql .= ' ORDER BY p.status DESC';
+			$sql .= ' ORDER BY p.status DESC,p.product_id ASC';
 		}		
 		
 		$query = $this->_ci->db->query($sql);
