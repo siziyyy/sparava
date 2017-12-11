@@ -1,5 +1,5 @@
 <?php $show_minus = false; ?>
-<div class="g_good fl_l <?php echo ($product['status'] == 0 ? 'inactive_good' : '') ?>" data-product-id="<?php echo $product['product_id'] ?>" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>" data-product-id="<?php echo $product['product_id'] ?>">
+<div class="g_good fl_l" data-product-id="<?php echo $product['product_id'] ?>" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>" data-product-id="<?php echo $product['product_id'] ?>">
 	<div class="g_good_photo_block send" data-type="get_product_info">
 		<!--<img src="/images/1.jpg" alt="" class="g_good_photo">-->
 		<img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo">
@@ -14,7 +14,7 @@
 		</div>
 		<div class="g_good_mobile_fav <?php echo (isset($product['favourite']) ? 'g_good_mobile_fav_orange' : '') ?> sprite send" data-type="favourite"></div>
 		<div class="g_admin_info">inf</div>
-		<div class="g_good_name"><?php echo $product['title'] ?></div>
+		<div class="g_good_name <?php echo ($product['status'] == 0 ? 'inactive_good' : '') ?>"><?php echo $product['title'] ?></div>
 	   <!-- <div class="g_good_description">
 			<?php echo $product['description'] ?>
 		</div>-->

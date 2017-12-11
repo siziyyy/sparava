@@ -324,6 +324,10 @@ class Baselib {
 			$sql .= ' AND p.diet = 1';
 		}
 		
+		if($show_hidden) {
+			$sql .= ' ORDER BY p.status DESC';
+		}		
+		
 		$query = $this->_ci->db->query($sql);
 		
 		if ($query->num_rows() > 0) {
