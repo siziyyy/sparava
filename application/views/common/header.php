@@ -43,7 +43,7 @@ body,html,textarea{font-family:Calibri}
 		<link rel="stylesheet" href="/assets/css/youtube.scroll.min.css">		
 	</head>
 	<body>
-	
+		<div class="mobile_check"></div>
 				<!-- Facebook Pixel Code -->
 				<script>
 				!function(f,b,e,v,n,t,s)

@@ -580,7 +580,7 @@
     color: #666;
 }
 .g_good_admin_info_modal {
-    width: 645px;
+    width: 980px;
     height: 920px;
     background: #FFF;
     position: fixed;
@@ -626,7 +626,7 @@
         padding-left: 45px;
 }
 .g_good_admin_info_modal_right {
-    width: 50%;
+    width: 330px;
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;

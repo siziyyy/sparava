@@ -53,6 +53,10 @@ function listener(event) {
 		$('#product_form .product_gi').val(product.gi);
 		$('#product_form .product_video_1').val(product.youtube[0]);
 		$('#product_form .product_video_2').val(product.youtube[1]);
+		
+		$('#product_form .product_consist').val(product.consist);
+		$('#product_form .product_bbefore').val(product.bbefore);
+		$('#product_form .product_sr_ves').val(product.sr_ves);
 				
 		$('#product_form .product_eko').prop('checked', false);
 		if(product.eko > 0) {
@@ -459,8 +463,11 @@ $(document).ready(function(){
 			video_2: $('#product_form .product_video_2').val(),
 			eko: eko,
 			farm: farm,
-			diet: diet
-		}	
+			diet: diet,
+			consist: $('#product_form .product_consist').val(),
+			bbefore: $('#product_form .product_bbefore').val(),
+			sr_ves: $('#product_form .product_sr_ves').val()
+		}
 		
 		send_data = {
 			type : 'save_product',
@@ -1110,7 +1117,9 @@ $(document).ready(function(){
 							$('.new_login_message').show();
 							$('.text_register3').show();
 							$('.mobile_modal').hide();
-							$('.register_succes_4').show();
+							if($( ".mobile_check:hidden" ).length == 0) {
+								$('.register_succes_4').show();
+							}
 						} else if(send_data.type == 'register') {
 							if($('#shipping_form').length > 0) {
 								$('#shipping_form').submit();
@@ -1272,7 +1281,9 @@ $(document).ready(function(){
 								$('.new_login_message').show();
 								$('.text_busy3').show();
 								$('.mobile_modal').hide();
-								$('.register_error_busy4').show();
+								if($( ".mobile_check:hidden" ).length == 0) {
+									$('.register_error_busy4').show();
+								}	
 							} else {
 								$('.email_error').show();
 								$('.blah_closer').show();								
@@ -1290,7 +1301,9 @@ $(document).ready(function(){
 							$('.new_login_message').show();
 							$('.text_error_login3').show();
 							$('.mobile_modal').hide();
-							$('.login_error_4').show();							
+							if($( ".mobile_check:hidden" ).length == 0) {
+								$('.login_error_4').show();
+							}
 						} else if(type == 'remind4') {
 							$('.mobile_modal').hide();
 							$('.remind_error4').show();
