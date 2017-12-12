@@ -93,14 +93,26 @@ position: fixed;
       -webkit-background-size: contain;
               background-size: contain;
       margin-right: 10px; }
-
+iframe#player {
+      position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
 [class^="video"] {
-  background: #393737;
+  /*background: #393737;*/
+  cursor: pointer;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   padding: 11px 0;
+  }
+  [class^="video"] * {
+  cursor: pointer;
   }
   [class^="video"] .dot {
     width: 6.5px;
@@ -111,6 +123,8 @@ position: fixed;
             border-radius: 50%;
     margin-top: 34.75px; }
   [class^="video"] .cover {
+    overflow: hidden;
+    position: relative;
     margin-left: 9px;
     width: 116px;
     height: 66px;
@@ -118,6 +132,12 @@ position: fixed;
     background: url(/assets/img/youtube/video.png) no-repeat center;
     -webkit-background-size: cover;
             background-size: cover; }
+            [class^="video"] .cover img {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
   [class^="video"] .description {
     padding-left: 14px;
     width: 221px;
