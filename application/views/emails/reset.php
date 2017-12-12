@@ -6,18 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body style="font-family: Arial, Helvetica, sans-serif;">
-  <table style="padding: 0 0px 0 30px;" border="0" cellpadding="0" cellspacing="0" style="margin:0; padding:0">
+  <table style="padding: 0 0px 0 30px;  max-width: 500px" border="0" cellpadding="0" cellspacing="0" style="margin:0; padding:0">
     <tr>
       <td style="padding: 40px 0 30px 0; font-size: 45px;  " border="0">
-        <center style="max-width: 600px; width: 100%; text-align: left;">
+        <center style="max-width: 500px; width: 100%; text-align: left;">
           <img src="cid:<?php echo $logo_cid ?>" alt="" style=" border="0" height="66" width="210" style="display:block;"/>
         </center>   
       </td>
     </tr>
   </table>
-  <table style="padding: 0 30px 0 30px;" border="0" cellpadding="0" cellspacing="0" style="margin:0; padding:0">
+  <table style="padding: 0 30px 0 30px;  max-width: 500px" border="0" cellpadding="0" cellspacing="0" style="margin:0; padding:0">
     <tr>
-      <td style="padding: 10px 0 49px 0; font-size: 24px" border="0">
+      <td style="padding: 10px 0 49px 0; font-size: 18px" border="0">
         <center style=" width: 100%; text-align: left; line-height: 1.5">
          <span>Ваш новый пароль <?php echo $password ?></span>
 
@@ -25,7 +25,7 @@
      </td>
    </tr>
  </table>
- <table style="padding: 0 0px 0 30px;" border="0" cellpadding="0" cellspacing="0" style="margin:0; padding:0">
+ <table style="padding: 0 0px 0 30px;  max-width: 500px" border="0" cellpadding="0" cellspacing="0" style="margin:0; padding:0">
 
  <tr >    
     <td style="padding:0px 0; font-size: 24px;  padding: 0 0 39px 0;" border="0">
@@ -50,7 +50,7 @@
 
   <tr>
    <td style=" font-size: 24px" border="0">
-       <table border="0" cellpadding="0" cellspacing="0" style="margin:0; padding:0; min-width: 600px">
+       <table border="0" cellpadding="0" cellspacing="0" style="margin:0; padding:0;  max-width: 500px">
       <tr>
         <td style="padding: 40px 0 0 0;">
           <center style="max-width: 175px; width: 100%; text-align: left;">
@@ -58,7 +58,7 @@
 
          </center> 
        </td>
-       <td style=" font-size: 19px; padding: 45px 35px 0 35px; " border="0">
+       <td style=" font-size: 14px; padding: 45px 35px 0 35px; " border="0">
         <center style="max-width: 900px; width: 100%; text-align: left;">
          <span><b>Я Николай Дадин, руководитель данного проекта</b></span><br><br>
          <span style="line-height: 1.5"><?php echo $name ?> мы рады что Вы стала нашим клиентом, надеемся что мы еще долго будем 
@@ -75,7 +75,7 @@
 </table>
 </td>
 <td style=" font-size: 19px; padding: 0 0px; border-left: 2px solid #e6e6e6; text-align: center;" border="0">
-  <center style="max-width: 900px; width: 400px;">
+  <center style="max-width: 900px; width: 200px;">
     <span>Много вкусного, очень много!</span>
     <br><br><br>
     <a href="https://aydaeda.ru" target="_blank" style="color: #000000; text-decoration: none; border-bottom: 1px solid #000000;">aydaeda.ru</a>

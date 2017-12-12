@@ -141,5 +141,19 @@
                 </label>				
                 <div class="clear"></div>
             </aside>
+			<aside class="g_good_admin_info_modal_right fl_r">
+                <label>
+                    <span class="g_good_admin_info_modal_inpname nom">Расширенный состав</span>
+					<textarea type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_consist"></textarea>
+                </label>
+                <label>
+                    <span class="g_good_admin_info_modal_inpname">Срок годности</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_bbefore">
+                </label>
+                <label>
+                    <span class="g_good_admin_info_modal_inpname">Средний вес</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_sr_ves">
+                </label>
+			</aside>
             <div class="clear"></div>
         </div>
