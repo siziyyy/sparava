@@ -61,6 +61,7 @@
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_composition">
                 </label>
                 <div class="g_good_admin_info_modal_save black_small_button save_product_details">сохранить</div>
+				<div class="g_good_admin_info_modal_save black_small_button close_product_details">закрыть</div>
             </aside>
             <aside class="g_good_admin_info_modal_right fl_r">
                 <label>
