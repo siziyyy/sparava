@@ -481,7 +481,7 @@ $(document).ready(function(){
 		calculate_price();
 	});
 	
-	$(document).on('click','.admin_window_closer',function(e) {
+	$(document).on('click','.admin_window_closer,.close_product_details',function(e) {
 		$('#product_form').hide();
 		$('.admin_window_closer').hide();		
 	});
