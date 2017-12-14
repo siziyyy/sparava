@@ -90,6 +90,10 @@
     font-size: 17px;
     margin: 12px 0 15px;
     font-weight: bold;
+    cursor: pointer;
+}
+.g_good_name:hover {
+    color: #f2593a;
 }
 .g_good_country {
     font-size: 14px;
@@ -144,7 +148,7 @@
 .g_good_to_cart {
     font-size: 14px;
     font-weight: bold;
-    margin-left: 12px;
+    margin-left: 8px;
     background: #e6e6e6;
     -webkit-border-radius: 10px;
             border-radius: 10px;
@@ -468,11 +472,11 @@
 .cool_select_option input {
     cursor: pointer;
     width: 13px;
-    height: 13px;
+    height: 17px;
     margin: 0 3px 0 0px;
     display: inline-block;
     position: relative;
-    top: 3px;
+    top: 5px;
 }
 .cool_select_option:last-child {
     border: none;
@@ -749,8 +753,34 @@ textarea.g_good_admin_info_modal_input {
 .inactive_good {
 	opacity:0.3;
 }
+@media all and (max-width: 1200px) {
+    .c_new_menu_line_country {
+        padding-top: 19px;
+        position: relative;
+        padding-bottom: 7px;
+    }
+    .cool_select_country {
+        width: 300px;
+        margin: -10px 0 0 0px;
+    }
+    .c_new_menu_line_item_right {
+        display: none;
+    } 
+}
 @media all and (max-width: 800px) {
-	.g_good_description {
-		display:block;
-	}
+    .g_good_description {
+        display:block;
+    }
+}
+@media all and (max-width: 500px) {
+    .cool_select_country_pack {
+        width: 150px;
+        margin: 0;
+    }
+    .cool_select_country {
+        width: 150px;
+    }
+    .c_new_menu_line_item {
+        font-size: 12px;
+    }
 }
