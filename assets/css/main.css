@@ -11,11 +11,43 @@ body,html,textarea{font-family:Calibri}
   font-weight: normal;
   font-style: normal;
 }
+.quick_view {
+    position: absolute;
+    background: rgba(255,255,255, .79);
+    font-size: 12px;
+    font-family:Calibri Bold;
+    color: #000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 6px 0;
+    width: 128px;
+    text-align: center;
+    display: none;
+    cursor: pointer;
+}
+.quick_view:hover {
+    background: #FFF;
+}
+.g_good_photo_block:hover .quick_view {
+    display: block;
+}
 .dlt_provide {
     margin: 0px 20px 0 3px;
     display: inline-block;
     cursor: pointer;
     color: #999;
+}
+.average_weight {
+    background: #5EA424;
+    color: #fff;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    position: absolute;
+    bottom: 10px;
+    right: 7px;
+    padding: 5px;
 }
 .dlt_provide:hover {
     color: #fe4517;
@@ -236,6 +268,10 @@ header {
     cursor: pointer;
     position: absolute;
     top: 250px;
+    background-color: #e6e6e6 !important;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
 }
 .good_modal_arrow:hover {
     opacity: .7;
