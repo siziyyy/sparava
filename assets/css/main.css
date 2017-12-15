@@ -139,8 +139,8 @@ header {
     display: none;
 }
 .good_modal {
-    width: 831px;
-    height: 811px;
+    width: 1014px;
+    height: 911px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -148,10 +148,10 @@ header {
     position: fixed;
     top: 50%;
     left: 50%;
-    margin: 0px 0 0 -390px;
+    margin: 0px 0 0 -507px;
     background: #FFF;
     z-index: 999999;
-    padding: 60px;
+    padding: 60px 103px;
     display: none;
     max-height: 90%;
     overflow: auto;
@@ -170,14 +170,14 @@ header {
     width: 100%;
 }
 .good_modal_photo {
-    width: 300px;
+    width: 362px;
     margin: -1px 0 0 -2px;
 }
 .good_modal_line {
-    height: 400px;
+    height: 482px;
 }
 .good_modal_right {
-    width: calc(100% - 300px);
+    width: calc(100% - 362px);
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;
@@ -209,13 +209,15 @@ header {
 }
 .good_modal_country {
     font-family:Calibri Bold;
-    font-size: 18px;
-    margin-bottom: 30px;
+    font-size: 16px;
+    margin: 20px 0 30px 0;
 }
 .good_modal_firm {
-    font-size: 18px;
+    font-size: 16px;
     color: #FE4517;
-    margin-left: 25px;
+    font-family: Calibri Bold;
+    text-decoration: underline;
+    margin: 20px 0 30px 25px;
 }
 .good_modal_header_actions  {
     margin: 1px -9px 0 0;
@@ -280,17 +282,17 @@ header {
     opacity: 1;
 }
 .good_modal_arrow_left {
-    left: 10px;
-    background-position: -196px -523px !important;
+    left: 30px;
+    background-position: -188px -515px !important;
 }
 .good_modal_arrow_right {
-    right: 10px;
+    right: 30px;
     -webkit-transform: rotate(180deg);
        -moz-transform: rotate(180deg);
         -ms-transform: rotate(180deg);
          -o-transform: rotate(180deg);
             transform: rotate(180deg);
-    background-position: -196px -523px !important;
+    background-position: -188px -516px !important;
 }
 .good_modal_share {
     width: 30px;
@@ -357,6 +359,26 @@ header {
     font-size: 14px;
     margin-left: 25px;
     line-height: 36px;
+}
+.good_modal_subhead {
+    font-size: 13px;
+    margin: 0 0 20px 0;
+}
+.good_modal_off {
+    font-size: 14px;
+    margin-left: 25px;
+    line-height: 36px;
+    color: #508F1D;
+}
+.good_modal_rl_header {
+    font-family:Calibri Bold;
+    font-size: 13px;
+}
+.good_modal_av_w, .good_modal_wht_ins, .good_modal_tme, .good_modal_kkk {
+    font-size: 13px;
+    max-width: 440px;
+    display: inline-block;
+    margin: 0 0 10px 0;
 }
 .regb2 {
     background: #fe4517;
