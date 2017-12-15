@@ -12,7 +12,7 @@
 							<?php if(isset($orders)) { ?>
 								<div class="cool_select_pack cool_select_country_pack fl_l">
 									<div class="cool_select cool_select_country">
-										<span>заказ</span>
+										<span><?php echo '№'.$order_id.' - от '.$orders[$order_id] ?></span>
 										<span class="cool_select_arrow sprite"></span>
 									</div>
 									<div class="cool_select_options">

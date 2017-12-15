@@ -59,10 +59,10 @@
 .g_old_good_price_date {
     display: inline-block;
     color: #808080;
-    font-size: 12px;
+    font-size: 14px;
     margin: 0px 0 0 10px;
     position: relative;
-    top: -2px;
+    top: -1px;
 }
 .g_good_price {
     font-weight: bold;
