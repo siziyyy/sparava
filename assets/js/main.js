@@ -327,7 +327,13 @@ $(document).ready(function(){
 		$('.video_closer').hide();	
 		$('#player_wrapper').empty();
 		$('#player_wrapper').append('<div id="player"></div>');
-	});	
+	});
+	
+	$(document).on('keyup','.product_weight',function(e) {		
+		if($(this).val() != '') {
+			$('.product_type').val('шт');
+		}
+	});
 	
 	$(document).on('click','.new_auth_remind',function(e) {
 		e.preventDefault();
@@ -1541,6 +1547,7 @@ function play_video(video_id) {
 		height: '540',
 		width: '960',
 		videoId: video_id,
+		playerVars: { 'modestbranding': 0, 'controls': 1, 'showinfo': 0, 'rel': 0 },
 		events: {
 			'onReady': onPlayerReady
 		}

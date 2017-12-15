@@ -157,11 +157,7 @@
 								</div>
 							</div>
 							
-							<?php if(!$filters_used) { ?>
-								<div class="cool_select_goods_count fl_r">всего товаров: <?php echo $products_count ?></div> 
-							<?php } else { ?>
-								<div class="cool_select_reset fl_r">сбросить фильтр/ы</div>
-							<?php } ?>
+							<div class="cool_select_goods_count fl_r">всего товаров: <?php echo $products_count ?></div> 
                             <div class="clear"></div>
                         </div>
 						<?php $this->load->view('common/menu-categories');?>
