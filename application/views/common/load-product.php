@@ -16,6 +16,7 @@
 		<div class="g_good_mobile_fav <?php echo (isset($product['favourite']) ? 'g_good_mobile_fav_orange' : '') ?> sprite send" data-type="favourite"></div>
 		<div class="g_admin_info">inf</div>
 		<div class="g_good_name <?php echo ($product['status'] == 0 ? 'inactive_good' : '') ?>"><?php echo $product['title'] ?></div>
+		<a href="/" class="g_good_name <?php echo ($product['status'] == 0 ? 'inactive_good' : '') ?>"><?php echo $product['title'] ?></a>
 	   <!-- <div class="g_good_description">
 			<?php echo $product['description'] ?>
 		</div>-->
