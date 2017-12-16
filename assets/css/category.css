@@ -91,9 +91,14 @@
     margin: 12px 0 15px;
     font-weight: bold;
     cursor: pointer;
+    color: #000;
+    display: none;
 }
-.g_good_name:hover {
+a.g_good_name:hover {
     color: #f2593a;
+}
+a.g_good_name {
+    display: block;
 }
 .g_good_country {
     font-size: 14px;
@@ -584,16 +589,16 @@
     color: #666;
 }
 .g_good_admin_info_modal {
-    width: 980px;
-    height: 920px;
+    width: 985px;
+    height: 927px;
     background: #FFF;
     position: fixed;
     top: 50%;
     left: 50%;
-    margin: -465px 0 0 -322px;
     z-index: 9999;
     border: 5px solid #e6e6e6;
-    display: none;
+    /*display: none;*/
+    transform: translate(-50%, -50%);
 }
 .proc {
     text-align: center;
@@ -630,6 +635,14 @@
         padding-left: 45px;
 }
 .g_good_admin_info_modal_right {
+    width: 330px;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        display: block;
+        padding-right: 25px;
+}
+.g_good_admin_info_modal_center {
     width: 330px;
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
@@ -766,6 +779,12 @@ textarea.g_good_admin_info_modal_input {
     .c_new_menu_line_item_right {
         display: none;
     } 
+    .g_good_name {
+        display: block;
+    }
+    a.g_good_name {
+        display: none;
+    }
 }
 @media all and (max-width: 800px) {
     .g_good_description {
