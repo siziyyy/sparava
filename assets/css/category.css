@@ -597,7 +597,7 @@ a.g_good_name {
     left: 50%;
     z-index: 9999;
     border: 5px solid #e6e6e6;
-    /*display: none;*/
+    display: none;
     transform: translate(-50%, -50%);
 }
 .label_for_adminfchck {

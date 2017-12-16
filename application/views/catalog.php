@@ -143,6 +143,24 @@
                                 <div class="good_modal_fav fl_r sprite send" data-type="favourite"></div>
                                 <div class="good_modal_id fl_r">01152</div>
                                 <div class="clear"></div>
+                                <div class="share_it_faster">
+                                    <a href="" class="share_it_soc">
+                                        <div class="share_it_soc_img fb_share"></div>
+                                    </a>
+                                    <a href="" class="share_it_soc">
+                                        <div class="share_it_soc_img tw_share"></div>
+                                    </a>
+                                    <a href="" class="share_it_soc">
+                                        <div class="share_it_soc_img ig_share"></div>
+                                    </a>
+                                    <a href="" class="share_it_soc">
+                                        <div class="share_it_soc_img vk_share"></div>
+                                    </a>
+                                    <a href="" class="share_it_soc">
+                                        <div class="share_it_soc_img ok_share"></div>
+                                    </a>
+                                    <div class="share_it_faster_close">&times;</div>
+                                </div>
                             </div>
                             <div class="clear"></div>
                         </div>
