@@ -221,6 +221,56 @@ header {
 }
 .good_modal_header_actions  {
     margin: 1px -9px 0 0;
+    position: relative;
+}
+.share_it_faster {
+    position: absolute;
+    background: #FFF;
+    border: 1px solid #e6e6e6;
+    height: 45px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 190px;
+    padding: 0 9px;
+    right: 0;
+    top: 41px;
+}
+.share_it_soc_img {
+    width: 22px;
+    height: 22px;
+    -webkit-border-radius: 15px;
+            border-radius: 15px;
+    background-color: #999;
+    display: inline-block;
+    -webkit-transition: background-color .3s ease;
+    -o-transition: background-color .3s ease;
+    transition: background-color .3s ease;
+    background-image: url('/assets/img/share.png');
+    cursor: pointer;
+    margin: 10px 0 0 3px;
+}
+.share_it_soc_img:hover {
+    background-color: #666;
+    -webkit-transition: background-color .3s ease;
+    -o-transition: background-color .3s ease;
+    transition: background-color .3s ease;
+}
+.vk_share {
+    background-position: -39px 1px;
+}
+.tw_share {
+    background-position: -78px 1px;
+}
+.fb_share {
+    background-position: 1px 0px;
+}
+.ig_share {
+    background-position: -16px 2px;
+    background-size: 91px;
+}
+.ok_share {
+    background-position: -60px 1px;
 }
 .good_modal_id {
     font-size: 11px;
@@ -228,6 +278,19 @@ header {
     line-height: 31px;
     font-family: Calibri Bold;
     margin: 0 25px 0 0;
+}
+.share_it_faster_close {
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    top: 11px;
+    color: #4d4d4d;
+    font-family: Calibri Bold;
+    font-size: 19px;
+    cursor: pointer;
+}
+.share_it_faster_close:hover {
+    color: #FE4517;
 }
 .good_modal_video_line {
     position: absolute;
