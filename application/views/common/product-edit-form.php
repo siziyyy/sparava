@@ -119,30 +119,38 @@
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Видео 2</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_video_2">
-                </label>
-                <label>
-                    <input type="checkbox" class="product_eko" value="1"> Эко<br>
-                </label>
-				<label>
-					<input type="checkbox" class="product_farm" value="1"> Фермерское<br>
-                </label>
-				<label>
-					<input type="checkbox" class="product_diet" value="1"> Диетическое<br>
                 </label>				
                 <div class="clear"></div>
             </aside>
             <aside class="g_good_admin_info_modal_right fl_r">
                 <label>
-                    <span class="g_good_admin_info_modal_inpname">Подкатегория</span>
+                    <span class="g_good_admin_info_modal_inpname">Средний вес</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_category">
                 </label>
                 <label>
-                    <span class="g_good_admin_info_modal_inpname">Подкатегория</span>
+                    <span class="g_good_admin_info_modal_inpname">Срок хранения</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_category">
                 </label>
                 <label>
-                    <span class="g_good_admin_info_modal_inpname">Подкатегория</span>
+                    <span class="g_good_admin_info_modal_inpname">Описание</span>
+                    <textarea type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_description"></textarea>
+                </label>
+                <label>
+                    <span class="g_good_admin_info_modal_inpname">Производитель</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_category">
+                </label>
+                <label>
+                    <span class="g_good_admin_info_modal_inpname">Ссылка на блог</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_category">
+                </label>
+                <label class="label_for_adminfchck">
+                    <input type="checkbox" class="product_eko adm_inf_chck" value="1"> Эко
+                </label>
+                <label class="label_for_adminfchck">
+                    <input type="checkbox" class="product_farm adm_inf_chck" value="1"> Фермер
+                </label>
+                <label class="label_for_adminfchck">
+                    <input type="checkbox" class="product_diet adm_inf_chck" value="1"> Диет
                 </label>
             </aside>
             <div class="clear"></div>

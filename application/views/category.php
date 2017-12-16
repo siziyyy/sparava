@@ -7,7 +7,7 @@
                     <?php $this->load->view('common/menu-inner', $menu);?>
                 </div>
             </div>
-            <div class="content_helper">
+            <div class="content_helper content_helper_gds">
                 <div class="goods">
                     <?php foreach($products as $product) { ?>
 						<?php $info['product'] = $product; ?>
