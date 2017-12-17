@@ -858,12 +858,12 @@ class Baselib {
 		}
 		
 		$prodcuts_in_page = array();
-		$page_start = ($page-1)*30;
-		$page_end = $page*30;
+		$page_start = ($page-1)*50;
+		$page_end = $page*50;
 		$i = 0;
-		$pages_count = (int)(count($products)/30);
+		$pages_count = (int)(count($products)/50);
 		
-		if(count($products)%30 > 0)  {
+		if(count($products)%50 > 0)  {
 			$pages_count++;
 		}
 
@@ -967,12 +967,12 @@ class Baselib {
 		}
 		
 		$prodcuts_in_page = array();
-		$page_start = ($page-1)*30;
-		$page_end = $page*30;
+		$page_start = ($page-1)*50;
+		$page_end = $page*50;
 		$i = 0;
-		$pages_count = (int)(count($products)/30);
+		$pages_count = (int)(count($products)/50);
 		
-		if(count($products)%30 > 0)  {
+		if(count($products)%50 > 0)  {
 			$pages_count++;
 		}
 		
@@ -1053,12 +1053,12 @@ class Baselib {
 		}
 		
 		$prodcuts_in_page = array();
-		$page_start = ($page-1)*30;
-		$page_end = $page*30;
+		$page_start = ($page-1)*50;
+		$page_end = $page*50;
 		$i = 0;
-		$pages_count = (int)(count($products)/30);
+		$pages_count = (int)(count($products)/50);
 		
-		if(count($products)%30 > 0)  {
+		if(count($products)%50 > 0)  {
 			$pages_count++;
 		}
 		
@@ -1151,12 +1151,12 @@ class Baselib {
 
 		
 		$prodcuts_in_page = array();
-		$page_start = ($page-1)*30;
-		$page_end = $page*30;
+		$page_start = ($page-1)*50;
+		$page_end = $page*50;
 		$i = 0;
-		$pages_count = (int)(count($products)/30);
+		$pages_count = (int)(count($products)/50);
 		
-		if(count($products)%30 > 0)  {
+		if(count($products)%50 > 0)  {
 			$pages_count++;
 		}
 		
@@ -1246,12 +1246,12 @@ class Baselib {
 		}
 		
 		$prodcuts_in_page = array();
-		$page_start = ($page-1)*30;
-		$page_end = $page*30;
+		$page_start = ($page-1)*50;
+		$page_end = $page*50;
 		$i = 0;
-		$pages_count = (int)(count($products)/30);
+		$pages_count = (int)(count($products)/50);
 		
-		if(count($products)%30 > 0)  {
+		if(count($products)%50 > 0)  {
 			$pages_count++;
 		}
 		
