@@ -1149,7 +1149,7 @@ class Main extends CI_Controller {
 					}
 					
 					$json['success'] = $html;					
-					$json['load_status'] = (count($products_in_page['products']) == 30 ? 'show' : 'hide');
+					$json['load_status'] = (count($products_in_page['products']) == 50 ? 'show' : 'hide');
 					$json['empty_products'] = $products_in_page['empty_products'];
 				}
 				
