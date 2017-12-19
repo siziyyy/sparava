@@ -28,7 +28,7 @@
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_country">
                 </label>
                 <label class="fl_l">
-                    <span class="g_good_admin_info_modal_inpname">Цена - за.</span>
+                    <span class="g_good_admin_info_modal_inpname">Цена - опт</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_cost">
                 </label>  
                 <label class="fl_l">
@@ -40,9 +40,21 @@
                 </label>			
                 <div class="clear"></div>	
                 <label class="fl_l">
-                    <span class="g_good_admin_info_modal_inpname">Цена - за.</span>
+                    <span class="g_good_admin_info_modal_inpname">Цена</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_price">
                 </label> 
+                <label class="fl_l">
+                    <span class="g_good_admin_info_modal_inpname">ЦКО</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_cko">
+                </label>                
+                <label class="fl_l">
+                    <span class="g_good_admin_info_modal_inpname">Кол</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_kol">
+                </label>
+                <label class="fl_l">
+                    <span class="g_good_admin_info_modal_inpname">Мера</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_mera">
+                </label>                
                 <div class="clear"></div>
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Состав</span>
@@ -125,23 +137,23 @@
             <aside class="g_good_admin_info_modal_right fl_r">
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Средний вес</span>
-                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_category">
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_sr_ves">
                 </label>
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Срок хранения</span>
-                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_category">
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_bbefore">
                 </label>
                 <label>
-                    <span class="g_good_admin_info_modal_inpname">Описание</span>
-                    <textarea type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_description"></textarea>
+                    <span class="g_good_admin_info_modal_inpname">Состав</span>
+                    <textarea type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_consist"></textarea>
                 </label>
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Производитель</span>
-                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_category">
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_manufacturer">
                 </label>
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Ссылка на блог</span>
-                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_category">
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_blog">
                 </label>
                 <label class="label_for_adminfchck">
                     <input type="checkbox" class="product_eko adm_inf_chck" value="1"> Эко

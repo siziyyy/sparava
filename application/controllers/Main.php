@@ -604,7 +604,7 @@ class Main extends CI_Controller {
 		
 		$menu = $this->baselib->get_categories(false,true);
 		$products = $this->baselib->get_products('diet');
-		$products = $this->baselib->sort_products('category','farm',$products);
+		$products = $this->baselib->sort_products('category','diet',$products);
 		
 		$data = array(
 			'header' => array(
@@ -1055,12 +1055,15 @@ class Main extends CI_Controller {
 						switch ($this->input->post('category_id')) {
 							case 'eko':
 								$products = $this->baselib->get_products('eko');
+								$products = $this->baselib->sort_products('category','eko',$products);
 								break;
 							case 'farm':
 								$products = $this->baselib->get_products('farm');
+								$products = $this->baselib->sort_products('category','farm',$products);
 								break;
 							default:
 								$products = $this->baselib->get_category_products($this->input->post('category_id'));
+								$products = $this->baselib->sort_products('category',$this->input->post('category_id'),$products);
 								break;
 						}
 						
@@ -1091,7 +1094,8 @@ class Main extends CI_Controller {
 								break;				
 						}
 
-						$products = $this->baselib->get_country_products($country);	
+						$products = $this->baselib->get_country_products($country);
+						$products = $this->baselib->sort_products('country',$country,$products);
 						
 						$filters_post = json_decode($this->input->post('filters'));
 						
@@ -1118,6 +1122,7 @@ class Main extends CI_Controller {
 					} elseif(!is_null($this->input->post('provider_full_id'))) {
 						
 						$products = $this->baselib->get_provider_products($this->input->post('provider_full_id'));
+						$products = $this->baselib->sort_products('provider',$this->input->post('provider_full_id'),$products);
 						
 						$filters_post = json_decode($this->input->post('filters'));
 						
