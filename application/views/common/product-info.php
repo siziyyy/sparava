@@ -5,19 +5,19 @@
             </div>
             <div class="good_modal_line">
                 <div class="good_modal_photo fl_l">
-                    <img src="/images/1.jpg" class="g_good_modal_photo">
+                    <img src="" class="g_good_modal_photo clear_on_load">
                 </div>
                 <div class="good_modal_right fl_r">
                     <div class="good_modal_right_line">
                         <div class="cgood_modal_price fl_l">
-                            <span class="cgood_modal_price_value g_good_price_value">100</span> р.
+                            <span class="cgood_modal_price_value g_good_price_value clear_on_load"></span> р.
                         </div>					
-                        <div class="good_modal_weight fl_l">350 мл</div>
-                        <div class="good_modal_off fl_l">Фермер</div>
+                        <div class="good_modal_weight fl_l clear_on_load"></div>
+                        <div class="good_modal_type fl_l clear_on_load"></div>
                         <div class="good_modal_header_actions fl_r">
                             <div class="good_modal_share fl_r sprite"></div>
                             <div class="good_modal_fav fl_r sprite send" data-type="favourite"></div>
-                            <div class="good_modal_id fl_r">01152</div>
+                            <div class="good_modal_id clear_on_load fl_r"></div>
                             <div class="clear"></div>
                             <div class="share_it_faster">
                                 <a href="" class="share_it_soc">
@@ -41,39 +41,41 @@
                         <div class="clear"></div>
                     </div>
                     <div class="good_modal_right_line">
-                        <div class="good_modal_name fl_l">Красный китайский чай с типсами</div>
+                        <div class="good_modal_name fl_l clear_on_load"></div>
                         <div class="clear"></div>
                     </div>
                     <div class="good_modal_right_line">
-                        <div class="good_modal_subhead">
-                            Попробуйте наш сервис и качество продуктов которые мы доставляем. Мы уверены что вам преправы!
-                        </div>
+                        <div class="good_modal_subhead good_modal_desc clear_on_load"></div>
                     </div>
-                    <div class="good_modal_right_line">
+                    <div class="good_modal_right_line good_modal_sr_ves_wrapper">
                         <div class="good_modal_av_w">
-                            <span class="good_modal_rl_header">Средний вес: </span>4-5 кг
+                            <span class="good_modal_rl_header">Средний вес: </span><span class="good_modal_sr_ves clear_on_load"></span>
                         </div>
                     </div>
-                    <div class="good_modal_right_line">
+                    <div class="good_modal_right_line good_modal_consist_wrapper">
                         <div class="good_modal_wht_ins">
-                            <span class="good_modal_rl_header">Состав: </span>пастеризованное молоко с массовой долей жира 9, 0%, 
-                            сухое обезжиренное молоко, молочные белки, с использованием 
-                            закваски йогуртовых молочнокислых микроорганизмов.
+                            <span class="good_modal_rl_header">Состав: </span><span class="good_modal_consist clear_on_load"></span>
                         </div>
                     </div>
-                    <div class="good_modal_right_line">
+                    <div class="good_modal_right_line good_modal_bbefore_wrapper">
                         <div class="good_modal_tme">
-                            <span class="good_modal_rl_header">Срок хранения: </span>50 дней
+                            <span class="good_modal_rl_header">Срок хранения: </span><span class="good_modal_bbefore clear_on_load"></span>
                         </div>
                     </div>
-                    <div class="good_modal_right_line">
+                    <div class="good_modal_right_line composition">
                         <div class="good_modal_kkk">
-                            <span class="good_modal_rl_header">Ценность на 100г: </span>Ккал - 170, Белки - 30, Углеводы - 100, Жиры - 30
+                            <span class="good_modal_rl_header">Ценность на 100г: </span>
+                            Ккал - <span class="kkal"></span>, 
+                            Белки - <span class="belki"></span>, 
+                            Углеводы - <span class="uglevodi"></span>, 
+                            Жиры - <span class="jiri"></span>,
+                            GI - <span class="gi"></span>,
                         </div>
                     </div>
                     <div class="good_modal_right_line">
-                        <div class="good_modal_country fl_l">Германия</div>
-                        <a href="/" class="good_modal_firm fl_l">Мираторг</a>
+                        <div class="good_modal_country clear_on_load fl_l"></div>
+                        <a href="" class="good_modal_firm good_modal_firm_with_link clear_on_load fl_l"></a>
+                        <div class="good_modal_firm good_modal_firm_without_link clear_on_load fl_l"></div>
                         <div class="clear"></div>
                     </div>
                     <div class="good_modal_right_line actions_holder">

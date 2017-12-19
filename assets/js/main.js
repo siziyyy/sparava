@@ -1158,6 +1158,8 @@ $(document).ready(function(){
 							parent_object.find('.g_good_mobile_fav').addClass('g_good_mobile_fav_orange');
 						} else if(send_data.type == 'get_product_info') {
 							
+							$('#product_info .clear_on_load').html('');
+							
 							product = json['success']['product'];
 							$('#product_info').attr('data-product-id',product['product_id']);
 							$('#product_info .g_good_modal_photo').attr('src','/images/'+product['image']);
@@ -1182,25 +1184,53 @@ $(document).ready(function(){
 								$('#product_info .good_modal_country').text(product['country']);
 							}
 							
-							if(product['brand']) {
-								$('#product_info .good_modal_firm').text(product['brand']);
-							}
+
 							
 							if(product['weight']) {
 								$('#product_info .good_modal_weight').text(product['weight']);
 							}
-
+							
 							$('#product_info').attr('data-type',send_data.good_type);
 							
+
+							$('#product_info .good_modal_sr_ves_wrapper').hide();
+							$('#product_info .good_modal_consist_wrapper').hide();
+							$('#product_info .good_modal_bbefore_wrapper').hide();
+							$('#product_info .good_modal_firm_with_link').hide();
+							$('#product_info .good_modal_firm_without_link').hide();							
 							
 							$('#product_info .composition').hide();
 							$('#product_info .good_modal_video_line').hide();
 							$('#product_info .good_modal_video_line').empty();	
 							$('#playlist').empty();						
+
+							if(product['blog']) {
+								$('#product_info .good_modal_firm_with_link').text(product['brand']);
+								$('#product_info .good_modal_firm_with_link').attr('href', product['blog']);
+								$('#product_info .good_modal_firm_with_link').show();
+							} else if (product['brand']) {
+								$('#product_info .good_modal_firm_without_link').text(product['brand']);
+								$('#product_info .good_modal_firm_without_link').show();								
+							}
 							
 							if(product['kkal']) {
 								$('#product_info .kkal').text(product['kkal']);
 								$('#product_info .composition').show();
+							}
+
+							if(product['sr_ves']) {
+								$('#product_info .good_modal_sr_ves').text(product['sr_ves']);
+								$('#product_info .good_modal_sr_ves_wrapper').show();
+							}
+
+							if(product['consist']) {
+								$('#product_info .good_modal_consist').text(product['consist']);
+								$('#product_info .good_modal_consist_wrapper').show();
+							}
+
+							if(product['bbefore']) {
+								$('#product_info .good_modal_bbefore').text(product['bbefore']);
+								$('#product_info .good_modal_bbefore_wrapper').show();
 							}
 
 							if(product['belki']) {

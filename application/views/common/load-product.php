@@ -1,8 +1,8 @@
 <?php $show_minus = false; ?>
 <div class="g_good fl_l" data-product-id="<?php echo $product['product_id'] ?>" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>" data-product-id="<?php echo $product['product_id'] ?>">
-	<div class="g_good_photo_block send" data-type="get_product_info">
+	<div class="g_good_photo_block">
 		<img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo">
-		<div class="quick_view">быстрый просмотр</div>
+		<div class="quick_view send" data-type="get_product_info">быстрый просмотр</div>
 		<!-- <div class="average_weight">ср. вес 400-500гр.</div> -->
 	</div>
 	<div class="new_good_helper_mobile">
