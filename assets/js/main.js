@@ -57,7 +57,9 @@ function listener(event) {
 		$('#product_form .product_consist').val(product.consist);
 		$('#product_form .product_bbefore').val(product.bbefore);
 		$('#product_form .product_sr_ves').val(product.sr_ves);
-				
+		$('#product_form .product_manufacturer').val(product.manufacturer);
+		$('#product_form .product_blog').val(product.blog);
+
 		$('#product_form .product_eko').prop('checked', false);
 		if(product.eko > 0) {
 			$('#product_form .product_eko').prop('checked', true);
@@ -472,7 +474,9 @@ $(document).ready(function(){
 			diet: diet,
 			consist: $('#product_form .product_consist').val(),
 			bbefore: $('#product_form .product_bbefore').val(),
-			sr_ves: $('#product_form .product_sr_ves').val()
+			sr_ves: $('#product_form .product_sr_ves').val(),
+			blog: $('#product_form .product_blog').val(),
+			manufacturer: $('#product_form .product_manufacturer').val()
 		}
 		
 		send_data = {
