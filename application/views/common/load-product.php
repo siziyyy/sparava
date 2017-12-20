@@ -1,7 +1,14 @@
 <?php $show_minus = false; ?>
 <div class="g_good fl_l" data-product-id="<?php echo $product['product_id'] ?>" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>" data-product-id="<?php echo $product['product_id'] ?>">
+	<!-- Новая страница товара -->
+	<div class="back_pls_from_good">
+		<span class="sprite back_pls_from_good_img"></span>
+		<span class="back_pls_from_good_text">назад</span>
+	</div>
+	<!-- / Новая страница товара -->
 	<div class="g_good_photo_block">
-		<img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo">
+		<!--<img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo">-->
+		<img src="/images/1.jpg" alt="<?php echo $product['title'] ?>" class="g_good_photo">
 		<div class="quick_view send" data-type="get_product_info">быстрый просмотр</div>
 		<!-- <div class="average_weight">ср. вес 400-500гр.</div> -->
 	</div>
@@ -48,4 +55,62 @@
 			<span class="g_good_to_cart_icon sprite"></span>
 		</div>
 	</div>
+	<!-- Новая страница товара -->
+	<div class="more_info_pack">
+		<div class="show_more_info">еще информация</div>
+		<div class="show_reviews bordered_more_info">отзывы</div>
+		<div class="more_info"><!-- display block для информации -->
+			<div class="more_info_line">
+				<span class="more_info_line_header">Средний вес:</span> 4-5 кг
+			</div>
+			<div class="more_info_line">
+				<span class="more_info_line_header">Состав:</span> пастеризованное молоко с 
+				массовой долей жира 9, 0%, 
+				сухое обезжиренное молоко, 
+				молочные белки, с использованием 
+				закваски йогуртовых молочнокислх 
+				микроорганизмов итогд.
+			</div>
+			<div class="more_info_line">
+				<span class="more_info_line_header">Срок хранении:</span> 50 дней
+			</div>
+			<div class="more_info_line">
+				<span class="more_info_line_header">Ценность на 100г:</span> Ккал- 170, 
+				Белки- 30, Углеводы- 100, Жиры- 30 
+			</div>
+		</div>
+		<div class="reviews"><!-- display block для отзывов -->
+			<div class="reviews_line">
+				<div class="reviews_line_header">Отзывы к данному товару</div>
+				<!--если не авторизован -->
+				<!--<div class="reviews_line_subheader">
+					Чтобы добавить отзыв, Вы должны 
+					<span class="reviews_line_subheader_link">авторизоваться</span> на сайте.
+				</div>-->
+				<div class="add_review">
+					<textarea class="add_review_area"></textarea>
+					<button class="add_review_button">добавить отзыв</button>
+				</div>
+			</div>
+			<div class="reviews_line">
+				<div class="reviews_line_header">Тимур Анреев</div>
+				<div class="reviews_line_body">
+					Современная медицина признаёт, 
+					что свежие части кустарника имеют 
+					вяжущие, антисептические и 
+					обезболивающие свойства. 
+				</div>
+			</div>
+			<div class="reviews_line">
+				<div class="reviews_line_header">Тимур Анреев</div>
+				<div class="reviews_line_body">
+					Современная медицина признаёт, 
+					что свежие части кустарника имеют 
+					вяжущие, антисептические и 
+					обезболивающие свойства. 
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- / Новая страница товара -->
 </div>    

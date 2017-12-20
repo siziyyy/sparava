@@ -18,10 +18,13 @@
 .c_inners_amount_text {
     font-size: 18px;
 }
+.c_inners_header_cart {
+    border-bottom: 8px solid #e6e6e6;
+}
 .c_inners_side_header {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 8px solid #e6e6e6;
     height: 40px;
-    line-height: 40px;
+    line-height: 37px;
     margin-bottom: 30px;
 }
 .c_inners_td {
