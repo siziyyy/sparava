@@ -784,6 +784,9 @@ textarea.contact_me_mobile_input {
     .g_good_photo_block {
         width: 100% !important;
     }
+    .mag_or_blog {
+        display: block;
+    }
     /*.g_good:nth-child(3n) {
         margin: 0;
     }
@@ -811,7 +814,7 @@ textarea.contact_me_mobile_input {
         padding: 0 15px;
     }
     .new_good_helper_mobile {
-        padding: 0 15px;
+        padding: 0 0 0 15px;
     }
     .g_good_mobile_fav,.mobile_check {
         display: block;
@@ -820,6 +823,9 @@ textarea.contact_me_mobile_input {
 @media all and (max-width: 800px) {
     .good_modal, .good_modal_closer {
         display: none !important; 
+    }
+    .g_good_to_cart_icon {
+        margin: 0 0 -8px 0px !important;
     }
     .g_good {
         width: 48% !important;
@@ -963,7 +969,10 @@ textarea.contact_me_mobile_input {
         display: none;
     }
     .g_good_count_act {
-        margin: 0 7px 0;
+        margin: 0 10px 0;
+    }
+    .g_good_count_rem {
+        margin-left: 0;
     }
     .mob_mos_deliv {
         display: block;

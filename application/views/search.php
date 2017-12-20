@@ -33,6 +33,9 @@
                     .homm {
                         display: none;
                     }
+                    .goods {
+                        margin-top: 138px !important;
+                    }
                 }
             </style>
             <div class="mobile_search_header_number"><?php echo $articul ?></div>
