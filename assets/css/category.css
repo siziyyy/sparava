@@ -590,7 +590,7 @@ a.g_good_name {
 }
 .g_good_admin_info_modal {
     width: 985px;
-    height: 927px;
+    height: 857px;
     background: #FFF;
     position: fixed;
     top: 50%;
@@ -599,6 +599,20 @@ a.g_good_name {
     border: 5px solid #e6e6e6;
     display: none;
     transform: translate(-50%, -50%);
+}
+.g_good_admin_info_modal_save {
+    margin: 33px 0 0 0 !important;
+}
+.close_product_details {
+        display: block;
+    position: absolute;
+    right: 20px;
+    top: 13px;
+    font-size: 24px;
+    cursor: pointer;
+}
+.product_cko_label {
+    margin: 0 12px;
 }
 .label_for_adminfchck {
     display: inline-block;
