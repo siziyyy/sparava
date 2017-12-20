@@ -7,8 +7,8 @@
 	</div>
 	<!-- / Новая страница товара -->
 	<div class="g_good_photo_block">
-		<!--<img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo">-->
-		<img src="/images/1.jpg" alt="<?php echo $product['title'] ?>" class="g_good_photo">
+		<img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo">
+		<!--<img src="/images/1.jpg" alt="<?php echo $product['title'] ?>" class="g_good_photo">-->
 		<div class="quick_view send" data-type="get_product_info">быстрый просмотр</div>
 		<!-- <div class="average_weight">ср. вес 400-500гр.</div> -->
 	</div>
