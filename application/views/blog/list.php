@@ -1,8 +1,18 @@
 <?php $this->load->view('common/header',$header);?>
+<style>
+	@media all and (max-width: 800px) {
+		header {
+			display: none;
+		}
+		.content {
+			margin-top: 50px;
+		}
+	}
+</style>
         <section class="content">
             <div class="content_helper">
                 <div class="blog_header">
-                    <div class="blog_header_left fl_l">Вкусный блог</div>
+                    <div class="blog_header_left fl_l">Вкусный блог <a href="/" class="blog_header_left_link">Информация о поставщиках</a></div>
                     <div class="blog_header_right fl_r">
 						<?php if(count($blogs) == 1) { ?>
 							<?php echo count($blogs) ?> публикация

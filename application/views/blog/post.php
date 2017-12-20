@@ -1,16 +1,28 @@
 <?php $this->load->view('common/header',$header);?>
+<style>
+    @media all and (max-width: 800px) {
+        header {
+            display: none;
+        }
+        .content {
+            margin-top: 50px;
+        }
+    }
+</style>
         <section class="content">
             <div class="content_helper">
                 <div class="blog_header">
                     <div class="blog_header_left fl_l">Вкусный блог</div>
                     <div class="clear"></div>
                 </div>
-                <a href="/blogs/" class="blog_date_sep fl_l"><span class="blog_date_sep_arrow">←</span>назад ко всем постам</a>
-                <div class="blog_date_sep_inner fl_r"><?php echo date('d.m',$blogs['create_date']); ?></div>
+                <a href="/blogs/" class="blog_date_sep blog_back fl_l"><span class="blog_date_sep_arrow">←</span>назад ко всем постам</a>
+                <a href="/blogs/" class="blog_date_sep blog_back_mob fl_l"><span class="blog_date_sep_arrow_mob sprite"></span></a>
+                <div class="blog_date_sep_inner blog_date_desk fl_r"><?php echo date('d.m',$blogs['create_date']); ?></div>
                 <div class="clear"></div>
                 <div class="blog_post">
                     <div class="blog_post_left fl_l">
                         <div class="post_img" style="background: url('/assets/img/blogs/<?php echo $blogs['image_file_3']; ?>');"></div>
+                    <div class="blog_date_sep_inner blog_date_mob fl_r"><?php echo date('d.m',$blogs['create_date']); ?></div>
                     </div>
                     <div class="blog_post_right fl_l">
                         <div class="post_right_header">
