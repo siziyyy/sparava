@@ -1,9 +1,10 @@
 		<div class="g_good_admin_info_modal" id="product_form">
+            <div class="close_product_details">&times;</div>
             <input type="hidden" class="product_id">        
             <div class="g_good_admin_info_modal_header"><span class="product_id_text"></span> - <span class="product_name_text"></span></div>
             <aside class="g_good_admin_info_modal_left fl_l">
                 <div class="g_good_admin_info_modal_photo">
-                    <img src="" alt="" class="product_image">
+                    <img src="/images/1.jpg" alt="" class="product_image">
                 </div>
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Поставщик</span>
@@ -23,10 +24,6 @@
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_pack">
                 </label>
                 <div class="clear"></div>
-                <label>
-                    <span class="g_good_admin_info_modal_inpname">Страна</span>
-                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_country">
-                </label>
                 <label class="fl_l">
                     <span class="g_good_admin_info_modal_inpname">Цена - опт</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_cost">
@@ -39,22 +36,23 @@
                     <span class="price_new_inf_mod final_price"></span>
                 </label>			
                 <div class="clear"></div>	
+                <!--<label class="fl_l">
+                    <span class="g_good_admin_info_modal_inpname">Мера</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_mera">
+                </label>   -->
+                <div class="clear"></div>   
                 <label class="fl_l">
                     <span class="g_good_admin_info_modal_inpname">Цена</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_price">
                 </label> 
-                <label class="fl_l">
+                <label class="fl_l product_cko_label">
                     <span class="g_good_admin_info_modal_inpname">ЦКО</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_cko">
                 </label>                
                 <label class="fl_l">
                     <span class="g_good_admin_info_modal_inpname">Кол</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_kol">
-                </label>
-                <label class="fl_l">
-                    <span class="g_good_admin_info_modal_inpname">Мера</span>
-                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_mera">
-                </label>                
+                </label>             
                 <div class="clear"></div>
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Состав</span>
@@ -62,7 +60,6 @@
                 </label>
                 <div class="clear"></div>
                 <div class="g_good_admin_info_modal_save black_small_button save_product_details">сохранить</div>
-				<div class="g_good_admin_info_modal_save black_small_button close_product_details">закрыть</div>
             </aside>
             <aside class="g_good_admin_info_modal_center fl_l">
                 <label>
@@ -150,6 +147,10 @@
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Производитель</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_manufacturer">
+                </label>
+                <label>
+                    <span class="g_good_admin_info_modal_inpname">Страна</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_country">
                 </label>
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Ссылка на блог</span>
