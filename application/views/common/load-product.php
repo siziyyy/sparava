@@ -1,10 +1,10 @@
 <?php $show_minus = false; ?>
 <div class="g_good fl_l" data-product-id="<?php echo $product['product_id'] ?>" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>" data-product-id="<?php echo $product['product_id'] ?>">
 	<!-- Новая страница товара -->
-	<div class="back_pls_from_good">
+	<!--<div class="back_pls_from_good">
 		<span class="sprite back_pls_from_good_img"></span>
 		<span class="back_pls_from_good_text">назад</span>
-	</div>
+	</div>-->
 	<!-- / Новая страница товара -->
 	<div class="g_good_photo_block">
 		<img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo">
@@ -56,7 +56,7 @@
 		</div>
 	</div>
 	<!-- Новая страница товара -->
-	<div class="more_info_pack">
+	<? /*<div class="more_info_pack">
 		<div class="show_more_info">еще информация</div>
 		<div class="show_reviews bordered_more_info">отзывы</div>
 		<div class="more_info"><!-- display block для информации -->
@@ -111,6 +111,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> */ ?>
 	<!-- / Новая страница товара -->
 </div>    
