@@ -4,7 +4,7 @@
             <div class="g_good_admin_info_modal_header"><span class="product_id_text"></span> - <span class="product_name_text"></span></div>
             <aside class="g_good_admin_info_modal_left fl_l">
                 <div class="g_good_admin_info_modal_photo">
-                    <img src="/images/1.jpg" alt="" class="product_image">
+                    <img src="" alt="" class="product_image">
                 </div>
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Поставщик</span>
