@@ -819,6 +819,9 @@ textarea.contact_me_mobile_input {
     .g_good_mobile_fav,.mobile_check {
         display: block;
     }
+    .buy_this_stuff {
+        font-size: 13px !important;
+    }
 }
 @media all and (max-width: 800px) {
     .good_modal, .good_modal_closer {
@@ -959,6 +962,58 @@ textarea.contact_me_mobile_input {
     }
     .mob_mos_deliv {
         display: none;
+    }
+    .blog_header {
+        display: none;
+    }
+    .blog_content {
+        width: 100% !important;
+    }
+    .blog_item, .blog_wide {
+        width: 100% !important;
+    }
+    .blog_item {
+        margin-right: 0 !important;
+    }
+    .blog_date_sep {
+        text-align: center;
+        font-size: 11px !important;
+        font-family:Calibri Bold;
+    }
+    .blog_back {
+        display: none !important;
+    }
+    .blog_back_mob {
+        display: block !important;
+    }
+    .blog_date_desk {
+        display: none;
+    }
+    .blog_date_mob {
+        display: block;
+    }
+    .blog_post_left, .blog_post_right {
+        float: none;
+    } 
+    .post_img {
+        width: 100% !important;
+    }
+    .post_header_share {
+        display: none;
+    }
+    .blog_post_right {
+        width: 100% !important;
+        padding: 0 !important;
+    }
+    .post_text p {
+        font-size: 12px !important;
+    }
+    .post_header_name {
+        font-size: 14px !important;
+    } 
+    .buy_this_stuff {
+        font-size: 11px !important;
+        margin: 0 auto;
     }
 }
 @media all and (max-width: 425px) {
