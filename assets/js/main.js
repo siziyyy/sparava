@@ -363,6 +363,13 @@ $(document).ready(function(){
 		$('.new_login_message').hide();
 		$('.new_login_message_next').hide();
 	});
+
+	$(document).on('click','.tab_select',function(e) {
+		e.preventDefault();
+		target = $(this).attr('data-target');
+		$('.tab_body').hide();
+		$('#'+target).show();
+	});
 	
 	$(document).on('click','.delete_selected_filter',function(e) {
 		e.preventDefault();
@@ -955,6 +962,22 @@ $(document).ready(function(){
 		obj = $(this);
 		
 		switch(type) {
+			case 'add_product_comment':
+
+				if($(this).parents('.single_good_page').length > 0) {
+					parent_object = $(this).parents('.single_good_page');
+				} else if($(this).parents('.g_good').length > 0) {
+					parent_object = $(this).parents('.g_good');
+				}			
+				
+				send_data = {
+					type : type,
+					element_id : parent_object.attr('data-product-id'),
+					content : parent_object.find('.comment_content').val()
+				}
+				
+				break;
+
 			case 'favourite':
 			
 				if($(this).parents('.single_good_page').length > 0) {
@@ -1178,6 +1201,11 @@ $(document).ready(function(){
 							} else {
 								location.reload();
 							}
+						} else if(send_data.type == 'add_product_comment') {
+							$('#desktop_comments').empty();
+							$('#desktop_comments').html(json['success']['desktop']);
+							$('#mobile_comments').empty();
+							$('#mobile_comments').html(json['success']['mobile']);
 						} else if(send_data.type == 'use_bonus') {
 							location.reload();
 						} else if(send_data.type == 'confirm_account_in_modal') {
