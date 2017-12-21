@@ -40,7 +40,7 @@ body,html,textarea{font-family:Calibri}
         <link rel="stylesheet" href="/assets/css/contacts.css"><!-- only contacts -->
         <link rel="stylesheet" href="/assets/css/cart.css"><!-- only cart -->
 		<link rel="stylesheet" href="/assets/css/youtube.css">
-		<link rel="stylesheet" href="/assets/css/youtube.scroll.min.css">		
+		<link rel="stylesheet" href="/assets/css/youtube.scroll.min.css">
 	</head>
 	<body>
 		<div class="mobile_check"></div>

@@ -11,7 +11,12 @@
                     <div class="good_modal_right_line">
                         <div class="cgood_modal_price fl_l">
                             <span class="cgood_modal_price_value g_good_price_value clear_on_load"></span> р.
-                        </div>					
+                        </div>		
+
+                        <div class="cgood_modal_price cgood_modal_old_price fl_l">
+                            <span class="cgood_modal_old_price_value"></span> р.
+                        </div>  
+                                                			
                         <div class="good_modal_weight fl_l clear_on_load"></div>
                         <div class="good_modal_type fl_l clear_on_load"></div>
                         <div class="good_modal_header_actions fl_r">

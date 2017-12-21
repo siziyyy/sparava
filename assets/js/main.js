@@ -615,16 +615,19 @@ $(document).ready(function(){
 	
 	$(document).on('click','.good_modal_arrow_right, .good_modal_arrow_left',function(e) {
 		product_id = $(this).attr('data-product-id');
-		$('.g_good[data-product-id="'+product_id+'"]').find('.g_good_photo_block').click();
+		$('.g_good[data-product-id="'+product_id+'"]').find('.quick_view').click();
+		console.log(product_id);
 	});
 	
 	$(document).on('click','.g_good_to_cart',function(e) {
 		
-		if($(this).parents('.g_good').length == 0) {
+		if($(this).parents('.single_good_page').length > 0) {
+			parent_class = '.single_good_page';
+		} else if($(this).parents('.g_good').length == 0) {
 			parent_class = '.good_modal';
 		} else if($(this).parents('.g_good').length > 0) {
 			parent_class = '.g_good';
-		}		
+		}
 		
 		quantity = $(this).parents(parent_class).find('.g_good_count_input').val();
 		product_id = $(this).parents(parent_class).attr('data-product-id');
@@ -639,7 +642,9 @@ $(document).ready(function(){
 	
 	$(document).on('change','.g_good_count_input',function(e) {
 		
-		if($(this).parents('.g_good').length == 0) {
+		if($(this).parents('.single_good_page').length > 0) {
+			parent_class = '.single_good_page';
+		} else if($(this).parents('.g_good').length == 0) {
 			parent_class = '.good_modal';
 		} else if($(this).parents('.g_good').length > 0) {
 			parent_class = '.g_good';
@@ -664,19 +669,21 @@ $(document).ready(function(){
 	
 	$(document).on('click','.g_good_count_add',function(e) {
 		
-		if($(this).parents('.g_good').length == 0) {
+		if($(this).parents('.single_good_page').length > 0) {
+			parent_class = '.single_good_page';
+		} else if($(this).parents('.g_good').length == 0) {
 			parent_class = '.good_modal';
 		} else if($(this).parents('.g_good').length > 0) {
 			parent_class = '.g_good';
 		}
-		
+
 		$(this).parents(parent_class).find(".g_good_added_to_cart_text").hide();
 		$(this).parents(parent_class).find(".g_good_to_cart_text").show();
 		$(this).parents(parent_class).find(".g_good_added_to_cart").removeClass('g_good_added_to_cart');
 		
 		quantity = parseFloat($(this).parents(parent_class).find('.g_good_count_input').val());
 		type_num = $(this).parents(parent_class).attr('data-type');
-	
+
 		quantity = get_quantity_by_type(quantity,type_num,false,parent_class,$(this));
 		price = $(this).parents(parent_class).find(".g_good_price_value").text();
 
@@ -686,11 +693,13 @@ $(document).ready(function(){
 	
 	$(document).on('click','.g_good_count_rem',function(e) {
 		
-		if($(this).parents('.g_good').length == 0) {
+		if($(this).parents('.single_good_page').length > 0) {
+			parent_class = '.single_good_page';
+		} else if($(this).parents('.g_good').length == 0) {
 			parent_class = '.good_modal';
 		} else if($(this).parents('.g_good').length > 0) {
 			parent_class = '.g_good';
-		}		
+		}
 		
 		$(this).parents(parent_class).find(".g_good_added_to_cart_text").hide();
 		$(this).parents(parent_class).find(".g_good_to_cart_text").show();
@@ -917,7 +926,9 @@ $(document).ready(function(){
 		switch(type) {
 			case 'favourite':
 			
-				if($(this).parents('.g_good').length > 0) {
+				if($(this).parents('.single_good_page').length > 0) {
+					parent_object = $(this).parents('.single_good_page');
+				} else if($(this).parents('.g_good').length > 0) {
 					parent_object = $(this).parents('.g_good');
 				} else if($(this).parents('.good_modal').length > 0) {
 					parent_object = $(this).parents('.good_modal');
@@ -1184,10 +1195,20 @@ $(document).ready(function(){
 								$('#product_info .good_modal_country').text(product['country']);
 							}
 							
-
-							
 							if(product['weight']) {
-								$('#product_info .good_modal_weight').text(product['weight']);
+								$('#product_info .good_modal_type').text(product['weight']);
+							}
+
+							if(product['eko']) {
+								$('#product_info .good_modal_type').text('Эко');
+							}
+
+							if(product['farm']) {
+								$('#product_info .good_modal_type').text('Фермер');
+							}
+
+							if(product['diet']) {
+								$('#product_info .good_modal_type').text('Диетическое');
 							}
 							
 							$('#product_info').attr('data-type',send_data.good_type);
