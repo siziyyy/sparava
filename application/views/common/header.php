@@ -41,6 +41,12 @@ body,html,textarea{font-family:Calibri}
         <link rel="stylesheet" href="/assets/css/cart.css"><!-- only cart -->
 		<link rel="stylesheet" href="/assets/css/youtube.css">
 		<link rel="stylesheet" href="/assets/css/youtube.scroll.min.css">
+
+        <?php if(isset($fb_share)) { ?>
+            <?php foreach($fb_share as $property => $value) { ?>
+                <meta property="<?php echo $property ?>" content="<?php echo $value ?>">
+            <?php } ?>
+        <?php } ?>
 	</head>
 	<body>
 		<div class="mobile_check"></div>

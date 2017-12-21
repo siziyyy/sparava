@@ -524,6 +524,32 @@ $(document).ready(function(){
         percentPosition: true
     });
 
+	$(document).on('click','.share_it_faster_close',function(e) {
+		$('.share_it_faster').hide();
+	}); 
+
+	$(document).on('click','.good_modal_share',function(e) {
+		$('.share_it_faster').show();
+	});
+
+	$(document).on('click','.login_from_comment',function(e) {
+		e.preventDefault();
+        $('body,html').animate({
+            scrollTop: 0
+        }, 400);
+
+        $('.h_login_button').click();
+        
+	});
+
+	$(document).on('keyup','.check_length',function(e) {
+		length = $(this).attr('data-length');
+		value = $(this).val();
+		
+		if(value.length > length) {
+			$(this).val(value.substr(0, length));
+		}
+	});	
 
  	$('.count_cool_select').click(function() {
  		$(this).parent().toggleClass('count_cool_select_opened');
@@ -612,6 +638,11 @@ $(document).ready(function(){
     $('.new_auth_register_header').click(function() {
         $('.new_auth_register_body').toggle();
     });
+
+	$(document).on('click','.share_it_faster_close',function(e) {
+		$('.share_it_faster').show();
+	});
+
 	
 	$(document).on('click','.good_modal_arrow_right, .good_modal_arrow_left',function(e) {
 		product_id = $(this).attr('data-product-id');
@@ -1200,15 +1231,21 @@ $(document).ready(function(){
 							}
 
 							if(product['eko']) {
-								$('#product_info .good_modal_type').text('Эко');
+								if(product['eko'] == 1) {
+									$('#product_info .good_modal_type').text('Эко');
+								}
 							}
 
 							if(product['farm']) {
-								$('#product_info .good_modal_type').text('Фермер');
+								if(product['eko'] == 1) {
+									$('#product_info .good_modal_type').text('Фермер');
+								}
 							}
 
 							if(product['diet']) {
-								$('#product_info .good_modal_type').text('Диетическое');
+								if(product['diet'] == 1) {
+									$('#product_info .good_modal_type').text('Диетическое');
+								}
 							}
 							
 							$('#product_info').attr('data-type',send_data.good_type);
@@ -1218,7 +1255,8 @@ $(document).ready(function(){
 							$('#product_info .good_modal_consist_wrapper').hide();
 							$('#product_info .good_modal_bbefore_wrapper').hide();
 							$('#product_info .good_modal_firm_with_link').hide();
-							$('#product_info .good_modal_firm_without_link').hide();							
+							$('#product_info .good_modal_firm_without_link').hide();
+							$('#product_info .share_it_faster').empty();
 							
 							$('#product_info .composition').hide();
 							$('#product_info .good_modal_video_line').hide();
@@ -1273,6 +1311,10 @@ $(document).ready(function(){
 								$('#product_info .gi').text(product['gi']);
 								$('#product_info .composition').show();
 							}
+
+							if(product['share_html']) {
+								$('#product_info .share_it_faster').html(product['share_html']);
+							}							
 
 							if(product['youtube'][0].length > 0) {
 								for (k in product['youtube']) {

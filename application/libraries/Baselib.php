@@ -83,6 +83,38 @@ class Baselib {
 		
 		return $result;
 	}	
+
+	public function craete_fb_share($url,$title,$description,$image) {
+		$share_data = array(
+			'og:url' => 'https://aydaeda.ru'.$url,
+			'og:title' => $title,
+			'og:description' => $description,
+			'og:image' => 'https://aydaeda.ru/images/'.$image
+		);
+		
+		return $share_data;
+	}
+
+	public function get_share_links($url,$title,$description,$image) {
+
+		$share_links = '
+	    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://aydaeda.ru'.$url.'" class="share_it_soc">
+	        <div class="share_it_soc_img fb_share"></div>
+	    </a>
+	     <a target="_blank" href="https://twitter.com/share?url=https://aydaeda.ru'.$url.'&text='.$title.'" class="share_it_soc">
+	        <div class="share_it_soc_img tw_share"></div>
+	    </a>
+	    <a target="_blank" href="http://vk.com/share.php?url=https://aydaeda.ru'.$url.'&title='.$title.'&image=https://aydaeda.ru/images/'.$image.'&noparse=true" class="share_it_soc">
+	        <div class="share_it_soc_img vk_share"></div>
+	    </a>
+	    <a target="_blank" href="http://www.odnoklassniki.ru/dk?st.cmd=addShare&st.s=1&st._surl=https://aydaeda.ru'.$url.'&st.comments='.$title.'" class="share_it_soc">
+	        <div class="share_it_soc_img ok_share"></div>
+	    </a>
+	    <div class="share_it_faster_close">&times;</div>
+	    ';
+		
+		return $share_links;
+	}	
 	
 	public function get_product_categories($product_id) {
 		$result = array();

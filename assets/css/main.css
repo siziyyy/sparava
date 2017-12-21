@@ -347,6 +347,7 @@ header {
     padding: 0 9px;
     right: 0;
     top: 41px;
+    display: none;
 }
 .share_it_soc_img {
     width: 22px;

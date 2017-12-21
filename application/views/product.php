@@ -44,21 +44,7 @@
                                 <div class="good_modal_id fl_r"><?php echo $product['articul'] ?></div>
                                 <div class="clear"></div>
                                 <div class="share_it_faster">
-                                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://aydaeda.ru/product/<?php echo $product['product_id'] ?>" class="share_it_soc">
-                                        <div class="share_it_soc_img fb_share"></div>
-                                    </a>
-                                     <a target="_blank" href="https://twitter.com/share?url=https://aydaeda.ru/product/<?php echo $product['product_id'] ?>&text=<?php echo $product['title'] ?>" class="share_it_soc">
-                                        <div class="share_it_soc_img tw_share"></div>
-                                    </a>
-                                    <a target="_blank" href="http://vk.com/share.php?url=https://aydaeda.ru/product/<?php echo $product['product_id'] ?>&title=<?php echo $product['title'] ?>&image=/images/<?php echo $product['image'] ?>&noparse=true" class="share_it_soc">
-                                        <div class="share_it_soc_img vk_share"></div>
-                                    </a>         
-                                    
-                           
-                                    <a target="_blank" href="http://www.odnoklassniki.ru/dk?st.cmd=addShare&st.s=1&st._surl=https://aydaeda.ru/product/<?php echo $product['product_id'] ?>&st.comments=<?php echo $product['title'] ?>" class="share_it_soc">
-                                        <div class="share_it_soc_img ok_share"></div>
-                                    </a>
-                                    <div class="share_it_faster_close">&times;</div>
+                                    <?php echo $this->baselib->get_share_links('/product/'.$product['product_id'], $product['title'], $product['description'], $product['image']) ?>
                                 </div>
                             </div>
                             <div class="clear"></div>
@@ -166,7 +152,7 @@
                     <div class="content_helper">
                         <div class="comments_header">
                             Отзывы и комментарий к данному товару
-                            <span class="comments_header_desc">Чтобы добавить отзыв, Вы должны <a href="/" class="comments_header_link">авторизоваться</a> на сайте.</span>
+                            <span class="comments_header_desc">Чтобы добавить отзыв, Вы должны <a href="/" class="comments_header_link login_from_comment">авторизоваться</a> на сайте.</span>
                         </div>
                         <div class="no_comments">К данному товару не добавлено комментарии  </div>
                         <div class="add_comment">
