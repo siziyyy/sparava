@@ -577,15 +577,26 @@ class Baselib {
 
 	public function get_product_by_id($product_id) {
 		
-		//$query = $this->_ci->db->get_where("products", array("product_id" => $product_id,"status" => 1));
-		
-		$sql = 'SELECT p.*, c.bm FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND ptc.category_id = c.category_id AND p.product_id = '.$product_id.' LIMIT 1';
-		
+		$sql = 'SELECT p.*, c.bm, c.category_id, c.title AS category_title FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND ptc.category_id = c.category_id AND p.product_id = "'.$product_id.'" LIMIT 1';
+
 		$query = $this->_ci->db->query($sql);
 		
 		if ($query->num_rows() > 0) {
+
 			$product = $query->row_array();
+			
+			$sql = 'SELECT * FROM categories WHERE category_id IN (SELECT parent_id FROM categories WHERE category_id = '.$product['category_id'].')';
+			$query = $this->_ci->db->query($sql);
+
+			if ($query->num_rows() > 0) {
+				$category = $query->row_array();
+
+				$product['parent_category_id'] = $category['category_id'];
+				$product['parent_category_title'] = $category['title'];
+			}
+			
 			$product['youtube'] = explode(';',$product['youtube']);
+
 			return $this->handle_special_price($product);
 		}
 		

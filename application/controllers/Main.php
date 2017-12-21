@@ -74,7 +74,8 @@ class Main extends CI_Controller {
 			'bloger',
 			'claims',
 			'agreement',
-			'contacts'
+			'contacts',
+			'return'
 		);
 	
 		$data = array(
@@ -156,7 +157,7 @@ class Main extends CI_Controller {
 		);
 		
 		$this->load->view('cart/checkout_success', $data);
-	}	
+	}
 	
 	public function country($country_id) {
 		
@@ -484,7 +485,29 @@ class Main extends CI_Controller {
 		);
 		
 		$this->load->view('catalog', $data);
-	}	
+	}
+
+	public function product($product_id = false) {
+		if($product_id) {
+			$product = $this->baselib->get_product_by_id($product_id);
+			$products_ids = $this->baselib->get_favourites();
+
+			if(in_array($product_id, $products_ids)) {
+				$product['favourite'] = true;
+			}
+
+			$data = array(
+				'header' => array(
+					'cart' => $this->get_cart_info_for_header()
+				),
+				'menu' => $this->baselib->get_categories(false,true),
+				'footer' => array(),
+				'product' => $product
+			);
+
+			$this->load->view('product', $data);			
+		}
+	}		
 
 	
 	public function eko() {
@@ -830,7 +853,7 @@ class Main extends CI_Controller {
 			
 				$products = array();
 				
-				$product_id = $this->input->post('product_id');				
+				$product_id = $this->input->post('product_id');
 				$product = $this->baselib->get_product_by_id($product_id);
 				
 				foreach($product as $attr_id => $attr) {
