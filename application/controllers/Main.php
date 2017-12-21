@@ -503,7 +503,8 @@ class Main extends CI_Controller {
 				),
 				'menu' => $this->baselib->get_categories(false,true),
 				'footer' => array(),
-				'product' => $product
+				'product' => $product,
+				'comments' => $this->baselib->get_comments('product', $product_id)
 			);
 
 			$this->load->view('product', $data);			
@@ -850,6 +851,23 @@ class Main extends CI_Controller {
 	
 	public function ajax_handler() {
 		switch ($this->input->post('type')) {
+			case 'add_product_comment':
+
+				$data = array(
+					'element_id' => $this->input->post('element_id'),
+					'content' => $this->input->post('content'),
+					'type' => 'product'
+				);
+
+				$this->load->model('comment');
+				$comment = new Comment();
+				$comment->set_data($data);
+				$comment->add();
+
+				$json['success'] = $this->baselib->get_comments('product', $this->input->post('element_id'));
+				
+				break;
+
 			case 'get_product_info':
 			
 				$products = array();

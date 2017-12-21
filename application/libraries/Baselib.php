@@ -1424,6 +1424,31 @@ class Baselib {
 		
 		return $products;
 	}
+
+	public function get_comments($type,$element_id) {
+		$data = array();
+
+		//$query = $this->_ci->db->get_where("comments", array("type" => $type, "element_id" => $element_id));
+		$query = $this->_ci->db->select('comment_id')->from("comments")->where(array("type" => $type, "element_id" => $element_id))->order_by('comment_id','DESC')->get();
+		if ($query->num_rows() > 0) {
+			$this->_ci->load->model('comment');
+
+			foreach ($query->result_array() as $row) {
+				$comment = new Comment();
+				$comment->set_id($row['comment_id']);
+				$data['comments'][$row['comment_id']] = $comment->get_data();
+			}
+		}
+
+		$data['account'] = $this->is_logged();
+
+		$result = array(
+			'desktop' => $this->_ci->load->view('common/comments', $data, true),
+			'mobile' => $this->_ci->load->view('common/mobile-comments', $data, true),
+		);
+
+		return $result;
+	}
 	
 	public function get_filter_text($type,$count) {
 		if($type == 'country') {

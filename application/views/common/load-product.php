@@ -24,9 +24,6 @@
 		<div class="g_admin_info">inf</div>
 		<div class="g_good_name <?php echo ($product['status'] == 0 ? 'inactive_good' : '') ?>"><?php echo $product['title'] ?></div>
 		<a href="/product/<?php echo $product['product_id'] ?>" class="g_good_name <?php echo ($product['status'] == 0 ? 'inactive_good' : '') ?>"><?php echo $product['title'] ?></a>
-	   <!-- <div class="g_good_description">
-			<?php echo $product['description'] ?>
-		</div>-->
 		<div class="g_good_country">
 			<span class="g_good_country_margin">
 				<?php if($product['brand']) { ?>
