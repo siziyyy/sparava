@@ -498,7 +498,8 @@ class Main extends CI_Controller {
 
 			$data = array(
 				'header' => array(
-					'cart' => $this->get_cart_info_for_header()
+					'cart' => $this->get_cart_info_for_header(),
+					'fb_share' => $this->baselib->craete_fb_share('/product/'.$product['product_id'],$product['title'],$product['description'],$product['image'])
 				),
 				'menu' => $this->baselib->get_categories(false,true),
 				'footer' => array(),
@@ -855,6 +856,7 @@ class Main extends CI_Controller {
 				
 				$product_id = $this->input->post('product_id');
 				$product = $this->baselib->get_product_by_id($product_id);
+				$product['share_html'] = $this->baselib->get_share_links('/product/'.$product['product_id'], $product['title'], $product['description'], $product['image']);
 				
 				foreach($product as $attr_id => $attr) {
 					if(is_null($attr)) {

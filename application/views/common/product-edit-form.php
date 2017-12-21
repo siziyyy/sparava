@@ -64,7 +64,7 @@
             <aside class="g_good_admin_info_modal_center fl_l">
                 <label>
                     <span class="g_good_admin_info_modal_inpname nom">Название</span>
-                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_name">
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long check_length product_name" data-length="24">
                 </label>
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Фото</span>
@@ -76,7 +76,7 @@
                 </label>
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Бренд</span>
-                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_brand">
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long check_length product_brand" data-length="12">
                 </label>
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Статус</span>
@@ -84,7 +84,7 @@
                 </label> 
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Описание</span>
-                    <textarea type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_description"></textarea>
+                    <textarea type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long check_length product_description" data-length="125"></textarea>
                 </label>
                 <div class="clear"></div>
                 <label class="fl_l">
