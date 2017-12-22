@@ -66,7 +66,7 @@
 				<?php if($pages_count > 1) { ?>
 					<div class="c_paginator">
 						<?php if($current_page == 1) { ?>
-							<div class="c_show_more_goods" data-categroy-id="<?php echo $category ?>">показать еще</div>
+							<div class="c_show_more_goods" data-category-id="<?php echo $category ?>">показать еще</div>
 						<?php } ?>
 						<div class="c_pages">
 							<?php foreach($pages as $page) { ?>

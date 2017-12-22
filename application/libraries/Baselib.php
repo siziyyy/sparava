@@ -395,6 +395,8 @@ class Baselib {
 			$sql .= ' AND p.farm = 1';
 		} elseif($type == 'eko') {
 			$sql .= ' AND p.eko = 1';
+		} elseif($type == 'diet') {
+			$sql .= ' AND p.diet = 1';
 		}
 		
 		$query = $this->_ci->db->query($sql);
