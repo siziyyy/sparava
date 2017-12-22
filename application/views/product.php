@@ -4,7 +4,7 @@
          display: none;
     }
     @media all and (max-width: 800px) {
-        header,footer, .desktop-version {
+        footer, .desktop-version {
             display: none;
         }
         .content {
@@ -174,7 +174,7 @@
             </div>
         </div>
 
-        <div class="mobile_version">
+        <div class="mobile_version">   
             <?php $show_minus = false; ?>
             <div class="g_good fl_l" data-product-id="<?php echo $product['product_id'] ?>" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>">
                 <div class="back_pls_from_good">

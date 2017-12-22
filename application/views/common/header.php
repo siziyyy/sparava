@@ -276,7 +276,7 @@ body,html,textarea{font-family:Calibri}
         <div class="mag_or_blog">
             <a href="/" class="mag_or_blog_link mag_or_blog_link_act">магазин</a>
             <span class="mag_or_blog_separator"></span>
-            <a href="/" class="mag_or_blog_link">блог</a>
+            <a href="/blogs" class="mag_or_blog_link">блог</a>
         </div>
 		<header>
 			<div class="content_helper">
