@@ -7,7 +7,13 @@
                     <div class="c_new_menu">
                         <div class="c_new_menu_line c_new_menu_line_country filters_holder">
                             <div class="c_new_menu_line_item fl_l">
-                               ай да
+                                <?php if($category == 'eko') { ?>
+                                    эко продукты
+                                <?php } elseif($category == 'farm') { ?>
+                                    фермерские продукты
+                                <?php } elseif($category == 'diet') { ?>
+                                    диентические продукты
+                                <?php } ?>
                             </div>     
 							<?php if(count($categories_for_provider) > 0) { ?>
 							<div class="cool_select_pack cool_select_country_pack fl_l" data-type="category">
@@ -60,7 +66,7 @@
 				<?php if($pages_count > 1) { ?>
 					<div class="c_paginator">
 						<?php if($current_page == 1) { ?>
-							<div class="c_show_more_goods" data-provider-full-id="<?php echo $provider ?>">показать еще</div>
+							<div class="c_show_more_goods" data-categroy-id="<?php echo $category ?>">показать еще</div>
 						<?php } ?>
 						<div class="c_pages">
 							<?php foreach($pages as $page) { ?>

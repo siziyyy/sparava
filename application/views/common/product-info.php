@@ -63,7 +63,7 @@
                     <div class="good_modal_right_line">
                         <div class="good_modal_country clear_on_load fl_l"></div>
                         <a href="" class="good_modal_firm good_modal_firm_with_link clear_on_load fl_l"></a>
-                        <div class="good_modal_firm good_modal_firm_without_link clear_on_load fl_l"></div>
+                        <div class="good_modal_firm good_modal_firm_without_link good_modal_firm_not_link clear_on_load fl_l"></div>
                         <div class="clear"></div>
                     </div>
                     <div class="good_modal_right_line actions_holder">
