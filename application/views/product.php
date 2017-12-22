@@ -4,7 +4,7 @@
          display: none;
     }
     @media all and (max-width: 800px) {
-        header,footer,.desktop-version {
+        header,footer, .desktop-version {
             display: none;
         }
         .content {
@@ -37,11 +37,11 @@
                         </div>
                         <div class="good_page_right fl_l">
                             <div class="good_modal_right_line">
-                                <div class="cgood_modal_price fl_l">
-                                    <?php if(isset($product['old_price'])) { ?>
-                                        <div class="g_old_good_price"><?php echo $product['old_price'] ?> р.</div>
-                                    <?php } ?>                                
+                                <div class="cgood_modal_price fl_l">                 
                                     <span class="cgood_modal_price_value g_good_price_value"><?php echo $product['price'] ?></span> р.
+                                    <?php if(isset($product['old_price'])) { ?>
+                                    <div class="g_old_good_price g_old_good_price_mod"><?php echo $product['old_price'] ?> р.</div>
+                                    <?php } ?>               
                                 </div>                  
                                 <div class="good_modal_weight fl_l"><?php echo $product['weight'] ?></div>
                                 <div class="good_modal_off fl_l">
@@ -111,7 +111,7 @@
                                 <?php if($product['blog']) { ?>
                                     <a href="<?php echo $product['blog'] ?>" class="good_modal_firm fl_l"><?php echo $product['brand'] ?></a>
                                 <?php } else { ?>
-                                    <span class="good_modal_firm fl_l"><?php echo $product['brand'] ?></span>
+                                    <span class="good_modal_firm good_modal_firm_not_link fl_l"><?php echo $product['brand'] ?></span>
                                 <?php } ?>
                                 <div class="clear"></div>
                             </div>
