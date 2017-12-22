@@ -533,6 +533,7 @@ $(document).ready(function(){
 
 	$(document).on('click','.share_it_faster_close',function(e) {
 		$('.share_it_faster').hide();
+        /*console.log('c')*/
 	}); 
 
 	$(document).on('click','.good_modal_share',function(e) {
@@ -645,11 +646,11 @@ $(document).ready(function(){
     $('.new_auth_register_header').click(function() {
         $('.new_auth_register_body').toggle();
     });
-
+/*
 	$(document).on('click','.share_it_faster_close',function(e) {
 		$('.share_it_faster').show();
 	});
-
+*/
 	
 	$(document).on('click','.good_modal_arrow_right, .good_modal_arrow_left',function(e) {
 		product_id = $(this).attr('data-product-id');

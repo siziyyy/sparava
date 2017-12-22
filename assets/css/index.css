@@ -822,11 +822,11 @@ textarea.contact_me_mobile_input {
     .buy_this_stuff {
         font-size: 13px !important;
     }
-}
-@media all and (max-width: 800px) {
-    .good_modal, .good_modal_closer {
+    .good_modal, .good_modal_closer, .quick_view {
         display: none !important; 
     }
+}
+@media all and (max-width: 800px) {
     .g_good_to_cart_icon {
         margin: 0 0 -8px 0px !important;
     }

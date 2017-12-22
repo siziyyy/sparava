@@ -135,6 +135,7 @@
                         <div class="good_modal_right_line">
                             <div class="cgood_modal_price fl_l">
                                 <span class="cgood_modal_price_value g_good_price_value">100</span> р.
+                                <div class="g_old_good_price g_old_good_price_mod">150 р.</div>
                             </div>                  
                             <div class="good_modal_weight fl_l">350 мл</div>
                             <div class="good_modal_off fl_l">Фермер</div>
@@ -197,7 +198,8 @@
                         </div>
                         <div class="good_modal_right_line">
                             <div class="good_modal_country fl_l">Германия</div>
-                            <a href="/" class="good_modal_firm fl_l">Мираторг</a>
+                            <div class="good_modal_firm good_modal_firm_not_link fl_l">Мираторг</div>
+                            <!--<a href="/" class="good_modal_firm fl_l">Мираторг</a>-->
                             <div class="clear"></div>
                         </div>
                         <div class="good_modal_right_line actions_holder">

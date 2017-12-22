@@ -12,11 +12,21 @@
     justify-content: space-between;
     width: 100%;
 }
+.good_modal_firm_not_link {
+    text-decoration: none;
+    color: #999;
+}
 .g_good {
     width: 220px;
     height: 487px;
     /*margin: 0 12px 0 0 ;*/
     position: relative;
+}
+.good_modal_type  {
+    font-size: 14px;
+    margin-left: 25px;
+    line-height: 36px;
+    color: #508F1D;
 }
 .g_good:nth-child(5n) {
     margin: 0;
