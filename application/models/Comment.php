@@ -32,7 +32,8 @@ class Comment extends Fruitcrm {
 			'account_id' => $account['account_id'],
 			'content' => strip_tags($this->_data['content']),
 			'type' => $this->_data['type'],
-			'element_id' => $this->_data['element_id']
+			'element_id' => $this->_data['element_id'],
+			'create_date' => time()
 		);
 		
 		if ($this->db->insert("comments", $data))  {

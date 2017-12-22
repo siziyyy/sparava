@@ -371,7 +371,7 @@ class Baselib {
 		return $this->handle_special_price($products);
 	}
 	
-	public function get_provider_products($provider_id) {
+	public function get_products_with_categories($provider_id = false, $type = false) {
 		
 		$ptc = array();
 		
@@ -383,12 +383,19 @@ class Baselib {
 			foreach ($query->result_array() as $row) {
 				$ptc[$row['product_id']][] = $row['category_id'];		
 			}			
-		}		
-		
+		}
 		
 		$products = array();
 		
-		$sql = 'SELECT p.*, c.bm, c.title FROM products AS p, product_to_category AS ptc, categories AS c, providers AS pr WHERE pr.store = p.provider AND p.product_id = ptc.product_id AND ptc.category_id = c.category_id AND p.status = 1 AND pr.provider_id = ' . (int)$provider_id;
+		$sql = 'SELECT p.*, c.bm, c.title FROM products AS p, product_to_category AS ptc, categories AS c, providers AS pr WHERE p.product_id = ptc.product_id AND ptc.category_id = c.category_id AND p.status = 1';
+
+		if(!$type) {
+			$sql .= ' AND pr.store = p.provider AND pr.provider_id = ' . (int)$provider_id;
+		} elseif($type == 'farm') {
+			$sql .= ' AND p.farm = 1';
+		} elseif($type == 'eko') {
+			$sql .= ' AND p.eko = 1';
+		}
 		
 		$query = $this->_ci->db->query($sql);
 		
