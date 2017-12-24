@@ -25,7 +25,7 @@
                 </label>
                 <div class="clear"></div>
                 <label class="fl_l">
-                    <span class="g_good_admin_info_modal_inpname">Цена - опт</span>
+                    <span class="g_good_admin_info_modal_inpname">ЦМО</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_cost">
                 </label>  
                 <label class="fl_l">
@@ -34,22 +34,22 @@
                 </label>
                 <label class="fl_l">
                     <span class="price_new_inf_mod final_price"></span>
-                </label>			
-                <div class="clear"></div>	
-                <!--<label class="fl_l">
-                    <span class="g_good_admin_info_modal_inpname">Мера</span>
-                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_mera">
-                </label>   -->
-                <div class="clear"></div>   
+                </label>
+                <div class="clear"></div>
                 <label class="fl_l">
                     <span class="g_good_admin_info_modal_inpname">Цена</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_price">
                 </label> 
-                <label class="fl_l product_cko_label">
+                <div class="clear"></div>
+                <label class="fl_l">
                     <span class="g_good_admin_info_modal_inpname">ЦКО</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_cko">
                 </label>                
                 <label class="fl_l">
+                    <span class="g_good_admin_info_modal_inpname">Мера</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_mera">
+                </label>
+                <label class="fl_l product_cko_label">
                     <span class="g_good_admin_info_modal_inpname">Кол</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_kol">
                 </label>             
