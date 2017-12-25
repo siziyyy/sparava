@@ -485,11 +485,7 @@ $(document).ready(function() {
 		send_msg(send_data);
 	});	
 	
-	$(document).on('change','#product_form .product_cost,#product_form .product_percent',function(e) {
-		calculate_price();
-	});
-
-	$(document).on('focusout','#product_form .product_cost,#product_form .product_percent',function(e) {
+	$(document).on('change','#product_form .product_cost, #product_form .product_percent, #product_form .product_cko',function(e) {
 		calculate_price();
 	});
 
