@@ -52,7 +52,7 @@
                     </div>
                     <div class="good_modal_right_line composition">
                         <div class="good_modal_kkk">
-                            <span class="good_modal_rl_header">Ценность на 100г: </span>
+                            <span class="good_modal_rl_header">Ценность на 100 г: </span>
                             Ккал - <span class="kkal"></span>, 
                             Белки - <span class="belki"></span>, 
                             Углеводы - <span class="uglevodi"></span>, 

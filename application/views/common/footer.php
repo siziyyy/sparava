@@ -20,6 +20,7 @@
 					<div><a href="/information/delivery" class="f_block_link">Доставка и способы оплаты</a></div>
 					<div><a href="/information/claims" class="f_block_link">Претензии и предложения</a></div>
 					<div><a href="/information/agreement" class="f_block_link">Условия доставки (договора-оферты)</a></div>
+					<div><a href="/information/return" class="f_block_link">Обмен и возврат</a></div>
 					<div class="f_block_link_foot">Минимальный заказ 1500 руб.</div>
 				</div>
 				<div class="f_block">
@@ -56,7 +57,7 @@
 		    $(document).ready(function() {
 		        <?php if(isset($videos)) { ?>
 		          <?php foreach($videos as $video) { ?>
-		            load_youtube_data('<?php echo $video ?>');
+		          	  load_youtube_data('<?php echo $video ?>');
 		          <?php } ?>
 		        <?php } ?>
 		    });

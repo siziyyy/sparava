@@ -281,14 +281,6 @@ body,html,textarea{font-family:Calibri}
 		<header>
 			<div class="content_helper">
                 <!-- 
-                    @Tural 
-                    тут до фига разных состояний у каждой кнопки...
-                    черная звездочка - .black_star для .m_h_fav
-                    черный замочек - .black_auth для .m_h_login
-                    скрывать кнопки при помощи класса .hide_it_visibh (не через display:none, используем visibility:hidden и visibility:visible)
-
-                    (+)
-                    
                     Надо починить инпуты в админке (модальное окно)
                     .modal_info_inp {
                         border: 1px solid #999;

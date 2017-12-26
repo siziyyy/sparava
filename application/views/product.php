@@ -4,7 +4,7 @@
          display: none;
     }
     @media all and (max-width: 800px) {
-        footer, .desktop-version {
+        header,footer, .desktop-version {
             display: none;
         }
         .content {
@@ -99,7 +99,7 @@
                             <?php if($product['kkal'] or $product['belki'] or $product['jiri'] or $product['uglevodi'] or $product['gi']) { ?>
                                 <div class="good_modal_right_line">
                                     <div class="good_modal_kkk">
-                                        <span class="good_modal_rl_header">Ценность на 100г: </span>
+                                        <span class="good_modal_rl_header">Ценность на 100 г: </span>
                                         <?php if($product['kkal']) { ?>Ккал - <?php echo $product['kkal'] ?><?php } ?><?php if($product['belki']) { ?>, Белки - <?php echo $product['belki'] ?><?php } ?><?php if($product['jiri']) { ?>, Углеводы - <?php echo $product['jiri'] ?><?php } ?><?php if($product['uglevodi']) { ?>, Жиры - <?php echo $product['uglevodi'] ?><?php } ?><?php if($product['gi']) { ?>, GI - <?php echo $product['gi'] ?><?php } ?>                                    
                                     </div>
                                 </div>
@@ -256,7 +256,7 @@
 
                         <?php if($product['kkal'] or $product['belki'] or $product['jiri'] or $product['uglevodi'] or $product['gi']) { ?>
                             <div class="more_info_line">
-                                <span class="more_info_line_header">Ценность на 100г:</span> <?php if($product['kkal']) { ?>Ккал - <?php echo $product['kkal'] ?><?php } ?><?php if($product['belki']) { ?>, Белки - <?php echo $product['belki'] ?><?php } ?><?php if($product['jiri']) { ?>, Углеводы - <?php echo $product['jiri'] ?><?php } ?><?php if($product['uglevodi']) { ?>, Жиры - <?php echo $product['uglevodi'] ?><?php } ?><?php if($product['gi']) { ?>, GI - <?php echo $product['gi'] ?><?php } ?>   
+                                <span class="more_info_line_header">Ценность на 100 г:</span> <?php if($product['kkal']) { ?>Ккал - <?php echo $product['kkal'] ?><?php } ?><?php if($product['belki']) { ?>, Белки - <?php echo $product['belki'] ?><?php } ?><?php if($product['jiri']) { ?>, Углеводы - <?php echo $product['jiri'] ?><?php } ?><?php if($product['uglevodi']) { ?>, Жиры - <?php echo $product['uglevodi'] ?><?php } ?><?php if($product['gi']) { ?>, GI - <?php echo $product['gi'] ?><?php } ?>   
                             </div>
                         <?php } ?>
                     </div>
