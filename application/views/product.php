@@ -126,7 +126,14 @@
                                     <span class="g_good_added_to_cart_text"></span>                                 
                                     <span class="g_good_to_cart_icon sprite"></span>
                                 </div>
-                            </div>                       
+                            </div>
+                            <div class="good_modal_right_line good_modal_video_line">
+                                <?php foreach($product['youtube'] as $video) { ?>
+                                    <div class="good_modal_video" data-video-id="<?php echo $video ?>" style="background:url('https://i1.ytimg.com/vi/<?php echo $video ?>/default.jpg')">
+                                        <div class="good_modal_video_play sprite"></div>
+                                    </div>
+                                <?php } ?>
+                            </div>
                         </div>
                         <div class="good_page_side fl_r">
                             <div class="good_page_side_first">
@@ -258,6 +265,5 @@
                     </div>
                 </div>
             </div>
-        </div>   
-
+        </div>
 <?php $this->load->view('common/footer',$footer);?>

@@ -41,7 +41,7 @@
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_price">
                 </label> 
                 <div class="clear"></div>
-                <label class="fl_l">
+                <label class="fl_l product_cko_label_1">
                     <span class="g_good_admin_info_modal_inpname">ЦКО</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_cko">
                 </label>                
