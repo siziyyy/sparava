@@ -589,7 +589,7 @@ header {
     z-index: 99999;
 }
 .new_mob_submenu_filter_items_turn_scroll {
-    max-height: calc(100vh - 248px);
+    max-height: calc(100vh - 290px);
     -ms-overflow-y: auto;
         overflow-y: auto;
 }
