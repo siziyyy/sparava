@@ -52,5 +52,14 @@
         <script src="/assets/mdl/masonry/masonry.js"></script><!-- only index -->
         <script src="/assets/mdl/scroll/jquery.scrollbar.min.js"></script>
         <script src="/assets/js/main.js"></script>
+        <script>
+		    $(document).ready(function() {
+		        <?php if(isset($videos)) { ?>
+		          <?php foreach($videos as $video) { ?>
+		            load_youtube_data('<?php echo $video ?>');
+		          <?php } ?>
+		        <?php } ?>
+		    });
+		</script>        
 	</body>
 </html>

@@ -502,7 +502,9 @@ class Main extends CI_Controller {
 					'fb_share' => $this->baselib->craete_fb_share('/product/'.$product['product_id'],$product['title'],$product['description'],$product['image'])
 				),
 				'menu' => $this->baselib->get_categories(false,true),
-				'footer' => array(),
+				'footer' => array(
+					'videos' => $product['youtube']
+				),
 				'product' => $product,
 				'comments' => $this->baselib->get_comments('product', $product_id)
 			);
