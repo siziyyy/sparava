@@ -193,7 +193,7 @@
                         </div>
                         <div class="good_modal_right_line">
                             <div class="good_modal_kkk">
-                                <span class="good_modal_rl_header">Ценность на 100г: </span>Ккал - 170, Белки - 30, Углеводы - 100, Жиры - 30
+                                <span class="good_modal_rl_header">Ценность на 100 г: </span>Ккал - 170, Белки - 30, Углеводы - 100, Жиры - 30
                             </div>
                         </div>
                         <div class="good_modal_right_line">

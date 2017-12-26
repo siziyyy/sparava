@@ -636,7 +636,14 @@ class Baselib {
 				$product['parent_category_title'] = $category['title'];
 			}
 			
-			$product['youtube'] = explode(';',$product['youtube']);
+ 			$videos = explode(';',$product['youtube']);
+			$product['youtube'] = array();
+
+ 			foreach($videos as $video) {
+ 				if(!empty($video)) {
+ 					$product['youtube'][] = $video;
+ 				}
+ 			}
 
 			return $this->handle_special_price($product);
 		}
