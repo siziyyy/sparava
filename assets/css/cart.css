@@ -656,6 +656,30 @@ textarea.c_inners_input {
         max-width: 230px;
         padding: 25px;
     }
+    .minsumm {
+        padding: 0;
+    }
+    .cart_low {
+        display: none;
+    }
+    .minsumm_header {
+        font-size: 16px;
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
+    .cart_mob_menu_bg {
+        width: 100% !important;
+        background: #e8e8e8 !important;
+        height: 50px !important;
+        border-bottom: 1px solid #e0e0e0;
+        margin: -50px 0 10px 0;
+    }
+    .minsumm_body {
+        font-size: 12px;
+    }
+    .c_inners_left_side_content_rec {
+        display: none;
+    }
     .c_inners_left_side {
         width: 270px;
     }
@@ -830,6 +854,7 @@ textarea.c_inners_input {
     .c_inners_count_del {
         line-height: 10px;
         font-size: 13px;
+        background: none !important;
     }
     .c_inners_side_tr {
         border: none;

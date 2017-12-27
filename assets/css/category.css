@@ -85,12 +85,25 @@
     font-size: 20px;
     display: block;
 }
+.minsumm_header {
+    font-size: 20px;
+    font-family:Calibri Bold;
+    margin: 50px 0 15px;
+}
+.minsumm {
+    padding: 0 86px 0 0;
+}
+.minsumm_body {
+    font-size: 14px;
+}
 .c_inners_side_tr .g_good_name:hover {
     color: #F2593A;
 }
 .c_inners_side_tr .g_good_country {
     font-size: 16px;
-    margin-bottom: 20px;
+    margin-bottom: 0;
+    position: absolute;
+    bottom: 0;
 }
 .c_inners_side_tr .g_good_id {
     font-size: 12px;

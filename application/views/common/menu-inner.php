@@ -190,7 +190,7 @@
               		<div class="clear"></div>
               	</div>
               	<div class="new_mob_submenu_filter_items">
-                    <div class="new_mob_submenu_filter_items_pack">
+                    <div class="new_mob_submenu_filter_items_pack new_mob_submenu_filter_items_turn_scroll">
 						<?php if(isset($menu_childs) and count($menu_childs) > 0) { ?>
 							<?php foreach($menu_childs as $category) { ?>
 								<div class="new_mob_submenu_filter_item open_inner_filter">
