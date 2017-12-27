@@ -5,9 +5,10 @@
             </div>
             <div class="good_modal_line">
                 <div class="good_modal_photo fl_l">
+                    <!--<img src="/images/1.jpg" class="g_good_modal_photo clear_on_load">-->
                     <img src="" class="g_good_modal_photo clear_on_load">
                 </div>
-                <div class="good_modal_right fl_r">
+                <div class="good_modal_right good_is_modal fl_r">
                     <div class="good_modal_right_line">
                         <div class="cgood_modal_price fl_l">
                             <span class="cgood_modal_price_value g_good_price_value clear_on_load"></span> р.
@@ -58,6 +59,11 @@
                             Углеводы - <span class="uglevodi"></span>, 
                             Жиры - <span class="jiri"></span>,
                             GI - <span class="gi"></span>,
+                        </div>
+                    </div>
+                    <div class="good_modal_right_line good_modal_bbefore_wrapper">
+                        <div class="good_modal_tme">
+                            <span class="good_modal_rl_header">Производитель: </span><span class="good_modal_bbefore clear_on_load"></span>
                         </div>
                     </div>
                     <div class="good_modal_right_line">

@@ -25,7 +25,7 @@
                         <span class="breadcrumbs_sep">/</span>
                         <a href="/category/<?php echo $product['category_id'] ?>" class="breadcrumbs_item"><?php echo $product['category_title'] ?></a>
                         <span class="breadcrumbs_sep">/</span>                    
-                        <span class="breadcrumbs_item"><?php echo $product['title'] ?></span>
+                        <span class="breadcrumbs_item last_breadcrumb"><?php echo $product['title'] ?></span>
                     </div>
                 </section>
             </div>
@@ -33,7 +33,8 @@
                 <section class="content">
                     <div class="content_helper">
                         <div class="good_page_left fl_l">
-                            <img src="/images/<?php echo $product['image'] ?>" class="good_page_photo">
+                            <!--<img src="/images/<?php echo $product['image'] ?>" class="good_page_photo">-->
+                            <img src="/images/1.jpg" class="good_page_photo">
                         </div>
                         <div class="good_page_right fl_l">
                             <div class="good_modal_right_line">
@@ -47,11 +48,11 @@
                                 <div class="good_modal_off fl_l">
                                     <?php 
                                         if($product['farm'] == 1) {
-                                            echo 'Фермер';
+                                            echo 'Фермер.';
                                         } elseif($product['eko'] == 1) {
                                             echo 'Эко';
                                         } elseif($product['diet'] == 1) {
-                                            echo 'Диетический';
+                                            echo 'Диет.';
                                         }
                                     ?>
                                 </div>
@@ -104,6 +105,11 @@
                                     </div>
                                 </div>
                             <?php } ?>
+                            <div class="good_modal_right_line">
+                                <div class="good_modal_tme">
+                                    <span class="good_modal_rl_header">Производитель: </span><?php echo $product['bbefore'] ?>
+                                </div>
+                            </div>
                             <div class="good_modal_right_line">
                                 <?php if($product['country']) { ?>
                                     <div class="good_modal_country fl_l"><?php echo $product['country'] ?></div>

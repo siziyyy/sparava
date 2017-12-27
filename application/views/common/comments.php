@@ -1,5 +1,7 @@
 <div class="comments_header">
-    Отзывы и комментарии к данному товару
+    <span class="comments_header_main">Рекомендация от Aydaeda</span>
+    <span class="comments_header_sep">|</span>
+    <a class="comments_header_sec">Отзывы к данному товару</a>
     <?php if(!$account) { ?>
         <span class="comments_header_desc">Чтобы добавить отзыв, Вы должны <a href="/" class="comments_header_link login_from_comment">авторизоваться</a> на сайте.</span>
     <?php } ?>

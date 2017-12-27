@@ -160,10 +160,17 @@
                     <input type="checkbox" class="product_eko adm_inf_chck" value="1"> Эко
                 </label>
                 <label class="label_for_adminfchck">
-                    <input type="checkbox" class="product_farm adm_inf_chck" value="1"> Фермер
+                    <input type="checkbox" class="product_farm adm_inf_chck" value="1"> Фер
                 </label>
                 <label class="label_for_adminfchck">
                     <input type="checkbox" class="product_diet adm_inf_chck" value="1"> Диет
+                </label>
+                <label class="label_for_adminfchck">
+                    <input type="checkbox" class="product_diet adm_inf_chck" value="1"> Рек
+                </label>
+                <label>
+                    <span class="g_good_admin_info_modal_inpname">Артикул или название поставщика</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_blog">
                 </label>
             </aside>
             <div class="clear"></div>
