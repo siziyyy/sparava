@@ -218,7 +218,7 @@
 							<?php if(!empty($menu['filters']['country'])) { ?>
 								<?php foreach(explode(';',$menu['filters']['country']) as $filter) { ?>
 									<?php if(!empty($filter)) { ?>
-										<span class="new_mob_submenu_filter_item_name_selected"><?php echo $filter ?> <span class="delete_selected_filter" data-value="<?php echo $filter ?>" data-type="country"> × </span></span>
+										<span class="new_mob_submenu_filter_item_name_selected"><span class="delete_selected_filter" data-value="<?php echo $filter ?>" data-type="country"><?php echo $filter ?> × </span></span>
 									<?php } ?>
 								<?php } ?>
 							<?php } ?>
@@ -232,7 +232,7 @@
 							<?php if(!empty($menu['filters']['brand'])) { ?>
 								<?php foreach(explode(';',$menu['filters']['brand']) as $filter) { ?>
 									<?php if(!empty($filter)) { ?>
-										<span class="new_mob_submenu_filter_item_name_selected"><?php echo $filter ?> <span class="delete_selected_filter" data-value="<?php echo $filter ?>" data-type="brand"> × </span></span>
+										<span class="new_mob_submenu_filter_item_name_selected"><span class="delete_selected_filter" data-value="<?php echo $filter ?>" data-type="brand"><?php echo $filter ?> × </span></span>
 									<?php } ?>
 								<?php } ?>
 							<?php } ?>
@@ -246,7 +246,7 @@
 							<?php if(!empty($menu['filters']['composition'])) { ?>
 								<?php foreach(explode(';',$menu['filters']['composition']) as $filter) { ?>
 									<?php if(!empty($filter)) { ?>
-										<span class="new_mob_submenu_filter_item_name_selected"><?php echo $filter ?> <span class="delete_selected_filter" data-value="<?php echo $filter ?>" data-type="composition"> × </span></span>
+										<span class="new_mob_submenu_filter_item_name_selected"><span class="delete_selected_filter" data-value="<?php echo $filter ?>" data-type="composition"><?php echo $filter ?> × </span></span>
 									<?php } ?>
 								<?php } ?>
 							<?php } ?>							
@@ -265,7 +265,7 @@
                   		<div class="new_mob_submenu_filter_item open_inner_filter" data-target="filter-weight">
                   			<div class="new_mob_submenu_filter_item_name fl_l">Вес</div>
 							<?php if($filters['weight']) { ?>
-								<span class="new_mob_submenu_filter_item_name_selected"><?php echo ($filters['weight'] === 'raz' ? 'на развес' : ($filters['weight'] === 'upa' ? 'в упаковке' : '' )) ?> <span class="delete_selected_filter" data-value="<?php echo $filter ?>" data-type="weight"> × </span></span>
+								<span class="new_mob_submenu_filter_item_name_selected"><span class="delete_selected_filter" data-value="<?php echo $filter ?>" data-type="weight"><?php echo ($filters['weight'] === 'raz' ? 'на развес' : ($filters['weight'] === 'upa' ? 'в упаковке' : '' )) ?> × </span></span>
 							<?php } ?>
                   			<div class="sprite new_mob_submenu_filter_item_arrow fl_r"></div>
                   			<div class="clear"></div>
@@ -274,7 +274,7 @@
                   		<div class="new_mob_submenu_filter_item open_inner_filter" data-target="filter-price">
                   			<div class="new_mob_submenu_filter_item_name fl_l">Цена</div>
 							<?php if($filters['price']) { ?>
-								<span class="new_mob_submenu_filter_item_name_selected"><?php echo ($filters['price'] === 'desc' ? 'по убыванию' : ($filters['price'] === 'asc' ? 'по возрастанию' : '' )) ?> <span class="delete_selected_filter" data-value="<?php echo $filter ?>" data-type="price"> × </span></span>
+								<span class="new_mob_submenu_filter_item_name_selected"><span class="delete_selected_filter" data-value="<?php echo $filter ?>" data-type="price"><?php echo ($filters['price'] === 'desc' ? 'по убыванию' : ($filters['price'] === 'asc' ? 'по возрастанию' : '' )) ?> × </span></span>
 							<?php } ?>
                   			<div class="sprite new_mob_submenu_filter_item_arrow fl_r"></div>
                   			<div class="clear"></div>
