@@ -68,7 +68,7 @@ class Order extends Fruitcrm {
 				if( $use_bonus ) {
 					$account->clear_bonus();
 				} else {
-					$bonus = $this->get_order_summ(true)*0.1;
+					$bonus = $this->get_order_summ(true)*0.05;
 					$account->set_bonus($bonus);
 				}
 				
