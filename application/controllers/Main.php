@@ -506,6 +506,7 @@ class Main extends CI_Controller {
 					'videos' => $product['youtube']
 				),
 				'product' => $product,
+				'related_products' => $this->baselib->get_products_with_categories(false,'eko');
 				'comments' => $this->baselib->get_comments('product', $product_id)
 			);
 
