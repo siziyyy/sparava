@@ -176,7 +176,7 @@
                         <div class="clear"></div>
                     </div>
                 </section>
-                <div class="comments_gray"></div>
+                <!--<div class="comments_gray"></div>-->
                 <div class="comments">
                     <section class="content">
                         <div class="content_helper" id="desktop_comments">

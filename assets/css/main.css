@@ -1444,6 +1444,12 @@ header .content_helper {
     margin: 0 10px;
     display: inline-block;
 }
+.comments {
+    margin-top: 50px;
+}
+.comments_header_active {
+    font-family:Calibri Bold;
+}
 .comment_photo {
     width: 45px;
     height: 45px;
