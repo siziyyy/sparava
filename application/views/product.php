@@ -26,6 +26,7 @@
                         <a href="/category/<?php echo $product['category_id'] ?>" class="breadcrumbs_item"><?php echo $product['category_title'] ?></a>
                         <span class="breadcrumbs_sep">/</span>                    
                         <span class="breadcrumbs_item last_breadcrumb"><?php echo $product['title'] ?></span>
+
                     </div>
                 </section>
             </div>
@@ -33,8 +34,7 @@
                 <section class="content">
                     <div class="content_helper">
                         <div class="good_page_left fl_l">
-                            <!--<img src="/images/<?php echo $product['image'] ?>" class="good_page_photo">-->
-                            <img src="/images/1.jpg" class="good_page_photo">
+                            <img src="/images/<?php echo $product['image'] ?>" class="good_page_photo">
                         </div>
                         <div class="good_page_right fl_l">
                             <div class="good_modal_right_line">
@@ -71,6 +71,7 @@
                                 <div class="good_modal_name fl_l"><?php echo $product['title'] ?></div>
                                 <div class="clear"></div>
                             </div>
+                            <div class="g_admin_info">inf</div>
                             <div class="good_modal_right_line">
                                 <div class="good_modal_subhead">
                                     <?php echo $product['description'] ?>
@@ -105,20 +106,24 @@
                                     </div>
                                 </div>
                             <?php } ?>
-                            <div class="good_modal_right_line">
-                                <div class="good_modal_tme">
-                                    <span class="good_modal_rl_header">Производитель: </span><?php echo $product['bbefore'] ?>
+                            <?php if(!empty($product['manufacturer'])) { ?>
+                                <div class="good_modal_right_line">
+                                    <div class="good_modal_tme">
+                                        <span class="good_modal_rl_header">Производитель: 
+                                        <?php if($product['blog']) { ?>
+                                            <a href="<?php echo $product['blog'] ?>"><?php echo $product['manufacturer'] ?></a>
+                                        <?php } else { ?>
+                                            <?php echo $product['manufacturer'] ?>
+                                        <?php } ?>
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
+                            <?php } ?>
                             <div class="good_modal_right_line">
-                                <?php if($product['country']) { ?>
+                                <?php if(!empty($product['country'])) { ?>
                                     <div class="good_modal_country fl_l"><?php echo $product['country'] ?></div>
                                 <?php } ?>
-                                <?php if($product['blog']) { ?>
-                                    <a href="<?php echo $product['blog'] ?>" class="good_modal_firm fl_l"><?php echo $product['brand'] ?></a>
-                                <?php } else { ?>
-                                    <span class="good_modal_firm good_modal_firm_not_link fl_l"><?php echo $product['brand'] ?></span>
-                                <?php } ?>
+                                <span class="good_modal_firm good_modal_firm_not_link fl_l"><?php echo $product['brand'] ?></span>
                                 <div class="clear"></div>
                             </div>
                             <div class="good_modal_right_line actions_holder">
@@ -169,7 +174,7 @@
                                 <div class="good_page_side_second_helper">Бонус</div> 
                                 <div class="good_page_side_second_body">
                                     Эта покупка Вам принесет
-                                    <br><span class="g_good_to_cart_value"><?php echo $product['price'] ?></span> балов (<span class="g_good_to_cart_value"><?php echo $product['price'] ?></span> руб.)
+                                    <br><span class="g_good_bonus_value"><?php echo $product['price']*0.05 ?></span> балов (<span class="g_good_bonus_value"><?php echo $product['price']*0.05 ?></span> руб.)
                                 </div>
                             </div>
                         </div>
@@ -177,10 +182,38 @@
                     </div>
                 </section>
                 <!--<div class="comments_gray"></div>-->
+
+
                 <div class="comments">
                     <section class="content">
-                        <div class="content_helper" id="desktop_comments">
-                            <?php echo $comments['desktop'] ?>
+                        <div class="content_helper">
+                            <div class="comments_header">
+                                <a class="comments_header_sec comments_header_active tab_select" data-target="related_products">Рекомендация от Aydaeda</a>
+                                <span class="comments_header_sep">|</span>
+                                <a class="comments_header_sec tab_select" data-target="desktop_comments">Отзывы к данному товару</a>
+                                <?php if(!$account) { ?>
+                                    <span class="comments_header_desc">Чтобы добавить отзыв, Вы должны <a href="/" class="comments_header_link login_from_comment">авторизоваться</a> на сайте.</span>
+                                <?php } ?>
+                            </div>                            
+                            <div id="desktop_comments" class="tab_body">
+                                <?php echo $comments['desktop'] ?>
+                            </div>
+                            <div class="recomendations_in_commets tab_body" id="related_products">
+                                <div class="goods">
+                                    <?php foreach($products as $product) { ?>
+                                        <?php $info['product'] = $product; ?>
+                                        <?php $this->load->view('common/load-product',$info);?>
+                                    <?php } ?>
+                                    
+                                    <?php if($empty_products) { ?>
+                                        <?php for($i=0;$i<$empty_products;$i++) { ?>
+                                            <div class="g_good fl_l hide_on_mobile">&nbsp;</div>
+                                        <?php } ?>
+                                    <?php } ?>
+                                    <div id="wrapper_for_product_load"></div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>                            
                         </div>
                     </section>
                 </div>
@@ -206,7 +239,6 @@
                         <?php echo ($product['type'] == 'шт' ? (!is_null($product['weight']) ? ' - '.$product['weight'] : '') : ($product['bm'] == 1 ? ' за 1 кг' : ' за 100 гр')) ?>
                     </div>
                     <div class="g_good_mobile_fav <?php echo (isset($product['favourite']) ? 'g_good_mobile_fav_orange' : '') ?> sprite send" data-type="favourite"></div>
-                    <div class="g_admin_info">inf</div>
                     <div class="g_good_name <?php echo ($product['status'] == 0 ? 'inactive_good' : '') ?>"><?php echo $product['title'] ?></div>
                     <a href="/product/<?php echo $product['product_id'] ?>" class="g_good_name <?php echo ($product['status'] == 0 ? 'inactive_good' : '') ?>"><?php echo $product['title'] ?></a>
                     <div class="g_good_description">

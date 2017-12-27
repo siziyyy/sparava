@@ -526,3 +526,6 @@ body,html,textarea{font-family:Calibri}
                 </form>
             </div>
         </div>
+
+        <?php $this->load->view('common/product-edit-form');?>
+        <?php $this->load->view('common/product-info');?>        
