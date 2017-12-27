@@ -12,10 +12,10 @@
 			<div class="c_inners_td fl_l c_inners_first_td no_on_mob">
 				<div class="c_inners_photo fl_l" style="background: url(images/<?php echo $product['image'] ?>);"></div>
 				<div class="c_inners_photo_legend fl_r">
-					<div class="g_good_name"><?php echo $product['title'] ?></div>
-					<div class="g_good_description">
-						<?php echo $product['description'] ?>
-					</div>
+					<a href="https://aydaeda.ru/product/<?php echo $product['product_id'] ?>" target="_blank"><div class="g_good_name"><?php echo $product['title'] ?></div></a>
+					<!--<div class="g_good_description">
+						<?php /* echo $product['description'] */?>
+					</div>-->
 					<div class="g_good_country">
 						<?php if($product['brand']) { ?>
 							<?php echo $product['brand'] ?>
@@ -70,7 +70,7 @@
 				<div class="mobile_cart_good_text fl_l">
 					<div class="mobile_cart_good_text_header"><?php echo $product['title'] ?></div>
 					<div class="mobile_cart_good_text_subheader"><?php echo $product['country'] ?></div>
-					<div class="mobile_cart_good_text_subsubheader"><?php echo $product['description'] ?></div>
+					<!--<div class="mobile_cart_good_text_subsubheader"><?php /* echo $product['description'] */ ?></div>-->
 					<div class="mobile_cart_good_text_body">
 						<div class="mobile_cart_good_text_price fl_l"><?php echo $product['price'] ?> р.</div>
 						<div class="mobile_cart_good_text_count fl_l">

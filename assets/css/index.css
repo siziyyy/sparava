@@ -986,6 +986,9 @@ textarea.contact_me_mobile_input {
     .blog_back_mob {
         display: block !important;
     }
+    .blog_date_sep_arrow_mob {
+        display: inline-block !important;
+    }
     .blog_date_desk {
         display: none;
     }
@@ -1168,18 +1171,16 @@ textarea.contact_me_mobile_input {
     width: 556px;
 }
 .blog_img {
-    background-position: center !important;
-    -webkit-background-size: cover !important;
-         -o-background-size: cover !important;
-            background-size: cover !important;
-    height: 246px;
     width: 100%;
-    background: #eee;
     cursor: pointer;
     opacity: 1;
     -webkit-transition: opacity .3s ease;
     -o-transition: opacity .3s ease;
     transition: opacity .3s ease;
+}
+.blog_img_img {
+    max-width: 262px;
+    cursor: pointer;
 }
 .blog_img:hover {
     opacity: .8;
@@ -1198,6 +1199,10 @@ textarea.contact_me_mobile_input {
     max-width: 90%;
     height: 42px;
     overflow: hidden;
+    line-height: 21px;
+}
+.blog_name_1_line, .blog_name_2_line {
+    cursor: pointer;
 }
 .blog_next {
     cursor: pointer;

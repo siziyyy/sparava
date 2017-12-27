@@ -14,7 +14,6 @@
 }
 .good_modal_firm_not_link {
     text-decoration: none;
-    color: #999;
 }
 .g_good {
     width: 220px;
@@ -82,8 +81,12 @@
     display: inline-block;
 }
 .c_inners_side_tr .g_good_name {
-    margin: 0px 0 15px;
+    margin: 0px 0 10px;
     font-size: 20px;
+    display: block;
+}
+.c_inners_side_tr .g_good_name:hover {
+    color: #F2593A;
 }
 .c_inners_side_tr .g_good_country {
     font-size: 16px;
@@ -600,7 +603,7 @@ a.g_good_name {
 }
 .g_good_admin_info_modal {
     width: 985px;
-    height: 857px;
+    height: 910px;
     background: #FFF;
     position: fixed;
     top: 50%;
@@ -622,11 +625,14 @@ a.g_good_name {
     cursor: pointer;
 }
 .product_cko_label {
-    margin: 0 12px;
+    margin: 0 0 0 12px;
+}
+.product_cko_label_1 {
+    margin: 0 13px 0 0;
 }
 .label_for_adminfchck {
     display: inline-block;
-    margin: 0 30px 0 0px;
+    margin: 0 22px 10px 0px;
 }
 .adm_inf_chck {
     position: relative;
@@ -644,7 +650,7 @@ a.g_good_name {
     text-align: left;
 }
 .content_helper_gds {
-    margin: 60px auto 0 ;
+    margin: 50px auto 0 ;
 }
 .proc {
     text-align: center;
@@ -825,12 +831,12 @@ textarea.g_good_admin_info_modal_input {
     .c_new_menu_line_item_right {
         display: none;
     } 
-    .g_good_name {
+    /*.g_good_name {
         display: block;
     }
     a.g_good_name {
         display: none;
-    }
+    }*/
 }
 @media all and (max-width: 800px) {
     .g_good_description {
