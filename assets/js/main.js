@@ -314,7 +314,7 @@ $(document).ready(function() {
 		play_video(video_id);	
 	});
 	
-	$(document).on('click','.video_closer',function(e) {
+	$(document).on('click','.video_closer,.full_size',function(e) {
 		e.preventDefault();
 		$('.player').hide();
 		$('.video_closer').hide();	
@@ -1338,13 +1338,15 @@ $(document).ready(function() {
 								$('#product_info .share_it_faster').html(product['share_html']);
 							}							
 
-							if(product['youtube'][0].length > 0) {
-								for (k in product['youtube']) {
-									html = '<div class="good_modal_video" data-video-id="'+product['youtube'][k]+'" style="background:url(\'https://i1.ytimg.com/vi/'+product['youtube'][k]+'/default.jpg\')"><div class="good_modal_video_play sprite"></div></div>';
-									$('#product_info .good_modal_video_line').append(html);
-									load_youtube_data(product['youtube'][k]);
+							if(product['youtube'].length > 0) {
+								if(product['youtube'][0].length > 0) {
+									for (k in product['youtube']) {
+										html = '<div class="good_modal_video" data-video-id="'+product['youtube'][k]+'" style="background:url(\'https://i1.ytimg.com/vi/'+product['youtube'][k]+'/default.jpg\')"><div class="good_modal_video_play sprite"></div></div>';
+										$('#product_info .good_modal_video_line').append(html);
+										load_youtube_data(product['youtube'][k]);
+									}
+									$('#product_info .good_modal_video_line').show();
 								}
-								$('#product_info .good_modal_video_line').show();
 							}
 							
 							$('#product_info .good_modal_fav').removeClass('good_modal_fav_ylw');
