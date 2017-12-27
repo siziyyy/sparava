@@ -1,4 +1,4 @@
-<aside class="c_inners_left_side fl_l">
+<aside class="c_inners_left_side cart_low fl_l">
 	<div class="c_inners_side_header">
 		<span class="c_inners_amount_text">сумма к оплате</span>
 		<span class="c_inners_amount_num"><?php echo $summ ?> р.</span>
