@@ -209,7 +209,7 @@ header {
     -webkit-box-shadow: none;
             box-shadow: none;
 }
-.register_error_busy4,.register_succes_4,.login_error_4 {
+.register_error_busy4,.register_succes_4,.login_error_4,#desktop_comments {
 	display:none;
 }
 .mobile_restore {
