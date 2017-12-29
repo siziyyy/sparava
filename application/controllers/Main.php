@@ -496,6 +496,8 @@ class Main extends CI_Controller {
 				$product['favourite'] = true;
 			}
 
+			$related_products_ids = $this->baselib->get_related_products_ids($product_id);
+
 			$data = array(
 				'header' => array(
 					'cart' => $this->get_cart_info_for_header(),
@@ -507,7 +509,8 @@ class Main extends CI_Controller {
 				),
 				'product' => $product,
 				'related_products' => $this->baselib->get_products_with_categories(false,'eko'),
-				'comments' => $this->baselib->get_comments('product', $product_id)
+				'comments' => $this->baselib->get_comments('product', $product_id),
+				'related_products' => $this->baselib->get_products_by_ids($related_products_ids)
 			);
 
 			$this->load->view('product', $data);			
@@ -664,6 +667,8 @@ class Main extends CI_Controller {
 				'value' => $summ				
 			)
 		);
+
+		$related_products = $this->baselib->get_related_products_ids();
 		
 		$data = array(
 			'header' => array(
@@ -678,8 +683,9 @@ class Main extends CI_Controller {
 			),
 			'totals' => array(
 				'totals' => $totals
-			)
-		);		
+			),
+			'related_products' => $this->baselib->get_products_by_ids($related_products)
+		);
 		
 		if($summ < 1000) {
 			$data['cart_info']['need'] = 1000 - $summ;

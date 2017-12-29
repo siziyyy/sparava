@@ -70,6 +70,39 @@ class Baselib {
 		return $result;
 	}
 	
+	public function get_related_products_ids($product_id = false) {
+		$result = array();
+
+		if($product_id) {
+			$sql = 'SELECT c.parent_id FROM product_to_category AS ptc, categories AS c WHERE ptc.product_id = '.$product_id.' AND ptc.category_id = c.category_id';
+			$query = $this->_ci->db->query($sql);
+
+			if ($query->num_rows() > 0) {
+				$parent_id = $query->row_array()['parent_id'];
+
+				$sql = 'SELECT p.product_id FROM products AS p, product_to_category AS ptc WHERE p.product_id = ptc.product_id AND p.recommend = 1 AND p.status = 1 AND ptc.category_id IN (SELECT category_id FROM categories WHERE parent_id = ' . $parent_id . ') ORDER BY rand() LIMIT 6';
+				$query = $this->_ci->db->query($sql);
+
+				if ($query->num_rows() > 0) {
+					foreach ($query->result_array() as $row) {				
+						$result[] = $row['product_id'];
+					}
+				}				
+			}
+		} else {
+			$sql = 'SELECT p.* FROM products AS p, product_to_category AS ptc WHERE p.product_id = ptc.product_id AND p.recommend = 1 AND p.status = 1 ORDER BY rand() LIMIT 6';
+			$query = $this->_ci->db->query($sql);
+			
+			if ($query->num_rows() > 0) {
+				foreach ($query->result_array() as $row) {
+					$result[] = $row['product_id'];
+				}
+			}			
+		}
+		
+		return $result;
+	}
+
 	public function get_order_products($order_id) {
 		$result = array();
 		
@@ -442,19 +475,23 @@ class Baselib {
 		}		
 		
 		$products = array();
+
+		if(count($ids)) {
 		
-		$query = $this->_ci->db->select("*")->from("products")->where("status",1)->where_in("product_id",$ids)->order_by('product_id', 'ASC')->get();
-		
-		if ($query->num_rows() > 0) {
-			foreach ($query->result_array() as $row) {
-				$products[$row['product_id']] = $row;
-				if(isset($ptc[$row['product_id']])) {
-					$products[$row['product_id']]['categories'] = $ptc[$row['product_id']];
-					$products[$row['product_id']]['bm'] = $categories[$ptc[$row['product_id']][0]];
-				} else {
-					$products[$row['product_id']]['categories'] = array();
-				}
-			}			
+			$query = $this->_ci->db->select("*")->from("products")->where("status",1)->where_in("product_id",$ids)->order_by('product_id', 'ASC')->get();
+			
+			if ($query->num_rows() > 0) {
+				foreach ($query->result_array() as $row) {
+					$products[$row['product_id']] = $row;
+					if(isset($ptc[$row['product_id']])) {
+						$products[$row['product_id']]['categories'] = $ptc[$row['product_id']];
+						$products[$row['product_id']]['bm'] = $categories[$ptc[$row['product_id']][0]];
+					} else {
+						$products[$row['product_id']]['categories'] = array();
+					}
+				}			
+			}
+
 		}
 		
 		ksort($products);

@@ -38,4 +38,5 @@
 			<?php } ?>
 		</form>
 	</div>	
+	<?php $this->load->view('cart/related_products'); ?>
 </aside>
