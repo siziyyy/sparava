@@ -30,8 +30,8 @@
                     </div>
                 </section>
             </div>
-            <div class="good_page single_good_page" data-product-id="<?php echo $product['product_id'] ?>" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>">
-                <section class="content">
+            <div class="good_page" >
+                <section class="content single_good_page" data-product-id="<?php echo $product['product_id'] ?>" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>">
                     <div class="content_helper">
                         <div class="good_page_left fl_l">
                             <img src="/images/<?php echo $product['image'] ?>" class="good_page_photo">
@@ -200,17 +200,12 @@
                             </div>
                             <div class="recomendations_in_commets tab_body" id="related_products">
                                 <div class="goods">
-                                    <?php foreach($products as $product) { ?>
-                                        <?php $info['product'] = $product; ?>
-                                        <?php $this->load->view('common/load-product',$info);?>
-                                    <?php } ?>
-                                    
-                                    <?php if($empty_products) { ?>
-                                        <?php for($i=0;$i<$empty_products;$i++) { ?>
-                                            <div class="g_good fl_l hide_on_mobile">&nbsp;</div>
+                                    <?php if(count($related_products)) { ?>
+                                        <?php foreach($related_products as $product) { ?>
+                                            <?php $info['product'] = $product; ?>
+                                            <?php $this->load->view('common/load-product',$info);?>
                                         <?php } ?>
                                     <?php } ?>
-                                    <div id="wrapper_for_product_load"></div>
                                     <div class="clear"></div>
                                 </div>
                             </div>                            

@@ -166,11 +166,11 @@
                     <input type="checkbox" class="product_diet adm_inf_chck" value="1"> Диет
                 </label>
                 <label class="label_for_adminfchck">
-                    <input type="checkbox" class="product_diet adm_inf_chck" value="1"> Рек
+                    <input type="checkbox" class="product_recommend adm_inf_chck" value="1"> Рек
                 </label>
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Артикул или название поставщика</span>
-                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_blog">
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_provider_articul">
                 </label>
             </aside>
             <div class="clear"></div>
