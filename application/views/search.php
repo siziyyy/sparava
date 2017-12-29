@@ -1,6 +1,4 @@
 <?php $this->load->view('common/header');?>
-        <?php $this->load->view('common/product-edit-form.php');?>
-		<?php $this->load->view('common/product-info');?>
         <section class="content">
             <style>
                 .category_bg_helper {
