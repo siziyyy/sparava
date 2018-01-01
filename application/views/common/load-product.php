@@ -31,7 +31,7 @@
 					<?php echo $product['country'] ?>
 				<?php } ?>
 			</span>
-			<span class="g_good_id"><?php echo $product['articul'] ?></span>
+			<!-- <span class="g_good_id"><?php echo $product['articul'] ?></span> -->
 		</div>
 	</div>
 	<div class="g_good_actions actions_holder">
