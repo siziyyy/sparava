@@ -8,28 +8,34 @@ class Baselib {
     	$this->_ci =& get_instance();
     }
 	
-	public function get_blogs($blog_id = false) {
+	public function get_blogs($blog_id = false, $type = "standart") {
 		$result = array();
 		
 		$query = $this->_ci->db->select("*")->from("blogs");
 		
 		if($blog_id) {
 			$query = $query->where("blog_id",$blog_id);
-		}
+		}	
 		
-		$query = $query->get();
+		$query = $query->where("type",$type)->order_by("blog_id","DESC")->get();
 		
-		if ($query->num_rows() == 1) {
+		$counter = 0;
+
+		if ($query->num_rows() == 1 and $blog_id) {
 			$result = $query->row_array();
 			$result['content'] = htmlspecialchars_decode($result['content']);
-		} elseif($query->num_rows() > 0) {
-			foreach ($query->result_array() as $row) {				
+		} elseif($query->num_rows() > 0 and !$blog_id) {
+			foreach ($query->result_array() as $row) {
 				$result[date('m-Y',$row['create_date'])][$row['blog_id']] = $row;
 				$result[date('m-Y',$row['create_date'])][$row['blog_id']]['content'] = htmlspecialchars_decode($row['content']);
+				$counter++;
 			}			
 		}
 		
-		return $result;
+		return array(
+			'blogs' => $result,
+			'counter' => $counter
+		);
 	}	
 
 	public function set_favourite($product_id) {
