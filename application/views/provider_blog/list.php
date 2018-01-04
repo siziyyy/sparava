@@ -12,7 +12,7 @@
         <section class="content">
             <div class="content_helper">
                 <div class="blog_header">
-                    <div class="blog_header_left fl_l">Вкусный блог <span class="blog_header_left_link">Информация о поставщиках</span></div>
+                    <div class="blog_header_left fl_l"><a href="/blogs" class="blog_header_left_link">Вкусный блог</a> Информация о поставщиках</div>
                     <div class="blog_header_right fl_r">
 						<?php echo $counter ?>					
 					</div>
@@ -49,7 +49,7 @@
 							<div class="blog_item">
 								<a href="/providers_blogs/<?php echo $blog['blog_id']; ?>">
 									<div class="blog_img">
-										<img src="/assets/img/blogs/<?php echo $blog['image_file_2']; ?>" class="blog_img_img">
+										<img src="<?php echo $blog['image_file_2']; ?>" class="blog_img_img">
 									</div>
 								</a>
 								<div class="clog_date"><?php echo date('d.m',$blog['create_date']); ?></div>
