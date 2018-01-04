@@ -21,7 +21,7 @@
                 <div class="clear"></div>
                 <div class="blog_post">
                     <div class="blog_post_left fl_l">
-                        <div class="post_img" style="background: url('/assets/img/blogs/<?php echo $blogs['image_file_3']; ?>');"></div>
+                        <div class="post_img_1" style="background: url('<?php echo $blogs['image_file_3']; ?>');"></div>
                     <div class="blog_date_sep_inner blog_date_mob fl_r"><?php echo date('d.m',$blogs['create_date']); ?></div>
                     </div>
                     <div class="blog_post_right fl_l">
