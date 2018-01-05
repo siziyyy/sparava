@@ -22,10 +22,12 @@
 								<a href="/category/18" class="c_new_index_menu_dropdown_link">Растительное масло</a>
 								<a href="/category/10" class="c_new_index_menu_dropdown_link">Консервация</a>
 								<a href="/category/12" class="c_new_index_menu_dropdown_link">Соусы</a>
+								<a href="/category/202" class="c_new_index_menu_dropdown_link">Восточные сладости</a>
+								<a href="/category/201" class="c_new_index_menu_dropdown_link">Конфеты и шоколад</a>
 							</div>
 							<div class="c_new_index_menu_dropdown_ls fl_l c_new_index_menu_dropdown_thrdls">
 								<a href="/category/19" class="c_new_index_menu_dropdown_link">Хлеб, лаваш</a>
-								<a href="/category/20" class="c_new_index_menu_dropdown_link">Хлебцы и снеки</a>
+								<a href="/category/20" class="c_new_index_menu_dropdown_link">Печенье, чипсы и другое</a>
 								<a href="/category/21" class="c_new_index_menu_dropdown_link">Сладости</a>
 								<a href="/category/22" class="c_new_index_menu_dropdown_link c_new_index_menu_dropdown_l_mar">Торты и пирожные</a>
 								<a href="/category/24" class="c_new_index_menu_dropdown_link">Чай</a>
