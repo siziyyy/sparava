@@ -1464,6 +1464,7 @@ class Baselib {
 		if ($query->num_rows() > 0) {
 			
 			$products_sorted = array();
+			$deleted_products = array();
 			
 			$sort_order = unserialize($query->row_array()['sort_data']);
 			
@@ -1471,11 +1472,18 @@ class Baselib {
 				if(isset($products[$product_id])) {
 					$products_sorted[$index] = $products[$product_id];
 					unset($products[$product_id]);
+				} else {
+					$deleted_products[$index] = $product_id;
 				}
 			}
 			
 			foreach($products as $product) {
 				$products_sorted[] = $product;
+			}
+
+			foreach ($deleted_products as $index => $product_id) {
+				$product = array_pop($products_sorted);
+				$products_sorted[$index] = $product;
 			}
 			
 			return $products_sorted;

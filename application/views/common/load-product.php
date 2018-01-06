@@ -21,14 +21,14 @@
 		<div class="g_good_country">
 			<span class="g_good_country_margin">
 				<?php if($product['brand']) { ?>
-					<?php echo $product['brand'] ?>
+					<a href="#" class="product_filter_link" data-value="<?php echo $product['brand'] ?>" data-name="brand"><?php echo $product['brand'] ?></a>
 					<?php $show_minus = true; ?>
 				<?php } ?>
 				<?php if($show_minus and $product['country']) { ?>
 					 - 
 				<?php } ?>
 				<?php if($product['country']) { ?>
-					<?php echo $product['country'] ?>
+					<a href="#" class="product_filter_link" data-value="<?php echo $product['country'] ?>" data-name="country"><?php echo $product['country'] ?></a>
 				<?php } ?>
 			</span>
 			<!-- <span class="g_good_id"><?php echo $product['articul'] ?></span> -->

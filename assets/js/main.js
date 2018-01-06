@@ -38,6 +38,7 @@ function listener(event) {
 		$('#product_form .product_composition').val(product.composition);
 		
 		$('#product_form .product_name').val(product.title);
+		$('#product_form .product_name_full').val(product.title_full);
 		$('#product_form .product_image_src').val(product.image);
 		$('#product_form .product_category').val(product.category);
 		$('#product_form .product_brand').val(product.brand);
@@ -60,6 +61,7 @@ function listener(event) {
 		$('#product_form .product_manufacturer').val(product.manufacturer);
 		$('#product_form .product_blog').val(product.blog);
 		$('#product_form .product_provider_articul').val(product.provider_articul);
+		$('#product_form .product_competitors').val(product.competitors);
 
 		$('#product_form .product_eko').prop('checked', false);
 		if(product.eko > 0) {
@@ -463,6 +465,7 @@ $(document).ready(function() {
 			pack: $('#product_form .product_pack').val(),
 			composition: $('#product_form .product_composition').val(),
 			title: $('#product_form .product_name').val(),
+			title_full: $('#product_form .product_name_full').val(),
 			image: $('#product_form .product_image_src').val(),
 			category: $('#product_form .product_category').val(),
 			brand: $('#product_form .product_brand').val(),
@@ -487,7 +490,8 @@ $(document).ready(function() {
 			sr_ves: $('#product_form .product_sr_ves').val(),
 			blog: $('#product_form .product_blog').val(),
 			manufacturer: $('#product_form .product_manufacturer').val(),
-			provider_articul: $('#product_form .product_provider_articul').val()
+			provider_articul: $('#product_form .product_provider_articul').val(),
+			competitors: $('#product_form .product_competitors').val()
 		}
 		
 		send_data = {
@@ -933,6 +937,8 @@ console.log($(this).parents(parent_class));
 			send_data.provider_id = $( this ).attr('data-provider-id');
 		} else if($( this ).attr('data-provider-full-id')) {
 			send_data.provider_full_id = $( this ).attr('data-provider-full-id');
+		} else if($( this ).attr('data-brands-id')) {
+			send_data.brands_id = $( this ).attr('data-brands-id');
 		}
 
 		$.ajax({
@@ -1262,7 +1268,9 @@ console.log($(this).parents(parent_class));
 								$('#product_info .cgood_modal_old_price').show();
 							}
 							
-							if(product['title']) {
+							if(product['title_full']) {
+								$('#product_info .good_modal_name').text(product['title_full']);
+							} else if(product['title']) {
 								$('#product_info .good_modal_name').text(product['title']);
 							}
 							
@@ -1599,6 +1607,18 @@ $('.cool_select_button,.new_mob_submenu_filter_button').click(function() {
 
 $(document).on('click','.cool_select_reset',function(e) {
 	window.location = window.location.origin+window.location.pathname;
+});
+
+$(document).on('click','.product_filter_link',function(e) {
+	tail = window.location.search;	
+	params = URLToArray(tail);
+	
+	name = $(this).attr('data-name');
+	value = $(this).attr('data-value');
+	
+	params[name] = value;
+	
+	window.location = window.location.origin+window.location.pathname+'?'+ArrayToURL(params); 	
 });
 
 function filter_select(obj) {
