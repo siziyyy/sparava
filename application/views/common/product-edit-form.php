@@ -67,6 +67,10 @@
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long check_length product_name" data-length="24">
                 </label>
                 <label>
+                    <span class="g_good_admin_info_modal_inpname nom">Название полное</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long check_length product_name_full" data-length="24">
+                </label>                
+                <label>
                     <span class="g_good_admin_info_modal_inpname">Фото</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_image_src">
                 </label>
@@ -171,6 +175,10 @@
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Артикул или название поставщика</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_provider_articul">
+                </label>
+                <label>
+                    <span class="g_good_admin_info_modal_inpname">Конкуренты (с новой строки)</span>
+                    <textarea type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_competitors"></textarea>
                 </label>
             </aside>
             <div class="clear"></div>

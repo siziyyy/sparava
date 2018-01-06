@@ -25,7 +25,7 @@
                         <span class="breadcrumbs_sep">/</span>
                         <a href="/category/<?php echo $product['category_id'] ?>" class="breadcrumbs_item"><?php echo $product['category_title'] ?></a>
                         <span class="breadcrumbs_sep">/</span>                    
-                        <span class="breadcrumbs_item last_breadcrumb"><?php echo $product['title'] ?></span>
+                        <span class="breadcrumbs_item last_breadcrumb"><?php echo (is_null($product['title_full']) ? $product['title'] : $product['title_full']) ?></span>
 
                     </div>
                 </section>
@@ -62,13 +62,13 @@
                                     <div class="good_modal_id fl_r"><?php echo $product['articul'] ?></div>
                                     <div class="clear"></div>
                                     <div class="share_it_faster">
-                                        <?php echo $this->baselib->get_share_links('/product/'.$product['product_id'], $product['title'], $product['description'], $product['image']) ?>
+                                        <?php echo $this->baselib->get_share_links('/product/'.$product['product_id'], (is_null($product['title_full']) ? $product['title'] : $product['title_full']), $product['description'], $product['image']) ?>
                                     </div>
                                 </div>
                                 <div class="clear"></div>
                             </div>
                             <div class="good_modal_right_line">
-                                <div class="good_modal_name fl_l"><?php echo $product['title'] ?></div>
+                                <div class="good_modal_name fl_l"><?php echo (is_null($product['title_full']) ? $product['title'] : $product['title_full']) ?></div>
                                 <div class="clear"></div>
                             </div>
                             <div class="g_admin_info">inf</div>
@@ -200,10 +200,17 @@
                             </div>
                             <div class="recomendations_in_commets tab_body" id="related_products">
                                 <div class="goods">
+                                    <?php $counter = 0; ?>
                                     <?php if(count($related_products)) { ?>
                                         <?php foreach($related_products as $product) { ?>
                                             <?php $info['product'] = $product; ?>
                                             <?php $this->load->view('common/load-product',$info);?>
+                                            <?php $counter++; ?>
+                                        <?php } ?>
+                                        <?php if($counter < 5) { ?>
+                                            <?php for($i=0;$i<(5-$counter);$i++) { ?>
+                                                <div class="g_good fl_l hide_on_mobile">&nbsp;</div>
+                                            <?php } ?>
                                         <?php } ?>
                                     <?php } ?>
                                     <div class="clear"></div>
@@ -223,7 +230,7 @@
                     <span class="back_pls_from_good_text">назад</span>
                 </div>
                 <div class="g_good_photo_block">
-                    <img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo">
+                    <img src="/images/<?php echo $product['image'] ?>" alt="<?php echo (is_null($product['title_full']) ? $product['title'] : $product['title_full']) ?>" class="g_good_photo">
                 </div>
                 <div class="new_good_helper_mobile">
                     <?php if(isset($product['old_price'])) { ?>
@@ -234,8 +241,8 @@
                         <?php echo ($product['type'] == 'шт' ? (!is_null($product['weight']) ? ' - '.$product['weight'] : '') : ($product['bm'] == 1 ? ' за 1 кг' : ' за 100 гр')) ?>
                     </div>
                     <div class="g_good_mobile_fav <?php echo (isset($product['favourite']) ? 'g_good_mobile_fav_orange' : '') ?> sprite send" data-type="favourite"></div>
-                    <div class="g_good_name <?php echo ($product['status'] == 0 ? 'inactive_good' : '') ?>"><?php echo $product['title'] ?></div>
-                    <a href="/product/<?php echo $product['product_id'] ?>" class="g_good_name <?php echo ($product['status'] == 0 ? 'inactive_good' : '') ?>"><?php echo $product['title'] ?></a>
+                    <div class="g_good_name <?php echo ($product['status'] == 0 ? 'inactive_good' : '') ?>"><?php echo (is_null($product['title_full']) ? $product['title'] : $product['title_full']) ?></div>
+                    <a href="/product/<?php echo $product['product_id'] ?>" class="g_good_name <?php echo ($product['status'] == 0 ? 'inactive_good' : '') ?>"><?php echo (is_null($product['title_full']) ? $product['title'] : $product['title_full']) ?></a>
                     <div class="g_good_description">
                         <?php echo $product['description'] ?>
                     </div>

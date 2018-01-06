@@ -10,6 +10,7 @@
 								<a href="/catalog" class="c_new_index_menu_to_cat">Полный каталог</a>
 								<!--<a href="/provider" class="c_new_index_menu_to_cat provider_link">Поставщики</a>-->
 								<a href="/provider" class="c_new_index_menu_to_cat">Поставщики</a>
+								<a href="/brands" class="c_new_index_menu_to_cat">Бренды</a>
 							</div>
 							<div class="c_new_index_menu_dropdown_ls fl_l c_new_index_menu_dropdown_secls">
 								<a href="/category/14" class="c_new_index_menu_dropdown_link">Фрукты, ягоды</a>
