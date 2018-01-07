@@ -37,6 +37,7 @@
 								<a href="/category/27" class="c_new_index_menu_dropdown_link">Соки и компоты</a>
 								<a href="/category/26" class="c_new_index_menu_dropdown_link">Вода и напитки</a>
 								<a href="/category/213" class="c_new_index_menu_dropdown_link">Колбасы, сосиски, сардельки</a>
+								<a href="/category/226" class="c_new_index_menu_dropdown_link">Сыры</a>
 							</div>
 							<div class="c_new_index_menu_dropdown_ls c_new_index_menu_dropdown_frthls fl_l">
 								<div class="c_new_index_menu_dropdown_head">Продавцы</div>
