@@ -31,7 +31,7 @@
 					<a href="#" class="product_filter_link" data-value="<?php echo $product['country'] ?>" data-name="country"><?php echo $product['country'] ?></a>
 				<?php } ?>
 			</span>
-			<!-- <span class="g_good_id"><?php echo $product['articul'] ?></span> -->
+			<span class="g_good_id"><?php echo $product['articul'] ?></span>
 		</div>
 	</div>
 	<div class="g_good_actions actions_holder">
