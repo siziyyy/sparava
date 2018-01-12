@@ -68,7 +68,7 @@
                 </label>
                 <label>
                     <span class="g_good_admin_info_modal_inpname nom">Название полное</span>
-                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long check_length product_name_full" data-length="24">
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_name_full check_length">
                 </label>                
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Фото</span>
@@ -80,7 +80,7 @@
                 </label>
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Бренд</span>
-                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long check_length product_brand" data-length="16">
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long check_length product_brand" data-length="18">
                 </label>
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Статус</span>

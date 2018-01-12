@@ -102,7 +102,7 @@
                                 <div class="good_modal_right_line">
                                     <div class="good_modal_kkk">
                                         <span class="good_modal_rl_header">Ценность на 100 г: </span>
-                                        <?php if($product['kkal']) { ?>Ккал - <?php echo $product['kkal'] ?><?php } ?><?php if($product['belki']) { ?>, Белки - <?php echo $product['belki'] ?><?php } ?><?php if($product['jiri']) { ?>, Углеводы - <?php echo $product['jiri'] ?><?php } ?><?php if($product['uglevodi']) { ?>, Жиры - <?php echo $product['uglevodi'] ?><?php } ?><?php if($product['gi']) { ?>, GI - <?php echo $product['gi'] ?><?php } ?>                                    
+                                        <?php if($product['kkal']) { ?>Ккал - <?php echo $product['kkal'] ?><?php } ?><?php if($product['belki']) { ?>, Белки - <?php echo $product['belki'] ?><?php } ?><?php if($product['jiri']) { ?>, Жиры - <?php echo $product['jiri'] ?><?php } ?><?php if($product['uglevodi']) { ?>, Углеводы - <?php echo $product['uglevodi'] ?><?php } ?><?php if($product['gi']) { ?>, GI - <?php echo $product['gi'] ?><?php } ?>                                    
                                     </div>
                                 </div>
                             <?php } ?>
