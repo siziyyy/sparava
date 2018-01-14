@@ -20,8 +20,8 @@
 
       <div class="bottom">
         <div class="wrapper">
-          <a href="#" class="text">Youtube</a>
-          <a href="#" class="text">Telisco</a>
+          <a href="https://www.youtube.com/" class="text">Youtube</a>
+          <a href="https://telisco.com/" class="text">Telisco</a>
           <span class="text">Powered by </span>
         </div>
       </div>
