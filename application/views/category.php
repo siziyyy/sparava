@@ -6,6 +6,11 @@
                 </div>
             </div>
             <div class="content_helper content_helper_gds">
+                <div class="new_goods_separator new_goods_separator_first"><!-- пришлось добавлять специальный класс new_goods_separator_first для первого, для следующих он не нужен -->
+                    <a href="/" class="new_goods_separator_link fl_l">Газированные напитки</a>
+                    <div class="new_goods_separator_count fl_r">всего товаров: 528</div>
+                    <div class="clear"></div>
+                </div>
                 <div class="goods">
                     <?php foreach($products as $product) { ?>
 						<?php $info['product'] = $product; ?>
