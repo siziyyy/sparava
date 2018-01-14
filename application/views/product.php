@@ -64,14 +64,15 @@
                                     <div class="share_it_faster">
                                         <?php echo $this->baselib->get_share_links('/product/'.$product['product_id'], (is_null($product['title_full']) ? $product['title'] : $product['title_full']), $product['description'], $product['image']) ?>
                                     </div>
+                                    <div class="g_admin_info">inf</div>
                                 </div>
                                 <div class="clear"></div>
                             </div>
+                            
                             <div class="good_modal_right_line">
                                 <div class="good_modal_name fl_l"><?php echo (is_null($product['title_full']) ? $product['title'] : $product['title_full']) ?></div>
                                 <div class="clear"></div>
                             </div>
-                            <div class="g_admin_info">inf</div>
                             <div class="good_modal_right_line">
                                 <div class="good_modal_subhead">
                                     <?php echo $product['description'] ?>
