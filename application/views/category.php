@@ -1,6 +1,6 @@
 <?php $this->load->view('common/header',$header);?>
         <section class="content">
-            <div class="category_bg_helper <?php echo $is_parent_category == 1 ? "category_bg_helper_in_main":''; ?>">
+            <div class="category_bg_helper <?php echo ($is_parent_category ? 'category_bg_helper_in_main' : '' ); ?>">
                 <div class="content_helper">
                     <?php $this->load->view('common/menu-inner', $menu);?>
                 </div>
