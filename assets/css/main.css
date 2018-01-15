@@ -1999,6 +1999,9 @@ footer {
     top: 8px;
     background: #FA8A75 !important;
 }
+.downlaod_excel, #xls_download_form {
+    display: none;
+}
 /* media */
 @media all and (max-width: 1200px) {
     .content_helper {

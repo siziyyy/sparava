@@ -4,6 +4,10 @@
                 <div class="content_helper">
                     <div class="c_new_menu">
                         <div class="c_new_menu_line c_new_menu_line_country filters_holder">
+                        	<a href="#" class="downlaod_excel">XLS</a>
+                        	<form id="xls_download_form" method="POST">
+                        		<input type="hidden" value="" name="token" id="xls_download_token" />
+                        	</form>                        	
                             <div class="cool_select_pack cool_select_country_pack fl_l">
                                 <div class="cool_select cool_select_country <?php echo (isset($filters_text['brand']) ? 'cool_select_disabled' : '') ?>">
 									<span><?php echo (isset($filters_text['brand']) ? $filters_text['brand'] : 'бренд') ?></span>

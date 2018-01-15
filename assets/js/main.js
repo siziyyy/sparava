@@ -14,6 +14,7 @@ function listener(event) {
 	if (event.data == 'iframe_ready') {
 		$('.g_admin_info').css('display','inline-block');
 		$('.provider_link').show();
+		$('.downlaod_excel').show();
 		show_admin_info = true;
 	} else if(event.data.type == 'product_details') {
 		product = event.data.data;
@@ -89,7 +90,11 @@ function listener(event) {
 		$('#product_form').show();
 	} else if (event.data.type == 'save_product' && event.data.data == 'success') {
 		$('.admin_window_closer').hide();
-		$('#product_form').hide();		
+		$('#product_form').hide();
+	} else if (event.data.type == 'create_admin_token') {
+		token = event.data.data;
+		$('#xls_download_token').val(token);
+		$('#xls_download_form').submit();
 	}
 }
 
@@ -100,6 +105,16 @@ if (window.addEventListener) {
 }
 
 $(document).ready(function() {
+
+	$(document).on('click','.downlaod_excel',function(e) {
+		e.preventDefault();
+
+		send_data = {
+			type : 'create_admin_token'
+		}
+
+		send_msg(send_data);
+	});	
 
 	$('.m_h_hamb').click(function() {
 		$('.aside_mobile_menu').toggle();
@@ -553,7 +568,6 @@ $(document).ready(function() {
 
 	$(document).on('click','.share_it_faster_close',function(e) {
 		$('.share_it_faster').hide();
-        /*console.log('c')*/
 	}); 
 
 	$(document).on('click','.good_modal_share',function(e) {
@@ -670,7 +684,6 @@ $(document).ready(function() {
 	$(document).on('click','.good_modal_arrow_right, .good_modal_arrow_left',function(e) {
 		product_id = $(this).attr('data-product-id');
 		$('.g_good[data-product-id="'+product_id+'"]').find('.quick_view').click();
-		console.log(product_id);
 	});
 	
 	$(document).on('click','.g_good_to_cart',function(e) {
@@ -741,7 +754,7 @@ $(document).ready(function() {
 
 		quantity = get_quantity_by_type(quantity,type_num,false,parent_class,$(this));
 		price = $(this).parents(parent_class).find(".g_good_price_value").text();
-console.log($(this).parents(parent_class));
+
 		$(this).parents(parent_class).find(".g_good_to_cart_value").text(parseFloat(quantity)*price);
 		$('.g_good_bonus_value').text(parseFloat(quantity)*price*0.05);
 		$(this).parents(parent_class).find('.g_good_count_input').val(quantity);
