@@ -1767,9 +1767,12 @@ footer {
 .c_new_menu_line_item {
     margin-right: 29px;
     color: #000;
-    font-size: 15px;
+    font-size: 14px;
     font-family:Calibri Bold;
     text-transform: uppercase;
+}
+.category_bg_helper_in_main {
+    height: 72px !important;
 }
 .c_new_menu_line_item {
     cursor: pointer;
