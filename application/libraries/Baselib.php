@@ -6,6 +6,106 @@ class Baselib {
 
  	function __construct() {
     	$this->_ci =& get_instance();
+    }   
+
+    public function is_parent_category($category) {
+		if(!is_numeric($category)) {
+			$c_query = $this->_ci->db->get_where("categories", array("seo_url" => $category,"status" => 1));
+			if ($c_query->num_rows() > 0) {
+				$category_id = $c_query->row_array()['category_id'];
+			} else {
+				$category_id = 0;
+			}
+		} else {
+			$category_id = $category;
+		}
+		
+		$sql = 'SELECT * FROM categories WHERE category_id = ' . (int)$category_id;
+				
+		$query = $this->_ci->db->query($sql);
+
+		if ($query->num_rows() > 0) {
+			$category = $query->row_array();
+
+			if($category['parent_id'] == 0) {
+				return $category_id;
+			} else {
+				return false;
+			}
+		}
+    } 
+
+    public function get_parent_category_products($category_id) {
+    	$categories = array();
+    	$products = array();
+
+		$sql = 'SELECT * FROM categories WHERE parent_id = ' . (int)$category_id . ' ORDER BY sort_order ASC';
+				
+		$query = $this->_ci->db->query($sql);
+
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $row) {
+				$categories[$row['category_id']] = $row;		
+			}
+		}    	
+
+		foreach ($categories as $child_category_id => $category) {
+			$sql = 'SELECT p.*, c.bm FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND p.status = 1 AND ptc.category_id = c.category_id AND ptc.category_id = ' . (int)$child_category_id . ' ORDER BY product_id ASC';
+					
+			$query = $this->_ci->db->query($sql);
+			$count = $query->num_rows();
+			$counted_products = 0;
+			$extracted_products = array();
+
+			if ($count > 0) {
+
+				foreach ($query->result_array() as $row) {
+					$extracted_products[$row['product_id']] = $row;
+				}
+
+				$extracted_products = $this->sort_products('category',$child_category_id,$extracted_products);
+
+				$counted_products = 0;
+
+				$products[$category['category_id']]['products_count'] = $count;
+
+				foreach ($extracted_products as $product) {
+					if($counted_products <= 4) {
+						$products[$category['category_id']]['products'][$product['product_id']] = $product;
+						$products[$category['category_id']]['info'] = $category;
+						$counted_products++;
+					}
+				}
+
+				if($count <= 5) {
+					$products[$category['category_id']]['empty_products'] = 5 - $count;
+				} else {
+					$products[$category['category_id']]['empty_products'] = 0;
+				}
+			}
+
+			foreach($products as $category_id => $category) {
+				$products[$category_id]['products'] = $this->handle_special_price($category['products']);
+				//$products[$category_id]['products'] = $this->sort_products('category',$category_id,$products[$category_id]['products']);
+			}
+		}
+
+		return $products;
+    }
+
+    public function check_admin_token($token) {
+    	$where = array(
+    		'name' => 'admin_token',
+    		'value' => $token
+    	);
+
+    	$query = $this->_ci->db->select("*")->from("settings")->where($where)->get();
+
+    	if ($query->num_rows() > 0) {
+    		return true;
+    	}
+
+    	return false;
     }
 	
 	public function get_blogs($blog_id = false, $type = "standart") {
