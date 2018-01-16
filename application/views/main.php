@@ -26,7 +26,7 @@
                             </div>
                             <div class="b_undertext">
                                 Экономьте до 40% от рыночной цены, кушайте 
-                                <br>наисвежайшие продукты каждый день
+                                <br>самые свежие продукты каждый день
                             </div>
                         </div>
                 </div>  
@@ -35,7 +35,7 @@
                     <div class="content_helper">
                             <div class="slider_2 fl_r">
                                 <div class="slider_2_header">
-                                    Пустите свежесть
+                                    Впустите свежесть
                                     <br>к вам домой!
                                 </div>
                                 <div class="slider_2_body">
@@ -78,14 +78,14 @@
                     <div class="content_helper">
                             <div class="banner_5 fl_l">
                                 <div class="banner_5_header">
-                                    Более 750 видов кофе из 
+                                    Более 150 видов кофе из 
                                     <br>Бразилии, Италии и Африки
                                 </div>
                                 <div class="banner_5_body">
                                     пейте качественный кофе, окунитесь 
-                                    <br>в мир <span class="banner_5_body_acc">безумных ароматов</span> 
+                                    <br>в мир <span class="banner_5_body_acc">тонких ароматов</span> 
                                     <div class="banner_5_accent slider_sprite"></div>
-                                    <div class="banner_5_accent_2">arabica & robusta</div>
+                                    <div class="banner_5_accent_2">arabica &amp; robusta</div>
                                 </div>
                             </div>
                             <div class="clear"></div>
