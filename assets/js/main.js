@@ -1323,6 +1323,10 @@ $(document).ready(function() {
 									$('#product_info .good_modal_type').text('Диетическое');
 								}
 							}
+
+							if(product['manufacturer']) {
+									$('#product_info .product_manufacturer').text(product['manufacturer']);
+							}							
 							
 							$('#product_info').attr('data-type',send_data.good_type);
 							

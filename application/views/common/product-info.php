@@ -63,7 +63,7 @@
                     </div>
                     <div class="good_modal_right_line good_modal_bbefore_wrapper">
                         <div class="good_modal_tme">
-                            <span class="good_modal_rl_header">Производитель: </span><span class="good_modal_bbefore clear_on_load"></span>
+                            <span class="good_modal_rl_header">Производитель: </span><span class="product_manufacturer clear_on_load"></span>
                         </div>
                     </div>
                     <div class="good_modal_right_line">
