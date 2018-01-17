@@ -1,8 +1,7 @@
 <?php $show_minus = false; ?>
 <div class="g_good fl_l" data-product-id="<?php echo $product['product_id'] ?>" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>">
 	<div class="g_good_photo_block">
-		<a href="/product/<?php echo $product['product_id'] ?>"><img src="/images/1.jpg" alt="<?php echo $product['title'] ?>" class="g_good_photo"></a>
-		<!--<a href="/product/<?php echo $product['product_id'] ?>"><img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo"></a>-->
+		<a href="/product/<?php echo $product['product_id'] ?>"><img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo"></a>
 		<div class="quick_view send" data-type="get_product_info">быстрый просмотр</div>
 		<div class="recommended_av_w_pack">
 			<div class="recommended_prod"></div>
