@@ -565,6 +565,11 @@ $(document).ready(function() {
         gutter: '.c_mosaic_gutter_sizer',
         percentPosition: true
     });
+    $('.new_first_order_slider').slick({
+  		slidesToShow: 8,
+  		prevArrow: '<div class="arrows_new_info arrows_new_info_left"></div>',
+  		nextArrow: '<div class="arrows_new_info arrows_new_info_right"></div>'
+    });
 
 	$(document).on('click','.share_it_faster_close',function(e) {
 		$('.share_it_faster').hide();

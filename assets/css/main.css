@@ -17,6 +17,16 @@ body,html,textarea{font-family:Calibri}
     height: 9px;
     margin: 20px 0 3px -7px;
 }
+.good_modal_tme .good_modal_rl_header a {
+    color: #000;
+    text-decoration: underline;
+}
+.good_modal_tme .good_modal_rl_header a:hover {
+    color: #fa4517;
+}
+.g_admin_info:hover {
+    color: #fa4517;
+}
 .mag_or_blog_separator {
     display: inline-block;
     height: 9px;
@@ -1957,7 +1967,7 @@ footer {
 }
 .c_new_index_menu_dropdown_footer {
     position: absolute;
-    bottom: 37px;
+    bottom: 27px;
 }
 .c_new_index_menu_dropdown_footer .c_new_index_menu_dropdown_link {
     color: #508f1d;
