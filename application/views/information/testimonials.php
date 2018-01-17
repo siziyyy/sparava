@@ -33,7 +33,7 @@
                                 </div>
                             </div>
                             <div class="c_contacts_line_right c_contacts_line_right_about fl_r">
-                                <div class="c_contacts_line_right_header">Еще отзывы о нас 
+                                <div class="c_contacts_line_right_header" style="color: #fe4517;">Еще отзывы о нас 
                                 <br>на других сайтах</div>
                                 <div class="more_answ_pack">
                                     <div class="mor_hlp"><a href="/" class="more_answ_link">otzyv.ru</a></div>

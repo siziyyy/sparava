@@ -76,6 +76,9 @@
     font-family:Calibri Bold;
     margin-top: 65px;
 }
+.contacts_null_text2 {
+    color: #FE4517 !important;
+}
 .c_contacts_line_right_phone:hover {
     color: #666;
 }
@@ -86,8 +89,23 @@
     line-height: 20px;
     padding-top: 15px;
 }
+.new_first_order_slider {
+    width: 1080px;
+    margin: 0 auto;
+    height: 166px;
+    /*overflow: hidden;*/
+}
+.new_first_order_slider_item {
+    width: 128px;
+    display: inline-block;
+    margin: 0 5px;
+}
+.new_first_order_slider_item_img {
+    width: 100%;
+}
 .c_contacts_line_right_about {
     padding-top: 15px;
+    height: 350px;
 }
 .markin_vadim {
     margin-top: 0px;
@@ -220,12 +238,40 @@
     font-size: 20px;
     margin-top: 20px;
 }
+.c_contacts_line_text_info {
+    font-size: 20px;
+    width: 690px;
+    margin: 0 0 40px 0;
+}
+.arrows_new_info {
+    width: 16px;
+    height: 16px;
+    background-color: #e6e6e6;
+    background-image: url('/assets/img/info_slider_arrows.png');
+    background-repeat: no-repeat;
+    -webkit-border-radius: 16px;
+            border-radius: 16px;
+    position: absolute;
+    top: 60px;
+    cursor: pointer;
+}
+.arrows_new_info:hover {
+    opacity: .7;
+}
+.arrows_new_info_left {
+    left: -34px;
+    background-position: -15px 4px;
+} 
+.arrows_new_info_right {
+    right: -34px;
+    background-position: 5px 4px;
+} 
 .c_contacts_line_left_deliv_l {
     width: 50%;
 }
 .c_contacts_line_left_deliv_r {
     width: 50%;
-    background: #e6e6e6;
+    background: #f7f7f8;
     padding: 0 0 20px 50px;
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
@@ -245,6 +291,29 @@
     text-align: center;
     font-size: 70px;
     font-family:Calibri Bold;
+    color: #3E780F;
+}
+.blahhahah {
+    line-height: 35px;
+}
+.c_contacts_line_right_coolheader_cards {
+    width: 222px;
+    height: 28px;
+    background: url('/assets/img/cards.png');
+    margin-top: 25px;
+}
+.c_contacts_line_left_car_pack {
+    margin-top: 50px;
+}
+.c_contacts_line_left_car {
+    width: 113px;
+    height: 52px;
+    background: url('/assets/img/car.png');
+}
+.c_contacts_line_left_car_text {
+    font-size: 20px;
+    width: 77%;
+    margin: 0 0 0 43px;
 }
 .call_contacts_line_right {
     padding-left: 0;

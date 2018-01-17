@@ -60,11 +60,11 @@
                                     <div class="good_modal_share fl_r sprite"></div>
                                     <div class="good_modal_fav fl_r <?php echo (isset($product['favourite']) ? 'g_good_mobile_fav_orange' : '') ?> sprite send" data-type="favourite"></div>
                                     <div class="good_modal_id fl_r"><?php echo $product['articul'] ?></div>
+                                    <div class="g_admin_info fl_r" style="margin: 9px 20px 0 0">inf</div>
                                     <div class="clear"></div>
                                     <div class="share_it_faster">
                                         <?php echo $this->baselib->get_share_links('/product/'.$product['product_id'], (is_null($product['title_full']) ? $product['title'] : $product['title_full']), $product['description'], $product['image']) ?>
                                     </div>
-                                    <div class="g_admin_info">inf</div>
                                 </div>
                                 <div class="clear"></div>
                             </div>
