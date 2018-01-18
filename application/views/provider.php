@@ -5,6 +5,7 @@
                     <div class="c_new_menu">
                         <div class="c_new_menu_line c_new_menu_line_country filters_holder">
                         	<a href="#" class="downlaod_excel">XLS</a>
+                        	<a href="https://admin.aydaeda.ru/importexport" target="_blank">admin</a>
                         	<form id="xls_download_form" method="POST">
                         		<input type="hidden" value="" name="token" id="xls_download_token" />
                         	</form>
