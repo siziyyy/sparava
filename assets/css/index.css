@@ -490,6 +490,7 @@ textarea.contact_me_mobile_input {
 .mobile_blog_header {
     display: none;
     width: 100%;
+    text-align: center;
     height: 47px;
     background: #f0f0f0;
     border-bottom: 1px solid #e0e0e0;
@@ -512,8 +513,9 @@ textarea.contact_me_mobile_input {
     text-transform: uppercase;
     font-family:Calibri Bold;
     color: #000;
-    display: block;
+    display: inline-block;
     text-align: center;
+    margin: 0 10px ;
 }
 .cyvguhbijnokml_cur {
     color: #fe4517;
@@ -673,7 +675,7 @@ textarea.contact_me_mobile_input {
        -moz-box-sizing: border-box;
             box-sizing: border-box;
         display: inline-block;
-        width: calc(100% - 28px);
+        width: calc(100% - 31px);
         border: 1px solid #e0e0e0;
         padding-left: 12px;
 }
@@ -684,10 +686,10 @@ textarea.contact_me_mobile_input {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    -webkit-background-size: 262px;
-    -o-background-size: 262px;
-    background-size: 262px;
-    background-position: -65px -55px;
+    -webkit-background-size: 810%;
+    -o-background-size: 810%;
+    background-size: 810%;
+    background-position: -38px -33px;
     border: none;
     background-color: #F78C76;
     margin: 0px 0 0 3px;
@@ -1455,8 +1457,9 @@ textarea.aside_mobile_menu_new_content_second_content_inputttt {
     transition: opacity .3s ease;
 }
 .blog_img_img {
-    max-width: 262px;
-    cursor: pointer;
+    /*max-width: 262px;*/
+    cursor: pointer;    
+    max-width: 100%;
 }
 .blog_img:hover {
     opacity: .8;

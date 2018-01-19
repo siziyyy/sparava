@@ -1,7 +1,7 @@
 <?php $show_minus = false; ?>
 <div class="g_good fl_l" data-product-id="<?php echo $product['product_id'] ?>" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>">
 	<div class="santeronii">
-		<div class="santeronii_photo fl_l" style="background-image: url('/images/1.jpg')"></div>
+		<div class="santeronii_photo fl_l" style="background-image: url('/images/2017-11-1315-52-39_09-34-05.JPG')"></div>
 		<div class="santeronii_text fl_l">Сантеронии</div>
 		<div class="santeronii_share fl_r"></div>
 		<div class="share_it_faster_new">

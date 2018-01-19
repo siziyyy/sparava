@@ -159,7 +159,7 @@ body,html,textarea{font-family:Calibri}
     cursor: pointer;
 }
 .back_pls_from_good_text {
-    font-size: 12px;
+    font-size: 13px;
     display: inline-block;
 }
 .back_pls_from_good_img {
@@ -542,8 +542,8 @@ header {
 }
 .good_modal_video {
     display: inline-block;
-    width: 132px;
-    height: 71px;
+    width: 190px;
+    height: 104px;
     position: relative;
     cursor: pointer;
     background-position: center !important;
@@ -632,14 +632,19 @@ header {
     background-position: -28px -1010px !important;
 }
 .good_modal_video_play {
-    width: 30px;
+    width: 40px;
     height: 30px;
     cursor: pointer;
-    background-position: -26px -1093px !important;
     left: 50%;
     top: 50%;
     position: absolute;
-    margin: -15px 0 0 -15px;
+    margin: -15px 0 0 -19px;
+}
+.good_modal_video_play img {
+    cursor: pointer;
+}
+.good_modal_video_play:hover img {
+    opacity: .7;
 }
 .good_modal_weight {
     font-size: 14px;
