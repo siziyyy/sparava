@@ -7,26 +7,34 @@
 		<footer>
 			<div class="content_helper">
 				<div class="f_block">
+					<div class="f_logo_uzor_ept">
+							<img src="/assets/img/uzir.png" alt="aydaeda">
+					</div>
 					<a href="/">
-						<div class="f_logo sprite"></div>
+						<div class="f_logo_image">
+							<img src="/assets/img/new_logo.svg" alt="aydaeda">
+						</div>
 					</a>
-					<div class="f_socials">
-						<a href="/" target="_blank" class="f_social sprite f_social_in"></a>
-						<a href="/" target="_blank" class="f_social sprite f_social_fb"></a>
+					<div class="f_block_search_header">Поиск товара по артикулу</div>
+					<div class="f_block_search">
+						<form method="post" action="/search">
+							<input type="text" class="f_block_search_inp" name="articul">
+							<button type="submit" class="f_block_search_butt">найти</button>
+						</form>
 					</div>
 				</div>
 				<div class="f_block">
-					<div class="f_delivery_icon sprite"></div>
+					<div class="f_block_header">Доставка, гарантия<br>качества, обмен, возврат </div>
 					<div><a href="/information/delivery" class="f_block_link">Доставка и способы оплаты</a></div>
-					<div><a href="/information/claims" class="f_block_link">Претензии и предложения</a></div>
-					<div><a href="/information/agreement" class="f_block_link">Условия доставки (договора-оферты)</a></div>
-					<div><a href="/information/return" class="f_block_link">Обмен и возврат</a></div>
-					<div class="f_block_link_foot">Минимальный заказ 1500 руб.</div>
+					<div><a href="/information/claims" class="f_block_link">Прием заказа, обмен и возврат</a></div>
+					<div><a href="/information/agreement" class="f_block_link">Гарантия качества</a></div>
+					<div><a href="/information/return" class="f_block_link">Условия доставки</a></div>
 				</div>
 				<div class="f_block">
 					<div class="f_block_header">Программы <br>лояльности</div>
 					<div><a href="/information/first" class="f_block_link">Преимущества первого заказа</a></div>
-					<div><a href="/information/bloger" class="f_block_link">Если вы блогер</a></div>
+					<div><a href="/information/bloger" class="f_block_link">Бонусная система</a></div>
+					<div><a href="/information/first" class="f_block_link">Претензии и предложения</a></div>
 				</div>
 				<div class="f_block">
 					<div class="f_block_header">Информация <br>о нас</div>
@@ -35,6 +43,12 @@
 					<div><a href="/information/contacts" class="f_block_link">Контакты</a></div>
 				</div>
 				<div class="f_block">
+					<div class="f_block_header">Сотрудничество <br>и работа</div>
+					<div><a href="/information/first" class="f_block_link">Поставщики</a></div>
+					<div><a href="/information/first" class="f_block_link">Работы</a></div>
+					<div><a href="/information/bloger" class="f_block_link">Блогерам</a></div>
+				</div>
+				<!--<div class="f_block">
 					<div class="f_block_header">Поиск товара по<br>артикулу</div>
 					<div class="f_block_search">
 						<form method="post" action="/search">
@@ -42,7 +56,7 @@
 							<button type="submit" class="f_block_search_butt">найти</button>
 						</form>
 					</div>
-				</div>
+				</div>-->
 			</div>
 		</footer>
 		

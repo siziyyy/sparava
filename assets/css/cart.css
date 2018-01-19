@@ -22,6 +22,8 @@
     font-size: 20px !important;
     font-family:Calibri Bold;
     border-bottom: 5px solid #e6e6e6;
+    margin: -8px 0 0 0;
+    padding-bottom: 20px;
 }
 .c_inners_header_cart span {
     display: inline-block;
@@ -30,8 +32,8 @@
 }
 .c_inners_side_header {
     border-bottom: 5px solid #e6e6e6;
-    height: 40px;
-    line-height: 37px;
+    height: 45px;
+    line-height: 43px;
     margin-bottom: 30px;
 }
 .no_fw {
@@ -50,6 +52,10 @@
 .c_c_inners_left_side_text_sh_bb a {
     cursor: pointer;
     display: block;
+    width: 33%;
+    float: left;
+    vertical-align: top;
+    height: 142px;
 }
 .c_inners_left_side_content_rec {
     padding: 34px 40px 14px 40px !important;
@@ -277,8 +283,8 @@
     font-size: 18px;
 }
 .c_inners_photo {
-    width: 100px;
-    height: 134px;
+    width: 104px;
+    height: 139px;
     background-position: center;
     -webkit-background-size: cover !important;
          -o-background-size: cover !important;
@@ -290,7 +296,7 @@
 }
 .c_inners_photo_legend {
     width: 135px;
-    height: 134px;
+    height: 139px;
     position: relative;
     float: left;
     margin: 0 0 0 23px;
@@ -366,7 +372,7 @@
     font-family:Calibri Bold;
     font-size: 20px;
     margin-left: 20px;
-    padding-right: 86px;
+    /*padding-right: 86px;*/
     width: 85px;
 }
 .c_inners_left_side_deliv_chck {

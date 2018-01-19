@@ -103,7 +103,7 @@
     display: inline-block;
 }
 .c_inners_side_tr .g_good_name {
-    margin: 0px 0 10px;
+    margin: 16px 0 10px;
     font-size: 20px;
     display: block;
 }
@@ -113,7 +113,7 @@
     margin: 50px 0 15px;
 }
 .minsumm {
-    padding: 0 86px 0 0;
+    /*padding: 0 86px 0 0;*/
 }
 .minsumm_body {
     font-size: 14px;
@@ -132,7 +132,7 @@
     color: #87B53D;
     font-weight: normal;
     font-family: Calibri;
-    margin: 10px 0 0 0;
+    margin: 10px 0 15px 0;
 }
 .g_good_name {
     font-size: 17px;
