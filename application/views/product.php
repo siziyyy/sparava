@@ -1,16 +1,33 @@
+<div class="back_pls_from_good">
+    <span class="sprite back_pls_from_good_img"></span>
+    <span class="back_pls_from_good_text">назад</span>
+</div>
 <?php $this->load->view('common/header',$header);?>
 <style>
     .mobile_version {
          display: none;
     }
+    .back_pls_from_good {
+        display: none;
+    }
     @media all and (max-width: 800px) {
-        header,footer, .desktop-version {
+        footer, .desktop-version {
             display: none;
         }
         .content {
             margin-top: 50px;
         }
         .mobile_version {
+            display: block;
+            padding: 0 15px;
+        }
+        .mag_or_blog {
+            display: none;
+        }
+        .mobile_header {
+            display: none;
+        }
+        .back_pls_from_good {
             display: block;
         }
     }
@@ -226,10 +243,6 @@
         <div class="mobile_version">   
             <?php $show_minus = false; ?>
             <div class="g_good fl_l" data-product-id="<?php echo $product['product_id'] ?>" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>">
-                <div class="back_pls_from_good">
-                    <span class="sprite back_pls_from_good_img"></span>
-                    <span class="back_pls_from_good_text">назад</span>
-                </div>
                 <div class="g_good_photo_block">
                     <img src="/images/<?php echo $product['image'] ?>" alt="<?php echo (is_null($product['title_full']) ? $product['title'] : $product['title_full']) ?>" class="g_good_photo">
                 </div>

@@ -129,6 +129,12 @@ $(document).ready(function() {
 		$('.morder_closer').toggle();
 	});
 	/********************************************/
+	$('.reviews_line_subheader_link').click(function() {
+		$('.mobile_modal').toggle();
+		$('.mobile_auth ').toggle();
+		$("html, body").animate({ scrollTop: 0 });
+	});
+	/********************************************/
 	$('.c_contacts_about_text_more').click(function() {
 		$('.c_contacts_about_text_more_rtyuhinjmko').toggle();
 		$('.c_contacts_about_text_more').toggle();

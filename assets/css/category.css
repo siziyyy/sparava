@@ -136,7 +136,7 @@
 }
 .g_good_name {
     font-size: 17px;
-    margin: 12px 0 15px;
+    margin: 20px 0 20px;
     font-weight: bold;
     cursor: pointer;
     color: #000;
@@ -161,7 +161,7 @@ a.g_good_name {
 }
 .g_good_description {
     font-size: 14px;
-    margin: 12px 0 15px;
+    margin: 20px 0 20px;
     font-family:Calibri;
     position: relative;
 	display:none;

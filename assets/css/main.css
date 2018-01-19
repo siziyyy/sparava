@@ -105,7 +105,8 @@ body,html,textarea{font-family:Calibri}
     top: 2px;
 }
 .back_pls_from_good {
-    margin: 20px 0 20px 0;
+    margin: 20px 0 -14px 0;
+    padding: 0 15px;
 }
 .reviews_line_subheader_link {
     text-decoration: underline;
@@ -937,7 +938,7 @@ input {
     position: relative;
 }
 .show_new_inform_menu {
-    margin: 0 40px 0 15px !important;
+    margin: 0 30px 0 15px !important;
 }
 .new_auth {
     position: absolute;
