@@ -8,8 +8,10 @@
                                     и проекты. По этим вопросам у нас занимается Марина - 8 910 495 60 22
                                 </div>
                             </div>
-                            <div class="c_contacts_line_right if_blogger_pack fl_r">
-                                <div class="if_blogger sprite"></div>
+                            <div class="c_contacts_line_right fl_r">
+                                <div class="if_blogger">
+                                    <img src="/assets/img/cammeraa.png" alt="">
+                                </div>
                             </div>
                             <div class="clear" id="second_order"></div>
                         </div>
