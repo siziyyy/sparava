@@ -15,7 +15,67 @@ body,html,textarea{font-family:Calibri}
     text-align: center;
     display: none;
     height: 9px;
-    margin: 20px 0 3px -7px;
+    margin: 20px 0 3px -23px;
+}
+.mag_or_blog_alt_message {
+    color: #fa4517;
+    font-size: 12px;
+    text-align: center;
+}
+.mag_or_blog_alt_filters_line {
+    padding: 0 15px;
+}
+.mag_or_blog_alt_filters_line_left {
+    color: #fe4517;
+    font-size: 12px;
+    font-family:Calibri Bold;
+}
+.mag_or_blog_alt_pack {
+    margin-bottom: -20px;
+}
+.mag_or_blog_alt_filters_line_dropdown_line {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 11px 0;
+}
+.mag_or_blog_alt_filters_line_right_opened .new_mob_submenu_arrow {
+    -webkit-transform: rotate(180deg);
+       -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+         -o-transform: rotate(180deg);
+            transform: rotate(180deg);
+}
+.mag_or_blog_alt_filters_line_dropdown_line_chckbx_label {
+    font-size: 13px;
+    position: relative;
+    top: -2px;
+    margin: 0 0 0 10px;
+}
+.mag_or_blog_alt_filters_line_dropdown_line_chckbx {
+    width: 12px;
+    height: 12px;
+}
+.mag_or_blog_alt_filters_line_dropdown {
+    position: fixed;
+    width: 100%;
+    padding: 0 15px;
+    background: #FFF;
+    height: calc(100vh - 194px);
+    z-index: 9999999;
+    margin: 20px 0 0 0;
+    overflow: auto;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    display: none;
+}
+.mag_or_blog_alt_filters_line_right {
+    font-size: 12px;
+}
+.mag_or_blog_alt {
+    text-align: center;
+    display: none;
+    height: 9px;
+    margin: 10px 0 40px -3px;
 }
 .good_modal_tme .good_modal_rl_header a {
     color: #000;
