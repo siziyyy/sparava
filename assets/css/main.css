@@ -21,8 +21,15 @@ body,html,textarea{font-family:Calibri}
     color: #000;
     text-decoration: underline;
 }
+.new_sprite {
+    background-image: url('/assets/img/new_sprite.svg');
+    background-repeat: no-repeat;
+}
 .good_modal_tme .good_modal_rl_header a:hover {
     color: #fa4517;
+}
+.adwgsage {
+    margin-right: 0 !important;
 }
 .g_admin_info:hover {
     color: #fa4517;
@@ -795,8 +802,9 @@ input {
     width: 25px;
     height: 25px;
     cursor: pointer;
-    background-position: -29px -521px;
+    background-position: -2px 4px;
     margin: 8px 0 0;
+    background-size: 312px;
 }
 .m_h_login {
     width: 25px;
@@ -809,8 +817,10 @@ input {
     width: 25px;
     height: 25px;
     cursor: pointer;
-    background-position: -29px -848px;
+    background-position: -289px 4px;
     margin-top: 8px;
+    background-size: 312px;
+    margin-right: 13px;
 }
 .g_good_mobile_fav {
     width: 25px;
@@ -886,7 +896,8 @@ input {
     width: 25px;
     height: 25px;
     cursor: pointer;
-    background-position: -111px -520px;
+    background-position: -145px 4px;
+    background-size: 312px;
     margin: 8px 0 0;
 }
 .m_h_cart {
@@ -1586,11 +1597,13 @@ footer {
 .f_block_link {
     display: inline-block;
     color: #000;
-    border-bottom: 1px solid #000;
+    /*border-bottom: 1px solid #000;*/
     margin-bottom: 10px;
 }
-.f_block_link:hover {
-    border-bottom: 1px solid #f78c76;
+.f_block_search_header {
+    color: #fe4517;
+    margin-bottom: 15px;
+    margin-top: 10px;
 }
 .f_block_header {
     color: #fe4517;
@@ -1640,14 +1653,15 @@ footer {
     background-position: -189px -188px;    
 }
 .f_block_search_inp {
-    width: 78px;
+    width: 147px;
     height: 21px;
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;
     display: inline-block;
-    text-align: center;
     font-size: 12px;
+    border: 1px solid #e0e0e0;
+    padding: 0 13px;
 }
 .f_block_search_butt {
     display: inline-block;
@@ -1662,6 +1676,8 @@ footer {
     -webkit-transition: all .3s;
     -o-transition: all .3s;
     transition: all .3s;
+    position: relative;
+    top: -1px;
 }
 .f_block_search_butt:hover {
     background: #ccc;
@@ -1829,7 +1845,7 @@ footer {
     width: 21px;
     height: 2px;
     background: #000;
-    margin-left: 15px;
+    margin-right: 15px;
     cursor: pointer;
 }
 .c_new_menu_filter {
@@ -1845,6 +1861,14 @@ footer {
     -webkit-border-radius: 3px;
             border-radius: 3px;
     margin-right: 23px;
+}
+.mobile_exit_new {
+    color: #45B3E4;
+    font-size: 11px;
+    position: absolute;
+    top: 24px;
+    right: 17px;
+    display: none;
 }
 .c_new_index_menu_dropdown_incat {
     right: 0 !important;
@@ -2042,6 +2066,61 @@ footer {
 .downlaod_excel, #xls_download_form {
     display: none;
 }
+.new_inform_menu_col {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        border-right: 1px solid #e0e0e0;
+        padding-left: 45px;
+}
+.new_inform_menu_col_first {
+    padding: 0;
+    width: 267px;
+}
+.new_inform_menu_col_sec {
+    width: 300px;
+}
+.new_inform_menu_col_thr {
+    width: 267px;
+}
+.new_inform_menu_col_last {
+    border: none;
+    width: 240px;
+}
+.new_inform_menu_col_header {
+    color: #DE5539;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+.main_header {
+    position: relative;
+}
+.new_inform_menu_col_link_sepp {
+    width: 100%;
+    height: 15px;
+}
+.new_inform_menu_col_link {
+    color: #000;
+    font-size: 16px;
+    display: block;
+}
+.new_inform_menu {
+    position: absolute;
+    top: 66px;
+    right: 0px;
+    background: #FFF;
+    border: 5px solid #e6e6e6;
+    padding: 27px 31px;
+    z-index: 9999;
+    display: none;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/*.showed_new_inform_menu {
+    font-family:Calibri Bold;
+}*/
 /* media */
 @media all and (max-width: 1200px) {
     .content_helper {
@@ -2087,6 +2166,9 @@ footer {
 }
 @media all and (max-width: 980px) {
     .mobile_header {
+        display: block;
+    }
+    .mobile_exit_new {
         display: block;
     }
     .main_header {

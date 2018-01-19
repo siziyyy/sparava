@@ -620,8 +620,238 @@ textarea.contact_me_mobile_input {
 .aside_mobile_menu_back {
     width: 20px;
     height: 20px;
-    background-position: -196px -523px;
-    margin: 33px 0px 0 19px;
+    background-position: -2px -71px;
+    margin: 20px auto;
+    background-size: 312px;
+}
+.aside_mobile_menu_new_content_first_link {
+    width: 100%;
+    position: relative;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 13px;
+    padding: 12px 0;
+}
+.aside_mobile_menu_new_content_first_block {
+    padding: 0 12px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+.aside_mobile_menu_new_search_input {
+    height: 19px;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        display: inline-block;
+        width: calc(100% - 28px);
+        border: 1px solid #e0e0e0;
+        padding-left: 12px;
+}
+.aside_mobile_menu_new_search_button {
+    height: 19px;
+    width: 21px;
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-background-size: 262px;
+    -o-background-size: 262px;
+    background-size: 262px;
+    background-position: -65px -55px;
+    border: none;
+    background-color: #F78C76;
+    margin: 0px 0 0 3px;
+    position: relative;
+    top: 4px;
+}
+.aside_mobile_menu_new_content_first_header {
+    color: #fe4517;
+    font-size: 14px;
+    font-family:Calibri Bold;
+    margin-bottom: 12px;
+}
+.aside_mobile_menu_new_content_second_block {
+    padding: 0 12px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+.aside_mobile_menu_new_content_second_subheader {
+    color: #000;
+    font-size: 13px;
+    font-family:Calibri Bold;
+    margin-bottom: 12px;
+}
+.aside_mobile_menu_new_content_second_header {
+    color: #fe4517;
+    font-size: 16px;
+    font-family:Calibri Bold;
+    margin-bottom: 20px;
+}
+.tcrfugiyvhbnjmkpl {
+    width: 100px;
+    height: 100px;
+    -webkit-border-radius: 50px;
+            border-radius: 50px;
+    -webkit-background-size: cover !important;
+         -o-background-size: cover !important;
+            background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    margin: 40px auto 12px;
+}
+.rtcfvgyiubnoimoklp {
+    color: #fe4517;
+    font-size: 13px;
+    font-family:Calibri Bold;
+    margin-bottom: 12px;
+    text-align: center;
+}
+.zwresxtdcrftvugyhubnijmko {
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.aside_mobile_menu_new_content_second_text {
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+.aside_mobile_menu_new_content_second_content_inputttext {
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+.aside_mobile_menu_new_content_second_content_inputttt {
+    height: 34px;
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    display: block;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    resize: none;
+    margin-bottom: 25px;
+    padding: 0 12px;
+}
+textarea.aside_mobile_menu_new_content_second_content_inputttt {
+    height: 175px;
+    padding: 12px;
+}
+.aside_mobile_menu_new_content_second_content_inputttt_butt {
+    display: block;
+    border: none;
+    background: #fe4517;
+    color: #FFF;
+    font-size: 13px;
+    font-family:Calibri Bold;
+    -webkit-border-radius: 15px;
+            border-radius: 15px;
+    padding: 5px 23px 6px;
+}
+.aside_mobile_menu_new_content_second_text_recs_linkbl {
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+}
+.aside_mobile_menu_new_content_second_text_recs_linkbl img {
+    display: block;
+    width: 100%;
+}
+.aside_mobile_menu_new_content_second_paycards {
+    width: 185px;
+    margin-top: 15px;
+}
+.aside_mobile_menu_new_content_second_sep {
+    height: 12px;
+    width: 100%;
+}
+.vygbuhjnk_icom {
+    width: 36px;
+    height: 36px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    background-position: -72px -28px;
+    background-color: #e6e6e6;
+    -webkit-background-size: 180px;
+    -o-background-size: 180px;
+    background-size: 180px;
+    margin: 40px auto 30px;
+}
+.vygbuhjnk_phone {
+    font-size: 30px;
+    color: #000;
+    font-family:Calibri Bold;
+    text-align: center;
+    display: block;
+}
+.vygbuhjnk_socs {
+    width: 150px;
+    margin: 30px auto 20px;
+}
+.vygbuhjnk_soc {
+    font-size: 18px;
+}
+.vygbuhjnk_phone2 {
+    font-size: 22px;
+    color: #fe4517;
+    font-family:Calibri Bold;
+    text-align: center;
+}
+.vygbuhjnk_headr {
+    color: #fe4517;
+    font-size: 18px;
+    text-align: center;
+    margin: 20px auto;
+}
+.vygbuhjnk_bdy {
+    font-size: 13px;
+    text-align: center;
+}
+.vygbuhjnk_bdy2 {
+    font-size: 13px;
+    font-family:Calibri Bold;
+    text-align: center;
+    margin: 12px auto;
+}
+.vygbuhjnk_line_right_bottom {
+    display: block;
+    font-size: 12px;
+    color: #45B3E4;
+    text-align: right;
+}
+.vygbuhjnk_line_right_top {
+    display: block;
+    font-size: 13px;
+    color: #000;
+    font-family:Calibri Bold;
+    margin-bottom: 7px;
+    text-align: right;
+}
+.vygbuhjnk_line_pack {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.vygbuhjnk_line {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 14px 0;
+    width: 100%;
+}
+.vygbuhjnk_line_left {
+    font-size: 13px;
+}
+.aside_mobile_menu_new_content_first_arrow {
+    width: 20px;
+    height: 20px;
+    -webkit-background-size: 270px;
+    -o-background-size: 3270px;
+    background-size: 270px;
+    background-position: -3px -61px;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 8px;
 }
 .aside_mobile_menu {
     width: 100%;
@@ -689,7 +919,7 @@ textarea.contact_me_mobile_input {
     }
     .goods {
         /*margin-top: 143px !important;*/
-        margin-top: 0px !important;
+        margin-top: 9px !important;
     }
     .b_text {
         font-size: 53px;
@@ -920,8 +1150,8 @@ textarea.contact_me_mobile_input {
         text-align: center;
     }
     .m_h_logo_img {
-        width: 97px;
-        margin: 6px 0 0;
+        width: 119px;
+        margin: 2px 0 -6px 0;
     }
     .m_h_call {
         margin: 8px 2px 0px 9px;

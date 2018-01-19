@@ -123,7 +123,8 @@ body,html,textarea{font-family:Calibri}
         <div class="closer mobile_category_dropdown_closer"></div>
         <div class="closer good_modal_closer"></div>
         <div class="closer login_closer"></div>
-		<div class="closer video_closer"></div>
+        <div class="closer video_closer"></div>
+        <div class="closer new_inform_menu_closer"></div>
         <? // require '_modal.php'; ?><!-- modal -->
         <div class="mobile_category_dropdown">
             <div class="mobile_category_dropdown_line">по рейтингу</div>
@@ -132,152 +133,470 @@ body,html,textarea{font-family:Calibri}
             <div class="mobile_category_dropdown_line fbbmd">по алфавиту</div>
             <div class="mobile_category_dropdown_cancel">отменить сортировку</div>
         </div>
-        <div class="aside_mobile_menu">
-            <div class="aside_mobile_menu_header">
-                <div class="aside_mobile_menu_back sprite fl_l"></div>
-                <div class="aside_mobile_menu_logo fl_l">
-                    <img src="/assets/img/h_logo.jpg" class="m_h_logo_img" alt="sparava">
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div class="aside_mobile_menu_body">
-                <div class="aside_mobile_menu_label">Доставка и способы оплаты</div>
-                <div class="aside_mobile_menu_line">Обычная доставка</div>
-                <div class="aside_mobile_menu_text">Москва - 199 руб.</div>
-                <div class="aside_mobile_menu_text">МO (до 25 км от мкада) - 350 руб.</div>
-                <div class="aside_mobile_menu_subtext">
-                    Доставим завтра в любое удобное Вам время
-                    <br>с интервалом 1 час, с 10:00 до 21:00
-                </div>
-                <div class="aside_mobile_menu_line">Экспресс-доставка</div>
-                <div class="aside_mobile_menu_text">Москва - 199 руб.</div>
-                <div class="aside_mobile_menu_text">МO (до 25 км от мкада) - 350 руб.</div>
-                <div class="aside_mobile_menu_subtext">
-                    Доставим завтра в любое удобное Вам время
-                    <br>с интервалом 1 час, с 10:00 до 21:00
-                </div>
-                <div class="aside_mobile_menu_line">Минимальный заказ</div>
-                <div class="aside_mobile_menu_text">Минимальный заказ 1500 руб.</div>
-                <div class="aside_mobile_menu_subtext"></div>
-                <div class="aside_mobile_menu_line">Способы оплаты</div>
-                <div class="aside_mobile_menu_text">Наличными курьеру</div>
-                <div class="aside_mobile_menu_text">По карте</div>
-                <div class="aside_mobile_menu_subtext"></div>
-                <div class="aside_mobile_menu_label">Контакты</div>
-                <a href="tel:84955001020" class="aside_mobile_menu_big aside_menu_phone">8 495 500 10 20</a>
-                <a href="tel:84955001020" class="aside_mobile_menu_text aside_menu_phone">+7 495 542 1025</a>
-                <div class="aside_mobile_menu_label">Преимущества первого заказа</div>
-                <div class="aside_mobile_menu_bigsubtext">
-                    Мы обеспечиваем сходство, благодаря приме
-                    <br>нению уникальной методики подбора Донора, 
-                    <br>максимально совместимого с конкретным 
-                    <br>Реципиентом. Позволяет сделать это специально 
-                    <br>разработанная программа «ASTIGO».
-                </div>
-                <div class="aside_mobile_menu_label">Бонусы</div>
-                <div class="aside_mobile_menu_bigsubtext">
-                    7 % от суммы с каждого заказа 
-                    <br>накапливается балы. 1 бал = 1 рублю. 
-                    <br>Эти балы Вы можете использовать в 
-                    <br>дальнейших покупках. 
-                </div>
-                <div class="aside_mobile_menu_label">Бонусы</div>
-                <div class="aside_mobile_menu_bigsubtext">
-                   У нас одна миссия - доставить Вам 
-                    <br>свежие, высококачественные продукты 
-                    <br>посупер ценам! Мы собрали в команду 
-                    <br>людей которые как и мы фанати супер
-                    <br>обслуживания. Если какой то продукт 
-                    <br>вызывает у нас сомнения мы некогда не 
-                    <br>доставим Вам его! Максимум что мы 
-                    <br>можем делать не так то опадать на 10 
-                    <br>минут, во всем остальном Вы можете 
-                    <br>быть уверении!
-                    <br><br>
-                    Чтобы сталь еще лучше нам нужна Ваша 
-                    <br>помощь - советами и предложениями.
-                    <br>Что бы вы еще хотели увидеть в нашем 
-                    <br>магазине, или что у нас не так, или что
-                    <br>бы вы поменяли! Пишите нам, мы будем 
-                    <br>очень благодарны!
-                </div>
-                <div class="aside_mobile_menu_label">Отзывы о нас</div>
-                <div class="mobile_info_mv">
-                    <img src="/assets/img/commons/markin_vadim.jpg" alt="" class="mobile_info_mv_img fl_l">
-                    <div class="mobile_info_mv_name fl_l">Елена Летучая</div>
-                    <div class="clear"></div>
-                    <div class="mobile_info_mv_txet">
-                        Чтобы сталь еще лучше нам нужна Ваша 
-                        <br>помощь - советами предложениями.
-                        <br>Что бы вы еще хотели увидеть в нашем 
-                        <br>будем очень благодарны!
+        <!-- ************************************************************************************* -->
+        <div class="aside_mobile_menu aside_mobile_menu_main">
+            <div class="aside_mobile_menu_back aside_mobile_menu_back_main new_sprite"></div>
+            <div class="aside_mobile_menu_new_content_first">
+                <div class="aside_mobile_menu_new_content_first_block">
+                    <div class="aside_mobile_menu_new_content_first_header">Поиск по артикулу</div>
+                    <div class="aside_mobile_menu_new_search">
+                        <form method="post" action="/search">
+                            <input type="text" class="aside_mobile_menu_new_search_input" name="articul">
+                            <button type="submit" class="aside_mobile_menu_new_search_button new_sprite"></button>
+                        </form>
                     </div>
                 </div>
-                <div class="mobile_info_mv">
-                    <img src="/assets/img/commons/markin_vadim.jpg" alt="" class="mobile_info_mv_img fl_l">
-                    <div class="mobile_info_mv_name fl_l">Елена Летучая</div>
-                    <div class="clear"></div>
-                    <div class="mobile_info_mv_txet">
-                        Чтобы сталь еще лучше нам нужна Ваша 
-                        <br>помощь - советами предложениями.
-                        <br>Что бы вы еще хотели увидеть в нашем 
-                        <br>будем очень благодарны!
-                    </div>
+                <div class="aside_mobile_menu_new_content_first_block">
+                    <div class="aside_mobile_menu_new_content_first_header">Доставка и оплата</div>
+                    <div class="aside_mobile_menu_new_content_first_link">Доставка<span class="aside_mobile_menu_new_content_first_arrow new_sprite"></span></div>
+                    <div class="aside_mobile_menu_new_content_first_link">Гарантия качества<span class="aside_mobile_menu_new_content_first_arrow new_sprite"></span></div>
+                    <div class="aside_mobile_menu_new_content_first_link">Прием заказа, обмен, возврат<span class="aside_mobile_menu_new_content_first_arrow new_sprite"></span></div>
+                    <div class="aside_mobile_menu_new_content_first_link">Условия доставки<span class="aside_mobile_menu_new_content_first_arrow new_sprite"></span></div>
                 </div>
-                <div class="aside_mobile_menu_label">Если вы блогер</div>
-                <div class="aside_mobile_menu_bigsubtext">
-                    Мы рады сотрудничить с блогерами, 
-                    <br>готовы расмотривать все Ваши 
-                    <br>предложения и проекты. По этим 
-                    <br>вопросам у нас занимается 
-                    <br>Марина - 8 910 495 60 22
+                <div class="aside_mobile_menu_new_content_first_block">
+                    <div class="aside_mobile_menu_new_content_first_header">Программы  лояльности</div>
+                    <div class="aside_mobile_menu_new_content_first_link">Преимущество первого заказа<span class="aside_mobile_menu_new_content_first_arrow new_sprite"></span></div>
+                    <div class="aside_mobile_menu_new_content_first_link">Бонусная система<span class="aside_mobile_menu_new_content_first_arrow new_sprite"></span></div>
                 </div>
-                <div class="aside_mobile_menu_label">Претензии и предложения</div>
-                <div class="contact_me_mobile">
-                    <form>
-                        <div class="contact_me_mobile_line">
-                            <label>
-                                <span class="contact_me_mobile_span">Вид предложения</span>
-                                <input type="text" class="contact_me_mobile_input">
-                            </label>
-                        </div>
-                        <div class="contact_me_mobile_line">
-                            <label>
-                                <span class="contact_me_mobile_span">Почта или телефон</span>
-                                <input type="text" class="contact_me_mobile_input">
-                            </label>
-                        </div>
-                        <div class="contact_me_mobile_line">
-                            <label>
-                                <span class="contact_me_mobile_span">Комментарий</span>
-                                <textarea class="contact_me_mobile_input"></textarea>
-                            </label>
-                        </div>
-                        <button class="contact_me_mobile_button">отправить</button>
-                    </form>
+                <div class="aside_mobile_menu_new_content_first_block">
+                    <div class="aside_mobile_menu_new_content_first_header">Мы и о нас!</div>
+                    <div class="aside_mobile_menu_new_content_first_link">О нас<span class="aside_mobile_menu_new_content_first_arrow new_sprite"></span></div>
+                    <div class="aside_mobile_menu_new_content_first_link">Отзывы о нас<span class="aside_mobile_menu_new_content_first_arrow new_sprite"></span></div>
+                    <div class="aside_mobile_menu_new_content_first_link">Контакты<span class="aside_mobile_menu_new_content_first_arrow new_sprite"></span></div>
                 </div>
-                <div class="aside_mobile_menu_label">Бонусы</div>
-                <div class="mobile_agree">
-                    <div class="mobile_agree_height">
-                        ООО «Аядаеда», именуемое далее 
-                        <br>«Moscowfresh» публикует настоящее 
-                        <br>Пользовательское соглашение, 
-                        <br>представляющее собой публичную 
-                        <br>оферту в отношении пользователей 
-                        <br>портала moscowfresh.ru (далее 
-                        <br>«Пользователь»). Перед началом 
-                        <br>использования портала moscowfresh.ru 
-                        <br>(далее «Сервис») просим 
-                    </div>
-                    <div class="mobile_agree_more"> еще</div>
+                <div class="aside_mobile_menu_new_content_first_block">
+                    <div class="aside_mobile_menu_new_content_first_header">Сотрудничество</div>
+                    <div class="aside_mobile_menu_new_content_first_link">Поставщики<span class="aside_mobile_menu_new_content_first_arrow new_sprite"></span></div>
+                    <div class="aside_mobile_menu_new_content_first_link">Блогеры<span class="aside_mobile_menu_new_content_first_arrow new_sprite"></span></div>
+                    <div class="aside_mobile_menu_new_content_first_link">Работа в компании<span class="aside_mobile_menu_new_content_first_arrow new_sprite"></span></div>
+                </div>
+                <div class="aside_mobile_menu_new_content_first_block">
+                    <div class="aside_mobile_menu_new_content_first_header">Что не так?</div>
+                    <div class="aside_mobile_menu_new_content_first_link">Претензии<span class="aside_mobile_menu_new_content_first_arrow new_sprite"></span></div>
+                    <div class="aside_mobile_menu_new_content_first_link">Предложения<span class="aside_mobile_menu_new_content_first_arrow new_sprite"></span></div>
                 </div>
             </div>
         </div>
+        <!-- ************************************************************************************* -->
+        <div class="aside_mobile_menu aside_mobile_menu_inner">
+            <div class="aside_mobile_menu_back aside_mobile_menu_back_inner new_sprite"></div>
+            <div class="aside_mobile_menu_new_content_first">
+                <!-- ************************************************************************************* -->
+                <div class="aside_mobile_menu_new_content_second_block">
+                    <div class="aside_mobile_menu_new_content_second_header">Контакты</div>
+                    <div class="aside_mobile_menu_new_content_second_content">
+                        <div class="vygbuhjnk_icom new_sprite"></div>
+                        <a href="tel:+74955001020" class="vygbuhjnk_phone">+7 495 500 10 20</a>
+                        <div class="vygbuhjnk_socs">
+                            <span class="vygbuhjnk_soc fl_l">Viber</span>
+                            <span class="vygbuhjnk_soc fl_r">WhatsApp</span>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="vygbuhjnk_phone2">+ 7 916 505 00 00</div>
+                    </div>
+                    <div class="aside_mobile_menu_new_content_second_content vygbuhjnk_line_pack">
+                        <div class="vygbuhjnk_line">
+                            <div class="vygbuhjnk_line_left fl_l">Отдел закупок</div>
+                            <div class="vygbuhjnk_line_right fl_r">
+                                <a href="tel:+74951201015" class="vygbuhjnk_line_right_top">+7 495 120 10 15</a>
+                                <a href="mailto:zakup@aydaeda.ru" class="vygbuhjnk_line_right_bottom">zakup@aydaeda.ru</a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="vygbuhjnk_line">
+                            <div class="vygbuhjnk_line_left fl_l">Отдел кадров</div>
+                            <div class="vygbuhjnk_line_right fl_r">
+                                <a href="tel:+74957201015" class="vygbuhjnk_line_right_top">+7 495 720 10 15</a>
+                                <a href="mailto:kadr@aydaeda.ru" class="vygbuhjnk_line_right_bottom">kadr@aydaeda.ru</a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="vygbuhjnk_line">
+                            <div class="vygbuhjnk_line_left fl_l">Отдел рекламы</div>
+                            <div class="vygbuhjnk_line_right fl_r">
+                                <a href="tel:+74957801015" class="vygbuhjnk_line_right_top">+7 495 780 10 15</a>
+                                <a href="mailto:pr@aydaeda.ru" class="vygbuhjnk_line_right_bottom">pr@aydaeda.ru</a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="vygbuhjnk_line">
+                            <div class="vygbuhjnk_line_left fl_l">Жалобы</div>
+                            <div class="vygbuhjnk_line_right fl_r">
+                                <a href="tel:+74957802015" class="vygbuhjnk_line_right_top">+7 495 780 20 15</a>
+                                <a href="mailto:pr@aydaeda.ru" class="vygbuhjnk_line_right_bottom">pr@aydaeda.ru</a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="aside_mobile_menu_new_content_second_content">
+                        <div class="vygbuhjnk_headr">Адрес</div>
+                        <div class="vygbuhjnk_bdy">
+                            Москва, Калужское ш. 900 м. от МКАД
+                        </div>
+                        <div class="vygbuhjnk_bdy2">
+                            Агрокластер Фуд Сити
+                        </div>
+                        <div class="vygbuhjnk_bdy">
+                            2 - 017 офис
+                        </div>
+                    </div>
+                </div>
+                <!-- ************************************************************************************* -->
+                <!--<div class="aside_mobile_menu_new_content_second_block">
+                    <div class="aside_mobile_menu_new_content_second_header">Доставка</div>
+                    <div class="aside_mobile_menu_new_content_second_content">
+                        <div class="aside_mobile_menu_new_content_second_subheader">Доставка и оплата</div>
+                        <div class="aside_mobile_menu_new_content_second_text">
+                            Москва - 199 руб.
+                        </div>
+                        <div class="aside_mobile_menu_new_content_second_text">
+                            МO (до 25 км от мкада) - 350 руб.
+                        </div>
+                        <div class="aside_mobile_menu_new_content_second_text">
+                            Доставим завтра в любое удобное 
+                            <br>Вам время с интервалом на два часа, 
+                            <br>с 10:00 до 21:00  
+                        </div>
+                        <div class="aside_mobile_menu_new_content_second_sep"></div>
+                    </div>
+                    <div class="aside_mobile_menu_new_content_second_content">
+                        <div class="aside_mobile_menu_new_content_second_subheader">Доставка и оплата</div>
+                        <div class="aside_mobile_menu_new_content_second_text">
+                            Москва - 199 руб.
+                        </div>
+                        <div class="aside_mobile_menu_new_content_second_text">
+                            МO (до 25 км от мкада) - 350 руб.
+                        </div>
+                        <div class="aside_mobile_menu_new_content_second_text">
+                            Доставим завтра в любое удобное 
+                            <br>Вам время с интервалом на два часа, 
+                            <br>с 10:00 до 21:00  
+                        </div>
+                        <div class="aside_mobile_menu_new_content_second_sep"></div>
+                    </div>
+                    <div class="aside_mobile_menu_new_content_second_content">
+                        <div class="aside_mobile_menu_new_content_second_subheader">Минимальный заказ</div>
+                        <div class="aside_mobile_menu_new_content_second_text">
+                            Минимальный заказ 1000 руб.
+                        </div>
+                        <div class="aside_mobile_menu_new_content_second_sep"></div>
+                    </div>
+                    <div class="aside_mobile_menu_new_content_second_content">
+                        <div class="aside_mobile_menu_new_content_second_subheader">Способы оплаты</div>
+                        <div class="aside_mobile_menu_new_content_second_text">
+                            - наличный расчет курьеру
+                        </div>
+                        <div class="aside_mobile_menu_new_content_second_text">
+                            - банковской картой курьеру
+                        </div>
+                        <img src="/assets/img/cards.png" alt="" class="aside_mobile_menu_new_content_second_paycards">
+                        <div class="aside_mobile_menu_new_content_second_sep"></div>
+                    </div>
+                </div>-->
+                <!-- ************************************************************************************* -->
+                <!--<div class="aside_mobile_menu_new_content_second_block">
+                    <div class="aside_mobile_menu_new_content_second_header">Гарантия качества</div>
+                    <div class="aside_mobile_menu_new_content_second_content">
+                        <div class="aside_mobile_menu_new_content_second_text">
+                            Вся продукция которая, продается в 
+                            Фуд Сити сертифицирована и 
+                            подвергается жесткому 
+                            контролю. Кроме этого aydaeda.ru 
+                            имеет свой отдел за контролем 
+                            качества - мы тщательно 
+                            проверяем свежесть и срок годности 
+                            каждого товара, перед тем как 
+                            доставить его Вам.  
+                        </div>
+                        <div class="aside_mobile_menu_new_content_second_sep"></div>
+                    </div>
+                </div>-->
+                <!-- ************************************************************************************* -->
+                <!--<div class="aside_mobile_menu_new_content_second_block">
+                    <div class="aside_mobile_menu_new_content_second_header">Преимущество первого заказа </div>
+                    <div class="aside_mobile_menu_new_content_second_content">
+                        <div class="aside_mobile_menu_new_content_second_text">
+                            При первом заказе Вы гарантированно 
+                            получаете один из особенных 
+                            продуктов, рекомендуемых Aydaeda.
+                        </div>
+                        <div class="aside_mobile_menu_new_content_second_text_recs">
+                            <a href="/" class="aside_mobile_menu_new_content_second_text_recs_linkbl">
+                                <img src="/images/1.jpg" alt="">
+                            </a>
+                            <a href="/" class="aside_mobile_menu_new_content_second_text_recs_linkbl">
+                                <img src="/images/1.jpg" alt="">
+                            </a>
+                            <a href="/" class="aside_mobile_menu_new_content_second_text_recs_linkbl">
+                                <img src="/images/1.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>-->
+                <!-- ************************************************************************************* -->
+                <!--<div class="aside_mobile_menu_new_content_second_block">
+                    <div class="aside_mobile_menu_new_content_second_header">Бонусная система</div>
+                    <div class="aside_mobile_menu_new_content_second_content">
+                        <div class="aside_mobile_menu_new_content_second_text">
+                            5 % от суммы с каждого заказа 
+                            накапливаются балы: 1 бал = 1 рублю. 
+                            Эти балы Вы можете использовать 
+                            в дальнейших покупках.
+                        </div>
+                    </div>
+                </div>-->
+                <!-- ************************************************************************************* -->
+                <!--<div class="aside_mobile_menu_new_content_second_block">
+                    <div class="aside_mobile_menu_new_content_second_header">Поставщики</div>
+                    <div class="aside_mobile_menu_new_content_second_content">
+                        <div class="aside_mobile_menu_new_content_second_text">
+                            Мы  всегда готовы рассматривать 
+                            новые предложения от поставщиков 
+                            и производителей высококачественных 
+                            продовольственных и непродовольст-
+                            -венных товаров. Также будем рады 
+                            сотрудничеству с фермерами. Ждем 
+                            Ваши предложения: <a href="mailto:zakup@aydaeda.ru" style="color:#fe4517">zakup@aydaeda.ru</a>
+                        </div>
+                    </div>
+                </div>-->
+                <!-- ************************************************************************************* -->
+                <!--<div class="aside_mobile_menu_new_content_second_block">
+                    <div class="aside_mobile_menu_new_content_second_header">Блогеры</div>
+                    <div class="aside_mobile_menu_new_content_second_content">
+                        <div class="aside_mobile_menu_new_content_second_text">
+                            Мы рады сотрудничать с блогерами, 
+                            готовы рассматривать все Ваши 
+                            предложения и проекты, звоните: 
+                            <a href="tel:+79104956022" style="color:#fe4517">8 910 495 60 22</a>, Марина
+                        </div>
+                    </div>
+                </div>-->
+                <!-- ************************************************************************************* -->
+                <!--<div class="aside_mobile_menu_new_content_second_block">
+                    <div class="aside_mobile_menu_new_content_second_header">Работа в компании</div>
+                    <div class="aside_mobile_menu_new_content_second_content">
+                        <div class="aside_mobile_menu_new_content_second_text">
+                           Наша команда - это молодые, 
+                            энергичные и амбициозные личности, 
+                            которые создают, 
+                            развивают и верят в  проект Aydaeda.
+                            <br><br>
+                            У нас всегда открыты вакансии:
+                            <br><br>
+                            - менеджер по приему заказов;<br>
+                            - комплектовщики заказов;<br>
+                            - водители-курьеры. 
+                            <br><br>
+                            Ждем Ваших резюме: 
+                            <a href="mailto:rabota@aydaeda.ru" style="color:#fe4517">rabota@aydaeda.ru</a>
+                        </div>
+                    </div>
+                </div>-->
+                <!-- ************************************************************************************* -->
+                <!--<div class="aside_mobile_menu_new_content_second_block">
+                    <div class="aside_mobile_menu_new_content_second_header">Претензии</div>
+                    <div class="aside_mobile_menu_new_content_second_content">
+                        <form>
+                            <div class="aside_mobile_menu_new_content_second_content_inputttext">Почта или телефон</div>
+                            <input type="text" class="aside_mobile_menu_new_content_second_content_inputttt">
+                            <div class="aside_mobile_menu_new_content_second_content_inputttext">Комментарий</div>
+                            <textarea type="text" class="aside_mobile_menu_new_content_second_content_inputttt"></textarea>
+                            <button class="aside_mobile_menu_new_content_second_content_inputttt_butt">отправить</button>
+                        </form>
+                    </div>
+                </div>-->
+                <!-- ************************************************************************************* -->
+                <!--<div class="aside_mobile_menu_new_content_second_block">
+                    <div class="aside_mobile_menu_new_content_second_header">Предложения</div>
+                    <div class="aside_mobile_menu_new_content_second_content">
+                        <form>
+                            <div class="aside_mobile_menu_new_content_second_content_inputttext">Почта или телефон</div>
+                            <input type="text" class="aside_mobile_menu_new_content_second_content_inputttt">
+                            <div class="aside_mobile_menu_new_content_second_content_inputttext">Комментарий</div>
+                            <textarea type="text" class="aside_mobile_menu_new_content_second_content_inputttt"></textarea>
+                            <button class="aside_mobile_menu_new_content_second_content_inputttt_butt">отправить</button>
+                        </form>
+                    </div>
+                </div>-->
+                <!-- ************************************************************************************* -->
+                <!--<div class="aside_mobile_menu_new_content_second_block">
+                    <div class="aside_mobile_menu_new_content_second_header">Отзывы о нас</div>
+                    <div class="aside_mobile_menu_new_content_second_content">
+                        <div class="tcrfugiyvhbnjmkpl" style="background: url('/assets/img/emails/profile.jpg')"></div>
+                        <div class="rtcfvgyiubnoimoklp">Елена Литучая</div>
+                        <div class="zwresxtdcrftvugyhubnijmko">
+                            Чтобы сталь еще лучше нам нужна 
+                            Ваша помощь - советами
+                            предложениями.Что бы вы еще 
+                            хотели увидеть в нашем будем 
+                            очень благодарны!
+                        </div>
+                    </div>
+                    <div class="aside_mobile_menu_new_content_second_content">
+                        <div class="tcrfugiyvhbnjmkpl" style="background: url('/assets/img/emails/profile.jpg')"></div>
+                        <div class="rtcfvgyiubnoimoklp">Елена Литучая</div>
+                        <div class="zwresxtdcrftvugyhubnijmko">
+                            Чтобы сталь еще лучше нам нужна 
+                            Ваша помощь - советами
+                            предложениями.Что бы вы еще 
+                            хотели увидеть в нашем будем 
+                            очень благодарны!
+                        </div>
+                    </div>
+                </div>-->
+                <!-- ************************************************************************************* -->
+                <!--<div class="aside_mobile_menu_new_content_second_block">
+                    <div class="aside_mobile_menu_new_content_second_header">О нас</div>
+                    <div class="aside_mobile_menu_new_content_second_content">
+                        <div class="aside_mobile_menu_new_content_second_subheader">Давайте знакомиться!</div>
+                        <div class="aside_mobile_menu_new_content_second_text">
+                            Aydaeadа - это новый интернет  магазин 
+                            по доставке продуктов из Фуд Сити к 
+                            Вам домой.
+                            <br><br>
+                            Фуд Сити - это крупнейший оптово - 
+                            розничный продуктовый рынок Москвы. 
+                            Каждыйдень на рынок поставляется 
+                            огромное количество свежих и 
+                            качественных продуктов со всего мира - 
+                            фрукты из Армении и Азербаджана, 
+                            сладкие помидоры и молодая баранина 
+                            из Дагестана, изысканные сыры из 
+                            Адыгеи, масла из Италии и Греции, 
+                            орехи и сухофрукты из теплых восточных 
+                            стран...
+                        </div>
+                        <div class="aside_mobile_menu_new_content_second_sep"></div>
+                    </div>
+                    <div class="aside_mobile_menu_new_content_second_content">
+                        <div class="aside_mobile_menu_new_content_second_subheader">Ассортимент</div>
+                        <div class="aside_mobile_menu_new_content_second_text">
+                            В нашем магазине представлены товары 
+                            от более чем 158 оптовых и розничных 
+                            продавцов с Фуд Сити. Это более 10 000 
+                            товаров в 55 категориях.
+                        </div>
+                        <div class="aside_mobile_menu_new_content_second_sep"></div>
+                    </div>
+                    <div class="aside_mobile_menu_new_content_second_content">
+                        <div class="aside_mobile_menu_new_content_second_subheader">Удобство</div>
+                        <div class="aside_mobile_menu_new_content_second_text">
+                            Aydaeda.ru позволяет быстро 
+                            отсортировать и найти нужные товары, 
+                            а так же, легкооформить заказ. Система 
+                            запоминает все Ваши заказы и 
+                            избранные продукты, что позволяет Вам 
+                            в дальнейшем оформить новые заказ 
+                            одним кликом, а «умная» система
+                            персонализации подстраивает сайт 
+                            под Вас.
+                        </div>
+                        <div class="aside_mobile_menu_new_content_second_sep"></div>
+                    </div>
+                    <div class="aside_mobile_menu_new_content_second_content">
+                        <div class="aside_mobile_menu_new_content_second_subheader">Цены</div>
+                        <div class="aside_mobile_menu_new_content_second_text">
+                            Делая покупки на aydaeda.ru Вы 
+                            экономите от 20 до 40 %!
+                        </div>
+                        <div class="aside_mobile_menu_new_content_second_sep"></div>
+                    </div>
+                    <div class="aside_mobile_menu_new_content_second_content">
+                        <div class="aside_mobile_menu_new_content_second_subheader">Доставка</div>
+                        <div class="aside_mobile_menu_new_content_second_text">
+                            Мы осуществляем доставку в 
+                            специальных автомобилях, оснащенных 
+                            низкотемпературными холодильниками.
+                        </div>
+                        <div class="aside_mobile_menu_new_content_second_sep"></div>
+                    </div>
+                    <div class="aside_mobile_menu_new_content_second_content">
+                        <div class="aside_mobile_menu_new_content_second_subheader">Миссия</div>
+                        <div class="aside_mobile_menu_new_content_second_text">
+                            Доставить Вам свежие, 
+                            высококачественные продукты по супер 
+                            ценам! Мы фанаты хорошего 
+                            обслуживания - если какой-то продукт 
+                            вызывает у нас сомнения, по качеству, 
+                            мы никогда не доставим его Вам!
+                        </div>
+                        <div class="aside_mobile_menu_new_content_second_sep"></div>
+                    </div>
+                </div>-->
+                <!-- ************************************************************************************* -->
+                <!--<div class="aside_mobile_menu_new_content_second_block">
+                    <div class="aside_mobile_menu_new_content_second_header">Прием заказа, обмен и возврат</div>
+                    <div class="aside_mobile_menu_new_content_second_content">
+                        <div class="aside_mobile_menu_new_content_second_subheader">Прием заказа</div>
+                        <div class="aside_mobile_menu_new_content_second_text">
+                            Вы можете отказаться от всех или части 
+                            доставленных товаров до оплаты их 
+                            курьеру. При приеме заказа 
+                            скоропортящихся продуктов Вы должны 
+                            удостовериться в свежести принимаемых 
+                            товарах и подтвердить это письменно 
+                            курьеру.   
+                        </div>
+                        <div class="aside_mobile_menu_new_content_second_sep"></div>
+                    </div>
+                    <div class="aside_mobile_menu_new_content_second_content">
+                        <div class="aside_mobile_menu_new_content_second_subheader">Обмен и возврат</div>
+                        <div class="aside_mobile_menu_new_content_second_text">
+                            Продукты питания надлежащего 
+                            качества, в неповрежденной упаковке и 
+                            с действующим сроком годности 
+                            возврату и обмену не подлежат.
+                            <br><br>
+                            Вы можете вернуть или обменять 
+                            продовольственный товар только 
+                            ненадлежащего качества, при условии, 
+                            что недостаток возник до передачи 
+                            товара покупателю.
+                            <br><br>
+                            Непродовольственный товар 
+                            надлежащего качества Вы имеете право 
+                            вернуть в магазин в течение 7 дней с 
+                            момента его покупки без объяснения 
+                            причин, при условии если товар не был 
+                            в употреблении, сохранен 
+                            первоначальный вид и ярлыки, 
+                            комплектация и упаковка не 
+                            повреждены, товар не относится к 
+                            товарам-исключениям (к товарам-
+                            -исключениям относятся предметы 
+                            личной гигиены и парфюмерно-
+                            -косметические товары; бытовая химия, 
+                            растения).
+                            <br><br>
+                            Непродовольственные товары 
+                            ненадлежащего качества возможно 
+                            вернуть в течении 15 
+                            дней с момента покупки.
+                            <br><br>
+                            Товар ненадлежащего качества это – 
+                            товар с поврежденной упаковкой, 
+                            истекшим сроком годности или не 
+                            соответствующий описанию на сайте.
+                            <br><br>
+                            Возврат и обмен товара осуществляется 
+                            на следующий день после 
+                            осуществления покупки. Заявка на 
+                            возвратпринимается по телефону.  
+                        </div>
+                        <div class="aside_mobile_menu_new_content_second_sep"></div>
+                    </div>
+                </div>-->
+                <!-- ************************************************************************************* -->
+            </div>
+        </div>
+        <!-- ************************************************************************************* -->
         <div class="mag_or_blog">
             <a href="/" class="mag_or_blog_link <?php echo ($this->router->fetch_method() != 'blogs' ? 'mag_or_blog_link_act' : '') ?>">магазин</a>
             <span class="mag_or_blog_separator"></span>
             <a href="/blogs" class="mag_or_blog_link <?php echo ($this->router->fetch_method() == 'blogs' ? 'mag_or_blog_link_act' : '') ?>">блог</a>
         </div>
+        <a href="/"><div class="mobile_exit_new">выйти</div></a>
 		<header>
 			<div class="content_helper">
                 <!-- 
@@ -287,12 +606,11 @@ body,html,textarea{font-family:Calibri}
                     }
                  -->
                 <div class="mobile_header">
-                    <div class="m_h_hamb sprite fl_l"></div>
-                    <a href="tel:84955001020"><div class="m_h_call sprite fl_l"></div></a>
-                    <div class="m_h_search sprite fl_l"></div>
+                    <div class="m_h_hamb new_sprite fl_l"></div>
+                    <a href="tel:84955001020"><div class="m_h_call new_sprite fl_l"></div></a>
                     <a href="/">
                         <div class="m_h_logo">
-                            <img src="/assets/img/h_logo.jpg" class="m_h_logo_img" alt="sparava">
+                            <img src="/assets/img/new_logo.svg" class="m_h_logo_img" alt="sparava">
                         </div>
                     </a>
                     <a href="/cart">
@@ -302,8 +620,8 @@ body,html,textarea{font-family:Calibri}
                             <div class="clear"></div>
                         </div>
                     </a>
-                    <div class="m_h_login <?php echo ($this->baselib->is_logged() ? 'black_auth' : '') ?> sprite fl_r"></div>
-                    <a href="/favourites"><div class="m_h_fav sprite fl_r"></div></a>
+                    <!--<div class="m_h_login <?php echo ($this->baselib->is_logged() ? 'black_auth' : '') ?> sprite fl_r"></div>-->
+                    <a href="/favourites"><div class="m_h_fav new_sprite fl_r"></div></a>
                     <div class="clear"></div>
                 </div>
 				<?php if(!$this->baselib->is_logged()) { ?>
@@ -505,9 +823,39 @@ body,html,textarea{font-family:Calibri}
 							</div>
 						</div>
 					<?php } ?>
+                    <div class="new_inform_menu">
+                        <div class="new_inform_menu_col new_inform_menu_col_first fl_l">
+                            <div class="new_inform_menu_col_header">Доставка</div>
+                            <a href="/information" class="new_inform_menu_col_link">Доставка и способы оплаты</a>
+                            <a href="/information" class="new_inform_menu_col_link">Прием заказа, обмен и возврат</a>
+                            <a href="/information" class="new_inform_menu_col_link">Гарантия качества</a>
+                            <div class="new_inform_menu_col_link_sepp"></div>
+                        </div>
+                        <div class="new_inform_menu_col new_inform_menu_col_sec fl_l">
+                            <div class="new_inform_menu_col_header">Программы лояльности</div>
+                            <a href="/information" class="new_inform_menu_col_link">Преимущество первого заказа</a>
+                            <a href="/information" class="new_inform_menu_col_link">Бонусная система</a>
+                            <a href="/information" class="new_inform_menu_col_link">Претензии и предложения</a>
+                            <div class="new_inform_menu_col_link_sepp"></div>
+                        </div>
+                        <div class="new_inform_menu_col new_inform_menu_col_thr fl_l">
+                            <div class="new_inform_menu_col_header">Информация о нас</div>
+                            <a href="/information" class="new_inform_menu_col_link">О нас</a>
+                            <a href="/information" class="new_inform_menu_col_link">Отзывы о нас</a>
+                            <a href="/information" class="new_inform_menu_col_link">Контакты</a>
+                            <div class="new_inform_menu_col_link_sepp"></div>
+                        </div>
+                        <div class="new_inform_menu_col new_inform_menu_col_last fl_l">
+                            <div class="new_inform_menu_col_header">Сотрудничество и работа</div>
+                            <a href="/information" class="new_inform_menu_col_link">Поставщики</a>
+                            <a href="/information" class="new_inform_menu_col_link">Работа</a>
+                            <a href="/information" class="new_inform_menu_col_link">Блогерам</a>
+                            <div class="new_inform_menu_col_link_sepp"></div>
+                        </div>
+                    </div>
     				<div class="h_menu fl_r">
     					<a href="/blogs" class="h_link green_text dirty_link">наш вкусный блог</a>
-    					<a href="/information" class="h_link">вся информация</a>
+    					<a class="h_link show_new_inform_menu">вся информация</a>
 						<a href="/favourites" class="new_h_link h_link">избранное</a>
 						<?php if($this->baselib->is_logged()) { ?>
                         <a href="/orders" class="new_h_link new_h_link_fst h_link">мои заказы</a>
@@ -518,14 +866,13 @@ body,html,textarea{font-family:Calibri}
 				</div>
 			</div>
 		</header>
-        <div class="mobile_search">
+        <!--<div class="mobile_search">
             <div class="f_block_search">
                 <form method="post" action="/search">
                     <input type="text" class="f_block_search_inp" name="articul" placeholder="поиск по артикулу">
                     <button type="submit" class="f_block_search_butt sprite"></button>
                 </form>
             </div>
-        </div>
-
+        </div>-->
         <?php $this->load->view('common/product-edit-form');?>
         <?php $this->load->view('common/product-info');?>        
