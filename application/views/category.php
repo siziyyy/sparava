@@ -1,5 +1,7 @@
 <?php $this->load->view('common/header',$header);?>
         <section class="content">
+        	<!-- избранное и мои заказы -->
+        	<? /* ?>
         	<div class="mag_or_blog_alt_pack">
 	            <div class="mag_or_blog_alt">
 		            <a href="/" class="mag_or_blog_link <?php echo ($this->router->fetch_method() != 'blogs' ? 'mag_or_blog_link_act' : '') ?>">избранное</a>
@@ -29,6 +31,7 @@
 					<? } ?>
 				</div>
 	        </div>
+        	<? */ ?>
             <div class="category_bg_helper <?php echo ($is_parent_category ? 'category_bg_helper_in_main' : '' ); ?>">
                 <div class="content_helper">
                     <?php $this->load->view('common/menu-inner', $menu);?>

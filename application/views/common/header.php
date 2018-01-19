@@ -594,9 +594,9 @@ body,html,textarea{font-family:Calibri}
         </div>
         <!-- ************************************************************************************* -->
         <div class="mag_or_blog">
-            <a href="/" class="mag_or_blog_link <?php echo ($this->router->fetch_method() != 'blogs' ? 'mag_or_blog_link_act' : '') ?>">магазин</a>
+            <a href="/" class="mag_or_blog_link <?php echo ($this->router->fetch_method() == 'blogs' ? 'mag_or_blog_link_act' : '') ?>">магазин</a>
             <span class="mag_or_blog_separator"></span>
-            <a href="/blogs" class="mag_or_blog_link <?php echo ($this->router->fetch_method() == 'blogs' ? 'mag_or_blog_link_act' : '') ?>">блог</a>
+            <a href="/blogs" class="mag_or_blog_link <?php echo ($this->router->fetch_method() != 'blogs' ? 'mag_or_blog_link_act' : '') ?>">блог</a>
         </div>
         <?php if($this->baselib->is_logged()) { ?>
             <a href="/"><div class="mobile_exit_new">выйти</div></a>
