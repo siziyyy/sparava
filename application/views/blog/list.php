@@ -9,12 +9,17 @@
 		}
 	}
 </style>
+                <div class="mobile_blog_header">
+                	<a href="/blogs" class="cyvguhbijnokml cyvguhbijnokml_cur fl_l">Вкусный блог</a>
+                	<a href="/providers_blogs" class="cyvguhbijnokml fl_r">Информация о поставщиках</a>
+                	<div class="clear"></div>
+                </div>
         <section class="content">
             <div class="content_helper">
                 <div class="blog_header">
                     <div class="blog_header_left fl_l">Вкусный блог <a href="/providers_blogs" class="blog_header_left_link">Информация о поставщиках</a></div>
                     <div class="blog_header_right fl_r">
-						<?php echo $counter ?>					
+						<?php echo $counter ?> публикаций					
 					</div>
                     <div class="clear"></div>
                 </div>
