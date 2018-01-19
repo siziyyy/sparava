@@ -129,6 +129,12 @@ $(document).ready(function() {
 		$('.morder_closer').toggle();
 	});
 	/********************************************/
+	$('.mag_or_blog_alt_filters_line_right').click(function() {
+		$('.mag_or_blog_alt_filters_line_dropdown').toggle();
+		$('body').toggleClass('fmfilter');
+		$('.mag_or_blog_alt_filters_line_right').toggleClass('mag_or_blog_alt_filters_line_right_opened');
+	});
+	/********************************************/
 	$('.reviews_line_subheader_link').click(function() {
 		$('.mobile_modal').toggle();
 		$('.mobile_auth ').toggle();

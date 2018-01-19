@@ -1,5 +1,34 @@
 <?php $this->load->view('common/header',$header);?>
         <section class="content">
+        	<div class="mag_or_blog_alt_pack">
+	            <div class="mag_or_blog_alt">
+		            <a href="/" class="mag_or_blog_link <?php echo ($this->router->fetch_method() != 'blogs' ? 'mag_or_blog_link_act' : '') ?>">избранное</a>
+		            <span class="mag_or_blog_separator"></span>
+		            <a href="/blogs" class="mag_or_blog_link <?php echo ($this->router->fetch_method() == 'blogs' ? 'mag_or_blog_link_act' : '') ?>">мои заказы</a>
+		        </div>
+		        <!--<div class="mag_or_blog_alt_message">
+		        	у Вас еще нету заказов
+		        </div>-->
+		        <!--<div class="mag_or_blog_alt_message">
+		        	чтобы посмотреть заказы 
+					<br>авторизируйтесь
+		        </div>-->
+				<div class="mag_or_blog_alt_filters_line">
+					<div class="mag_or_blog_alt_filters_line_left fl_l">Мои заказы</div>
+					<div class="mag_or_blog_alt_filters_line_right fl_r">категории  <div class="new_mob_submenu_arrow sprite"></div></div>
+					<div class="clear"></div>
+				</div>
+				<div class="mag_or_blog_alt_filters_line_dropdown">
+					<? for ($i=0; $i < 50; $i++) { ?>
+						<div class="mag_or_blog_alt_filters_line_dropdown_line">
+							<label>
+								<input type="checkbox" class="mag_or_blog_alt_filters_line_dropdown_line_chckbx">
+								<span class="mag_or_blog_alt_filters_line_dropdown_line_chckbx_label">20.01.2018</span>
+							</label>
+						</div>
+					<? } ?>
+				</div>
+	        </div>
             <div class="category_bg_helper <?php echo ($is_parent_category ? 'category_bg_helper_in_main' : '' ); ?>">
                 <div class="content_helper">
                     <?php $this->load->view('common/menu-inner', $menu);?>

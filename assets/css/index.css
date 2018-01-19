@@ -1022,6 +1022,9 @@ textarea.aside_mobile_menu_new_content_second_content_inputttt {
     .mag_or_blog {
         display: block;
     }
+    .mag_or_blog_alt {
+        display: block;
+    }
     /*.g_good:nth-child(3n) {
         margin: 0;
     }
