@@ -1125,6 +1125,23 @@ input {
 .new_auth_register_body {
     display: none;
 }
+.c_contacts_about_text_more_alt {
+        font-size: 14px;
+    color: #336699;
+    cursor: pointer;
+    margin-top: 15px;
+    display: none;
+}
+.c_contacts_about_text_more_alt img {
+    -webkit-transform: rotate(180deg);
+       -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+         -o-transform: rotate(180deg);
+            transform: rotate(180deg);
+}
+.c_contacts_about_text_more_rtyuhinjmko {
+    display: none;
+}
 .h_phone {
     font-size: 18px;
     font-family:Calibri Bold;

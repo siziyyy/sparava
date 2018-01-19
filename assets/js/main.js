@@ -129,6 +129,17 @@ $(document).ready(function() {
 		$('.morder_closer').toggle();
 	});
 	/********************************************/
+	$('.c_contacts_about_text_more').click(function() {
+		$('.c_contacts_about_text_more_rtyuhinjmko').toggle();
+		$('.c_contacts_about_text_more').toggle();
+		$('.c_contacts_about_text_more_alt').toggle();
+	});
+	$('.c_contacts_about_text_more_alt').click(function() {
+		$('.c_contacts_about_text_more_rtyuhinjmko').toggle();
+		$('.c_contacts_about_text_more').toggle();
+		$('.c_contacts_about_text_more_alt').toggle();
+	});
+	/********************************************/
 	$('.santeronii_share').click(function() {
 		$('.share_it_faster_new').toggle();
 		$('.share_it_faster_closer').toggle();

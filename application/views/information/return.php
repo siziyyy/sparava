@@ -1,19 +1,46 @@
+                    
                     <div class="section">
-                        <div class="c_inners_header contacts_new_h">Обмен и возврат</div>
+                        <div class="c_inners_header contacts_new_h"><!--Если вы блогер--></div>
                         <div class="c_contacts_line">
+                                <div id="anch1"></div>
                             <div class="c_contacts_line_left fl_l">
-                                <div class="c_contacts_about_text">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ex libero, convallis in mollis a, accumsan at enim. Nunc vitae libero consequat, commodo ex ac, condimentum velit. Vestibulum iaculis convallis porta. Aenean placerat risus sit amet sem ultrices, id eleifend orci volutpat. Vivamus placerat sed urna eget venenatis. Donec luctus vitae enim a commodo. Curabitur a nisi ex.
+                                <div class="c_contacts_about_text">    
+                                    <div class="yugbkiucyytcvjhgvctycytgcytcytcct" style="margin-top: 0">Прием заказа</div>            
+                                    Вы можете отказаться от всех или части доставленных товаров до оплаты их курьеру. 
+                                    При приеме заказа скоропортящихся продуктов Вы должны удостовериться в свежести 
+                                    принимаемых товарах и подтвердить это письменно курьеру.
+                                    <div class="yugbkiucyytcvjhgvctycytgcytcytcct">Обмен или возврат</div>   
+                                    Продукты питания надлежащего качества, в неповрежденной упаковке и с действующим 
+                                    сроком годности возврату и обмену не подлежат.
+                                    <br><br>
+                                    Вы можете вернуть или обменять продовольственный товар только ненадлежащего 
+                                    качества, при условии, что недостаток возник до передачи товара покупателю.
+                                    <br><br>
+                                    Непродовольственный товар надлежащего качества Вы имеете право вернуть в магазин 
+                                    в течение 7 дней с момента его покупки без объяснения причин, при условии если товар 
+                                    не был в употреблении, сохранен первоначальный вид и ярлыки, комплектация и упаковка 
+                                    не повреждены, товар не относится к товарам-исключениям (к товарам-исключениям 
+                                    относятся предметы личной гигиены и парфюмерно-косметические товары; бытовая 
+                                    химия, растения).
+                                    <br><br>
+                                    Непродовольственные товары ненадлежащего качества возможно вернуть в течении 15 
+                                    дней с момента покупки.
+                                    <br><br>
+                                    Товар ненадлежащего качества это – товар с поврежденной упаковкой, истекшим сроком 
+                                    годности или не соответствующий описанию на сайте.
+                                    <br><br>
+                                    Возврат и обмен товара осуществляется на следующий день после осуществления покупки. 
+                                    Заявка на возвратпринимается по телефону.  
                                 </div>
                             </div>
-                            <div class="c_contacts_line_right c_contacts_line_right_about fl_r">
-                                <div class="c_contacts_line_right_header">Все жалобы и предложения</div>
-                                <div class="c_contacts_line_right_subheader">
-                                    <div class="c_contacts_line_right_messenger">на электронную почту</div>
+                            <div class="c_contacts_line_right fl_r">
+                                <div class="uyionipuvgybni_header">
+                                    Телефон для
+                                    <br>возврата и обмена
                                 </div>
-                                <a href="mailto:ceo@sparava.ru" class="c_contacts_line_right_phone">ceo@sparava.ru</a>
+                                <div class="uyionipuvgybni_link">8 495 547 41 23</div>
                             </div>
                             <div class="clear" id="second_order"></div>
-                            <div id="anch6"></div>
                         </div>
                     </div>
+                    <!-- ************************************************************* -->
