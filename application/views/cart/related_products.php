@@ -9,7 +9,7 @@
 			<div class="c_c_inners_left_side_text_sh_bb">
 				<?php foreach($related_products as $product) { ?>
 					<a href="/product/<?php echo $product['product_id'] ?>"><div class="c_c_inners_left_side_good fl_l">
-						<img src="/images/<?php echo $product['image'] ?>" alt="">
+						<img src="/images/1.jpg" alt="">
 					</div></a>
 				<?php } ?>
 				<div class="clear"></div>

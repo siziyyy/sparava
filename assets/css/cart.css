@@ -61,7 +61,7 @@
     padding: 34px 40px 14px 40px !important;
 }
 .c_c_inners_left_side_text_sh_bb {
-    columns: 3;
+    /*columns: 3;*/
 }
 .c_c_inners_left_side_good {
     width: 100px;
@@ -277,10 +277,12 @@
     color: #fe4517;
     font-family:Calibri Bold;
     font-size: 18px;
+    padding: 17px 0 0 0;
 }
 .c_inners_side_tr .c_inners_fourth_td {
     font-family:Calibri Bold;
     font-size: 18px;
+    padding: 17px 0 0 0;
 }
 .c_inners_photo {
     width: 104px;
@@ -317,6 +319,7 @@
 .c_inners_count {
     text-align: center;
     width: 100%;
+    margin: 17px 0 0 0;
 }
 .c_inners_count_input {
     width: 52px;
@@ -347,7 +350,7 @@
         -ms-transition: opacity .3s ease;
          -o-transition: opacity .3s ease;
             transition: opacity .3s ease;
-    
+    margin: 22px 0 0 0;
 }
 .c_inners_count_delete:hover {
     opacity: 1;

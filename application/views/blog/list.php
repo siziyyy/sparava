@@ -10,8 +10,8 @@
 	}
 </style>
                 <div class="mobile_blog_header">
-                	<a href="/blogs" class="cyvguhbijnokml cyvguhbijnokml_cur fl_l">Вкусный блог</a>
-                	<a href="/providers_blogs" class="cyvguhbijnokml fl_r">Информация о поставщиках</a>
+                	<a href="/blogs" class="cyvguhbijnokml cyvguhbijnokml_cur">Вкусный блог</a>
+                	<a href="/providers_blogs" class="cyvguhbijnokml">Информация о поставщиках</a>
                 	<div class="clear"></div>
                 </div>
         <section class="content">

@@ -171,8 +171,8 @@
                     <a href="/category/92" style="background: url('/assets/img/cats/mob2/8.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">молочка</span>
                     </a>
-                    <a href="/category/95" style="background: url('/assets/img/cats/mob2/9.jpg')" class="mob_mos_it">
-                        <span class="mob_mos_it_text">сыр</span>
+                    <a href="/category/226" style="background: url('/assets/img/cats/mob2/9.jpg')" class="mob_mos_it">
+                        <span class="mob_mos_it_text">сыры</span>
                     </a>
                     <a href="/category/10" style="background: url('/assets/img/cats/mob2/10.jpg')" class="mob_mos_it">
                         <span class="mob_mos_it_text">консервация</span>

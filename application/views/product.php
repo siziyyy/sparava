@@ -34,7 +34,7 @@
 </style>
         <div class="desktop-version">
             <div class="breadcrumbs">
-                <section class="content">
+                <section class="content" style="min-height: auto;">
                     <div class="content_helper">
                         <a href="/" class="breadcrumbs_item">Главная</a>
                         <span class="breadcrumbs_sep">/</span>
@@ -159,7 +159,9 @@
                             <div class="good_modal_right_line good_modal_video_line">
                                 <?php foreach($product['youtube'] as $video) { ?>
                                     <div class="good_modal_video" data-video-id="<?php echo $video ?>" style="background:url('https://i1.ytimg.com/vi/<?php echo $video ?>/default.jpg')">
-                                        <div class="good_modal_video_play sprite"></div>
+                                        <div class="good_modal_video_play">
+                                            <img src="/assets/img/yt_play.png" alt="" style="width:100%;">
+                                        </div>
                                     </div>
                                 <?php } ?>
                             </div>
@@ -203,7 +205,7 @@
 
 
                 <div class="comments">
-                    <section class="content">
+                    <section class="content" style="min-height: auto;">
                         <div class="content_helper">
                             <div class="comments_header">
                                 <a class="comments_header_sec comments_header_active tab_select" data-target="related_products">Рекомендация от Aydaeda</a>
