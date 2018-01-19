@@ -1252,6 +1252,9 @@ textarea.aside_mobile_menu_new_content_second_content_inputttt {
     }
 }
 @media all and (max-width: 425px) {
+    .santeronii {
+        display: block;
+    }
     .category_bg_helper {
         background: #e8e8e8 !important;
     }
