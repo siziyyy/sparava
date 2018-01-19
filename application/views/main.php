@@ -36,7 +36,7 @@
                             <div class="slider_2 fl_r">
                                 <div class="slider_2_header">
                                     Впустите свежесть
-                                    <br>к вам домой!
+                                    <br>в Ваш дом!
                                 </div>
                                 <div class="slider_2_body">
                                     Помните, как пахнет свежая мята?
