@@ -927,7 +927,7 @@ input {
     display: inline-block;
 }
 .h_login_button {
-    font-size: 16px;
+    font-size: 14px;
     color: #45b3e4;
     line-height: 26px;
     margin: 0 50px 0 0;
@@ -935,6 +935,9 @@ input {
 .h_login {    
     margin-top: 17px;
     position: relative;
+}
+.show_new_inform_menu {
+    margin: 0 40px 0 15px !important;
 }
 .new_auth {
     position: absolute;
@@ -1024,7 +1027,7 @@ input {
 }
 .new_h_link {
     color: #de5539 !important;
-    margin: 0 0 0 15px !important
+    margin: 0 0 0 23px !important
 }
 .new_h_link:hover {
     color: #000 !important;
@@ -1127,10 +1130,14 @@ input {
     font-family:Calibri Bold;
     color: #000;
     line-height: 26px;
-    margin: 0 30px 0 0;
+    margin: 0 40px 0 0;
+}
+.oefgpopfegespgo {
+    margin-left: 15px !important;
+    margin-right: 0px !important;
 }
 .h_link {
-    font-size: 16px;
+    font-size: 14px;
     color: #000;
     line-height: 26px;
     margin-left: 10px;
@@ -1545,6 +1552,7 @@ header .content_helper {
 }
 .santeronii {
     height: 41px;
+    display: none;
 }
 .santeronii_share {
     width: 8px;
@@ -2171,6 +2179,39 @@ footer {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+}
+.morder_pack {
+    position: relative;
+    display: inline-block;
+}
+.morder_dropdown {
+    display: none;
+    background: #FFF;
+    width: 208px;
+    position: absolute;
+    top: 30px;
+    left: -46px;
+    font-size: 13px;
+    line-height: 15px;
+    text-align: center;
+    height: 70px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 2px solid #e6e6e6;
+    padding: 17px 0 0 0;
+    z-index: 9999;
+}
+.morder_dropdown_close {
+    font-family: Calibri Bold;
+    position: absolute;
+    right: 5px;
+    top: 2px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.morder_dropdown_close:hover {
+    color: #fe4517;
 }
 /*.showed_new_inform_menu {
     font-family:Calibri Bold;

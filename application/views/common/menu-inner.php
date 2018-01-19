@@ -12,7 +12,7 @@
 							
 							<div class="c_new_menu_line_item c_new_menu_line_item_right fl_r">
 								<span class="c_new_menu_more">другие продукты</span>
-								<span class="c_new_menu_more_icon"></span>
+								<span class="c_new_menu_more_icon oefgpopfegespgo"></span>
 							</div>							
 							<div class="clear"></div>
 							

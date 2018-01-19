@@ -116,6 +116,19 @@ $(document).ready(function() {
 		send_msg(send_data);
 	});	
 	/********************************************/
+	$('.morder').click(function() {
+		$('.morder_dropdown').toggle();
+		$('.morder_closer').toggle();
+	});
+	$('.morder_closer').click(function() {
+		$('.morder_dropdown').toggle();
+		$('.morder_closer').toggle();
+	});
+	$('.morder_dropdown_close').click(function() {
+		$('.morder_dropdown').toggle();
+		$('.morder_closer').toggle();
+	});
+	/********************************************/
 	$('.santeronii_share').click(function() {
 		$('.share_it_faster_new').toggle();
 		$('.share_it_faster_closer').toggle();
@@ -128,6 +141,7 @@ $(document).ready(function() {
 		$('.share_it_faster_new').toggle();
 		$('.share_it_faster_closer').toggle();
 	});
+	/********************************************/
 	$('.aside_mobile_menu_new_content_first_link').click(function() {
 		$('.aside_mobile_menu_inner').toggle();
 	});

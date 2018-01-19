@@ -126,6 +126,7 @@ body,html,textarea{font-family:Calibri}
         <div class="closer video_closer"></div>
         <div class="closer new_inform_menu_closer"></div>
         <div class="closer share_it_faster_closer"></div>
+        <div class="closer morder_closer"></div>
         <? // require '_modal.php'; ?><!-- modal -->
         <div class="mobile_category_dropdown">
             <div class="mobile_category_dropdown_line">по рейтингу</div>
@@ -597,7 +598,9 @@ body,html,textarea{font-family:Calibri}
             <span class="mag_or_blog_separator"></span>
             <a href="/blogs" class="mag_or_blog_link <?php echo ($this->router->fetch_method() == 'blogs' ? 'mag_or_blog_link_act' : '') ?>">блог</a>
         </div>
-        <a href="/"><div class="mobile_exit_new">выйти</div></a>
+        <?php if($this->baselib->is_logged()) { ?>
+            <a href="/"><div class="mobile_exit_new">выйти</div></a>
+        <?php } ?>
 		<header>
 			<div class="content_helper">
                 <!-- 
@@ -857,11 +860,20 @@ body,html,textarea{font-family:Calibri}
     				<div class="h_menu fl_r">
     					<a href="/blogs" class="h_link green_text dirty_link">наш вкусный блог</a>
     					<a class="h_link show_new_inform_menu">вся информация</a>
-						<a href="/favourites" class="new_h_link h_link">избранное</a>
-						<?php if($this->baselib->is_logged()) { ?>
-                        <a href="/orders" class="new_h_link new_h_link_fst h_link">мои заказы</a>
-						<a href="/logout" class="new_h_link h_link">выйти</a>
-						<?php } ?>
+                        <?php if($this->baselib->is_logged()) { ?>
+                            <a href="/orders" class="new_h_link new_h_link_fst h_link">мои заказы</a>
+    						<a href="/logout" class="new_h_link h_link">выйти</a>
+						<?php } else { ?>
+                        <div class="morder_pack">
+                            <a class="new_h_link new_h_link_fst h_link morder">мои заказы</a>
+                            <div class="morder_dropdown">
+                                <div class="morder_dropdown_close">&times;</div>
+                                чтобы посмотреть заказы 
+                                <br>авторизируйтесь
+                            </div>
+                        </div>
+                        <? } ?>
+                        <a href="/favourites" class="new_h_link h_link">избранное</a>
     				</div>
 					<div class="clear"></div>
 				</div>
