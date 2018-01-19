@@ -116,6 +116,18 @@ $(document).ready(function() {
 		send_msg(send_data);
 	});	
 	/********************************************/
+	$('.santeronii_share').click(function() {
+		$('.share_it_faster_new').toggle();
+		$('.share_it_faster_closer').toggle();
+	});
+	$('.share_it_faster_close_new').click(function() {
+		$('.share_it_faster_new').toggle();
+		$('.share_it_faster_closer').toggle();
+	});
+	$('.share_it_faster_closer').click(function() {
+		$('.share_it_faster_new').toggle();
+		$('.share_it_faster_closer').toggle();
+	});
 	$('.aside_mobile_menu_new_content_first_link').click(function() {
 		$('.aside_mobile_menu_inner').toggle();
 	});

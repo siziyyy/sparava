@@ -125,6 +125,7 @@ body,html,textarea{font-family:Calibri}
         <div class="closer login_closer"></div>
         <div class="closer video_closer"></div>
         <div class="closer new_inform_menu_closer"></div>
+        <div class="closer share_it_faster_closer"></div>
         <? // require '_modal.php'; ?><!-- modal -->
         <div class="mobile_category_dropdown">
             <div class="mobile_category_dropdown_line">по рейтингу</div>
