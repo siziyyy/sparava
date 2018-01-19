@@ -1,7 +1,29 @@
 <?php $show_minus = false; ?>
 <div class="g_good fl_l" data-product-id="<?php echo $product['product_id'] ?>" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>">
+	<div class="santeronii">
+		<div class="santeronii_photo fl_l" style="background-image: url('/images/1.jpg')"></div>
+		<div class="santeronii_text fl_l">Сантеронии</div>
+		<div class="santeronii_share fl_r"></div>
+		<div class="share_it_faster_new">
+		    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://aydaeda.ru/product/2427" class="share_it_soc">
+		        <div class="share_it_soc_img fb_share"></div>
+		    </a>
+		     <a target="_blank" href="https://twitter.com/share?url=https://aydaeda.ru/product/2427&amp;text=Говядина - грудинка" class="share_it_soc">
+		        <div class="share_it_soc_img tw_share"></div>
+		    </a>
+		    <a target="_blank" href="http://vk.com/share.php?url=https://aydaeda.ru/product/2427&amp;title=Говядина - грудинка&amp;image=https://aydaeda.ru/images/2017-11-1613-33-35_15-50-06.JPG&amp;noparse=true" class="share_it_soc">
+		        <div class="share_it_soc_img vk_share"></div>
+		    </a>
+		    <a target="_blank" href="http://www.odnoklassniki.ru/dk?st.cmd=addShare&amp;st.s=1&amp;st._surl=https://aydaeda.ru/product/2427&amp;st.comments=Говядина - грудинка" class="share_it_soc">
+		        <div class="share_it_soc_img ok_share"></div>
+		    </a>
+		    <div class="share_it_faster_close_new">×</div>
+	    </div>
+		<div class="clear"></div>
+	</div>
 	<div class="g_good_photo_block">
-		<a href="/product/<?php echo $product['product_id'] ?>"><img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo"></a>
+		<!--<a href="/product/<?php echo $product['product_id'] ?>"><img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo"></a>-->
+		<a href="/product/<?php echo $product['product_id'] ?>"><img src="/images/1.jpg" alt="<?php echo $product['title'] ?>" class="g_good_photo"></a>
 		<div class="quick_view send" data-type="get_product_info">быстрый просмотр</div>
 		<div class="recommended_av_w_pack">
 			<div class="recommended_prod"></div>

@@ -467,7 +467,9 @@ textarea.contact_me_mobile_input {
 }
 .new_mob_submenu_name {
     color: #f2593a;
-    font-size: 14px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-family:Calibri Bold;
 }
 .new_mob_submenu {
         height: 60px;
@@ -1177,7 +1179,7 @@ textarea.aside_mobile_menu_new_content_second_content_inputttt {
         font-size: 10px;
     }
     .c_mobile_menu_link {
-        font-size: 12px;
+        font-size: 11px;
     }
     footer {
         display: none;
