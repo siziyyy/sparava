@@ -17,9 +17,9 @@
 	<a href="/catalog" class="c_new_index_menu_to_cat">Полный каталог</a>
 	
 		<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
-		<a href="/provider" class="c_new_index_menu_to_cat">Поставщики</a>
+		<a href="/provider" class="c_new_index_menu_to_cat provider_link">Поставщики</a>
 		<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
-		<a href="/brands" class="c_new_index_menu_to_cat">Бренды</a>
+		<a href="/brands" class="c_new_index_menu_to_cat provider_link">Бренды</a>
 	
 </div>
 <div class="c_new_index_menu_dropdown_ls fl_l c_new_index_menu_dropdown_secls">
@@ -36,6 +36,7 @@
 	<a href="/category/12" class="c_new_index_menu_dropdown_link">Соусы</a>
 	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
 	<a href="/category/13" class="c_new_index_menu_dropdown_link">Молочные продукты</a>
+	<a href="/category/251" class="c_new_index_menu_dropdown_link">Кисломолочные продукты</a>
 	<a href="/category/226" class="c_new_index_menu_dropdown_link">Сыры</a>
 </div>
 <div class="c_new_index_menu_dropdown_ls fl_l c_new_index_menu_dropdown_thrdls">
@@ -49,7 +50,7 @@
 	<a href="/category/25" class="c_new_index_menu_dropdown_link">Кофе</a>
 	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
 	<a href="/category/19" class="c_new_index_menu_dropdown_link">Хлеб, лаваш</a>
-	<a href="/category/20" class="c_new_index_menu_dropdown_link">Хлебцы и снеки</a>
+	<a href="/category/20" class="c_new_index_menu_dropdown_link">Печенье, чипсы и другое</a>
 	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
 	<a href="/category/27" class="c_new_index_menu_dropdown_link">Соки и компоты</a>
 	<a href="/category/26" class="c_new_index_menu_dropdown_link">Вода и напитки</a>
@@ -76,8 +77,8 @@
 	 <a href="/country/4" class="c_new_index_menu_dropdown_link">Греция</a>
 	 <a href="/country/5" class="c_new_index_menu_dropdown_link">Швейцария</a>
 	 <a href="/country/6" class="c_new_index_menu_dropdown_link">Армения</a>
-	 <a href="/country/6" class="c_new_index_menu_dropdown_link">Узбекистан !</a>
-	<div class="c_new_index_menu_dropdown_head c_new_index_menu_dropdown_head2">Продукты из стран мира</div>
+	 <a href="/country/7" class="c_new_index_menu_dropdown_link">Узбекистан</a>
+	<div class="c_new_index_menu_dropdown_head c_new_index_menu_dropdown_head2">Продукты по определению</div>
 	 <div class="c_new_index_menu_dropdown_footer">
 		<a href="/diet" class="c_new_index_menu_dropdown_link">Диетические продукты</a>
 		 <a href="/farm" class="c_new_index_menu_dropdown_link">Фермерские продукты</a>
