@@ -1,6 +1,7 @@
 var block_send_button = false;
 var current_page = 1;
 var show_admin_info = false;
+var wrong_category = false;
 
 function send_msg(msg) {
 	window.frames['admin'].postMessage(send_data, "https://admin.aydaeda.ru");
@@ -510,6 +511,10 @@ $(document).ready(function() {
 	});
 	
 	$(document).on('click','.save_product_details',function(e) {
+
+		if(wrong_category) {
+			return;
+		}
 		
 		eko = 0;
 		farm = 0;
@@ -663,7 +668,28 @@ $(document).ready(function() {
 		if(value.length > length) {
 			$(this).val(value.substr(0, length));
 		}
-	});	
+	});
+
+	$(document).on('keyup','.product_category',function(e) {
+		category = $(this).val();
+		input = $(this);
+
+		$.ajax({
+			url: '/ajax_handler',
+			type: 'post',
+			data: 'type=check_category&category='+category,
+			dataType: 'json',
+			success: function(json) {
+				if(json['success']) {
+					input.removeClass('input_error');
+					wrong_category = false;
+				} else {
+					input.addClass('input_error');
+					wrong_category = true;
+				}
+			}
+		});
+	});
 
  	$('.count_cool_select').click(function() {
  		$(this).parent().toggleClass('count_cool_select_opened');

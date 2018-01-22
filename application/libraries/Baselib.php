@@ -6,7 +6,16 @@ class Baselib {
 
  	function __construct() {
     	$this->_ci =& get_instance();
-    }   
+    }
+
+    public function is_category_exist($category) {
+		$query = $this->_ci->db->get_where("categories", array("title" => $category,"parent_id !=" => 0));
+		if ($query->num_rows() > 0) {
+			return true;
+		}
+
+		return false;
+    }
 
     public function is_parent_category($category) {
 		if(!is_numeric($category)) {
@@ -758,6 +767,33 @@ class Baselib {
 		
 		return $attributes;
 	}
+
+	public function handle_brands_attributes($products) {
+		$types = array();
+		$count = array();
+		
+		$attributes = array(
+			'brands' => array()
+		);
+		
+		foreach($products as $product_id => $product) {			
+			if(!is_null($product['brand']) and !empty($product['brand'])) {
+				$attributes['brands'][] = $product['brand'];
+
+				if(isset($count[$product['brand']])) {
+					$count[$product['brand']]++;
+				} else {
+					$count[$product['brand']] = 1;
+				}
+			}
+		}
+
+		$attributes['brands'] = array_unique($attributes['brands']);
+
+		asort($attributes['brands']);
+		
+		return $attributes;
+	}	
 
 	public function get_product_by_id($product_id) {
 		
