@@ -47,14 +47,26 @@
 		<div class="g_good_country">
 			<span class="g_good_country_margin">
 				<?php if($product['brand']) { ?>
-					<a href="#" class="product_filter_link" data-value="<?php echo $product['brand'] ?>" data-name="brand"><?php echo $product['brand'] ?></a>
+					<?php if(isset($is_parent_category) and !$is_parent_category) { ?>
+						<a href="#" class="product_filter_link" data-value="<?php echo $product['brand'] ?>" data-name="brand">
+					<?php } ?>
+							<?php echo $product['brand'] ?>
+					<?php if(isset($is_parent_category) and !$is_parent_category) { ?>
+						</a>
+					<?php } ?>
 					<?php $show_minus = true; ?>
 				<?php } ?>
 				<?php if($show_minus and $product['country']) { ?>
 					 - 
 				<?php } ?>
 				<?php if($product['country']) { ?>
-					<a href="#" class="product_filter_link" data-value="<?php echo $product['country'] ?>" data-name="country"><?php echo $product['country'] ?></a>
+					<?php if(isset($is_parent_category) and !$is_parent_category) { ?>
+						<a href="#" class="product_filter_link" data-value="<?php echo $product['country'] ?>" data-name="country">
+					<?php } ?>
+							<?php echo $product['country'] ?>
+					<?php if(isset($is_parent_category) and !$is_parent_category) { ?>
+						</a>
+					<?php } ?>
 				<?php } ?>
 			</span>
 			<span class="g_good_id"><?php echo $product['articul'] ?></span>

@@ -221,6 +221,9 @@ class Main extends CI_Controller {
 			case 6:
 				$country = 'Армения';
 				break;
+			case 7:
+				$country = 'Узбекистан';
+				break;				
 			default:
 				$country = 'Россия';
 				break;				
