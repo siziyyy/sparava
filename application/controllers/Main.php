@@ -379,7 +379,7 @@ class Main extends CI_Controller {
 			'products' => $products_in_page['products'],
 			'current_page' => $page,
 			'pages_count' => $products_in_page['pages_count'],
-			'attributes' => $this->baselib->handle_attributes($products),
+			'attributes' => $this->baselib->handle_brands_attributes($products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			),
@@ -1170,6 +1170,18 @@ class Main extends CI_Controller {
 					
 					if($order->create()) {
 						$json['redirect'] = '/checkout_success';
+					}
+				}
+				
+				break;
+
+			case 'check_category':
+			
+				if(!is_null($this->input->post('category'))) {
+					if($this->baselib->is_category_exist($this->input->post('category'))) {
+						$json['success'] = 'success';
+					} else {
+						$json['failed'] = 'failed';
 					}
 				}
 				
