@@ -1,4 +1,11 @@
 <?php $this->load->view('common/header',$header);?>
+<style>
+    .c_new_menu_line {
+        padding-top: 8px;
+        position: relative;
+        padding-bottom: 37px;
+    }
+</style>
         <section class="content">
             <div class="content_helper">
                 <div class="c_new_menu_line index_c_new_menu">
