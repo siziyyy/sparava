@@ -155,6 +155,10 @@ body,html,textarea{font-family:Calibri}
     color: #fe4517;
     text-decoration: underline;
     font-size: 16px;
+    cursor: pointer;
+}
+.new_goods_separator_look_all:hover {
+    opacity: .5;
 }
 .mag_or_blog_link_act {
     color: #999;
@@ -1557,8 +1561,7 @@ header .content_helper {
     margin-left: 0;
 }
 .new_cool_line_of_filters_aaarrrghh_item_current {
-    color: #000;
-    font-family:Calibri Bold;
+    color: #fe4517;
 }
 .new_cool_line_of_filters_aaarrrghh_item_link {
     margin-right: 0;
@@ -1567,7 +1570,7 @@ header .content_helper {
     height: 45px;
 }
 .new_cool_line_of_filters_aaarrrghh {
-    margin-bottom: -15px;
+    margin-bottom: -45px;
     position: relative;
 }
 .new_cool_line_of_filters_aaarrrghh_dropdown {
@@ -2101,7 +2104,7 @@ footer {
     color: #fe4517;
 }
 .c_new_menu_line {
-    padding-top: 8px;
+    padding-top: 30px;
     position: relative;
     padding-bottom: 37px;
 }
@@ -2334,6 +2337,20 @@ footer {
 }
 .downlaod_excel, #xls_download_form {
     display: none;
+    position: absolute;
+    right: -40px;
+}
+.admmminnns {
+        position: absolute;
+    right: -70px;
+    bottom: 9px;
+}
+.admmminnns a {
+    color: #000;
+    text-decoration: underline;
+}
+.admmminnns a:hover {
+    color: #fe4517;
 }
 .new_inform_menu_col {
     -webkit-box-sizing: border-box;

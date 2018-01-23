@@ -51,7 +51,7 @@
 		                <div class="new_goods_separator <?php echo $class ?>">
 		                    <a href="/category/<?php echo $category['info']['category_id'] ?>" class="new_goods_separator_link fl_l"><?php echo $category['info']['title'] ?></a>
 		                    <div class="new_goods_separator_count fl_l">всего товаров: <?php echo $category['products_count'] ?></div>
-		                    <a href="/"><div class="new_goods_separator_look_all fl_r">посмотреть все</div></a>
+		                    <a href="/category/<?php echo $category['info']['category_id'] ?>"><div class="new_goods_separator_look_all fl_r">посмотреть все</div></a>
 		                    <div class="clear"></div>
 		                </div>
 		                <div class="goods">

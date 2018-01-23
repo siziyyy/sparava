@@ -5,11 +5,14 @@
 }
 .new_goods_separator {
     width: 100%;
+    margin: 20px 0 -20px 0;
+}
+.new_goods_separator_first {
+    margin-top: 0;
 }
 .new_goods_separator_link {
     font-size: 20px;
     font-family:Calibri Bold;
-    text-decoration: underline;
     color: #000;
     display: block;
     position: relative;
@@ -40,7 +43,7 @@
 }
 .g_good {
     width: 220px;
-    height: 500px;
+    height: 492px;
     /*margin: 0 12px 0 0 ;*/
     position: relative;
 }
@@ -137,7 +140,7 @@
 }
 .g_good_name {
     font-size: 17px;
-    margin: 20px 0 20px;
+    margin: 16px 0 16px;
     font-weight: bold;
     cursor: pointer;
     color: #000;
