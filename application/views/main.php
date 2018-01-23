@@ -25,7 +25,7 @@
                                 <br>из <span class="green_text">Фуд Сити</span> по супер ценам!
                             </div>
                             <div class="b_undertext">
-                                Экономьте до 40% от рыночной цены, кушайте 
+                                Экономьте до 40% от рыночной цены, ешьте 
                                 <br>самые свежие продукты каждый день
                             </div>
                         </div>
@@ -318,9 +318,9 @@
                             <span class="c_mosaic_item_text">молочка</span>
                         </div>
                     </a>
-                    <a class="c_mosaic_link" href="/category/95">
+                    <a class="c_mosaic_link" href="/category/226">
                         <div class="c_mosaic_item" style="background:url('/assets/img/cats/7.jpg')">
-                            <span class="c_mosaic_item_text">сыр</span>
+                            <span class="c_mosaic_item_text">сыры</span>
                         </div>
                     </a>
                     <a class="c_mosaic_link" href="/category/101">

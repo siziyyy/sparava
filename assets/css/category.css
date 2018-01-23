@@ -18,6 +18,7 @@
 .new_goods_separator_count {
     font-size: 16px;
     color: #45B3E4;
+    margin-left: 30px;
 }
 .product_filter_link {
     color: #000;
@@ -916,5 +917,9 @@ textarea.g_good_admin_info_modal_input {
     }
     .new_goods_separator_count {
         font-size: 12px;
+        float: right;
+    }
+    .new_goods_separator_look_all {
+        display: none;
     }
 }

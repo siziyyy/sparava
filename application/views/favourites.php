@@ -53,7 +53,7 @@
 						<?php } ?>
 						<div id="wrapper_for_product_load"></div>
 					<?php } else { ?>
-						<h1>В избранных пусто</h1>
+						<h1 class="ionef">В избранных пусто</h1>
 					<?php } ?>
                     <div class="clear"></div>
                 </div>
