@@ -145,6 +145,7 @@ body,html,textarea{font-family:Calibri}
                         <form method="post" action="/search">
                             <input type="text" class="aside_mobile_menu_new_search_input" name="articul">
                             <button type="submit" class="aside_mobile_menu_new_search_button new_sprite"></button>
+                            <div class="clear"></div>
                         </form>
                     </div>
                 </div>
@@ -600,7 +601,9 @@ body,html,textarea{font-family:Calibri}
         </div>
         <?php if($this->baselib->is_logged()) { ?>
             <a href="/"><div class="mobile_exit_new">выйти</div></a>
-        <?php } ?>
+        <?php } else { ?>
+            <a><div class="mobile_exit_new mobile_exit_login_new">войти</div></a>
+        <? } ?>
 		<header>
 			<div class="content_helper">
                 <!-- 

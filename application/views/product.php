@@ -142,6 +142,7 @@
                                     <div class="good_modal_country fl_l"><?php echo $product['country'] ?></div>
                                 <?php } ?>
                                 <span class="good_modal_firm good_modal_firm_not_link fl_l"><?php echo $product['brand'] ?></span>
+                                <a href="/" class="good_modal_ink_link">еще об этом товаре в нашем блоге</a>
                                 <div class="clear"></div>
                             </div>
                             <div class="good_modal_right_line actions_holder">

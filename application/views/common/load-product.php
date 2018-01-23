@@ -3,7 +3,12 @@
 	<div class="santeronii">
 		<div class="santeronii_photo fl_l" style="background-image: url('/images/2017-11-1315-52-39_09-34-05.JPG')"></div>
 		<div class="santeronii_text fl_l">Сантеронии</div>
-		<div class="santeronii_share fl_r"></div>
+		<div class="santeronii_share fl_r">
+			<div class="santeronii_share_inner"></div>
+			<div class="santeronii_share_inner"></div>
+			<div class="santeronii_share_inner"></div>
+			<div class="clear"></div>
+		</div>
 		<div class="share_it_faster_new">
 		    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://aydaeda.ru/product/2427" class="share_it_soc">
 		        <div class="share_it_soc_img fb_share"></div>

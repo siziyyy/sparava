@@ -5,11 +5,11 @@
                     <div class="c_new_index_menu_dropdown">
                         <?php $this->load->view('common/menu-links');?>
                     </div>
-                    <div class="c_new_menu_line_item c_new_menu_line_item_right fl_l">
+                    <div class="c_new_menu_line_item rtyguhnjioklp  c_new_menu_line_item_right fl_l">
                         <span class="c_new_menu_more_icon"></span>
                         <span class="c_new_menu_more">все продукты</span>
                     </div>
-                    <div class="c_new_menu_line_item fl_r">
+                    <div class="c_new_menu_line_item rtyguhnjioklp  fl_r">
                         <a href="/category/1" class="c_new_menu_link c_new_menu_l">Мясо</a>
                         <a href="/category/2" class="c_new_menu_link c_new_menu_l">Птица</a>
                         <a href="/category/3" class="c_new_menu_link c_new_menu_l">Рыба</a>

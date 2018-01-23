@@ -50,7 +50,8 @@
 	            		?>
 		                <div class="new_goods_separator <?php echo $class ?>">
 		                    <a href="/category/<?php echo $category['info']['category_id'] ?>" class="new_goods_separator_link fl_l"><?php echo $category['info']['title'] ?></a>
-		                    <div class="new_goods_separator_count fl_r">всего товаров: <?php echo $category['products_count'] ?></div>
+		                    <div class="new_goods_separator_count fl_l">всего товаров: <?php echo $category['products_count'] ?></div>
+		                    <a href="/"><div class="new_goods_separator_look_all fl_r">посмотреть все</div></a>
 		                    <div class="clear"></div>
 		                </div>
 		                <div class="goods">
@@ -69,6 +70,32 @@
 		                </div>
 	                <?php } ?>
 	            <?php } else { ?>
+	            	<div class="new_cool_line_of_filters_aaarrrghh">
+	            		<div class="new_cool_line_of_filters_aaarrrghh_item new_cool_line_of_filters_aaarrrghh_item_current new_cool_line_of_filters_aaarrrghh_item_first">все</div>
+	            		<div class="new_cool_line_of_filters_aaarrrghh_separator"></div>
+	            		<div class="new_cool_line_of_filters_aaarrrghh_item">на развес</div>
+	            		<div class="new_cool_line_of_filters_aaarrrghh_item">упаковка</div>
+	            		<div class="new_cool_line_of_filters_aaarrrghh_item">коробка</div>
+	            		<div class="new_cool_line_of_filters_aaarrrghh_separator"></div>
+	            		<div class="new_cool_line_of_filters_aaarrrghh_item new_cool_line_of_filters_aaarrrghh_item_current">фермерское</div>
+	            		<div class="new_cool_line_of_filters_aaarrrghh_item">эко / органик</div>
+	            		<div class="new_cool_line_of_filters_aaarrrghh_item">диетическое</div>
+	            		<div class="new_cool_line_of_filters_aaarrrghh_item">особо рекомендуем</div>
+	            		<div class="new_cool_line_of_filters_aaarrrghh_separator"></div>
+	            		<div class="new_cool_line_of_filters_aaarrrghh_item new_cool_line_of_filters_aaarrrghh_item_link">
+		            		сохранить
+	            			<div class="new_cool_line_of_filters_aaarrrghh_dropdown">	            				
+								При сохранение данной комбинации в следующие 
+								разы мы будем выстраивать выдачу по принципу
+								в первую очередь показать - 
+								упакованные товары / диетические
+								<div class="new_cool_line_of_filters_aaarrrghh_dropdown_button">
+									сохранить
+								</div>
+	            			</div>
+		            	</div>
+	            		<div class="vgyhunjimko"></div>
+	            	</div>
 	                <div class="goods">
 	                    <?php foreach($products as $product) { ?>
 							<?php $info['product'] = $product; ?>

@@ -1,6 +1,6 @@
                     
                     <div class="section">
-                        <div class="c_inners_header contacts_new_h"><!--Если вы блогер--></div>
+                        <div class="c_inners_header contacts_new_h">Прием заказа, обмен и возврат</div>
                         <div class="c_contacts_line">
                                 <div id="anch1"></div>
                             <div class="c_contacts_line_left fl_l">
