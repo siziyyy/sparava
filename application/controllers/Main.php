@@ -481,6 +481,17 @@ class Main extends CI_Controller {
 	}	
 	
 	public function category($category = false) {
+
+		if(!is_null($this->input->post('token'))) {
+			if($this->baselib->check_admin_token($this->input->post('token'))) {
+				$this->load->library('excellib');
+
+				if($category) {
+					$this->excellib->download_products_in_excel('category',$category);
+					return;
+				}
+			}			
+		}		
 		
 		if(!$category) {
 			redirect(base_url('/'), 'refresh');
@@ -652,6 +663,7 @@ class Main extends CI_Controller {
 	}
 
 	public function product($product_id = false) {
+
 		if($product_id) {
 			$product = $this->baselib->get_product_by_id($product_id);
 			$products_ids = $this->baselib->get_favourites();

@@ -10,7 +10,26 @@ class Excellib extends PHPExcel {
 
     public function download_products_in_excel($type,$ids) {
 
-    	$query = $this->_ci->db->select("*")->from("products")->where_in($type,$ids)->order_by($type)->get();
+    	if($type == 'category') {
+
+			if(!is_numeric($ids)) {
+				$c_query = $this->_ci->db->get_where("categories", array("seo_url" => $ids,"status" => 1));
+				if ($c_query->num_rows() > 0) {
+					$category_id = $c_query->row_array()['category_id'];
+				} else {
+					$category_id = 0;
+				}
+			} else {
+				$category_id = $ids;
+			}
+
+			$sql = 'SELECT p.*, c.bm FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND ptc.category_id = c.category_id AND ptc.category_id = ' . (int)$category_id . ' ORDER BY product_id ASC';
+					
+			$query = $this->_ci->db->query($sql);			
+
+    	} else {
+    		$query = $this->_ci->db->select("*")->from("products")->where_in($type,$ids)->order_by($type)->get();
+    	}
 
     	if ($query->num_rows() > 0) {
 

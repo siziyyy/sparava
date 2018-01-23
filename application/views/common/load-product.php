@@ -23,7 +23,7 @@
 	</div>
 	<div class="g_good_photo_block">
 		<a href="/product/<?php echo $product['product_id'] ?>" class="opfoopesgflmem"><img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo"></a>
-		<img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo opfoopesgf">
+		<a href="/product/<?php echo $product['product_id'] ?>"><img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo opfoopesgf"></a>
 		<!--<a href="/product/<?php echo $product['product_id'] ?>"><img src="/images/1.jpg" alt="<?php echo $product['title'] ?>" class="g_good_photo"></a>-->
 		<div class="quick_view send" data-type="get_product_info">быстрый просмотр</div>
 		<?php if(!empty($product['recommend'])) { ?>

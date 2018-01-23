@@ -3,9 +3,18 @@
 class Baselib {
 
 	private $_ci;
+	public $_return_url;
 
  	function __construct() {
     	$this->_ci =& get_instance();
+
+    	if(!is_null($this->_ci->session->userdata('return_url'))) {
+    		$this->_return_url = $this->_ci->session->userdata('return_url');
+    	} else {
+    		$this->_return_url = '/';
+    	}
+
+		$this->_ci->session->set_userdata('return_url',$_SERVER['REQUEST_URI']);
     }
 
     public function is_category_exist($category) {
