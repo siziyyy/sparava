@@ -223,8 +223,8 @@
                                 <div class="goods">
                                     <?php $counter = 0; ?>
                                     <?php if(count($related_products)) { ?>
-                                        <?php foreach($related_products as $product) { ?>
-                                            <?php $info['product'] = $product; ?>
+                                        <?php foreach($related_products as $r_product) { ?>
+                                            <?php $info['product'] = $r_product; ?>
                                             <?php $this->load->view('common/load-product',$info);?>
                                             <?php $counter++; ?>
                                         <?php } ?>
