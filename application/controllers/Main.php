@@ -367,7 +367,7 @@ class Main extends CI_Controller {
 					
 		if($empty_products > 0) {
 			$empty_products = 5-$empty_products;
-		}		
+		}
 		
 		$data = array(
 			'header' => array(
