@@ -1,6 +1,6 @@
 <div class="back_pls_from_good">
     <span class="sprite back_pls_from_good_img"></span>
-    <span class="back_pls_from_good_text">назад</span>
+    <a href="<?php echo $this->baselib->_return_url ?>" class="back_pls_from_good_text">назад</a>
 </div>
 <?php $this->load->view('common/header',$header);?>
 <style>

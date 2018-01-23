@@ -830,30 +830,30 @@ body,html,textarea{font-family:Calibri}
                     <div class="new_inform_menu">
                         <div class="new_inform_menu_col new_inform_menu_col_first fl_l">
                             <div class="new_inform_menu_col_header">Доставка</div>
-                            <a href="/information" class="new_inform_menu_col_link">Доставка и способы оплаты</a>
-                            <a href="/information" class="new_inform_menu_col_link">Прием заказа, обмен и возврат</a>
-                            <a href="/information" class="new_inform_menu_col_link">Гарантия качества</a>
+                            <a href="/information/delivery" class="new_inform_menu_col_link">Доставка и способы оплаты</a>
+                            <a href="/information/return" class="new_inform_menu_col_link">Прием заказа, обмен и возврат</a>
+                            <a href="/information/agreement" class="new_inform_menu_col_link">Гарантия качества</a>
                             <div class="new_inform_menu_col_link_sepp"></div>
                         </div>
                         <div class="new_inform_menu_col new_inform_menu_col_sec fl_l">
                             <div class="new_inform_menu_col_header">Программы лояльности</div>
-                            <a href="/information" class="new_inform_menu_col_link">Преимущество первого заказа</a>
-                            <a href="/information" class="new_inform_menu_col_link">Бонусная система</a>
-                            <a href="/information" class="new_inform_menu_col_link">Претензии и предложения</a>
+                            <a href="/information/first" class="new_inform_menu_col_link">Преимущество первого заказа</a>
+                            <a href="/information/bonus" class="new_inform_menu_col_link">Бонусная система</a>
+                            <a href="/information/claims" class="new_inform_menu_col_link">Претензии и предложения</a>
                             <div class="new_inform_menu_col_link_sepp"></div>
                         </div>
                         <div class="new_inform_menu_col new_inform_menu_col_thr fl_l">
                             <div class="new_inform_menu_col_header">Информация о нас</div>
-                            <a href="/information" class="new_inform_menu_col_link">О нас</a>
-                            <a href="/information" class="new_inform_menu_col_link">Отзывы о нас</a>
-                            <a href="/information" class="new_inform_menu_col_link">Контакты</a>
+                            <a href="/information/about" class="new_inform_menu_col_link">О нас</a>
+                            <a href="/information/testimonials" class="new_inform_menu_col_link">Отзывы о нас</a>
+                            <a href="/information/contacts" class="new_inform_menu_col_link">Контакты</a>
                             <div class="new_inform_menu_col_link_sepp"></div>
                         </div>
                         <div class="new_inform_menu_col new_inform_menu_col_last fl_l">
                             <div class="new_inform_menu_col_header">Сотрудничество и работа</div>
                             <a href="/information" class="new_inform_menu_col_link">Поставщики</a>
                             <a href="/information" class="new_inform_menu_col_link">Работа</a>
-                            <a href="/information" class="new_inform_menu_col_link">Блогерам</a>
+                            <a href="/information/bloger" class="new_inform_menu_col_link">Блогерам</a>
                             <div class="new_inform_menu_col_link_sepp"></div>
                         </div>
                     </div>
