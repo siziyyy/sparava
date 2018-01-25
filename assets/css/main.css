@@ -2437,6 +2437,9 @@ footer {
 .morder_dropdown_close:hover {
     color: #fe4517;
 }
+.brand_admin {
+    display: none;
+}
 /*.showed_new_inform_menu {
     font-family:Calibri Bold;
 }*/

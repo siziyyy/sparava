@@ -6,11 +6,11 @@
                             </div>
                             <div class="new_first_order">
                                 <div class="new_first_order_slider">
-                                    <? for ($i=0; $i < 15; $i++) { ?>
-                                        <a href="/" class="new_first_order_slider_item">
-                                            <img src="/images/1.jpg" class="new_first_order_slider_item_img" alt="">
+                                    <?php foreach ($related_products as $product_id => $product) { ?>
+                                        <a href="/product/<?php echo $product['product_id'] ?>" class="new_first_order_slider_item">
+                                            <img src="/images/<?php echo $product['image'] ?>" class="new_first_order_slider_item_img" alt="">
                                         </a>
-                                    <? } ?>
+                                    <?php } ?>
                                 </div>
                             </div>
                             <div class="clear" id="second_order"></div>

@@ -36,7 +36,7 @@
 	<a href="/category/9" class="c_new_index_menu_dropdown_link">Бакалея</a>
 	<a href="/category/18" class="c_new_index_menu_dropdown_link">Растительное масло</a>
 	<a href="/category/10" class="c_new_index_menu_dropdown_link">Консервация</a>
-	<a href="/category/80" class="c_new_index_menu_dropdown_link">Оливки и маслины</a>
+	<a href="/category/279" class="c_new_index_menu_dropdown_link">Оливки и маслины</a>
 	<a href="/category/12" class="c_new_index_menu_dropdown_link">Соусы</a>
 	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
 	<a href="/category/13" class="c_new_index_menu_dropdown_link">Молочные продукты</a>
@@ -53,7 +53,7 @@
 	<a href="/category/21" class="c_new_index_menu_dropdown_link">Другие сладости</a>
 	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
 	<a href="/category/23" class="c_new_index_menu_dropdown_link">Мед</a>
-	<a href="/category/23" class="c_new_index_menu_dropdown_link">Варенье и джемы</a>
+	<a href="/category/286" class="c_new_index_menu_dropdown_link">Варенье и джемы</a>
 	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
 	<a href="/category/24" class="c_new_index_menu_dropdown_link">Чай</a>
 	<a href="/category/25" class="c_new_index_menu_dropdown_link">Кофе</a>
@@ -77,7 +77,7 @@
 	 <a href="" class="c_new_index_menu_dropdown_link">Иджеван</a>
 	 <a href="" class="c_new_index_menu_dropdown_link">Чабан</a>
 	 <a href="" class="c_new_index_menu_dropdown_link">Иджеван</a>
-	 <div class="c_new_index_menu_dropdown_footer"><a href="/" class="c_new_index_menu_dropdown_link">полный список</a></div>
+	 <a href="/" class="c_new_index_menu_dropdown_link">полный список</a>
 </div>							
 <div class="c_new_index_menu_dropdown_ls c_new_index_menu_dropdown_ffthls fl_l">
 	<div class="c_new_index_menu_dropdown_head">Из стран мира</div>
@@ -90,7 +90,7 @@
 	 <a href="/country/6" class="c_new_index_menu_dropdown_link">Азербайджан</a>
 	 <a href="/country/7" class="c_new_index_menu_dropdown_link">Узбекистан</a>
 	 <a href="/country/7" class="c_new_index_menu_dropdown_link">Молдова</a>
-	 <div class="c_new_index_menu_dropdown_footer"><a href="/" class="c_new_index_menu_dropdown_link">полный список</a></div>
+	 <a href="/" class="c_new_index_menu_dropdown_link">полный список</a>
 	<div class="c_new_index_menu_dropdown_head c_new_index_menu_dropdown_head2">По назначение</div>
 	 <div class="c_new_index_menu_dropdown_footer">
 		<a href="/diet" class="c_new_index_menu_dropdown_link">Диетические</a>
