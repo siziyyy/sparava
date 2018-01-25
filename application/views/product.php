@@ -33,6 +33,9 @@
     }
 </style>
         <div class="desktop-version">
+            <div class="content_helper">
+                <?php $this->load->view('common/menu', $menu);?>
+            </div>
             <div class="breadcrumbs">
                 <section class="content" style="min-height: auto;">
                     <div class="content_helper">

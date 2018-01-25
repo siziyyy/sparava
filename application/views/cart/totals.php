@@ -8,9 +8,9 @@
 	<div class="c_inners_right_footer_num fl_r"><?php echo $total['value'] ?> р.</div>
     <div class="c_inners_right_footer_text fl_r"><?php echo $total['title'] ?></div>
 	<div class="clear"></div>
-    <div class="minsumm">
+    <!-- <div class="minsumm">
         <div class="minsumm_header">Не можем оформить заказ</div>
         <div class="minsumm_body">Минимальная сумма заказа 1000 р   </div>
-    </div>
+    </div> -->
 </div>
 <?php } ?>

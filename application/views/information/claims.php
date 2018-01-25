@@ -5,17 +5,17 @@
                                 <form action="" class="call_me_form">
                                     <label>
                                         <span>Вид предложения</span>
-                                        <input type="text" class="call_me_form_inp">
+                                        <input type="text" class="call_me_form_inp feedback_type">
                                     </label>
                                     <label>
                                         <span>Почта или телефон</span>
-                                        <input type="text" class="call_me_form_inp">
+                                        <input type="text" class="call_me_form_inp feedback_email">
                                     </label>
                                     <label>
                                         <span>Комментарий</span>
-                                        <textarea class="call_me_form_inp"></textarea>
+                                        <textarea class="call_me_form_inp feedback_comment"></textarea>
                                     </label>
-                                    <div class="submit_call_me">отправить</div>
+                                    <div class="submit_call_me send" data-type="feedback">отправить</div>
                                 </form>
                             </div>
                             <div class="c_contacts_line_right call_contacts_line_right fl_r">
