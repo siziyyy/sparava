@@ -194,7 +194,7 @@ class Baselib {
 		return $result;
 	}
 	
-	public function get_related_products_ids($product_id = false) {
+	public function get_related_products_ids($product_id = false,$limit = false) {
 		$result = array();
 
 		if($product_id) {
@@ -214,7 +214,7 @@ class Baselib {
 				}				
 			}
 		} else {
-			$sql = 'SELECT p.* FROM products AS p, product_to_category AS ptc WHERE p.product_id = ptc.product_id AND p.recommend = 1 AND p.status = 1 ORDER BY rand() LIMIT 6';
+			$sql = 'SELECT p.* FROM products AS p, product_to_category AS ptc WHERE p.product_id = ptc.product_id AND p.recommend = 1 AND p.status = 1 ORDER BY rand() LIMIT '.($limit ? $limit : '6');
 			$query = $this->_ci->db->query($sql);
 			
 			if ($query->num_rows() > 0) {
