@@ -8,6 +8,7 @@ function send_msg(msg) {
 }
 
 function listener(event) {
+	console.log(event);
 	if (event.origin != 'https://admin.aydaeda.ru') {
 		return;
 	}
@@ -96,6 +97,11 @@ function listener(event) {
 		token = event.data.data;
 		$('#xls_download_token').val(token);
 		$('#xls_download_form').submit();
+	} else if (event.data.type == 'get_brand_id') {
+		url = 'https://admin.aydaeda.ru/brands/data/'+event.data.data;
+
+		var win = window.open(url, '_blank');
+		//win.focus();
 	}
 }
 
@@ -106,6 +112,23 @@ if (window.addEventListener) {
 }
 
 $(document).ready(function() {
+	if($('input[data-name="brand"]:checked').length == 1) {
+		$('.brand_admin').show();
+	}
+
+	$(document).on('click','.brand_admin',function(e) {
+		e.preventDefault();
+
+		brand = $('input[data-name="brand"]:checked').val();
+
+		send_data = {
+			type : 'get_brand_id',
+			brand : brand
+		}
+		
+		send_msg(send_data);
+	});	
+
 
 	$(document).on('click','.downlaod_excel',function(e) {
 		e.preventDefault();
