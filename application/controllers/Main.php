@@ -118,6 +118,8 @@ class Main extends CI_Controller {
 			'contacts',
 			'return'
 		);
+
+		$related_products = $this->baselib->get_related_products_ids(false,15);		
 	
 		$data = array(
 			'header' => array(
@@ -125,6 +127,7 @@ class Main extends CI_Controller {
 			),
 			'first_block' => $page,
 			'blocks' => $blocks,
+			'related_products' => $this->baselib->get_products_by_ids($related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
