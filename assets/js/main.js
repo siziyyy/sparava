@@ -99,9 +99,7 @@ function listener(event) {
 		$('#xls_download_form').submit();
 	} else if (event.data.type == 'get_brand_id') {
 		url = 'https://admin.aydaeda.ru/brands/data/'+event.data.data;
-
 		var win = window.open(url, '_blank');
-		//win.focus();
 	}
 }
 
