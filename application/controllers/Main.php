@@ -175,6 +175,7 @@ class Main extends CI_Controller {
 			'cart' => $this->get_cart_info_for_header(),
 			'product' => $product,
 			'products' => $products_to_show,
+			'is_search' => true,
 			'articul' => $this->input->post('articul')
 		);
 		
@@ -1018,6 +1019,24 @@ class Main extends CI_Controller {
 	
 	public function ajax_handler() {
 		switch ($this->input->post('type')) {
+			case 'feedback':
+
+				$message = $this->input->post('feedback_type').'<br>'.$this->input->post('feedback_email').'<br>'.$this->input->post('feedback_comment');
+
+				$this->load->library('email');
+				
+				$this->email->from('info@aydaeda.ru', 'aydaeda.ru');
+				$this->email->to('info@aydaeda.ru');
+
+				$this->email->subject('Предложение с сайта');
+				$this->email->message($message);	
+				
+				if($this->email->send()) {
+					$json['success'] = 'success';
+				}				
+
+				break;
+
 			case 'add_product_comment':
 
 				$data = array(

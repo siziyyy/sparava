@@ -1116,6 +1116,17 @@ $(document).ready(function() {
 		obj = $(this);
 		
 		switch(type) {
+			case 'feedback':
+
+				send_data = {
+					type : type,
+					feedback_type : $('.feedback_type').val(),
+					feedback_email : $('.feedback_email').val(),
+					feedback_comment : $('.feedback_comment').val()
+				}
+				
+				break;
+
 			case 'add_product_comment':
 
 				if($(this).parents('.g_good').length > 0) {
@@ -1366,6 +1377,10 @@ $(document).ready(function() {
 							$('#desktop_comments').html(json['success']['desktop']);
 							$('#mobile_comments').empty();
 							$('#mobile_comments').html(json['success']['mobile']);
+						} else if(send_data.type == 'feedback') {
+							$('.feedback_type').val('');
+							$('.feedback_email').val('');
+							$('.feedback_comment').val('');
 						} else if(send_data.type == 'use_bonus') {
 							location.reload();
 						} else if(send_data.type == 'confirm_account_in_modal') {
@@ -1513,7 +1528,7 @@ $(document).ready(function() {
 							if(product['youtube'].length > 0) {
 								if(product['youtube'][0].length > 0) {
 									for (k in product['youtube']) {
-										html = '<div class="good_modal_video" data-video-id="'+product['youtube'][k]+'" style="background:url(\'https://i1.ytimg.com/vi/'+product['youtube'][k]+'/default.jpg\')"><div class="good_modal_video_play sprite"></div></div>';
+										html = '<div class="good_modal_video" data-video-id="'+product['youtube'][k]+'" style="background:url(\'https://i1.ytimg.com/vi/'+product['youtube'][k]+'/default.jpg\')"><div class="good_modal_video_play"><img src="/assets/img/yt_play.png" style="width:100%;"></div></div>';
 										$('#product_info .good_modal_video_line').append(html);
 										load_youtube_data(product['youtube'][k]);
 									}
