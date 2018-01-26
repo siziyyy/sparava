@@ -1,5 +1,11 @@
 <?php $this->load->view('common/header',$header);?>
         <section class="content">
+        	<style>
+        		
+    .c_new_menu_line_item_right {
+        color: #569c1d;
+    }
+        	</style>
         	<!-- избранное и мои заказы -->
         	<? /* ?>
         	<div class="mag_or_blog_alt_pack">
@@ -75,12 +81,12 @@
 	            		<div class="new_cool_line_of_filters_aaarrrghh_separator"></div>
 	            		<div class="new_cool_line_of_filters_aaarrrghh_item">на развес</div>
 	            		<div class="new_cool_line_of_filters_aaarrrghh_item">упаковка</div>
-	            		<div class="new_cool_line_of_filters_aaarrrghh_item">коробка</div>
+	            		<div class="new_cool_line_of_filters_aaarrrghh_item"><span class="harder_better_faster_stronger">еще дешевле! - </span>ящик / мешок</div>
 	            		<div class="new_cool_line_of_filters_aaarrrghh_separator"></div>
-	            		<div class="new_cool_line_of_filters_aaarrrghh_item new_cool_line_of_filters_aaarrrghh_item_current">фермерское</div>
-	            		<div class="new_cool_line_of_filters_aaarrrghh_item">эко / органик</div>
-	            		<div class="new_cool_line_of_filters_aaarrrghh_item">диетическое</div>
-	            		<div class="new_cool_line_of_filters_aaarrrghh_item">особо рекомендуем</div>
+	            		<div class="uibwfbuifabui_green new_cool_line_of_filters_aaarrrghh_item new_cool_line_of_filters_aaarrrghh_item_current">фермерское</div>
+	            		<div class="uibwfbuifabui_green new_cool_line_of_filters_aaarrrghh_item">эко / органик</div>
+	            		<div class="uibwfbuifabui_green new_cool_line_of_filters_aaarrrghh_item">диетическое</div>
+	            		<div class="uibwfbuifabui_green new_cool_line_of_filters_aaarrrghh_item">особо рекомендуем</div>
 	            		<div class="new_cool_line_of_filters_aaarrrghh_separator"></div>
 	            		<div class="new_cool_line_of_filters_aaarrrghh_item new_cool_line_of_filters_aaarrrghh_item_link">
 		            		сохранить

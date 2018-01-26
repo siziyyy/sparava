@@ -705,24 +705,61 @@ body,html,textarea{font-family:Calibri}
 				<?php } ?>
 				<div class="main_header">
 					<a href="/">
-						<div class="h_logo fl_l">
+                        <!-- <div class="h_logo fl_l">-->
+                        <div class="h_logo">
 							<img src="/assets/img/h_logo.jpg" class="h_logo_img" alt="sparava">
 						</div>
 					</a>
-					<a href="/cart">
-						<div class="h_cart fl_r">
-							<div class="h_cart_icon sprite fl_l"></div>
-							<div class="h_cart_text fl_l">
-								<span id="h_cart_text_total"><?php echo $cart['total'] ?></span> <span id="h_cart_text_word"><?php echo $cart['word'] ?></span> на <span id="h_cart_text_summ"><?php echo $cart['summ'] ?></span> руб.
-							</div>
-							<div class="clear"></div>
-						</div>
-					</a>
-                    <div class="h_phones fl_r">
-                        <a href="tel:88004501025" class="h_phone">8 495 541 20 20</a>
+                    <div class="new_inform_menu">
+                        <div class="new_inform_menu_col new_inform_menu_col_first fl_l">
+                            <div class="new_inform_menu_col_header">Доставка</div>
+                            <a href="/information/delivery" class="new_inform_menu_col_link">Доставка и способы оплаты</a>
+                            <a href="/information/return" class="new_inform_menu_col_link">Прием заказа, обмен и возврат</a>
+                            <a href="/information/agreement" class="new_inform_menu_col_link">Гарантия качества</a>
+                            <div class="new_inform_menu_col_link_sepp"></div>
+                        </div>
+                        <div class="new_inform_menu_col new_inform_menu_col_sec fl_l">
+                            <div class="new_inform_menu_col_header">Программы лояльности</div>
+                            <a href="/information/first" class="new_inform_menu_col_link">Преимущество первого заказа</a>
+                            <a href="/information/bonus" class="new_inform_menu_col_link">Бонусная система</a>
+                            <a href="/information/claims" class="new_inform_menu_col_link">Претензии и предложения</a>
+                            <div class="new_inform_menu_col_link_sepp"></div>
+                        </div>
+                        <div class="new_inform_menu_col new_inform_menu_col_thr fl_l">
+                            <div class="new_inform_menu_col_header">Информация о нас</div>
+                            <a href="/information/about" class="new_inform_menu_col_link">О нас</a>
+                            <a href="/information/testimonials" class="new_inform_menu_col_link">Отзывы о нас</a>
+                            <a href="/information/contacts" class="new_inform_menu_col_link">Контакты</a>
+                            <div class="new_inform_menu_col_link_sepp"></div>
+                        </div>
+                        <div class="new_inform_menu_col new_inform_menu_col_last fl_l">
+                            <div class="new_inform_menu_col_header">Сотрудничество и работа</div>
+                            <a href="/information" class="new_inform_menu_col_link">Поставщики</a>
+                            <a href="/information" class="new_inform_menu_col_link">Работа</a>
+                            <a href="/information/bloger" class="new_inform_menu_col_link">Блогерам</a>
+                            <div class="new_inform_menu_col_link_sepp"></div>
+                        </div>
                     </div>
+                    <!-- <div class="h_menu fl_r">-->
+                    <a href="/blogs" class="h_link green_text dirty_link">наш вкусный блог</a>
+                    <a class="h_link show_new_inform_menu">вся информация</a>
+                    <?php if($this->baselib->is_logged()) { ?>
+                        <a href="/orders" class="new_h_link new_h_link_fst h_link">мои заказы</a>
+                        <a href="/logout" class="new_h_link h_link">выйти</a>
+                    <?php } else { ?>
+                    <div class="morder_pack">
+                        <a class="new_h_link new_h_link_fst h_link morder">мои заказы</a>
+                        <div class="morder_dropdown">
+                            <div class="morder_dropdown_close">&times;</div>
+                            чтобы посмотреть заказы 
+                            <br>авторизируйтесь
+                        </div>
+                    </div>
+                    <? } ?>
+                    <a href="/favourites" class="new_h_link h_link">избранное</a>
 					<?php if(!$this->baselib->is_logged()) { ?>
-						<div class="h_login fl_r">
+                        <!-- <div class="h_login fl_r">-->
+						<div class="h_login">
 							<a class="h_login_button">войти</a>
 							<div class="new_login_message">
 								<div class="new_login_message_close">&times;</div>
@@ -830,55 +867,21 @@ body,html,textarea{font-family:Calibri}
 							</div>
 						</div>
 					<?php } ?>
-                    <div class="new_inform_menu">
-                        <div class="new_inform_menu_col new_inform_menu_col_first fl_l">
-                            <div class="new_inform_menu_col_header">Доставка</div>
-                            <a href="/information/delivery" class="new_inform_menu_col_link">Доставка и способы оплаты</a>
-                            <a href="/information/return" class="new_inform_menu_col_link">Прием заказа, обмен и возврат</a>
-                            <a href="/information/agreement" class="new_inform_menu_col_link">Гарантия качества</a>
-                            <div class="new_inform_menu_col_link_sepp"></div>
-                        </div>
-                        <div class="new_inform_menu_col new_inform_menu_col_sec fl_l">
-                            <div class="new_inform_menu_col_header">Программы лояльности</div>
-                            <a href="/information/first" class="new_inform_menu_col_link">Преимущество первого заказа</a>
-                            <a href="/information/bonus" class="new_inform_menu_col_link">Бонусная система</a>
-                            <a href="/information/claims" class="new_inform_menu_col_link">Претензии и предложения</a>
-                            <div class="new_inform_menu_col_link_sepp"></div>
-                        </div>
-                        <div class="new_inform_menu_col new_inform_menu_col_thr fl_l">
-                            <div class="new_inform_menu_col_header">Информация о нас</div>
-                            <a href="/information/about" class="new_inform_menu_col_link">О нас</a>
-                            <a href="/information/testimonials" class="new_inform_menu_col_link">Отзывы о нас</a>
-                            <a href="/information/contacts" class="new_inform_menu_col_link">Контакты</a>
-                            <div class="new_inform_menu_col_link_sepp"></div>
-                        </div>
-                        <div class="new_inform_menu_col new_inform_menu_col_last fl_l">
-                            <div class="new_inform_menu_col_header">Сотрудничество и работа</div>
-                            <a href="/information" class="new_inform_menu_col_link">Поставщики</a>
-                            <a href="/information" class="new_inform_menu_col_link">Работа</a>
-                            <a href="/information/bloger" class="new_inform_menu_col_link">Блогерам</a>
-                            <div class="new_inform_menu_col_link_sepp"></div>
-                        </div>
+                    <!-- <div class="h_phones fl_r">-->
+                    <div class="h_phones">
+                        <a href="tel:88004501025" class="h_phone">8 495 541 20 20</a>
                     </div>
-    				<div class="h_menu fl_r">
-    					<a href="/blogs" class="h_link green_text dirty_link">наш вкусный блог</a>
-    					<a class="h_link show_new_inform_menu">вся информация</a>
-                        <?php if($this->baselib->is_logged()) { ?>
-                            <a href="/orders" class="new_h_link new_h_link_fst h_link">мои заказы</a>
-    						<a href="/logout" class="new_h_link h_link">выйти</a>
-						<?php } else { ?>
-                        <div class="morder_pack">
-                            <a class="new_h_link new_h_link_fst h_link morder">мои заказы</a>
-                            <div class="morder_dropdown">
-                                <div class="morder_dropdown_close">&times;</div>
-                                чтобы посмотреть заказы 
-                                <br>авторизируйтесь
+                    <a href="/cart">
+                        <!-- <div class="h_cart fl_r">-->
+                        <div class="h_cart">
+                            <div class="h_cart_icon sprite fl_l"></div>
+                            <div class="h_cart_text fl_l">
+                                <span id="h_cart_text_total"><?php echo $cart['total'] ?></span> <span id="h_cart_text_word"><?php echo $cart['word'] ?></span> на <span id="h_cart_text_summ"><?php echo $cart['summ'] ?></span> руб.
                             </div>
+                            <div class="clear"></div>
                         </div>
-                        <? } ?>
-                        <a href="/favourites" class="new_h_link h_link">избранное</a>
-    				</div>
-					<div class="clear"></div>
+                    </a>
+					<div class="clear vgyhunjimko"></div>
 				</div>
 			</div>
 		</header>

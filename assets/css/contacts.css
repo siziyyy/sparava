@@ -6,6 +6,11 @@
     left: 0;
     top: 122px;
 }
+.alm_eq_sym {
+    font-size: 30px;
+    position: relative;
+    top: 3px;
+}
 .contacts_content {
     padding-top: 20px;
 }
