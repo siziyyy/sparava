@@ -227,10 +227,16 @@ class Main extends CI_Controller {
 				break;
 			case 7:
 				$country = 'Узбекистан';
-				break;				
+				break;
+			case 8:
+				$country = 'Азербайджан';
+				break;
+			case 9:
+				$country = 'Молдова';
+				break;
 			default:
 				$country = 'Россия';
-				break;				
+				break;
 		}
 
 		$products = $this->baselib->get_country_products($country);
