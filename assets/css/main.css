@@ -149,7 +149,7 @@ body,html,textarea{font-family:Calibri}
     margin: 22px 0 20px 0;
 }
 .good_modal_ink_link2 {
-    margin: 22px 0 20px 30px;
+    margin: 22px 0 20px 20px;
 }
 .new_goods_separator_look_all {
     color: #fe4517;
@@ -455,7 +455,7 @@ header {
     color: #FE4517;
     font-family: Calibri Bold;
     text-decoration: underline;
-    margin: 20px 0 20px 25px;
+    margin: 20px;
 }
 .good_modal_header_actions  {
     margin: 3px -9px 0 0;
@@ -562,13 +562,16 @@ header {
 }
 .good_modal_video {
     display: inline-block;
-    width: 190px;
-    height: 104px;
+    width: 186px;
+    height: 100px;
     position: relative;
     cursor: pointer;
     background-position: center !important;
     background-size: cover !important;
     margin: 0 20px -2px 0;
+}
+.good_modal_video:last-child {
+    margin: 0 0 -2px 0;
 }
 .good_modal_arrow {
     width: 20px;
@@ -1434,7 +1437,19 @@ input {
 }
 header .content_helper {
     line-height: 26px;
-    padding: 25px 0;
+    padding: 18px 0 25px;
+}
+.harder_better_faster_stronger {
+    color: #D61C38;
+}
+.uibwfbuifabui_green {
+    color: #538d12 !important;
+}
+.uibwfbuifabui_green:hover {
+    color: #000 !important;
+}
+.new_cool_line_of_filters_aaarrrghh_item_current {
+    color: #fe4517 !important;
 }
 /* menu */
 .c_menu {
@@ -1526,7 +1541,7 @@ header .content_helper {
     margin: 20px 0 10px 0 !important;
 }
 .good_is_modal .good_modal_firm {
-    margin: 20px 0 10px 25px !important;
+    margin: 20px 0 10px 20px !important;
 }
 .good_page_side {
     width: 227px;
@@ -2439,6 +2454,25 @@ footer {
 }
 .brand_admin {
     display: none;
+}
+.main_header {
+    position: relative;
+    text-align: justify;
+}
+.h_cart, .h_phones, .h_menu, .h_login, .h_logo {
+    display: inline-block;
+    margin: 0 !important;
+}
+.h_link, .show_new_inform_menu, .new_h_link, .h_phone, .h_login_button {
+    margin: 0 !important;
+    text-align: left !important;
+    display: inline-block;
+        position: relative;
+    top: -8px;
+} 
+.h_logo {
+    position: relative;
+    top: 7px;
 }
 /*.showed_new_inform_menu {
     font-family:Calibri Bold;

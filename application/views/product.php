@@ -31,6 +31,14 @@
             display: block;
         }
     }
+    .c_new_menu_line {
+        padding-top: 8px;
+        position: relative;
+        padding-bottom: 37px;
+    }
+    /*.c_new_menu_line_item_right {
+        color: #569c1d;
+    }*/
 </style>
         <div class="desktop-version">
             <div class="content_helper">
@@ -54,7 +62,7 @@
                 <section class="content single_good_page" data-product-id="<?php echo $product['product_id'] ?>" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>">
                     <div class="content_helper">
                         <div class="good_page_left fl_l">
-                            <img src="/images/<?php echo $product['image'] ?>" class="good_page_photo">
+                            <img src="/images/<?php echo $product['image'] ?>" class="good_page_photo" onError="this.src='/assets/img/nophoto.jpg'">
                         </div>
                         <div class="good_page_right fl_l">
                             <div class="good_modal_right_line">
@@ -145,7 +153,7 @@
                                     <div class="good_modal_country fl_l"><?php echo $product['country'] ?></div>
                                 <?php } ?>
                                 <span class="good_modal_firm good_modal_firm_not_link fl_l"><?php echo $product['brand'] ?></span>
-                                <a href="/" class="good_modal_ink_link">еще об этом товаре в нашем блоге</a>
+                                <a href="/" class="good_modal_ink_link">об этом товаре в блоге</a>
                                 <div class="clear"></div>
                             </div>
                             <div class="good_modal_right_line actions_holder">

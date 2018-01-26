@@ -6,7 +6,7 @@
             <div class="good_modal_line">
                 <div class="good_modal_photo fl_l">
                     <!--<img src="/images/1.jpg" class="g_good_modal_photo clear_on_load">-->
-                    <img src="" class="g_good_modal_photo clear_on_load">
+                    <img src="" class="g_good_modal_photo clear_on_load" onError="this.src='/assets/img/nophoto.jpg'">
                 </div>
                 <div class="good_modal_right good_is_modal fl_r">
                     <div class="good_modal_right_line">
@@ -70,7 +70,7 @@
                         <div class="good_modal_country clear_on_load fl_l"></div>
                         <a href="" class="good_modal_firm good_modal_firm_with_link clear_on_load fl_l"></a>
                         <div class="good_modal_firm good_modal_firm_without_link good_modal_firm_not_link clear_on_load fl_l"></div>
-                        <a href="/" class="good_modal_ink_link good_modal_ink_link2">об этом товаре в нашем блоге</a>
+                        <a href="/" class="good_modal_ink_link good_modal_ink_link2">об этом товаре в блоге</a>
                         <div class="clear"></div>
                     </div>
                     <div class="good_modal_right_line actions_holder">

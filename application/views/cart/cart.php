@@ -5,6 +5,9 @@
         position: relative;
         padding-bottom: 37px;
     }
+    /*.c_new_menu_line_item_right {
+        color: #569c1d;
+    }*/
 </style>
         <section class="content">
             <div class="content_helper">

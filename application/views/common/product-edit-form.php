@@ -4,7 +4,7 @@
             <div class="g_good_admin_info_modal_header"><span class="product_id_text"></span> - <span class="product_name_text"></span></div>
             <aside class="g_good_admin_info_modal_left fl_l">
                 <div class="g_good_admin_info_modal_photo">
-                    <img src="" alt="" class="product_image">
+                    <img src="" alt="" class="product_image" onError="this.src='/assets/img/nophoto.jpg'">
                 </div>
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Поставщик</span>
@@ -160,6 +160,23 @@
                     <span class="g_good_admin_info_modal_inpname">Ссылка на блог</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_blog">
                 </label>
+                <div class="clear"></div>
+                <label class="y8uh9ijopokimjun label_for_adminfchck">
+                    <input type="checkbox" class="product_eko adm_inf_chck" value="1"> К5
+                </label>
+                <label class="y8uh9ijopokimjun label_for_adminfchck">
+                    <input type="checkbox" class="product_farm adm_inf_chck" value="1"> С5
+                </label>
+                <label class="y8uh9ijopokimjun label_for_adminfchck">
+                    <input type="checkbox" class="product_diet adm_inf_chck" value="1"> Ф5
+                </label>
+                <label class="y8uh9ijopokimjun label_for_adminfchck">
+                    <input type="checkbox" class="product_recommend adm_inf_chck" value="1"> ОР5
+                </label>
+                <label class="y8uh9ijopokimjun label_for_adminfchck">
+                    <input type="checkbox" class="product_recommend adm_inf_chck" value="1"> Д5
+                </label>
+                <div class="clear"></div>
                 <label class="label_for_adminfchck">
                     <input type="checkbox" class="product_eko adm_inf_chck" value="1"> Эко
                 </label>
@@ -172,6 +189,40 @@
                 <label class="label_for_adminfchck">
                     <input type="checkbox" class="product_recommend adm_inf_chck" value="1"> Рек
                 </label>
+                <div class="clear"></div>
+                <label class="label_for_adminfchck">
+                    <input type="checkbox" class="product_eko adm_inf_chck" value="1"> Ко
+                </label>
+                <label class="label_for_adminfchck">
+                    <input type="checkbox" class="product_farm adm_inf_chck" value="1"> Ко <span class="alm_eq">≈</span>
+                </label>
+                <label class="label_for_adminfchck">
+                    <input type="checkbox" class="product_diet adm_inf_chck" value="1"> Блок
+                </label>
+                <label class="label_for_adminfchck">
+                    <input type="checkbox" class="product_recommend adm_inf_chck" value="1"> Блок <span class="alm_eq">≈</span>
+                </label>
+                <div class="clear"></div>
+                <label class="label_for_adminfchck">
+                    <input type="checkbox" class="product_eko adm_inf_chck" value="1"> Ме
+                </label>
+                <label class="label_for_adminfchck">
+                    <input type="checkbox" class="product_farm adm_inf_chck" value="1"> Ме <span class="alm_eq">≈</span>
+                </label>
+                <label class="label_for_adminfchck">
+                    <input type="checkbox" class="product_diet adm_inf_chck" value="1"> Ящик 
+                </label>
+                <label class="label_for_adminfchck">
+                    <input type="checkbox" class="product_recommend adm_inf_chck" value="1"> Ящик <span class="alm_eq">≈</span>
+                </label>
+                <div class="clear"></div>
+                <label class="label_for_adminfchck">
+                    <input type="checkbox" class="product_eko adm_inf_chck" value="1"> ПД
+                </label>
+                <label class="label_for_adminfchck">
+                    <input type="checkbox" class="product_farm adm_inf_chck" value="1"> Голов
+                </label>
+                <div class="clear"></div>
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Артикул или название поставщика</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_provider_articul">

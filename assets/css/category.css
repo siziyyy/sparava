@@ -19,9 +19,11 @@
     top: -5px;
 }
 .new_goods_separator_count {
-    font-size: 16px;
+       font-size: 16px;
     color: #45B3E4;
-    margin-left: 30px;
+    margin-left: 20px;
+    position: relative;
+    top: -2px;
 }
 .product_filter_link {
     color: #000;
@@ -637,7 +639,7 @@ a.g_good_name {
     cursor: pointer;
     text-decoration: underline;
     float: right;
-    margin: 25px 34px 0px 0;
+    margin: 23px 46px 0px 0;
     color: #666;
 }
 .g_good_admin_info_modal {
@@ -671,12 +673,14 @@ a.g_good_name {
 }
 .label_for_adminfchck {
     display: inline-block;
-    margin: 0 22px 10px 0px;
+        margin: 5px 0 10px 0px;
+    width: 24%;
+    font-size: 14px;
 }
 .adm_inf_chck {
     position: relative;
     top: 5px;
-    height: 20px;
+    height: 18px;
     display: inline-block;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -685,7 +689,7 @@ a.g_good_name {
     padding-left: 10px;
     width: 20px;
     background-color: #fff !important;
-    margin: 20px 0px 0 0;
+    margin: 0px 0px 0 0;
     text-align: left;
 }
 .content_helper_gds {
@@ -774,12 +778,27 @@ a.g_good_name {
     margin-top: 15px;
 }
 textarea.g_good_admin_info_modal_input {
-    height: 143px;
+    height: 75px;
     resize: none;
+}
+textarea.product_competitors {
+    height: 94px;
+}
+textarea.product_description {
+    height: 139px;
+}
+.y8uh9ijopokimjun {
+    color: #cf1d33 !important;
+    width: 17.7%;
+    font-size: 12px;
+        margin-top: 24px;
 }
 .g_good_admin_info_modal_input_short2 {
     width: 85px;
     margin-right: 21px;
+}
+.alm_eq {
+    color: #87B53D;
 }
 .nom2 {
     margin-right: 0;
