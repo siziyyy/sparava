@@ -8,7 +8,6 @@ function send_msg(msg) {
 }
 
 function listener(event) {
-	console.log(event);
 	if (event.origin != 'https://admin.aydaeda.ru') {
 		return;
 	}
@@ -1145,11 +1144,11 @@ $(document).ready(function() {
 
 			case 'favourite':
 				if($(this).parents('.g_good').length > 0) {
-					parent_class = '.g_good';
+					parent_object = $(this).parents('.g_good');
 				} else if($(this).parents('.single_good_page').length > 0) {
-					parent_class = '.single_good_page';
+					parent_object = $(this).parents('.single_good_page');
 				} else if($(this).parents('.good_modal').length > 0) {
-					parent_class = '.good_modal';
+					parent_object = $(this).parents('.good_modal');
 				}
 				
 				send_data = {

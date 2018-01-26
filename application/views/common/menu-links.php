@@ -87,9 +87,9 @@
 	 <a href="/country/4" class="c_new_index_menu_dropdown_link">Греция</a>
 	 <a href="/country/5" class="c_new_index_menu_dropdown_link">Буларусь</a>
 	 <a href="/country/6" class="c_new_index_menu_dropdown_link">Армения</a>
-	 <a href="/country/6" class="c_new_index_menu_dropdown_link">Азербайджан</a>
+	 <a href="/country/8" class="c_new_index_menu_dropdown_link">Азербайджан</a>
 	 <a href="/country/7" class="c_new_index_menu_dropdown_link">Узбекистан</a>
-	 <a href="/country/7" class="c_new_index_menu_dropdown_link">Молдова</a>
+	 <a href="/country/9" class="c_new_index_menu_dropdown_link">Молдова</a>
 	 <a href="/" class="c_new_index_menu_dropdown_link">полный список</a>
 	<div class="c_new_index_menu_dropdown_head c_new_index_menu_dropdown_head2">По назначение</div>
 	 <div class="c_new_index_menu_dropdown_footer">
