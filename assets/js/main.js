@@ -1115,6 +1115,15 @@ $(document).ready(function() {
 		obj = $(this);
 		
 		switch(type) {
+			case 'sort':
+
+				send_data = {
+					type : type,
+					sort_order : obj.attr('data-sort')
+				}
+				
+				break;
+
 			case 'feedback':
 
 				send_data = {

@@ -17,7 +17,12 @@ class Baselib {
 		$this->_ci->session->set_userdata('return_url',$_SERVER['REQUEST_URI']);
     }
 
-	public function set_sort_order($type = false) {
+	public function set_sort_order($type = false, $category_id = false, $clear_sort = false) {
+		if($type, $category_id) {
+			$sort_order = array(
+				$category_id => $type
+			);
+		}
 		$this->_ci->session->set_userdata('sort_order',$type);
 	}	
 	
