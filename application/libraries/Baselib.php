@@ -17,6 +17,20 @@ class Baselib {
 		$this->_ci->session->set_userdata('return_url',$_SERVER['REQUEST_URI']);
     }
 
+	public function set_sort_order($type = false) {
+		$this->_ci->session->set_userdata('sort_order',$type);
+	}	
+	
+	public function get_sort_order() {
+		$sort_order = $this->_ci->session->userdata('sort_order');
+		
+		if(is_null($sort_order)) {
+			$sort_order = false;
+		}
+		
+		return $sort_order;
+	}    
+
     public function is_category_exist($category) {
 		$query = $this->_ci->db->get_where("categories", array("title" => $category,"parent_id !=" => 0));
 		if ($query->num_rows() > 0) {
@@ -1597,6 +1611,8 @@ class Baselib {
 	}
 	
 	public function sort_products($type,$element_id,$products) {
+
+		$sort_order = $this->get_sort_order();
 		
 		if(!is_numeric($element_id) and $type == 'categories') {
 			$query = $this->_ci->db->get_where("categories", array("seo_url" => $element_id));
@@ -1630,10 +1646,20 @@ class Baselib {
 				$product = array_pop($products_sorted);
 				$products_sorted[$index] = $product;
 			}
+
+			//if($sort_order) {
+
+			$products_sorted = $this->sort_array($products_sorted,'diet');
+			//}
 			
 			return $products_sorted;
 		}
-		
+
+		//var_dump($products);
+		//if($sort_order) {
+		$products = $this->sort_array($products,'diet');
+		//}
+		//var_dump($products);die();
 		return $products;
 	}
 
@@ -1743,4 +1769,27 @@ class Baselib {
 		
 		return $count.' '.$word;
 	}
+
+	function sort_array($array,$field) {
+	    $rescan = false;
+	    do {
+	    	$prev_value = false;
+	    	foreach($array as $key => $value ) {
+	    		if($prev_value !== false) {
+		    		if($prev_value < $value[$field]) {
+		    			unset($array[$key]);
+		    			array_unshift($array, $value);		    			
+		    			$rescan = true;
+		    			break;
+		    		} else {
+		    			$rescan = false;
+		    		}
+	    		}
+
+	    		$prev_value = $value[$field];
+	    	}
+	    } while($rescan);
+
+	    return $array;
+	}	
 }
