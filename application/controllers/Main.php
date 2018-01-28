@@ -1025,6 +1025,12 @@ class Main extends CI_Controller {
 	
 	public function ajax_handler() {
 		switch ($this->input->post('type')) {
+			case 'sort':
+
+							
+
+				break;
+
 			case 'feedback':
 
 				$message = $this->input->post('feedback_type').'<br>'.$this->input->post('feedback_email').'<br>'.$this->input->post('feedback_comment');
