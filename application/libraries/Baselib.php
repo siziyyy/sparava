@@ -1619,7 +1619,7 @@ class Baselib {
 	
 	public function sort_products($type,$element_id,$products) {
 
-		$sort_order = $this->get_sort_order();
+		//$sort_order = $this->get_sort_order();
 		
 		if(!is_numeric($element_id) and $type == 'categories') {
 			$query = $this->_ci->db->get_where("categories", array("seo_url" => $element_id));
@@ -1656,7 +1656,7 @@ class Baselib {
 
 			//if($sort_order) {
 
-			$products_sorted = $this->sort_array($products_sorted,'diet');
+			//$products_sorted = $this->sort_array($products_sorted,'diet');
 			//}
 			
 			return $products_sorted;
@@ -1664,7 +1664,7 @@ class Baselib {
 
 		//var_dump($products);
 		//if($sort_order) {
-		$products = $this->sort_array($products,'diet');
+		//$products = $this->sort_array($products,'diet');
 		//}
 		//var_dump($products);die();
 		return $products;
