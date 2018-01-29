@@ -23,7 +23,7 @@ class Excellib extends PHPExcel {
 				$category_id = $ids;
 			}
 
-			$sql = 'SELECT p.*, c.bm FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND ptc.category_id = c.category_id AND ptc.category_id = ' . (int)$category_id . ' ORDER BY product_id ASC';
+			$sql = 'SELECT p.* FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND ptc.category_id = c.category_id AND ptc.category_id = ' . (int)$category_id . ' ORDER BY product_id ASC';
 					
 			$query = $this->_ci->db->query($sql);			
 
