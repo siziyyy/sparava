@@ -18,6 +18,8 @@ class Baselib {
     }
 
 	public function set_sort_order($type = false, $category_id = false, $clear_sort = false) {
+		$types = array();
+
 		if($type, $category_id) {
 			$sort_order = array(
 				$category_id => $type
