@@ -1322,6 +1322,7 @@ class Main extends CI_Controller {
 								$products_in_page = $this->baselib->filter_products_for_providers_full($products,$filters,$page);
 								
 								break;
+								
 							case 'farm':
 
 								$filters = array(
@@ -1332,6 +1333,7 @@ class Main extends CI_Controller {
 								$products = $this->baselib->sort_products('category','farm',$products);
 								$products_in_page = $this->baselib->filter_products_for_providers_full($products,$filters,$page);
 								break;
+
 							case 'diet':
 
 								$filters = array(
@@ -1341,7 +1343,8 @@ class Main extends CI_Controller {
 								$products = $this->baselib->get_products_with_categories(false,'diet');
 								$products = $this->baselib->sort_products('category','diet',$products);
 								$products_in_page = $this->baselib->filter_products_for_providers_full($products,$filters,$page);
-								break;								
+								break;
+
 							default:
 
 								$filters = array(
@@ -1355,6 +1358,7 @@ class Main extends CI_Controller {
 
 								$products = $this->baselib->get_category_products($this->input->post('category_id'));
 								$products = $this->baselib->sort_products('category',$this->input->post('category_id'),$products);
+								$products = $this->baselib->filter_products_by_sort($products,$this->input->post('category_id'));
 								$products_in_page = $this->baselib->filter_products($products,$filters,$this->input->post('page'));
 								break;
 						}
