@@ -76,8 +76,8 @@
 		                </div>
 	                <?php } ?>
 	            <?php } else { ?>
-	            	<div class="new_cool_line_of_filters_aaarrrghh">
-	            		<div class="new_cool_line_of_filters_aaarrrghh_item new_cool_line_of_filters_aaarrrghh_item_current new_cool_line_of_filters_aaarrrghh_item_first">все</div>
+	            	<div class="new_cool_line_of_filters_aaarrrghh" data-category="<?php echo $category ?>">
+	            		<div class="new_cool_line_of_filters_aaarrrghh_item new_cool_line_of_filters_aaarrrghh_item_current new_cool_line_of_filters_aaarrrghh_item_first send" data-type="sort" data-sort="clear">все</div>
 	            		<div class="new_cool_line_of_filters_aaarrrghh_separator"></div>
 	            		<div class="new_cool_line_of_filters_aaarrrghh_item">на развес</div>
 	            		<div class="new_cool_line_of_filters_aaarrrghh_item">упаковка</div>
@@ -87,10 +87,6 @@
 	            		<div class="new_cool_line_of_filters_aaarrrghh_item send" data-type="sort" data-sort="eko">эко / органик</div>
 	            		<div class="new_cool_line_of_filters_aaarrrghh_item send" data-type="sort" data-sort="diet">диетическое</div>
 	            		<div class="new_cool_line_of_filters_aaarrrghh_item send" data-type="sort" data-sort="recommend">особо рекомендуем</div>
-	            		<div class="uibwfbuifabui_green new_cool_line_of_filters_aaarrrghh_item new_cool_line_of_filters_aaarrrghh_item_current">фермерское</div>
-	            		<div class="uibwfbuifabui_green new_cool_line_of_filters_aaarrrghh_item">эко / органик</div>
-	            		<div class="uibwfbuifabui_green new_cool_line_of_filters_aaarrrghh_item">диетическое</div>
-	            		<div class="uibwfbuifabui_green new_cool_line_of_filters_aaarrrghh_item">особо рекомендуем</div>
 	            		<div class="new_cool_line_of_filters_aaarrrghh_separator"></div>
 	            		<div class="new_cool_line_of_filters_aaarrrghh_item new_cool_line_of_filters_aaarrrghh_item_link">
 		            		сохранить
