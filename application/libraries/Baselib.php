@@ -16,7 +16,7 @@ class Baselib {
 
 		$this->_ci->session->set_userdata('return_url',$_SERVER['REQUEST_URI']);
     }
-
+/*
 	public function set_sort_order($type = false, $category_id = false, $clear_sort = false) {
 		$types = array();
 
@@ -37,7 +37,7 @@ class Baselib {
 		
 		return $sort_order;
 	}    
-
+*/
     public function is_category_exist($category) {
 		$query = $this->_ci->db->get_where("categories", array("title" => $category,"parent_id !=" => 0));
 		if ($query->num_rows() > 0) {
