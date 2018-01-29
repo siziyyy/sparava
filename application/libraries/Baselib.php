@@ -16,28 +16,46 @@ class Baselib {
 
 		$this->_ci->session->set_userdata('return_url',$_SERVER['REQUEST_URI']);
     }
-/*
-	public function set_sort_order($type = false, $category_id = false, $clear_sort = false) {
-		$types = array();
 
-		if($type, $category_id) {
-			$sort_order = array(
-				$category_id => $type
-			);
+	public function set_sort_order($type = false, $category = false, $clear_sort = false) {
+		if($clear_sort) {
+			$sort_order = array();
+			$this->_ci->session->set_userdata('sort_order', $sort_order);
+
+			return true;
 		}
-		$this->_ci->session->set_userdata('sort_order',$type);
+
+		if(!in_array($type,array('clear','eko','diet','recommend','farm'))) {
+			return false;
+		}
+
+		$sort_order = $this->get_sort_order();
+
+		if($type and $category) {
+			$category_id = $this->get_category_id($category);
+
+			if(isset($sort_order[$category_id])) {
+				$sort_order[$category_id][] = $type;
+				$sort_order[$category_id] = array_unique($sort_order[$category_id]);
+			} else {
+				$sort_order = array();
+				$sort_order[$category_id][] = $type;
+			}
+		}
+
+		$this->_ci->session->set_userdata('sort_order', $sort_order);
 	}	
-	
+
 	public function get_sort_order() {
 		$sort_order = $this->_ci->session->userdata('sort_order');
 		
 		if(is_null($sort_order)) {
-			$sort_order = false;
+			$sort_order = array();
 		}
 		
 		return $sort_order;
 	}    
-*/
+
     public function is_category_exist($category) {
 		$query = $this->_ci->db->get_where("categories", array("title" => $category,"parent_id !=" => 0));
 		if ($query->num_rows() > 0) {
@@ -426,11 +444,8 @@ class Baselib {
 		
 		return $this->handle_special_price($products);
 	}
-	
-	public function get_category_products($category) {
-		
-		$products = array();
-		
+
+	private function get_category_id($category) {
 		if(!is_numeric($category)) {
 			$c_query = $this->_ci->db->get_where("categories", array("seo_url" => $category,"status" => 1));
 			if ($c_query->num_rows() > 0) {
@@ -441,6 +456,15 @@ class Baselib {
 		} else {
 			$category_id = $category;
 		}
+
+		return $category_id;
+	}
+	
+	public function get_category_products($category) {
+		
+		$products = array();
+		
+		$category_id = $this->get_category_id($category);
 		
 		$sql = 'SELECT p.*, c.bm FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND p.status = 1 AND ptc.category_id = c.category_id AND ptc.category_id = ' . (int)$category_id . ' ORDER BY product_id ASC';
 				
@@ -1617,10 +1641,7 @@ class Baselib {
 		return $totals;
 	}
 	
-	public function sort_products($type,$element_id,$products) {
-
-		//$sort_order = $this->get_sort_order();
-		
+	public function sort_products($type,$element_id,$products) {		
 		if(!is_numeric($element_id) and $type == 'categories') {
 			$query = $this->_ci->db->get_where("categories", array("seo_url" => $element_id));
 			if ($query->num_rows() > 0) {
@@ -1653,20 +1674,10 @@ class Baselib {
 				$product = array_pop($products_sorted);
 				$products_sorted[$index] = $product;
 			}
-
-			//if($sort_order) {
-
-			//$products_sorted = $this->sort_array($products_sorted,'diet');
-			//}
-			
+						
 			return $products_sorted;
 		}
-
-		//var_dump($products);
-		//if($sort_order) {
-		//$products = $this->sort_array($products,'diet');
-		//}
-		//var_dump($products);die();
+		
 		return $products;
 	}
 
@@ -1776,7 +1787,7 @@ class Baselib {
 		
 		return $count.' '.$word;
 	}
-
+/*
 	function sort_array($array,$field) {
 	    $rescan = false;
 	    do {
@@ -1798,5 +1809,33 @@ class Baselib {
 	    } while($rescan);
 
 	    return $array;
-	}	
+	}
+*/
+
+	function filter_products_by_sort($products,$category) {
+		$sort_order = $this->get_sort_order();
+		$category_id = $this->get_category_id($category);
+
+		if(count($sort_order)) {
+			if(isset($sort_order[$category_id])) {
+				foreach($products as $id => $product) {
+					$drop_product = true;
+
+					foreach($sort_order[$category_id] as $type) {
+						if($product[$type]) {
+							$drop_product = false;
+						}
+					}
+
+					if($drop_product) {
+						unset($products[$id]);
+					}					
+				}
+			} else {
+				$this->set_sort_order(0, 0, true);
+			}
+		}
+
+	    return $products;
+	}
 }

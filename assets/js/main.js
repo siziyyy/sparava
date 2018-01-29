@@ -1119,7 +1119,8 @@ $(document).ready(function() {
 
 				send_data = {
 					type : type,
-					sort_order : obj.attr('data-sort')
+					sort : obj.attr('data-sort'),
+					category : $(this).parents('.new_cool_line_of_filters_aaarrrghh').attr('data-category')
 				}
 				
 				break;
@@ -1365,6 +1366,8 @@ $(document).ready(function() {
 				if(json) {
 					if(json['success']) {
 						if(send_data.type == 'check_login') {
+							location.reload();
+						} else if(send_data.type == 'sort') {
 							location.reload();
 						} else if(type == 'register3') {
 							$('.new_auth').hide();

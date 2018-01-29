@@ -582,6 +582,7 @@ class Main extends CI_Controller {
 			
 			$products = $this->baselib->get_category_products($category);
 			$products = $this->baselib->sort_products('category',$category,$products);
+			$products = $this->baselib->filter_products_by_sort($products,$category);
 			
 			$data['menu']['menu_childs'] = $menu_childs;
 			$data['menu']['attributes'] = $this->baselib->handle_attributes($products);
@@ -1027,7 +1028,18 @@ class Main extends CI_Controller {
 		switch ($this->input->post('type')) {
 			case 'sort':
 
-							
+				$data = array(
+					'category' => $this->input->post('category'),
+					'sort' => $this->input->post('sort')
+				);
+
+				if($data['sort'] == 'clear') {
+					$this->baselib->set_sort_order(0, 0, 1);
+				} else {
+					$this->baselib->set_sort_order($data['sort'], $data['category']);
+				}
+
+				$json['success'] = 'success';
 
 				break;
 
