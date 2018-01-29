@@ -897,8 +897,13 @@ class Baselib {
 			$product_id = explode('-',$element_id)[1];
 			$product = $this->get_product_by_id($product_id);
 
-			$products[$product['product_id']] = $product;
-			$products[$product['product_id']]['quantity_in_cart'] = $element['quantity'];
+			if($product) {
+				$products[$product['product_id']] = $product;
+				$products[$product['product_id']]['quantity_in_cart'] = $element['quantity'];
+			} else {
+				unset($cart[$element_id]);
+				$this->_ci->session->set_userdata('cart',$cart);
+			}
 		}
 		
 		return $products;
