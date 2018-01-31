@@ -597,7 +597,7 @@ class Main extends CI_Controller {
 			$data['menu']['menu_childs'] = $menu_childs;
 			$data['menu']['attributes'] = $this->baselib->handle_attributes($products);
 			$data['menu']['filters'] = $filters;
-			
+
 			$products_in_page = $this->baselib->filter_products($products,$filters,$page);
 
 			$empty_products = count($products_in_page['products'])%5; 
