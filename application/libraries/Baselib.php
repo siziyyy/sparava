@@ -17,7 +17,7 @@ class Baselib {
 
 		$this->_ci->session->set_userdata('return_url',$_SERVER['REQUEST_URI']);
 
-		$_related_products = $this->get_related_products_ids(false,15);
+		$this->_related_products = $this->get_related_products_ids(false,15);
     }
 
 	public function set_sort_order($type = false, $category = false, $clear_sort = false) {
