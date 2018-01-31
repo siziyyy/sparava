@@ -162,19 +162,26 @@
                 </label>
                 <div class="clear"></div>
                 <label class="y8uh9ijopokimjun label_for_adminfchck">
-                    <input type="checkbox" class="product_eko adm_inf_chck" value="1"> К5
+                    <input type="checkbox" class="product_eko adm_inf_chck" value="1"> Кат
                 </label>
                 <label class="y8uh9ijopokimjun label_for_adminfchck">
-                    <input type="checkbox" class="product_farm adm_inf_chck" value="1"> С5
+                    <input type="checkbox" class="product_farm adm_inf_chck" value="1"> Стр
                 </label>
                 <label class="y8uh9ijopokimjun label_for_adminfchck">
-                    <input type="checkbox" class="product_diet adm_inf_chck" value="1"> Ф5
+                    <input type="checkbox" class="product_diet adm_inf_chck" value="1"> Ферм
                 </label>
                 <label class="y8uh9ijopokimjun label_for_adminfchck">
-                    <input type="checkbox" class="product_recommend adm_inf_chck" value="1"> ОР5
+                    <input type="checkbox" class="product_recommend adm_inf_chck" value="1"> Био
+                </label>
+                <div class="clear"></div>
+                <label class="y8uh9ijopokimjun label_for_adminfchck">
+                    <input type="checkbox" class="product_eko adm_inf_chck" value="1"> Дет
                 </label>
                 <label class="y8uh9ijopokimjun label_for_adminfchck">
-                    <input type="checkbox" class="product_recommend adm_inf_chck" value="1"> Д5
+                    <input type="checkbox" class="product_farm adm_inf_chck" value="1"> Диет
+                </label>
+                <label class="y8uh9ijopokimjun label_for_adminfchck">
+                    <input type="checkbox" class="product_diet adm_inf_chck" value="1"> Реко
                 </label>
                 <div class="clear"></div>
                 <label class="label_for_adminfchck">
@@ -191,36 +198,14 @@
                 </label>
                 <div class="clear"></div>
                 <label class="label_for_adminfchck">
-                    <input type="checkbox" class="product_eko adm_inf_chck" value="1"> Ко
-                </label>
-                <label class="label_for_adminfchck">
-                    <input type="checkbox" class="product_farm adm_inf_chck" value="1"> Ко <span class="alm_eq">≈</span>
-                </label>
-                <label class="label_for_adminfchck">
-                    <input type="checkbox" class="product_diet adm_inf_chck" value="1"> Блок
-                </label>
-                <label class="label_for_adminfchck">
-                    <input type="checkbox" class="product_recommend adm_inf_chck" value="1"> Блок <span class="alm_eq">≈</span>
+                    <input type="checkbox" class="product_eko adm_inf_chck" value="1"> Дет
                 </label>
                 <div class="clear"></div>
-                <label class="label_for_adminfchck">
-                    <input type="checkbox" class="product_eko adm_inf_chck" value="1"> Ме
+                <label class="label_for_adminfchck rtfyguhijokjuhygtfr">
+                    <input type="checkbox" class="product_eko adm_inf_chck" value="1"> Большая упак.
                 </label>
-                <label class="label_for_adminfchck">
-                    <input type="checkbox" class="product_farm adm_inf_chck" value="1"> Ме <span class="alm_eq">≈</span>
-                </label>
-                <label class="label_for_adminfchck">
-                    <input type="checkbox" class="product_diet adm_inf_chck" value="1"> Ящик 
-                </label>
-                <label class="label_for_adminfchck">
-                    <input type="checkbox" class="product_recommend adm_inf_chck" value="1"> Ящик <span class="alm_eq">≈</span>
-                </label>
-                <div class="clear"></div>
-                <label class="label_for_adminfchck">
-                    <input type="checkbox" class="product_eko adm_inf_chck" value="1"> ПД
-                </label>
-                <label class="label_for_adminfchck">
-                    <input type="checkbox" class="product_farm adm_inf_chck" value="1"> Голов
+                <label class="label_for_adminfchck rtfyguhijokjuhygtfr">
+                    <input type="checkbox" class="product_farm adm_inf_chck" value="1"> Большая упак. <span class="alm_eq">≈</span>
                 </label>
                 <div class="clear"></div>
                 <label>
