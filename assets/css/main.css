@@ -1449,7 +1449,8 @@ header .content_helper {
     color: #000 !important;
 }
 .new_cool_line_of_filters_aaarrrghh_item_current {
-    color: #fe4517 !important;
+    /*color: #808080 !important;*/
+    color: #999 !important;
 }
 /* menu */
 .c_menu {
@@ -1580,7 +1581,7 @@ header .content_helper {
 }
 .new_cool_line_of_filters_aaarrrghh_item_link {
     margin-right: 0;
-    color: #fe4517;
+    color: #569C1D;
     position: relative;
     height: 45px;
 }

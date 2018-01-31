@@ -289,7 +289,6 @@ body,html,textarea{font-family:Calibri}
                     <a class="h_link show_new_inform_menu">вся информация</a>
                     <?php if($this->baselib->is_logged()) { ?>
                         <a href="/orders" class="new_h_link new_h_link_fst h_link">мои заказы</a>
-                        <a href="/logout" class="new_h_link h_link">выйти</a>
                     <?php } else { ?>
                     <div class="morder_pack">
                         <a class="new_h_link new_h_link_fst h_link morder">мои заказы</a>
@@ -301,6 +300,9 @@ body,html,textarea{font-family:Calibri}
                     </div>
                     <? } ?>
                     <a href="/favourites" class="new_h_link h_link">избранное</a>
+                    <?php if($this->baselib->is_logged()) { ?>
+                        <a href="/logout" class="new_h_link h_link">выйти</a>
+                    <?php } ?>
 					<?php if(!$this->baselib->is_logged()) { ?>
                         <!-- <div class="h_login fl_r">-->
 						<div class="h_login">

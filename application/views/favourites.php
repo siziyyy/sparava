@@ -1,4 +1,9 @@
 <?php $this->load->view('common/header',$header);?>
+<style>  
+    .c_new_menu_line_item_right {
+        color: #569c1d;
+    }
+</style>
         <section class="content">
             <div class="category_bg_helper category_bg_helper_country">
                 <div class="content_helper">
