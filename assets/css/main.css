@@ -2474,6 +2474,9 @@ footer {
     position: relative;
     top: 7px;
 }
+.aside_mobile_menu_new_content_second_block {
+    display: none;
+}
 /*.showed_new_inform_menu {
     font-family:Calibri Bold;
 }*/
