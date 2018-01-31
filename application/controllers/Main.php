@@ -9,6 +9,7 @@ class Main extends CI_Controller {
 				'cart' => $this->get_cart_info_for_header()
 			),
 			'menu' => $this->baselib->get_categories(false,true),
+			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
@@ -43,6 +44,7 @@ class Main extends CI_Controller {
 			'blogs' => $blogs['blogs'],
 			'counter' => $blogs['counter'],
 			'months' => $months,
+			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
@@ -81,6 +83,7 @@ class Main extends CI_Controller {
 			'blogs' => $blogs['blogs'],
 			'counter' => $blogs['counter'],
 			'months' => $months,
+			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
@@ -117,9 +120,7 @@ class Main extends CI_Controller {
 			'agreement',
 			'contacts',
 			'return'
-		);
-
-		$related_products = $this->baselib->get_related_products_ids(false,15);		
+		);	
 	
 		$data = array(
 			'header' => array(
@@ -127,7 +128,7 @@ class Main extends CI_Controller {
 			),
 			'first_block' => $page,
 			'blocks' => $blocks,
-			'related_products' => $this->baselib->get_products_by_ids($related_products),
+			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
@@ -176,6 +177,7 @@ class Main extends CI_Controller {
 			'product' => $product,
 			'products' => $products_to_show,
 			'is_search' => true,
+			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
 			'articul' => $this->input->post('articul')
 		);
 		
@@ -198,6 +200,7 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
+			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
 			'menu' => $this->baselib->get_categories()
 		);
 		
@@ -269,6 +272,7 @@ class Main extends CI_Controller {
 			'country_id' => $country_id,
 			'country' => $country,
 			'categories' => $products_in_page['categories_for_country'],
+			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			),
@@ -327,6 +331,7 @@ class Main extends CI_Controller {
 			'current_page' => $page,
 			'pages_count' => $products_in_page['pages_count'],
 			'providers' => $products_in_page['providers_for_provider'],
+			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			),
@@ -390,6 +395,7 @@ class Main extends CI_Controller {
 			'current_page' => $page,
 			'pages_count' => $products_in_page['pages_count'],
 			'attributes' => $this->baselib->handle_brands_attributes($products),
+			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			),
@@ -409,6 +415,7 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
+			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
@@ -459,6 +466,7 @@ class Main extends CI_Controller {
 			'menu' => array(
 				'filters' => $filters
 			),
+			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
@@ -532,6 +540,7 @@ class Main extends CI_Controller {
 				),
 				'menu' => $menu,
 				'category' => $category,
+				'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
 				'footer' => array(
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
 				),
@@ -574,6 +583,7 @@ class Main extends CI_Controller {
 				),
 				'menu' => $menu,
 				'category' => $category,
+				'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
 				'footer' => array(
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
 				),
@@ -626,6 +636,7 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
+			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
@@ -667,6 +678,7 @@ class Main extends CI_Controller {
 			),
 			'menu' => $this->baselib->get_categories(false,true),
 			'category' => $this->baselib->get_categories(false,true),
+			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array()
 		);
 		
@@ -691,6 +703,7 @@ class Main extends CI_Controller {
 					'fb_share' => $this->baselib->craete_fb_share('/product/'.$product['product_id'],$product['title'],$product['description'],$product['image'])
 				),
 				'menu' => $this->baselib->get_categories(false,true),
+				'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
 				'footer' => array(
 					'videos' => $product['youtube']
 				),
@@ -721,6 +734,7 @@ class Main extends CI_Controller {
 				'cart' => $this->get_cart_info_for_header()
 			),
 			'category' => 'eko',
+			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
@@ -765,6 +779,7 @@ class Main extends CI_Controller {
 				'cart' => $this->get_cart_info_for_header()
 			),
 			'category' => 'farm',
+			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
@@ -809,6 +824,7 @@ class Main extends CI_Controller {
 				'cart' => $this->get_cart_info_for_header()
 			),
 			'category' => 'diet',
+			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)

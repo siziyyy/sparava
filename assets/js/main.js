@@ -186,11 +186,15 @@ $(document).ready(function() {
 		$('.share_it_faster_closer').toggle();
 	});
 	/********************************************/
-	$('.aside_mobile_menu_new_content_first_link').click(function() {
-		$('.aside_mobile_menu_inner').toggle();
+	$('.mobinfo').click(function() {
+		$('.aside_mobile_menu_inner').show();
+		target = $(this).attr('data-target');
+
+		$('#'+target).show();
 	});
 	$('.aside_mobile_menu_back_inner').click(function() {
-		$('.aside_mobile_menu_inner').toggle();
+		$('.aside_mobile_menu_inner').hide();
+		$('.aside_mobile_menu_new_content_second_block').hide();
 	});
 	/********************************************/
 	$('.show_new_inform_menu').click(function() {
