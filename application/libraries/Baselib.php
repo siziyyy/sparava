@@ -1673,14 +1673,14 @@ class Baselib {
 					$deleted_products[$index] = $product_id;
 				}
 			}
+
+			foreach ($deleted_products as $index => $product_id) {
+				$product = array_pop($products);
+				$products_sorted[$index] = $product;
+			}
 			
 			foreach($products as $product) {
 				$products_sorted[] = $product;
-			}
-
-			foreach ($deleted_products as $index => $product_id) {
-				$product = array_pop($products_sorted);
-				$products_sorted[$index] = $product;
 			}
 						
 			return $products_sorted;
