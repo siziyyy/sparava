@@ -28,7 +28,7 @@ class Baselib {
 			return true;
 		}
 
-		if(!in_array($type,array('clear','eko','diet','recommend','farm'))) {
+		if(!in_array($type,array('razves','pack','bbox','clear','eko','diet','recommend','farm'))) {
 			return false;
 		}
 
@@ -38,11 +38,18 @@ class Baselib {
 			$category_id = $this->get_category_id($category);
 
 			if(isset($sort_order[$category_id])) {
-				$sort_order[$category_id][] = $type;
-				$sort_order[$category_id] = array_unique($sort_order[$category_id]);
+				if(isset($sort_order[$category_id][$type])) {
+					unset($sort_order[$category_id][$type]);
+
+					if(empty($sort_order[$category_id])) {
+						unset($sort_order[$category_id]);
+					}
+				} else {
+					$sort_order[$category_id][$type] = $type;
+				}
 			} else {
 				$sort_order = array();
-				$sort_order[$category_id][] = $type;
+				$sort_order[$category_id][$type] = $type;
 			}
 		}
 
@@ -1832,7 +1839,19 @@ class Baselib {
 					$drop_product = true;
 
 					foreach($sort_order[$category_id] as $type) {
-						if($product[$type]) {
+						if($type == 'razves') {
+							if(is_null($product['weight'])) {
+								$drop_product = false;
+							}
+						} elseif($type == 'pack') {
+							if(!is_null($product['weight'])) {
+								$drop_product = false;
+							}
+						} elseif($type == 'bbox') {
+							if($product['bbox'] or $product['bbox_n']) {
+								$drop_product = false;
+							}
+						} elseif($product[$type]) {
 							$drop_product = false;
 						}
 					}
