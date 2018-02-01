@@ -602,6 +602,8 @@ class Baselib {
 			$sql .= ' AND p.eko = 1';
 		} elseif($type == 'diet') {
 			$sql .= ' AND p.diet = 1';
+		} elseif($type == 'child') {
+			$sql .= ' AND p.child = 1';
 		}
 		
 		$query = $this->_ci->db->query($sql);
