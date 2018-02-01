@@ -575,7 +575,9 @@ class Main extends CI_Controller {
 						}
 					}
 				}
-			}		
+			}
+
+			$sort_order = $this->baselib->get_sort_order();
 			
 			$data = array(
 				'header' => array(
@@ -587,6 +589,7 @@ class Main extends CI_Controller {
 				'footer' => array(
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
 				),
+				'sort_order' => (isset($sort_order[$category]) ? $sort_order[$category] : false),
 				'is_parent_category' => false
 			);
 			
