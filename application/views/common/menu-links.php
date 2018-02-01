@@ -99,7 +99,7 @@
 		<a href="/diet" class="c_new_index_menu_dropdown_link">Диетические</a>
 		 <a href="/farm" class="c_new_index_menu_dropdown_link">Фермерские</a>
 		 <a href="/eko" class="c_new_index_menu_dropdown_link">Эко и органик</a>
-		 <a href="/eko" class="c_new_index_menu_dropdown_link">Для детей</a>
+		 <a href="/child" class="c_new_index_menu_dropdown_link">Для детей</a>
 	 </div>
 </div>
 <div class="clear"></div>

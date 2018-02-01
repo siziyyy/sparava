@@ -717,6 +717,50 @@ class Main extends CI_Controller {
 		}
 	}		
 
+	public function child() {
+		
+		$filters = array(
+			'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
+		);
+		
+		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
+		
+		$products = $this->baselib->get_products_with_categories(false,'child');
+		$products = $this->baselib->sort_products('category','child',$products);
+		
+		$data = array(
+			'header' => array(
+				'cart' => $this->get_cart_info_for_header()
+			),
+			'category' => 'child',
+			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
+			'footer' => array(
+				'account_confirm' => $this->baselib->get_account_data_for_confirm()
+			)
+		);
+		
+		$data['filters'] = $filters;
+
+		$products_in_page = $this->baselib->filter_products_for_providers_full($products,$filters,$page);
+
+		$empty_products = count($products_in_page['products'])%5; 
+					
+		if($empty_products > 0) {
+			$empty_products = 5-$empty_products;
+		}
+		
+		$data['products'] = $products_in_page['products'];
+		$data['pages_count'] = $products_in_page['pages_count'];
+		$data['filters_used'] = $products_in_page['filters_used'];
+		$data['filters_text'] = $products_in_page['filters_text'];
+		$data['categories_for_provider'] = $products_in_page['categories_for_provider'];
+		$data['current_page'] = $page;
+		$data['products_count'] = $products_in_page['products_count'];
+		$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);
+		$data['empty_products'] = $empty_products;
+		
+		$this->load->view('category_alt', $data);
+	}
 	
 	public function eko() {
 		
@@ -1360,6 +1404,17 @@ class Main extends CI_Controller {
 								$products = $this->baselib->sort_products('category','diet',$products);
 								$products_in_page = $this->baselib->filter_products_for_providers_full($products,$filters,$page);
 								break;
+
+							case 'child':
+
+								$filters = array(
+									'category' => (isset($filters_post->category) ? $filters_post->category : 0)
+								);
+
+								$products = $this->baselib->get_products_with_categories(false,'child');
+								$products = $this->baselib->sort_products('category','child',$products);
+								$products_in_page = $this->baselib->filter_products_for_providers_full($products,$filters,$page);
+								break;								
 
 							default:
 

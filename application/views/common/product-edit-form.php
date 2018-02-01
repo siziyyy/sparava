@@ -162,26 +162,26 @@
                 </label>
                 <div class="clear"></div>
                 <label class="y8uh9ijopokimjun label_for_adminfchck">
-                    <input type="checkbox" class="product_eko adm_inf_chck" value="1"> Кат
+                    <input type="checkbox" class="product_top_category adm_inf_chck" value="1"> Кат
                 </label>
                 <label class="y8uh9ijopokimjun label_for_adminfchck">
-                    <input type="checkbox" class="product_farm adm_inf_chck" value="1"> Стр
+                    <input type="checkbox" class="product_top_country adm_inf_chck" value="1"> Стр
                 </label>
                 <label class="y8uh9ijopokimjun label_for_adminfchck">
-                    <input type="checkbox" class="product_diet adm_inf_chck" value="1"> Ферм
+                    <input type="checkbox" class="product_top_farm adm_inf_chck" value="1"> Ферм
                 </label>
                 <label class="y8uh9ijopokimjun label_for_adminfchck">
-                    <input type="checkbox" class="product_recommend adm_inf_chck" value="1"> Био
+                    <input type="checkbox" class="product_top_eko adm_inf_chck" value="1"> Био
                 </label>
                 <div class="clear"></div>
                 <label class="y8uh9ijopokimjun label_for_adminfchck">
-                    <input type="checkbox" class="product_eko adm_inf_chck" value="1"> Дет
+                    <input type="checkbox" class="product_top_child adm_inf_chck" value="1"> Дет
                 </label>
                 <label class="y8uh9ijopokimjun label_for_adminfchck">
-                    <input type="checkbox" class="product_farm adm_inf_chck" value="1"> Диет
+                    <input type="checkbox" class="product_top_diet adm_inf_chck" value="1"> Диет
                 </label>
                 <label class="y8uh9ijopokimjun label_for_adminfchck">
-                    <input type="checkbox" class="product_diet adm_inf_chck" value="1"> Реко
+                    <input type="checkbox" class="product_top_recommend adm_inf_chck" value="1"> Реко
                 </label>
                 <div class="clear"></div>
                 <label class="label_for_adminfchck">
@@ -198,14 +198,14 @@
                 </label>
                 <div class="clear"></div>
                 <label class="label_for_adminfchck">
-                    <input type="checkbox" class="product_eko adm_inf_chck" value="1"> Дет
+                    <input type="checkbox" class="product_child adm_inf_chck" value="1"> Дет
                 </label>
                 <div class="clear"></div>
                 <label class="label_for_adminfchck rtfyguhijokjuhygtfr">
-                    <input type="checkbox" class="product_eko adm_inf_chck" value="1"> Большая упак.
+                    <input type="checkbox" class="product_bbox adm_inf_chck" value="1"> Большая упак.
                 </label>
                 <label class="label_for_adminfchck rtfyguhijokjuhygtfr">
-                    <input type="checkbox" class="product_farm adm_inf_chck" value="1"> Большая упак. <span class="alm_eq">≈</span>
+                    <input type="checkbox" class="product_bbox_n adm_inf_chck" value="1"> Большая упак. <span class="alm_eq">≈</span>
                 </label>
                 <div class="clear"></div>
                 <label>

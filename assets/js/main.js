@@ -84,6 +84,56 @@ function listener(event) {
 		if(product.recommend > 0) {
 			$('#product_form .product_recommend').prop('checked', true);
 		}
+
+		$('#product_form .product_child').prop('checked', false);
+		if(product.child > 0) {
+			$('#product_form .product_child').prop('checked', true);
+		}
+
+		$('#product_form .product_top_category').prop('checked', false);
+		if(product.top_category > 0) {
+			$('#product_form .product_top_category').prop('checked', true);
+		}
+
+		$('#product_form .product_top_country').prop('checked', false);
+		if(product.top_country > 0) {
+			$('#product_form .product_top_country').prop('checked', true);
+		}
+
+		$('#product_form .product_top_farm').prop('checked', false);
+		if(product.top_farm > 0) {
+			$('#product_form .product_top_farm').prop('checked', true);
+		}
+
+		$('#product_form .product_top_eko').prop('checked', false);
+		if(product.top_eko > 0) {
+			$('#product_form .product_top_eko').prop('checked', true);
+		}
+
+		$('#product_form .product_top_child').prop('checked', false);
+		if(product.top_child > 0) {
+			$('#product_form .product_top_child').prop('checked', true);
+		}
+
+		$('#product_form .product_top_diet').prop('checked', false);
+		if(product.top_diet > 0) {
+			$('#product_form .product_top_diet').prop('checked', true);
+		}
+
+		$('#product_form .product_top_recommend').prop('checked', false);
+		if(product.top_recommend > 0) {
+			$('#product_form .product_top_recommend').prop('checked', true);
+		}
+
+		$('#product_form .product_bbox').prop('checked', false);
+		if(product.bbox > 0) {
+			$('#product_form .product_bbox').prop('checked', true);
+		}
+
+		$('#product_form .product_bbox_n').prop('checked', false);
+		if(product.bbox_n > 0) {
+			$('#product_form .product_bbox_n').prop('checked', true);
+		}
 		
 		calculate_price();
 		
@@ -539,26 +589,89 @@ $(document).ready(function() {
 		if(wrong_category) {
 			return;
 		}
-		
-		eko = 0;
-		farm = 0;
-		diet = 0;
-		recommend = 0;
-		
+
 		if($('#product_form .product_eko').is(':checked')) {
 			eko = 1;
+		} else {
+			eko = 0;
 		}
 		
 		if($('#product_form .product_farm').is(':checked')) {
 			farm = 1;
+		} else {
+			farm = 0;
 		}
 		
 		if($('#product_form .product_diet').is(':checked')) {
 			diet = 1;
+		} else {
+			diet = 0;
+		}
+
+		if($('#product_form .product_child').is(':checked')) {
+			child = 1;
+		} else {
+			child = 0;
 		}
 
 		if($('#product_form .product_recommend').is(':checked')) {
 			recommend = 1;
+		} else {
+			recommend = 0;
+		}
+
+		if($('#product_form .product_top_category').is(':checked')) {
+			top_category = 1;
+		} else {
+			top_category = 0;
+		}
+
+		if($('#product_form .product_top_country').is(':checked')) {
+			top_country = 1;
+		} else {
+			top_country = 0;
+		}
+
+		if($('#product_form .product_top_farm').is(':checked')) {
+			top_farm = 1;
+		} else {
+			top_farm = 0;
+		}
+
+		if($('#product_form .product_top_eko').is(':checked')) {
+			top_eko = 1;
+		} else {
+			top_eko = 0;
+		}
+
+		if($('#product_form .product_top_child').is(':checked')) {
+			top_child = 1;
+		} else {
+			top_child = 0;
+		}
+
+		if($('#product_form .product_top_diet').is(':checked')) {
+			top_diet = 1;
+		} else {
+			top_diet = 0;
+		}
+
+		if($('#product_form .product_top_recommend').is(':checked')) {
+			top_recommend = 1;
+		} else {
+			top_recommend = 0;
+		}
+
+		if($('#product_form .product_bbox').is(':checked')) {
+			bbox = 1;
+		} else {
+			bbox = 0;
+		}
+
+		if($('#product_form .product_bbox_n').is(':checked')) {
+			bbox_n = 1;
+		} else {
+			bbox_n = 0;
 		}
 		
 		product = {
@@ -595,7 +708,17 @@ $(document).ready(function() {
 			eko: eko,
 			farm: farm,
 			diet: diet,
+			child: child,
 			recommend: recommend,
+			top_category: top_category,
+			top_country: top_country,
+			top_farm: top_farm,
+			top_eko: top_eko,
+			top_child: top_child,
+			top_diet: top_diet,
+			top_recommend: top_recommend,
+			bbox: bbox,
+			bbox_n: bbox_n,
 			consist: $('#product_form .product_consist').val(),
 			bbefore: $('#product_form .product_bbefore').val(),
 			sr_ves: $('#product_form .product_sr_ves').val(),
