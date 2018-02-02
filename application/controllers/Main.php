@@ -9,7 +9,7 @@ class Main extends CI_Controller {
 				'cart' => $this->get_cart_info_for_header()
 			),
 			'menu' => $this->baselib->get_categories(false,true),
-			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
+			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
@@ -44,7 +44,7 @@ class Main extends CI_Controller {
 			'blogs' => $blogs['blogs'],
 			'counter' => $blogs['counter'],
 			'months' => $months,
-			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
+			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
@@ -83,14 +83,14 @@ class Main extends CI_Controller {
 			'blogs' => $blogs['blogs'],
 			'counter' => $blogs['counter'],
 			'months' => $months,
-			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
+			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
 		);
 		
 		if($blog_id) {
-			$product = $this->baselib->get_product_by_id($data['blogs']['linked_product_id']);
+			$product = $this->productlib->get_product_by_id($data['blogs']['linked_product_id']);
 			
 			if($product) {
 				$data['price'] = $product['price'];
@@ -128,7 +128,7 @@ class Main extends CI_Controller {
 			),
 			'first_block' => $page,
 			'blocks' => $blocks,
-			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
+			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
@@ -141,10 +141,10 @@ class Main extends CI_Controller {
 		if(is_null($this->input->post('articul')) or empty($this->input->post('articul'))) {
 			redirect(base_url('/'), 'refresh');
 		} else {
-			$product_id = $this->baselib->get_product_id_from_articul($this->input->post('articul'));
+			$product_id = $this->productlib->get_product_id_from_articul($this->input->post('articul'));
 		}
 		
-		$product = $this->baselib->get_product_by_id($product_id);
+		$product = $this->productlib->get_product_by_id($product_id);
 		
 		if(!$product) {
 			redirect(base_url('/'), 'refresh');
@@ -152,8 +152,8 @@ class Main extends CI_Controller {
 		
 		$products = array();
 		
-		foreach($this->baselib->get_product_categories($product_id) as $category_id) {
-			$products = array_merge($products,$this->baselib->get_category_products($category_id));
+		foreach($this->productlib->get_product_categories($product_id) as $category_id) {
+			$products = array_merge($products,$this->productlib->get_category_products($category_id));
 			
 			if(count($products) > 5) {
 				break;
@@ -177,7 +177,7 @@ class Main extends CI_Controller {
 			'product' => $product,
 			'products' => $products_to_show,
 			'is_search' => true,
-			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
+			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'articul' => $this->input->post('articul')
 		);
 		
@@ -200,7 +200,7 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
-			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
+			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'menu' => $this->baselib->get_categories()
 		);
 		
@@ -242,8 +242,8 @@ class Main extends CI_Controller {
 				break;
 		}
 
-		$products = $this->baselib->get_country_products($country);
-		$products = $this->baselib->sort_products('country',$country,$products);
+		$products = $this->productlib->get_country_products($country);
+		$products = $this->productlib->sort_products('country',$country,$products);
 		
 		$filters = array(
 			'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
@@ -251,7 +251,7 @@ class Main extends CI_Controller {
 		
 		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
 		
-		$products_in_page = $this->baselib->filter_products_for_country($products,$filters,$page);
+		$products_in_page = $this->filterlib->filter_products_for_country($products,$filters,$page);
 
 		$empty_products = count($products_in_page['products'])%5; 
 					
@@ -272,7 +272,7 @@ class Main extends CI_Controller {
 			'country_id' => $country_id,
 			'country' => $country,
 			'categories' => $products_in_page['categories_for_country'],
-			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
+			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			),
@@ -304,7 +304,7 @@ class Main extends CI_Controller {
 			}			
 		}
 
-		$products = $this->baselib->get_products(false,true);
+		$products = $this->productlib->get_products(false,true);
 		
 		$filters = array(
 			'provider' => (!is_null($this->input->get('provider')) ? $this->input->get('provider') : 0)
@@ -312,7 +312,7 @@ class Main extends CI_Controller {
 		
 		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
 		
-		$products_in_page = $this->baselib->filter_products_for_provider($products,$filters,$page);
+		$products_in_page = $this->filterlib->filter_products_for_provider($products,$filters,$page);
 		
 		$empty_products = count($products_in_page['products'])%5; 
 					
@@ -331,7 +331,7 @@ class Main extends CI_Controller {
 			'current_page' => $page,
 			'pages_count' => $products_in_page['pages_count'],
 			'providers' => $products_in_page['providers_for_provider'],
-			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
+			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			),
@@ -363,7 +363,7 @@ class Main extends CI_Controller {
 			}			
 		}
 
-		$products = $this->baselib->get_products(false,true);
+		$products = $this->productlib->get_products(false,true);
 		
 		$filters = array(
 			'country' => 0,
@@ -376,7 +376,7 @@ class Main extends CI_Controller {
 		
 		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
 		
-		$products_in_page = $this->baselib->filter_products($products,$filters,$page);
+		$products_in_page = $this->filterlib->filter_products($products,$filters,$page);
 		
 		$empty_products = count($products_in_page['products'])%5; 
 					
@@ -395,7 +395,7 @@ class Main extends CI_Controller {
 			'current_page' => $page,
 			'pages_count' => $products_in_page['pages_count'],
 			'attributes' => $this->baselib->handle_brands_attributes($products),
-			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
+			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			),
@@ -415,7 +415,7 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
-			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
+			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
@@ -434,9 +434,9 @@ class Main extends CI_Controller {
 				$order_id = key($orders);
 			}
 			
-			$products_ids = $this->baselib->get_order_products($order_id);
+			$products_ids = $this->productlib->get_order_products($order_id);
 			
-			$products = $this->baselib->get_products_by_ids($products_ids);
+			$products = $this->productlib->get_products_by_ids($products_ids);
 			
 			$empty_products = count($products)%5; 
 						
@@ -466,7 +466,7 @@ class Main extends CI_Controller {
 			'menu' => array(
 				'filters' => $filters
 			),
-			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
+			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
@@ -475,11 +475,11 @@ class Main extends CI_Controller {
 		$products_ids = $this->baselib->get_favourites();
 	
 		if(count($products_ids) > 0) {
-			$products = $this->baselib->get_products_by_ids($products_ids);		
+			$products = $this->productlib->get_products_by_ids($products_ids);		
 			
 			$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
 			
-			$products_in_page = $this->baselib->filter_products_for_favourites($products,$filters,$page);
+			$products_in_page = $this->filterlib->filter_products_for_favourites($products,$filters,$page);
 			
 			$empty_products = count($products_in_page['products'])%5; 
 						
@@ -518,7 +518,7 @@ class Main extends CI_Controller {
 		$parent_category_id = $this->baselib->is_parent_category($category);
 
 		if($parent_category_id) {
-			$products = $this->baselib->get_parent_category_products($parent_category_id);
+			$products = $this->productlib->get_parent_category_products($parent_category_id);
 
 			$menu = $this->baselib->get_categories($category,true);
 			$menu_childs = array();
@@ -540,7 +540,7 @@ class Main extends CI_Controller {
 				),
 				'menu' => $menu,
 				'category' => $category,
-				'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
+				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 				'footer' => array(
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
 				),
@@ -585,7 +585,7 @@ class Main extends CI_Controller {
 				),
 				'menu' => $menu,
 				'category' => $category,
-				'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
+				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 				'footer' => array(
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
 				),
@@ -593,15 +593,15 @@ class Main extends CI_Controller {
 				'is_parent_category' => false
 			);
 			
-			$products = $this->baselib->get_category_products($category);
-			$products = $this->baselib->sort_products('category',$category,$products);
-			$products = $this->baselib->filter_products_by_sort($products,$category);
+			$products = $this->productlib->get_category_products($category);
+			$products = $this->productlib->sort_products('category',$category,$products);
+			$products = $this->productlib->filter_products_by_sort($products,$category);
 			
 			$data['menu']['menu_childs'] = $menu_childs;
 			$data['menu']['attributes'] = $this->baselib->handle_attributes($products);
 			$data['menu']['filters'] = $filters;
 
-			$products_in_page = $this->baselib->filter_products($products,$filters,$page);
+			$products_in_page = $this->filterlib->filter_products($products,$filters,$page);
 
 			$empty_products = count($products_in_page['products'])%5; 
 						
@@ -639,19 +639,19 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
-			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
+			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
 		);
 		
-		$products = $this->baselib->get_products_with_categories($provider);
-		$products = $this->baselib->sort_products('provider',$provider,$products);
+		$products = $this->productlib->get_products_with_categories($provider);
+		$products = $this->productlib->sort_products('provider',$provider,$products);
 		
 		//$data['attributes'] = $this->baselib->handle_attributes($products);
 		$data['filters'] = $filters;
 		
-		$products_in_page = $this->baselib->filter_products_for_providers_full($products,$filters,$page);
+		$products_in_page = $this->filterlib->filter_products_for_providers_full($products,$filters,$page);
 
 		$empty_products = count($products_in_page['products'])%5; 
 					
@@ -681,7 +681,7 @@ class Main extends CI_Controller {
 			),
 			'menu' => $this->baselib->get_categories(false,true),
 			'category' => $this->baselib->get_categories(false,true),
-			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
+			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array()
 		);
 		
@@ -691,14 +691,14 @@ class Main extends CI_Controller {
 	public function product($product_id = false) {
 
 		if($product_id) {
-			$product = $this->baselib->get_product_by_id($product_id);
+			$product = $this->productlib->get_product_by_id($product_id);
 			$products_ids = $this->baselib->get_favourites();
 
 			if(in_array($product_id, $products_ids)) {
 				$product['favourite'] = true;
 			}
 
-			$related_products_ids = $this->baselib->get_related_products_ids($product_id);
+			$related_products_ids = $this->productlib->get_related_products_ids($product_id);
 
 			$data = array(
 				'header' => array(
@@ -706,14 +706,14 @@ class Main extends CI_Controller {
 					'fb_share' => $this->baselib->craete_fb_share('/product/'.$product['product_id'],$product['title'],$product['description'],$product['image'])
 				),
 				'menu' => $this->baselib->get_categories(false,true),
-				'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
+				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 				'footer' => array(
 					'videos' => $product['youtube']
 				),
 				'product' => $product,
-				'related_products' => $this->baselib->get_products_with_categories(false,'eko'),
+				'related_products' => $this->productlib->get_products_with_categories(false,'eko'),
 				'comments' => $this->baselib->get_comments('product', $product_id),
-				'related_products' => $this->baselib->get_products_by_ids($related_products_ids)
+				'related_products' => $this->productlib->get_products_by_ids($related_products_ids)
 			);
 
 			$this->load->view('product', $data);			
@@ -728,15 +728,15 @@ class Main extends CI_Controller {
 		
 		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
 		
-		$products = $this->baselib->get_products_with_categories(false,'child');
-		$products = $this->baselib->sort_products('category','child',$products);
+		$products = $this->productlib->get_products_with_categories(false,'child');
+		$products = $this->productlib->sort_products('category','child',$products);
 		
 		$data = array(
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
 			'category' => 'child',
-			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
+			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
@@ -744,7 +744,7 @@ class Main extends CI_Controller {
 		
 		$data['filters'] = $filters;
 
-		$products_in_page = $this->baselib->filter_products_for_providers_full($products,$filters,$page);
+		$products_in_page = $this->filterlib->filter_products_for_providers_full($products,$filters,$page);
 
 		$empty_products = count($products_in_page['products'])%5; 
 					
@@ -773,15 +773,15 @@ class Main extends CI_Controller {
 		
 		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
 		
-		$products = $this->baselib->get_products_with_categories(false,'eko');
-		$products = $this->baselib->sort_products('category','eko',$products);
+		$products = $this->productlib->get_products_with_categories(false,'eko');
+		$products = $this->productlib->sort_products('category','eko',$products);
 		
 		$data = array(
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
 			'category' => 'eko',
-			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
+			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
@@ -789,7 +789,7 @@ class Main extends CI_Controller {
 		
 		$data['filters'] = $filters;
 
-		$products_in_page = $this->baselib->filter_products_for_providers_full($products,$filters,$page);
+		$products_in_page = $this->filterlib->filter_products_for_providers_full($products,$filters,$page);
 
 		$empty_products = count($products_in_page['products'])%5; 
 					
@@ -818,15 +818,15 @@ class Main extends CI_Controller {
 		
 		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
 
-		$products = $this->baselib->get_products_with_categories(false,'farm');
-		$products = $this->baselib->sort_products('category','farm',$products);
+		$products = $this->productlib->get_products_with_categories(false,'farm');
+		$products = $this->productlib->sort_products('category','farm',$products);
 		
 		$data = array(
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
 			'category' => 'farm',
-			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
+			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
@@ -834,7 +834,7 @@ class Main extends CI_Controller {
 		
 		$data['filters'] = $filters;
 
-		$products_in_page = $this->baselib->filter_products_for_providers_full($products,$filters,$page);
+		$products_in_page = $this->filterlib->filter_products_for_providers_full($products,$filters,$page);
 
 		$empty_products = count($products_in_page['products'])%5; 
 					
@@ -863,15 +863,15 @@ class Main extends CI_Controller {
 		
 		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
 		
-		$products = $this->baselib->get_products_with_categories(false,'diet');
-		$products = $this->baselib->sort_products('category','diet',$products);
+		$products = $this->productlib->get_products_with_categories(false,'diet');
+		$products = $this->productlib->sort_products('category','diet',$products);
 		
 		$data = array(
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
 			'category' => 'diet',
-			'related_products' => $this->baselib->get_products_by_ids($this->baselib->_related_products),
+			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
@@ -879,7 +879,7 @@ class Main extends CI_Controller {
 		
 		$data['filters'] = $filters;
 
-		$products_in_page = $this->baselib->filter_products_for_providers_full($products,$filters,$page);
+		$products_in_page = $this->filterlib->filter_products_for_providers_full($products,$filters,$page);
 
 		$empty_products = count($products_in_page['products'])%5; 
 					
@@ -918,7 +918,7 @@ class Main extends CI_Controller {
 			)
 		);
 
-		$related_products = $this->baselib->get_related_products_ids();
+		$related_products = $this->productlib->get_related_products_ids();
 		
 		$data = array(
 			'header' => array(
@@ -934,7 +934,7 @@ class Main extends CI_Controller {
 			'totals' => array(
 				'totals' => $totals
 			),
-			'related_products' => $this->baselib->get_products_by_ids($related_products)
+			'related_products' => $this->productlib->get_products_by_ids($related_products)
 		);
 		
 		if($summ < 1000) {
@@ -1146,7 +1146,7 @@ class Main extends CI_Controller {
 				$products = array();
 				
 				$product_id = $this->input->post('product_id');
-				$product = $this->baselib->get_product_by_id($product_id);
+				$product = $this->productlib->get_product_by_id($product_id);
 				$product['share_html'] = $this->baselib->get_share_links('/product/'.$product['product_id'], $product['title'], $product['description'], $product['image']);
 				
 				foreach($product as $attr_id => $attr) {
@@ -1380,9 +1380,9 @@ class Main extends CI_Controller {
 									'category' => (isset($filters_post->category) ? $filters_post->category : 0)
 								);
 
-								$products = $this->baselib->get_products_with_categories(false,'eko');
-								$products = $this->baselib->sort_products('category','eko',$products);
-								$products_in_page = $this->baselib->filter_products_for_providers_full($products,$filters,$page);
+								$products = $this->productlib->get_products_with_categories(false,'eko');
+								$products = $this->productlib->sort_products('category','eko',$products);
+								$products_in_page = $this->filterlib->filter_products_for_providers_full($products,$filters,$page);
 								
 								break;
 								
@@ -1392,9 +1392,9 @@ class Main extends CI_Controller {
 									'category' => (isset($filters_post->category) ? $filters_post->category : 0)
 								);
 
-								$products = $this->baselib->get_products_with_categories(false,'farm');
-								$products = $this->baselib->sort_products('category','farm',$products);
-								$products_in_page = $this->baselib->filter_products_for_providers_full($products,$filters,$page);
+								$products = $this->productlib->get_products_with_categories(false,'farm');
+								$products = $this->productlib->sort_products('category','farm',$products);
+								$products_in_page = $this->filterlib->filter_products_for_providers_full($products,$filters,$page);
 								break;
 
 							case 'diet':
@@ -1403,9 +1403,9 @@ class Main extends CI_Controller {
 									'category' => (isset($filters_post->category) ? $filters_post->category : 0)
 								);
 
-								$products = $this->baselib->get_products_with_categories(false,'diet');
-								$products = $this->baselib->sort_products('category','diet',$products);
-								$products_in_page = $this->baselib->filter_products_for_providers_full($products,$filters,$page);
+								$products = $this->productlib->get_products_with_categories(false,'diet');
+								$products = $this->productlib->sort_products('category','diet',$products);
+								$products_in_page = $this->filterlib->filter_products_for_providers_full($products,$filters,$page);
 								break;
 
 							case 'child':
@@ -1414,9 +1414,9 @@ class Main extends CI_Controller {
 									'category' => (isset($filters_post->category) ? $filters_post->category : 0)
 								);
 
-								$products = $this->baselib->get_products_with_categories(false,'child');
-								$products = $this->baselib->sort_products('category','child',$products);
-								$products_in_page = $this->baselib->filter_products_for_providers_full($products,$filters,$page);
+								$products = $this->productlib->get_products_with_categories(false,'child');
+								$products = $this->productlib->sort_products('category','child',$products);
+								$products_in_page = $this->filterlib->filter_products_for_providers_full($products,$filters,$page);
 								break;								
 
 							default:
@@ -1430,10 +1430,10 @@ class Main extends CI_Controller {
 									'brand' => (isset($filters_post->brand) ? $filters_post->brand : 0)
 								);
 
-								$products = $this->baselib->get_category_products($this->input->post('category_id'));
-								$products = $this->baselib->sort_products('category',$this->input->post('category_id'),$products);
-								$products = $this->baselib->filter_products_by_sort($products,$this->input->post('category_id'));
-								$products_in_page = $this->baselib->filter_products($products,$filters,$this->input->post('page'));
+								$products = $this->productlib->get_category_products($this->input->post('category_id'));
+								$products = $this->productlib->sort_products('category',$this->input->post('category_id'),$products);
+								$products = $this->productlib->filter_products_by_sort($products,$this->input->post('category_id'));
+								$products_in_page = $this->filterlib->filter_products($products,$filters,$this->input->post('page'));
 								break;
 						}
 						
@@ -1464,8 +1464,8 @@ class Main extends CI_Controller {
 								break;				
 						}
 
-						$products = $this->baselib->get_country_products($country);
-						$products = $this->baselib->sort_products('country',$country,$products);
+						$products = $this->productlib->get_country_products($country);
+						$products = $this->productlib->sort_products('country',$country,$products);
 						
 						$filters_post = json_decode($this->input->post('filters'));
 						
@@ -1475,10 +1475,10 @@ class Main extends CI_Controller {
 
 						$page = (!is_null($this->input->post('page')) ? $this->input->post('page') : 1);
 						
-						$products_in_page = $this->baselib->filter_products_for_country($products,$filters,$page);
+						$products_in_page = $this->filterlib->filter_products_for_country($products,$filters,$page);
 						
 					} elseif(!is_null($this->input->post('provider_id'))) {
-						$products = $this->baselib->get_products(false,true);
+						$products = $this->productlib->get_products(false,true);
 						
 						$filters_post = json_decode($this->input->post('filters'));
 						
@@ -1488,9 +1488,9 @@ class Main extends CI_Controller {
 						
 						$page = (!is_null($this->input->post('page')) ? $this->input->post('page') : 1);
 
-						$products_in_page = $this->baselib->filter_products_for_provider($products,$filters,$page);
+						$products_in_page = $this->filterlib->filter_products_for_provider($products,$filters,$page);
 					} elseif(!is_null($this->input->post('brands_id'))) {
-						$products = $this->baselib->get_products(false,true);
+						$products = $this->productlib->get_products(false,true);
 
 						$filters_post = json_decode($this->input->post('filters'));
 						
@@ -1505,11 +1505,11 @@ class Main extends CI_Controller {
 						
 						$page = (!is_null($this->input->post('page')) ? $this->input->post('page') : 1);
 
-						$products_in_page = $this->baselib->filter_products($products,$filters,$page);
+						$products_in_page = $this->filterlib->filter_products($products,$filters,$page);
 					} elseif(!is_null($this->input->post('provider_full_id'))) {
 						
-						$products = $this->baselib->get_products_with_categories($this->input->post('provider_full_id'));
-						$products = $this->baselib->sort_products('provider',$this->input->post('provider_full_id'),$products);
+						$products = $this->productlib->get_products_with_categories($this->input->post('provider_full_id'));
+						$products = $this->productlib->sort_products('provider',$this->input->post('provider_full_id'),$products);
 						
 						$filters_post = json_decode($this->input->post('filters'));
 						
@@ -1525,7 +1525,7 @@ class Main extends CI_Controller {
 						
 						$page = (!is_null($this->input->post('page')) ? $this->input->post('page') : 1);
 
-						$products_in_page = $this->baselib->filter_products_for_providers_full($products,$filters,$page);
+						$products_in_page = $this->filterlib->filter_products_for_providers_full($products,$filters,$page);
 					}
 					
 					

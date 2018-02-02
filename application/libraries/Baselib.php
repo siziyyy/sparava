@@ -8,6 +8,8 @@ class Baselib {
 
  	function __construct() {
     	$this->_ci =& get_instance();
+    	$this->_ci->load->library('productlib');
+    	$this->_ci->load->library('filterlib');
 
     	if(!is_null($this->_ci->session->userdata('return_url'))) {
     		$this->_return_url = $this->_ci->session->userdata('return_url');
@@ -17,7 +19,7 @@ class Baselib {
 
 		$this->_ci->session->set_userdata('return_url',$_SERVER['REQUEST_URI']);
 
-		$this->_related_products = $this->get_related_products_ids(false,15);
+		$this->_related_products = $this->_ci->productlib->get_related_products_ids(false,15);
     }
 
 	public function set_sort_order($type = false, $category = false, $clear_sort = false) {
@@ -100,64 +102,6 @@ class Baselib {
 				return false;
 			}
 		}
-    } 
-
-    public function get_parent_category_products($category_id) {
-    	$categories = array();
-    	$products = array();
-
-		$sql = 'SELECT * FROM categories WHERE parent_id = ' . (int)$category_id . ' ORDER BY sort_order ASC';
-				
-		$query = $this->_ci->db->query($sql);
-
-		if ($query->num_rows() > 0) {
-			foreach ($query->result_array() as $row) {
-				$categories[$row['category_id']] = $row;		
-			}
-		}    	
-
-		foreach ($categories as $child_category_id => $category) {
-			$sql = 'SELECT p.*, c.bm FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND p.status = 1 AND ptc.category_id = c.category_id AND ptc.category_id = ' . (int)$child_category_id . ' ORDER BY product_id ASC';
-					
-			$query = $this->_ci->db->query($sql);
-			$count = $query->num_rows();
-			$counted_products = 0;
-			$extracted_products = array();
-
-			if ($count > 0) {
-
-				foreach ($query->result_array() as $row) {
-					$extracted_products[$row['product_id']] = $row;
-				}
-
-				$extracted_products = $this->sort_products('category',$child_category_id,$extracted_products);
-
-				$counted_products = 0;
-
-				$products[$category['category_id']]['products_count'] = $count;
-
-				foreach ($extracted_products as $product) {
-					if($counted_products <= 4) {
-						$products[$category['category_id']]['products'][$product['product_id']] = $product;
-						$products[$category['category_id']]['info'] = $category;
-						$counted_products++;
-					}
-				}
-
-				if($count <= 5) {
-					$products[$category['category_id']]['empty_products'] = 5 - $count;
-				} else {
-					$products[$category['category_id']]['empty_products'] = 0;
-				}
-			}
-
-			foreach($products as $category_id => $category) {
-				$products[$category_id]['products'] = $this->handle_special_price($category['products']);
-				//$products[$category_id]['products'] = $this->sort_products('category',$category_id,$products[$category_id]['products']);
-			}
-		}
-
-		return $products;
     }
 
     public function check_admin_token($token) {
@@ -242,53 +186,6 @@ class Baselib {
 		
 		return $result;
 	}
-	
-	public function get_related_products_ids($product_id = false,$limit = false) {
-		$result = array();
-
-		if($product_id) {
-			$sql = 'SELECT c.parent_id FROM product_to_category AS ptc, categories AS c WHERE ptc.product_id = '.$product_id.' AND ptc.category_id = c.category_id';
-			$query = $this->_ci->db->query($sql);
-
-			if ($query->num_rows() > 0) {
-				$parent_id = $query->row_array()['parent_id'];
-
-				$sql = 'SELECT p.product_id FROM products AS p, product_to_category AS ptc WHERE p.product_id = ptc.product_id AND p.recommend = 1 AND p.status = 1 AND ptc.category_id IN (SELECT category_id FROM categories WHERE parent_id = ' . $parent_id . ') ORDER BY rand() LIMIT 5';
-				$query = $this->_ci->db->query($sql);
-
-				if ($query->num_rows() > 0) {
-					foreach ($query->result_array() as $row) {				
-						$result[] = $row['product_id'];
-					}
-				}				
-			}
-		} else {
-			$sql = 'SELECT p.* FROM products AS p, product_to_category AS ptc WHERE p.product_id = ptc.product_id AND p.recommend = 1 AND p.status = 1 ORDER BY rand() LIMIT '.($limit ? $limit : '6');
-			$query = $this->_ci->db->query($sql);
-			
-			if ($query->num_rows() > 0) {
-				foreach ($query->result_array() as $row) {
-					$result[] = $row['product_id'];
-				}
-			}			
-		}
-		
-		return $result;
-	}
-
-	public function get_order_products($order_id) {
-		$result = array();
-		
-		$query = $this->_ci->db->select("*")->from("order_inners")->where("order_id",$order_id)->get();
-		
-		if ($query->num_rows() > 0) {
-			foreach ($query->result_array() as $row) {				
-				$result[] = $row['product_id'];
-			}
-		}
-		
-		return $result;
-	}	
 
 	public function craete_fb_share($url,$title,$description,$image) {
 		$share_data = array(
@@ -321,20 +218,6 @@ class Baselib {
 		
 		return $share_links;
 	}	
-	
-	public function get_product_categories($product_id) {
-		$result = array();
-		
-		$query = $this->_ci->db->select("*")->from("product_to_category")->where("product_id",$product_id)->get();
-		
-		if ($query->num_rows() > 0) {
-			foreach ($query->result_array() as $row) {				
-				$result[] = $row['category_id'];
-			}
-		}
-		
-		return $result;
-	}
 	
 	public function get_all_categories() {
 		
@@ -436,26 +319,8 @@ class Baselib {
 		return $categories;
 	}
 
-	public function get_random_category_products($category) {
-		
-		$products = array();
 
-		$category_id = $category;
-		
-		$sql = 'SELECT p.*, c.bm FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND p.status = 1 AND ptc.category_id = c.category_id AND ptc.category_id = ' . (int)$category_id . ' ORDER BY rand()';
-				
-		$query = $this->_ci->db->query($sql);
-
-		if ($query->num_rows() > 0) {
-			foreach ($query->result_array() as $row) {
-				$products[$row['product_id']] = $row;		
-			}			
-		}
-		
-		return $this->handle_special_price($products);
-	}
-
-	private function get_category_id($category) {
+	public function get_category_id($category) {
 		if(!is_numeric($category)) {
 			$c_query = $this->_ci->db->get_where("categories", array("seo_url" => $category,"status" => 1));
 			if ($c_query->num_rows() > 0) {
@@ -469,218 +334,9 @@ class Baselib {
 
 		return $category_id;
 	}
+
 	
-	public function get_category_products($category) {
-		
-		$products = array();
-		
-		$category_id = $this->get_category_id($category);
-		
-		$sql = 'SELECT p.*, c.bm FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND p.status = 1 AND ptc.category_id = c.category_id AND ptc.category_id = ' . (int)$category_id . ' ORDER BY product_id ASC';
-				
-		$query = $this->_ci->db->query($sql);
-
-		if ($query->num_rows() > 0) {
-			foreach ($query->result_array() as $row) {
-				$products[$row['product_id']] = $row;		
-			}			
-		}
-		
-		$sql = 'SELECT p.*, c.bm FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND p.status = 1 AND ptc.category_id = c.category_id AND ptc.category_id IN (SELECT category_id FROM categories WHERE parent_id = ' . (int)$category_id . ' ) ORDER BY product_id ASC';
-		
-		$query = $this->_ci->db->query($sql);
-		
-		if ($query->num_rows() > 0) {
-			foreach ($query->result_array() as $row) {
-				$products[$row['product_id']] = $row;		
-			}			
-		}
-		
-		ksort($products);
-		
-		return $this->handle_special_price($products);
-	}
-	
-	public function get_country_products($country) {
-		
-		$ptc = array();
-		
-		$sql = 'SELECT * FROM product_to_category';
-				
-		$query = $this->_ci->db->query($sql);
-
-		if ($query->num_rows() > 0) {
-			foreach ($query->result_array() as $row) {
-				$ptc[$row['product_id']][] = $row['category_id'];		
-			}			
-		}
-
-		$categories = array();
-		
-		$sql = 'SELECT * FROM categories';
-				
-		$query = $this->_ci->db->query($sql);
-
-		if ($query->num_rows() > 0) {
-			foreach ($query->result_array() as $row) {
-				$categories[$row['category_id']] = $row['bm'];		
-			}			
-		}
-		
-		$products = array();
-		
-		$sql = 'SELECT * FROM products WHERE status = 1 AND country = "' . $country . '" ORDER BY product_id ASC';
-				
-		$query = $this->_ci->db->query($sql);
-
-		if ($query->num_rows() > 0) {
-			foreach ($query->result_array() as $row) {
-				$products[$row['product_id']] = $row;
-				if(isset($ptc[$row['product_id']])) {
-					$products[$row['product_id']]['categories'] = $ptc[$row['product_id']];
-					$products[$row['product_id']]['bm'] = $categories[$ptc[$row['product_id']][0]];
-				} else {
-					$products[$row['product_id']]['categories'] = array();
-				}
-			}			
-		}
-		
-		ksort($products);
-		
-		return $this->handle_special_price($products);
-	}		
-	
-	public function get_products($type = false,$show_hidden = false) {
-		
-		$products = array();
-		
-		$sql = 'SELECT p.*, c.bm FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND ptc.category_id = c.category_id';
-		
-		if(!$show_hidden) {
-			$sql .= ' AND p.status = 1';
-		}
-		
-		if($type == 'farm') {
-			$sql .= ' AND p.farm = 1';
-		} elseif($type == 'eko') {
-			$sql .= ' AND p.eko = 1';
-		} elseif($type == 'diet') {
-			$sql .= ' AND p.diet = 1';
-		}
-		
-		if($show_hidden) {
-			$sql .= ' ORDER BY p.status DESC,p.product_id ASC';
-		}		
-		
-		$query = $this->_ci->db->query($sql);
-		
-		if ($query->num_rows() > 0) {
-			foreach ($query->result_array() as $row) {
-				$products[$row['product_id']] = $row;
-			}
-		}
-
-		return $this->handle_special_price($products);
-	}
-	
-	public function get_products_with_categories($provider_id = false, $type = false) {
-		
-		$ptc = array();
-		
-		$sql = 'SELECT * FROM product_to_category';
-				
-		$query = $this->_ci->db->query($sql);
-
-		if ($query->num_rows() > 0) {
-			foreach ($query->result_array() as $row) {
-				$ptc[$row['product_id']][] = $row['category_id'];		
-			}			
-		}
-		
-		$products = array();
-		
-		$sql = 'SELECT p.*, c.bm, c.title FROM products AS p, product_to_category AS ptc, categories AS c, providers AS pr WHERE p.product_id = ptc.product_id AND ptc.category_id = c.category_id AND p.status = 1';
-
-		if(!$type) {
-			$sql .= ' AND pr.store = p.provider AND pr.provider_id = ' . (int)$provider_id;
-		} elseif($type == 'farm') {
-			$sql .= ' AND p.farm = 1';
-		} elseif($type == 'eko') {
-			$sql .= ' AND p.eko = 1';
-		} elseif($type == 'diet') {
-			$sql .= ' AND p.diet = 1';
-		} elseif($type == 'child') {
-			$sql .= ' AND p.child = 1';
-		}
-		
-		$query = $this->_ci->db->query($sql);
-		
-		if ($query->num_rows() > 0) {
-			foreach ($query->result_array() as $row) {
-				$products[$row['product_id']] = $row;
-				if(isset($ptc[$row['product_id']])) {
-					$products[$row['product_id']]['categories'] = $ptc[$row['product_id']];
-				} else {
-					$products[$row['product_id']]['categories'] = array();
-				}				
-			}
-		}
-
-		return $this->handle_special_price($products);
-	}	
-	
-	public function get_products_by_ids($ids) {
-		
-		$ptc = array();
-		
-		$sql = 'SELECT * FROM product_to_category';
-				
-		$query = $this->_ci->db->query($sql);
-
-		if ($query->num_rows() > 0) {
-			foreach ($query->result_array() as $row) {
-				$ptc[$row['product_id']][] = $row['category_id'];		
-			}			
-		}
-
-		$categories = array();
-		
-		$sql = 'SELECT * FROM categories';
-				
-		$query = $this->_ci->db->query($sql);
-
-		if ($query->num_rows() > 0) {
-			foreach ($query->result_array() as $row) {
-				$categories[$row['category_id']] = $row['bm'];		
-			}			
-		}		
-		
-		$products = array();
-
-		if(count($ids)) {
-		
-			$query = $this->_ci->db->select("*")->from("products")->where("status",1)->where_in("product_id",$ids)->order_by('product_id', 'ASC')->get();
-			
-			if ($query->num_rows() > 0) {
-				foreach ($query->result_array() as $row) {
-					$products[$row['product_id']] = $row;
-					if(isset($ptc[$row['product_id']])) {
-						$products[$row['product_id']]['categories'] = $ptc[$row['product_id']];
-						$products[$row['product_id']]['bm'] = $categories[$ptc[$row['product_id']][0]];
-					} else {
-						$products[$row['product_id']]['categories'] = array();
-					}
-				}			
-			}
-
-		}
-		
-		ksort($products);
-
-		return $this->handle_special_price($products);
-	}	
-	
-	private function handle_special_price($products) {
+	public function handle_special_price($products) {
 		$favourites = $this->get_favourites();
 		
 		if(!isset($products['product_id'])) {
@@ -697,7 +353,7 @@ class Baselib {
 					$products[$product_id]['price'] = $product['price'];
 				}
 				
-				$products[$product_id]['articul'] = $this->get_product_articul($product['product_id']);
+				$products[$product_id]['articul'] = $this->_ci->productlib->get_product_articul($product['product_id']);
 				
 				$special_begin = false;
 				$special_end = false;
@@ -746,7 +402,7 @@ class Baselib {
 				}
 			}
 			
-			$products['articul'] = $this->get_product_articul($products['product_id']);
+			$products['articul'] = $this->_ci->productlib->get_product_articul($products['product_id']);
 			
 			$special_begin = false;
 			$special_end = false;
@@ -861,40 +517,6 @@ class Baselib {
 		return $attributes;
 	}	
 
-	public function get_product_by_id($product_id) {
-		
-		$sql = 'SELECT p.*, c.bm, c.category_id, c.title AS category_title FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND ptc.category_id = c.category_id AND p.product_id = "'.$product_id.'" LIMIT 1';
-
-		$query = $this->_ci->db->query($sql);
-		
-		if ($query->num_rows() > 0) {
-
-			$product = $query->row_array();
-			
-			$sql = 'SELECT * FROM categories WHERE category_id IN (SELECT parent_id FROM categories WHERE category_id = '.$product['category_id'].')';
-			$query = $this->_ci->db->query($sql);
-
-			if ($query->num_rows() > 0) {
-				$category = $query->row_array();
-
-				$product['parent_category_id'] = $category['category_id'];
-				$product['parent_category_title'] = $category['title'];
-			}
-			
- 			$videos = explode(';',$product['youtube']);
-			$product['youtube'] = array();
-
- 			foreach($videos as $video) {
- 				if(!empty($video)) {
- 					$product['youtube'][] = $video;
- 				}
- 			}
-
-			return $this->handle_special_price($product);
-		}
-		
-		return false;
-	}
 
 	public function get_cart() {
 		$products = array();
@@ -907,7 +529,7 @@ class Baselib {
 		
 		foreach($cart as $element_id => $element) {
 			$product_id = explode('-',$element_id)[1];
-			$product = $this->get_product_by_id($product_id);
+			$product = $this->_ci->productlib->get_product_by_id($product_id);
 
 			if($product) {
 				$products[$product['product_id']] = $product;
@@ -987,27 +609,6 @@ class Baselib {
 		$this->_ci->session->set_userdata('account_id',NULL);
 		return true;
 	}
-	
-	public function get_product_articul($product_id) {
-		$articul = (string)$product_id;
-		
-		for ($i = strlen($articul); $i <= 3; $i++) {
-			$articul = '0'.$articul;
-		}
-		
-		return $articul;
-	}
-	
-	public function get_product_id_from_articul($articul) {
-		$product_id = (string)$articul;
-		
-		while (substr ( $product_id , 0 ,1 ) == 0) {
-			$product_id = substr ( $product_id , 1);
-		}
-		
-		return $product_id ;
-	}
-	
 
 	public function get_shipping_methods($group_id = false) {
 		$shipping_methods = array();
@@ -1085,517 +686,6 @@ class Baselib {
 		return $pages;
 	}
 	
-	public function filter_products($products,$filters,$page) {
-		$price_sort = array();
-		$filters_count = 0;
-		
-		$filters_arr = array(
-			'country' => ($filters['country'] ? explode(';',$filters['country']) : 0),
-			'brand' => ($filters['brand'] ? explode(';',$filters['brand']) : 0),
-			'pack' => ($filters['pack'] ? explode(';',$filters['pack']) : 0),
-			'composition' => ($filters['composition'] ? explode(';',$filters['composition']) : 0)
-		);
-		
-		foreach($filters_arr as $key => $value) {
-			if(isset($filters_arr[$key]) and $filters_arr[$key]) {
-				foreach($filters_arr[$key] as $index_of_value_to_check => $value_to_check) {
-					$filters_count++;
-					
-					if(empty($value_to_check)) {
-						unset($filters_arr[$key][$index_of_value_to_check]);
-						$filters_count--;
-					}
-				}
-				
-				if(empty($filters_arr[$key])) {
-					$filters_arr[$key] = 0;
-				}
-			}
-		}
-
-		if($filters['price']) {
-			$filters_count++;
-		}
-
-		if($filters['weight']) {
-			$filters_count++;
-		}		
-
-		$filters_used = false;
-		
-		foreach($products as $product_id => $product) {
-			if($filters_arr['country'] and !in_array($product['country'], $filters_arr['country'])) {
-				unset($products[$product_id]);
-				$filters_used = true;
-				continue;
-			}
-			
-			if($filters_arr['brand'] and !in_array($product['brand'], $filters_arr['brand'])) {
-				unset($products[$product_id]);
-				$filters_used = true;
-				continue;
-			}	
-			
-			if($filters_arr['pack'] and !in_array($product['pack'], $filters_arr['pack'])) {
-				unset($products[$product_id]);
-				$filters_used = true;
-				continue;
-			}
-
-			if($filters_arr['composition'] and !in_array($product['composition'], $filters_arr['composition'])) {
-				unset($products[$product_id]);
-				$filters_used = true;
-				continue;
-			}
-			
-			if($filters['weight']) {				
-				if($filters['weight'] == 'raz' and $product['type'] == 'шт') {
-					unset($products[$product_id]);
-					$filters_used = true;
-					continue;
-				} elseif($filters['weight'] == 'upa' and $product['type'] != 'шт') {
-					unset($products[$product_id]);
-					$filters_used = true;
-					continue;
-				}
-			}			
-			
-			if($filters['price']) {
-				$price_sort[$product_id] = $product['price'];
-				$filters_used = true;
-			}			
-		}
-		
-		$prodcuts_in_page = array();
-		$page_start = ($page-1)*50;
-		$page_end = $page*50;
-		$i = 0;
-		$pages_count = (int)(count($products)/50);
-		
-		if(count($products)%50 > 0)  {
-			$pages_count++;
-		}
-
-		if($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'asc') {
-			array_multisort($price_sort,SORT_ASC, $products);
-		} elseif($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'desc') {
-			array_multisort($price_sort,SORT_DESC, $products);
-		}
-		
-		foreach($products as $product_id => $product) {
-			if($i >= $page_start and $i <$page_end) {
-				$prodcuts_in_page[] = $product;
-			}
-			
-			$i++;
-		}
-		
-		$empty_products = count($prodcuts_in_page)%5; 
-					
-		if($empty_products > 0) {
-			$empty_products = 5-$empty_products;
-		}
-		
-		$filters_text = array();
-		
-		foreach($filters_arr as $key => $value) {
-			if(isset($filters_arr[$key]) and $filters_arr[$key]) {
-				$filters_text[$key] = $this->get_filter_text($key,count($filters_arr[$key]));
-			}
-		}
-		
-		if($filters['price']) {
-			$filters_text['price'] = $this->get_filter_text('price',$filters['price']);
-		}
-		
-		if($filters['weight']) {
-			$filters_text['weight'] = $this->get_filter_text('weight',$filters['weight']);
-		}
-		
-		return array(
-			'products' => $prodcuts_in_page,
-			'pages_count' => $pages_count,
-			'products_count' => count($products),
-			'filters_used' => $filters_used,
-			'empty_products' => $empty_products,
-			'filters_text' => $filters_text,
-			'filters_count' => $filters_count
-		);
-	}
-	
-	public function filter_products_for_country($products,$filters,$page) {
-		$categories = $this->get_all_categories();
-		$categories_for_country = array();
-		
-		$filters_arr = array(
-			'category' => ($filters['category'] ? explode(';',$filters['category']) : 0)
-		);
-		
-		$allowed_categories = array();
-		
-		if(is_array($filters_arr['category'])) {
-			foreach($filters_arr['category'] as $category_name) {
-				foreach($categories as $category_id => $category) {
-					if($category['title'] == $category_name) {
-						$allowed_categories[] = $category_id;
-					}
-				}
-			}
-		}
-		
-		foreach($products as $product) {
-			foreach($product['categories'] as $category) {
-				if(isset($categories[$category])) {
-					$parent_id = $categories[$category]['parent_id'];
-					if($parent_id > 0) {
-						$categories_for_country[$parent_id] = $categories[$parent_id];
-					} else {
-						$categories_for_country[$categories[$category]['category_id']] = $categories[$categories[$category]['category_id']];
-					}
-				}
-			}
-		}
-
-		asort($categories_for_country);
-		
-		if(count($allowed_categories) > 0) {
-			foreach($products as $product_id => $product) {
-				$categories_to_compare = array();
-				
-				foreach($product['categories'] as $category_id) {
-					if(isset($categories[$category_id])) {
-						$categories_to_compare[] = $categories[$category_id]['parent_id'];
-					}
-				}
-				
-				if(count(array_intersect($allowed_categories,$categories_to_compare)) == 0) {
-					unset($products[$product_id]);
-					continue;
-				}
-			}
-		}
-		
-		$prodcuts_in_page = array();
-		$page_start = ($page-1)*50;
-		$page_end = $page*50;
-		$i = 0;
-		$pages_count = (int)(count($products)/50);
-		
-		if(count($products)%50 > 0)  {
-			$pages_count++;
-		}
-		
-		foreach($products as $product_id => $product) {
-			if($i >= $page_start and $i <$page_end) {
-				$prodcuts_in_page[] = $product;
-			}
-			
-			$i++;
-		}
-		
-		$empty_products = count($prodcuts_in_page)%5; 
-					
-		if($empty_products > 0) {
-			$empty_products = 5-$empty_products;
-		}	
-
-		$filters_text = array();
-		
-		foreach($filters_arr as $key => $value) {
-			if(isset($filters_arr[$key]) and $filters_arr[$key]) {
-				$filters_text[$key] = $this->get_filter_text($key,count($filters_arr[$key]));
-			}
-		}
-		
-		return array(
-			'products' => $prodcuts_in_page,
-			'pages_count' => $pages_count,
-			'products_count' => count($products),
-			'categories_for_country' => $categories_for_country,
-			'empty_products' => $empty_products,
-			'filters_text' => $filters_text
-		);
-	}	
-	
-	public function filter_products_for_provider($input_products,$filters,$page) {
-		
-		$filters_arr = array(
-			'provider' => ($filters['provider'] ? explode(';',$filters['provider']) : 0)
-		);
-		
-		foreach($filters_arr as $key => $value) {
-			if(isset($filters_arr[$key]) and $filters_arr[$key]) {
-				foreach($filters_arr[$key] as $index_of_value_to_check => $value_to_check) {
-					if(empty($value_to_check)) {
-						unset($filters_arr[$key][$index_of_value_to_check]);
-					}
-				}
-				
-				if(empty($filters_arr[$key])) {
-					$filters_arr[$key] = 0;
-				}
-			}
-		}	
-		
-		
-		$providers_for_provider = array();
-		
-		foreach($input_products as $product_id => $product) {
-			if(!empty($product['provider'])) {
-				$providers_for_provider[] = $product['provider'];
-			}
-		}		
-		
-		$providers_for_provider = array_unique($providers_for_provider);
-		asort($providers_for_provider);
-
-		$products = array();
-		
-		if(is_array($filters_arr['provider'])) {
-			foreach($input_products as $product_id => $product) {
-				if(in_array($product['provider'],$filters_arr['provider'])) {
-					$products[$product_id] = $product;
-				}
-			}
-		} else {
-			$products = $input_products;
-		}
-		
-		$prodcuts_in_page = array();
-		$page_start = ($page-1)*50;
-		$page_end = $page*50;
-		$i = 0;
-		$pages_count = (int)(count($products)/50);
-		
-		if(count($products)%50 > 0)  {
-			$pages_count++;
-		}
-		
-		foreach($products as $product_id => $product) {
-			if($i >= $page_start and $i <$page_end) {
-				$prodcuts_in_page[] = $product;
-			}
-			
-			$i++;
-		}
-		
-		$empty_products = count($prodcuts_in_page)%5; 
-					
-		if($empty_products > 0) {
-			$empty_products = 5-$empty_products;
-		}
-		
-		$filters_text = array();
-		
-		foreach($filters_arr as $key => $value) {
-			if(isset($filters_arr[$key]) and $filters_arr[$key]) {
-				$filters_text[$key] = $this->get_filter_text($key,count($filters_arr[$key]));
-			}
-		}		
-		
-		return array(
-			'products' => $prodcuts_in_page,
-			'pages_count' => $pages_count,
-			'products_count' => count($products),
-			'providers_for_provider' => $providers_for_provider,
-			'empty_products' => $empty_products,
-			'filters_text' => $filters_text
-		);
-	}
-	
-	public function filter_products_for_providers_full($products,$filters,$page) {
-		$categories = $this->get_all_categories();
-		$categories_for_provider = array();
-		$filters_used = false;
-		
-		$filters_arr = array(
-			'category' => ($filters['category'] ? explode(';',$filters['category']) : 0)
-		);
-		
-		$allowed_categories = array();
-		
-		if(is_array($filters_arr['category'])) {
-			foreach($filters_arr['category'] as $category_name) {
-				foreach($categories as $category_id => $category) {
-					if($category['title'] == $category_name) {
-						$allowed_categories[] = $category_id;
-					}
-				}
-			}
-			
-			$filters_used = true;
-		}
-		
-		foreach($products as $product) {
-			foreach($product['categories'] as $category) {
-				if(isset($categories[$category])) {
-					$parent_id = $categories[$category]['parent_id'];
-					if($parent_id > 0) {
-						$categories_for_provider[$parent_id] = $categories[$parent_id];
-					} else {
-						$categories_for_provider[$categories[$category]['category_id']] = $categories[$categories[$category]['category_id']];
-					}
-				}
-			}
-		}
-
-		asort($categories_for_provider);
-		
-		if(count($allowed_categories) > 0) {
-			foreach($products as $product_id => $product) {
-				$categories_to_compare = array();
-				
-				foreach($product['categories'] as $category_id) {
-					if(isset($categories[$category_id])) {
-						$categories_to_compare[] = $categories[$category_id]['parent_id'];
-					}
-				}
-				
-				if(count(array_intersect($allowed_categories,$categories_to_compare)) == 0) {
-					unset($products[$product_id]);
-					continue;
-				}
-			}
-		}	
-
-		
-		$prodcuts_in_page = array();
-		$page_start = ($page-1)*50;
-		$page_end = $page*50;
-		$i = 0;
-		$pages_count = (int)(count($products)/50);
-		
-		if(count($products)%50 > 0)  {
-			$pages_count++;
-		}
-		
-		foreach($products as $product_id => $product) {
-			if($i >= $page_start and $i <$page_end) {
-				$prodcuts_in_page[] = $product;
-			}
-			
-			$i++;
-		}
-		
-		$empty_products = count($prodcuts_in_page)%5; 
-					
-		if($empty_products > 0) {
-			$empty_products = 5-$empty_products;
-		}
-		
-		$filters_text = array();
-		
-		foreach($filters_arr as $key => $value) {
-			if(isset($filters_arr[$key]) and $filters_arr[$key]) {
-				$filters_text[$key] = $this->get_filter_text($key,count($filters_arr[$key]));
-			}
-		}
-		
-		return array(
-			'products' => $prodcuts_in_page,
-			'pages_count' => $pages_count,
-			'products_count' => count($products),
-			'filters_used' => $filters_used,
-			'empty_products' => $empty_products,
-			'filters_text' => $filters_text,
-			'categories_for_provider' => $categories_for_provider
-		);
-	}
-
-	public function filter_products_for_favourites($products,$filters,$page) {
-		$categories = $this->get_all_categories();
-		$categories_for_country = array();
-		
-		$filters_arr = array(
-			'category' => ($filters['category'] ? explode(';',$filters['category']) : 0)
-		);
-		
-		$allowed_categories = array();
-		
-		if(is_array($filters_arr['category'])) {
-			foreach($filters_arr['category'] as $category_name) {
-				foreach($categories as $category_id => $category) {
-					if($category['title'] == $category_name) {
-						$allowed_categories[] = $category_id;
-					}
-				}
-			}
-		}
-		
-		foreach($products as $product) {
-			foreach($product['categories'] as $category) {
-				if(isset($categories[$category])) {
-					$parent_id = $categories[$category]['parent_id'];
-					if($parent_id > 0) {
-						$categories_for_country[$parent_id] = $categories[$parent_id];
-					} else {
-						$categories_for_country[$categories[$category]['category_id']] = $categories[$categories[$category]['category_id']];
-					}
-				}
-			}
-		}
-
-		asort($categories_for_country);
-		
-		if(count($allowed_categories) > 0) {
-			foreach($products as $product_id => $product) {
-				$categories_to_compare = array();
-				
-				foreach($product['categories'] as $category_id) {
-					if(isset($categories[$category_id])) {
-						$categories_to_compare[] = $categories[$category_id]['parent_id'];
-					}
-				}
-				
-				if(count(array_intersect($allowed_categories,$categories_to_compare)) == 0) {
-					unset($products[$product_id]);
-					continue;
-				}
-			}
-		}
-		
-		$prodcuts_in_page = array();
-		$page_start = ($page-1)*50;
-		$page_end = $page*50;
-		$i = 0;
-		$pages_count = (int)(count($products)/50);
-		
-		if(count($products)%50 > 0)  {
-			$pages_count++;
-		}
-		
-		foreach($products as $product_id => $product) {
-			if($i >= $page_start and $i <$page_end) {
-				$prodcuts_in_page[] = $product;
-			}
-			
-			$i++;
-		}
-		
-		$empty_products = count($prodcuts_in_page)%5; 
-					
-		if($empty_products > 0) {
-			$empty_products = 5-$empty_products;
-		}	
-		
-		$filters_text = array();
-		
-		foreach($filters_arr as $key => $value) {
-			if(isset($filters_arr[$key]) and $filters_arr[$key]) {
-				$filters_text[$key] = $this->get_filter_text($key,count($filters_arr[$key]));
-			}
-		}	
-		
-		return array(
-			'products' => $prodcuts_in_page,
-			'pages_count' => $pages_count,
-			'products_count' => count($products),
-			'categories_for_favourites' => $categories_for_country,
-			'empty_products' => $empty_products,
-			'filters_text' => $filters_text
-		);
-	}	
-	
 	public function get_cart_word($count = 0) {
 		
 		$count = substr ( (string)$count , -1, 1 );		
@@ -1614,7 +704,7 @@ class Baselib {
 	public function get_totals_for_cart($totals) {
 		if(!is_null($this->_ci->session->userdata('shipping_method'))) {
 			
-			$shipping_methods = $this->_ci->baselib->get_shipping_methods();
+			$shipping_methods = $this->_ci->get_shipping_methods();
 			
 			$totals['shipping'] = array(
 				'title' => 'доставка',
@@ -1657,48 +747,7 @@ class Baselib {
 		
 		return $totals;
 	}
-	
-	public function sort_products($type,$element_id,$products) {		
-		if(!is_numeric($element_id) and $type == 'categories') {
-			$query = $this->_ci->db->get_where("categories", array("seo_url" => $element_id));
-			if ($query->num_rows() > 0) {
-				$element_id = $query->row_array()['category_id'];
-			}
-		}
-		
-		$query = $this->_ci->db->get_where("sorts", array("type" => $type, "element_id" => $element_id));
-		if ($query->num_rows() > 0) {
-			
-			$products_sorted = array();
-			$deleted_products = array();
-			
-			$sort_order = unserialize($query->row_array()['sort_data']);
 
-			foreach($sort_order as $index => $product_id) {
-				if(isset($products[$product_id])) {
-					$products_sorted[$index] = $products[$product_id];
-					unset($products[$product_id]);
-				} else {
-					$deleted_products[$index] = $product_id;
-				}
-			}
-
-			foreach ($deleted_products as $index => $product_id) {
-				if(count($products)) {
-					$product = array_pop($products);
-					$products_sorted[$index] = $product;
-				}
-			}
-			
-			foreach($products as $product) {
-				$products_sorted[] = $product;
-			}
-						
-			return $products_sorted;
-		}
-		
-		return $products;
-	}
 
 	public function get_comments($type,$element_id) {
 		$data = array();
@@ -1806,67 +855,5 @@ class Baselib {
 		
 		return $count.' '.$word;
 	}
-/*
-	function sort_array($array,$field) {
-	    $rescan = false;
-	    do {
-	    	$prev_value = false;
-	    	foreach($array as $key => $value ) {
-	    		if($prev_value !== false) {
-		    		if($prev_value < $value[$field]) {
-		    			unset($array[$key]);
-		    			array_unshift($array, $value);		    			
-		    			$rescan = true;
-		    			break;
-		    		} else {
-		    			$rescan = false;
-		    		}
-	    		}
 
-	    		$prev_value = $value[$field];
-	    	}
-	    } while($rescan);
-
-	    return $array;
-	}
-*/
-
-	function filter_products_by_sort($products,$category) {
-		$sort_order = $this->get_sort_order();
-		$category_id = $this->get_category_id($category);
-
-		if(count($sort_order)) {
-			if(isset($sort_order[$category_id])) {
-				foreach($products as $id => $product) {
-					$drop_product = true;
-
-					foreach($sort_order[$category_id] as $type) {
-						if($type == 'razves') {
-							if(empty($product['weight'])) {
-								$drop_product = false;
-							}
-						} elseif($type == 'pack') {
-							if(!empty($product['weight'])) {
-								$drop_product = false;
-							}
-						} elseif($type == 'bbox') {
-							if($product['bbox'] or $product['bbox_n']) {
-								$drop_product = false;
-							}
-						} elseif($product[$type]) {
-							$drop_product = false;
-						}
-					}
-
-					if($drop_product) {
-						unset($products[$id]);
-					}					
-				}
-			} else {
-				$this->set_sort_order(0, 0, true);
-			}
-		}
-
-	    return $products;
-	}
 }
