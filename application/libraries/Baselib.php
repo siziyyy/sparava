@@ -1673,7 +1673,7 @@ class Baselib {
 			$deleted_products = array();
 			
 			$sort_order = unserialize($query->row_array()['sort_data']);
-			
+
 			foreach($sort_order as $index => $product_id) {
 				if(isset($products[$product_id])) {
 					$products_sorted[$index] = $products[$product_id];
@@ -1684,8 +1684,10 @@ class Baselib {
 			}
 
 			foreach ($deleted_products as $index => $product_id) {
-				$product = array_pop($products);
-				$products_sorted[$index] = $product;
+				if(count($products)) {
+					$product = array_pop($products);
+					$products_sorted[$index] = $product;
+				}
 			}
 			
 			foreach($products as $product) {
@@ -1840,11 +1842,11 @@ class Baselib {
 
 					foreach($sort_order[$category_id] as $type) {
 						if($type == 'razves') {
-							if(is_null($product['weight'])) {
+							if(empty($product['weight'])) {
 								$drop_product = false;
 							}
 						} elseif($type == 'pack') {
-							if(!is_null($product['weight'])) {
+							if(!empty($product['weight'])) {
 								$drop_product = false;
 							}
 						} elseif($type == 'bbox') {
