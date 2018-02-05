@@ -79,14 +79,28 @@
 	            	<div class="new_cool_line_of_filters_aaarrrghh" data-category="<?php echo $category ?>">
 	            		<div class="new_cool_line_of_filters_aaarrrghh_item new_cool_line_of_filters_aaarrrghh_item_first send <?php echo (!$sort_order ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="clear">все</div>
 	            		<div class="new_cool_line_of_filters_aaarrrghh_separator"></div>
-	            		<div class="new_cool_line_of_filters_aaarrrghh_item send <?php echo (isset($sort_order['razves']) ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="razves">на развес</div>
-	            		<div class="new_cool_line_of_filters_aaarrrghh_item send <?php echo (isset($sort_order['pack']) ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="pack">упаковка</div>
-	            		<div class="new_cool_line_of_filters_aaarrrghh_item send <?php echo (isset($sort_order['bbox']) ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="bbox"><span class="harder_better_faster_stronger">еще дешевле! - </span>большая упаковка</div>
+	            		<?php if($sort_attr['razves']) { ?>
+	            			<div class="new_cool_line_of_filters_aaarrrghh_item send <?php echo (isset($sort_order['razves']) ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="razves">на развес</div>
+	            		<?php } ?>
+	            		<?php if($sort_attr['pack']) { ?>
+	            			<div class="new_cool_line_of_filters_aaarrrghh_item send <?php echo (isset($sort_order['pack']) ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="pack">упаковка</div>
+	            		<?php } ?>
+	            		<?php if($sort_attr['bbox']) { ?>
+	            			<div class="new_cool_line_of_filters_aaarrrghh_item send <?php echo (isset($sort_order['bbox']) ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="bbox"><span class="harder_better_faster_stronger">еще дешевле! - </span>большая упаковка</div>
+	            		<?php } ?>
 	            		<div class="new_cool_line_of_filters_aaarrrghh_separator"></div>
-	            		<div class="new_cool_line_of_filters_aaarrrghh_item send <?php echo (isset($sort_order['farm']) ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="farm">фермерское</div>
-	            		<div class="new_cool_line_of_filters_aaarrrghh_item send <?php echo (isset($sort_order['eko']) ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="eko">эко / органик</div>
-	            		<div class="new_cool_line_of_filters_aaarrrghh_item send <?php echo (isset($sort_order['diet']) ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="diet">диетическое</div>
-	            		<div class="new_cool_line_of_filters_aaarrrghh_item send <?php echo (isset($sort_order['recommend']) ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="recommend">особо рекомендуем</div>
+	            		<?php if($sort_attr['farm']) { ?>
+	            			<div class="new_cool_line_of_filters_aaarrrghh_item send <?php echo (isset($sort_order['farm']) ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="farm">фермерское</div>
+	            		<?php } ?>
+	            		<?php if($sort_attr['eko']) { ?>
+	            			<div class="new_cool_line_of_filters_aaarrrghh_item send <?php echo (isset($sort_order['eko']) ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="eko">эко / органик</div>
+	            		<?php } ?>
+	            		<?php if($sort_attr['diet']) { ?>
+	            			<div class="new_cool_line_of_filters_aaarrrghh_item send <?php echo (isset($sort_order['diet']) ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="diet">диетическое</div>
+	            		<?php } ?>
+	            		<?php if($sort_attr['recommend']) { ?>
+	            			<div class="new_cool_line_of_filters_aaarrrghh_item send <?php echo (isset($sort_order['recommend']) ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="recommend">особо рекомендуем</div>
+	            		<?php } ?>
 	            		<div class="new_cool_line_of_filters_aaarrrghh_separator"></div>
 	            		<div class="new_cool_line_of_filters_aaarrrghh_item new_cool_line_of_filters_aaarrrghh_item_link">
 		            		сохранить

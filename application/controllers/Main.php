@@ -592,8 +592,11 @@ class Main extends CI_Controller {
 				'sort_order' => (isset($sort_order[$category]) ? $sort_order[$category] : false),
 				'is_parent_category' => false
 			);
+
+
 			
 			$products = $this->productlib->get_category_products($category);
+			$data['sort_attr'] = $this->baselib->handle_attributes($products);
 			$products = $this->productlib->sort_products('category',$category,$products);
 			$products = $this->productlib->filter_products_by_sort($products,$category);
 			
