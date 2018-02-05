@@ -12,7 +12,6 @@ class Productlib {
 
 		if($type == 'category') {
 			$sql = "SELECT p.*, c.category_id, c.title AS category, c.bm, c.seo_url FROM categories AS c, product_to_category AS ptc, products AS p WHERE p.status = 1 AND c.category_id = ptc.category_id AND p.product_id = ptc.product_id AND c.parent_id = " . (int)$element_id;
-			//$sql = "SELECT c.* FROM categories AS c, product_to_category AS ptc, products AS p WHERE c.category_id = ptc.category_id AND p.product_id = ptc.product_id AND c.parent_id = " . (int)$element_id;
 
 			$query = $this->_ci->db->query($sql);
 
@@ -76,7 +75,7 @@ class Productlib {
 
 		foreach($products as $category_id => $category) {
 			$products[$category_id]['products_count'] = count($category['products']);
-		}		
+		}
 
 		if($type == 'category') {
 			foreach($products as $category_id => $category) {
@@ -130,10 +129,15 @@ class Productlib {
 
 		foreach($products as $category_id => $category) {
 			$products[$category_id]['products'] = $this->_ci->baselib->handle_special_price($category['products']);
+			shuffle($products[$category_id]['products']);
+
+			while(count($products[$category_id]['products']) > 5) {
+				array_pop($products[$category_id]['products']);
+			}
 		}
 
 		foreach($products as $category_id => $category) {
-			$count = count($category['products']);
+			$count = count($products[$category_id]['products']);
 
 			if($count <= 5) {
 				$products[$category_id]['empty_products'] = 5 - $count;
