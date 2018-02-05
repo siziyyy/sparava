@@ -448,7 +448,14 @@ class Baselib {
 			'countries' => array(),
 			'compositions' => array(),
 			'packs' => array(),
-			'brands' => array()
+			'brands' => array(),
+			'farm' => false,
+			'eko' => false,
+			'diet' => false,
+			'bbox' => false,
+			'recommend' => false,
+			'razves' => false,
+			'pack' => false
 		);
 		
 		foreach($products as $product_id => $product) {
@@ -467,6 +474,34 @@ class Baselib {
 			if(!is_null($product['brand']) and !empty($product['brand'])) {
 				$attributes['brands'][] = $product['brand'];
 			}
+
+			if(!$attributes['farm'] and $product['farm']) {
+				$attributes['farm'] = true;
+			}
+
+			if(!$attributes['eko'] and $product['eko']) {
+				$attributes['eko'] = true;
+			}
+
+			if(!$attributes['diet'] and $product['diet']) {
+				$attributes['diet'] = true;
+			}
+
+			if(!$attributes['recommend'] and $product['recommend']) {
+				$attributes['recommend'] = true;
+			}
+
+			if(!$attributes['bbox'] and ($product['bbox'] or $product['bbox_n'])) {
+				$attributes['bbox'] = true;
+			}
+
+			if(is_null($product['weight']) or empty($product['weight'])) {
+				$attributes['razves'] = true;
+			}
+
+			if(!is_null($product['weight']) and !empty($product['weight'])) {
+				$attributes['pack'] = true;
+			}			
 
 			$types[$product['type']] = $product['type'];
 		}
