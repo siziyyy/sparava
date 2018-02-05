@@ -448,14 +448,7 @@ class Baselib {
 			'countries' => array(),
 			'compositions' => array(),
 			'packs' => array(),
-			'brands' => array(),
-			'farm' => false,
-			'eko' => false,
-			'diet' => false,
-			'bbox' => false,
-			'recommend' => false,
-			'razves' => false,
-			'pack' => false
+			'brands' => array()
 		);
 		
 		foreach($products as $product_id => $product) {
@@ -475,6 +468,40 @@ class Baselib {
 				$attributes['brands'][] = $product['brand'];
 			}
 
+			$types[$product['type']] = $product['type'];
+		}
+		
+		if(count($types) > 1 and isset($types['шт'])) {
+			$attributes['show_weights'] = true;
+		} else {
+			$attributes['show_weights'] = false;
+		}
+		
+		$attributes['countries'] = array_unique($attributes['countries']);
+		$attributes['compositions'] = array_unique($attributes['compositions']);
+		$attributes['packs'] = array_unique($attributes['packs']);
+		$attributes['brands'] = array_unique($attributes['brands']);
+		
+		asort($attributes['countries']);
+		asort($attributes['compositions']);
+		asort($attributes['packs']);
+		asort($attributes['brands']);
+		
+		return $attributes;
+	}
+
+	public function handle_sort_attributes($products) {		
+		$attributes = array(
+			'farm' => false,
+			'eko' => false,
+			'diet' => false,
+			'bbox' => false,
+			'recommend' => false,
+			'razves' => false,
+			'pack' => false
+		);
+		
+		foreach($products as $product_id => $product) {
 			if(!$attributes['farm'] and $product['farm']) {
 				$attributes['farm'] = true;
 			}
@@ -501,29 +528,11 @@ class Baselib {
 
 			if(!is_null($product['weight']) and !empty($product['weight'])) {
 				$attributes['pack'] = true;
-			}			
-
-			$types[$product['type']] = $product['type'];
+			}
 		}
-		
-		if(count($types) > 1 and isset($types['шт'])) {
-			$attributes['show_weights'] = true;
-		} else {
-			$attributes['show_weights'] = false;
-		}
-		
-		$attributes['countries'] = array_unique($attributes['countries']);
-		$attributes['compositions'] = array_unique($attributes['compositions']);
-		$attributes['packs'] = array_unique($attributes['packs']);
-		$attributes['brands'] = array_unique($attributes['brands']);
-		
-		asort($attributes['countries']);
-		asort($attributes['compositions']);
-		asort($attributes['packs']);
-		asort($attributes['brands']);
 		
 		return $attributes;
-	}
+	}	
 
 	public function handle_brands_attributes($products) {
 		$types = array();

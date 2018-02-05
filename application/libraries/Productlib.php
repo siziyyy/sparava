@@ -7,6 +7,144 @@ class Productlib {
     	$this->_ci =& get_instance();
     }
 
+	public function get_top_five($type = false,$element_id = false) {
+		$products = array();
+
+		if($type == 'category') {
+			$sql = "SELECT p.*, c.category_id, c.title AS category, c.bm, c.seo_url FROM categories AS c, product_to_category AS ptc, products AS p WHERE p.status = 1 AND c.category_id = ptc.category_id AND p.product_id = ptc.product_id AND c.parent_id = " . (int)$element_id;
+			//$sql = "SELECT c.* FROM categories AS c, product_to_category AS ptc, products AS p WHERE c.category_id = ptc.category_id AND p.product_id = ptc.product_id AND c.parent_id = " . (int)$element_id;
+
+			$query = $this->_ci->db->query($sql);
+
+			if ($query->num_rows() > 0) {
+				foreach ($query->result_array() as $row) {
+					$products[$row['category_id']]['products'][$row['product_id']] = $row;
+
+					if(!isset($products[$row['category_id']]['info'])) {
+						$products[$row['category_id']]['info'] = array(
+							'title' => $row['category'],
+							'category_id' => $row['category_id'],
+							'seo_url' => $row['seo_url']
+						);
+					}
+				}
+			}			
+		} else {
+			$categories = array();
+
+			$sql = "SELECT * FROM categories";
+			$query = $this->_ci->db->query($sql);
+
+			if ($query->num_rows() > 0) {
+				foreach ($query->result_array() as $row) {
+					$categories[$row['category_id']] = $row;
+				}
+			}
+
+			if($type == 'country') {
+				$sql = "SELECT p.*, c.title AS category, c.parent_id, c.bm, c.seo_url FROM categories AS c, product_to_category AS ptc, products AS p WHERE p.status = 1 AND c.category_id = ptc.category_id AND p.product_id = ptc.product_id AND p.country = '" . $element_id . "';";
+			} elseif($type == 'diet') {
+				$sql = "SELECT p.*, c.title AS category, c.parent_id, c.bm, c.seo_url FROM categories AS c, product_to_category AS ptc, products AS p WHERE p.status = 1 AND c.category_id = ptc.category_id AND p.product_id = ptc.product_id AND p.diet = 1;";
+			} elseif($type == 'eko') {
+				$sql = "SELECT p.*, c.title AS category, c.parent_id, c.bm, c.seo_url FROM categories AS c, product_to_category AS ptc, products AS p WHERE p.status = 1 AND c.category_id = ptc.category_id AND p.product_id = ptc.product_id AND p.eko = 1;";
+			} elseif($type == 'child') {
+				$sql = "SELECT p.*, c.title AS category, c.parent_id, c.bm, c.seo_url FROM categories AS c, product_to_category AS ptc, products AS p WHERE p.status = 1 AND c.category_id = ptc.category_id AND p.product_id = ptc.product_id AND p.child = 1;";
+			} elseif($type == 'farm') {
+				$sql = "SELECT p.*, c.title AS category, c.parent_id, c.bm, c.seo_url FROM categories AS c, product_to_category AS ptc, products AS p WHERE p.status = 1 AND c.category_id = ptc.category_id AND p.product_id = ptc.product_id AND p.farm = 1;";
+			}
+
+			$query = $this->_ci->db->query($sql);
+
+			if ($query->num_rows() > 0) {
+				foreach ($query->result_array() as $row) {
+					if(!isset($categories[$row['parent_id']])) {
+						continue;
+					}
+
+					$products[$row['parent_id']]['products'][$row['product_id']] = $row;
+
+					if(!isset($products[$row['parent_id']]['info'])) {
+						$products[$row['parent_id']]['info'] = array(
+							'title' => $categories[$row['parent_id']]['title'],
+							'category_id' => $row['parent_id'],
+							'seo_url' => $row['seo_url']
+						);
+					}
+				}
+			}			
+		}
+
+		foreach($products as $category_id => $category) {
+			$products[$category_id]['products_count'] = count($category['products']);
+		}		
+
+		if($type == 'category') {
+			foreach($products as $category_id => $category) {
+				foreach($category['products'] as $product_id => $product) {
+					if(!$product['top_category']) {
+						unset($products[$category_id]['products'][$product_id]);
+					}
+				}
+			}
+		} elseif($type == 'country') {
+			foreach($products as $category_id => $category) {
+				foreach($category['products'] as $product_id => $product) {
+					if(!$product['top_country']) {
+						unset($products[$category_id]['products'][$product_id]);
+					}
+				}
+			}
+		} elseif($type == 'eko') {
+			foreach($products as $category_id => $category) {
+				foreach($category['products'] as $product_id => $product) {
+					if(!$product['top_eko']) {
+						unset($products[$category_id]['products'][$product_id]);
+					}
+				}
+			}
+		} elseif($type == 'child') {
+			foreach($products as $category_id => $category) {
+				foreach($category['products'] as $product_id => $product) {
+					if(!$product['top_child']) {
+						unset($products[$category_id]['products'][$product_id]);
+					}
+				}
+			}
+		} elseif($type == 'diet') {
+			foreach($products as $category_id => $category) {
+				foreach($category['products'] as $product_id => $product) {
+					if(!$product['top_diet']) {
+						unset($products[$category_id]['products'][$product_id]);
+					}
+				}
+			}
+		} elseif($type == 'farm') {
+			foreach($products as $category_id => $category) {
+				foreach($category['products'] as $product_id => $product) {
+					if(!$product['top_farm']) {
+						unset($products[$category_id]['products'][$product_id]);
+					}
+				}
+			}
+		}
+
+		foreach($products as $category_id => $category) {
+			$products[$category_id]['products'] = $this->_ci->baselib->handle_special_price($category['products']);
+		}
+
+		foreach($products as $category_id => $category) {
+			$count = count($category['products']);
+
+			if($count <= 5) {
+				$products[$category_id]['empty_products'] = 5 - $count;
+			} else {
+				$products[$category_id]['empty_products'] = 0;
+			}
+		}
+		
+		return $products;
+	}
+
     public function get_parent_category_products($category_id) {
     	$categories = array();
     	$products = array();

@@ -242,45 +242,64 @@ class Main extends CI_Controller {
 				break;
 		}
 
-		$products = $this->productlib->get_country_products($country);
-		$products = $this->productlib->sort_products('country',$country,$products);
-		
-		$filters = array(
-			'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
-		);
-		
-		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
-		
-		$products_in_page = $this->filterlib->filter_products_for_country($products,$filters,$page);
+		if(is_null($this->input->get('category'))) {
+			$products = $this->productlib->get_top_five('country',$country);
+			//$products = $this->productlib->get_parent_category_products($parent_category_id);
 
-		$empty_products = count($products_in_page['products'])%5; 
-					
-		if($empty_products > 0) {
-			$empty_products = 5-$empty_products;
-		}	
-		
-		$data = array(
-			'header' => array(
-				'cart' => $this->get_cart_info_for_header()
-			),
-			'menu' => array(
-				'filters' => $filters
-			),
-			'products' => $products_in_page['products'],
-			'current_page' => $page,
-			'pages_count' => $products_in_page['pages_count'],
-			'country_id' => $country_id,
-			'country' => $country,
-			'categories' => $products_in_page['categories_for_country'],
-			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
-			'footer' => array(
-				'account_confirm' => $this->baselib->get_account_data_for_confirm()
-			),
-			'pages' => $this->baselib->create_pager($products_in_page['pages_count'],$page),
-			'empty_products' => $empty_products,
-			'filters_text' => $products_in_page['filters_text']
-		);
-		
+			$data = array(
+				'header' => array(
+					'cart' => $this->get_cart_info_for_header()
+				),
+				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
+				'footer' => array(
+					'account_confirm' => $this->baselib->get_account_data_for_confirm()
+				),
+				'is_first_page' => true,
+				'country' => $country,
+				'products' => $products
+			);
+		} else {
+			$products = $this->productlib->get_country_products($country);
+			$products = $this->productlib->sort_products('country',$country,$products);
+			
+			$filters = array(
+				'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
+			);
+			
+			$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
+			
+			$products_in_page = $this->filterlib->filter_products_for_country($products,$filters,$page);
+
+			$empty_products = count($products_in_page['products'])%5; 
+						
+			if($empty_products > 0) {
+				$empty_products = 5-$empty_products;
+			}	
+			
+			$data = array(
+				'header' => array(
+					'cart' => $this->get_cart_info_for_header()
+				),
+				'menu' => array(
+					'filters' => $filters
+				),
+				'products' => $products_in_page['products'],
+				'current_page' => $page,
+				'pages_count' => $products_in_page['pages_count'],
+				'country_id' => $country_id,
+				'country' => $country,
+				'categories' => $products_in_page['categories_for_country'],
+				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
+				'footer' => array(
+					'account_confirm' => $this->baselib->get_account_data_for_confirm()
+				),
+				'pages' => $this->baselib->create_pager($products_in_page['pages_count'],$page),
+				'empty_products' => $empty_products,
+				'is_first_page' => false,
+				'filters_text' => $products_in_page['filters_text']
+			);			
+		}
+
 		$this->load->view('country',$data);
 	}
 	
@@ -518,7 +537,8 @@ class Main extends CI_Controller {
 		$parent_category_id = $this->baselib->is_parent_category($category);
 
 		if($parent_category_id) {
-			$products = $this->productlib->get_parent_category_products($parent_category_id);
+			$products = $this->productlib->get_top_five('category',$parent_category_id);
+			//$products = $this->productlib->get_parent_category_products($parent_category_id);
 
 			$menu = $this->baselib->get_categories($category,true);
 			$menu_childs = array();
@@ -596,7 +616,9 @@ class Main extends CI_Controller {
 
 			
 			$products = $this->productlib->get_category_products($category);
-			$data['sort_attr'] = $this->baselib->handle_attributes($products);
+
+			$data['sort_attr'] = $this->baselib->handle_sort_attributes($products);
+			
 			$products = $this->productlib->sort_products('category',$category,$products);
 			$products = $this->productlib->filter_products_by_sort($products,$category);
 			
@@ -724,181 +746,253 @@ class Main extends CI_Controller {
 	}		
 
 	public function child() {
-		
-		$filters = array(
-			'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
-		);
-		
-		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
-		
-		$products = $this->productlib->get_products_with_categories(false,'child');
-		$products = $this->productlib->sort_products('category','child',$products);
-		
-		$data = array(
-			'header' => array(
-				'cart' => $this->get_cart_info_for_header()
-			),
-			'category' => 'child',
-			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
-			'footer' => array(
-				'account_confirm' => $this->baselib->get_account_data_for_confirm()
-			)
-		);
-		
-		$data['filters'] = $filters;
+		if(is_null($this->input->get('category'))) {
+			$products = $this->productlib->get_top_five('child');
 
-		$products_in_page = $this->filterlib->filter_products_for_providers_full($products,$filters,$page);
+			$data = array(
+				'header' => array(
+					'cart' => $this->get_cart_info_for_header()
+				),
+				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
+				'footer' => array(
+					'account_confirm' => $this->baselib->get_account_data_for_confirm()
+				),
+				'is_first_page' => true,
+				'category' => 'child',
+				'products' => $products
+			);
+		} else {		
+		
+			$filters = array(
+				'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
+			);
+			
+			$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
+			
+			$products = $this->productlib->get_products_with_categories(false,'child');
+			$products = $this->productlib->sort_products('category','child',$products);
+			
+			$data = array(
+				'header' => array(
+					'cart' => $this->get_cart_info_for_header()
+				),
+				'category' => 'child',
+				'is_first_page' => false,
+				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
+				'footer' => array(
+					'account_confirm' => $this->baselib->get_account_data_for_confirm()
+				)
+			);
+			
+			$data['filters'] = $filters;
 
-		$empty_products = count($products_in_page['products'])%5; 
-					
-		if($empty_products > 0) {
-			$empty_products = 5-$empty_products;
+			$products_in_page = $this->filterlib->filter_products_for_providers_full($products,$filters,$page);
+
+			$empty_products = count($products_in_page['products'])%5; 
+						
+			if($empty_products > 0) {
+				$empty_products = 5-$empty_products;
+			}
+			
+			$data['products'] = $products_in_page['products'];
+			$data['pages_count'] = $products_in_page['pages_count'];
+			$data['filters_used'] = $products_in_page['filters_used'];
+			$data['filters_text'] = $products_in_page['filters_text'];
+			$data['categories_for_provider'] = $products_in_page['categories_for_provider'];
+			$data['current_page'] = $page;
+			$data['products_count'] = $products_in_page['products_count'];
+			$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);
+			$data['empty_products'] = $empty_products;
 		}
-		
-		$data['products'] = $products_in_page['products'];
-		$data['pages_count'] = $products_in_page['pages_count'];
-		$data['filters_used'] = $products_in_page['filters_used'];
-		$data['filters_text'] = $products_in_page['filters_text'];
-		$data['categories_for_provider'] = $products_in_page['categories_for_provider'];
-		$data['current_page'] = $page;
-		$data['products_count'] = $products_in_page['products_count'];
-		$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);
-		$data['empty_products'] = $empty_products;
-		
+
 		$this->load->view('category_alt', $data);
 	}
 	
 	public function eko() {
-		
-		$filters = array(
-			'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
-		);
-		
-		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
-		
-		$products = $this->productlib->get_products_with_categories(false,'eko');
-		$products = $this->productlib->sort_products('category','eko',$products);
-		
-		$data = array(
-			'header' => array(
-				'cart' => $this->get_cart_info_for_header()
-			),
-			'category' => 'eko',
-			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
-			'footer' => array(
-				'account_confirm' => $this->baselib->get_account_data_for_confirm()
-			)
-		);
-		
-		$data['filters'] = $filters;
 
-		$products_in_page = $this->filterlib->filter_products_for_providers_full($products,$filters,$page);
+		if(is_null($this->input->get('category'))) {
+			$products = $this->productlib->get_top_five('eko');
 
-		$empty_products = count($products_in_page['products'])%5; 
-					
-		if($empty_products > 0) {
-			$empty_products = 5-$empty_products;
+			$data = array(
+				'header' => array(
+					'cart' => $this->get_cart_info_for_header()
+				),
+				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
+				'footer' => array(
+					'account_confirm' => $this->baselib->get_account_data_for_confirm()
+				),
+				'is_first_page' => true,
+				'category' => 'eko',
+				'products' => $products
+			);
+		} else {
+		
+			$filters = array(
+				'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
+			);
+			
+			$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
+			
+			$products = $this->productlib->get_products_with_categories(false,'eko');
+			$products = $this->productlib->sort_products('category','eko',$products);
+			
+			$data = array(
+				'header' => array(
+					'cart' => $this->get_cart_info_for_header()
+				),
+				'category' => 'eko',
+				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
+				'footer' => array(
+					'account_confirm' => $this->baselib->get_account_data_for_confirm()
+				),
+				'is_first_page' => false
+			);
+			
+			$data['filters'] = $filters;
+
+			$products_in_page = $this->filterlib->filter_products_for_providers_full($products,$filters,$page);
+
+			$empty_products = count($products_in_page['products'])%5; 
+						
+			if($empty_products > 0) {
+				$empty_products = 5-$empty_products;
+			}
+			
+			$data['products'] = $products_in_page['products'];
+			$data['pages_count'] = $products_in_page['pages_count'];
+			$data['filters_used'] = $products_in_page['filters_used'];
+			$data['filters_text'] = $products_in_page['filters_text'];
+			$data['categories_for_provider'] = $products_in_page['categories_for_provider'];
+			$data['current_page'] = $page;
+			$data['products_count'] = $products_in_page['products_count'];
+			$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);
+			$data['empty_products'] = $empty_products;
 		}
-		
-		$data['products'] = $products_in_page['products'];
-		$data['pages_count'] = $products_in_page['pages_count'];
-		$data['filters_used'] = $products_in_page['filters_used'];
-		$data['filters_text'] = $products_in_page['filters_text'];
-		$data['categories_for_provider'] = $products_in_page['categories_for_provider'];
-		$data['current_page'] = $page;
-		$data['products_count'] = $products_in_page['products_count'];
-		$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);
-		$data['empty_products'] = $empty_products;
-		
+			
 		$this->load->view('category_alt', $data);
 	}
 
 	public function farm() {
-		
-		$filters = array(
-			'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
-		);
-		
-		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
+		if(is_null($this->input->get('category'))) {
+			$products = $this->productlib->get_top_five('farm');
 
-		$products = $this->productlib->get_products_with_categories(false,'farm');
-		$products = $this->productlib->sort_products('category','farm',$products);
+			$data = array(
+				'header' => array(
+					'cart' => $this->get_cart_info_for_header()
+				),
+				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
+				'footer' => array(
+					'account_confirm' => $this->baselib->get_account_data_for_confirm()
+				),
+				'is_first_page' => true,
+				'category' => 'farm',
+				'products' => $products
+			);
+		} else {		
 		
-		$data = array(
-			'header' => array(
-				'cart' => $this->get_cart_info_for_header()
-			),
-			'category' => 'farm',
-			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
-			'footer' => array(
-				'account_confirm' => $this->baselib->get_account_data_for_confirm()
-			)
-		);
-		
-		$data['filters'] = $filters;
+			$filters = array(
+				'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
+			);
+			
+			$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
 
-		$products_in_page = $this->filterlib->filter_products_for_providers_full($products,$filters,$page);
+			$products = $this->productlib->get_products_with_categories(false,'farm');
+			$products = $this->productlib->sort_products('category','farm',$products);
+			
+			$data = array(
+				'header' => array(
+					'cart' => $this->get_cart_info_for_header()
+				),
+				'category' => 'farm',
+				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
+				'is_first_page' => false,
+				'footer' => array(
+					'account_confirm' => $this->baselib->get_account_data_for_confirm()
+				)
+			);
+			
+			$data['filters'] = $filters;
 
-		$empty_products = count($products_in_page['products'])%5; 
-					
-		if($empty_products > 0) {
-			$empty_products = 5-$empty_products;
+			$products_in_page = $this->filterlib->filter_products_for_providers_full($products,$filters,$page);
+
+			$empty_products = count($products_in_page['products'])%5; 
+						
+			if($empty_products > 0) {
+				$empty_products = 5-$empty_products;
+			}
+			
+			$data['products'] = $products_in_page['products'];
+			$data['pages_count'] = $products_in_page['pages_count'];
+			$data['filters_used'] = $products_in_page['filters_used'];
+			$data['filters_text'] = $products_in_page['filters_text'];
+			$data['categories_for_provider'] = $products_in_page['categories_for_provider'];
+			$data['current_page'] = $page;
+			$data['products_count'] = $products_in_page['products_count'];
+			$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);
+			$data['empty_products'] = $empty_products;
 		}
-		
-		$data['products'] = $products_in_page['products'];
-		$data['pages_count'] = $products_in_page['pages_count'];
-		$data['filters_used'] = $products_in_page['filters_used'];
-		$data['filters_text'] = $products_in_page['filters_text'];
-		$data['categories_for_provider'] = $products_in_page['categories_for_provider'];
-		$data['current_page'] = $page;
-		$data['products_count'] = $products_in_page['products_count'];
-		$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);
-		$data['empty_products'] = $empty_products;
 		
 		$this->load->view('category_alt', $data);
 	}
 	
 	public function diet() {
-		
-		$filters = array(
-			'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
-		);
-		
-		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
-		
-		$products = $this->productlib->get_products_with_categories(false,'diet');
-		$products = $this->productlib->sort_products('category','diet',$products);
-		
-		$data = array(
-			'header' => array(
-				'cart' => $this->get_cart_info_for_header()
-			),
-			'category' => 'diet',
-			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
-			'footer' => array(
-				'account_confirm' => $this->baselib->get_account_data_for_confirm()
-			)
-		);
-		
-		$data['filters'] = $filters;
+		if(is_null($this->input->get('category'))) {
+			$products = $this->productlib->get_top_five('diet');
 
-		$products_in_page = $this->filterlib->filter_products_for_providers_full($products,$filters,$page);
+			$data = array(
+				'header' => array(
+					'cart' => $this->get_cart_info_for_header()
+				),
+				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
+				'footer' => array(
+					'account_confirm' => $this->baselib->get_account_data_for_confirm()
+				),
+				'is_first_page' => true,
+				'category' => 'diet',
+				'products' => $products
+			);
+		} else {		
+			$filters = array(
+				'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
+			);
+			
+			$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
+			
+			$products = $this->productlib->get_products_with_categories(false,'diet');
+			$products = $this->productlib->sort_products('category','diet',$products);
+			
+			$data = array(
+				'header' => array(
+					'cart' => $this->get_cart_info_for_header()
+				),
+				'category' => 'diet',
+				'is_first_page' => false,
+				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
+				'footer' => array(
+					'account_confirm' => $this->baselib->get_account_data_for_confirm()
+				)
+			);
+			
+			$data['filters'] = $filters;
 
-		$empty_products = count($products_in_page['products'])%5; 
-					
-		if($empty_products > 0) {
-			$empty_products = 5-$empty_products;
+			$products_in_page = $this->filterlib->filter_products_for_providers_full($products,$filters,$page);
+
+			$empty_products = count($products_in_page['products'])%5; 
+						
+			if($empty_products > 0) {
+				$empty_products = 5-$empty_products;
+			}
+			
+			$data['products'] = $products_in_page['products'];
+			$data['pages_count'] = $products_in_page['pages_count'];
+			$data['filters_used'] = $products_in_page['filters_used'];
+			$data['filters_text'] = $products_in_page['filters_text'];
+			$data['categories_for_provider'] = $products_in_page['categories_for_provider'];
+			$data['current_page'] = $page;
+			$data['menu']['products_count'] = $products_in_page['products_count'];
+			$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);
+			$data['empty_products'] = $empty_products;
 		}
-		
-		$data['products'] = $products_in_page['products'];
-		$data['pages_count'] = $products_in_page['pages_count'];
-		$data['filters_used'] = $products_in_page['filters_used'];
-		$data['filters_text'] = $products_in_page['filters_text'];
-		$data['categories_for_provider'] = $products_in_page['categories_for_provider'];
-		$data['current_page'] = $page;
-		$data['menu']['products_count'] = $products_in_page['products_count'];
-		$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);
-		$data['empty_products'] = $empty_products;
 		
 		$this->load->view('category_alt', $data);
 	}	
