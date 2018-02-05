@@ -59,7 +59,7 @@
                 </section>
             </div>
             <div class="good_page" >
-                <section class="content single_good_page" data-product-id="<?php echo $product['product_id'] ?>" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>">
+                <section class="content single_good_page" style="min-height: auto" data-product-id="<?php echo $product['product_id'] ?>" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>">
                     <div class="content_helper">
                         <div class="good_page_left fl_l">
                             <img src="/images/<?php echo $product['image'] ?>" class="good_page_photo" onError="this.src='/assets/img/nophoto.jpg'">
