@@ -748,7 +748,7 @@ class Baselib {
 	public function get_totals_for_cart($totals) {
 		if(!is_null($this->_ci->session->userdata('shipping_method'))) {
 			
-			$shipping_methods = $this->_ci->get_shipping_methods();
+			$shipping_methods = $this->get_shipping_methods();
 			
 			$totals['shipping'] = array(
 				'title' => 'доставка',
