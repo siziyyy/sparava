@@ -15,6 +15,10 @@
                                     диетические продукты
                                 <?php } elseif($category == 'child') { ?>
                                     для детей
+                                <?php } elseif($category == 'recommend') { ?>
+                                    особо рекомендуемые
+                                <?php } elseif($category == 'bbox') { ?>
+                                    большая упаковка
                                 <?php } ?>
                             </div>     
 							<?php if(!$is_first_page and count($categories_for_provider) > 0) { ?>

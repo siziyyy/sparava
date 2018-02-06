@@ -88,7 +88,7 @@
 	 <a href="/country/2" class="c_new_index_menu_dropdown_link">Италия</a>
 	 <a href="/country/3" class="c_new_index_menu_dropdown_link">Испания</a>
 	 <a href="/country/4" class="c_new_index_menu_dropdown_link">Греция</a>
-	 <a href="/country/5" class="c_new_index_menu_dropdown_link">Буларусь</a>
+	 <a href="/country/10" class="c_new_index_menu_dropdown_link">Беларусь</a>
 	 <a href="/country/6" class="c_new_index_menu_dropdown_link">Армения</a>
 	 <a href="/country/8" class="c_new_index_menu_dropdown_link">Азербайджан</a>
 	 <a href="/country/7" class="c_new_index_menu_dropdown_link">Узбекистан</a>
@@ -100,6 +100,8 @@
 		 <a href="/farm" class="c_new_index_menu_dropdown_link">Фермерские</a>
 		 <a href="/eko" class="c_new_index_menu_dropdown_link">Эко и органик</a>
 		 <a href="/child" class="c_new_index_menu_dropdown_link">Для детей</a>
+		 <a href="/recommend" class="c_new_index_menu_dropdown_link">Особо рекомендуемые</a>
+		 <a href="/bbox" class="c_new_index_menu_dropdown_link">Большая упаковка</a>
 	 </div>
 </div>
 <div class="clear"></div>
