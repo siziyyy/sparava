@@ -237,6 +237,9 @@ class Main extends CI_Controller {
 			case 9:
 				$country = 'Молдова';
 				break;
+			case 10:
+				$country = 'Беларусь';
+				break;				
 			default:
 				$country = 'Россия';
 				break;
@@ -244,7 +247,6 @@ class Main extends CI_Controller {
 
 		if(is_null($this->input->get('category'))) {
 			$products = $this->productlib->get_top_five('country',$country);
-			//$products = $this->productlib->get_parent_category_products($parent_category_id);
 
 			$data = array(
 				'header' => array(
@@ -538,7 +540,6 @@ class Main extends CI_Controller {
 
 		if($parent_category_id) {
 			$products = $this->productlib->get_top_five('category',$parent_category_id);
-			//$products = $this->productlib->get_parent_category_products($parent_category_id);
 
 			$menu = $this->baselib->get_categories($category,true);
 			$menu_childs = array();
@@ -805,6 +806,134 @@ class Main extends CI_Controller {
 			$data['empty_products'] = $empty_products;
 		}
 
+		$this->load->view('category_alt', $data);
+	}
+
+	public function recommend() {
+
+		if(is_null($this->input->get('category'))) {
+			$products = $this->productlib->get_top_five('recommend');
+
+			$data = array(
+				'header' => array(
+					'cart' => $this->get_cart_info_for_header()
+				),
+				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
+				'footer' => array(
+					'account_confirm' => $this->baselib->get_account_data_for_confirm()
+				),
+				'is_first_page' => true,
+				'category' => 'recommend',
+				'products' => $products
+			);
+		} else {
+		
+			$filters = array(
+				'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
+			);
+			
+			$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
+			
+			$products = $this->productlib->get_products_with_categories(false,'recommend');
+			$products = $this->productlib->sort_products('category','recommend',$products);
+			
+			$data = array(
+				'header' => array(
+					'cart' => $this->get_cart_info_for_header()
+				),
+				'category' => 'recommend',
+				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
+				'footer' => array(
+					'account_confirm' => $this->baselib->get_account_data_for_confirm()
+				),
+				'is_first_page' => false
+			);
+			
+			$data['filters'] = $filters;
+
+			$products_in_page = $this->filterlib->filter_products_for_providers_full($products,$filters,$page);
+
+			$empty_products = count($products_in_page['products'])%5; 
+						
+			if($empty_products > 0) {
+				$empty_products = 5-$empty_products;
+			}
+			
+			$data['products'] = $products_in_page['products'];
+			$data['pages_count'] = $products_in_page['pages_count'];
+			$data['filters_used'] = $products_in_page['filters_used'];
+			$data['filters_text'] = $products_in_page['filters_text'];
+			$data['categories_for_provider'] = $products_in_page['categories_for_provider'];
+			$data['current_page'] = $page;
+			$data['products_count'] = $products_in_page['products_count'];
+			$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);
+			$data['empty_products'] = $empty_products;
+		}
+			
+		$this->load->view('category_alt', $data);
+	}
+
+	public function bbox() {
+
+		if(is_null($this->input->get('category'))) {
+			$products = $this->productlib->get_top_five('bbox');
+
+			$data = array(
+				'header' => array(
+					'cart' => $this->get_cart_info_for_header()
+				),
+				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
+				'footer' => array(
+					'account_confirm' => $this->baselib->get_account_data_for_confirm()
+				),
+				'is_first_page' => true,
+				'category' => 'bbox',
+				'products' => $products
+			);
+		} else {
+		
+			$filters = array(
+				'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
+			);
+			
+			$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
+			
+			$products = $this->productlib->get_products_with_categories(false,'bbox');
+			$products = $this->productlib->sort_products('category','bbox',$products);
+			
+			$data = array(
+				'header' => array(
+					'cart' => $this->get_cart_info_for_header()
+				),
+				'category' => 'bbox',
+				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
+				'footer' => array(
+					'account_confirm' => $this->baselib->get_account_data_for_confirm()
+				),
+				'is_first_page' => false
+			);
+			
+			$data['filters'] = $filters;
+
+			$products_in_page = $this->filterlib->filter_products_for_providers_full($products,$filters,$page);
+
+			$empty_products = count($products_in_page['products'])%5; 
+						
+			if($empty_products > 0) {
+				$empty_products = 5-$empty_products;
+			}
+			
+			$data['products'] = $products_in_page['products'];
+			$data['pages_count'] = $products_in_page['pages_count'];
+			$data['filters_used'] = $products_in_page['filters_used'];
+			$data['filters_text'] = $products_in_page['filters_text'];
+			$data['categories_for_provider'] = $products_in_page['categories_for_provider'];
+			$data['current_page'] = $page;
+			$data['products_count'] = $products_in_page['products_count'];
+			$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);
+			$data['empty_products'] = $empty_products;
+		}
+			
 		$this->load->view('category_alt', $data);
 	}
 	
