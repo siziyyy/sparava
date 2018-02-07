@@ -33,12 +33,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             transition: background .3s ease;
         }
         body {
+        	background-color: #333;
         	background-image: url('/assets/img/404.jpg');
         	background-repeat: no-repeat;
         	-webkit-background-size: cover;
         	     -o-background-size: cover;
         	        background-size: cover;
         	background-position: center;
+        	    background-blend-mode: lighten;
         }
 </style>
 <a href="/" class="button">Вернуться на главную</a>
