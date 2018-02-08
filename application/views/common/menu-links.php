@@ -49,7 +49,7 @@
 	<a href="/category/201" class="c_new_index_menu_dropdown_link">Конфеты и шоколад</a>
 	<a href="/category/22" class="c_new_index_menu_dropdown_link">Торты и пирожные</a>
 	<a href="/category/202" class="c_new_index_menu_dropdown_link">Восточные сладости</a>
-	<a href="/category/20" class="c_new_index_menu_dropdown_link">Печенье</a>
+	<a href="/category/321" class="c_new_index_menu_dropdown_link">Печенье, вафли, пряники</a>
 	<a href="/category/21" class="c_new_index_menu_dropdown_link">Другие сладости</a>
 	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
 	<a href="/category/23" class="c_new_index_menu_dropdown_link">Мед</a>

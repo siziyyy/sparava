@@ -54,11 +54,11 @@
                     <div class="good_modal_right_line composition">
                         <div class="good_modal_kkk">
                             <span class="good_modal_rl_header">Ценность на 100 г: </span>
-                            Ккал - <span class="kkal"></span>, 
-                            Белки - <span class="belki"></span>, 
-                            Углеводы - <span class="uglevodi"></span>, 
-                            Жиры - <span class="jiri"></span>,
-                            GI - <span class="gi"></span>,
+                            <span class="composition_kkal">Ккал - <span class="kkal"></span></span>
+                            <span class="composition_belki">, Белки - <span class="belki"></span></span>
+                            <span class="composition_uglevodi">, Углеводы - <span class="uglevodi"></span></span>
+                            <span class="composition_jiri">, Жиры - <span class="jiri"></span></span>
+                            <span class="composition_gi">, GI - <span class="gi"></span></span>
                         </div>
                     </div>
                     <div class="good_modal_right_line good_modal_bbefore_wrapper">
@@ -70,7 +70,7 @@
                         <div class="good_modal_country clear_on_load fl_l"></div>
                         <a href="" class="good_modal_firm good_modal_firm_with_link clear_on_load fl_l"></a>
                         <div class="good_modal_firm good_modal_firm_without_link good_modal_firm_not_link clear_on_load fl_l"></div>
-                        <a href="/" class="good_modal_ink_link good_modal_ink_link2">об этом товаре в блоге</a>
+                        <a href="/" class="good_modal_ink_link good_modal_ink_link2 about_this_product">об этом товаре в блоге</a>
                         <div class="clear"></div>
                     </div>
                     <div class="good_modal_right_line actions_holder">

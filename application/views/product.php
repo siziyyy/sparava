@@ -54,7 +54,6 @@
                         <a href="/category/<?php echo $product['category_id'] ?>" class="breadcrumbs_item"><?php echo $product['category_title'] ?></a>
                         <span class="breadcrumbs_sep">/</span>                    
                         <span class="breadcrumbs_item last_breadcrumb"><?php echo (is_null($product['title_full']) ? $product['title'] : $product['title_full']) ?></span>
-
                     </div>
                 </section>
             </div>
@@ -153,7 +152,9 @@
                                     <div class="good_modal_country fl_l"><?php echo $product['country'] ?></div>
                                 <?php } ?>
                                 <span class="good_modal_firm good_modal_firm_not_link fl_l"><?php echo $product['brand'] ?></span>
-                                <a href="/" class="good_modal_ink_link">об этом товаре в блоге</a>
+                                <?php if(!is_null($product['blog_id'])) { ?>
+                                    <a href="/blogs/<?php echo $product['blog_id'] ?>" class="good_modal_ink_link">об этом товаре в блоге</a>
+                                <?php } ?>
                                 <div class="clear"></div>
                             </div>
                             <div class="good_modal_right_line actions_holder">

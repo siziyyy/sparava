@@ -440,4 +440,4 @@ body,html,textarea{font-family:Calibri}
             </div>
         </div>-->
         <?php $this->load->view('common/product-edit-form');?>
-        <?php $this->load->view('common/product-info');?>        
+        <?php $this->load->view('common/product-info');?>
