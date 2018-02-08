@@ -742,7 +742,7 @@ class Main extends CI_Controller {
 				'related_products' => $this->productlib->get_products_by_ids($related_products_ids)
 			);
 
-			$this->load->view('product', $data);			
+			$this->load->view('product', $data);
 		}
 	}		
 
@@ -1374,7 +1374,7 @@ class Main extends CI_Controller {
 				$product_id = $this->input->post('product_id');
 				$product = $this->productlib->get_product_by_id($product_id);
 				$product['share_html'] = $this->baselib->get_share_links('/product/'.$product['product_id'], $product['title'], $product['description'], $product['image']);
-				
+
 				foreach($product as $attr_id => $attr) {
 					if(is_null($attr)) {
 						unset($product[$attr_id]);
@@ -1600,6 +1600,30 @@ class Main extends CI_Controller {
 						$page = (!is_null($this->input->post('page')) ? $this->input->post('page') : 1);
 											
 						switch ($this->input->post('category_id')) {
+							case 'bbox':
+
+								$filters = array(
+									'category' => (isset($filters_post->category) ? $filters_post->category : 0)
+								);
+
+								$products = $this->productlib->get_products_with_categories(false,'bbox');
+								$products = $this->productlib->sort_products('category','bbox',$products);
+								$products_in_page = $this->filterlib->filter_products_for_providers_full($products,$filters,$page);
+								
+								break;
+
+							case 'recommend':
+
+								$filters = array(
+									'category' => (isset($filters_post->category) ? $filters_post->category : 0)
+								);
+
+								$products = $this->productlib->get_products_with_categories(false,'recommend');
+								$products = $this->productlib->sort_products('category','recommend',$products);
+								$products_in_page = $this->filterlib->filter_products_for_providers_full($products,$filters,$page);
+								
+								break;
+
 							case 'eko':
 
 								$filters = array(

@@ -77,8 +77,9 @@
 	                <?php } ?>
 	            <?php } else { ?>
 	            	<div class="new_cool_line_of_filters_aaarrrghh" data-category="<?php echo $category ?>">
-	            		<div class="new_cool_line_of_filters_aaarrrghh_item new_cool_line_of_filters_aaarrrghh_item_first send <?php echo (!$sort_order ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="clear">все</div>
-	            		
+	            		<?php if(($sort_attr['razves'] and $sort_attr['pack']) or $sort_attr['bbox'] or $sort_attr['farm'] or $sort_attr['eko'] or $sort_attr['diet'] or $sort_attr['recommend']) { ?>
+	            			<div class="new_cool_line_of_filters_aaarrrghh_item new_cool_line_of_filters_aaarrrghh_item_first send <?php echo (!$sort_order ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="clear">все</div>
+	            		<?php } ?>
 	            		<?php if(($sort_attr['razves'] and $sort_attr['pack']) or $sort_attr['bbox']) { ?>
 	            			<div class="new_cool_line_of_filters_aaarrrghh_separator"></div>
 		            		<?php if($sort_attr['razves'] and $sort_attr['pack']) { ?>
@@ -107,20 +108,6 @@
 		            			<div class="new_cool_line_of_filters_aaarrrghh_item send <?php echo (isset($sort_order['recommend']) ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="recommend">особо рекомендуем</div>
 		            		<?php } ?>
 	            		<?php } ?>
-	            		
-	            		<div class="new_cool_line_of_filters_aaarrrghh_separator"></div>
-	            		<div class="new_cool_line_of_filters_aaarrrghh_item new_cool_line_of_filters_aaarrrghh_item_link">
-		            		сохранить
-	            			<div class="new_cool_line_of_filters_aaarrrghh_dropdown">	            				
-								При сохранение данной комбинации в следующие 
-								разы мы будем выстраивать выдачу по принципу
-								в первую очередь показать - 
-								упакованные товары / диетические
-								<div class="new_cool_line_of_filters_aaarrrghh_dropdown_button">
-									сохранить
-								</div>
-	            			</div>
-		            	</div>
 	            		<div class="vgyhunjimko"></div>
 	            	</div>
 	                <div class="goods">

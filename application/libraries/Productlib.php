@@ -121,12 +121,10 @@ class Productlib {
 		}
 
 		foreach($products as $category_id => $category) {
-			$count = count($products[$category_id]['products']);
+			$products[$category_id]['empty_products'] = 0;
 
-			if($count <= 5) {
-				$products[$category_id]['empty_products'] = 5 - $count;
-			} else {
-				$products[$category_id]['empty_products'] = 0;
+			if(count($products[$category_id]['products']) < 5) {
+				unset($products[$category_id]);
 			}
 		}
 		
@@ -457,6 +455,17 @@ class Productlib {
  					$product['youtube'][] = $video;
  				}
  			}
+
+ 			$sql = 'SELECT blog_id FROM blogs WHERE linked_product_id = '.$product['product_id'];
+			$query = $this->_ci->db->query($sql);
+
+			if ($query->num_rows() > 0) {
+				$blog = $query->row_array();
+
+				$product['blog_id'] = $blog['blog_id'];
+			} else {
+				$product['blog_id'] = NULL;
+			}
 
 			return $this->_ci->baselib->handle_special_price($product);
 		}

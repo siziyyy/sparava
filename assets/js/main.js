@@ -1597,7 +1597,8 @@ $(document).ready(function() {
 							
 							$('#product_info').attr('data-type',send_data.good_type);
 							
-
+							
+							$('#product_info .about_this_product').hide();
 							$('#product_info .good_modal_sr_ves_wrapper').hide();
 							$('#product_info .good_modal_consist_wrapper').hide();
 							$('#product_info .good_modal_bbefore_wrapper').hide();
@@ -1606,6 +1607,12 @@ $(document).ready(function() {
 							$('#product_info .share_it_faster').empty();
 							
 							$('#product_info .composition').hide();
+							$('#product_info .composition_kkal').hide();
+							$('#product_info .composition_belki').hide();
+							$('#product_info .composition_uglevodi').hide();
+							$('#product_info .composition_jiri').hide();
+							$('#product_info .composition_gi').hide();
+
 							$('#product_info .good_modal_video_line').hide();
 							$('#product_info .good_modal_video_line').empty();	
 							$('#playlist').empty();						
@@ -1616,13 +1623,13 @@ $(document).ready(function() {
 								$('#product_info .good_modal_firm_with_link').show();
 							} else if (product['brand']) {
 								$('#product_info .good_modal_firm_without_link').text(product['brand']);
-								$('#product_info .good_modal_firm_without_link').show();								
+								$('#product_info .good_modal_firm_without_link').show();
 							}
-							
-							if(product['kkal']) {
-								$('#product_info .kkal').text(product['kkal']);
-								$('#product_info .composition').show();
-							}
+
+							if(product['blog_id']) {
+								$('#product_info .about_this_product').attr('href', '/blogs/'+product['blog_id']);
+								$('#product_info .about_this_product').show();
+							}							
 
 							if(product['sr_ves']) {
 								$('#product_info .good_modal_sr_ves').text(product['sr_ves']);
@@ -1639,24 +1646,36 @@ $(document).ready(function() {
 								$('#product_info .good_modal_bbefore_wrapper').show();
 							}
 
+							if(product['kkal']) {
+								$('#product_info .kkal').text(product['kkal']);
+								$('#product_info .composition_kkal').show();
+								$('#product_info .composition').show();
+							}
+
 							if(product['belki']) {
 								$('#product_info .belki').text(product['belki']);
+								$('#product_info .composition_belki').show();
 								$('#product_info .composition').show();
 							}
 
 							if(product['jiri']) {
 								$('#product_info .jiri').text(product['jiri']);
+								$('#product_info .composition_jiri').show();
 								$('#product_info .composition').show();
 							}
 
 							if(product['uglevodi']) {
 								$('#product_info .uglevodi').text(product['uglevodi']);
+								$('#product_info .composition_uglevodi').show();
 								$('#product_info .composition').show();
 							}
-
+							
 							if(product['gi']) {
-								$('#product_info .gi').text(product['gi']);
-								$('#product_info .composition').show();
+								if(product['gi'].length > 0) {
+									$('#product_info .gi').text(product['gi']);
+									$('#product_info .composition_gi').show();
+									$('#product_info .composition').show();
+								}
 							}
 
 							if(product['share_html']) {
