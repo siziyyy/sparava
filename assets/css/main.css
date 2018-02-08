@@ -1586,8 +1586,10 @@ header .content_helper {
     height: 45px;
 }
 .new_cool_line_of_filters_aaarrrghh {
-    margin-bottom: -45px;
+    margin-bottom: -25px;
     position: relative;
+    margin-top: -11px;
+    height: 51px;
 }
 .new_cool_line_of_filters_aaarrrghh_dropdown {
     width: 342px;
