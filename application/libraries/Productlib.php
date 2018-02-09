@@ -11,7 +11,7 @@ class Productlib {
 		$products = array();
 
 		if($type == 'category') {
-			$sql = "SELECT p.*, c.category_id, c.title AS category, c.bm, c.seo_url FROM categories AS c, product_to_category AS ptc, products AS p WHERE p.status = 1 AND c.category_id = ptc.category_id AND p.product_id = ptc.product_id AND c.parent_id = " . (int)$element_id . " ORDER BY c.category_id ASC, c.sort_order ASC";
+			$sql = "SELECT p.*, c.category_id, c.title AS category, c.bm, c.seo_url FROM categories AS c, product_to_category AS ptc, products AS p WHERE p.status = 1 AND c.category_id = ptc.category_id AND p.product_id = ptc.product_id AND c.parent_id = " . (int)$element_id . " ORDER BY c.sort_order ASC";
 
 			$query = $this->_ci->db->query($sql);
 
@@ -80,7 +80,13 @@ class Productlib {
 		}
 
 		foreach($products as $category_id => $category) {
-			$products[$category_id]['products_count'] = count($category['products']);
+			$count = count($category['products']);
+
+			if($count >= 5) {
+				$products[$category_id]['products_count'] = $count;
+			} else {
+				unset($products[$category_id]);
+			}
 		}
 
 		$top_struct = array(
@@ -121,10 +127,12 @@ class Productlib {
 		}
 
 		foreach($products as $category_id => $category) {
-			$products[$category_id]['empty_products'] = 0;
+			$count = count($products[$category_id]['products']);
 
-			if(count($products[$category_id]['products']) < 5) {
-				unset($products[$category_id]);
+			if($count <= 5) {
+				$products[$category_id]['empty_products'] = 5-$count;
+			} else {
+				$products[$category_id]['empty_products'] = 0;
 			}
 		}
 		

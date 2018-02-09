@@ -28,12 +28,19 @@ class Excellib extends PHPExcel {
 			$query = $this->_ci->db->query($sql);			
 
     	} else {
-    		$query = $this->_ci->db->select("*")->from("products")->where_in($type,$ids)->order_by($type)->get();
+    		$query = $this->_ci->db->select("*")->from("products")->where_in($type,$ids)->order_by('product_id', 'ASC')->get();
     	}
 
     	if ($query->num_rows() > 0) {
 
     		$data = $query->result_array();
+
+    		foreach ($data as $id => $row) {
+    			if(empty(trim($row['provider_articul'])) or is_null($row['provider_articul'])) {
+    				unset($data[$id]);
+    				$data[] = $row;
+    			}
+    		}
 
 			$category_names = array();
 			
