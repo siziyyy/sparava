@@ -396,5 +396,3 @@
 						</div>
                         <div class="new_mob_submenu_filter_button new_orange_small_button">применить</div>
 					</div>
-              </div>
-            </div>
