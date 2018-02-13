@@ -77,6 +77,10 @@
 				<?php } ?>
 			</span>
 			<span class="g_good_id"><?php echo $product['articul'] ?></span>
+
+			<?php if(empty(trim($product['description'])) or is_null($product['description'])) { ?>
+				-x-
+			<?php } ?>
 		</div>
 	</div>
 	<div class="g_good_actions actions_holder">
