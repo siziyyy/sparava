@@ -1,10 +1,9 @@
 <?php $this->load->view('common/header',$header);?>
         <section class="content">
         	<style>
-        		
-    .c_new_menu_line_item_right {
-        color: #569c1d;
-    }
+			    .c_new_menu_line_item_right {
+			        color: #569c1d;
+			    }
         	</style>
         	<!-- избранное и мои заказы -->
         	<? /* ?>
@@ -38,11 +37,76 @@
 				</div>
 	        </div>
         	<? */ ?>
-            <div class="category_bg_helper <?php echo ($is_parent_category ? 'category_bg_helper_in_main' : '' ); ?>">
+            <div class="category_bg_helper <?php /*echo ($is_parent_category ? 'category_bg_helper_in_main' : '' ); */?>">
                 <div class="content_helper">
                     <?php $this->load->view('common/menu-inner', $menu);?>
-                </div>
+	                <?php if($is_parent_category) { ?>
+						<div class="line_for_common_menu_inner">
+							<a class="line_for_common_menu_inner_link line_for_common_menu_inner_link_blue">Популярное!</a>
+							<a href="/" class="line_for_common_menu_inner_link">Российский</a>
+							<a href="/" class="line_for_common_menu_inner_link">Мацарела</a>
+							<a href="/" class="line_for_common_menu_inner_link">Пармезан</a>
+							<a href="/" class="line_for_common_menu_inner_link">Чанах</a>
+							<a href="/" class="line_for_common_menu_inner_link">Камамбер</a>
+							<a href="/" class="line_for_common_menu_inner_link">Черный принц</a>
+							<a href="/" class="line_for_common_menu_inner_link">Гауда</a>
+							<a href="/" class="line_for_common_menu_inner_link">Рокфор</a>
+							<a href="/" class="line_for_common_menu_inner_link">Эдем</a>
+							<a href="/" class="line_for_common_menu_inner_link">Швейцарский</a>
+						</div>
+	                <? } else { ?>
+			                </div>
+			            </div>
+		            </div>
+	            </div>
+            <? } ?>
+            <div class="banners_120218 trinity_120218">
+                <div class="content_helper">
+	            	<a href="/"><div class="banner_120218 banner_wide_120218 fl_l banner_120218_1">
+	            		<div class="banner_text_120218">
+	            			<div class="banner_text_120218_1_1">Грузия</div>
+	            			<div class="banner_text_120218_1_2">BORJOMI</div>
+	            			<div class="banner_text_120218_1_3">только у нас по этой цене!</div>
+	            			<div class="banner_text_120218_1_4">59 <span class="rouble">o</span></div>
+	            		</div>
+	            		<img src="/assets/img/banners_cat/1.jpg" alt="">
+	            	</div></a>
+	            	<a href="/"><div class="banner_120218 banner_small_120218 fl_l center_banner_120218 banner_120218_2">
+	            		<div class="banner_text_120218">
+	            			<div class="banner_text_120218_2_1">237ml</div>
+	            			<div class="banner_text_120218_2_2">Coca Cola</div>
+	            			<div class="banner_text_120218_2_3">по цене воды</div>
+	            			<div class="banner_text_120218_2_4">35</div>
+	            		</div>
+	            		<img src="/assets/img/banners_cat/2.jpg" alt="">
+	            	</div></a>
+	            	<a href="/"><div class="banner_120218 banner_small_120218 fl_l banner_120218_3">
+	            		<div class="banner_text_120218">
+	            			<div class="banner_text_120218_3_1">San Benedetto</div>
+	            			<div class="banner_text_120218_3_2">почуствуйте Италию внутри себя</div>
+	            		</div>
+	            		<img src="/assets/img/banners_cat/3.jpg" alt="">
+	            	</div></a>
+	            	<div class="clear"></div>
+	            </div>
             </div>
+            <!--<div class="banners_120218 double_120218">
+                <div class="content_helper">
+                    <a href="/"><div class="banner_120218 banner_wide_120218 fl_l banner_120218_4">
+                        <img src="/assets/img/banners_cat/4.jpg" alt="">
+                    </div></a>
+                    <a href="/"><div class="banner_120218 banner_small_120218 fl_r banner_120218_1">
+                        <div class="banner_text_120218">
+                            <div class="banner_text_120218_1_1">Грузия</div>
+                            <div class="banner_text_120218_1_2">BORJOMI</div>
+                            <div class="banner_text_120218_1_3">только у нас по этой цене!</div>
+                            <div class="banner_text_120218_1_4">59 <span class="rouble">o</span></div>
+                        </div>
+                        <img src="/assets/img/banners_cat/1.jpg" alt="">
+                    </div></a>
+                    <div class="clear"></div>
+                </div>
+            </div>-->
             <div class="content_helper content_helper_gds">
             	<?php if($is_parent_category) { ?>
             		<?php $is_first_category = true; ?>
@@ -76,6 +140,11 @@
 		                </div>
 	                <?php } ?>
 	            <?php } else { ?>
+<style>
+    .banners_120218 {
+        margin: 30px 0 -20px 0 !important;
+    }
+</style>
 	            	<?php if(($sort_attr['razves'] and $sort_attr['pack']) or $sort_attr['bbox'] or $sort_attr['farm'] or $sort_attr['eko'] or $sort_attr['diet'] or $sort_attr['recommend']) { ?>
 		            	<div class="new_cool_line_of_filters_aaarrrghh" data-category="<?php echo $category ?>">
 		            		<div class="new_cool_line_of_filters_aaarrrghh_item new_cool_line_of_filters_aaarrrghh_item_first send <?php echo (!$sort_order ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="clear">все</div>

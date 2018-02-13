@@ -2544,3 +2544,272 @@ footer {
         padding: 15px;
     }
 }
+.trinity_120218 .center_banner_120218 {
+    margin: 0 18px 0;
+}
+.banner_120218 {
+    position: relative;
+    cursor: pointer;
+    -webkit-transition: filter .3s ease;
+       -moz-transition: filter .3s ease;
+        -ms-transition: filter .3s ease;
+         -o-transition: filter .3s ease;
+            transition: filter .3s ease;
+}
+.banner_text_120218{
+    cursor: pointer;
+}
+.banner_text_120218 div{
+    cursor: pointer;
+    color: #000;
+}
+.banner_120218 img{
+    cursor: pointer;
+}
+.banners_120218 {
+    margin: 50px 0 0 0;
+}
+.banner_text_120218 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.banner_120218:hover {
+    filter: contrast(1.1);
+    -webkit-transition: filter .3s ease;
+       -moz-transition: filter .3s ease;
+        -ms-transition: filter .3s ease;
+         -o-transition: filter .3s ease;
+            transition: filter .3s ease;
+}
+/**********************/
+/**********************/
+/**********************/
+/**********************/
+/**********************/
+.banner_text_120218_1_1 {
+    font-size: 14px;
+    padding-left: 50px;
+    margin: 33px 0 10px 0;
+}
+.banner_text_120218_1_2 {
+    font-size: 25px;
+    font-weight: bold;
+    font-family:Calibri Bold;
+    padding-left: 50px;
+    margin: 0 0 0 0;
+}
+.banner_text_120218_1_3 {
+    font-size: 13px;
+    padding-left: 50px;
+    margin: 11px 0 12px 0;
+}
+.banner_text_120218_1_4 {
+    font-size: 37px;
+    font-weight: bold;
+    font-family:Calibri Bold;
+    color: #569c1d !important;
+    padding-left: 50px;
+    margin: 0 0 0 0;
+}
+/**********************/
+/**********************/
+/**********************/
+/**********************/
+/**********************/
+.banner_text_120218_2_1 {
+    color:#fff !important;
+    font-size: 15px;
+    font-weight: bold;
+    font-family:Calibri Bold;
+    text-align: center;
+    padding-left: 50px;
+    width: 120px;
+    margin: 27px 0 10px 0;
+}
+.banner_text_120218_2_2 {
+    color:#F26F81 !important;
+    font-size: 25px;
+    font-weight: bold;
+    font-family:Calibri Bold;
+    text-align: center;
+    padding-left: 50px;
+    width: 120px;
+}
+.banner_text_120218_2_3 {
+    color:#fff !important;
+    font-size: 15px;
+    font-weight: bold;
+    font-family:Calibri Bold;
+    text-align: center;
+    padding-left: 50px;
+    width: 120px;
+    margin: 10px 0 10px 0 ;
+}
+.banner_text_120218_2_4 {
+    color:#fff !important;
+    font-size: 51px;
+    font-weight: bold;
+    font-family:Calibri Bold;
+    text-align: center;
+    padding-left: 50px;
+    width: 120px;
+}
+/**********************/
+/**********************/
+/**********************/
+/**********************/
+/**********************/
+.banner_text_120218_3_1 {
+    font-size: 16px;
+    font-weight: bold;
+    font-family:Calibri Bold;
+    padding-left: 20px;
+    margin: 97px 0 40px 0;
+}
+.banner_text_120218_3_2 {
+    font-size: 13px;
+    padding-left: 20px;
+}
+/**********************/
+/**********************/
+/**********************/
+/**********************/
+/**********************/
+.banner_text_120218_5_1 {
+    font-size: 14px;
+    padding-left: 35px;
+    margin: 33px 0 10px 0;
+}
+.banner_text_120218_5_2 {
+    font-size: 25px;
+    font-weight: bold;
+    font-family:Calibri Bold;
+    padding-left: 35px;
+    margin: 0 0 0 0;
+}
+.banner_text_120218_5_3 {
+    font-size: 13px;
+    padding-left: 35px;
+    margin: 11px 0 12px 0;
+}
+.banner_text_120218_5_4 {
+    font-size: 37px;
+    font-weight: bold;
+    font-family:Calibri Bold;
+    color: #92C20F !important;
+    padding-left: 35px;
+    margin: 0 0 0 0;
+}
+/**********************/
+/**********************/
+/**********************/
+/**********************/
+/**********************/
+.banner_text_120218_6_1 {
+    font-size: 15px;
+    padding-right: 35px;
+    margin: 24px 0 10px 0;
+    color: #fff !important;
+    text-align: right;
+}
+.banner_text_120218_6_2 {
+    font-size: 42px;
+    font-weight: bold;
+    font-family:Calibri Bold;
+    padding-right: 35px;
+    margin: 0 0 0 0;
+    color: #fff !important;
+    text-align: right;
+}
+.banner_text_120218_6_3 {
+    font-size: 15px;
+    padding-right: 35px;
+    margin: 11px 0 12px 0;
+    color: #fff !important;
+    text-align: right;
+}
+.banner_text_120218_6_4 {
+    font-size: 25px;
+    font-weight: bold;
+    font-family:Calibri Bold;
+    color: #fff !important;
+    padding-right: 35px;
+    margin: 0 0 0 0;
+    text-align: right;
+}
+/**********************/
+/**********************/
+/**********************/
+/**********************/
+/**********************/
+.banner_text_120218_7_1 {
+    font-size: 18px;
+    color: #DE8703 !important;
+    line-height: 20px;
+    font-weight: bold;
+    font-family:Calibri Bold;
+    margin: 50px 0 20px 0;
+    padding-left: 25px;
+}
+.banner_text_120218_7_2 {
+    font-size: 15px;
+    line-height: 20px;
+    padding-left: 25px;
+}
+/**********************/
+/**********************/
+/**********************/
+/**********************/
+/**********************/
+.category_bg_helper_country2 {
+    height: auto !important;
+}
+.c_new_menu_line_country {
+    padding-top: 30px !important;
+    position: relative !important;
+    padding-bottom: 30px !important;
+}
+.column_in_country_menu_link {
+    display: block !important;
+    color: #000;
+    font-size: 17px;
+    margin: 14px 0;
+}
+.column_in_country_menu_link_act {
+    color: #fe4517;
+    cursor: default;
+}
+.columns_in_country_menu {
+    display: flex;
+    -webkit-flex: 100%;
+        -ms-flex: 100%;
+            flex: 100%;
+        -webkit-justify-content: space-between;
+                justify-content: space-between;
+        padding: 14px 0;
+        border-top: 1px solid #e8e8e8;
+}
+.line_for_common_menu_inner_link {
+    font-size: 16px;
+    color: #000;
+    margin: 0 0 0 38px;
+    display: inline-block;
+}
+.line_for_common_menu_inner_link_blue {
+    color: #00A3E0;
+    margin: 0 0 0 0;
+    font-weight: bold;
+    font-family:Calibri Bold;
+    cursor: default;
+}
+.line_for_common_menu_inner_link_blue:hover {
+    color: #00A3E0;
+}
+.line_for_common_menu_inner {
+    border-top: 2px solid #fff;
+    margin: -7px 0 0 0;
+    padding: 22px 0 10px 0;
+}

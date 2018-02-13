@@ -1,7 +1,7 @@
 <?php $this->load->view('common/header',$header);?>
         <section class="content">
             
-                <div class="category_bg_helper category_bg_helper_country">
+                <div class="category_bg_helper category_bg_helper_country category_bg_helper_country2">
                     <div class="content_helper">
                         <div class="c_new_menu">
                             <div class="c_new_menu_line c_new_menu_line_country filters_holder">
@@ -35,8 +35,72 @@
                                 </div>                          
                                 <div class="clear"></div>
                             </div>
+                                <style>
+                                    .banners_120218 {
+                                        margin: 35px 0 50px 0 !important;
+                                    }
+                                </style>
+                            <?php if($is_first_page) { ?>
+                                <div class="columns_in_country_menu">
+                                    <div class="column_in_country_menu">
+                                        <a class="column_in_country_menu_link" href="/">Деликатесы</a>
+                                        <a class="column_in_country_menu_link column_in_country_menu_link_act" href="/">Бакалея</a>
+                                        <a class="column_in_country_menu_link" href="/">Консервация</a>
+                                    </div>
+                                    <div class="column_in_country_menu">
+                                        <a class="column_in_country_menu_link" href="/">Соусы</a>
+                                        <a class="column_in_country_menu_link" href="/">Молочные продукты</a>
+                                        <a class="column_in_country_menu_link" href="/">Растительные масла</a>
+                                    </div>
+                                    <div class="column_in_country_menu">
+                                        <a class="column_in_country_menu_link" href="/">Молочные продукты</a>
+                                        <a class="column_in_country_menu_link" href="/">Растительные масла</a>
+                                        <a class="column_in_country_menu_link" href="/">Кофе, какао, горячий шоколад</a>
+                                    </div>
+                                    <div class="column_in_country_menu">
+                                        <a class="column_in_country_menu_link" href="/">Вода и напитки</a>
+                                        <a class="column_in_country_menu_link" href="/">Конфеты и шоколад</a>
+                                        <a class="column_in_country_menu_link" href="/">Колбасы, сосиски, сардельки</a>
+                                    </div>
+                                    <div class="column_in_country_menu">
+                                        <a class="column_in_country_menu_link" href="/">Оливки и маслины</a>
+                                        <a class="column_in_country_menu_link" href="/">Варенье и джемы</a>
+                                        <a class="column_in_country_menu_link" href="/">Печенье, вафли, пряники</a>
+                                    </div>
+                                </div>
+                            <? } ?>
                             <?php $this->load->view('common/menu-categories');?>
                         </div>
+                    </div>
+                </div>
+                <div class="banners_120218 trinity_120218">
+                    <div class="content_helper">
+                        <a href="/"><div class="banner_120218 banner_wide_120218 fl_l banner_120218_5">
+                            <div class="banner_text_120218">
+                                <div class="banner_text_120218_5_1">Швейцария</div>
+                                <div class="banner_text_120218_5_2">PARMEZAN</div>
+                                <div class="banner_text_120218_5_3">только у нас по этой цене!</div>
+                                <div class="banner_text_120218_5_4">59 <span class="rouble">o</span></div>
+                            </div>
+                            <img src="/assets/img/banners_cat/5.jpg" alt="">
+                        </div></a>
+                        <a href="/"><div class="banner_120218 banner_small_120218 fl_l center_banner_120218 banner_120218_6">
+                            <div class="banner_text_120218">
+                                <div class="banner_text_120218_6_1">237ml</div>
+                                <div class="banner_text_120218_6_2">COZI SIR</div>
+                                <div class="banner_text_120218_6_3">только у нас по этой цене!</div>
+                                <div class="banner_text_120218_6_4">17 видов</div>
+                            </div>
+                            <img src="/assets/img/banners_cat/6.jpg" alt="">
+                        </div></a>
+                        <a href="/"><div class="banner_120218 banner_small_120218 fl_l">
+                            <div class="banner_text_120218 banner_120218_7">
+                                <div class="banner_text_120218_7_1">Кто сказал,<br>что плесень плохо?</div>
+                                <div class="banner_text_120218_7_2">Более 45 видов<br>Кушайте на здоровье!</div>
+                            </div>
+                            <img src="/assets/img/banners_cat/7.jpg" alt="">
+                        </div></a>
+                        <div class="clear"></div>
                     </div>
                 </div>
             
