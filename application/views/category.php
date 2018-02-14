@@ -37,11 +37,11 @@
 				</div>
 	        </div>
         	<? */ ?>
-            <div class="category_bg_helper <?php /*echo ($is_parent_category ? 'category_bg_helper_in_main' : '' ); */?>">
+            <div class="category_bg_helper <?php echo ($is_parent_category ? 'category_bg_helper_in_main' : '' ); ?>">
                 <div class="content_helper">
                     <?php $this->load->view('common/menu-inner', $menu);?>
 	                <?php if($is_parent_category) { ?>
-						<div class="line_for_common_menu_inner">
+						<!--<div class="line_for_common_menu_inner">
 							<a class="line_for_common_menu_inner_link line_for_common_menu_inner_link_blue">Популярное!</a>
 							<a href="/" class="line_for_common_menu_inner_link">Российский</a>
 							<a href="/" class="line_for_common_menu_inner_link">Мацарела</a>
@@ -53,13 +53,10 @@
 							<a href="/" class="line_for_common_menu_inner_link">Рокфор</a>
 							<a href="/" class="line_for_common_menu_inner_link">Эдем</a>
 							<a href="/" class="line_for_common_menu_inner_link">Швейцарский</a>
-						</div>
-	                <? } else { ?>
-			                </div>
-			            </div>
+						</div>-->
+	                <? } ?>
 		            </div>
 	            </div>
-            <? } ?>
             <div class="banners_120218 trinity_120218">
                 <div class="content_helper">
 	            	<a href="/"><div class="banner_120218 banner_wide_120218 fl_l banner_120218_1">
@@ -142,7 +139,7 @@
 	            <?php } else { ?>
 <style>
     .banners_120218 {
-        margin: 30px 0 -20px 0 !important;
+        margin: 30px 0 -20px 0;
     }
 </style>
 	            	<?php if(($sort_attr['razves'] and $sort_attr['pack']) or $sort_attr['bbox'] or $sort_attr['farm'] or $sort_attr['eko'] or $sort_attr['diet'] or $sort_attr['recommend']) { ?>

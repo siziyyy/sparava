@@ -2813,3 +2813,27 @@ footer {
     margin: -7px 0 0 0;
     padding: 22px 0 10px 0;
 }
+
+
+
+@media all and (max-width: 1200px) {
+    .trinity_120218 .center_banner_120218 {
+        margin: 0 2% 0;
+    }
+    .banner_120218 {
+        width: 32%;
+        display: inline-block;
+    }
+    .banners_120218 {
+        margin: 60px 0 -20px 0 !important;
+    }
+    .banner_120218 img {
+        width: 100%;
+    }
+}
+
+@media all and (max-width: 800px) {
+    .banners_120218 {
+        display: none !important;
+    }
+}
