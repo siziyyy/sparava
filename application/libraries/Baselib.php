@@ -548,6 +548,8 @@ class Baselib {
 			}
 		}
 
+		$attributes['brands'] = array_unique($attributes['brands']);
+
 		asort($attributes['brands']);
 /*		
 		foreach($products as $product_id => $product) {			
