@@ -44,6 +44,16 @@
 		</div>
 		<a class="c_inners_left_side_button black_small_button send" data-type="check_login">войти</a>
 		<a href="/" class="c_inners_left_side_button_pass remind_password">Забыли пароль?</a>
+		<div class="socials_login_cart">
+			<div class="socials_login_cart_header">войти через социальные сети</div>
+			<div class="soc_log_cart_icons">
+				<a href="/" class="soc_log_cart_icon soc_log_tw"></a>
+				<a href="/" class="soc_log_cart_icon soc_log_ok"></a>
+				<a href="/" class="soc_log_cart_icon soc_log_ml"></a>
+				<a href="/" class="soc_log_cart_icon soc_log_vk"></a>
+				<a href="/" class="soc_log_cart_icon soc_log_fb"></a>
+			</div>
+		</div>
 		<div class="c_inners_left_side_text_h c_inners_left_side_text_h2">
 			Гость
 		</div>
