@@ -37,6 +37,15 @@
 				</div>
 	        </div>
         	<? */ ?>
+        	<div class="new_banner_cat">
+        		<div class="content_helper">
+        			<div class="new_banner_cat_first_line">Вы первый раз у нас?</div>
+        			<div class="new_banner_cat_second_line">Узнавайте о нас больше, покупаете качественные продукты по супер-ценам!</div>
+        			<div class="new_banner_cat_third_line">
+        				При первом заказе <span>подарок</span> - дегустационная коробка (много вкусняшек!)
+        			</div>
+        		</div>
+        	</div>
             <div class="category_bg_helper <?php echo ($is_parent_category ? 'category_bg_helper_in_main' : '' ); ?>">
                 <div class="content_helper">
                     <?php $this->load->view('common/menu-inner', $menu);?>

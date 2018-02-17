@@ -18,6 +18,32 @@ class Main extends CI_Controller {
 		$this->load->view('main', $data);
 	}
 
+	public function callme() {		
+		$data = array(
+			'header' => array(
+				'cart' => $this->get_cart_info_for_header()
+			),
+			'footer' => array(
+				'account_confirm' => $this->baselib->get_account_data_for_confirm()
+			)
+		);
+		
+		$this->load->view('callme', $data);
+	}
+
+	public function callmeform() {		
+		$data = array(
+			'header' => array(
+				'cart' => $this->get_cart_info_for_header()
+			),
+			'footer' => array(
+				'account_confirm' => $this->baselib->get_account_data_for_confirm()
+			)
+		);
+		
+		$this->load->view('callmeform', $data);
+	}
+
 	public function providers_blogs($blog_id = false) {
 		
 		$months = array(

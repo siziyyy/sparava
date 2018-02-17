@@ -186,8 +186,7 @@ body,html,textarea{font-family:Calibri}
 							</div>
 							<div class="new_green_small_button mobgb send" data-type="check_login3">войти</div>
 							<div class="clear"></div>
-							<div class="respasmob">забыл пароль</div>
-							<div class="regmob_link">зарегистрироваться <span class="regmob_link_arr">></span></div>
+							<div class="respasmob">забыл пароль</div>							<div class="regmob_link">зарегистрироваться <span class="regmob_link_arr">></span></div>
 							<div class="regmob">
 								<div class="mobile_auth_line">
 									<input type="text" class="mobile_auth_input register_email3" placeholder="почта">
@@ -288,134 +287,154 @@ body,html,textarea{font-family:Calibri}
                     <a href="/blogs" class="h_link green_text dirty_link">наш вкусный блог</a>
                     <a class="h_link show_new_inform_menu">вся информация</a>
                     <?php if($this->baselib->is_logged()) { ?>
-                        <a href="/orders" class="new_h_link new_h_link_fst h_link">мои заказы</a>
+                        <!--<a href="/orders" class="new_h_link new_h_link_fst h_link">мои заказы</a>-->
                     <?php } else { ?>
-                    <div class="morder_pack">
+                    <!--<div class="morder_pack">
                         <a class="new_h_link new_h_link_fst h_link morder">мои заказы</a>
                         <div class="morder_dropdown">
                             <div class="morder_dropdown_close">&times;</div>
                             чтобы посмотреть заказы 
                             <br>авторизируйтесь
                         </div>
-                    </div>
+                    </div>-->
                     <? } ?>
-                    <a href="/favourites" class="new_h_link h_link">избранное</a>
-                    <?php if($this->baselib->is_logged()) { ?>
-                        <a href="/logout" class="new_h_link h_link">выйти</a>
-                    <?php } ?>
-					<?php if(!$this->baselib->is_logged()) { ?>
-                        <!-- <div class="h_login fl_r">-->
-						<div class="h_login">
-							<a class="h_login_button">войти</a>
-							<div class="new_login_message">
-								<div class="new_login_message_close">&times;</div>
-								<div class="new_login_message_restore">
-									<div class="new_login_message_restore_header">Восстановление пароля</div>
-									<div class="new_login_message_restore_subheader">
-										Для восстановления пароля введите 
-										<br>вашу почту
-									</div>
-									<div class="new_auth_line">
-										<label>
-											<input type="text" class="new_auth_inp remind_email3">
-										</label>
-									</div>
-									<div class="new_login_message_restore_subheader">
-										Если Вы забили пароль опросите и мы 
-										<br>отправим повторно
-									</div>
-									<div class="restore_pass_new new_green_small_button fl_l send" data-type="remind3">восстановить пароль</div>
-								</div>
-								<div class="new_login_message_next text_remind3">
-									<div class="new_login_message_body">
-										На вашу почту было выслано письмо с 
-										<br>дальнейшими инструкциями
-									</div>
-									<div class="new_login_message_back">
-										<span class="new_login_message_back_icon sprite"></span>
-										<span class="new_login_message_back_text">назад</span>
-									</div>
-								</div>
-								<div class="new_login_message_next text_error_login3">
-									<div class="new_login_message_body">
-										Неправильные данные
-										<br>для входа в систему
-									</div>
-									<div class="new_login_message_back">
-										<span class="new_login_message_back_icon sprite"></span>
-										<span class="new_login_message_back_text">назад</span>
-									</div>
-								</div>
-								<div class="new_login_message_next text_register3">
-									<div class="new_login_message_body">
-										На Вашу почту были
-										<br>отправлены данные для входа
-									</div>
-									<div class="new_login_message_login">войти</div>
-								</div>
-								<div class="new_login_message_next text_busy3">
-									<div class="new_login_message_body">
-										Данная электронная почта
-										<br>уже занята
-									</div>
-									<div class="new_login_message_back">
-										<span class="new_login_message_back_icon sprite"></span>
-										<span class="new_login_message_back_text">назад</span>
-									</div>
-								</div>
-							</div>
-							<div class="new_auth login_form3">
-								<div class="new_auth_line">
-									<label>
-										<span class="new_auth_inp_text">логин</span>
-										<input type="text" class="new_auth_inp check_email3">
-									</label>
-								</div>
-								<div class="new_auth_line">
-									<label>
-										<span class="new_auth_inp_text">пароль</span>
-										<input type="password" class="new_auth_inp check_password3">
-									</label>
-								</div>
-								<div class="new_auth_actions">
-									<div class="new_auth_button new_green_small_button fl_l send" data-type="check_login3">войти</div>
-									<div class="new_auth_remind fl_r">забыл пароль</div>
-									<div class="clear"></div>
-								</div>
-								<div class="new_auth_register">
-									<div class="new_auth_register_header">
-										Зарегистрироваться
-										<span class="new_auth_register_arrow sprite"></span>
-										<div class="clear"></div>
-									</div>
-									<div class="new_auth_register_body">
-										<div class="new_auth_line">
-											<label>
-												<span class="new_auth_inp_text">почта</span>
-												<input type="text" class="new_auth_inp register_email3">
-											</label>
-										</div>
-										<div class="new_auth_line">
-											<label>
-												<span class="new_auth_inp_text">имя</span>
-												<input type="text" class="new_auth_inp register_name3">
-											</label>
-										</div>
-										<div class="new_auth_line">
-											<label>
-												<span class="new_auth_inp_text">телефон</span>
-												<input type="text" class="new_auth_inp register_phone3" id="phone">
-											</label>
-										</div>
-										<div class="new_signup new_auth_button new_orange_small_button send" data-type="register3">зарегистрироваться</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					<?php } ?>
+                    <!--<a href="/favourites" class="new_h_link h_link">избранное</a>-->
+                    <div class="morder_pack22">
+                        <a class="morder new_header_icons new_header_icons_hamb"></a>
+                        <div class="morder_dropdown">
+                            <div class="morder_dropdown_close">&times;</div>
+                            чтобы посмотреть заказы 
+                            <br>авторизируйтесь
+                        </div>
+                        <a href="/favourites" class="new_header_icons new_header_icons_fav"></a>
+                        <a href="/favourites" class="new_header_icons new_header_icons_set"></a>
+                        <?php if($this->baselib->is_logged()) { ?>
+                            <a href="/logout" class="new_h_link h_link">выйти</a>
+                        <?php } ?>
+    					<?php if(!$this->baselib->is_logged()) { ?>
+                            <!-- <div class="h_login fl_r">-->
+    						<div class="h_login">
+    							<a class="h_login_button">войти</a>
+    							<div class="new_login_message">
+    								<div class="new_login_message_close">&times;</div>
+    								<div class="new_login_message_restore">
+    									<div class="new_login_message_restore_header">Восстановление пароля</div>
+    									<div class="new_login_message_restore_subheader">
+    										Для восстановления пароля введите 
+    										<br>вашу почту
+    									</div>
+    									<div class="new_auth_line">
+    										<label>
+    											<input type="text" class="new_auth_inp remind_email3">
+    										</label>
+    									</div>
+    									<div class="new_login_message_restore_subheader">
+    										Если Вы забили пароль опросите и мы 
+    										<br>отправим повторно
+    									</div>
+    									<div class="restore_pass_new new_green_small_button fl_l send" data-type="remind3">восстановить пароль</div>
+    								</div>
+    								<div class="new_login_message_next text_remind3">
+    									<div class="new_login_message_body">
+    										На вашу почту было выслано письмо с 
+    										<br>дальнейшими инструкциями
+    									</div>
+    									<div class="new_login_message_back">
+    										<span class="new_login_message_back_icon sprite"></span>
+    										<span class="new_login_message_back_text">назад</span>
+    									</div>
+    								</div>
+    								<div class="new_login_message_next text_error_login3">
+    									<div class="new_login_message_body">
+    										Неправильные данные
+    										<br>для входа в систему
+    									</div>
+    									<div class="new_login_message_back">
+    										<span class="new_login_message_back_icon sprite"></span>
+    										<span class="new_login_message_back_text">назад</span>
+    									</div>
+    								</div>
+    								<div class="new_login_message_next text_register3">
+    									<div class="new_login_message_body">
+    										На Вашу почту были
+    										<br>отправлены данные для входа
+    									</div>
+    									<div class="new_login_message_login">войти</div>
+    								</div>
+    								<div class="new_login_message_next text_busy3">
+    									<div class="new_login_message_body">
+    										Данная электронная почта
+    										<br>уже занята
+    									</div>
+    									<div class="new_login_message_back">
+    										<span class="new_login_message_back_icon sprite"></span>
+    										<span class="new_login_message_back_text">назад</span>
+    									</div>
+    								</div>
+    							</div>
+    							<div class="new_auth login_form3">
+    								<div class="new_auth_line">
+    									<label>
+    										<span class="new_auth_inp_text">логин</span>
+    										<input type="text" class="new_auth_inp check_email3">
+    									</label>
+    								</div>
+    								<div class="new_auth_line">
+    									<label>
+    										<span class="new_auth_inp_text">пароль</span>
+    										<input type="password" class="new_auth_inp check_password3">
+    									</label>
+    								</div>
+    								<div class="new_auth_actions">
+    									<div class="new_auth_button new_green_small_button fl_l send" data-type="check_login3">войти</div>
+    									<div class="new_auth_remind fl_r">забыл пароль</div>
+    									<div class="clear"></div>
+    								</div>
+                                    <div class="soc_login_dropdown">
+                                        <div class="socials_login_cart_header">войти через социальные сети</div>
+                                        <div class="soc_log_cart_icons">
+                                            <a href="/" class="soc_log_cart_icon soc_log_tw"></a>
+                                            <a href="/" class="soc_log_cart_icon soc_log_ok"></a>
+                                            <a href="/" class="soc_log_cart_icon soc_log_ml"></a>
+                                            <a href="/" class="soc_log_cart_icon soc_log_vk"></a>
+                                            <a href="/" class="soc_log_cart_icon soc_log_fb"></a>
+                                        </div>
+                                    </div>
+    								<div class="new_auth_register">
+    									<div class="new_auth_register_header">
+    										Зарегистрироваться
+    										<span class="new_auth_register_arrow sprite new_auth_register_arrow2"></span>
+    										<div class="clear"></div>
+    									</div>
+    									<div class="new_auth_register_body">
+    										<div class="new_auth_line">
+    											<label>
+    												<span class="new_auth_inp_text">почта</span>
+    												<input type="text" class="new_auth_inp register_email3">
+    											</label>
+    										</div>
+    										<div class="new_auth_line">
+    											<label>
+    												<span class="new_auth_inp_text">имя</span>
+    												<input type="text" class="new_auth_inp register_name3">
+    											</label>
+    										</div>
+    										<div class="new_auth_line">
+    											<label>
+    												<span class="new_auth_inp_text">телефон</span>
+    												<input type="text" class="new_auth_inp register_phone3" id="phone">
+    											</label>
+    										</div>
+    										<div class="new_signup new_auth_button new_orange_small_button send" data-type="register3">зарегистрироваться</div>
+    									</div>
+    								</div>
+    							</div>
+    						</div>
+    					<?php } ?>
+                    </div>
                     <!-- <div class="h_phones fl_r">-->
                     <div class="h_phones">
-                        <a href="tel:88004501025" class="h_phone">8 495 541 20 20</a>
+                        <a href="tel:88004501025" class="h_phone">8 495 541 20 20</a><a href="/callme" class="callme">заказать звонок </a>
                     </div>
                     <a href="/cart">
                         <!-- <div class="h_cart fl_r">-->

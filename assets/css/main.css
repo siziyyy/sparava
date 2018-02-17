@@ -1045,7 +1045,7 @@ input {
     padding: 20px;
     z-index: 999999;
     left: 50%;
-    margin: 0 0 0 -132px;
+    margin: 0 0 0 -111px;
     top: 45px;
     display: none;
 }
@@ -2814,8 +2814,37 @@ footer {
     padding: 22px 0 10px 0;
 }
 
-
-
+.new_banner_cat {
+    width: 100%;
+    height: 237px;
+    background: url('/assets/img/new_banner.jpg');
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+         -o-background-size: cover;
+            background-size: cover;
+    margin-bottom: 43px;
+}
+.new_banner_cat_first_line {
+    color: #FFF;
+    font-size: 40px;
+    font-weight: bold;
+    font-family:Calibri Bold;
+    padding: 40px 0 30px 0;
+}
+.new_banner_cat_second_line {
+    font-size: 24px;
+    color: #FFF;
+        padding: 0 0 30px 0;
+}
+.new_banner_cat_third_line {
+    font-size: 24px;
+    color: #C7007D;
+}
+.new_banner_cat_third_line span{
+    font-weight: bold;
+    font-family:Calibri Bold;
+    color: #fff;
+}
 @media all and (max-width: 1200px) {
     .trinity_120218 .center_banner_120218 {
         margin: 0 2% 0;
@@ -2836,4 +2865,287 @@ footer {
     .banners_120218 {
         display: none !important;
     }
+}
+@media all and (max-width: 980px) {
+    .new_banner_cat {
+        display: none;
+    }
+}
+.c_new_menu_link_country2 {
+    margin: 0 54px 0 0;
+}
+.c_new_menu_link_country2_act {
+    color: #fe4517;
+}
+.soc_log_cart_icon {
+    width: 39px;
+    height: 40px;
+    display: inline-block;
+    background: url('/assets/img/socials_sprite.jpg');
+    background-repeat: no-repeat;
+    opacity: 1;
+    -webkit-transition: opacity .3s ease;
+       -moz-transition: opacity .3s ease;
+        -ms-transition: opacity .3s ease;
+         -o-transition: opacity .3s ease;
+            transition: opacity .3s ease;
+}
+.soc_log_tw {
+    background-position: 0 0;
+}
+.soc_log_ok {
+    background-position: -39px 0;
+}
+.soc_log_ml {
+    background-position: -78px 0;
+}
+.soc_log_vk {
+    background-position: -118px 0;
+}
+.soc_log_fb {
+    background-position: -157px 0;
+}
+.soc_log_cart_icon:hover {
+    opacity: .7;
+    -webkit-transition: opacity .3s ease;
+       -moz-transition: opacity .3s ease;
+        -ms-transition: opacity .3s ease;
+         -o-transition: opacity .3s ease;
+            transition: opacity .3s ease;
+}
+.socials_login_cart_header {
+    margin: 35px 0 15px 0;
+}
+.g_old_good_price_date_alm {
+    font-size: 16px;
+    color: #87B53D;
+    margin: 0px 0 0 10px;
+    display: inline-block;
+    position: relative;
+    top: 0px;
+}
+.new_auth_button {
+    background: #fe4517 !important;
+}
+.new_auth_button:hover {
+    background: orange !important;
+}
+.soc_login_dropdown .socials_login_cart_header {
+    margin: 26px 0 15px 0;
+    line-height: 15px;
+    font-size: 16px;
+}
+.soc_login_dropdown .soc_log_cart_icon {
+    width: 31px;
+    height: 31px;
+    display: inline-block;
+    background: url(/assets/img/socials_sprite.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 1px 0 0 ;
+}
+.soc_login_dropdown .soc_log_tw {
+    background-position: 2px 0;
+}
+.soc_login_dropdown .soc_log_ok {
+    background-position: -29px 0;
+}
+.soc_login_dropdown .soc_log_ml {
+    background-position: -60px 0;
+}
+.soc_login_dropdown .soc_log_vk {
+    background-position: -90px 0;
+}
+.soc_login_dropdown .soc_log_fb {
+    background-position: -121px 0;
+}
+.new_auth_register_header {
+    color: #45B3E4;
+    opacity: 1;
+    -webkit-transition: opacity .3s ease;
+       -moz-transition: opacity .3s ease;
+        -ms-transition: opacity .3s ease;
+         -o-transition: opacity .3s ease;
+            transition: opacity .3s ease;
+}
+.new_auth_register_header:hover {
+    opacity: .5;
+    -webkit-transition: opacity .3s ease;
+       -moz-transition: opacity .3s ease;
+        -ms-transition: opacity .3s ease;
+         -o-transition: opacity .3s ease;
+            transition: opacity .3s ease;
+}
+.new_auth_register_arrow2 {
+    background: url(/assets/img/register_arrow.jpg);
+    background-repeat: no-repeat;
+    background-position: 0px 4px;
+}
+.soc_login_dropdown {
+    margin: 0 0 -7px 0;
+}
+.new_header_icons {
+    width: 15px;
+    height: 15px;
+    opacity: 1;
+    -webkit-transition: opacity .3s ease;
+       -moz-transition: opacity .3s ease;
+        -ms-transition: opacity .3s ease;
+         -o-transition: opacity .3s ease;
+            transition: opacity .3s ease;
+    display: inline-block;
+    background: url(/assets/img/new_header_icons.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.new_header_icons:hover {
+    opacity: .5;
+    -webkit-transition: opacity .3s ease;
+       -moz-transition: opacity .3s ease;
+        -ms-transition: opacity .3s ease;
+         -o-transition: opacity .3s ease;
+            transition: opacity .3s ease;
+}
+.new_header_icons_hamb {
+    background-position: 0px -1px;
+}
+.new_header_icons_fav {
+    background-position: -27px 0;
+    margin: 0 8px 0 9px;
+}
+.new_header_icons_set {
+    background-position: -55px 0;
+}
+.morder_pack22 {
+    display: inline-block;
+    position: relative;
+    top: -5px;
+}
+.h_login {
+    margin: 0px 0 0 20px !important;
+    position: relative;
+    top: 4px;
+}
+.callme {
+    font-size: 13px;
+    color: #666;
+    margin: 0 -20px 0 20px !important;
+    text-align: left !important;
+    display: inline-block;
+    position: relative;
+    top: -9px;
+}
+.callme_header {
+    font-size: 64px;
+    text-align: center;
+    margin: 50px 0 0 0px;
+}
+.callme_button {
+    display: inline-block;
+    cursor: pointer;
+    color: #000;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #d5d5d5;
+    opacity: 1;
+    -webkit-transition: opacity .3s ease;
+       -moz-transition: opacity .3s ease;
+        -ms-transition: opacity .3s ease;
+         -o-transition: opacity .3s ease;
+            transition: opacity .3s ease;
+    float: left;
+    margin: 0 20px 0;
+}
+.callme_text {
+    color: #000;
+    font-size: 24px;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+}
+.callme_img {
+    display: block;
+    margin: 50px auto 30px;
+    cursor: pointer;
+}
+.callme_button:hover {
+    opacity: .5;
+    -webkit-transition: opacity .3s ease;
+       -moz-transition: opacity .3s ease;
+        -ms-transition: opacity .3s ease;
+         -o-transition: opacity .3s ease;
+            transition: opacity .3s ease;
+}
+.callme_buttons {
+        width: 968px;
+    margin: 80px auto -30px;
+}
+.callme_subheader {
+    font-size: 36px;
+    color: #666;
+    text-align: center;
+    margin-top: 70px;
+}
+.callme_form {
+    margin-top: 70px;
+}
+.callme_label {
+    display: block;
+    font-size: 24px;
+    margin: 0 auto 0;
+    width: 386px;
+}
+.callme_input {
+    width: 386px;
+    height: 39px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    font-size: 14px;
+    padding: 0 7px;
+    border: 1px solid #ccc;
+    -webkit-box-shadow: inset 0 0 7px rgba(0,0,0, .1);
+    box-shadow: inset 0 0 7px rgba(0,0,0, .1);
+    margin: 15px 0 30px 0;
+}
+.callme_span {
+    font-size: 14px;
+    margin-left: 25px;
+}
+.callme_button_send {
+        background: #000;
+    display: block;
+    color: #FFF;
+    font-size: 14px;
+    font-family: Calibri Bold;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    padding: 0px 0;
+    text-align: center;
+    width: 103px;
+    box-sizing: border-box;
+    -webkit-transition: background .3s ease;
+    -o-transition: background .3s ease;
+    transition: background .3s ease;
+    margin-right: 10px;
+    cursor: pointer;
+    border: none;
+    height: 34px;
+    line-height: 34px;
+    margin: 0 auto 0;
+    opacity: 1;
+    -webkit-transition: opacity .3s ease;
+       -moz-transition: opacity .3s ease;
+        -ms-transition: opacity .3s ease;
+         -o-transition: opacity .3s ease;
+            transition: opacity .3s ease;
+}
+.callme_button_send:hover {
+    opacity: .7;
+    -webkit-transition: opacity .3s ease;
+       -moz-transition: opacity .3s ease;
+        -ms-transition: opacity .3s ease;
+         -o-transition: opacity .3s ease;
+            transition: opacity .3s ease;
 }
