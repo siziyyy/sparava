@@ -41,19 +41,6 @@
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_price">
                 </label> 
                 <div class="clear"></div>
-                <label class="fl_l product_cko_label_1">
-                    <span class="g_good_admin_info_modal_inpname">ЦКО</span>
-                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_cko">
-                </label>                
-                <label class="fl_l">
-                    <span class="g_good_admin_info_modal_inpname">Мера</span>
-                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_mera">
-                </label>
-                <label class="fl_l product_cko_label">
-                    <span class="g_good_admin_info_modal_inpname">Кол</span>
-                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_kol">
-                </label>             
-                <div class="clear"></div>
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Состав</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_composition">
@@ -208,10 +195,6 @@
                     <input type="checkbox" class="product_bbox_n adm_inf_chck" value="1"> Большая упак. <span class="alm_eq">≈</span>
                 </label>
                 <div class="clear"></div>
-                <label>
-                    <span class="g_good_admin_info_modal_inpname">Артикул или название поставщика</span>
-                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_provider_articul">
-                </label>
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Конкуренты (с новой строки)</span>
                     <textarea type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_competitors"></textarea>
