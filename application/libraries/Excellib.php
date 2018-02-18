@@ -35,13 +35,6 @@ class Excellib extends PHPExcel {
 
     		$data = $query->result_array();
 
-    		foreach ($data as $id => $row) {
-    			if(empty(trim($row['provider_articul'])) or is_null($row['provider_articul'])) {
-    				unset($data[$id]);
-    				$data[] = $row;
-    			}
-    		}
-
 			$category_names = array();
 			
 			$query = $this->_ci->db->select('category_id,title')->from('categories')->get();

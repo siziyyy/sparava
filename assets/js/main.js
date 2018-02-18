@@ -26,15 +26,11 @@ function listener(event) {
 		$('#product_form .product_id').val(product.product_id);
 		$('#product_form .product_id_text').text(product.product_id);
 		$('#product_form .product_image').attr('src','/images/'+product.image);
-		$('#product_form .product_provider').val(product.provider);
 		$('#product_form .product_type').val(product.type);
 		$('#product_form .product_weight').val(product.weight);
 		$('#product_form .product_country').val(product.country);
 		$('#product_form .product_cost').val(product.cost);
 		$('#product_form .product_price').val(product.price);
-		$('#product_form .product_cko').val(product.cko);
-		$('#product_form .product_kol').val(product.kol);
-		$('#product_form .product_mera').val(product.mera);
 		$('#product_form .product_percent').val(product.percent);
 		$('#product_form .product_pack').val(product.pack);
 		$('#product_form .product_composition').val(product.composition);
@@ -62,7 +58,6 @@ function listener(event) {
 		$('#product_form .product_sr_ves').val(product.sr_ves);
 		$('#product_form .product_manufacturer').val(product.manufacturer);
 		$('#product_form .product_blog').val(product.blog);
-		$('#product_form .product_provider_articul').val(product.provider_articul);
 		$('#product_form .product_competitors').val(product.competitors);
 
 		$('#product_form .product_eko').prop('checked', false);
@@ -676,16 +671,12 @@ $(document).ready(function() {
 		
 		product = {
 			product_id: $('#product_form .product_id').val(),
-			provider: $('#product_form .product_provider').val(),
 			type: $('#product_form .product_type').val(),
 			weight: $('#product_form .product_weight').val(),
 			country: $('#product_form .product_country').val(),
 			cost: $('#product_form .product_cost').val(),
 			price: $('#product_form .product_price').val(),
 			percent: $('#product_form .product_percent').val(),
-			cko: $('#product_form .product_cko').val(),
-			kol: $('#product_form .product_kol').val(),
-			mera: $('#product_form .product_mera').val(),
 			pack: $('#product_form .product_pack').val(),
 			composition: $('#product_form .product_composition').val(),
 			title: $('#product_form .product_name').val(),
@@ -724,7 +715,6 @@ $(document).ready(function() {
 			sr_ves: $('#product_form .product_sr_ves').val(),
 			blog: $('#product_form .product_blog').val(),
 			manufacturer: $('#product_form .product_manufacturer').val(),
-			provider_articul: $('#product_form .product_provider_articul').val(),
 			competitors: $('#product_form .product_competitors').val()
 		}
 		
@@ -739,13 +729,13 @@ $(document).ready(function() {
 	$(document).on('change','#product_form .product_cost, #product_form .product_percent, #product_form .product_cko',function(e) {
 		calculate_price();
 	});
-
+/*
 	$(document).on('change','#product_form .product_cko, #product_form .product_cost',function(e) {
 		if($('#product_form .product_cost').val() == '' || $('#product_form .product_cost').val() == 0) {
 			$('#product_form .product_cost').val($('#product_form .product_cko').val());
 		}
 	});
-	
+*/	
 	$(document).on('click','.admin_window_closer,.close_product_details',function(e) {
 		$('#product_form').hide();
 		$('.admin_window_closer').hide();		
