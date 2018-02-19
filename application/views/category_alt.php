@@ -50,7 +50,38 @@
                         <?php $this->load->view('common/menu-categories');?>
                     </div>
                 </div>
-            </div>		
+            </div>
+
+            <div class="banners_120218 trinity_120218">
+                <div class="content_helper">
+                    <?php $counter = 0; ?>
+                    <?php $style = ''; ?>
+                    <?php $style_not_used = true; ?>
+
+                    <?php foreach ($banners as $banner) { ?>
+                        <?php
+                            if($style_not_used) {
+                                if($counter==1 and $banner['type']==1) {
+                                    $style = 'margin:0 18px';
+                                } elseif($counter==1 and $banner['type']==2) {
+                                    $style = 'margin-left:18px';
+                                } elseif($counter==0 and $banner['type']==2) {
+                                    $style = 'margin-right:18px';
+                                }
+
+                                $style_not_used = false;
+                            } else {
+                                $style = '';
+                            }
+                        ?>
+                        <a href="<?php echo $banner['href'] ?>"><div class="banner_120218 fl_l banner_120218_5" style="<?php echo $style ?>">
+                            <img src="<?php echo $banner['img'] ?>" alt="">
+                        </div></a>
+                        <?php $counter++; ?>
+                    <?php } ?>
+                    <div class="clear"></div>
+                </div>
+            </div>
 			
             <?php if(!$is_first_page) { ?>
                 <div class="content_helper">
