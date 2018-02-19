@@ -284,7 +284,8 @@ class Main extends CI_Controller {
 				),
 				'is_first_page' => true,
 				'country' => $country,
-				'products' => $products
+				'products' => $products,
+				'banners' => $this->baselib->get_page_banners('country-'.$country_id)
 			);
 		} else {
 			$products = $this->productlib->get_country_products($country);
@@ -324,7 +325,8 @@ class Main extends CI_Controller {
 				'pages' => $this->baselib->create_pager($products_in_page['pages_count'],$page),
 				'empty_products' => $empty_products,
 				'is_first_page' => false,
-				'filters_text' => $products_in_page['filters_text']
+				'filters_text' => $products_in_page['filters_text'],
+				'banners' => $this->baselib->get_page_banners('country-'.$country_id)
 			);			
 		}
 
@@ -592,7 +594,8 @@ class Main extends CI_Controller {
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
 				),
 				'is_parent_category' => true,
-				'products' => $products
+				'products' => $products,
+				'banners' => $this->baselib->get_page_banners('category-'.$category)
 			);
 
 			$data['menu']['menu_childs'] = $menu_childs;
@@ -637,7 +640,8 @@ class Main extends CI_Controller {
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
 				),
 				'sort_order' => (isset($sort_order[$category]) ? $sort_order[$category] : false),
-				'is_parent_category' => false
+				'is_parent_category' => false,
+				'banners' => $this->baselib->get_page_banners('category-'.$category)
 			);
 
 
@@ -786,7 +790,8 @@ class Main extends CI_Controller {
 				),
 				'is_first_page' => true,
 				'category' => 'child',
-				'products' => $products
+				'products' => $products,
+				'banners' => $this->baselib->get_page_banners('page-child')
 			);
 		} else {		
 		
@@ -808,7 +813,8 @@ class Main extends CI_Controller {
 				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 				'footer' => array(
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
-				)
+				),
+				'banners' => $this->baselib->get_page_banners('page-child')
 			);
 			
 			$data['filters'] = $filters;
@@ -850,7 +856,8 @@ class Main extends CI_Controller {
 				),
 				'is_first_page' => true,
 				'category' => 'recommend',
-				'products' => $products
+				'products' => $products,
+				'banners' => $this->baselib->get_page_banners('page-recommend')
 			);
 		} else {
 		
@@ -872,7 +879,8 @@ class Main extends CI_Controller {
 				'footer' => array(
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
 				),
-				'is_first_page' => false
+				'is_first_page' => false,
+				'banners' => $this->baselib->get_page_banners('page-recommend')
 			);
 			
 			$data['filters'] = $filters;
@@ -914,7 +922,8 @@ class Main extends CI_Controller {
 				),
 				'is_first_page' => true,
 				'category' => 'bbox',
-				'products' => $products
+				'products' => $products,
+				'banners' => $this->baselib->get_page_banners('page-bbox')
 			);
 		} else {
 		
@@ -936,7 +945,8 @@ class Main extends CI_Controller {
 				'footer' => array(
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
 				),
-				'is_first_page' => false
+				'is_first_page' => false,
+				'banners' => $this->baselib->get_page_banners('page-bbox')
 			);
 			
 			$data['filters'] = $filters;
@@ -978,7 +988,8 @@ class Main extends CI_Controller {
 				),
 				'is_first_page' => true,
 				'category' => 'eko',
-				'products' => $products
+				'products' => $products,
+				'banners' => $this->baselib->get_page_banners('page-eko')
 			);
 		} else {
 		
@@ -1000,7 +1011,8 @@ class Main extends CI_Controller {
 				'footer' => array(
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
 				),
-				'is_first_page' => false
+				'is_first_page' => false,
+				'banners' => $this->baselib->get_page_banners('page-eko')
 			);
 			
 			$data['filters'] = $filters;
@@ -1041,7 +1053,8 @@ class Main extends CI_Controller {
 				),
 				'is_first_page' => true,
 				'category' => 'farm',
-				'products' => $products
+				'products' => $products,
+				'banners' => $this->baselib->get_page_banners('page-farm')
 			);
 		} else {		
 		
@@ -1063,7 +1076,8 @@ class Main extends CI_Controller {
 				'is_first_page' => false,
 				'footer' => array(
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
-				)
+				),
+				'banners' => $this->baselib->get_page_banners('page-farm')
 			);
 			
 			$data['filters'] = $filters;
@@ -1104,7 +1118,8 @@ class Main extends CI_Controller {
 				),
 				'is_first_page' => true,
 				'category' => 'diet',
-				'products' => $products
+				'products' => $products,
+				'banners' => $this->baselib->get_page_banners('page-diet')
 			);
 		} else {		
 			$filters = array(
@@ -1125,7 +1140,8 @@ class Main extends CI_Controller {
 				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 				'footer' => array(
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
-				)
+				),
+				'banners' => $this->baselib->get_page_banners('page-diet')
 			);
 			
 			$data['filters'] = $filters;
@@ -1735,9 +1751,21 @@ class Main extends CI_Controller {
 							case 6:
 								$country = 'Армения';
 								break;
+							case 7:
+								$country = 'Узбекистан';
+								break;
+							case 8:
+								$country = 'Азербайджан';
+								break;
+							case 9:
+								$country = 'Молдова';
+								break;
+							case 10:
+								$country = 'Беларусь';
+								break;
 							default:
 								$country = 'Россия';
-								break;				
+								break;
 						}
 
 						$products = $this->productlib->get_country_products($country);

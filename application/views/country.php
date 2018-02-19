@@ -90,31 +90,31 @@
                 </div>
                 <div class="banners_120218 trinity_120218">
                     <div class="content_helper">
-                        <a href="/"><div class="banner_120218 banner_wide_120218 fl_l banner_120218_5">
-                            <div class="banner_text_120218">
-                                <div class="banner_text_120218_5_1">Швейцария</div>
-                                <div class="banner_text_120218_5_2">PARMEZAN</div>
-                                <div class="banner_text_120218_5_3">только у нас по этой цене!</div>
-                                <div class="banner_text_120218_5_4">59 <span class="rouble">o</span></div>
-                            </div>
-                            <img src="/assets/img/banners_cat/5.jpg" alt="">
-                        </div></a>
-                        <a href="/"><div class="banner_120218 banner_small_120218 fl_l center_banner_120218 banner_120218_6">
-                            <div class="banner_text_120218">
-                                <div class="banner_text_120218_6_1">237ml</div>
-                                <div class="banner_text_120218_6_2">COZI SIR</div>
-                                <div class="banner_text_120218_6_3">только у нас по этой цене!</div>
-                                <div class="banner_text_120218_6_4">17 видов</div>
-                            </div>
-                            <img src="/assets/img/banners_cat/6.jpg" alt="">
-                        </div></a>
-                        <a href="/"><div class="banner_120218 banner_small_120218 fl_l">
-                            <div class="banner_text_120218 banner_120218_7">
-                                <div class="banner_text_120218_7_1">Кто сказал,<br>что плесень плохо?</div>
-                                <div class="banner_text_120218_7_2">Более 45 видов<br>Кушайте на здоровье!</div>
-                            </div>
-                            <img src="/assets/img/banners_cat/7.jpg" alt="">
-                        </div></a>
+                        <?php $counter = 0; ?>
+                        <?php $style = ''; ?>
+                        <?php $style_not_used = true; ?>
+
+                        <?php foreach ($banners as $banner) { ?>
+                            <?php
+                                if($style_not_used) {
+                                    if($counter==1 and $banner['type']==1) {
+                                        $style = 'margin:0 18px';
+                                    } elseif($counter==1 and $banner['type']==2) {
+                                        $style = 'margin-left:18px';
+                                    } elseif($counter==0 and $banner['type']==2) {
+                                        $style = 'margin-right:18px';
+                                    }
+
+                                    $style_not_used = false;
+                                } else {
+                                    $style = '';
+                                }
+                            ?>
+                            <a href="<?php echo $banner['href'] ?>"><div class="banner_120218 fl_l banner_120218_5" style="<?php echo $style ?>">
+                                <img src="<?php echo $banner['img'] ?>" alt="">
+                            </div></a>
+                            <?php $counter++; ?>
+                        <?php } ?>
                         <div class="clear"></div>
                     </div>
                 </div>

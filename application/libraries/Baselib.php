@@ -22,6 +22,33 @@ class Baselib {
 		$this->_related_products = $this->_ci->productlib->get_related_products_ids(false,15);
     }
 
+    public function get_page_banners($page) {
+    	$result = array();
+
+    	$sql = 'SELECT b.* FROM banners AS b,banner_to_page AS btp WHERE btp.page = "'.$page.'" AND btp.banner_id = b.banner_id ORDER BY RAND() LIMIT 3';
+    	$query = $this->_ci->db->query($sql);
+
+    	//$query = $this->_ci->db->select("*")->from("banner_to_page")->where('page',$page)->order_by('rand()')->limit(3)->get();
+
+    	$counter = 0;
+
+    	if ($query->num_rows() > 0) {
+    		foreach ($query->result_array() as $banner) {
+    			if($counter < 3) {
+    				$result[] = array(
+    					'img' => $banner['image_file'],
+    					'href' => $banner['href'],
+    					'type' => $banner['type']
+    				);
+
+    				$counter = $counter+$banner['type'];
+    			}
+    		}
+    	}
+
+    	return $result;
+    }    
+
 	public function set_sort_order($type = false, $category = false, $clear_sort = false) {
 		if($clear_sort) {
 			$sort_order = array();
