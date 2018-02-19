@@ -25,28 +25,70 @@ class Baselib {
     public function get_page_banners($page) {
     	$result = array();
 
-    	$sql = 'SELECT b.* FROM banners AS b,banner_to_page AS btp WHERE btp.page = "'.$page.'" AND btp.banner_id = b.banner_id ORDER BY RAND() LIMIT 3';
-    	$query = $this->_ci->db->query($sql);
+    	$page_details = explode("-",$page);
 
-    	//$query = $this->_ci->db->select("*")->from("banner_to_page")->where('page',$page)->order_by('rand()')->limit(3)->get();
+    	if($page_details[0] == 'category') {
+    		$sql = 'SELECT category_id FROM categories WHERE category_id = '.$page_details[1].' OR parent_id = '.$page_details[1];
+    		$query = $this->_ci->db->query($sql);
 
-    	$counter = 0;
+    		if ($query->num_rows() > 0) {
+    			$pages_blacklist = array();
 
-    	if ($query->num_rows() > 0) {
-    		foreach ($query->result_array() as $banner) {
-    			if($counter < 3) {
-    				$result[] = array(
-    					'img' => $banner['image_file'],
-    					'href' => $banner['href'],
-    					'type' => $banner['type']
-    				);
-
-    				$counter = $counter+$banner['type'];
+    			foreach ($query->result_array() as $category) {
+    				$pages_blacklist[] = 'category-'.$category['category_id'];
     			}
     		}
+
+
+    		$sql = 'SELECT b.*,btp.page FROM banners AS b,banner_to_page AS btp WHERE btp.banner_id = b.banner_id ORDER BY RAND()';
+    		$query = $this->_ci->db->query($sql);
+
+    		if ($query->num_rows() > 0) {
+    			$banners = array();
+    			$banners_blacklist = array();
+
+    			foreach ($query->result_array() as $banner) {
+    				if(in_array($banner['page'],$pages_blacklist)) {
+    					$banners_blacklist[] = $banner['banner_id'];
+    				}
+    			}
+
+    			foreach ($query->result_array() as $banner) {
+    				if(!in_array($banner['banner_id'],$banners_blacklist)) {
+	    				$result[$banner['banner_id']] = array(
+	    					'banner_id' => $banner['banner_id'],
+	    					'img' => $banner['image_file'],
+	    					'href' => $banner['href'],
+	    					'type' => $banner['type']
+	    				);
+    				}
+    			}
+    		}
+    	} else {
+    		$sql = 'SELECT b.* FROM banners AS b,banner_to_page AS btp WHERE btp.page = "'.$page.'" AND btp.banner_id = b.banner_id ORDER BY RAND() LIMIT 3';
+    		$query = $this->_ci->db->query($sql);
+
+	    	$counter = 0;
+
+	    	if ($query->num_rows() > 0) {
+	    		foreach ($query->result_array() as $banner) {
+	    			if($counter < 3) {
+	    				$result[] = array(
+	    					'img' => $banner['image_file'],
+	    					'href' => $banner['href'],
+	    					'type' => $banner['type']
+	    				);
+
+	    				$counter = $counter+$banner['type'];
+	    			}
+	    		}
+	    	}	    	
     	}
 
     	return $result;
+
+    	//$query = $this->_ci->db->select("*")->from("banner_to_page")->where('page',$page)->order_by('rand()')->limit(3)->get();
+
     }    
 
 	public function set_sort_order($type = false, $category = false, $clear_sort = false) {

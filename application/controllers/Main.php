@@ -643,8 +643,6 @@ class Main extends CI_Controller {
 				'is_parent_category' => false,
 				'banners' => $this->baselib->get_page_banners('category-'.$category)
 			);
-
-
 			
 			$products = $this->productlib->get_category_products($category);
 
