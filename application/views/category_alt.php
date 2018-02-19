@@ -56,27 +56,32 @@
                 <div class="content_helper">
                     <?php $counter = 0; ?>
                     <?php $style = ''; ?>
-                    <?php $style_not_used = true; ?>
+                    <?php $style_used = false; ?>
 
                     <?php foreach ($banners as $banner) { ?>
                         <?php
-                            if($style_not_used) {
+                            if(!$style_used) {
                                 if($counter==1 and $banner['type']==1) {
                                     $style = 'margin:0 18px';
+                                    $style_used = true;
                                 } elseif($counter==1 and $banner['type']==2) {
                                     $style = 'margin-left:18px';
+                                    $style_used = true;
                                 } elseif($counter==0 and $banner['type']==2) {
                                     $style = 'margin-right:18px';
+                                    $style_used = true;
                                 }
 
-                                $style_not_used = false;
+                                
                             } else {
                                 $style = '';
                             }
-                        ?>
-                        <a href="<?php echo $banner['href'] ?>"><div class="banner_120218 fl_l banner_120218_5" style="<?php echo $style ?>">
-                            <img src="<?php echo $banner['img'] ?>" alt="">
-                        </div></a>
+                        ?><?php var_dump($style); ?>
+                        <a href="<?php echo $banner['href'] ?>">
+                            <div class="banner_120218 fl_l banner_120218_5" style="<?php echo $style ?>">
+                                <img src="<?php echo $banner['img'] ?>" alt="">
+                            </div>
+                        </a>
                         <?php $counter++; ?>
                     <?php } ?>
                     <div class="clear"></div>
