@@ -112,7 +112,7 @@
                                 } else {
                                     $style = '';
                                 }
-                            ?><?php var_dump($style); ?>
+                            ?>
                             <a href="<?php echo $banner['href'] ?>">
                                 <div class="banner_120218 fl_l banner_120218_5" style="<?php echo $style ?>">
                                     <img src="<?php echo $banner['img'] ?>" alt="">

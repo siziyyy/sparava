@@ -53,27 +53,33 @@ class Baselib {
     				}
     			}
 
+    			$counter = 0;
+
     			foreach ($query->result_array() as $banner) {
     				if(!in_array($banner['banner_id'],$banners_blacklist)) {
-	    				$result[$banner['banner_id']] = array(
-	    					'banner_id' => $banner['banner_id'],
-	    					'img' => $banner['image_file'],
-	    					'href' => $banner['href'],
-	    					'type' => $banner['type']
-	    				);
+    					if(($counter+$banner['type']) <= 3 and !isset($result[$banner['banner_id']])) {
+		    				$result[$banner['banner_id']] = array(
+		    					'banner_id' => $banner['banner_id'],
+		    					'img' => $banner['image_file'],
+		    					'href' => $banner['href'],
+		    					'type' => $banner['type']
+		    				);
+
+		    				$counter = $counter+$banner['type'];
+		    			}
     				}
     			}
     		}
     	} else {
-    		$sql = 'SELECT b.* FROM banners AS b,banner_to_page AS btp WHERE btp.page = "'.$page.'" AND btp.banner_id = b.banner_id ORDER BY RAND() LIMIT 3';
+    		$sql = 'SELECT b.* FROM banners AS b,banner_to_page AS btp WHERE btp.page != "'.$page.'" AND btp.banner_id = b.banner_id ORDER BY RAND()';
     		$query = $this->_ci->db->query($sql);
 
 	    	$counter = 0;
 
 	    	if ($query->num_rows() > 0) {
 	    		foreach ($query->result_array() as $banner) {
-	    			if($counter < 3) {
-	    				$result[] = array(
+	    			if(($counter+$banner['type']) <= 3 and !isset($result[$banner['banner_id']])) {
+	    				$result[$banner['banner_id']] = array(
 	    					'img' => $banner['image_file'],
 	    					'href' => $banner['href'],
 	    					'type' => $banner['type']
