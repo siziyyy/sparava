@@ -284,7 +284,9 @@ class Main extends CI_Controller {
 				),
 				'is_first_page' => true,
 				'country' => $country,
+				'country_id' => $country_id,
 				'products' => $products,
+				'parent_categories_list' => $this->productlib->get_categories_for_page('country',$country),
 				'banners' => $this->baselib->get_page_banners('country-'.$country_id)
 			);
 		} else {

@@ -5,20 +5,13 @@
                     <div class="c_new_menu">
                         <div class="c_new_menu_line c_new_menu_line_country filters_holder">
                             <div class="c_new_menu_line_item fl_l">
-                                <?php if($category == 'eko') { ?>
-                                    эко продукты
-                                <?php } elseif($category == 'farm') { ?>
-                                    фермерские продукты
-                                <?php } elseif($category == 'diet') { ?>
-                                    диетические продукты
-                                <?php } elseif($category == 'child') { ?>
-                                    для детей
-                                <?php } elseif($category == 'recommend') { ?>
-                                    особо рекомендуемые
-                                <?php } elseif($category == 'bbox') { ?>
-                                    большая упаковка
-                                <?php } ?>
-                            </div>     
+                                <a href="/category/" class="c_new_menu_link c_new_menu_link_country2">продукты по акции</a>
+                                <a href="/category/" class="c_new_menu_link c_new_menu_link_country2 c_new_menu_link_country2_act">большая упаковка</a>
+                                <a href="/category/" class="c_new_menu_link c_new_menu_link_country2">особо рекомендуем</a>
+                                <a href="/category/" class="c_new_menu_link c_new_menu_link_country2">фермерские</a>
+                                <a href="/category/" class="c_new_menu_link c_new_menu_link_country2">диетические</a>
+                                <a href="/category/" class="c_new_menu_link c_new_menu_link_country2">эко</a>
+                            </div>    
 							<?php if(!$is_first_page and count($categories_for_provider) > 0) { ?>
 							<div class="cool_select_pack cool_select_country_pack fl_l" data-type="category">
 								<div class="cool_select cool_select_country <?php echo (isset($filters_text['category']) ? 'cool_select_disabled' : '') ?>">

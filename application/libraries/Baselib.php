@@ -28,13 +28,17 @@ class Baselib {
     	$page_details = explode("-",$page);
 
     	if($page_details[0] == 'category') {
-    		$sql = 'SELECT category_id FROM categories WHERE category_id = '.$page_details[1].' OR parent_id = '.$page_details[1];
+    		$sql = 'SELECT category_id,parent_id FROM categories WHERE category_id = '.$page_details[1].' OR parent_id = '.$page_details[1];
     		$query = $this->_ci->db->query($sql);
 
     		if ($query->num_rows() > 0) {
     			$pages_blacklist = array();
 
     			foreach ($query->result_array() as $category) {
+    				if($category['parent_id'] > 0) {
+    					$pages_blacklist[] = 'category-'.$category['parent_id'];
+    				}
+
     				$pages_blacklist[] = 'category-'.$category['category_id'];
     			}
     		}
@@ -44,7 +48,6 @@ class Baselib {
     		$query = $this->_ci->db->query($sql);
 
     		if ($query->num_rows() > 0) {
-    			$banners = array();
     			$banners_blacklist = array();
 
     			foreach ($query->result_array() as $banner) {
@@ -71,24 +74,37 @@ class Baselib {
     			}
     		}
     	} else {
-    		$sql = 'SELECT b.* FROM banners AS b,banner_to_page AS btp WHERE btp.page != "'.$page.'" AND btp.banner_id = b.banner_id ORDER BY RAND()';
+
+    		$sql = 'SELECT b.*,btp.page FROM banners AS b,banner_to_page AS btp WHERE btp.banner_id = b.banner_id ORDER BY RAND()';
     		$query = $this->_ci->db->query($sql);
 
-	    	$counter = 0;
+     		if ($query->num_rows() > 0) {
 
-	    	if ($query->num_rows() > 0) {
-	    		foreach ($query->result_array() as $banner) {
-	    			if(($counter+$banner['type']) <= 3 and !isset($result[$banner['banner_id']])) {
-	    				$result[$banner['banner_id']] = array(
-	    					'img' => $banner['image_file'],
-	    					'href' => $banner['href'],
-	    					'type' => $banner['type']
-	    				);
+     			$banners_blacklist = array();
 
-	    				$counter = $counter+$banner['type'];
-	    			}
-	    		}
-	    	}	    	
+    			foreach ($query->result_array() as $banner) {
+    				if($banner['page'] == $page) {
+    					$banners_blacklist[] = $banner['banner_id'];
+    				}
+    			}
+
+    			$counter = 0;
+
+    			foreach ($query->result_array() as $banner) {
+    				if(!in_array($banner['banner_id'],$banners_blacklist)) {
+    					if(($counter+$banner['type']) <= 3 and !isset($result[$banner['banner_id']])) {
+		    				$result[$banner['banner_id']] = array(
+		    					'banner_id' => $banner['banner_id'],
+		    					'img' => $banner['image_file'],
+		    					'href' => $banner['href'],
+		    					'type' => $banner['type']
+		    				);
+
+		    				$counter = $counter+$banner['type'];
+		    			}
+    				}
+    			}
+    		}
     	}
 
     	return $result;

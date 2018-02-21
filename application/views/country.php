@@ -6,22 +6,13 @@
                         <div class="c_new_menu">
                             <div class="c_new_menu_line c_new_menu_line_country filters_holder">
                                 <div class="c_new_menu_line_item fl_l">
-                                    <!--
-                                    <a href="/category/" class="c_new_menu_link c_new_menu_link_country2">продукты по акции</a>
-                                    <a href="/category/" class="c_new_menu_link c_new_menu_link_country2 c_new_menu_link_country2_act">большая упаковка</a>
-                                    <a href="/category/" class="c_new_menu_link c_new_menu_link_country2">особо рекомендуем</a>
-                                    <a href="/category/" class="c_new_menu_link c_new_menu_link_country2">фермерские</a>
-                                    <a href="/category/" class="c_new_menu_link c_new_menu_link_country2">диетические</a>
-                                    <a href="/category/" class="c_new_menu_link c_new_menu_link_country2">эко</a>
-                                    -->
-                                    <a href="/category/" class="c_new_menu_link c_new_menu_link_country2 c_new_menu_link_country2_act"><?php echo $country ?></a>
-                                    <a href="/category/" class="c_new_menu_link c_new_menu_link_country2">испания</a>
-                                    <a href="/category/" class="c_new_menu_link c_new_menu_link_country2">греция</a>
-                                    <a href="/category/" class="c_new_menu_link c_new_menu_link_country2">турция</a>
-                                    <a href="/category/" class="c_new_menu_link c_new_menu_link_country2">беларусь</a>
-                                    <a href="/category/" class="c_new_menu_link c_new_menu_link_country2">армения</a>
-                                    <a href="/category/" class="c_new_menu_link c_new_menu_link_country2">азербайджан</a>
-                                    <a href="/category/" class="c_new_menu_link c_new_menu_link_country2">узбекистан</a>
+                                    <a href="/country/3" class="c_new_menu_link c_new_menu_link_country2 <?php echo ($country_id == 3 ? 'c_new_menu_link_country2_act' : '') ?>">испания</a>
+                                    <a href="/country/4" class="c_new_menu_link c_new_menu_link_country2 <?php echo ($country_id == 4 ? 'c_new_menu_link_country2_act' : '') ?>">греция</a>
+                                    <a href="/country/11" class="c_new_menu_link c_new_menu_link_country2 <?php echo ($country_id == 11 ? 'c_new_menu_link_country2_act' : '') ?>">турция</a>
+                                    <a href="/country/10" class="c_new_menu_link c_new_menu_link_country2 <?php echo ($country_id == 10 ? 'c_new_menu_link_country2_act' : '') ?>">беларусь</a>
+                                    <a href="/country/6" class="c_new_menu_link c_new_menu_link_country2 <?php echo ($country_id == 6 ? 'c_new_menu_link_country2_act' : '') ?>">армения</a>
+                                    <a href="/country/8" class="c_new_menu_link c_new_menu_link_country2 <?php echo ($country_id == 8 ? 'c_new_menu_link_country2_act' : '') ?>">азербайджан</a>
+                                    <a href="/country/7" class="c_new_menu_link c_new_menu_link_country2 <?php echo ($country_id == 7 ? 'c_new_menu_link_country2_act' : '') ?>">узбекистан</a>
                                 </div>
                                 <?php if(!$is_first_page) { ?>  
                                     <div class="cool_select_pack cool_select_country_pack fl_l">
@@ -57,11 +48,13 @@
                                 </style>
                             <?php if($is_first_page) { ?>
                                 <div class="columns_in_country_menu">
+                                    <?php foreach($parent_categories_list as $category) { ?>
                                     <div class="column_in_country_menu">
-                                        <a class="column_in_country_menu_link" href="/">Деликатесы</a>
+                                        <a class="column_in_country_menu_link" href="?category=<?php echo $category ?>"><?php echo $category ?></a>
                                         <a class="column_in_country_menu_link column_in_country_menu_link_act" href="/">Бакалея</a>
                                         <a class="column_in_country_menu_link" href="/">Консервация</a>
                                     </div>
+                                    <?php } ?>
                                     <div class="column_in_country_menu">
                                         <a class="column_in_country_menu_link" href="/">Соусы</a>
                                         <a class="column_in_country_menu_link" href="/">Молочные продукты</a>
