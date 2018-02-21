@@ -7,6 +7,74 @@ class Productlib {
     	$this->_ci =& get_instance();
     }
 
+   	public function get_categories_for_page($type = false,$element_id = false) {
+		$categories = array();
+
+		if($type == 'category') {
+			$sql = "SELECT * FROM categories WHERE parent_id = " . (int)$element_id . " ORDER BY sort_order ASC";
+			$query = $this->_ci->db->query($sql);
+
+			if ($query->num_rows() > 0) {
+				foreach ($query->result_array() as $row) {
+					$categories[$row['category_id']] = $row;
+				}
+			}			
+		} else {
+			$parent_categories = array();
+
+			$sql = "SELECT * FROM categories";
+			$query = $this->_ci->db->query($sql);
+
+			if ($query->num_rows() > 0) {
+				foreach ($query->result_array() as $row) {
+					$parent_categories[$row['category_id']] = $row;
+				}
+			}
+
+			$sql = "SELECT c.* FROM categories AS c, product_to_category AS ptc, products AS p WHERE p.status = 1 AND c.category_id = ptc.category_id AND p.product_id = ptc.product_id";
+
+			if($type == 'country') {
+				$sql .= " AND p.country = '" . $element_id . "';";
+			} elseif($type == 'diet') {
+				$sql .= " AND p.diet = 1;";
+			} elseif($type == 'eko') {
+				$sql .= " AND p.eko = 1;";
+			} elseif($type == 'child') {
+				$sql .= " AND p.child = 1;";
+			} elseif($type == 'farm') {
+				$sql .= " AND p.farm = 1;";
+			} elseif($type == 'recommend') {
+				$sql .= " AND p.recommend = 1;";
+			} elseif($type == 'bbox') {
+				$sql .= " AND (p.bbox = 1 OR p.bbox_n = 1);";
+			}
+
+			$query = $this->_ci->db->query($sql);
+
+			if ($query->num_rows() > 0) {
+				foreach ($query->result_array() as $row) {
+					$categories[$row['parent_id']] = $parent_categories[$row['parent_id']];
+				}
+			}			
+		}
+
+		$categories_structed = array();
+
+		$count = count($categories);
+		$tail = $count % 8;
+		$lines = (($count-$tail)/8)+1;
+		$cols_tail = $tail % 2;
+		$cols = (($tail - $cols_tail)/2)+1;
+
+		for($l=1;$l<=$lines;$l++) {
+			for($c=1;$c<=$cols;$c++) {
+				
+			}
+		}
+		
+		return $categories_structed;
+	} 
+
 	public function get_top_five($type = false,$element_id = false) {
 		$products = array();
 
