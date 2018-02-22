@@ -257,16 +257,20 @@ class Filterlib {
 					$filters_arr[$key] = 0;
 				}
 			}
-		}	
-		
-		
+		}
+
 		$providers_for_provider = array();
+		$all_products = array();
 		
-		foreach($input_products as $product_id => $product) {
-			if(!empty($product['provider'])) {
-				$providers_for_provider[] = $product['provider'];
+		$sql = 'SELECT ptp.product_id, pr.* FROM products AS p, product_to_provider AS ptp, providers AS pr WHERE p.product_id = ptp.product_id AND ptp.provider_id = pr.provider_id';
+		$query = $this->_ci->db->query($sql);
+		
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $row) {
+				$providers_for_provider[] = $row['store'];
+				$all_products[$row['product_id']] = $row;
 			}
-		}		
+		}	
 		
 		$providers_for_provider = array_unique($providers_for_provider);
 		asort($providers_for_provider);
@@ -274,9 +278,9 @@ class Filterlib {
 		$products = array();
 		
 		if(is_array($filters_arr['provider'])) {
-			foreach($input_products as $product_id => $product) {
-				if(in_array($product['provider'],$filters_arr['provider'])) {
-					$products[$product_id] = $product;
+			foreach($all_products as $product_id => $product) {
+				if(in_array($product['store'],$filters_arr['provider'])) {
+					$products[$product_id] = $input_products[$product_id];
 				}
 			}
 		} else {
