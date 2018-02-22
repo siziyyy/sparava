@@ -25,15 +25,37 @@ class Excellib extends PHPExcel {
 
 			$sql = 'SELECT p.* FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND ptc.category_id = c.category_id AND ptc.category_id = ' . (int)$category_id . ' ORDER BY product_id ASC';
 					
-			$query = $this->_ci->db->query($sql);			
+			$query = $this->_ci->db->query($sql);
+
+			if ($query->num_rows() > 0) {
+    			$data = $query->result_array();
+    		}
+
+    	} elseif($type == 'provider') {
+
+    		$data = array();
+
+    		foreach ($ids as $store) {
+	    		$sql = 'SELECT p.* FROM products AS p, product_to_provider AS ptp, providers AS pr WHERE p.product_id = ptp.product_id AND ptp.provider_id = pr.provider_id AND pr.store = "' . $store . '" ORDER BY product_id ASC';
+
+				$query = $this->_ci->db->query($sql);
+
+				if ($query->num_rows() > 0) {
+	    			foreach($query->result_array() as $row) {
+	    				$data[$row['product_id']] = $row;
+		    		}
+	    		}
+	    	}
 
     	} else {
     		$query = $this->_ci->db->select("*")->from("products")->where_in($type,$ids)->order_by('product_id', 'ASC')->get();
+
+    		if ($query->num_rows() > 0) {
+    			$data = $query->result_array();
+    		}
     	}
 
     	if ($query->num_rows() > 0) {
-
-    		$data = $query->result_array();
 
 			$category_names = array();
 			

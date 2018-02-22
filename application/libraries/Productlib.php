@@ -557,6 +557,17 @@ class Productlib {
 				$product['blog_id'] = NULL;
 			}
 
+			$product['providers'] = array();
+
+ 			$sql = 'SELECT ptp.* FROM products AS p, product_to_provider AS ptp, providers AS pr WHERE p.product_id = ptp.product_id AND ptp.provider_id = pr.provider_id AND  p.product_id = '.$product_id;
+			$query = $this->_ci->db->query($sql);
+
+			if ($query->num_rows() > 0) {
+				foreach ($query->result_array() as $row) {
+					$product['providers'][] = $row;
+				}
+			}			
+
 			return $this->_ci->baselib->handle_special_price($product);
 		}
 		
