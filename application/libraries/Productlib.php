@@ -53,22 +53,36 @@ class Productlib {
 
 			if ($query->num_rows() > 0) {
 				foreach ($query->result_array() as $row) {
-					$categories[$row['parent_id']] = $parent_categories[$row['parent_id']];
+					if(isset($parent_categories[$row['parent_id']])) {
+						$categories[$row['parent_id']] = $parent_categories[$row['parent_id']];
+					}
 				}
 			}			
 		}
 
 		$categories_structed = array();
 
-		$count = count($categories);
-		$tail = $count % 8;
-		$lines = (($count-$tail)/8)+1;
-		$cols_tail = $tail % 2;
-		$cols = (($tail - $cols_tail)/2)+1;
+		$col = 0;
 
-		for($l=1;$l<=$lines;$l++) {
-			for($c=1;$c<=$cols;$c++) {
-				
+		do {
+			$current_category = array_shift($categories);
+			$categories_structed[$col][] = $current_category;
+
+			if($col == 0 and (count($categories_structed[$col]) % 2) == 0) {
+				$col++;
+			} elseif($col != 0 and count($categories_structed[0]) == count($categories_structed[$col])) {
+				$col++;
+
+				if($col >= 5) {
+					$col = 0;
+				}
+			}
+
+		} while(count($categories));
+
+		for($i=0;$i<5;$i++) {
+			if(!isset($categories_structed[$i])) {
+				$categories_structed[$i] = array();
 			}
 		}
 		

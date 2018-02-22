@@ -1,45 +1,32 @@
 <?php $this->load->view('common/header',$header);?>
         <section class="content">
-			<div class="category_bg_helper category_bg_helper_country">
+			<div class="category_bg_helper category_bg_helper_country category_bg_helper_country2">
                 <div class="content_helper">
                     <div class="c_new_menu">
                         <div class="c_new_menu_line c_new_menu_line_country filters_holder">
                             <div class="c_new_menu_line_item fl_l">
-                                <a href="/category/" class="c_new_menu_link c_new_menu_link_country2">продукты по акции</a>
-                                <a href="/category/" class="c_new_menu_link c_new_menu_link_country2 c_new_menu_link_country2_act">большая упаковка</a>
-                                <a href="/category/" class="c_new_menu_link c_new_menu_link_country2">особо рекомендуем</a>
-                                <a href="/category/" class="c_new_menu_link c_new_menu_link_country2">фермерские</a>
-                                <a href="/category/" class="c_new_menu_link c_new_menu_link_country2">диетические</a>
-                                <a href="/category/" class="c_new_menu_link c_new_menu_link_country2">эко</a>
-                            </div>    
-							<?php if(!$is_first_page and count($categories_for_provider) > 0) { ?>
-							<div class="cool_select_pack cool_select_country_pack fl_l" data-type="category">
-								<div class="cool_select cool_select_country <?php echo (isset($filters_text['category']) ? 'cool_select_disabled' : '') ?>">
-									<span><?php echo (isset($filters_text['category']) ? $filters_text['category'] : 'категория') ?></span>
-                                    <span class="cool_select_arrow sprite"></span>
-                                    <span class="cool_select_arrow2">×</span>
-								</div>
-								<div class="cool_select_options">
-                                    <div class="scrollbar-inner scroll_helper">
-    									<?php foreach($categories_for_provider as $attribute) { ?>
-    										<div class="cool_select_option">
-    											<label>
-    												<input type="checkbox" class="cool_select_check" value="<?php echo $attribute['title'] ?>" data-name="category" <?php echo (in_array($attribute['title'],explode(';',$filters['category'])) ? 'checked' : '' ) ?>>
-    												<?php echo $attribute['title'] ?>
-    											</label>
-    										</div>
-    									<?php } ?>
-                                    </div>
-									<div class="cool_select_button <?php echo (!$filters_used ? '' : 'cool_select_button_ready') ?>">применить</div>
-								</div>
-							</div>
-							<?php } ?>							
+                                <a href="/child" class="c_new_menu_link c_new_menu_link_country2 <?php echo ('child' == $this->router->fetch_method() ? 'c_new_menu_link_country2_act' : '') ?>">детские</a>
+                                <a href="/bbox" class="c_new_menu_link c_new_menu_link_country2 <?php echo ('bbox' == $this->router->fetch_method() ? 'c_new_menu_link_country2_act' : '') ?>">большая упаковка</a>
+                                <a href="/recommend" class="c_new_menu_link c_new_menu_link_country2 <?php echo ('recommend' == $this->router->fetch_method() ? 'c_new_menu_link_country2_act' : '') ?>">особо рекомендуем</a>
+                                <a href="/farm" class="c_new_menu_link c_new_menu_link_country2 <?php echo ('farm' == $this->router->fetch_method() ? 'c_new_menu_link_country2_act' : '') ?>">фермерские</a>
+                                <a href="/diet" class="c_new_menu_link c_new_menu_link_country2 <?php echo ('diet' == $this->router->fetch_method() ? 'c_new_menu_link_country2_act' : '') ?>">диетические</a>
+                                <a href="/eko" class="c_new_menu_link c_new_menu_link_country2 <?php echo ('eko' == $this->router->fetch_method() ? 'c_new_menu_link_country2_act' : '') ?>">эко</a>
+                            </div>
                             <div class="c_new_menu_line_item c_new_menu_line_item_right fl_r">
                                 <span class="c_new_menu_more">другие продукты</span>
                                 <span class="c_new_menu_more_icon oefgpopfegespgo"></span>
                             </div>                          
                             <div class="clear"></div>
                         </div>
+                        <div class="columns_in_country_menu">
+                            <?php foreach($parent_categories_list as $col) { ?>
+                                <div class="column_in_country_menu">
+                                    <?php foreach($col as $c_category) { ?>
+                                        <a class="column_in_country_menu_link <?php echo ($c_category['title'] == $current_category ? 'column_in_country_menu_link_act' : '') ?>" href="?category=<?php echo $c_category['title'] ?>"><?php echo $c_category['title'] ?></a>
+                                    <?php } ?>
+                                </div>
+                            <?php } ?>
+                        </div>                        
                         <?php $this->load->view('common/menu-categories');?>
                     </div>
                 </div>
