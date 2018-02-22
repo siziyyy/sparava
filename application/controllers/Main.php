@@ -1440,8 +1440,6 @@ class Main extends CI_Controller {
 				break;
 
 			case 'get_product_info':
-			
-				$products = array();
 				
 				$product_id = $this->input->post('product_id');
 				$product = $this->productlib->get_product_by_id($product_id);
@@ -1456,6 +1454,7 @@ class Main extends CI_Controller {
 				if($product) {
 					$json['success']['product'] = $product;
 				}
+
 				
 				break;			
 			

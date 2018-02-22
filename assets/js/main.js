@@ -60,6 +60,15 @@ function listener(event) {
 		$('#product_form .product_blog').val(product.blog);
 		$('#product_form .product_competitors').val(product.competitors);
 
+		$('#product_form .product_providers').empty();
+
+		if(product['providers'].length > 0) {
+			for (k in product['providers']) {
+				html = '<a href="/provider?provider='+product['providers'][k]['store']+'">'+product['providers'][k]['cmo']+'/'+product['providers'][k]['cko']+' '+product['providers'][k]['store']+'</a><br>';
+				$('#product_form .product_providers').append(html);
+			}
+		}			
+
 		$('#product_form .product_eko').prop('checked', false);
 		if(product.eko > 0) {
 			$('#product_form .product_eko').prop('checked', true);
@@ -1681,7 +1690,8 @@ $(document).ready(function() {
 									}
 									$('#product_info .good_modal_video_line').show();
 								}
-							}
+							}					
+							
 							
 							$('#product_info .good_modal_fav').removeClass('good_modal_fav_ylw');
 							
