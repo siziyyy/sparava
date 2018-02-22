@@ -6,6 +6,7 @@
                         <div class="c_new_menu">
                             <div class="c_new_menu_line c_new_menu_line_country filters_holder">
                                 <div class="c_new_menu_line_item fl_l">
+                                    <a href="/country/2" class="c_new_menu_link c_new_menu_link_country2 <?php echo ($country_id == 2 ? 'c_new_menu_link_country2_act' : '') ?>">Италия</a>
                                     <a href="/country/3" class="c_new_menu_link c_new_menu_link_country2 <?php echo ($country_id == 3 ? 'c_new_menu_link_country2_act' : '') ?>">испания</a>
                                     <a href="/country/4" class="c_new_menu_link c_new_menu_link_country2 <?php echo ($country_id == 4 ? 'c_new_menu_link_country2_act' : '') ?>">греция</a>
                                     <a href="/country/11" class="c_new_menu_link c_new_menu_link_country2 <?php echo ($country_id == 11 ? 'c_new_menu_link_country2_act' : '') ?>">турция</a>
@@ -14,69 +15,26 @@
                                     <a href="/country/8" class="c_new_menu_link c_new_menu_link_country2 <?php echo ($country_id == 8 ? 'c_new_menu_link_country2_act' : '') ?>">азербайджан</a>
                                     <a href="/country/7" class="c_new_menu_link c_new_menu_link_country2 <?php echo ($country_id == 7 ? 'c_new_menu_link_country2_act' : '') ?>">узбекистан</a>
                                 </div>
-                                <?php if(!$is_first_page) { ?>  
-                                    <div class="cool_select_pack cool_select_country_pack fl_l">
-                                        <div class="cool_select cool_select_country <?php echo (isset($filters_text['category']) ? 'cool_select_disabled' : '') ?>">
-        									<span><?php echo (isset($filters_text['category']) ? $filters_text['category'] : 'категория') ?></span>
-        									<span class="cool_select_arrow sprite"></span>
-        								</div>
-        								<div class="cool_select_options">
-        									<div class="scrollbar-inner scroll_helper">
-        										<?php foreach($categories as $category) { ?>
-        											<div class="cool_select_option">
-        												<label>
-        													<input type="checkbox" class="cool_select_check" value="<?php echo $category['title'] ?>" data-name="category" <?php echo (in_array($category['title'],explode(';',$menu['filters']['category'])) ? 'checked' : '' ) ?>>
-        													<?php echo $category['title'] ?>
-        												</label>
-        											</div>
-        										<?php } ?>
-        									</div>
-        									<div class="cool_select_button">применить</div>
-        								</div>
-                                    </div>
-                                <?php } ?>
                                 <div class="c_new_menu_line_item c_new_menu_line_item_right fl_r">
                                     <span class="c_new_menu_more">другие продукты</span>
                                     <span class="c_new_menu_more_icon oefgpopfegespgo"></span>
                                 </div>                          
                                 <div class="clear"></div>
                             </div>
-                                <style>
-                                    .banners_120218 {
-                                        margin: 35px 0 50px 0 !important;
-                                    }
-                                </style>
-                            <?php if($is_first_page) { ?>
-                                <div class="columns_in_country_menu">
-                                    <?php foreach($parent_categories_list as $category) { ?>
+                            <style>
+                                .banners_120218 {
+                                    margin: 35px 0 50px 0 !important;
+                                }
+                            </style>
+                            <div class="columns_in_country_menu">
+                                <?php foreach($parent_categories_list as $col) { ?>
                                     <div class="column_in_country_menu">
-                                        <a class="column_in_country_menu_link" href="?category=<?php echo $category ?>"><?php echo $category ?></a>
-                                        <a class="column_in_country_menu_link column_in_country_menu_link_act" href="/">Бакалея</a>
-                                        <a class="column_in_country_menu_link" href="/">Консервация</a>
+                                        <?php foreach($col as $c_category) { ?>
+                                            <a class="column_in_country_menu_link <?php echo ($c_category['title'] == $current_category ? 'column_in_country_menu_link_act' : '') ?>" href="?category=<?php echo $c_category['title'] ?>"><?php echo $c_category['title'] ?></a>
+                                        <?php } ?>
                                     </div>
-                                    <?php } ?>
-                                    <div class="column_in_country_menu">
-                                        <a class="column_in_country_menu_link" href="/">Соусы</a>
-                                        <a class="column_in_country_menu_link" href="/">Молочные продукты</a>
-                                        <a class="column_in_country_menu_link" href="/">Растительные масла</a>
-                                    </div>
-                                    <div class="column_in_country_menu">
-                                        <a class="column_in_country_menu_link" href="/">Молочные продукты</a>
-                                        <a class="column_in_country_menu_link" href="/">Растительные масла</a>
-                                        <a class="column_in_country_menu_link" href="/">Кофе, какао, горячий шоколад</a>
-                                    </div>
-                                    <div class="column_in_country_menu">
-                                        <a class="column_in_country_menu_link" href="/">Вода и напитки</a>
-                                        <a class="column_in_country_menu_link" href="/">Конфеты и шоколад</a>
-                                        <a class="column_in_country_menu_link" href="/">Колбасы, сосиски, сардельки</a>
-                                    </div>
-                                    <div class="column_in_country_menu">
-                                        <a class="column_in_country_menu_link" href="/">Оливки и маслины</a>
-                                        <a class="column_in_country_menu_link" href="/">Варенье и джемы</a>
-                                        <a class="column_in_country_menu_link" href="/">Печенье, вафли, пряники</a>
-                                    </div>
-                                </div>
-                            <? } ?>
+                                <?php } ?>
+                            </div>
                             <?php $this->load->view('common/menu-categories');?>
                         </div>
                     </div>

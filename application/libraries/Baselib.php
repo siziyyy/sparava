@@ -641,8 +641,8 @@ class Baselib {
 
 		$attributes['brands'] = array_unique($attributes['brands']);
 
-		asort($attributes['brands']);
-/*		
+		//asort($attributes['brands']);
+		
 		foreach($products as $product_id => $product) {			
 			if(!is_null($product['brand']) and !empty($product['brand'])) {
 				if(isset($count[$product['brand']])) {
@@ -653,12 +653,16 @@ class Baselib {
 			}
 		}
 
+		$attributes = array(
+			'brands' => array()
+		);
+
 		arsort($count);
 
 		foreach ($count as $brand => $value) {
 			$attributes['brands'][] = $brand;
 		}
-*/		
+		
 		return $attributes;
 	}	
 
