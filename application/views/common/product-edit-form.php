@@ -7,8 +7,10 @@
                     <img src="" alt="" class="product_image" onError="this.src='/assets/img/nophoto.jpg'">
                 </div>
                 <label>
-                    <span class="g_good_admin_info_modal_inpname">Поставщик</span>
-                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_provider">
+                    <span class="g_good_admin_info_modal_inpname">Поставщики</span>
+                    <div class="product_providers">
+
+                    </div>
                 </label>
                 <label class="fl_l">
                     <span class="g_good_admin_info_modal_inpname">Мера</span>
