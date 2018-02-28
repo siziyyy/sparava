@@ -441,7 +441,11 @@ body,html,textarea{font-family:Calibri}
                         <div class="h_cart">
                             <div class="h_cart_icon sprite fl_l"></div>
                             <div class="h_cart_text fl_l">
-                                <span id="h_cart_text_total"><?php echo $cart['total'] ?></span> <span id="h_cart_text_word"><?php echo $cart['word'] ?></span> на <span id="h_cart_text_summ"><?php echo $cart['summ'] ?></span> руб.
+                                <? if ($cart['total'] == 0) { ?>
+                                    <span id="h_cart_text_total">корзинка пуста</span>
+                                <? } else { ?>
+                                    <span id="h_cart_text_total"><?php echo $cart['total'] ?></span> <span id="h_cart_text_word"><?php echo $cart['word'] ?></span> на <span id="h_cart_text_summ"><?php echo $cart['summ'] ?></span> руб.
+                                <? } ?>
                             </div>
                             <div class="clear"></div>
                         </div>
