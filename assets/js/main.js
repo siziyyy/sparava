@@ -774,7 +774,38 @@ $(document).ready(function() {
         autoplay: true,
         autoplaySpeed: 3000,
 		pauseOnHover: false,
-        cssEase: 'ease-in-out'
+        cssEase: 'ease-in-out',
+        pauseOnFocus: true
+    });
+    $('.vtoroy_slaider').slick({
+        dots: false,
+        infinite: true,
+        speed: 300,
+        arrows: true,
+        prevArrow: '<div class="vtoroy_slaider_arrow vtoroy_slaider_arrowleft"></div>',
+        nextArrow: '<div class="vtoroy_slaider_arrow vtoroy_slaider_arrowright"></div>',
+        autoplay: true,
+        autoplaySpeed: 3000,
+		pauseOnHover: false,
+        cssEase: 'ease-in-out',
+        slidesToShow: 6,
+  		slidesToScroll: 1,
+  		pauseOnFocus: true
+    });
+    $('.tretiy_slaider').slick({
+        dots: false,
+        infinite: true,
+        speed: 300,
+        arrows: true,
+        prevArrow: '<div class="tretiy_slaider_arrow tretiy_slaider_arrowleft"></div>',
+        nextArrow: '<div class="tretiy_slaider_arrow tretiy_slaider_arrowright"></div>',
+        autoplay: true,
+        autoplaySpeed: 3000,
+		pauseOnHover: false,
+        cssEase: 'ease-in-out',
+        slidesToShow: 4,
+  		slidesToScroll: 1,
+  		pauseOnFocus: true
     });
     /* mosaic */
     $('.c_mosaic').masonry({

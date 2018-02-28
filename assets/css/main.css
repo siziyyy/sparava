@@ -2264,20 +2264,19 @@ footer {
 }
 .c_new_index_menu_dropdown_secls {
     padding: 0 0 0 43px;
-    width: 235px;
+    width: 250px;
 }
 .c_new_index_menu_dropdown_thrdls {
     padding: 0 0 0 43px;
-    width: 220px;
+    width: 250px;
 }
 .c_new_index_menu_dropdown_frthls {
-    padding-left: 43px;
-    width: 215px;
-    height: 372px;
+    padding-left: 38px;
+    width: 210px;
 }
 .c_new_index_menu_dropdown_ffthls {
     padding-left: 43px;
-    width: 220px;
+    width: 190px;
     border: none;
 }
 .c_new_index_menu_dropdown_footer {
@@ -3148,4 +3147,7 @@ footer {
         -ms-transition: opacity .3s ease;
          -o-transition: opacity .3s ease;
             transition: opacity .3s ease;
+}
+.fullcatlink {
+    color: #3E780F;
 }
