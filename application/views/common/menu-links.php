@@ -93,15 +93,15 @@
 </div>							
 <div class="c_new_index_menu_dropdown_ls c_new_index_menu_dropdown_ffthls fl_l">
 	<div class="c_new_index_menu_dropdown_head">Выгода</div>
-	 <a href="/country/2" class="c_new_index_menu_dropdown_link">Продукты по акции</a>
-	 <a href="/country/3" class="c_new_index_menu_dropdown_link">Большая упаковка</a>
-	 <a href="/country/4" class="c_new_index_menu_dropdown_link">Особо рекомендуем</a>
+	 <a href="" class="c_new_index_menu_dropdown_link">Продукты по акции</a>
+	 <a href="/bbox" class="c_new_index_menu_dropdown_link">Большая упаковка</a>
+	 <a href="/recommend" class="c_new_index_menu_dropdown_link">Особо рекомендуем</a>
 	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
 	<div class="c_new_index_menu_dropdown_head">По назначению</div>
-	 <a href="/country/2" class="c_new_index_menu_dropdown_link">Диетические</a>
-	 <a href="/country/3" class="c_new_index_menu_dropdown_link">Фермерские</a>
-	 <a href="/country/4" class="c_new_index_menu_dropdown_link">Эко и органик</a>
-	 <a href="/country/4" class="c_new_index_menu_dropdown_link">Для детей</a>
+	 <a href="/diet" class="c_new_index_menu_dropdown_link">Диетические</a>
+	 <a href="/farm" class="c_new_index_menu_dropdown_link">Фермерские</a>
+	 <a href="/eko" class="c_new_index_menu_dropdown_link">Эко и органик</a>
+	 <a href="/child" class="c_new_index_menu_dropdown_link">Для детей</a>
 	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
 	<div class="c_new_index_menu_dropdown_head">Пробные наборы</div>
 	 <a href="/country/2" class="c_new_index_menu_dropdown_link">Универсальный</a>

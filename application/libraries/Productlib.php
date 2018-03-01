@@ -7,6 +7,43 @@ class Productlib {
     	$this->_ci =& get_instance();
     }
 
+	public function get_breadcrumbs_for_product($product,$type = false) {
+
+		$breadcrumbs = array();
+
+		if($type) {
+			$breadcrumbs['/'] = 'Главная';
+
+			if($type == 'eko') {
+				$breadcrumbs['/eko'] = 'Эко товары';
+			} elseif($type == 'child') {
+				$breadcrumbs['/child'] = 'Детские товары';
+			} elseif($type == 'diet') {
+				$breadcrumbs['/diet'] = 'Диетические товары';
+			} elseif($type == 'farm') {
+				$breadcrumbs['/farm'] = 'Детские товары';
+			} elseif($type == 'recommend') {
+				$breadcrumbs['/recommend'] = 'Детские товары';
+			} elseif($type == 'bbox') {
+				$breadcrumbs['/bbox'] = 'Товары в большой упаковке';
+			} else {
+				$countries = $this->_ci->baselib->_countries;
+				$breadcrumbs['/country/'.(int)$type] = $countries[$type];
+			}
+
+
+
+			$breadcrumbs['self'] = (is_null($product['title_full']) ? $product['title'] : $product['title_full']);
+		} else {
+			$breadcrumbs['/'] = 'Главная';
+			$breadcrumbs['/category/'.$product['parent_category_id']] = $product['parent_category_title'];
+			$breadcrumbs['/category/'.$product['category_id']] = $product['category_title'];
+			$breadcrumbs['self'] = (is_null($product['title_full']) ? $product['title'] : $product['title_full']);
+		}
+
+		return $breadcrumbs;
+	}
+
    	public function get_categories_for_page($type = false,$element_id = false) {
 		$categories = array();
 
@@ -555,7 +592,7 @@ class Productlib {
 				$product['blog_id'] = $blog['blog_id'];
 			} else {
 				$product['blog_id'] = NULL;
-			}		
+			}
 
 			return $this->_ci->baselib->handle_special_price($product);
 		}

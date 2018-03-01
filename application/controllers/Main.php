@@ -203,6 +203,7 @@ class Main extends CI_Controller {
 			'product' => $product,
 			'products' => $products_to_show,
 			'is_search' => true,
+			'path' => 'search',
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'articul' => $this->input->post('articul')
 		);
@@ -234,45 +235,8 @@ class Main extends CI_Controller {
 	}
 	
 	public function country($country_id) {
-		
-		switch ($country_id) {
-			case 1:
-				$country = 'Россия';
-				break;
-			case 2:
-				$country = 'Италия';
-				break;
-			case 3:
-				$country = 'Испания';
-				break;
-			case 4:
-				$country = 'Греция';
-				break;
-			case 5:
-				$country = 'Швейцария';
-				break;
-			case 6:
-				$country = 'Армения';
-				break;
-			case 7:
-				$country = 'Узбекистан';
-				break;
-			case 8:
-				$country = 'Азербайджан';
-				break;
-			case 9:
-				$country = 'Молдова';
-				break;
-			case 10:
-				$country = 'Беларусь';
-				break;
-			case 11:
-				$country = 'Турция';
-				break;	
-			default:
-				$country = 'Россия';
-				break;
-		}
+		$countries = $this->baselib->_countries;
+		$country = $countries[$country_id];
 
 		if(is_null($this->input->get('category'))) {
 			$products = $this->productlib->get_top_five('country',$country);
@@ -289,6 +253,7 @@ class Main extends CI_Controller {
 				'country' => $country,
 				'country_id' => $country_id,
 				'products' => $products,
+				'path' => $country_id,
 				'parent_categories_list' => $this->productlib->get_categories_for_page('country',$country),
 				'current_category' => NULL,
 				'banners' => $this->baselib->get_page_banners('country-'.$country_id)
@@ -323,6 +288,7 @@ class Main extends CI_Controller {
 				'pages_count' => $products_in_page['pages_count'],
 				'country_id' => $country_id,
 				'country' => $country,
+				'path' => $country_id,
 				'categories' => $products_in_page['categories_for_country'],
 				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 				'footer' => array(
@@ -394,7 +360,8 @@ class Main extends CI_Controller {
 			),
 			'pages' => $this->baselib->create_pager($products_in_page['pages_count'],$page),
 			'empty_products' => $products_in_page['empty_products'],
-			'filters_text' => $products_in_page['filters_text']
+			'filters_text' => $products_in_page['filters_text'],
+			'path' => false
 		);
 		
 		$this->load->view('provider',$data);
@@ -458,7 +425,8 @@ class Main extends CI_Controller {
 			),
 			'pages' => $this->baselib->create_pager($products_in_page['pages_count'],$page),
 			'empty_products' => $products_in_page['empty_products'],
-			'filters_text' => $products_in_page['filters_text']
+			'filters_text' => $products_in_page['filters_text'],
+			'path' => false
 		);
 
 		$this->load->view('brands',$data);
@@ -475,7 +443,8 @@ class Main extends CI_Controller {
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
-			)
+			),
+			'path' => false
 		);
 		
 		$account = $this->baselib->is_logged();
@@ -526,7 +495,8 @@ class Main extends CI_Controller {
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
-			)
+			),
+			'path' => false
 		);
 		
 		$products_ids = $this->baselib->get_favourites();
@@ -597,6 +567,7 @@ class Main extends CI_Controller {
 				),
 				'menu' => $menu,
 				'category' => $category,
+				'path' => false,
 				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 				'footer' => array(
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
@@ -647,6 +618,7 @@ class Main extends CI_Controller {
 				'footer' => array(
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
 				),
+				'path' => false,
 				'sort_order' => (isset($sort_order[$category]) ? $sort_order[$category] : false),
 				'is_parent_category' => false,
 				'banners' => $this->baselib->get_page_banners('category-'.$category)
@@ -701,6 +673,7 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
+			'path' => false,
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
@@ -761,6 +734,7 @@ class Main extends CI_Controller {
 			}
 
 			$related_products_ids = $this->productlib->get_related_products_ids($product_id);
+			$type = (is_null($this->input->get('type')) ? false : $this->input->get('type'));
 
 			$data = array(
 				'header' => array(
@@ -775,7 +749,9 @@ class Main extends CI_Controller {
 				'product' => $product,
 				'related_products' => $this->productlib->get_products_with_categories(false,'eko'),
 				'comments' => $this->baselib->get_comments('product', $product_id),
-				'related_products' => $this->productlib->get_products_by_ids($related_products_ids)
+				'related_products' => $this->productlib->get_products_by_ids($related_products_ids),
+				'breadcrumbs' => $this->productlib->get_breadcrumbs_for_product($product,$type),
+				'path' => $type
 			);
 
 			$this->load->view('product', $data);
@@ -796,6 +772,7 @@ class Main extends CI_Controller {
 				),
 				'is_first_page' => true,
 				'category' => 'child',
+				'path' => 'child',
 				'products' => $products,
 				'parent_categories_list' => $this->productlib->get_categories_for_page('child'),
 				'current_category' => NULL,
@@ -817,6 +794,7 @@ class Main extends CI_Controller {
 					'cart' => $this->get_cart_info_for_header()
 				),
 				'category' => 'child',
+				'path' => 'child',
 				'is_first_page' => false,
 				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 				'footer' => array(
@@ -864,6 +842,7 @@ class Main extends CI_Controller {
 				'footer' => array(
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
 				),
+				'path' => 'recommend',
 				'is_first_page' => true,
 				'category' => 'recommend',
 				'products' => $products,
@@ -887,6 +866,7 @@ class Main extends CI_Controller {
 					'cart' => $this->get_cart_info_for_header()
 				),
 				'category' => 'recommend',
+				'path' => 'recommend',
 				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 				'footer' => array(
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
@@ -936,6 +916,7 @@ class Main extends CI_Controller {
 				),
 				'is_first_page' => true,
 				'category' => 'bbox',
+				'path' => 'bbox',
 				'products' => $products,
 				'parent_categories_list' => $this->productlib->get_categories_for_page('bbox'),
 				'current_category' => NULL,
@@ -957,6 +938,7 @@ class Main extends CI_Controller {
 					'cart' => $this->get_cart_info_for_header()
 				),
 				'category' => 'bbox',
+				'path' => 'bbox',
 				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 				'footer' => array(
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
@@ -1006,6 +988,7 @@ class Main extends CI_Controller {
 				),
 				'is_first_page' => true,
 				'category' => 'eko',
+				'path' => 'eko',
 				'products' => $products,
 				'parent_categories_list' => $this->productlib->get_categories_for_page('eko'),
 				'current_category' => NULL,
@@ -1027,6 +1010,7 @@ class Main extends CI_Controller {
 					'cart' => $this->get_cart_info_for_header()
 				),
 				'category' => 'eko',
+				'path' => 'eko',
 				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 				'footer' => array(
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
@@ -1075,6 +1059,7 @@ class Main extends CI_Controller {
 				),
 				'is_first_page' => true,
 				'category' => 'farm',
+				'path' => 'farm',
 				'products' => $products,
 				'parent_categories_list' => $this->productlib->get_categories_for_page('farm'),
 				'current_category' => NULL,
@@ -1096,6 +1081,7 @@ class Main extends CI_Controller {
 					'cart' => $this->get_cart_info_for_header()
 				),
 				'category' => 'farm',
+				'path' => 'farm',
 				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 				'is_first_page' => false,
 				'footer' => array(
@@ -1144,6 +1130,7 @@ class Main extends CI_Controller {
 				),
 				'is_first_page' => true,
 				'category' => 'diet',
+				'path' => 'diet',
 				'products' => $products,
 				'parent_categories_list' => $this->productlib->get_categories_for_page('diet'),
 				'current_category' => NULL,
@@ -1164,6 +1151,7 @@ class Main extends CI_Controller {
 					'cart' => $this->get_cart_info_for_header()
 				),
 				'category' => 'diet',
+				'path' => 'diet',
 				'is_first_page' => false,
 				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 				'footer' => array(
@@ -1761,44 +1749,8 @@ class Main extends CI_Controller {
 						
 					} elseif(!is_null($this->input->post('country_id'))) {
 
-						switch ($this->input->post('country_id')) {
-							case 1:
-								$country = 'Россия';
-								break;
-							case 2:
-								$country = 'Италия';
-								break;
-							case 3:
-								$country = 'Испания';
-								break;
-							case 4:
-								$country = 'Греция';
-								break;
-							case 5:
-								$country = 'Швейцария';
-								break;
-							case 6:
-								$country = 'Армения';
-								break;
-							case 7:
-								$country = 'Узбекистан';
-								break;
-							case 8:
-								$country = 'Азербайджан';
-								break;
-							case 9:
-								$country = 'Молдова';
-								break;
-							case 10:
-								$country = 'Беларусь';
-								break;
-							case 11:
-								$country = 'Турция';
-								break;
-							default:
-								$country = 'Россия';
-								break;
-						}
+						$countries = $this->baselib->_countries;
+						$country = $countries[$this->input->post('country_id')];
 
 						$products = $this->productlib->get_country_products($country);
 						$products = $this->productlib->sort_products('country',$country,$products);
