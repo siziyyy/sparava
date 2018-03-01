@@ -258,10 +258,39 @@ class Productlib {
 		return $products;
 	}
 
-	public function get_related_products_ids($product_id = false,$limit = false) {
+	public function get_related_products_ids($product_id = false, $limit = false, $type=false) {
 		$result = array();
 
-		if($product_id) {
+		if($type) {
+			$sql = "SELECT product_id FROM products WHERE status = 1";
+
+			if($type == 'diet') {
+				$sql .= " AND diet = 1";
+			} elseif($type == 'eko') {
+				$sql .= " AND eko = 1";
+			} elseif($type == 'child') {
+				$sql .= " AND child = 1";
+			} elseif($type == 'farm') {
+				$sql .= " AND farm = 1";
+			} elseif($type == 'recommend') {
+				$sql .= " AND recommend = 1";
+			} elseif($type == 'bbox') {
+				$sql .= " AND (bbox = 1 OR bbox_n = 1)";
+			} else {
+				$sql .= " AND country = '" . $type . "'";
+			}
+
+			$sql .= " ORDER BY rand() LIMIT 5";
+
+			$query = $this->_ci->db->query($sql);
+
+			if ($query->num_rows() > 0) {
+				foreach ($query->result_array() as $row) {
+					$result[] = $row['product_id'];
+				}
+			}
+
+		} elseif($product_id) {
 			$sql = 'SELECT c.parent_id FROM product_to_category AS ptc, categories AS c WHERE ptc.product_id = '.$product_id.' AND ptc.category_id = c.category_id';
 			$query = $this->_ci->db->query($sql);
 
