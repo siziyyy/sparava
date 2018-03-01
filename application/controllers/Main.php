@@ -203,7 +203,7 @@ class Main extends CI_Controller {
 			'product' => $product,
 			'products' => $products_to_show,
 			'is_search' => true,
-			'path' => 'search',
+			'path' => false,
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'articul' => $this->input->post('articul')
 		);
