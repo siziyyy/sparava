@@ -1,6 +1,5 @@
 <?php $this->load->view('common/header',$header);?>
     <div class="content_helper">
-        <div class="new_cat_header">полный каталог</div>
         <div class="new_catalog_item new_cat_1 fl_l">
             <div class="new_full_cat_texts">
                 <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
