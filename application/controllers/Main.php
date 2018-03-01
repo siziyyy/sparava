@@ -728,13 +728,13 @@ class Main extends CI_Controller {
 		if($product_id) {
 			$product = $this->productlib->get_product_by_id($product_id);
 			$products_ids = $this->baselib->get_favourites();
+			$type = (is_null($this->input->get('type')) ? false : $this->input->get('type'));
 
 			if(in_array($product_id, $products_ids)) {
 				$product['favourite'] = true;
 			}
 
-			$related_products_ids = $this->productlib->get_related_products_ids($product_id);
-			$type = (is_null($this->input->get('type')) ? false : $this->input->get('type'));
+			$related_products_ids = $this->productlib->get_related_products_ids($product_id, false, $type);			
 
 			$data = array(
 				'header' => array(
@@ -742,12 +742,10 @@ class Main extends CI_Controller {
 					'fb_share' => $this->baselib->craete_fb_share('/product/'.$product['product_id'],$product['title'],$product['description'],$product['image'])
 				),
 				'menu' => $this->baselib->get_categories(false,true),
-				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 				'footer' => array(
 					'videos' => $product['youtube']
 				),
 				'product' => $product,
-				'related_products' => $this->productlib->get_products_with_categories(false,'eko'),
 				'comments' => $this->baselib->get_comments('product', $product_id),
 				'related_products' => $this->productlib->get_products_by_ids($related_products_ids),
 				'breadcrumbs' => $this->productlib->get_breadcrumbs_for_product($product,$type),
