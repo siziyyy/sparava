@@ -27,8 +27,8 @@
 		<div class="clear"></div>
 	</div>
 	<div class="g_good_photo_block">
-		<a href="/product/<?php echo $product['product_id'] ?>" class="opfoopesgflmem"><img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo" onError="this.src='/assets/img/nophoto.jpg'"></a>
-		<a href="/product/<?php echo $product['product_id'] ?>"><img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo opfoopesgf" onError="this.src='/assets/img/nophoto.jpg'"></a>
+		<a href="<?php echo $product['href'] ?>?type=<?php echo ((isset($path) and $path) ? $path : '') ?>" class="opfoopesgflmem"><img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo" onError="this.src='/assets/img/nophoto.jpg'"></a>
+		<a href="<?php echo $product['href'] ?>?type=<?php echo ((isset($path) and $path) ? $path : '') ?>"><img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="g_good_photo opfoopesgf" onError="this.src='/assets/img/nophoto.jpg'"></a>
 		<!--<a href="/product/<?php echo $product['product_id'] ?>"><img src="/images/1.jpg" alt="<?php echo $product['title'] ?>" class="g_good_photo"></a>-->
 		<div class="quick_view send" data-type="get_product_info">быстрый просмотр</div>
 		
@@ -52,7 +52,7 @@
 		</div>
 		<div class="g_good_mobile_fav <?php echo (isset($product['favourite']) ? 'g_good_mobile_fav_orange' : '') ?> sprite send" data-type="favourite"></div>
 		<div class="g_admin_info">inf</div>
-		<a href="/product/<?php echo $product['product_id'] ?>" class="g_good_name <?php echo ($product['status'] == 0 ? 'inactive_good' : '') ?>"><?php echo $product['title'] ?></a>
+		<a href="<?php echo $product['href'] ?>?type=<?php echo ((isset($path) and $path) ? $path : '') ?>" class="g_good_name <?php echo ($product['status'] == 0 ? 'inactive_good' : '') ?>"><?php echo $product['title'] ?></a>
 		<div class="g_good_country">
 			<span class="g_good_country_margin">
 				<?php if($product['brand']) { ?>

@@ -47,13 +47,14 @@
             <div class="breadcrumbs">
                 <section class="content" style="min-height: auto;">
                     <div class="content_helper">
-                        <a href="/" class="breadcrumbs_item">Главная</a>
-                        <span class="breadcrumbs_sep">/</span>
-                        <a href="/category/<?php echo $product['parent_category_id'] ?>" class="breadcrumbs_item"><?php echo $product['parent_category_title'] ?></a>
-                        <span class="breadcrumbs_sep">/</span>
-                        <a href="/category/<?php echo $product['category_id'] ?>" class="breadcrumbs_item"><?php echo $product['category_title'] ?></a>
-                        <span class="breadcrumbs_sep">/</span>                    
-                        <span class="breadcrumbs_item last_breadcrumb"><?php echo (is_null($product['title_full']) ? $product['title'] : $product['title_full']) ?></span>
+                        <?php foreach($breadcrumbs as $url => $breadcrumb) { ?>
+                            <?php if($url != 'self') { ?>
+                                <a href="<?php echo $url ?>" class="breadcrumbs_item"><?php echo $breadcrumb ?></a>
+                                <span class="breadcrumbs_sep">/</span>
+                            <?php } else { ?>
+                                <span class="breadcrumbs_item last_breadcrumb"><?php echo $breadcrumb ?></span>
+                            <?php } ?>
+                        <?php } ?>
                     </div>
                 </section>
             </div>

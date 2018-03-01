@@ -6,6 +6,20 @@ class Baselib {
 	public $_return_url;
 	public $_related_products;
 
+	public $_countries = array(
+		1 => 'Россия',
+		2 => 'Италия',
+		3 => 'Испания',
+		4 => 'Греция',
+		5 => 'Швейцария',
+		6 => 'Армения',
+		7 => 'Узбекистан',
+		8 => 'Азербайджан',
+		9 => 'Молдова',
+		10 => 'Беларусь',
+		11 => 'Турция'
+	);		
+
  	function __construct() {
     	$this->_ci =& get_instance();
     	$this->_ci->load->library('productlib');
@@ -480,6 +494,8 @@ class Baselib {
 				if(isset($favourites[$product_id])) {
 					$products[$product_id]['favourite'] = true;
 				}
+
+				$products[$product_id]['href'] = '/product/'.$product['product_id'];
 			}
 		} else {
 			
@@ -526,7 +542,9 @@ class Baselib {
 			
 			if(isset($favourites[$products['product_id']])) {
 				$products['favourite'] = true;
-			}		
+			}
+
+			$products['href'] = '/product/'.$products['product_id'];			
 		}
 		
 		return $products;
