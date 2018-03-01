@@ -17,7 +17,7 @@
                         <a href="/category/16" class="c_new_menu_link c_new_menu_l">Орехи и сухофрукты</a>
                         <a href="/category/24" class="c_new_menu_link c_new_menu_l">Чай</a>
                         <a href="/category/25" class="c_new_menu_link c_new_menu_l">Кофе</a>
-                        <a href="/category/23" class="c_new_menu_link c_new_menu_l adwgsage">Мёд</a>
+                        <a href="/category/23" class="c_new_menu_link c_new_menu_l adwgsage" style="margin:0 !important">Мёд</a>
 					</div>
                     <div class="clear"></div>
               </div>

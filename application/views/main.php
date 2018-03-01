@@ -1,7 +1,10 @@
 <?php $this->load->view('common/header',$header);?>
     <style>   
         .c_new_menu_l {
-            margin-right: 25px !important;
+            margin-right: 28px !important;
+        }
+        header {
+            height: 95px;
         }
     </style>
     <div class="content_helper">
@@ -9,25 +12,13 @@
     </div>
 	<div class="content_helper">
         <section class="banner2018 b_slider">
-            <div class="b_slide b_slide1" style="background:url('/assets/img/slider/1.jpg')">
-                <div class="content_helper content_helper_22">
-                    <div class="b_text">
-                        Доставка отборных продуктов  
-                        <br>из <span class="green_text">Фуд Сити</span> по супер ценам!
-                    </div>
-                    <div class="b_undertext">
-                        Экономьте до 40% от рыночной цены, ешьте 
-                        <br>самые свежие продукты каждый день
-                    </div>
-                </div>
-            </div>  
             <a href="/category/104">
                 <div class="b_slide cvuyibnjok" style="background:url('/assets/img/slider/2.jpg')">
                         <div class="content_helper">
                             <div class="slider_2 fl_r">
                                 <div class="slider_2_header">
                                     Впустите свежесть
-                                    <br>в Ваш дом!
+                                    <br>в ваш дом!
                                 </div>
                                 <div class="slider_2_body">
                                     Помните, как пахнет свежая мята?
@@ -39,10 +30,21 @@
                         </div>
                 </div>
             </a>
+            <div class="b_slide b_slide1" style="background:url('/assets/img/slider/1.jpg')">
+                <div class="content_helper content_helper_22">
+                    <div class="b_text">
+                        Доставка отборных продуктов  
+                        <br>из <span class="green_text">Фуд Сити</span> по супер ценам!
+                    </div>
+                    <div class="b_undertext">
+                        Экономьте до 40% от рыночной цены, ешьте 
+                        <br>самые свежие продукты каждый день
+                    </div>
+                </div>
+            </div>
             <a href="/category/3">
                 <div class="b_slide cvuyibnjok" style="background:url('/assets/img/slider/3.jpg')">
                         <div class="content_helper">
-                            <!--<div class="banner_3">более 500 видов рыбы</div>-->
                         </div>
                 </div>
             </a>
@@ -148,9 +150,9 @@
         </section>
         <section class="instagram_line">
             <div class="instagram_line_item fl_l">
-                <a href="https://www.instagram.com/p/BWQhCapFWqk/?hl=ru&taken-by=president_vladimir_putin" target="_blank"><div class="instagram_line_item_photo" style="background-image:url('https://scontent-lga3-1.cdninstagram.com/vp/d71899bc7057e224bc4f30d6e2b69fc9/5B1ED1FF/t51.2885-15/s640x640/sh0.08/e35/c0.132.1060.1060/26863583_138719166936936_2305361500430139392_n.jpg')"></div></a>
+                 <a href="/" target="_blank"><div class="instagram_line_item_photo" style="background-image:url('/assets/img/new_1/ig/1.jpg')"></div></a>
                 <div class="instagram_line_item_text">
-                    <a href="https://www.instagram.com/president_vladimir_putin/?hl=ru" target="_blank" class="instagram_line_item_text_header">@milablum</a>
+                    <a href="/" target="_blank" class="instagram_line_item_text_header">@milablum</a>
                     <div class="instagram_line_item_text_body">
                         #отчаяннаядомохозяйка в деле вдохновляют 
                         готовку фермерские продукты  @aydaeda. Так 
@@ -160,9 +162,9 @@
                 </div>
             </div>
             <div class="instagram_line_item fl_l">
-                <a href="https://www.instagram.com/p/BWQhCapFWqk/?hl=ru&taken-by=president_vladimir_putin" target="_blank"><div class="instagram_line_item_photo" style="background-image:url('https://scontent-sea1-1.cdninstagram.com/vp/8000e8b3bba6ac25dbf06e59db7c9c5e/5B22DAD8/t51.2885-15/s480x480/e15/11116896_1666296106931974_673494760_n.jpg?ig_cache_key=OTY4MDY4NzU3MzkzODcyMDQw.2')"></div></a>
+                 <a href="/" target="_blank"><div class="instagram_line_item_photo" style="background-image:url('/assets/img/new_1/ig/2.jpg')"></div></a>
                 <div class="instagram_line_item_text">
-                    <a href="https://www.instagram.com/president_vladimir_putin/?hl=ru" target="_blank" class="instagram_line_item_text_header">@milablum</a>
+                    <a href="/" target="_blank" class="instagram_line_item_text_header">@milablum</a>
                     <div class="instagram_line_item_text_body">
                         #отчаяннаядомохозяйка в деле вдохновляют 
                         готовку фермерские продукты  @aydaeda. Так 
@@ -172,9 +174,9 @@
                 </div>
             </div>
             <div class="instagram_line_item fl_l">
-                <a href="https://www.instagram.com/p/BWQhCapFWqk/?hl=ru&taken-by=president_vladimir_putin" target="_blank"><div class="instagram_line_item_photo" style="background-image:url('http://scontent.cdninstagram.com/t51.2885-15/s480x480/e35/14597222_1671779909819228_6333629585254514688_n.jpg?ig_cache_key=MTM3OTU1NjM1OTI3OTgxNDcwNw%3D%3D.2')"></div></a>
+                <a href="/" target="_blank"><div class="instagram_line_item_photo" style="background-image:url('/assets/img/new_1/ig/3.jpg')"></div></a>
                 <div class="instagram_line_item_text">
-                    <a href="https://www.instagram.com/president_vladimir_putin/?hl=ru" target="_blank" class="instagram_line_item_text_header">@milablum</a>
+                    <a href="/" target="_blank" class="instagram_line_item_text_header">@milablum</a>
                     <div class="instagram_line_item_text_body">
                         #отчаяннаядомохозяйка в деле вдохновляют 
                         готовку фермерские продукты  @aydaeda. Так 
@@ -184,9 +186,9 @@
                 </div>
             </div>
             <div class="instagram_line_item instagram_line_item_last fl_l">
-                <a href="https://www.instagram.com/p/BWQhCapFWqk/?hl=ru&taken-by=president_vladimir_putin" target="_blank"><div class="instagram_line_item_photo" style="background-image:url('https://scontent-sea1-1.cdninstagram.com/t51.2885-15/s480x480/e35/c6.0.1067.1067/16584835_1810820822503602_8433326374852231168_n.jpg?ig_cache_key=MTQ0NjQ5ODA5MjQ5NjA1MTEzMA%3D%3D.2.c')"></div></a>
+                <a href="/" target="_blank"><div class="instagram_line_item_photo" style="background-image:url('/assets/img/new_1/ig/4.jpg')"></div></a>
                 <div class="instagram_line_item_text">
-                    <a href="https://www.instagram.com/president_vladimir_putin/?hl=ru" target="_blank" class="instagram_line_item_text_header">@milablum</a>
+                    <a href="/" target="_blank" class="instagram_line_item_text_header">@milablum</a>
                     <div class="instagram_line_item_text_body">
                         #отчаяннаядомохозяйка в деле вдохновляют 
                         готовку фермерские продукты  @aydaeda. Так 

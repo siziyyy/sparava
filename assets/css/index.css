@@ -25,7 +25,7 @@
     font-weight: bold;
     font-family: Calibri Bold;
     line-height: 55px;
-    margin: 0 0 21px 0;
+    margin: 0 0 41px 0;
 }
 .b_undertext {
     font-size: 26px;
@@ -45,30 +45,33 @@
 .slider_2 {
     width: 666px;
     float: right;
+    margin: 0 20px 0 0;
 }
 .slider_2_header {
-    font-size: 53px;
-    font-family:Calibri Bold;
-    color:#fff;
+    font-size: 72px;
+    font-family: Calibri Bold;
+    color: #fff;
     cursor: pointer;
     text-align: left;
+    line-height: 82px;
 }
 .slider_2_body {
-    font-size: 28px;
-    margin-top: 20px;
-    color:#fff;
+    font-size: 36px;
+    margin-top: 27px;
+    color: #fff;
     cursor: pointer;
     text-align: left;
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+    line-height: 47px;
 }
 .slider_2_accent {
-    width: 246px;
+       width: 246px;
     height: 82px;
     background-position: 0 0;
     position: absolute;
-    right: 70px;
-    bottom: -30px;
+    right: 0px;
+    bottom: -24px;
     cursor: pointer;
 }
 .banner_3 {
@@ -1637,7 +1640,7 @@ button:focus {outline:0;}
 .slogan2018 {
     width: 100%;
     text-align: center;
-    padding: 45px 0;
+    padding: 50px 0;
 }
 .slogan2018_1 {
     font-size: 24px;
@@ -1645,7 +1648,7 @@ button:focus {outline:0;}
 }
 .slogan2018_2 {
     font-size: 16px;
-    color: #808080;
+    color: #999;
     padding-top: 15px;
 }
 .banner2018 {
@@ -1861,7 +1864,7 @@ button:focus {outline:0;}
 }
 .myasnoy_ryad_item_text_vert {
     color: #FFF;
-    font-size: 22px;
+    font-size: 20px;
     text-align: center;
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
@@ -2954,6 +2957,7 @@ font-size: 24px;
     color: #000;
     text-decoration: underline;
     font-family: Calibri Bold;
+    margin: 14px 0 0 0;
 }
 .c_new_index_menu_dropdown_head {
     color: #fe4517;
@@ -2963,4 +2967,17 @@ font-size: 24px;
     font-size: 18px;
     color: #000;
     font-family: Calibri Bold;
+}
+.adwgsage {
+    margin-right: 0 !important;
+}
+.c_new_index_menu_dropdown_linkdawdawawd {
+    font-size: 14px;
+    color: #799430;
+}
+.rtcfvgyuhbnijmoknujhbyvgtfrcd {
+    color: #999;
+    font-size: 13px;
+    font-family: Calibri;
+    margin-left: 10px;
 }
