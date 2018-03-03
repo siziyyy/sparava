@@ -64,7 +64,7 @@
 	<a href="/category/21" class="c_new_index_menu_dropdown_link">Другие сладости</a>
 	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
 	<a href="/category/19" class="c_new_index_menu_dropdown_link">Хлеб, лаваш</a>
-	<a href="/category/20" class="c_new_index_menu_dropdown_link">Печенье, чипсы и другое</a>
+	<a href="/category/20" class="c_new_index_menu_dropdown_link">Чипсы и снэки</a>
 	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
 	<a href="/category/287" class="c_new_index_menu_dropdown_link">Здоровое питание</a>
 	<a href="/category/295" class="c_new_index_menu_dropdown_link">Продукты без сахара</a>

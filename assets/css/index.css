@@ -1655,6 +1655,21 @@ button:focus {outline:0;}
     overflow: hidden;
     background: #f7f7f8;
 }
+.myasnoy_ryad {
+    margin-top: 14px;
+}
+.catalog_header_newnew_line {
+    text-align: center;
+    color:#000;
+    font-size: 20px;
+    font-family:Calibri Bold;
+}
+.catalog_header_newnew_subline {
+    text-align: center;
+    color:#999;
+    font-size: 16px;
+    margin: 15px 0 50px;
+}
 .myasnoy_ryad_line_item {
     width: 123px;
     height: 370px;
