@@ -393,7 +393,6 @@ body,html,textarea{font-family:Calibri}
     								</div>
                                     <div class="soc_login_dropdown">
                                         <div class="socials_login_cart_header">войти через социальные сети</div>
-                                        <div >  
                                         <div class="soc_log_cart_icons" id="uLogin" data-ulogin="display=buttons;fields=first_name,last_name">
                                             <a href="#" class="soc_log_cart_icon soc_log_tw" data-uloginbutton = "twitter"></a>
                                             <a href="#" class="soc_log_cart_icon soc_log_ok" data-uloginbutton = "odnoklassniki"></a>
