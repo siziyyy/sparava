@@ -54,6 +54,50 @@ class Account extends Fruitcrm {
 		
 		return false;
 	}
+
+	public function social_login($identity, $network) {		
+		$query = $this->db->get_where("accounts", array("identity" => $identity,"network" => $network));
+		if ($query->num_rows() > 0) {
+			$this->_data = $query->row_array();
+
+			$this->session->set_userdata('account_id', $this->_data['account_id']);
+			$this->session->set_userdata('is_login_confirmed',time());			
+			
+			return true;
+		}
+		
+		return false;
+	}
+
+	public function add_social() {
+		if(!(empty($this->_data['email']))) {
+			if(!$this->set_id_by_email($this->_data['email'])) {
+				$password = substr(sha1(uniqid(mt_rand(), true)), 0, 10);
+				
+				$data = array(
+					'email' => $this->_data['email'],
+					'password' => md5(md5( $password )),
+					'name' => $this->_data['name'],
+					'phone' => $this->_data['phone'],
+					'bonus' => 0,
+					'create_date' => time(),
+					'profile' => $this->_data['profile'],
+					'identity' => $this->_data['identity'],
+					'network' => $this->_data['network']
+				);
+				
+				if ($this->db->insert("accounts", $data))  {
+					$this->_id = $this->db->insert_id();	
+
+					$this->send_register_email($password);					
+
+					return true;
+				}
+			}
+		}
+		
+		return false;
+	}		
 	
 	public function add() {
 		if(!(empty($this->_data['email']))) {
