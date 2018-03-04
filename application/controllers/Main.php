@@ -2,7 +2,51 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Main extends CI_Controller {
-	
+
+    public function __construct() {
+        parent::__construct();
+
+		if(!is_null($this->input->post('token'))) {
+            $s = file_get_contents('http://ulogin.ru/token.php?token=' . $_POST['token'] . '&host=' . $_SERVER['HTTP_HOST']);
+            $user = json_decode($s, true);
+
+			$this->load->model('account');
+
+			$account = new Account();
+
+			if(!$account->social_login($user['identity'],$user['network'])) {
+				$data = array(
+					'header' => array(
+						'cart' => $this->get_cart_info_for_header()
+					),
+					'menu' => $this->baselib->get_categories(false,true),
+					'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
+					'footer' => array(
+						'account_confirm' => $this->baselib->get_account_data_for_confirm()
+					),
+					'return_url' => $_SERVER['REQUEST_URI'],
+					'user' => $user
+				);
+				
+				$this->load->view('social', $data);
+
+				return true;
+			}
+		} elseif(!is_null($this->input->post('profile')) and !is_null($this->input->post('network'))) {
+
+			$this->load->model('account');
+			$account = new Account();
+
+			$account->set_data($this->input->post());
+			$account->add_social();
+			$account->social_login($this->input->post('identity'),$this->input->post('network'));
+
+			redirect(base_url($this->input->post('return_url')), 'refresh');
+
+			return true;
+		}
+    }
+
 	public function index() {		
 		$data = array(
 			'header' => array(
@@ -23,6 +67,8 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
+			'menu' => $this->baselib->get_categories(false,true),
+			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
@@ -36,6 +82,8 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
+			'menu' => $this->baselib->get_categories(false,true),
+			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
