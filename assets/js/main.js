@@ -167,6 +167,28 @@ $(document).ready(function() {
 		$('.brand_admin').show();
 	}
 
+	$(document).on('keyup','.social_email',function(e) {
+		e.preventDefault();
+
+		$('.social_email_error').hide();
+		$('.callme_button_send').show();			
+
+		email = $(this).val();
+
+		$.ajax({
+			url: '/ajax_handler',
+			type: 'post',
+			data: 'type=check_email&email='+email,
+			dataType: 'json',
+			success: function(json) {
+				if(json['error']) {
+					$('.social_email_error').show();
+					$('.callme_button_send').hide();					
+				}
+			}
+		});		
+	});	
+
 	$(document).on('click','.brand_admin',function(e) {
 		e.preventDefault();
 
@@ -1079,14 +1101,16 @@ $(document).ready(function() {
 				obj.parents(parent_class).find('.g_good_count_rem').removeClass('g_good_count_act_disable');
 				type = 'кг';
 				
-				if(quantity >= 1) {
+				if(quantity > 1) {
 					quantity = quantity - 0.5;
 					return quantity+' '+type;
 				}			
 				
 				quantity = quantity - 0.01;
 				
-				if(quantity > 0.5) {
+				if(quantity > 0.8) {
+					quantity = 0.8;
+				} else if(quantity > 0.5) {
 					quantity = 0.5;
 				} else if(quantity > 0.3) {
 					quantity = 0.3;
@@ -1101,16 +1125,17 @@ $(document).ready(function() {
 				type = 'кг';
 				obj.parents(parent_class).find('.g_good_count_rem').removeClass('g_good_count_act_disable');
 				
-				if(quantity >= 1) {
+				if(quantity > 1) {
 					quantity = quantity - 0.5;
 					return quantity+' '+type;
 				}			
 				
 				quantity = quantity - 0.01;
 				
-				if(quantity > 0.5) {
+				if(quantity > 0.8) {
+					quantity = 0.8;
+				} else if(quantity > 0.5) {
 					quantity = 0.5;
-					
 				} else if(quantity > 0.3) {
 					quantity = 0.3;
 				} else if(quantity > 0.1) {
@@ -1151,6 +1176,8 @@ $(document).ready(function() {
 					obj.parents(parent_class).find('.g_good_count_rem').addClass('g_good_count_act_disable');
 				} else if(quantity < 0.5) {
 					quantity = 0.5;
+				} else if(quantity < 0.8) {
+					quantity = 0.8;
 				} else if(quantity < 1) {
 					quantity = 1;
 				}
@@ -1174,6 +1201,8 @@ $(document).ready(function() {
 					quantity = 0.3;
 				} else if(quantity < 0.5) {
 					quantity = 0.5;
+				} else if(quantity < 0.8) {
+					quantity = 0.8;
 				} else if(quantity < 1) {
 					quantity = 1;
 				}
@@ -1278,6 +1307,18 @@ $(document).ready(function() {
 					type : type,
 					sort : obj.attr('data-sort'),
 					category : $(this).parents('.new_cool_line_of_filters_aaarrrghh').attr('data-category')
+				}
+				
+				break;
+
+			case 'feedback_2':
+
+				send_data = {
+					type : type,
+					feedback_subject : $('.feedback_2_subject').val(),
+					feedback_email : $('.feedback_2_email').val(),
+					feedback_name : $('.feedback_2_name').val(),
+					feedback_phone : $('.feedback_2_phone').val()
 				}
 				
 				break;
@@ -1526,6 +1567,11 @@ $(document).ready(function() {
 							location.reload();
 						} else if(send_data.type == 'sort') {
 							location.reload();
+						} else if(send_data.type == 'feedback_2') {
+							$('.feedback_2_success').show();
+							$('.feedback_2_name').val('');
+							$('.feedback_2_email').val('');
+							$('.feedback_2_phone').val('');
 						} else if(type == 'register3') {
 							$('.new_auth').hide();
 							$('.new_login_message').show();

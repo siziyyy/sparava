@@ -943,6 +943,9 @@ input {
 .hide_it_visibh {
     visibility: hidden;
 }
+.feedback_2_success.callme_label,.social_email_error.callme_label {
+    display: none;
+}
 .black_auth {
     background-position: 53px -848px
 }
