@@ -6,13 +6,14 @@ class Main extends CI_Controller {
     public function __construct() {
         parent::__construct();
 
+       
+
 		if(!is_null($this->input->post('token'))) {
-            $s = file_get_contents('http://ulogin.ru/token.php?token=' . $_POST['token'] . '&host=' . $_SERVER['HTTP_HOST']);
+			$s = file_get_contents('http://ulogin.ru/token.php?token=' . $_POST['token'] . '&host=' . $_SERVER['HTTP_HOST']);
             $user = json_decode($s, true);
 
-			$this->load->model('account');
-
-			$account = new Account();
+            $this->load->model('account');
+			$account = new Account(); 
 
 			if(!$account->social_login($user['identity'],$user['network'])) {
 				$data = array(
@@ -34,8 +35,8 @@ class Main extends CI_Controller {
 			}
 		} elseif(!is_null($this->input->post('profile')) and !is_null($this->input->post('network'))) {
 
-			$this->load->model('account');
-			$account = new Account();
+            $this->load->model('account');
+			$account = new Account(); 			
 
 			$account->set_data($this->input->post());
 			$account->add_social();
@@ -77,12 +78,25 @@ class Main extends CI_Controller {
 		$this->load->view('callme', $data);
 	}
 
-	public function callmeform() {		
+	public function callmeform($subject) {
+		$subject_title = '';
+
+		if($subject == 1) {
+			$subject_title = 'Сделать заказ';
+		} elseif($subject == 2) {
+			$subject_title = 'Сотрудничество';
+		} elseif($subject == 3) {
+			$subject_title = 'Работа';
+		} elseif($subject == 4) {
+			$subject_title = 'Жалоба';
+		}
+
 		$data = array(
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
 			'menu' => $this->baselib->get_categories(false,true),
+			'subject' => $subject_title,
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
@@ -228,6 +242,13 @@ class Main extends CI_Controller {
 		
 		foreach($this->productlib->get_product_categories($product_id) as $category_id) {
 			$products = array_merge($products,$this->productlib->get_category_products($category_id));
+
+			foreach($products as $index => $product) {
+				if($product['product_id'] == $product_id) {
+					unset($products[$index]);
+					break;
+				}
+			}
 			
 			if(count($products) > 5) {
 				break;
@@ -1439,15 +1460,27 @@ class Main extends CI_Controller {
 				break;
 
 			case 'feedback':
+			case 'feedback_2':
 
-				$message = $this->input->post('feedback_type').'<br>'.$this->input->post('feedback_email').'<br>'.$this->input->post('feedback_comment');
+				if(!is_null($this->input->post('feedback_subject'))) {
+					$this->email->subject('Обратный звонок');
+
+					$message = 'Тема: '.$this->input->post('feedback_subject').'<br>';
+					$message .= 'Имя: '.$this->input->post('feedback_name').'<br>';
+					$message .= 'Почта: '.$this->input->post('feedback_email').'<br>';
+					$message .= 'Телефон: '.$this->input->post('feedback_phone');
+				} else {
+					$this->email->subject('Предложение с сайта');
+
+					$message = $this->input->post('feedback_type').'<br>'.$this->input->post('feedback_email').'<br>'.$this->input->post('feedback_comment');
+				}
 
 				$this->load->library('email');
 				
 				$this->email->from('info@aydaeda.ru', 'aydaeda.ru');
-				$this->email->to('info@aydaeda.ru');
-
-				$this->email->subject('Предложение с сайта');
+				//$this->email->to('info@aydaeda.ru');
+				$this->email->to('tural.huseynov@gmail.com');
+				
 				$this->email->message($message);	
 				
 				if($this->email->send()) {
@@ -1518,7 +1551,7 @@ class Main extends CI_Controller {
 				
 				$email = $this->input->post('email');
 				
-				if($email) {
+				if($email and valid_email($email)) {
 					$this->load->model("account");
 					$account = new Account();
 					

@@ -6,19 +6,19 @@
                     <br>по вопросу
                 </div>
                 <div class="callme_buttons">
-                    <a href="/callmeform" class="callme_button">
+                    <a href="/callmeform/1" class="callme_button">
                         <img src="/assets/img/callme/1.jpg" class="callme_img" alt="">
                         <div class="callme_text">сделать заказ</div>
                     </a>
-                    <a href="/callmeform" class="callme_button">
+                    <a href="/callmeform/2" class="callme_button">
                         <img src="/assets/img/callme/2.jpg" class="callme_img" alt="">
                         <div class="callme_text">сотрудничество</div>
                     </a>
-                    <a href="/callmeform" class="callme_button">
+                    <a href="/callmeform/3" class="callme_button">
                         <img src="/assets/img/callme/3.jpg" class="callme_img" alt="">
                         <div class="callme_text">работа</div>
                     </a>
-                    <a href="/callmeform" class="callme_button">
+                    <a href="/callmeform/4" class="callme_button">
                         <img src="/assets/img/callme/4.jpg" class="callme_img" alt="">
                         <div class="callme_text">жалоба</div>
                     </a>
