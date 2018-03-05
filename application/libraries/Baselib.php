@@ -557,7 +557,8 @@ class Baselib {
 			'countries' => array(),
 			'compositions' => array(),
 			'packs' => array(),
-			'brands' => array()
+			'brands' => array(),
+			'tags' => array()
 		);
 		
 		foreach($products as $product_id => $product) {
@@ -576,6 +577,10 @@ class Baselib {
 			if(!is_null($product['brand']) and !empty($product['brand'])) {
 				$attributes['brands'][] = $product['brand'];
 			}
+
+			if(!is_null($product['brand']) and !empty($product['brand'])) {
+				$attributes['brands'][] = $product['brand'];
+			}			
 
 			$types[$product['type']] = $product['type'];
 		}
