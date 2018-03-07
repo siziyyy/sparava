@@ -17,7 +17,9 @@ class Category extends Fruitcrm {
 
 						foreach($tags as $tag) {
 							$tag = explode(';',$tag);
-							$this->_data['tags'][$tag[0]] = $tag[1];
+							if(isset($tag[1])) {
+								$this->_data['tags'][$tag[0]] = $tag[1];
+							}
 						}
 					} else {
 						$this->_data['tags'] = array();

@@ -496,6 +496,20 @@ class Baselib {
 				}
 
 				$products[$product_id]['href'] = '/product/'.$product['product_id'];
+
+				unset($default_value);
+
+				if(!is_null($product['sr_ves']) and !empty($product['sr_ves'])) {
+					$default_value = $product['sr_ves'];
+				}
+
+				if($product['type'] == 'шт') {
+					$products[$product_id]['default_value'] = '1 шт';
+				} elseif($product['bm'] == 1) {
+					$products[$product_id]['default_value'] = (isset($default_value) ? $default_value : '1 кг');
+				} else {
+					$products[$product_id]['default_value'] = (isset($default_value) ? $default_value : '0.1 кг');
+				}
 			}
 		} else {
 			
@@ -544,7 +558,19 @@ class Baselib {
 				$products['favourite'] = true;
 			}
 
-			$products['href'] = '/product/'.$products['product_id'];			
+			$products['href'] = '/product/'.$products['product_id'];
+
+			if(!is_null($products['sr_ves']) and !empty($products['sr_ves'])) {
+				$default_value = (int)$products['sr_ves'];
+			}
+
+			if($products['type'] == 'шт') {
+				$products['default_value'] = '1 шт';
+			} elseif($products['bm'] == 1) {
+				$products['default_value'] = (isset($default_value) ? $default_value : '1 кг');
+			} elseif($products['bm'] == 1) {
+				$products['default_value'] = (isset($default_value) ? $default_value : '0.1 кг');
+			}			
 		}
 		
 		return $products;
