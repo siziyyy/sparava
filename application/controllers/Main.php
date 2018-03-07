@@ -6,8 +6,6 @@ class Main extends CI_Controller {
     public function __construct() {
         parent::__construct();
 
-       
-
 		if(!is_null($this->input->post('token'))) {
 			$s = file_get_contents('http://ulogin.ru/token.php?token=' . $_POST['token'] . '&host=' . $_SERVER['HTTP_HOST']);
             $user = json_decode($s, true);
@@ -613,7 +611,14 @@ class Main extends CI_Controller {
 
 		$parent_category_id = $this->baselib->is_parent_category($category);
 
+		$this->load->model('category');
+		$category_obj = new Category();
+
 		if($parent_category_id) {
+
+			$category_obj->set_id($parent_category_id);
+			$category_data = $category_obj->get_data();
+
 			$products = $this->productlib->get_top_five('category',$parent_category_id);
 
 			$menu = $this->baselib->get_categories($category,true);
@@ -628,13 +633,14 @@ class Main extends CI_Controller {
 						}
 					}
 				}
-			}			
+			}
 
 			$data = array(
 				'header' => array(
 					'cart' => $this->get_cart_info_for_header()
 				),
 				'menu' => $menu,
+				'category_data' => $category_data,
 				'category' => $category,
 				'path' => false,
 				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
@@ -662,8 +668,7 @@ class Main extends CI_Controller {
 			$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
 			
 			$menu = $this->baselib->get_categories($category,true);
-			$menu_childs = array();
-			
+			$menu_childs = array();			
 			
 			foreach($menu as $line) {
 				foreach($line as $lcategory) {
@@ -676,12 +681,16 @@ class Main extends CI_Controller {
 			}
 
 			$sort_order = $this->baselib->get_sort_order();
+
+			$category_obj->set_id($category);
+			$category_data = $category_obj->get_data();			
 			
 			$data = array(
 				'header' => array(
 					'cart' => $this->get_cart_info_for_header()
 				),
 				'menu' => $menu,
+				'category_data' => $category_data,
 				'category' => $category,
 				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 				'footer' => array(
@@ -1478,8 +1487,8 @@ class Main extends CI_Controller {
 				$this->load->library('email');
 				
 				$this->email->from('info@aydaeda.ru', 'aydaeda.ru');
-				//$this->email->to('info@aydaeda.ru');
-				$this->email->to('tural.huseynov@gmail.com');
+				$this->email->to('info@aydaeda.ru');
+				//$this->email->to('tural.huseynov@gmail.com');
 				
 				$this->email->message($message);	
 				

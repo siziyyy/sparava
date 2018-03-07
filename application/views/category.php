@@ -6,7 +6,7 @@
 			    }
         	</style>
         	<!-- избранное и мои заказы -->
-        	<? /* ?>
+        	<?php /* ?>
         	<div class="mag_or_blog_alt_pack">
 	            <div class="mag_or_blog_alt">
 		            <a href="/" class="mag_or_blog_link <?php echo ($this->router->fetch_method() != 'blogs' ? 'mag_or_blog_link_act' : '') ?>">избранное</a>
@@ -36,7 +36,7 @@
 					<? } ?>
 				</div>
 	        </div>
-        	<? */ ?>
+        	<?php */ ?>
         	<!--<div class="new_banner_cat">
         		<div class="content_helper">
         			<div class="new_banner_cat_first_line">Вы первый раз у нас?</div>
@@ -49,23 +49,16 @@
             <div class="category_bg_helper <?php echo ($is_parent_category ? 'category_bg_helper_in_main' : '' ); ?>">
                 <div class="content_helper">
                     <?php $this->load->view('common/menu-inner', $menu);?>
-	                <?php if($is_parent_category) { ?>
-						<!--<div class="line_for_common_menu_inner">
+	                <?php if($is_parent_category and isset($category_data) and count($category_data['tags'])) { ?>
+						<div class="line_for_common_menu_inner">
 							<a class="line_for_common_menu_inner_link line_for_common_menu_inner_link_blue">Популярное!</a>
-							<a href="/" class="line_for_common_menu_inner_link">Российский</a>
-							<a href="/" class="line_for_common_menu_inner_link">Мацарела</a>
-							<a href="/" class="line_for_common_menu_inner_link">Пармезан</a>
-							<a href="/" class="line_for_common_menu_inner_link">Чанах</a>
-							<a href="/" class="line_for_common_menu_inner_link">Камамбер</a>
-							<a href="/" class="line_for_common_menu_inner_link">Черный принц</a>
-							<a href="/" class="line_for_common_menu_inner_link">Гауда</a>
-							<a href="/" class="line_for_common_menu_inner_link">Рокфор</a>
-							<a href="/" class="line_for_common_menu_inner_link">Эдем</a>
-							<a href="/" class="line_for_common_menu_inner_link">Швейцарский</a>
-						</div>-->
+							<?php foreach($category_data['tags'] as $tag => $href) { ?>
+								<a href="<?php echo $href ?>" class="line_for_common_menu_inner_link"><?php echo $tag ?></a>
+							<?php } ?>
+						</div>
 	                <? } ?>
-		            </div>
 	            </div>
+            </div>
             <div class="banners_120218 trinity_120218">
                 <div class="content_helper">
                     <?php $counter = 0; ?>
@@ -101,23 +94,6 @@
 	            	<div class="clear"></div>
 	            </div>
             </div>
-            <!--<div class="banners_120218 double_120218">
-                <div class="content_helper">
-                    <a href="/"><div class="banner_120218 banner_wide_120218 fl_l banner_120218_4">
-                        <img src="/assets/img/banners_cat/4.jpg" alt="">
-                    </div></a>
-                    <a href="/"><div class="banner_120218 banner_small_120218 fl_r banner_120218_1">
-                        <div class="banner_text_120218">
-                            <div class="banner_text_120218_1_1">Грузия</div>
-                            <div class="banner_text_120218_1_2">BORJOMI</div>
-                            <div class="banner_text_120218_1_3">только у нас по этой цене!</div>
-                            <div class="banner_text_120218_1_4">59 <span class="rouble">o</span></div>
-                        </div>
-                        <img src="/assets/img/banners_cat/1.jpg" alt="">
-                    </div></a>
-                    <div class="clear"></div>
-                </div>
-            </div>-->
             <div class="content_helper content_helper_gds">
             	<?php if($is_parent_category) { ?>
             		<?php $is_first_category = true; ?>

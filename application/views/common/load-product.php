@@ -48,7 +48,19 @@
 		<?php } ?>
 		<div class="g_good_price"><span class="g_good_price_value"><?php echo $product['price'] ?></span> р.</div>
 		<div class="g_old_good_price_date">
-			<?php echo ($product['type'] == 'шт' ? (!is_null($product['weight']) ? ' - '.$product['weight'] : '') : ($product['bm'] == 1 ? ' за 1 кг' : ' за 100 гр')) ?> <a href="/information/" class="g_old_good_price_date_alm">≈</a>
+			<!-- <?php echo ($product['type'] == 'шт' ? (!is_null($product['weight']) ? ' - '.$product['weight'] : '') : ($product['bm'] == 1 ? ' за 1 кг' : ' за 100 гр')) ?> <a href="/information/" class="g_old_good_price_date_alm">≈</a> -->
+
+			<?php if($product['type'] == 'шт') { ?>
+				<?php if(!is_null($product['weight'])) { ?>
+					 - <?php echo $product['weight']; ?>
+				<?php } ?>
+			<?php } else { ?>
+				<?php if($product['bm'] == 1) { ?>
+					 за 1 кг <a href="/information/" class="g_old_good_price_date_alm">≈</a>
+				<?php } else { ?>
+					 за 100 гр
+				<?php } ?>
+			<?php } ?>
 		</div>
 		<div class="g_good_mobile_fav <?php echo (isset($product['favourite']) ? 'g_good_mobile_fav_orange' : '') ?> sprite send" data-type="favourite"></div>
 		<div class="g_admin_info">inf</div>
