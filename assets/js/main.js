@@ -167,6 +167,8 @@ $(document).ready(function() {
 		$('.brand_admin').show();
 	}
 
+	uLogin.customInit('uLogin','uLogin_1')
+
 	$(document).on('keyup','.social_email',function(e) {
 		e.preventDefault();
 
@@ -1025,9 +1027,18 @@ $(document).ready(function() {
 			type = 'кг';
 		}
 		
-		price = $(this).parents(parent_class).find(".g_good_price_value").text();		
-		$(this).parents(parent_class).find(".g_good_to_cart_value").text(quantity*price);
-		$('.g_good_bonus_value').text(parseFloat(quantity)*price*0.05);
+		price = $(this).parents(parent_class).find(".g_good_price_value").text();
+
+		summ = parseInt(parseFloat(quantity)*price);
+
+		if((parseFloat(quantity)*price) > summ) {
+			summ++;
+		}
+
+		bonus = parseInt(summ*0.05);
+
+		$(this).parents(parent_class).find(".g_good_to_cart_value").text(summ);
+		$('.g_good_bonus_value').text(bonus);
 		
 		$(this).val(quantity+' '+type);
 	});
@@ -1052,8 +1063,17 @@ $(document).ready(function() {
 		quantity = get_quantity_by_type(quantity,type_num,false,parent_class,$(this));
 		price = $(this).parents(parent_class).find(".g_good_price_value").text();
 
-		$(this).parents(parent_class).find(".g_good_to_cart_value").text(parseFloat(quantity)*price);
-		$('.g_good_bonus_value').text(parseFloat(quantity)*price*0.05);
+		summ = parseInt(parseFloat(quantity)*price);
+
+		if((parseFloat(quantity)*price) > summ) {
+			summ++;
+		}
+
+		bonus = parseInt(summ*0.05);
+
+		$(this).parents(parent_class).find(".g_good_to_cart_value").text(summ);
+		$('.g_good_bonus_value').text(bonus);
+
 		$(this).parents(parent_class).find('.g_good_count_input').val(quantity);
 	});
 	
@@ -1077,8 +1097,17 @@ $(document).ready(function() {
 		quantity = get_quantity_by_type(quantity,type_num,true,parent_class,$(this));
 		price = $(this).parents(parent_class).find(".g_good_price_value").text();
 
-		$(this).parents(parent_class).find(".g_good_to_cart_value").text(parseFloat(quantity)*price);
-		$('.g_good_bonus_value').text(parseFloat(quantity)*price*0.05);	
+		summ = parseInt(parseFloat(quantity)*price);
+
+		if((parseFloat(quantity)*price) > summ) {
+			summ++;
+		}
+
+		bonus = parseInt(summ*0.05);
+
+		$(this).parents(parent_class).find(".g_good_to_cart_value").text(summ);
+		$('.g_good_bonus_value').text(bonus);
+		
 		$(this).parents(parent_class).find('.g_good_count_input').val(quantity);
 	});
 		

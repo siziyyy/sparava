@@ -11,9 +11,9 @@ class Main extends CI_Controller {
             $user = json_decode($s, true);
 
             $this->load->model('account');
-			$account = new Account(); 
+			$account = new Account();
 
-			if(!$account->social_login($user['identity'],$user['network'])) {
+			if(!isset($user['error']) and !$account->social_login($user['identity'],$user['network'])) {
 				$data = array(
 					'header' => array(
 						'cart' => $this->get_cart_info_for_header()
@@ -190,7 +190,7 @@ class Main extends CI_Controller {
 
 	public function logout() {		
 		$this->baselib->logout();
-		redirect(base_url('/'), 'refresh');
+		redirect(base_url($this->baselib->_return_url), 'refresh');
 	}	
 	
 	public function information($page = false) {	
@@ -1270,7 +1270,7 @@ class Main extends CI_Controller {
 		$summ = 0;
 		
 		foreach($products as $product) {			
-			$summ = $summ + $product['price']*$product['quantity_in_cart'];
+			$summ = $summ + $this->baselib->round_price($product['quantity_in_cart'],$product['price']);
 		}
 		
 		$totals = array(
@@ -1486,8 +1486,8 @@ class Main extends CI_Controller {
 
 				$this->load->library('email');
 				
-				$this->email->from('info@aydaeda.ru', 'aydaeda.ru');
-				$this->email->to('info@aydaeda.ru');
+				$this->email->from('aydaeda@bk.ru', 'aydaeda.ru');
+				$this->email->to('aydaeda@bk.ru');
 				//$this->email->to('tural.huseynov@gmail.com');
 				
 				$this->email->message($message);	

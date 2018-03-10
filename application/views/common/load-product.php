@@ -51,7 +51,7 @@
 			<!-- <?php echo ($product['type'] == 'шт' ? (!is_null($product['weight']) ? ' - '.$product['weight'] : '') : ($product['bm'] == 1 ? ' за 1 кг' : ' за 100 гр')) ?> <a href="/information/" class="g_old_good_price_date_alm">≈</a> -->
 
 			<?php if($product['type'] == 'шт') { ?>
-				<?php if(!is_null($product['weight'])) { ?>
+				<?php if(!is_null($product['weight']) and !empty($product['weight'])) { ?>
 					 - <?php echo $product['weight']; ?>
 				<?php } ?>
 			<?php } else { ?>
@@ -104,7 +104,7 @@
 			<div class="g_good_count_act g_good_count_add sprite"></div>
 		</div>
 		<div class="g_good_to_cart">
-			<span class="g_good_to_cart_text"><span class="g_good_to_cart_value"><?php echo $product['price'] ?></span> р.</span>
+			<span class="g_good_to_cart_text"><span class="g_good_to_cart_value"><?php echo $product['default_price'] ?></span> р.</span>
 			<span class="g_good_added_to_cart_text"></span>									
 			<span class="g_good_to_cart_icon sprite"></span>
 		</div>

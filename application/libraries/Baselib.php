@@ -497,19 +497,31 @@ class Baselib {
 
 				$products[$product_id]['href'] = '/product/'.$product['product_id'];
 
-				unset($default_value);
+				$default_value = false;
 
 				if(!is_null($product['sr_ves']) and !empty($product['sr_ves'])) {
 					$default_value = $product['sr_ves'];
-				}
+
+					$default_price = (int)($product['price']*$default_value);
+
+					if(($product['price']*$default_value) > $default_price) {
+						$default_price++;
+					}
+
+					$products[$product_id]['default_price'] = $default_price;
+				} else {
+					$products[$product_id]['default_price'] = $products[$product_id]['price'];
+				}				
 
 				if($product['type'] == 'шт') {
 					$products[$product_id]['default_value'] = '1 шт';
 				} elseif($product['bm'] == 1) {
-					$products[$product_id]['default_value'] = (isset($default_value) ? $default_value : '1 кг');
+					$products[$product_id]['default_value'] = ($default_value ? $default_value : '1 кг');
 				} else {
-					$products[$product_id]['default_value'] = (isset($default_value) ? $default_value : '0.1 кг');
+					$products[$product_id]['default_value'] = ($default_value ? $default_value : '0.1 кг');
 				}
+
+				$products[$product_id]['bonus'] = $this->get_bonus_from_summ($products[$product_id]['default_price']);
 			}
 		} else {
 			
@@ -560,21 +572,42 @@ class Baselib {
 
 			$products['href'] = '/product/'.$products['product_id'];
 
+			$default_value = false;
+
 			if(!is_null($products['sr_ves']) and !empty($products['sr_ves'])) {
-				$default_value = (int)$products['sr_ves'];
-			}
+				$default_value = $products['sr_ves'];
+				$products['default_price'] = $this->round_price($default_value,$products['price']);
+			} else {
+				$products['default_price'] = $products['price'];
+			}				
 
 			if($products['type'] == 'шт') {
 				$products['default_value'] = '1 шт';
 			} elseif($products['bm'] == 1) {
-				$products['default_value'] = (isset($default_value) ? $default_value : '1 кг');
-			} elseif($products['bm'] == 1) {
-				$products['default_value'] = (isset($default_value) ? $default_value : '0.1 кг');
-			}			
+				$products['default_value'] = ($default_value ? $default_value : '1 кг');
+			} else {
+				$products['default_value'] = ($default_value ? $default_value : '0.1 кг');
+			}
+
+			$products['bonus'] = $this->get_bonus_from_summ($products['default_price']);
 		}
 		
 		return $products;
 	}
+
+	public function round_price($quantity,$price) {
+		$summ = (int)($price*$quantity);
+
+		if(($price*$quantity) > $summ) {
+			$summ++;
+		}
+
+		return $summ;
+	}
+
+	public function get_bonus_from_summ($price) {
+		return (int)($price*0.05);
+	}	
 
 	public function handle_attributes($products) {
 		$types = array();
@@ -584,6 +617,7 @@ class Baselib {
 			'compositions' => array(),
 			'packs' => array(),
 			'brands' => array(),
+			'weights' => array(),
 			'tags' => array()
 		);
 		
@@ -604,8 +638,8 @@ class Baselib {
 				$attributes['brands'][] = $product['brand'];
 			}
 
-			if(!is_null($product['brand']) and !empty($product['brand'])) {
-				$attributes['brands'][] = $product['brand'];
+			if(!is_null($product['weight']) and !empty($product['weight'])) {
+				$attributes['weights'][] = $product['weight'];
 			}			
 
 			$types[$product['type']] = $product['type'];
@@ -621,14 +655,61 @@ class Baselib {
 		$attributes['compositions'] = array_unique($attributes['compositions']);
 		$attributes['packs'] = array_unique($attributes['packs']);
 		$attributes['brands'] = array_unique($attributes['brands']);
+		$attributes['weights'] = array_unique($attributes['weights']);
 		
 		asort($attributes['countries']);
 		asort($attributes['compositions']);
 		asort($attributes['packs']);
 		asort($attributes['brands']);
 		
+		//asort($attributes['weights']);
+		$attributes['weights'] = $this->sort_weights($attributes['weights']);
+		
 		return $attributes;
 	}
+
+	public function sort_weights($values) {
+
+		$kilo = array();
+		$gram = array();
+		$litr = array();
+		$result = array();
+
+		foreach($values as $id => $value) {
+			if(mb_stripos($value, 'кг') !== FALSE) {
+				$kilo[(float)$value] = $value;
+				unset($values[$id]);
+			} elseif(mb_stripos($value, 'г') !== FALSE) {
+				$gram[(float)$value] = $value;
+				unset($values[$id]);
+			} elseif(mb_stripos($value, 'л') !== FALSE) {
+				$litr[(float)$value] = $value;
+				unset($values[$id]);
+			}
+		}
+
+		ksort($gram);
+		ksort($kilo);
+		ksort($litr);
+
+		foreach($gram as $value) {
+			$result[] = $value;
+		}
+
+		foreach($kilo as $value) {
+			$result[] = $value;
+		}
+
+		foreach($litr as $value) {
+			$result[] = $value;
+		}
+
+		foreach($values as $value) {
+			$result[] = $value;
+		}
+
+		return $result;
+	}	
 
 	public function handle_sort_attributes($products) {		
 		$attributes = array(
@@ -992,6 +1073,16 @@ class Baselib {
 				$word = 'бренда';
 			} else {
 				$word = 'брендов';
+			}			
+		} elseif($type == 'weight') {
+			$number = (int)substr((string)$count, -1); 
+			
+			if($number == 1 and (int)($count) != 11) {
+				$word = 'вес';
+			} elseif($number >= 2 and $number <= 4 and ((int)($count) < 10 or (int)($count) > 20)) {
+				$word = 'веса';
+			} else {
+				$word = 'весов';
 			}			
 		} elseif($type == 'composition') {
 			$number = (int)substr((string)$count, -1); 
