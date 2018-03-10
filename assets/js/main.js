@@ -167,7 +167,13 @@ $(document).ready(function() {
 		$('.brand_admin').show();
 	}
 
-	uLogin.customInit('uLogin','uLogin_1')
+	if($('#uLogin').length) {
+		uLogin.customInit('uLogin');
+	} 
+
+	if($('#uLogin_1').length) {
+		uLogin.customInit('uLogin_1');
+	}
 
 	$(document).on('keyup','.social_email',function(e) {
 		e.preventDefault();

@@ -1486,15 +1486,15 @@ class Main extends CI_Controller {
 
 				$this->load->library('email');
 				
-				$this->email->from('aydaeda@bk.ru', 'aydaeda.ru');
-				$this->email->to('aydaeda@bk.ru');
-				//$this->email->to('tural.huseynov@gmail.com');
+				$this->email->from('info@aydaeda.ru', 'aydaeda.ru');
+				$this->email->to('aydaeda@bk.ru, tural.huseynov@gmail.com');
+				//$this->email->to('');
 				
 				$this->email->message($message);	
 				
 				if($this->email->send()) {
 					$json['success'] = 'success';
-				}				
+				}
 
 				break;
 
