@@ -15,7 +15,8 @@ class Filterlib {
 			'country' => ($filters['country'] ? explode(';',$filters['country']) : 0),
 			'brand' => ($filters['brand'] ? explode(';',$filters['brand']) : 0),
 			'pack' => ($filters['pack'] ? explode(';',$filters['pack']) : 0),
-			'composition' => ($filters['composition'] ? explode(';',$filters['composition']) : 0)
+			'composition' => ($filters['composition'] ? explode(';',$filters['composition']) : 0),
+			'weight' => ($filters['weight'] ? explode(';',$filters['weight']) : 0)
 		);
 		
 		foreach($filters_arr as $key => $value) {
@@ -36,10 +37,6 @@ class Filterlib {
 		}
 
 		if($filters['price']) {
-			$filters_count++;
-		}
-
-		if($filters['weight']) {
 			$filters_count++;
 		}		
 
@@ -65,6 +62,12 @@ class Filterlib {
 			}
 
 			if($filters_arr['composition'] and !in_array($product['composition'], $filters_arr['composition'])) {
+				unset($products[$product_id]);
+				$filters_used = true;
+				continue;
+			}
+
+			if($filters_arr['weight'] and !in_array($product['weight'], $filters_arr['weight'])) {
 				unset($products[$product_id]);
 				$filters_used = true;
 				continue;
@@ -130,10 +133,6 @@ class Filterlib {
 			$filters_text['price'] = $this->_ci->baselib->get_filter_text('price',$filters['price']);
 		}
 		
-		if($filters['weight']) {
-			$filters_text['weight'] = $this->_ci->baselib->get_filter_text('weight',$filters['weight']);
-		}
-		
 		return array(
 			'products' => $prodcuts_in_page,
 			'pages_count' => $pages_count,
@@ -143,7 +142,7 @@ class Filterlib {
 			'filters_text' => $filters_text,
 			'filters_count' => $filters_count
 		);
-	}
+	}	
 	
 	public function filter_products_for_country($products,$filters,$page) {
 		$categories = $this->_ci->baselib->get_all_categories();

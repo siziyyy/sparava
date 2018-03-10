@@ -85,6 +85,34 @@
 							</div>
 						</div>
 						<?php } ?>
+
+
+
+						<?php if(count($attributes['weights']) > 0) { ?>
+						<div class="cool_select_pack fl_l" data-type="weight">
+							<div class="cool_select <?php echo (isset($filters_text['weight']) ? 'cool_select_disabled' : '') ?>">
+								<span><?php echo (isset($filters_text['weight']) ? $filters_text['weight'] : 'вес') ?></span>
+								<span class="cool_select_arrow sprite"></span>
+                                <span class="cool_select_arrow2">×</span>
+							</div>
+                            <div class="cool_select_options">
+                                <div class="scrollbar-inner scroll_helper">
+								<?php foreach($attributes['weights'] as $attribute) { ?>
+									<div class="cool_select_option">
+										<label>
+											<input type="checkbox" class="cool_select_check" value="<?php echo $attribute ?>" data-name="weight" <?php echo (in_array($attribute,explode(';',$filters['weight'])) ? 'checked' : '' ) ?>>
+											<?php echo $attribute ?>
+										</label>
+									</div>
+								<?php } ?>
+                                </div>
+								<div class="cool_select_button <?php echo (!$filters_used ? '' : 'cool_select_button_ready') ?>">применить</div>
+							</div>
+						</div>
+						<?php } ?>
+
+
+
 						<?php if(count($attributes['packs']) > 0) { ?>							
 						<div class="cool_select_pack fl_l" data-type="pack">
 							<div class="cool_select <?php echo (isset($filters_text['pack']) ? 'cool_select_disabled' : '') ?>">
@@ -105,32 +133,6 @@
                                 </div>
 								<div class="cool_select_button <?php echo (!$filters_used ? '' : 'cool_select_button_ready') ?>">применить</div>
 							</div>								
-						</div>
-						<?php } ?>
-						<?php if($attributes['show_weights']) { ?>
-						<div class="cool_select_pack fl_l" data-type="weight">
-							<div class="cool_select <?php echo (isset($filters_text['weight']) ? 'cool_select_disabled' : '') ?>">
-								<span><?php echo (isset($filters_text['weight']) ? $filters_text['weight'] : 'вес') ?></span>
-                                <span class="cool_select_arrow sprite"></span>
-                                <span class="cool_select_arrow2">×</span>
-							</div>
-                            <div class="cool_select_options">
-                                <div class="scrollbar-inner scroll_helper">
-									<div class="cool_select_option">
-										<label>
-											<input type="radio" class="cool_select_check" value="raz" name="weight" data-name="weight" <?php echo ($filters['weight'] === 'raz' ? 'checked' : '' ) ?>>
-											на развес
-										</label>
-									</div>
-									<div class="cool_select_option">
-										<label>
-											<input type="radio" class="cool_select_check" value="upa"  name="weight" data-name="weight" <?php echo ($filters['weight'] === 'upa' ? 'checked' : '' ) ?>>
-											в упаковке
-										</label>
-									</div>
-                                </div>
-								<div class="cool_select_button <?php echo (!$filters_used ? '' : 'cool_select_button_ready') ?>">применить</div>
-							</div>
 						</div>
 						<?php } ?>
 						<div class="cool_select_pack fl_l" data-type="price">

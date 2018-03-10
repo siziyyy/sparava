@@ -13,7 +13,7 @@
 				<!--<div class="c_inners_photo fl_l" style="background: url(images/1.jpg"></div>-->
 				<div class="c_inners_photo fl_l send" data-type="get_product_info" style="background: url(images/<?php echo $product['image'] ?>);"></div>
 				<div class="c_inners_photo_legend fl_r">
-					<a href="https://aydaeda.ru/product/<?php echo $product['product_id'] ?>" target="_blank"><div class="g_good_name"><?php echo $product['title'] ?></div></a>
+					<a href="/product/<?php echo $product['product_id'] ?>" target="_blank"><div class="g_good_name"><?php echo $product['title'] ?></div></a>
 					<!--<div class="g_good_description">
 						<?php /* echo $product['description'] */?>
 					</div>-->
@@ -59,7 +59,7 @@
 					<input type="text" class="c_inners_count_input" value="<?php echo $product['quantity_in_cart'] ?>">
 				</div>
 			</div>
-			<div class="c_inners_td fl_l c_inners_fourth_td no_on_mob"><?php echo $product['quantity_in_cart']*$product['price'] ?> р.</div>
+			<div class="c_inners_td fl_l c_inners_fourth_td no_on_mob"><?php echo $this->baselib->round_price($product['quantity_in_cart'],$product['price']) ?> р.</div>
 			<div class="c_inners_td fl_l c_inners_fifth_td no_on_mob">
 				<div class="c_inners_count_delete">
 					<div class="c_inners_count_del"></div>

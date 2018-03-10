@@ -161,11 +161,11 @@
                             <div class="good_modal_right_line actions_holder">
                                 <div class="g_good_count">
                                     <div class="g_good_count_act g_good_count_rem sprite <?php echo ( ($product['type'] == 'шт' or $product['bm'] == 0) ? 'g_good_count_act_disable' : '' ) ?>"></div>
-                                    <input type="text" class="g_good_count_input" value="<?php echo ($product['type'] == 'шт' ? 1 : ($product['bm'] == 1 ? 1 : '0.1')) ?> <?php echo $product['type'] ?>">
+                                    <input type="text" class="g_good_count_input" value="<?php echo $product['default_value'] ?>">
                                     <div class="g_good_count_act g_good_count_add sprite"></div>
                                 </div>
                                 <div class="g_good_to_cart">
-                                    <span class="g_good_to_cart_text"><span class="g_good_to_cart_value"><?php echo $product['price'] ?></span> р.</span>
+                                    <span class="g_good_to_cart_text"><span class="g_good_to_cart_value"><?php echo $product['default_price'] ?></span> р.</span>
                                     <span class="g_good_added_to_cart_text"></span>                                 
                                     <span class="g_good_to_cart_icon sprite"></span>
                                 </div>
@@ -208,7 +208,7 @@
                                 <div class="good_page_side_second_helper">Бонус</div> 
                                 <div class="good_page_side_second_body">
                                     Эта покупка Вам принесет
-                                    <br><span class="g_good_bonus_value"><?php echo $product['price']*0.05 ?></span> балов (<span class="g_good_bonus_value"><?php echo $product['price']*0.05 ?></span> руб.)
+                                    <br><span class="g_good_bonus_value"><?php echo $product['bonus'] ?></span> балов (<span class="g_good_bonus_value"><?php echo $product['bonus'] ?></span> руб.)
                                 </div>
                             </div>
                         </div>
@@ -299,7 +299,7 @@
                         <div class="g_good_count_act g_good_count_add sprite"></div>
                     </div>
                     <div class="g_good_to_cart">
-                        <span class="g_good_to_cart_text"><span class="g_good_to_cart_value"><?php echo $product['price'] ?></span> р.</span>
+                        <span class="g_good_to_cart_text"><span class="g_good_to_cart_value"><?php echo $product['default_price'] ?></span> р.</span>
                         <span class="g_good_added_to_cart_text"></span>                                 
                         <span class="g_good_to_cart_icon sprite"></span>
                     </div>
