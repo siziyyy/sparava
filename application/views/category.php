@@ -51,6 +51,11 @@
                     <?php $this->load->view('common/menu-inner', $menu);?>
 	                <?php if($is_parent_category and isset($category_data) and count($category_data['tags'])) { ?>
 						<div class="line_for_common_menu_inner">
+                            <style>
+                                .category_bg_helper_in_main {
+                                    height: 142px !important;
+                                }
+                            </style>
 							<a class="line_for_common_menu_inner_link line_for_common_menu_inner_link_blue">Популярное!</a>
 							<?php foreach($category_data['tags'] as $tag => $href) { ?>
 								<a href="<?php echo $href ?>" class="line_for_common_menu_inner_link"><?php echo $tag ?></a>
