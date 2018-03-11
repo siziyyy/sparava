@@ -2996,3 +2996,70 @@ font-size: 24px;
     font-family: Calibri;
     margin-left: 10px;
 }
+.search_new_3_2018_icon {
+    width: 22px;
+    height: 22px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    background-color: #299926;
+    background-image: url(/assets/img/searchicon.png);
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 10px;
+    background-position: center;
+    display: inline-block;
+    background-repeat: no-repeat;
+    margin: -10px 22px 0px -1px;
+    position: relative;
+    top: 6px;
+    -webkit-transition: background-color .3s ease;
+    -o-transition: background-color .3s ease;
+    transition: background-color .3s ease;
+    cursor: pointer;
+}
+.search_new_3_2018_icon:hover {
+    background-color: #3E780F;
+    -webkit-transition: background-color .3s ease;
+    -o-transition: background-color .3s ease;
+    transition: background-color .3s ease;
+}
+.search_new_3_2018_button {
+    width: 82px;
+    height: 33px;
+    -webkit-border-radius: 4px;
+            border-radius: 4px;
+    background: #3E780F;
+    color: #fff;
+    font-size: 14px;
+    font-family: Calibri Bold;
+    display: block;
+    float: right;
+    border: none;
+    cursor: pointer;
+    -webkit-transition: background-color .3s ease;
+    -o-transition: background-color .3s ease;
+    transition: background-color .3s ease;
+}
+.search_new_3_2018_button:hover {
+    background-color: #299926;
+    -webkit-transition: background-color .3s ease;
+    -o-transition: background-color .3s ease;
+    transition: background-color .3s ease;
+}
+.search_new_3_2018_input {
+    display: block;
+    height: 33px;
+    float: left;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 4px;
+            border-radius: 4px;
+    padding-left: 15px;
+    width: calc(100% - 110px);
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+.search_new_3_2018_pack {
+    margin: 0 0 30px 0;
+    display: none;
+}
