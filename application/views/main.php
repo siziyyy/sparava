@@ -12,42 +12,14 @@
     </div>
 	<div class="content_helper">
         <section class="banner2018 b_slider">
-            <a href="/category/104">
-                <div class="b_slide cvuyibnjok" style="background:url('/assets/img/slider/2.jpg')">
-                        <div class="content_helper">
-                            <div class="slider_2 fl_r">
-                                <div class="slider_2_header">
-                                    Впустите свежесть
-                                    <br>в ваш дом!
-                                </div>
-                                <div class="slider_2_body">
-                                    Помните, как пахнет свежая мята?
-                                    <br>Доставим в течении 2 часов
-                                    <div class="slider_2_accent slider_sprite"></div>
-                                </div>
+            <?php foreach($banners['slider'] as $banner) { ?>
+                <a href="<?php echo $banner['url'] ?>">
+                    <div class="b_slide" style="background:url('<?php echo $banner['image'] ?>')">
+                            <div class="content_helper">
                             </div>
-                            <div class="clear"></div>
-                        </div>
-                </div>
-            </a>
-            <div class="b_slide b_slide1" style="background:url('/assets/img/slider/1.jpg')">
-                <div class="content_helper content_helper_22">
-                    <div class="b_text">
-                        Доставка отборных продуктов  
-                        <br>из <span class="green_text">Фуд Сити</span> по супер ценам!
                     </div>
-                    <div class="b_undertext">
-                        Экономьте до 40% от рыночной цены, ешьте 
-                        <br>самые свежие продукты каждый день
-                    </div>
-                </div>
-            </div>
-            <a href="/category/3">
-                <div class="b_slide cvuyibnjok" style="background:url('/assets/img/slider/3.jpg')">
-                        <div class="content_helper">
-                        </div>
-                </div>
-            </a>
+                </a>
+            <?php } ?>
         </section>
         <!--<section class="slogan2018">
             <div class="slogan2018_1">
@@ -89,114 +61,65 @@
             <div class="clear"></div>
         </section>
         <section class="rybny_ryad">
-            <a href="/" class="mew_1_link"><div class="rybny_ryad_item new_1_8 fl_l">
-                <div class="rybny_ryad_item_text">Сибас <span class="rybny_ryad_item_text_orange">180р. за кг</span></div>
-            </div></a>
-            <a href="/category/45" class="mew_1_link"><div class="rybny_ryad_item new_1_9 rybny_ryad_item_center fl_l">
-                <div class="rybny_ryad_item_text">Много замороженной рыбы</div>
-            </div></a>
-            <a href="/category/44" class="mew_1_link"><div class="rybny_ryad_item new_1_10 fl_l">
-                <div class="rybny_ryad_item_text">Много охлажденной рыбы</div>
-            </div></a>
+            <?php foreach($banners['banner_1'] as $banner) { ?>
+                <a href="<?php echo $banner['url'] ?>" class="mew_1_link"><div class="rybny_ryad_item new_1_8 fl_l" style="background:url('<?php echo $banner['image'] ?>')"></div></a>
+            <?php } ?>
             <div class="clear"></div>
         </section>
         <section class="guglpley">
             <div class="guglpley_text">
-                <div class="guglpley_text_1">Мы можем быть у Вас в кармане</div>
-                <div class="guglpley_text_2">мобильная версия / приложения</div>
-                <a href="/" target="_blank" class="guglpley_text_3">
-                    <img src="/assets/img/new_1/gp.jpg" alt="">
+                <?php foreach($banners['banner_2'] as $banner) { ?>
+                <a href="<?php echo $banner['url'] ?>" target="_blank" class="guglpley_text_3">
+                    <img src="<?php echo $banner['image'] ?>" alt="">
                 </a>
+                <?php } ?>
             </div>
         </section>
         <section class="vtoroy_slaider">
-            <? for ($i=1; $i < 13; $i++) { ?>
-                <a href="/" class="vtoroy_slaider_item vtoroy_slaider_item_<?= $i; ?>">
-                    <div class="vtoroy_slaider_item_text">Фрукты</div>
+            <?php foreach($banners['category'] as $banner) { ?>
+                <a href="<?php echo $banner['url'] ?>" target="_blank" class="vtoroy_slaider_item">
+                    <img src="<?php echo $banner['image'] ?>" alt="">
                 </a>
-            <? } ?>
+            <?php } ?>
         </section>
         <section class="yaica_i_ovcy">
-            <a href="/" class="mew_1_link"><div class="yaica_i_ovcy_item new_1_17 fl_l"></div></a>
-            <a href="/" class="mew_1_link"><div class="yaica_i_ovcy_item new_1_18 fl_l"></div></a>
-            <a href="/" class="mew_1_link"><div class="yaica_i_ovcy_item new_1_19 fl_l"></div></a>
-            <a href="/" class="mew_1_link"><div class="yaica_i_ovcy_item new_1_20 yaica_i_ovcy_item_last fl_l"></div></a>
+            <?php foreach($banners['banner_3'] as $banner) { ?>
+                <a href="<?php echo $banner['url'] ?>" class="mew_1_link"><div class="yaica_i_ovcy_item new_1_17 fl_l" style="background:url('<?php echo $banner['image'] ?>');margin: 0"></div></a>
+            <?php } ?>
             <div class="clear"></div>
         </section>
         <section class="blog_i_rekomendacii">
-            <a href="/" class="mew_1_link"><div class="blog_i_rekomendacii_item new_1_21 fl_l">
-                <div class="blog_i_rekomendacii_text">диетические продукты</div>
-            </div></a>
-            <a href="/" class="mew_1_link"><div class="blog_i_rekomendacii_item new_1_22 fl_l">
-                <div class="blog_i_rekomendacii_text">наш вкусный блог</div>
-            </div></a>
-            <a href="/" class="mew_1_link"><div class="blog_i_rekomendacii_item new_1_23 blog_i_rekomendacii_item_last fl_l">
-                <div class="blog_i_rekomendacii_text2">
-                    <div class="blog_i_rekomendacii_text2_1">ОСОБО РЕКОМЕНДУЕМ</div>
-                    <div class="blog_i_rekomendacii_text2_2">много нового и прекрасного</div>
-                </div>
-            </div></a>
+            <?php $counter = 0; ?>
+            <?php foreach($banners['banner_4'] as $banner) { ?>
+                <a href="<?php echo $banner['url'] ?>" class="mew_1_link"><div class="blog_i_rekomendacii_item new_1_21 fl_l <?php echo ($counter == 2 ? 'blog_i_rekomendacii_item_last' : '') ?>" style="background:url('<?php echo $banner['image'] ?>');"></div></a>
+                <?php $counter++; ?>
+            <?php } ?>
             <div class="clear"></div>
         </section>
         <section class="tretiy_slaider">
-            <? for ($i=1; $i < 9; $i++) { ?>
-                <a href="/" class="tretiy_slaider_item">
-                    <img class="tretiy_slaider_item_img" src="/assets/img/new_1/tretiy_slaider/<?= $i; ?>.png" alt="Фуагра">
-                    <div class="tretiy_slaider_item_text">Фуагра</div>
-                    <div class="tretiy_slaider_item_textlarge">Создавая цесарку,природа максимально</div>
-                    <div class="tretiy_slaider_item_price">- 150 <span class="rouble">o</span></div>
+            <?php foreach($banners['products'] as $banner) { ?>
+                <a href="/product/<?php echo $banner['id'] ?>" class="tretiy_slaider_item">
+                    <img class="tretiy_slaider_item_img" src="<?php echo $banner['image'] ?>" alt="<?php echo $banner['title'] ?>">
+                    <div class="tretiy_slaider_item_text"><?php echo $banner['title'] ?></div>
+                    <div class="tretiy_slaider_item_textlarge"><?php echo $banner['description'] ?></div>
+                    <div class="tretiy_slaider_item_price">- <?php echo $banner['price'] ?> <span class="rouble">o</span></div>
                 </a>
-            <? } ?>
+            <?php } ?>
         </section>
         <section class="instagram_line">
-            <div class="instagram_line_item fl_l">
-                 <a href="/" target="_blank"><div class="instagram_line_item_photo" style="background-image:url('/assets/img/new_1/ig/1.jpg')"></div></a>
-                <div class="instagram_line_item_text">
-                    <a href="/" target="_blank" class="instagram_line_item_text_header">@milablum</a>
-                    <div class="instagram_line_item_text_body">
-                        #отчаяннаядомохозяйка в деле вдохновляют 
-                        готовку фермерские продукты  @aydaeda. Так 
-                        вдохновилась, что записала #влог (скоро на 
-                        моем канале YouTube) как приготовить.
+            <?php $counter = 0; ?>
+            <?php foreach($banners['instagram'] as $banner) { ?>
+                <div class="instagram_line_item fl_l <?php echo ($counter == 3 ? 'instagram_line_item_last' : '') ?>">
+                    <a href="<?php echo $banner['url'] ?>" target="_blank"><div class="instagram_line_item_photo" style="background-image:url('<?php echo $banner['image'] ?>')"></div></a>
+                    <div class="instagram_line_item_text">
+                        <a href="<?php echo $banner['url'] ?>" target="_blank" class="instagram_line_item_text_header"><?php echo $banner['title'] ?></a>
+                        <div class="instagram_line_item_text_body">
+                            <?php echo $banner['text'] ?>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="instagram_line_item fl_l">
-                 <a href="/" target="_blank"><div class="instagram_line_item_photo" style="background-image:url('/assets/img/new_1/ig/2.jpg')"></div></a>
-                <div class="instagram_line_item_text">
-                    <a href="/" target="_blank" class="instagram_line_item_text_header">@milablum</a>
-                    <div class="instagram_line_item_text_body">
-                        #отчаяннаядомохозяйка в деле вдохновляют 
-                        готовку фермерские продукты  @aydaeda. Так 
-                        вдохновилась, что записала #влог (скоро на 
-                        моем канале YouTube) как приготовить.
-                    </div>
-                </div>
-            </div>
-            <div class="instagram_line_item fl_l">
-                <a href="/" target="_blank"><div class="instagram_line_item_photo" style="background-image:url('/assets/img/new_1/ig/3.jpg')"></div></a>
-                <div class="instagram_line_item_text">
-                    <a href="/" target="_blank" class="instagram_line_item_text_header">@milablum</a>
-                    <div class="instagram_line_item_text_body">
-                        #отчаяннаядомохозяйка в деле вдохновляют 
-                        готовку фермерские продукты  @aydaeda. Так 
-                        вдохновилась, что записала #влог (скоро на 
-                        моем канале YouTube) как приготовить.
-                    </div>
-                </div>
-            </div>
-            <div class="instagram_line_item instagram_line_item_last fl_l">
-                <a href="/" target="_blank"><div class="instagram_line_item_photo" style="background-image:url('/assets/img/new_1/ig/4.jpg')"></div></a>
-                <div class="instagram_line_item_text">
-                    <a href="/" target="_blank" class="instagram_line_item_text_header">@milablum</a>
-                    <div class="instagram_line_item_text_body">
-                        #отчаяннаядомохозяйка в деле вдохновляют 
-                        готовку фермерские продукты  @aydaeda. Так 
-                        вдохновилась, что записала #влог (скоро на 
-                        моем канале YouTube) как приготовить.
-                    </div>
-                </div>
-            </div>
+                <?php $counter++; ?>
+            <?php } ?>
             <div class="clear"></div>
         </section>
     </div>

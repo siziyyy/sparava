@@ -36,6 +36,17 @@ class Baselib {
 		$this->_related_products = $this->_ci->productlib->get_related_products_ids(false,15);
     }
 
+    public function get_setting_value($name) {
+
+    	$query = $this->_ci->db->select("*")->from("settings")->where('name',$name)->get();
+    	if ($query->num_rows() > 0) {    		
+    		$data = $query->row_array();
+    		return $data['value'];
+    	}
+
+    	return false;
+    } 
+
     public function get_page_banners($page) {
     	$result = array();
 
