@@ -8,6 +8,7 @@
                     </div>
 					<div class="c_new_menu_line_item rtyguhnjioklp fl_r">
                         <a href="/catalog" class="c_new_menu_link fullcatlink c_new_menu_l">Полный каталог</a>
+                        <a class="search_new_3_2018_icon"></a>
                         <a href="/category/1" class="c_new_menu_link c_new_menu_l">Мясо</a>
                         <a href="/category/2" class="c_new_menu_link c_new_menu_l">Птица</a>
                         <a href="/category/3" class="c_new_menu_link c_new_menu_l">Рыба</a>
@@ -21,3 +22,10 @@
 					</div>
                     <div class="clear"></div>
               </div>
+            <div class="search_new_3_2018_pack">
+                <div class="content_helper">
+                    <input type="text" class="search_new_3_2018_input">
+                    <button class="search_new_3_2018_button">поиск</button>
+                    <div class="clear"></div>
+                </div>
+            </div>

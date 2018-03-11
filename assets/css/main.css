@@ -1287,6 +1287,9 @@ input {
     -webkit-transition: opacity .3s;
     -o-transition: opacity .3s;
     transition: opacity .3s;
+            width: 180px;
+    position: relative;
+    top: 10px;
 }
 .h_logo_img:hover {
     opacity: .7;

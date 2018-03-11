@@ -857,6 +857,9 @@ $(document).ready(function() {
 	$(document).on('click','.good_modal_share',function(e) {
 		$('.share_it_faster').show();
 	});
+	$(document).on('click','.search_new_3_2018_icon',function(e) {
+		$('.search_new_3_2018_pack').slideToggle(100);
+	});
 
 	$(document).on('click','.login_from_comment',function(e) {
 		e.preventDefault();

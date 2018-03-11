@@ -251,7 +251,7 @@ body,html,textarea{font-family:Calibri}
 					<a href="/">
                         <!-- <div class="h_logo fl_l">-->
                         <div class="h_logo">
-							<img src="/assets/img/h_logo.jpg" class="h_logo_img" alt="sparava">
+							<img src="/assets/img/h_logo.png" class="h_logo_img" alt="sparava">
 						</div>
 					</a>
                     <div class="new_inform_menu">

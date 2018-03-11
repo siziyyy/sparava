@@ -1,7 +1,7 @@
 <?php $this->load->view('common/header',$header);?>
     <style>   
         .c_new_menu_l {
-            margin-right: 28px !important;
+            margin-right: 23px !important;
         }
         header {
             height: 95px;
