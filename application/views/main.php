@@ -68,11 +68,11 @@
             <?php } ?>
             <div class="clear"></div>
         </section>
-        <section class="guglpley">
+        <a class="guglpley" href="/" target="_blank">
             <?php foreach($banners['banner_2'] as $banner) { ?>
                 <img src="<?php echo $banner['image'] ?>" alt="">
             <?php } ?>
-        </section>
+        </a>
         <section class="vtoroy_slaider">
             <?php foreach($banners['category'] as $banner) { ?>
                 <a href="<?php echo $banner['url'] ?>" target="_blank" class="vtoroy_slaider_item">
