@@ -46,7 +46,18 @@ class Main extends CI_Controller {
 		}
     }
 
-	public function index() {		
+	public function index() {
+		$banners = array(
+			'slider' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_slider'))),
+			'banner_1' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_banner_1'))),
+			'banner_2' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_banner_2'))),
+			'category' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_category'))),
+			'banner_3' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_banner_3'))),
+			'banner_4' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_banner_4'))),
+			'instagram' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_instagram'))),
+			'products' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_products'))),
+		);
+
 		$data = array(
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
@@ -55,7 +66,8 @@ class Main extends CI_Controller {
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
-			)
+			),
+			'banners' => $banners
 		);
 		
 		$this->load->view('main', $data);
