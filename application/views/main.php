@@ -14,7 +14,7 @@
         <section class="banner2018 b_slider">
             <?php foreach($banners['slider'] as $banner) { ?>
                 <a href="<?php echo $banner['url'] ?>">
-                    <div class="b_slide" style="background:url('<?php echo $banner['image'] ?>')">
+                    <div class="b_slide" style="background-image:url('<?php echo $banner['image'] ?>')">
                             <div class="content_helper">
                             </div>
                     </div>
@@ -61,19 +61,17 @@
             <div class="clear"></div>
         </section>
         <section class="rybny_ryad">
+            <?php $counter = 0; ?>
             <?php foreach($banners['banner_1'] as $banner) { ?>
-                <a href="<?php echo $banner['url'] ?>" class="mew_1_link"><div class="rybny_ryad_item new_1_8 fl_l" style="background:url('<?php echo $banner['image'] ?>')"></div></a>
+                <a href="<?php echo $banner['url'] ?>" class="mew_1_link"><div class="rybny_ryad_item <?php echo ($counter == 1 ? 'rybny_ryad_item_center' : '') ?> new_1_8 fl_l" style="background-image:url('<?php echo $banner['image'] ?>')"></div></a>
+                <?php $counter++; ?>
             <?php } ?>
             <div class="clear"></div>
         </section>
         <section class="guglpley">
-            <div class="guglpley_text">
-                <?php foreach($banners['banner_2'] as $banner) { ?>
-                <a href="<?php echo $banner['url'] ?>" target="_blank" class="guglpley_text_3">
-                    <img src="<?php echo $banner['image'] ?>" alt="">
-                </a>
-                <?php } ?>
-            </div>
+            <?php foreach($banners['banner_2'] as $banner) { ?>
+                <img src="<?php echo $banner['image'] ?>" alt="">
+            <?php } ?>
         </section>
         <section class="vtoroy_slaider">
             <?php foreach($banners['category'] as $banner) { ?>
@@ -83,15 +81,17 @@
             <?php } ?>
         </section>
         <section class="yaica_i_ovcy">
+            <?php $counter = 0; ?>
             <?php foreach($banners['banner_3'] as $banner) { ?>
-                <a href="<?php echo $banner['url'] ?>" class="mew_1_link"><div class="yaica_i_ovcy_item new_1_17 fl_l" style="background:url('<?php echo $banner['image'] ?>');margin: 0"></div></a>
+                <a href="<?php echo $banner['url'] ?>" class="mew_1_link"><div class="yaica_i_ovcy_item new_1_17 fl_l" style="background-image:url('<?php echo $banner['image'] ?>');<?php echo ($counter == 3 ? 'margin: 0' : '') ?>"></div></a>
+                <?php $counter++; ?>
             <?php } ?>
             <div class="clear"></div>
         </section>
         <section class="blog_i_rekomendacii">
             <?php $counter = 0; ?>
             <?php foreach($banners['banner_4'] as $banner) { ?>
-                <a href="<?php echo $banner['url'] ?>" class="mew_1_link"><div class="blog_i_rekomendacii_item new_1_21 fl_l <?php echo ($counter == 2 ? 'blog_i_rekomendacii_item_last' : '') ?>" style="background:url('<?php echo $banner['image'] ?>');"></div></a>
+                <a href="<?php echo $banner['url'] ?>" class="mew_1_link"><div class="blog_i_rekomendacii_item new_1_21 fl_l <?php echo ($counter == 2 ? 'blog_i_rekomendacii_item_last' : '') ?>" style="background-image:url('<?php echo $banner['image'] ?>');"></div></a>
                 <?php $counter++; ?>
             <?php } ?>
             <div class="clear"></div>
