@@ -58,6 +58,48 @@ class Main extends CI_Controller {
 			'products' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_products'))),
 		);
 
+		shuffle($banners['banner_1']);
+		shuffle($banners['category']);
+		shuffle($banners['banner_3']);
+		shuffle($banners['instagram']);
+		shuffle($banners['products']);
+
+		$banners['banner_1'] = array_slice($banners['banner_1'], 0, 3);
+		$banners['banner_3'] = array_slice($banners['banner_3'], 0, 4);
+		$banners['instagram'] = array_slice($banners['instagram'], 0, 4);
+
+		foreach ($banners['products'] as $banner) {
+			$product_ids[] = $banner['id'];
+		}
+
+		$products = $this->productlib->get_products_by_ids($product_ids);
+
+		foreach ($banners['products'] as $id => $banner) {
+			if(isset($products[$banner['id']])) {
+				$banners['products'][$id]['price'] = $products[$banner['id']]['price'];
+				$banners['products'][$id]['title'] = $products[$banner['id']]['title'];
+			}
+		}
+
+		$banners_to_shuffle = array();
+
+		foreach ($banners['banner_4'] as $banner) {
+			$banners_to_shuffle[$banner['type']][] = $banner;
+		}
+
+		$banners['banner_4'] = array();
+
+		foreach ($banners_to_shuffle as $type => $banners_group) {
+			shuffle($banners_group);
+
+			if($type == '1') {
+				$banners['banner_4'][$type] = array_slice($banners_group, 0, 2);
+			} else {
+				$banners['banner_4'][$type] = array_slice($banners_group, 0, 1);
+			}
+		}		
+
+
 		$data = array(
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()

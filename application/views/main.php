@@ -89,10 +89,11 @@
             <div class="clear"></div>
         </section>
         <section class="blog_i_rekomendacii">
-            <?php $counter = 0; ?>
-            <?php foreach($banners['banner_4'] as $banner) { ?>
-                <a href="<?php echo $banner['url'] ?>" class="mew_1_link"><div class="blog_i_rekomendacii_item new_1_21 fl_l <?php echo ($counter == 2 ? 'blog_i_rekomendacii_item_last' : '') ?>" style="background-image:url('<?php echo $banner['image'] ?>');"></div></a>
-                <?php $counter++; ?>
+            <?php foreach($banners['banner_4'][1] as $banner) { ?>
+                <a href="<?php echo $banner['url'] ?>" class="mew_1_link"><div class="blog_i_rekomendacii_item new_1_21 fl_l" style="background-image:url('<?php echo $banner['image'] ?>');"></div></a>
+            <?php } ?>
+            <?php foreach($banners['banner_4'][2] as $banner) { ?>
+                <a href="<?php echo $banner['url'] ?>" class="mew_1_link"><div class="blog_i_rekomendacii_item new_1_21 fl_l blog_i_rekomendacii_item_last" style="background-image:url('<?php echo $banner['image'] ?>');"></div></a>
             <?php } ?>
             <div class="clear"></div>
         </section>
