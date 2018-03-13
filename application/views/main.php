@@ -31,12 +31,13 @@
             </div>
         </section>-->
         <section class="myasnoy_ryad">
-            <a href="/category/1" class="mew_1_link"><div class="myasnoy_ryad_first new_1_1 fl_l">
-                <div class="myasnoy_ryad_first_text">
-                    <div class="myasnoy_ryad_first_text_1">МЯСНОЙ РЯД</div>
-                    <div class="myasnoy_ryad_first_text_2">парное мясо, супер качество</div>
-                </div>
-            </div></a>
+            <?php foreach($banners['banner_5'] as $banner) { ?>
+                <a href="<?php echo $banner['url'] ?>" class="mew_1_link">
+                    <div class="myasnoy_ryad_first new_1_1 fl_l" style="background-image:url('<?php echo $banner['image'] ?>');">
+                    </div>
+                </a>
+            <?php } ?>
+
             <div class="myasnoy_ryad_line fl_l">
                 <a href="/category/29" class="mew_1_link"><div class="myasnoy_ryad_line_item new_1_2 fl_l">
                     <div class="myasnoy_ryad_item_text_vert">Говядина</div>

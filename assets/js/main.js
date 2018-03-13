@@ -2020,6 +2020,10 @@ $('.cool_select_button,.new_mob_submenu_filter_button').click(function() {
 		}
 
 		params[name] = values.join(';');
+
+		if(values.length == 0) {
+			delete params[name];
+		}
 	});
 	
 	delete params['page'];
