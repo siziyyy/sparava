@@ -54,6 +54,7 @@ class Main extends CI_Controller {
 			'category' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_category'))),
 			'banner_3' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_banner_3'))),
 			'banner_4' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_banner_4'))),
+			'banner_5' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_banner_5'))),
 			'instagram' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_instagram'))),
 			'products' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_products'))),
 		);

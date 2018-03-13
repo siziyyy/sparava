@@ -1116,14 +1116,18 @@ class Baselib {
 				$word = 'упаковок';
 			}			
 		} elseif($type == 'price') {
+			$word = 'цена';
+
 			if($count == 'asc') {
 				$word = 'по возрастанию';
 			} elseif($count == 'desc') {
 				$word = 'по убыванию';
 			}
 
-			return $word;			
+			return $word;
 		} elseif($type == 'weight') {
+			$word = 'упаковка';
+			
 			if($count == 'raz') {
 				$word = 'на развес';
 			} elseif($count == 'upa') {
