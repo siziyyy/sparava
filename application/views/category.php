@@ -138,6 +138,7 @@
     }
 </style>
 	            	<?php if(($sort_attr['razves'] and $sort_attr['pack']) or $sort_attr['bbox'] or $sort_attr['farm'] or $sort_attr['eko'] or $sort_attr['diet'] or $sort_attr['recommend']) { ?>
+                        <div class="new_chto-to-tam">Яблоко Армения</div>
 		            	<div class="new_cool_line_of_filters_aaarrrghh" data-category="<?php echo $category ?>">
 		            		<div class="new_cool_line_of_filters_aaarrrghh_item new_cool_line_of_filters_aaarrrghh_item_first send <?php echo (!$sort_order ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="clear">все</div>
 		            		

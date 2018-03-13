@@ -317,9 +317,35 @@
     margin: 3px 0 0 -2px;
     cursor: pointer;
 }
+.guglpley img {
+    cursor: pointer;
+    -webkit-transition: filter .3s ease;
+    -moz-transition: filter .3s ease;
+    -ms-transition: filter .3s ease;
+    -o-transition: filter .3s ease;
+    transition: filter .3s ease;
+}
+.guglpley img:hover {
+    -webkit-transition: filter .3s ease;
+    -moz-transition: filter .3s ease;
+    -ms-transition: filter .3s ease;
+    -o-transition: filter .3s ease;
+    transition: filter .3s ease;
+        filter: contrast(1.1);}
 .c_new_menu_l {
-    margin-right: 28px;
+    margin-right: 26px !important;
     font-family:Calibri Bold;
+}
+.h_logo {
+    margin: 0 30px 0 0 !important;
+}
+.h_cart {
+    margin: 0 0 0 20px !important;
+}
+.kmoijnuhybuh {
+        margin: 0px 0 0 20px !important;
+    position: relative;
+    top: -4px;
 }
 .index_c_new_menu .c_new_menu_line_item {
     margin: 0 11px 0 0px !important;
@@ -534,7 +560,7 @@ textarea.contact_me_mobile_input {
     margin: 0 10px ;
 }
 .rtyguhnjioklp {
-    font-size: 15px !important;
+    font-size: 14px !important;
 }
 .cyvguhbijnokml_cur {
     color: #fe4517;
@@ -1440,12 +1466,12 @@ textarea.aside_mobile_menu_new_content_second_content_inputttt {
 /******************************************************/
 /******************************************************/
 .blog_header_left {
-    color: #508f1d;
+    color: #4d4d4d;
     font-size: 28px;
     font-family:Calibri Bold;
 }
 .blog_header {
-    margin: 42px 0;
+    margin: 20px 0 36px 0;
 }
 .blog_header_right {
     font-size: 16px;
@@ -2192,20 +2218,9 @@ button:focus {outline:0;}
     width: 147px;
     height: 118px;
     cursor: pointer;
-    filter: contrast(1);
-    -webkit-transition: filter .3s ease;
-       -moz-transition: filter .3s ease;
-        -ms-transition: filter .3s ease;
-         -o-transition: filter .3s ease;
-            transition: filter .3s ease;
 }
-.tretiy_slaider_item:hover .tretiy_slaider_item_img {
-    filter: contrast(1.2);
-    -webkit-transition: filter .3s ease;
-       -moz-transition: filter .3s ease;
-        -ms-transition: filter .3s ease;
-         -o-transition: filter .3s ease;
-            transition: filter .3s ease;
+.vtoroy_slaider_item img {
+    cursor: pointer;
 }
 .tretiy_slaider .slick-list {
     padding: 0 30px;
@@ -3011,7 +3026,7 @@ font-size: 24px;
     background-position: center;
     display: inline-block;
     background-repeat: no-repeat;
-    margin: -10px 22px 0px -1px;
+    margin: -10px 34px 0px 6px;
     position: relative;
     top: 6px;
     -webkit-transition: background-color .3s ease;
@@ -3030,7 +3045,7 @@ font-size: 24px;
     height: 33px;
     -webkit-border-radius: 4px;
             border-radius: 4px;
-    background: #3E780F;
+    background-color: #299926;
     color: #fff;
     font-size: 14px;
     font-family: Calibri Bold;
@@ -3043,7 +3058,7 @@ font-size: 24px;
     transition: background-color .3s ease;
 }
 .search_new_3_2018_button:hover {
-    background-color: #299926;
+    background: #3E780F;
     -webkit-transition: background-color .3s ease;
     -o-transition: background-color .3s ease;
     transition: background-color .3s ease;
@@ -3064,4 +3079,15 @@ font-size: 24px;
 .search_new_3_2018_pack {
     margin: 0 0 30px 0;
     display: none;
+}
+.search_block_new_results {
+    width: 100%;
+    background: #f7f7f7;
+    padding: 25px 0;
+}
+.search_block_new_results_header {
+    font-size: 16px;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 0 0 25px 0;
+    font-family: Calibri Bold;
 }

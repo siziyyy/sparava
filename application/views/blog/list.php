@@ -18,9 +18,9 @@
             <div class="content_helper">
                 <div class="blog_header">
                     <div class="blog_header_left fl_l">Вкусный блог <a href="/providers_blogs" class="blog_header_left_link">Информация о поставщиках</a></div>
-                    <div class="blog_header_right fl_r">
-						<?php echo $counter ?> публикаций					
-					</div>
+                    <!--<div class="blog_header_right fl_r">
+						<?php /* echo $counter */ ?> публикаций					
+					</div>-->
                     <div class="clear"></div>
                 </div>
 				<?php foreach($blogs as $date => $blogs_for_date) { ?>
