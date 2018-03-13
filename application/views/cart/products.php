@@ -6,12 +6,15 @@
 		<div class="c_inners_td fl_l c_inners_fifth_td">&nbsp;</div>
 		<div class="clear"></div>
 	</div>
+                        <a class="cart_right_banner" href="/" target="_blank">
+                            <img src="/assets/img/cart_banner.jpg" alt="" class="cart_right_banner_img">
+                        </a>
 	<?php foreach($products as $product) { ?>
 		<?php $show_minus = false; ?>
 		<div class="c_inners_side_tr" data-product-id="<?php echo $product['product_id'] ?>" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>">
 			<div class="c_inners_td fl_l c_inners_first_td no_on_mob">
 				<!--<div class="c_inners_photo fl_l" style="background: url(images/1.jpg"></div>-->
-				<div class="c_inners_photo fl_l send" data-type="get_product_info" style="background: url(images/<?php echo $product['image'] ?>);"></div>
+				<div class="c_inners_photo fl_l send" data-type="get_product_info" style="background-image: url(images/<?php echo $product['image'] ?>);"></div>
 				<div class="c_inners_photo_legend fl_r">
 					<a href="/product/<?php echo $product['product_id'] ?>" target="_blank"><div class="g_good_name"><?php echo $product['title'] ?></div></a>
 					<!--<div class="g_good_description">

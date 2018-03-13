@@ -1,6 +1,6 @@
 <?php $this->load->view('common/header');?>
         <section class="content">
-            <style>
+            <? /*<style>
                 .category_bg_helper {
                     height: 85px !important;
                 }
@@ -54,6 +54,49 @@
                    <?php foreach($products as $product) { ?>						
 						<?php $info['product'] = $product; ?>
 						<?php $this->load->view('common/load-product',$info);?>								
+                    <?php } ?>
+                    <div class="clear"></div>
+                </div>
+            </div> */ ?>
+            <div class="content_helper">
+                <?php $this->load->view('common/menu', $menu);?>
+            </div>
+            <div class="search_block_new_results">
+                <div class="content_helper">
+                    <div class="search_block_new_results_header">Найдено в следующих категориях </div>
+                    <div class="search_block_new_results_body">
+                        <div class="columns_in_country_menu">
+                            <div class="column_in_country_menu">
+                                <a class="column_in_country_menu_link " href="?category=Мясо">Мясо</a>
+                                <a class="column_in_country_menu_link " href="?category=Морепродукты">Морепродукты</a>
+                                <a class="column_in_country_menu_link " href="?category=Яйцо">Яйцо</a>
+                            </div>
+                            <div class="column_in_country_menu">
+                                <a class="column_in_country_menu_link " href="?category=Сладости">Сладости</a>
+                                <a class="column_in_country_menu_link " href="?category=Сыры">Сыры</a>
+                                <a class="column_in_country_menu_link " href="?category=Чипсы и другое">Чипсы и другое</a>
+                            </div>
+                            <div class="column_in_country_menu">
+                                <a class="column_in_country_menu_link " href="?category=Птица">Птица</a>
+                                <a class="column_in_country_menu_link " href="?category=Заморзка">Заморзка</a>
+                            </div>
+                            <div class="column_in_country_menu">
+                                <a class="column_in_country_menu_link " href="?category=Кисломолочные продукты">Кисломолочные продукты</a>
+                                <a class="column_in_country_menu_link " href="?category=Конфеты и шоколад">Конфеты и шоколад</a>
+                            </div>
+                            <div class="column_in_country_menu">
+                                <a class="column_in_country_menu_link " href="?category=Здоровое питание">Здоровое питание</a>
+                                <a class="column_in_country_menu_link " href="?category=Рыба">Рыба</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content_helper">
+                <div class="goods">
+                    <?php foreach($products as $product) { ?>                       
+                        <?php $info['product'] = $product; ?>
+                        <?php $this->load->view('common/load-product',$info);?>                             
                     <?php } ?>
                     <div class="clear"></div>
                 </div>

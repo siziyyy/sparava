@@ -21,7 +21,7 @@
                     <label class="callme_label">
                         почта
                         <input type="text" class="callme_input social_email" name="email" value="" />
-                        <label class="social_email_error callme_label">Данный email занят</label>
+                        <div class="social_email_error callme_label">Данный email занят</div>
                     </label>
                     <input type="submit" class="callme_button_send" value="отправить" name="social_register" />
                 </form>

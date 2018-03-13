@@ -24,7 +24,7 @@
                         <input type="text" class="callme_input feedback_2_email">
                     </label>
                     <button class="callme_button_send send" data-type="feedback_2">отправить</button>
-                    <label class="feedback_2_success callme_label">Сообщение было отправлено</label>
+                    <div class="feedback_2_success callme_label">Сообщение было отправлено</div>
                 </form>
             </div>
         </section>

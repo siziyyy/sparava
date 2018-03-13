@@ -1,6 +1,6 @@
 <?php $this->load->view('common/header',$header);?>
         <section class="content">
-            <div class="category_bg_helper category_bg_helper_country">
+            <!--<div class="category_bg_helper category_bg_helper_country">
                 <div class="content_helper">
                     <div class="c_new_menu">
                         <div class="c_new_menu_line c_new_menu_line_country filters_holder">
@@ -46,11 +46,17 @@
                             </div>                          
                             <div class="clear"></div>
                         </div>
-                        <?php $this->load->view('common/menu-categories');?>
+                        <?php /* $this->load->view('common/menu-categories'); */?>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <div class="content_helper">
+                <div class="content_helper">
+                    <?php $this->load->view('common/menu', $menu);?>
+                </div>
+                <div class="brand_page_brand_name">
+                    Рязанский фермер
+                </div>
                 <div class="goods">
                     <?php foreach($products as $product) { ?>
 						<?php $info['product'] = $product; ?>

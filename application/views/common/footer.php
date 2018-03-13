@@ -12,7 +12,7 @@
 					</div>
 					<a href="/">
 						<div class="f_logo_image">
-							<img src="/assets/img/h_logo.jpg" alt="aydaeda" style="width: 195px;">
+							<img src="/assets/img/h_logo.png" alt="aydaeda" style="width: 195px;">
 						</div>
 					</a>
 					<div class="f_block_search_header">Поиск товара по артикулу</div>

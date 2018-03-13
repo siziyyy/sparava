@@ -18,6 +18,7 @@
                             </div>                          
                             <div class="clear"></div>
                         </div>
+                        <div class="vhbuvvvhjibb"></div>
                         <div class="columns_in_country_menu">
                             <?php foreach($parent_categories_list as $col) { ?>
                                 <div class="column_in_country_menu">
