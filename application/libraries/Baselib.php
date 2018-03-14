@@ -82,7 +82,7 @@ class Baselib {
     			}
 
     			$counter = 0;
-var_dump(expression);die();
+				
     			foreach ($query->result_array() as $banner) {
     				if(!in_array($banner['banner_id'],$banners_blacklist)) {
     					if(($counter+$banner['type']) <= 3 and !isset($result[$banner['banner_id']])) {
