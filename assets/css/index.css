@@ -337,7 +337,8 @@
     font-family:Calibri Bold;
 }
 .h_logo {
-    margin: 0 30px 0 0 !important;
+    /*margin: 0 30px 0 0 !important;*/
+    margin: 0 0 0 0px !important;
 }
 .h_cart {
     margin: 0 0 0 20px !important;

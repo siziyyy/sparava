@@ -2,10 +2,10 @@
     <style>   
         /*.c_new_menu_l {
             margin-right: 23px !important;
-        }
+        }*/
         header {
             height: 105px;
-        }*/
+        }
     </style>
     <div class="content_helper">
         <?php $this->load->view('common/menu', $menu);?>
