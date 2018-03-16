@@ -8,6 +8,6 @@ RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [QSA,L]
 RewriteCond %{HTTP_HOST} ^www.aydaeda\.ru
 RewriteRule ^(.*)$ https://aydaeda.ru/$1 [R=permanent,L]
 
-RewriteCond $1 !^(index\.php|admin|assets|images|robots\.txt|.*\.png|favicon\.ico|manifest\.json|safari-pinned-tab\.svg|f2a3174b256a\.html|browserconfig\.xml)
+RewriteCond $1 !^(index\.php|admin|assets|images|robots\.txt|.*\.png|favicon\.ico|manifest\.json|safari-pinned-tab\.svg|yandex_21404d2a567c8bd8\.html|f2a3174b256a\.html|browserconfig\.xml)
 RewriteRule ^(.*)$ /index.php/$1 [NC,L]
 

@@ -104,15 +104,11 @@ class Productlib {
 		do {
 			$current_category = array_shift($categories);
 			$categories_structed[$col][] = $current_category;
+		
+			$col++;
 
-			if($col == 0 and (count($categories_structed[$col]) % 2) == 0) {
-				$col++;
-			} elseif($col != 0 and count($categories_structed[0]) == count($categories_structed[$col])) {
-				$col++;
-
-				if($col >= 5) {
-					$col = 0;
-				}
+			if($col >= 5) {
+				$col = 0;
 			}
 
 		} while(count($categories));
@@ -692,7 +688,7 @@ class Productlib {
 		return $products;
 	}
 
-	function filter_products_by_sort($products,$category) {
+	public function filter_products_by_sort($products,$category) {
 		$sort_order = $this->_ci->baselib->get_sort_order();
 		$category_id = $this->_ci->baselib->get_category_id($category);
 
@@ -729,5 +725,69 @@ class Productlib {
 		}
 
 	    return $products;
+	}
+
+	public function search_products($fields,$value) {
+		$this->_ci->load->library('stemmlib');
+
+		$result = array(
+			'categories' => array(),
+			'products' => array()
+		);
+
+		$categories = array();
+		$stemmed = array();
+
+		$value = preg_replace("/[^а-яА-Яa-zA-z0-9\-\s]/ui", "%", $value);
+
+		foreach (explode(' ',$value) as $word) {
+			$stemmed[] = $this->_ci->stemmlib->clear_value($word);
+		}
+		
+
+		$sql = "SELECT * FROM categories WHERE status = 1 AND (";
+
+		foreach ($stemmed as $id => $word) {
+			$sql .= ($id ? " AND " : "")."title LIKE '%".$word."%'";
+		}
+
+		$sql .= ")";
+		$query = $this->_ci->db->query($sql);
+
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $row) {
+				$result['categories'][$row['category_id']] = $row;
+			}
+		}
+
+		$products = array();
+
+		$sql = "SELECT p.product_id, c.category_id, c.title AS category_title FROM products AS p, categories AS c, product_to_category AS ptc WHERE p.status = 1 AND c.category_id = ptc.category_id AND p.product_id = ptc.product_id AND (";
+
+		foreach ($fields as $fid => $field) {
+			$sql .= ($fid ? " OR " : "")."(";
+
+			foreach ($stemmed as $wid => $word) {
+				$sql .= ($wid ? " AND " : "").'p.'.$field." LIKE '%".$word."%'";
+			}
+
+			$sql .= ")";
+		}
+
+		$sql .= ")";
+
+		$query = $this->_ci->db->query($sql);		
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $row) {				
+				$result['products'][] = $row['product_id'];
+
+				$result['categories'][$row['category_id']] = array(
+					'title' => $row['category_title'],
+					'category_id' => $row['category_id']
+				);
+			}
+		}
+
+	    return $result;
 	}
 }

@@ -18,7 +18,7 @@
 					<div class="f_block_search_header">Поиск товара по артикулу</div>
 					<div class="f_block_search">
 						<form method="post" action="/search">
-							<input type="text" class="f_block_search_inp" name="articul">
+							<input type="text" class="f_block_search_inp" name="value">
 							<button type="submit" class="f_block_search_butt">найти</button>
 						</form>
 					</div>
