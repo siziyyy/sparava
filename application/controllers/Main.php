@@ -278,56 +278,59 @@ class Main extends CI_Controller {
 		$this->load->view('information', $data);
 	}
 	
-	public function search() {		
-		if(is_null($this->input->post('articul')) or empty($this->input->post('articul'))) {
+	public function search() {
+
+		$result = array(
+			'categories' => array(),
+			'products' => array()
+		);
+
+		$search_fileds = array(
+			'product_id',
+			'title',
+			'title_full',
+			'brand',
+			'country',
+			'manufacturer'
+		);
+
+		if(empty($this->input->post('value'))) {
 			redirect(base_url('/'), 'refresh');
 		} else {
-			$product_id = $this->productlib->get_product_id_from_articul($this->input->post('articul'));
+			$result = $this->productlib->search_products($search_fileds,trim($this->input->post('value')));
 		}
-		
-		$product = $this->productlib->get_product_by_id($product_id);
-		
-		if(!$product) {
-			redirect(base_url('/'), 'refresh');
-		}
-		
-		$products = array();
-		
-		foreach($this->productlib->get_product_categories($product_id) as $category_id) {
-			$products = array_merge($products,$this->productlib->get_category_products($category_id));
 
-			foreach($products as $index => $product) {
-				if($product['product_id'] == $product_id) {
-					unset($products[$index]);
-					break;
-				}
+		$categories_structed = array();
+
+		$col = 0;
+
+		do {
+			$current_category = array_shift($result['categories']);
+			$categories_structed[$col][] = $current_category;
+		
+			$col++;
+
+			if($col >= 5) {
+				$col = 0;
 			}
-			
-			if(count($products) > 5) {
-				break;
+
+		} while(count($result['categories']));
+
+		for($i=0;$i<5;$i++) {
+			if(!isset($categories_structed[$i])) {
+				$categories_structed[$i] = array();
 			}
 		}
-		
-		$products_to_show = array();
-		$i = 0;
-		
-		foreach($products as $product_data) {
-			if($i > 4) {
-				break;
-			}
-			
-			$products_to_show[] = $product_data;
-			$i++;
-		}	
-	
+
 		$data = array(
 			'cart' => $this->get_cart_info_for_header(),
-			'product' => $product,
-			'products' => $products_to_show,
+			'products' => $this->productlib->get_products_by_ids($result['products']),
+			'categories' => $categories_structed,
 			'is_search' => true,
 			'path' => false,
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
-			'articul' => $this->input->post('articul')
+			'value' => $this->input->post('value'),
+			'menu' => $this->baselib->get_categories()
 		);
 		
 		$this->load->view('search', $data);
