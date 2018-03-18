@@ -280,6 +280,9 @@ class Main extends CI_Controller {
 	
 	public function search() {
 
+		$products_sort = array();
+		$products = array();
+
 		$result = array(
 			'categories' => array(),
 			'products' => array()
@@ -296,9 +299,22 @@ class Main extends CI_Controller {
 
 		if(empty($this->input->post('value'))) {
 			redirect(base_url('/'), 'refresh');
+		} elseif(is_numeric(trim($this->input->post('value')))) {
+			$product_id = $this->productlib->get_product_id_from_articul($this->input->post('value'));
+			$products[] = $this->productlib->get_product_by_id($product_id);
 		} else {
 			$result = $this->productlib->search_products($search_fileds,trim($this->input->post('value')));
+			$products_sort = $result['products'];
+			$result['products'] = $this->productlib->get_products_by_ids($result['products'],true);
 		}
+
+		if(count($products_sort)) {
+			foreach ($products_sort as $product_id) {
+				$products[$product_id] = $result['products'][$product_id];
+			}
+		}
+
+		$show_categories = (count($result['categories']) > 1);
 
 		$categories_structed = array();
 
@@ -324,8 +340,9 @@ class Main extends CI_Controller {
 
 		$data = array(
 			'cart' => $this->get_cart_info_for_header(),
-			'products' => $this->productlib->get_products_by_ids($result['products']),
+			'products' => $products,
 			'categories' => $categories_structed,
+			'show_categories' => $show_categories,
 			'is_search' => true,
 			'path' => false,
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),

@@ -22,10 +22,12 @@
 					</div>
                     <div class="clear"></div>
               </div>
-            <div class="search_new_3_2018_pack">
+            <div class="search_new_3_2018_pack" style="<?php echo ($this->router->fetch_method() == 'search' ? 'display:block' : '' ); ?>">
                 <div class="content_helper">
-                    <input type="text" class="search_new_3_2018_input" placeholder="поиск по артикулу, названию, категории, бренду, стране, производителю, типу итд.">
-                    <button class="search_new_3_2018_button">поиск</button>
+                    <form method="post" action="/search">
+                        <input type="text" class="search_new_3_2018_input" value="<?php echo (isset($value) ? $value : ''); ?>" name="value" placeholder="поиск по артикулу, названию, категории, бренду, стране, производителю, типу итд.">
+                        <button type="submit" class="search_new_3_2018_button">поиск</button>
+                    </form>
                     <div class="clear"></div>
                 </div>
             </div>

@@ -527,7 +527,7 @@ class Productlib {
 		return $this->_ci->baselib->handle_special_price($products);
 	}	
 	
-	public function get_products_by_ids($ids) {
+	public function get_products_by_ids($ids,$dont_order = false) {
 		
 		$ptc = array();
 		
@@ -557,7 +557,13 @@ class Productlib {
 
 		if(count($ids)) {
 		
-			$query = $this->_ci->db->select("*")->from("products")->where("status",1)->where_in("product_id",$ids)->order_by('product_id', 'ASC')->get();
+			$query = $this->_ci->db->select("*")->from("products")->where("status",1)->where_in("product_id",$ids);
+
+			if(!$dont_order) {
+				$query = $query->order_by('product_id', 'ASC');
+			}
+
+			$query = $query->get();
 			
 			if ($query->num_rows() > 0) {
 				foreach ($query->result_array() as $row) {
@@ -735,15 +741,29 @@ class Productlib {
 			'products' => array()
 		);
 
+		$parent_categories = array();
 		$categories = array();
 		$stemmed = array();
+
+		$relevant = array(
+			'title',
+			'title_full'
+		);
 
 		$value = preg_replace("/[^а-яА-Яa-zA-z0-9\-\s]/ui", "%", $value);
 
 		foreach (explode(' ',$value) as $word) {
 			$stemmed[] = $this->_ci->stemmlib->clear_value($word);
 		}
-		
+
+		$sql = "SELECT * FROM categories";
+		$query = $this->_ci->db->query($sql);
+
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $row) {
+				$parent_categories[$row['category_id']] = $row['title'];
+			}
+		}		
 
 		$sql = "SELECT * FROM categories WHERE status = 1 AND (";
 
@@ -756,13 +776,30 @@ class Productlib {
 
 		if ($query->num_rows() > 0) {
 			foreach ($query->result_array() as $row) {
-				$result['categories'][$row['category_id']] = $row;
+				if(isset($parent_categories[$row['parent_id']])) {
+					$result['categories'][$row['parent_id']] = array(
+						'category_id' => $row['parent_id'],
+						'title' => $parent_categories[$row['parent_id']]
+					);
+				}
 			}
 		}
 
 		$products = array();
 
-		$sql = "SELECT p.product_id, c.category_id, c.title AS category_title FROM products AS p, categories AS c, product_to_category AS ptc WHERE p.status = 1 AND c.category_id = ptc.category_id AND p.product_id = ptc.product_id AND (";
+		$sql = "SELECT p.product_id, c.category_id, c.parent_id, (0+";
+
+		foreach ($relevant as $fid => $field) {
+			$sql .= ($fid ? "+" : "")."IF(";
+
+			foreach ($stemmed as $wid => $word) {
+				$sql .= ($wid ? " AND " : "").'p.'.$field." LIKE '%".$word."%'";
+			}
+
+			$sql .= ", 20, 0)";
+		}
+
+		$sql .=") AS relevant FROM products AS p, categories AS c, product_to_category AS ptc WHERE p.status = 1 AND c.category_id = ptc.category_id AND p.product_id = ptc.product_id AND ((";
 
 		foreach ($fields as $fid => $field) {
 			$sql .= ($fid ? " OR " : "")."(";
@@ -774,17 +811,31 @@ class Productlib {
 			$sql .= ")";
 		}
 
-		$sql .= ")";
+		$sql .= ") OR (";
+
+		foreach ($stemmed as $wid => $word) {
+			$sql .= ($wid ? " AND " : "")."(";
+
+			foreach ($fields as $fid => $field) {
+				$sql .= ($fid ? " OR " : "").'p.'.$field." LIKE '%".$word."%'";
+			}
+
+			$sql .= ")";
+		}
+
+		$sql .= ")) ORDER BY relevant DESC";
 
 		$query = $this->_ci->db->query($sql);		
 		if ($query->num_rows() > 0) {
 			foreach ($query->result_array() as $row) {				
 				$result['products'][] = $row['product_id'];
 
-				$result['categories'][$row['category_id']] = array(
-					'title' => $row['category_title'],
-					'category_id' => $row['category_id']
-				);
+				if(isset($parent_categories[$row['parent_id']])) {
+					$result['categories'][$row['parent_id']] = array(
+						'category_id' => $row['parent_id'],
+						'title' => $parent_categories[$row['parent_id']]
+					);
+				}
 			}
 		}
 
