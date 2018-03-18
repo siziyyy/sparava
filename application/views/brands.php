@@ -1,5 +1,10 @@
 <?php $this->load->view('common/header',$header);?>
         <section class="content">
+            <style>
+                header {
+                    height: 105px;
+                }
+            </style>
             <!--<div class="category_bg_helper category_bg_helper_country">
                 <div class="content_helper">
                     <div class="c_new_menu">

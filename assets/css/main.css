@@ -296,7 +296,8 @@ body,html,textarea{font-family:Calibri}
     margin: 0 2px 0 0;
 }
 header {
-    height: 122px;
+    /*height: 122px;*/
+    height: 130px;
     box-sizing: border-box;
     padding: 8px 0 0 0;
 }
@@ -337,7 +338,7 @@ header {
     -webkit-box-shadow: none;
             box-shadow: none;
 }
-.register_error_busy4,.register_succes_4,.login_error_4,#desktop_comments {
+.register_error_busy4,.register_succes_4,.login_error_4,/*#desktop_comments*/ {
 	display:none;
 }
 .mobile_restore {
@@ -443,7 +444,7 @@ header {
 }
 .blog_header_left_link {
     font-size: 22px;
-    margin-left: 50px;
+    margin-left: 60px;
     color: #999;
     font-family: Calibri;
 }
@@ -873,7 +874,7 @@ a {
     background: url('/assets/img/sprite.png');
 }
 input:focus {
-    border: 1px solid #9499A3;
+    border: 1px solid #ccc;
     -webkit-transition: border-color .3s ease;
        -moz-transition: border-color .3s ease;
         -ms-transition: border-color .3s ease;
@@ -1530,6 +1531,7 @@ header .content_helper {
     color: #000;
     font-size: 13px;
     line-height: 44px;
+    margin: -1px 0 0 0;
 }
 .breadcrumbs_item {
     color: #000;
@@ -1737,7 +1739,7 @@ header .content_helper {
     display: inline-block;
 }
 .comments {
-    margin-top: 50px;
+    margin-top: 70px;
 }
 .comments_header_active {
     font-family:Calibri Bold;
@@ -3178,7 +3180,7 @@ footer {
 }
 .brand_page_brand_name {
     font-size: 24px;
-    margin: 20px 0 0 0;
+    margin: 0px 0 0 0;
 }
 .setting_gray_bg {
     background: #f0f0f0;
@@ -3358,4 +3360,63 @@ footer {
 }
 .h_phones {
     margin: 0 0px 0 23px !important;
+}
+.desktop-version {
+    margin: -3px 0 0 0;
+}
+.new_good_page_line_2018_header {
+    font-size: 24px;
+}
+.no_comments {
+    font-size: 16px;
+    color: #fe4517;
+}
+.more_from_brand_slider {
+    width: 572px;
+    height: 370px;
+    margin-top: 40px;
+}
+.buubbubu {
+    width: 175px;
+    margin-right: 16px;
+    display: inline-block;
+}
+.more_from_brand_slider .tretiy_slaider_arrow {
+    top: 111px;
+    width: 40px;
+    height: 40px;
+}
+.more_from_brand_slider .tretiy_slaider_arrowright {
+    right: 0px;
+}
+.more_from_brand_slider .tretiy_slaider_arrowleft {
+    left: -13px;
+}
+.buubbubu .g_good_name {
+    font-size: 16px;
+    width: 90%;
+}
+.buubbubu img {
+    display: block;
+}
+.bububuuubub_cover {
+    margin-top: 40px;
+    height: 390px;
+}
+.buubbubu_last {
+    margin: 0;
+}
+.new_good_page_line_2018 {
+    height: 370px;
+    margin-bottom: 70px;
+}
+.new_good_page_line_20182 {
+    height: 370px;
+    margin-bottom: 70px;
+}
+.new_good_page_line_2018_banner {
+    width: 519px;
+    height: 233px;
+    background-color: #f7f7f8;
+    float: right;
 }

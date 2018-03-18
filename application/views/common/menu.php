@@ -24,7 +24,7 @@
               </div>
             <div class="search_new_3_2018_pack">
                 <div class="content_helper">
-                    <input type="text" class="search_new_3_2018_input">
+                    <input type="text" class="search_new_3_2018_input" placeholder="поиск по артикулу, названию, категории, бренду, стране, производителю, типу итд.">
                     <button class="search_new_3_2018_button">поиск</button>
                     <div class="clear"></div>
                 </div>

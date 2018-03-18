@@ -134,7 +134,7 @@
 	            <?php } else { ?>
 <style>
     .banners_120218 {
-        margin: 30px 0 -20px 0;
+        margin: 40px 0 -20px 0;
     }
 </style>
 	            	<?php if(($sort_attr['razves'] and $sort_attr['pack']) or $sort_attr['bbox'] or $sort_attr['farm'] or $sort_attr['eko'] or $sort_attr['diet'] or $sort_attr['recommend']) { ?>

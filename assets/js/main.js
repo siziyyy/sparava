@@ -837,6 +837,21 @@ $(document).ready(function() {
   		slidesToScroll: 1,
   		pauseOnFocus: true
     });
+    $('.more_from_brand_slider').slick({
+        dots: false,
+        infinite: true,
+        speed: 300,
+        arrows: true,
+        prevArrow: '<div class="tretiy_slaider_arrow tretiy_slaider_arrowleft"></div>',
+        nextArrow: '<div class="tretiy_slaider_arrow tretiy_slaider_arrowright"></div>',
+        autoplay: false,
+        autoplaySpeed: 3000,
+		pauseOnHover: false,
+        cssEase: 'ease-in-out',
+        slidesToShow: 3,
+  		slidesToScroll: 1,
+  		pauseOnFocus: true
+    });
     /* mosaic */
     $('.c_mosaic').masonry({
         itemSelector: '.c_mosaic_item',

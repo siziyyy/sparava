@@ -219,7 +219,7 @@
 
 
                 <div class="comments">
-                    <section class="content" style="min-height: auto;">
+                    <?/*<section class="content" style="min-height: auto;">
                         <div class="content_helper">
                             <div class="comments_header">
                                 <a class="comments_header_sec comments_header_active tab_select" data-target="related_products">Рекомендация от Aydaeda</a>
@@ -251,7 +251,113 @@
                                 </div>
                             </div>                            
                         </div>
-                    </section>
+                    </section>*/?>
+                </div>
+                <div class="new_good_page_line_2018">
+                    <div class="content_helper">
+                        <div class="new_good_page_line_2018_header">Другие предложения от Coca-cola</div>
+                        <div class="new_good_page_line_2018_body">
+                            <div class="recomendations_in_commets">
+                                <div class="new_good_page_line_2018_banner"></div>
+                                <div class="more_from_brand_slider">
+                                    <div class="buubbubu">
+                                        <a href="/product/5506?type=" target="_blank"><img src="/assets/img/nophoto.jpg" alt="Масло сливочное 82,5%" class="g_good_photo opfoopesgf" onerror="this.src='/assets/img/nophoto.jpg'"></a>
+                                        <div class="g_good_price"><span class="g_good_price_value">55</span> р.</div>
+                                        <a href="/product/5506?type=" class="g_good_name " tabindex="0">Молоко 1,5%</a>
+                                    </div>
+                                    <div class="buubbubu">
+                                        <a href="/product/5506?type=" target="_blank"><img src="/assets/img/nophoto.jpg" alt="Масло сливочное 82,5%" class="g_good_photo opfoopesgf" onerror="this.src='/assets/img/nophoto.jpg'"></a>
+                                        <div class="g_good_price"><span class="g_good_price_value">55</span> р.</div>
+                                        <a href="/product/5506?type=" class="g_good_name " tabindex="0">Находка для сладкоежек</a>
+                                    </div>
+                                    <div class="buubbubu">
+                                        <a href="/product/5506?type=" target="_blank"><img src="/assets/img/nophoto.jpg" alt="Масло сливочное 82,5%" class="g_good_photo opfoopesgf" onerror="this.src='/assets/img/nophoto.jpg'"></a>
+                                        <div class="g_good_price"><span class="g_good_price_value">55</span> р.</div>
+                                        <a href="/product/5506?type=" class="g_good_name " tabindex="0">Молоко 1,5%</a>
+                                    </div>
+                                    <div class="buubbubu">
+                                        <a href="/product/5506?type=" target="_blank"><img src="/assets/img/nophoto.jpg" alt="Масло сливочное 82,5%" class="g_good_photo opfoopesgf" onerror="this.src='/assets/img/nophoto.jpg'"></a>
+                                        <div class="g_good_price"><span class="g_good_price_value">55</span> р.</div>
+                                        <a href="/product/5506?type=" class="g_good_name " tabindex="0">Молоко 1,5%</a>
+                                    </div>
+                                    <div class="buubbubu">
+                                        <a href="/product/5506?type=" target="_blank"><img src="/assets/img/nophoto.jpg" alt="Масло сливочное 82,5%" class="g_good_photo opfoopesgf" onerror="this.src='/assets/img/nophoto.jpg'"></a>
+                                        <div class="g_good_price"><span class="g_good_price_value">55</span> р.</div>
+                                        <a href="/product/5506?type=" class="g_good_name " tabindex="0">Молоко 1,5%</a>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+                <div class="new_good_page_line_20182">
+                    <div class="content_helper">
+                        <div class="new_good_page_line_2018_header">Рекомендации от Aydaeda</div>
+                        <div class="new_good_page_line_2018_body">
+                            <div class="recomendations_in_commets tab_body" id="related_products">
+                                    <?php /* $counter = 0; ?>
+                                    <?php if(count($related_products)) { ?>
+                                        <?php foreach($related_products as $r_product) { ?>
+                                            <?php $info['product'] = $r_product; ?>
+                                            <?php $this->load->view('common/load-product',$info);?>
+                                            <?php $counter++; ?>
+                                        <?php } ?>
+                                        <?php if($counter < 5) { ?>
+                                            <?php for($i=0;$i<(5-$counter);$i++) { ?>
+                                                <div class="g_good fl_l hide_on_mobile">&nbsp;</div>
+                                            <?php } ?>
+                                        <?php } ?>
+                                    <?php } */?>
+                                <div class="bububuuubub_cover">
+                                    <div class="buubbubu">
+                                        <a href="/product/5506?type=" target="_blank"><img src="/assets/img/nophoto.jpg" alt="Масло сливочное 82,5%" class="g_good_photo opfoopesgf" onerror="this.src='/assets/img/nophoto.jpg'"></a>
+                                        <div class="g_good_price"><span class="g_good_price_value">55</span> р.</div>
+                                        <a href="/product/5506?type=" class="g_good_name " tabindex="0">Молоко 1,5%</a>
+                                    </div>
+                                    <div class="buubbubu">
+                                        <a href="/product/5506?type=" target="_blank"><img src="/assets/img/nophoto.jpg" alt="Масло сливочное 82,5%" class="g_good_photo opfoopesgf" onerror="this.src='/assets/img/nophoto.jpg'"></a>
+                                        <div class="g_good_price"><span class="g_good_price_value">55</span> р.</div>
+                                        <a href="/product/5506?type=" class="g_good_name " tabindex="0">Молоко 1,5%</a>
+                                    </div>
+                                    <div class="buubbubu">
+                                        <a href="/product/5506?type=" target="_blank"><img src="/assets/img/nophoto.jpg" alt="Масло сливочное 82,5%" class="g_good_photo opfoopesgf" onerror="this.src='/assets/img/nophoto.jpg'"></a>
+                                        <div class="g_good_price"><span class="g_good_price_value">55</span> р.</div>
+                                        <a href="/product/5506?type=" class="g_good_name " tabindex="0">Молоко 1,5%</a>
+                                    </div>
+                                    <div class="buubbubu">
+                                        <a href="/product/5506?type=" target="_blank"><img src="/assets/img/nophoto.jpg" alt="Масло сливочное 82,5%" class="g_good_photo opfoopesgf" onerror="this.src='/assets/img/nophoto.jpg'"></a>
+                                        <div class="g_good_price"><span class="g_good_price_value">55</span> р.</div>
+                                        <a href="/product/5506?type=" class="g_good_name " tabindex="0">Молоко 1,5%</a>
+                                    </div>
+                                    <div class="buubbubu">
+                                        <a href="/product/5506?type=" target="_blank"><img src="/assets/img/nophoto.jpg" alt="Масло сливочное 82,5%" class="g_good_photo opfoopesgf" onerror="this.src='/assets/img/nophoto.jpg'"></a>
+                                        <div class="g_good_price"><span class="g_good_price_value">55</span> р.</div>
+                                        <a href="/product/5506?type=" class="g_good_name " tabindex="0">Молоко 1,5%</a>
+                                    </div>
+                                    <div class="buubbubu buubbubu_last">
+                                        <a href="/product/5506?type=" target="_blank"><img src="/assets/img/nophoto.jpg" alt="Масло сливочное 82,5%" class="g_good_photo opfoopesgf" onerror="this.src='/assets/img/nophoto.jpg'"></a>
+                                        <div class="g_good_price"><span class="g_good_price_value">55</span> р.</div>
+                                        <a href="/product/5506?type=" class="g_good_name " tabindex="0">Молоко 1,5%</a>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+                <div class="new_good_page_line_20183">
+                    <div class="content_helper">
+                        <div class="new_good_page_line_2018_header">
+                            Отзывы к данному товару
+                            <?php if(!$account) { ?>
+                                <span class="comments_header_desc">Чтобы добавить отзыв, Вы должны <a href="/" class="comments_header_link login_from_comment">авторизоваться</a> на сайте.</span>
+                            <?php } ?>
+                        </div>
+                        <div class="new_good_page_line_2018_body">
+                            <div id="desktop_comments">
+                                <?php echo $comments['desktop'] ?>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
