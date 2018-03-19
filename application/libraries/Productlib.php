@@ -744,16 +744,46 @@ class Productlib {
 		$parent_categories = array();
 		$categories = array();
 		$stemmed = array();
+		$search_words = array();
+		$products = array();
 
 		$relevant = array(
 			'title',
 			'title_full'
 		);
 
+		$category_search_fields = array(
+			'title',
+			'description'
+		);
+
 		$value = preg_replace("/[^а-яА-Яa-zA-z0-9\-\s]/ui", "%", $value);
 
-		foreach (explode(' ',$value) as $word) {
-			$stemmed[] = $this->_ci->stemmlib->clear_value($word);
+		$stop_words = $this->_ci->baselib->get_setting_value('search_stop_words');
+		$stop_words = unserialize(base64_decode($stop_words));
+
+		foreach ($stop_words as $wid => &$word) {
+			$word = trim($word);
+			if(empty($word)) {
+				unset($stop_words[$wid]);
+			}
+		}		
+
+		$words = explode(' ',$value);
+
+		foreach ($words as $word) {
+			$word = trim($word);
+			if(!empty($word)) {
+				$search_words[] = $word;
+			}
+		}
+		
+		if(in_array($value,$stop_words)) {
+			$stemmed = $search_words;
+		} else {
+			foreach ($words as $word) {
+				$stemmed[] = $this->_ci->stemmlib->clear_value($word);
+			}
 		}
 
 		$sql = "SELECT * FROM categories";
@@ -767,8 +797,14 @@ class Productlib {
 
 		$sql = "SELECT * FROM categories WHERE status = 1 AND (";
 
-		foreach ($stemmed as $id => $word) {
-			$sql .= ($id ? " AND " : "")."title LIKE '%".$word."%'";
+		foreach ($stemmed as $wid => $word) {
+			$sql .= ($wid ? " AND " : "")."(";
+
+			foreach ($category_search_fields as $fid => $field) {
+				$sql .= ($fid ? " OR " : "").$field." LIKE '%".$word."%'";
+			}
+
+			$sql .= ")";
 		}
 
 		$sql .= ")";
@@ -785,7 +821,37 @@ class Productlib {
 			}
 		}
 
-		$products = array();
+		$sql = "SELECT * FROM categories WHERE status = 1 AND (";
+
+		foreach ($search_words as $wid => $word) {
+			$sql .= ($wid ? " AND " : "")."(";
+
+			foreach ($category_search_fields as $fid => $field) {
+				$sql .= ($fid ? " OR " : "").$field." LIKE '%".$word."%'";
+			}
+
+			$sql .= ")";
+		}
+
+		$sql .= ")";
+		$query = $this->_ci->db->query($sql);
+
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $row) {
+				if(isset($parent_categories[$row['parent_id']])) {
+					$result['categories'][$row['parent_id']] = array(
+						'category_id' => $row['parent_id'],
+						'title' => $parent_categories[$row['parent_id']]
+					);
+				}
+
+				$products = array_merge($products, $this->get_category_products($row['category_id']));
+			}
+		}
+
+		foreach ($products as $product) {
+			$result['products'][] = $product['product_id'];
+		}
 
 		$sql = "SELECT p.product_id, c.category_id, c.parent_id, (0+";
 
