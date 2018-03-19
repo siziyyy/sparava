@@ -1472,7 +1472,7 @@ textarea.aside_mobile_menu_new_content_second_content_inputttt {
     font-family:Calibri Bold;
 }
 .blog_header {
-    margin: 20px 0 36px 0;
+    margin: 20px 0 46px 0;
 }
 .blog_header_right {
     font-size: 16px;
@@ -1490,7 +1490,7 @@ textarea.aside_mobile_menu_new_content_second_content_inputttt {
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    margin-top: 40px;
+    margin-top: 53px;
     width: calc(100% + 40px);
 }
 .blog_item {
