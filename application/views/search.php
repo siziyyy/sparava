@@ -61,23 +61,6 @@
             <div class="content_helper">
                 <?php $this->load->view('common/menu', $menu);?>
             </div>
-
-            <?php if($show_categories) { ?>
-                <div class="search_block_new_results">
-                    <div class="content_helper">
-                        <div class="search_block_new_results_header">Найдено в следующих категориях </div>
-                        <div class="search_block_new_results_body">
-                            <?php foreach($categories as $col) { ?>
-                                <div class="column_in_country_menu">
-                                    <?php foreach($col as $c_category) { ?>
-                                        <a class="column_in_country_menu_link" href="/category/<?php echo $c_category['category_id'] ?>"><?php echo $c_category['title'] ?></a>
-                                    <?php } ?>
-                                </div>
-                            <?php } ?>
-                        </div>
-                    </div>
-                </div>
-            <?php } ?>
             <div class="content_helper">
                 <?php if(count($products) == 0) { ?>
                     ничего не найдено

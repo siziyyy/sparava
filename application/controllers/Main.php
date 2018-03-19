@@ -292,7 +292,6 @@ class Main extends CI_Controller {
 		$products = array();
 
 		$result = array(
-			'categories' => array(),
 			'products' => array()
 		);
 
@@ -302,7 +301,8 @@ class Main extends CI_Controller {
 			'title_full',
 			'brand',
 			'country',
-			'manufacturer'
+			'manufacturer',
+			'composition'
 		);
 
 		if(empty($value)) {
@@ -340,34 +340,10 @@ class Main extends CI_Controller {
 			$i++;
 		}
 
-		$empty_products = count($products)%5; 
+		$empty_products = count($prodcuts_in_page)%5; 
 					
 		if($empty_products > 0) {
 			$empty_products = 5-$empty_products;
-		}
-
-		$show_categories = (count($result['categories']) > 1);
-
-		$categories_structed = array();
-
-		$col = 0;
-
-		do {
-			$current_category = array_shift($result['categories']);
-			$categories_structed[$col][] = $current_category;
-		
-			$col++;
-
-			if($col >= 5) {
-				$col = 0;
-			}
-
-		} while(count($result['categories']));
-
-		for($i=0;$i<5;$i++) {
-			if(!isset($categories_structed[$i])) {
-				$categories_structed[$i] = array();
-			}
 		}
 
 		$data = array(
@@ -376,8 +352,7 @@ class Main extends CI_Controller {
 			'pages' => $this->baselib->create_pager($pages_count,$page),
 			'cart' => $this->get_cart_info_for_header(),
 			'products' => $prodcuts_in_page,
-			'categories' => $categories_structed,
-			'show_categories' => $show_categories,
+			'show_categories' => false,
 			'empty_products' => $empty_products,
 			'is_search' => true,
 			'path' => false,
