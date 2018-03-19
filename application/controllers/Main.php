@@ -279,6 +279,14 @@ class Main extends CI_Controller {
 	}
 	
 	public function search() {
+		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
+
+		if(!is_null($this->input->post('value'))) {
+			$value = $this->input->post('value');
+			$this->session->set_userdata('search_value',$value);
+		} else {
+			$value = $this->session->userdata('search_value');
+		}
 
 		$products_sort = array();
 		$products = array();
@@ -297,13 +305,13 @@ class Main extends CI_Controller {
 			'manufacturer'
 		);
 
-		if(empty($this->input->post('value'))) {
+		if(empty($value)) {
 			redirect(base_url('/'), 'refresh');
-		} elseif(is_numeric(trim($this->input->post('value')))) {
-			$product_id = $this->productlib->get_product_id_from_articul($this->input->post('value'));
+		} elseif(is_numeric(trim($value))) {
+			$product_id = $this->productlib->get_product_id_from_articul($value);
 			$products[] = $this->productlib->get_product_by_id($product_id);
 		} else {
-			$result = $this->productlib->search_products($search_fileds,trim($this->input->post('value')));
+			$result = $this->productlib->search_products($search_fileds,trim($value));
 			$products_sort = $result['products'];
 			$result['products'] = $this->productlib->get_products_by_ids($result['products'],true);
 		}
@@ -312,6 +320,30 @@ class Main extends CI_Controller {
 			foreach ($products_sort as $product_id) {
 				$products[$product_id] = $result['products'][$product_id];
 			}
+		}
+		
+		$prodcuts_in_page = array();
+		$page_start = ($page-1)*50;
+		$page_end = $page*50;
+		$i = 0;
+		$pages_count = (int)(count($products)/50);
+		
+		if(count($products)%50 > 0)  {
+			$pages_count++;
+		}
+		
+		foreach($products as $product_id => $product) {
+			if($i >= $page_start and $i <$page_end) {
+				$prodcuts_in_page[] = $product;
+			}
+			
+			$i++;
+		}
+
+		$empty_products = count($products)%5; 
+					
+		if($empty_products > 0) {
+			$empty_products = 5-$empty_products;
 		}
 
 		$show_categories = (count($result['categories']) > 1);
@@ -339,14 +371,18 @@ class Main extends CI_Controller {
 		}
 
 		$data = array(
+			'current_page' => $page,
+			'pages_count' => $pages_count,
+			'pages' => $this->baselib->create_pager($pages_count,$page),
 			'cart' => $this->get_cart_info_for_header(),
-			'products' => $products,
+			'products' => $prodcuts_in_page,
 			'categories' => $categories_structed,
 			'show_categories' => $show_categories,
+			'empty_products' => $empty_products,
 			'is_search' => true,
 			'path' => false,
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
-			'value' => $this->input->post('value'),
+			'value' => $value,
 			'menu' => $this->baselib->get_categories()
 		);
 		
