@@ -733,7 +733,7 @@ class Productlib {
 	    return $products;
 	}
 
-	public function search_products($fields,$value) {
+	public function search_products($value) {
 		$this->_ci->load->library('stemmlib');
 
 		$result = array(
@@ -756,7 +756,10 @@ class Productlib {
 			'description'
 		);
 
-		$value = preg_replace("/[^а-яА-Яa-zA-z0-9\-\s]/ui", "%", $value);
+		$value = trim(preg_replace("/[^а-яА-Яa-zA-z0-9\-\s]/ui", "%", $value));
+
+		$exp_words = $this->_ci->baselib->get_setting_value('search_exp_words');
+		$exp_words = unserialize(base64_decode($exp_words));
 
 		$stop_words = $this->_ci->baselib->get_setting_value('search_stop_words');
 		$stop_words = unserialize(base64_decode($stop_words));
@@ -769,7 +772,28 @@ class Productlib {
 			if(empty($word)) {
 				unset($stop_words[$wid]);
 			}
-		}		
+		}
+
+		foreach ($exp_words as $wid => $word) {
+			$word = trim($word);
+
+			$exp_words[$wid] = $word;
+			
+			if(empty($word)) {
+				unset($exp_words[$wid]);
+			}
+		}
+
+		$charset = mb_detect_encoding($value);
+		$value = iconv($charset, "UTF-8", $value);
+
+		foreach ($stop_words as $word) {
+			$value = str_replace($word,'',$value);
+		}
+
+		if(empty(trim($value))) {
+			return false;
+		} 
 
 		$words = explode(' ',$value);
 
@@ -780,7 +804,7 @@ class Productlib {
 			}
 		}
 
-		if(in_array($value,$stop_words)) {
+		if(in_array($value,$exp_words)) {
 			$stemmed = $search_words;
 		} else {
 			$fixed_words = false;
@@ -790,78 +814,83 @@ class Productlib {
 			}
 		}
 
-		$sql = "SELECT * FROM categories WHERE status = 1 AND (";
+		$search_result = array(
+			'first_wave' => array(),
+			'second_wave' => array(),
+			'third_wave' => array()
+		);
 
-		foreach ($search_words as $wid => $word) {
-			$sql .= ($wid ? " AND " : "")."(";
-
-			foreach ($category_search_fields as $fid => $field) {
-				$sql .= ($fid ? " OR " : "").$field." LIKE '".($fixed_words ? '' : '%').$word.($fixed_words ? '' : '%')."'";
-			}
-
-			$sql .= ")";
-		}
-
-		$sql .= ")";
+		$sql = "SELECT category_id,title,description,parent_id FROM categories";
 		$query = $this->_ci->db->query($sql);
 
 		if ($query->num_rows() > 0) {
 			foreach ($query->result_array() as $row) {
-				$products = array_merge($products, $this->get_category_products($row['category_id']));
+				if(mb_strtolower($row['title'], 'UTF-8') == $value) {
+					if($row['parent_id'] == '0') {
+						$search_result['second_wave'][] = $row['category_id'];
+					} else {
+						$search_result['first_wave'][] = $row['category_id'];
+					}					
+				} else {
+					$description = explode(PHP_EOL,$row['description']);
+
+					foreach ($description as $descr) {
+						if(mb_strtolower(trim($descr), 'UTF-8') == $value) {
+							if($row['parent_id'] == '0') {
+								$search_result['second_wave'][] = $row['category_id'];
+							} else {
+								$search_result['first_wave'][] = $row['category_id'];
+							}
+						}
+					}
+				}
 			}
+		}
+
+		foreach ($search_result['first_wave'] as $category_id) {
+			$products = array_merge($products, $this->get_category_products($category_id));
 		}
 
 		foreach ($products as $product) {
 			$result['products'][] = $product['product_id'];
 		}
 
-		$sql = "SELECT p.product_id, c.category_id, c.parent_id, (0+";
+		$products = array();
 
-		$counter = 0;
-		foreach ($relevant as $filed => $points) {
-			$sql .= ($counter ? "+" : "")."IF(";
-
-			foreach ($stemmed as $wid => $word) {
-				$sql .= ($wid ? " AND " : "").'p.'.$field." LIKE '".($fixed_words ? '' : '%').$word.($fixed_words ? '' : '%')."'";
-			}
-
-			$sql .= ", ".$points.", 0)";
-
-			$counter++;
+		foreach ($search_result['second_wave'] as $category_id) {
+			$products = array_merge($products, $this->get_category_products($category_id));
 		}
 
-		$sql .=") AS relevant FROM products AS p, categories AS c, product_to_category AS ptc WHERE p.status = 1 AND c.category_id = ptc.category_id AND p.product_id = ptc.product_id AND ((";
-
-		foreach ($fields as $fid => $field) {
-			$sql .= ($fid ? " OR " : "")."(";
-
-			foreach ($stemmed as $wid => $word) {
-				$sql .= ($wid ? " AND " : "").'p.'.$field." LIKE '".($fixed_words ? '' : '%').$word.($fixed_words ? '' : '%')."'";
-			}
-
-			$sql .= ")";
+		foreach ($products as $product) {
+			$result['products'][] = $product['product_id'];
 		}
 
-		$sql .= ") OR (";
-
-		foreach ($stemmed as $wid => $word) {
-			$sql .= ($wid ? " AND " : "")."(";
-
-			foreach ($fields as $fid => $field) {
-				$sql .= ($fid ? " OR " : "").'p.'.$field." LIKE '".($fixed_words ? '' : '%').$word.($fixed_words ? '' : '%')."'";
-			}
-
-			$sql .= ")";
-		}
-
-		$sql .= ")) ORDER BY relevant DESC";
+		$sql = "SELECT p.product_id, p.title, p.title_full, p.brand, p.country, p.manufacturer, p.composition, c.category_id FROM products AS p, categories AS c, product_to_category AS ptc WHERE p.status = 1 AND c.category_id = ptc.category_id AND p.product_id = ptc.product_id";
 
 		$query = $this->_ci->db->query($sql);		
 		if ($query->num_rows() > 0) {
-			foreach ($query->result_array() as $row) {				
-				$result['products'][] = $row['product_id'];
+			foreach ($query->result_array() as $row) {
+				if(mb_stripos($row['composition'],$value,0,'UTF-8') !== FALSE) {
+					$search_result['first_wave'][] = $row['product_id'];
+				} elseif(mb_stripos($row['title'],$value,0,'UTF-8') !== FALSE or mb_stripos($row['title_full'],$value,0,'UTF-8') !== FALSE) {
+					$search_result['second_wave'][] = $row['product_id'];
+				} elseif(mb_stripos($row['brand'],$value,0,'UTF-8') !== FALSE or mb_stripos($row['country'],$value,0,'UTF-8') !== FALSE or mb_stripos($row['manufacturer'],$value,0,'UTF-8') !== FALSE) {
+					$search_result['third_wave'][] = $row['product_id'];
+				}
 			}
 		}
+
+		foreach ($search_result['first_wave'] as $product_id) {
+			$result['products'][] = $product_id;
+		}
+
+		foreach ($search_result['second_wave'] as $product_id) {
+			$result['products'][] = $product_id;
+		}
+
+		foreach ($search_result['third_wave'] as $product_id) {
+			$result['products'][] = $product_id;
+		}	
 
 	    return $result;
 	}
