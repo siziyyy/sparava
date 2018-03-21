@@ -295,23 +295,13 @@ class Main extends CI_Controller {
 			'products' => array()
 		);
 
-		$search_fileds = array(
-			'product_id',
-			'title',
-			'title_full',
-			'brand',
-			'country',
-			'manufacturer',
-			'composition'
-		);
-
 		if(empty($value)) {
 			redirect(base_url('/'), 'refresh');
 		} elseif(is_numeric(trim($value))) {
 			$product_id = $this->productlib->get_product_id_from_articul($value);
 			$products[] = $this->productlib->get_product_by_id($product_id);
 		} else {
-			$result = $this->productlib->search_products($search_fileds,trim($value));
+			$result = $this->productlib->search_products(trim($value));
 			$products_sort = $result['products'];
 			$result['products'] = $this->productlib->get_products_by_ids($result['products'],true);
 		}
