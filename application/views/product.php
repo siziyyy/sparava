@@ -260,7 +260,13 @@
                             <div class="new_good_page_line_2018_header">Другие предложения от Coca-cola</div>
                             <div class="new_good_page_line_2018_body">
                                 <div class="recomendations_in_commets">
-                                    <div class="new_good_page_line_2018_banner"></div>
+                                    <div class="new_good_page_line_2018_banner">
+                                        <?php if(isset($banner['img'])) { ?>
+                                            <a href="<?php echo $banner['href'] ?>">
+                                                <img src="<?php echo $banner['img'] ?>">
+                                            </a>
+                                        <?php } ?> 
+                                    </div>
                                     <div class="more_from_brand_slider">
                                         <?php foreach($related_by_brands_products as $r_product) { ?>
                                             <div class="buubbubu">

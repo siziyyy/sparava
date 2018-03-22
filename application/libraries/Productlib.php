@@ -276,7 +276,7 @@ class Productlib {
 				$sql .= " AND country = '" . $type . "'";
 			}
 
-			$sql .= " ORDER BY rand() LIMIT 5";
+			$sql .= " ORDER BY rand() LIMIT 6";
 
 			$query = $this->_ci->db->query($sql);
 
@@ -293,7 +293,7 @@ class Productlib {
 			if ($query->num_rows() > 0) {
 				$parent_id = $query->row_array()['parent_id'];
 
-				$sql = 'SELECT p.product_id FROM products AS p, product_to_category AS ptc WHERE p.product_id = ptc.product_id AND p.recommend = 1 AND p.status = 1 AND ptc.category_id IN (SELECT category_id FROM categories WHERE parent_id = ' . $parent_id . ') ORDER BY rand() LIMIT 5';
+				$sql = 'SELECT p.product_id FROM products AS p, product_to_category AS ptc WHERE p.product_id = ptc.product_id AND p.recommend = 1 AND p.status = 1 AND ptc.category_id IN (SELECT category_id FROM categories WHERE parent_id = ' . $parent_id . ') ORDER BY rand() LIMIT 6';
 				$query = $this->_ci->db->query($sql);
 
 				if ($query->num_rows() > 0) {
@@ -812,8 +812,6 @@ class Productlib {
 			}
 		}
 
-
-
 		foreach ($stop_words as $word) {
 			$value = str_replace($word,'',$value);
 		}
@@ -905,14 +903,21 @@ class Productlib {
 						$search_result['third_wave'][] = $row['product_id'];
 					}
 				} else {
+					$use_product = true;
+
 					foreach ($stemmed as $word) {
-						if(mb_stripos($row['composition'],$word,0,'UTF-8') !== FALSE) {
-							$search_result['first_wave'][] = $row['product_id'];
-						} elseif(mb_stripos($row['title'],$word,0,'UTF-8') !== FALSE or mb_stripos($row['title_full'],$word,0,'UTF-8') !== FALSE) {
-							$search_result['second_wave'][] = $row['product_id'];
+						if(mb_stripos($row['title'],$word,0,'UTF-8') !== FALSE or mb_stripos($row['title_full'],$word,0,'UTF-8') !== FALSE) {
+							$use_product = 'second_wave';
 						} elseif(mb_stripos($row['brand'],$word,0,'UTF-8') !== FALSE or mb_stripos($row['country'],$word,0,'UTF-8') !== FALSE or mb_stripos($row['manufacturer'],$word,0,'UTF-8') !== FALSE) {
-							$search_result['third_wave'][] = $row['product_id'];
+							$use_product = 'third_wave';
+						} else {
+							$use_product = false;
+							break;
 						}
+					}
+
+					if($use_product) {
+						$search_result[$use_product][] = $row['product_id'];
 					}
 				}
 			}

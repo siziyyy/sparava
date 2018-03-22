@@ -892,6 +892,7 @@ class Main extends CI_Controller {
 
 			$related_products_ids = $this->productlib->get_related_products_ids($product_id, false, $type);
 			$related_by_brands_products = $this->productlib->get_related_products_ids_by_brand($product_id);
+			$banners = current($this->baselib->get_page_banners('product'));
 
 			$data = array(
 				'header' => array(
@@ -908,7 +909,7 @@ class Main extends CI_Controller {
 				'related_by_brands_products' => $this->productlib->get_products_by_ids($related_by_brands_products),
 				'breadcrumbs' => $this->productlib->get_breadcrumbs_for_product($product,$type),
 				'path' => $type,
-				'banners' => $this->baselib->get_page_banners('product')
+				'banner' => $banners
 			);
 
 			$this->load->view('product', $data);
@@ -1362,6 +1363,7 @@ class Main extends CI_Controller {
 		);
 
 		$related_products = $this->productlib->get_related_products_ids();
+		$banners = current($this->baselib->get_page_banners('cart'));
 		
 		$data = array(
 			'header' => array(
@@ -1377,7 +1379,8 @@ class Main extends CI_Controller {
 			'totals' => array(
 				'totals' => $totals
 			),
-			'related_products' => $this->productlib->get_products_by_ids($related_products)
+			'related_products' => $this->productlib->get_products_by_ids($related_products),
+			'banner' => $banners
 		);
 		
 		if($summ < 1000) {

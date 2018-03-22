@@ -6,9 +6,11 @@
 		<div class="c_inners_td fl_l c_inners_fifth_td">&nbsp;</div>
 		<div class="clear"></div>
 	</div>
-                        <a class="cart_right_banner" href="/" target="_blank">
-                            <img src="/assets/img/cart_banner.jpg" alt="" class="cart_right_banner_img">
-                        </a>
+	<?php if(isset($banner['img'])) { ?>
+	    <a class="cart_right_banner" href="<?php echo $banner['href'] ?>" target="_blank">
+	        <img src="<?php echo $banner['img'] ?>" alt="" class="cart_right_banner_img">
+	    </a>
+    <?php } ?>
 	<?php foreach($products as $product) { ?>
 		<?php $show_minus = false; ?>
 		<div class="c_inners_side_tr" data-product-id="<?php echo $product['product_id'] ?>" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>">
