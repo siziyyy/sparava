@@ -52,7 +52,7 @@
                     <div class="aside_mobile_menu_new_content_second_header">Контакты</div>
                     <div class="aside_mobile_menu_new_content_second_content">
                         <div class="vygbuhjnk_icom new_sprite"></div>
-                        <a href="tel:+74955001020" class="vygbuhjnk_phone">+7 495 500 10 20</a>
+                        <a href="tel:+74955448864" class="vygbuhjnk_phone">8 495 544 88 64</a>
                         <div class="vygbuhjnk_socs">
                             <span class="vygbuhjnk_soc fl_l">Viber</span>
                             <span class="vygbuhjnk_soc fl_r">WhatsApp</span>
@@ -64,7 +64,7 @@
                         <div class="vygbuhjnk_line">
                             <div class="vygbuhjnk_line_left fl_l">Отдел закупок</div>
                             <div class="vygbuhjnk_line_right fl_r">
-                                <a href="tel:+74951201015" class="vygbuhjnk_line_right_top">+7 495 120 10 15</a>
+                                <a href="tel:+74955448864" class="vygbuhjnk_line_right_top">+7 495 544 88 64</a>
                                 <a href="mailto:zakup@aydaeda.ru" class="vygbuhjnk_line_right_bottom">zakup@aydaeda.ru</a>
                             </div>
                             <div class="clear"></div>
@@ -72,7 +72,7 @@
                         <div class="vygbuhjnk_line">
                             <div class="vygbuhjnk_line_left fl_l">Отдел кадров</div>
                             <div class="vygbuhjnk_line_right fl_r">
-                                <a href="tel:+74957201015" class="vygbuhjnk_line_right_top">+7 495 720 10 15</a>
+                                <a href="tel:+74955448864" class="vygbuhjnk_line_right_top">+7 495 544 88 64</a>
                                 <a href="mailto:kadr@aydaeda.ru" class="vygbuhjnk_line_right_bottom">kadr@aydaeda.ru</a>
                             </div>
                             <div class="clear"></div>
@@ -80,7 +80,7 @@
                         <div class="vygbuhjnk_line">
                             <div class="vygbuhjnk_line_left fl_l">Отдел рекламы</div>
                             <div class="vygbuhjnk_line_right fl_r">
-                                <a href="tel:+74957801015" class="vygbuhjnk_line_right_top">+7 495 780 10 15</a>
+                                <a href="tel:+74955448864" class="vygbuhjnk_line_right_top">+7 495 544 88 64</a>
                                 <a href="mailto:pr@aydaeda.ru" class="vygbuhjnk_line_right_bottom">pr@aydaeda.ru</a>
                             </div>
                             <div class="clear"></div>
@@ -88,7 +88,7 @@
                         <div class="vygbuhjnk_line">
                             <div class="vygbuhjnk_line_left fl_l">Жалобы</div>
                             <div class="vygbuhjnk_line_right fl_r">
-                                <a href="tel:+74957802015" class="vygbuhjnk_line_right_top">+7 495 780 20 15</a>
+                                <a href="tel:+74955448864" class="vygbuhjnk_line_right_top">+7 495 544 88 64</a>
                                 <a href="mailto:pr@aydaeda.ru" class="vygbuhjnk_line_right_bottom">pr@aydaeda.ru</a>
                             </div>
                             <div class="clear"></div>

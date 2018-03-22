@@ -159,7 +159,7 @@ body,html,textarea{font-family:Calibri}
                  -->
                 <div class="mobile_header">
                     <div class="m_h_hamb new_sprite fl_l"></div>
-                    <a href="tel:84955001020"><div class="m_h_call new_sprite fl_l"></div></a>
+                    <a href="tel:+74955448864"><div class="m_h_call new_sprite fl_l"></div></a>
                     <a href="/">
                         <div class="m_h_logo">
                             <img src="/assets/img/new_logo.svg" class="m_h_logo_img" alt="sparava">
@@ -285,7 +285,11 @@ body,html,textarea{font-family:Calibri}
                         </div>
                     </div>
                     <!-- <div class="h_menu fl_r">-->
-                    <a href="/blogs" class="h_link green_text dirty_link">наш вкусный блог</a>
+                    <?php if($this->router->fetch_method() == 'blogs') { ?>
+                        <a href="/" class="h_link green_text dirty_link">магазин</a>
+                    <?php } else { ?>
+                        <a href="/blogs" class="h_link green_text dirty_link">наш вкусный блог</a>
+                    <?php } ?>
                     <a class="h_link show_new_inform_menu">вся информация</a>
                     <?php if($this->baselib->is_logged()) { ?>
                         <!--<a href="/orders" class="new_h_link new_h_link_fst h_link">мои заказы</a>-->
@@ -435,7 +439,7 @@ body,html,textarea{font-family:Calibri}
                     </div>
                     <!-- <div class="h_phones fl_r">-->
                     <div class="h_phones">
-                        <a href="tel:88004501025" class="h_phone">8 495 541 20 20</a><a href="/callme" class="callme">заказать звонок </a>
+                        <a href="tel:+74955448864" class="h_phone">8 495 544 88 64</a><a href="/callme" class="callme">заказать звонок </a>
                     </div>
                     <a href="/cart">
                         <!-- <div class="h_cart fl_r">-->

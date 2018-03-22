@@ -38,7 +38,7 @@
                                     Телефон для
                                     <br>возврата и обмена
                                 </div>
-                                <div class="uyionipuvgybni_link">8 495 547 41 23</div>
+                                <div class="uyionipuvgybni_link">8 495 544 88 64</div>
                             </div>
                             <div class="clear" id="second_order"></div>
                         </div>
