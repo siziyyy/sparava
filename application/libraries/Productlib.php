@@ -745,18 +745,11 @@ class Productlib {
 		$products = array();
 		$fixed_words = true;
 
-		$relevant = array(
-			'title' => 10,
-			'title_full' => 10,
-			'composition' => 20
-		);
-
-		$category_search_fields = array(
-			'title',
-			'description'
-		);
-
+		$charset = mb_detect_encoding($value);
+		$value = iconv($charset, "UTF-8", $value);
 		$value = trim(preg_replace("/[^а-яА-Яa-zA-z0-9\-\s]/ui", "%", $value));
+
+		$value = mb_strtolower($value);
 
 		$exp_words = $this->_ci->baselib->get_setting_value('search_exp_words');
 		$exp_words = unserialize(base64_decode($exp_words));
@@ -784,8 +777,7 @@ class Productlib {
 			}
 		}
 
-		$charset = mb_detect_encoding($value);
-		$value = iconv($charset, "UTF-8", $value);
+
 
 		foreach ($stop_words as $word) {
 			$value = str_replace($word,'',$value);
@@ -869,13 +861,24 @@ class Productlib {
 
 		$query = $this->_ci->db->query($sql);		
 		if ($query->num_rows() > 0) {
+
 			foreach ($query->result_array() as $row) {
-				if(mb_stripos($row['composition'],$value,0,'UTF-8') !== FALSE) {
-					$search_result['first_wave'][] = $row['product_id'];
-				} elseif(mb_stripos($row['title'],$value,0,'UTF-8') !== FALSE or mb_stripos($row['title_full'],$value,0,'UTF-8') !== FALSE) {
-					$search_result['second_wave'][] = $row['product_id'];
-				} elseif(mb_stripos($row['brand'],$value,0,'UTF-8') !== FALSE or mb_stripos($row['country'],$value,0,'UTF-8') !== FALSE or mb_stripos($row['manufacturer'],$value,0,'UTF-8') !== FALSE) {
-					$search_result['third_wave'][] = $row['product_id'];
+				if($fixed_words) {
+					if($this->compare_words($row['title'], $value) or $this->compare_words($row['title_full'], $value)) {
+						$search_result['second_wave'][] = $row['product_id'];
+					} elseif($this->compare_words($row['brand'], $value) or $this->compare_words($row['country'], $value) or $this->compare_words($row['manufacturer'], $value)) {
+						$search_result['third_wave'][] = $row['product_id'];
+					}
+				} else {
+					foreach ($stemmed as $word) {
+						if(mb_stripos($row['composition'],$word,0,'UTF-8') !== FALSE) {
+							$search_result['first_wave'][] = $row['product_id'];
+						} elseif(mb_stripos($row['title'],$word,0,'UTF-8') !== FALSE or mb_stripos($row['title_full'],$word,0,'UTF-8') !== FALSE) {
+							$search_result['second_wave'][] = $row['product_id'];
+						} elseif(mb_stripos($row['brand'],$word,0,'UTF-8') !== FALSE or mb_stripos($row['country'],$word,0,'UTF-8') !== FALSE or mb_stripos($row['manufacturer'],$word,0,'UTF-8') !== FALSE) {
+							$search_result['third_wave'][] = $row['product_id'];
+						}
+					}
 				}
 			}
 		}
@@ -893,5 +896,21 @@ class Productlib {
 		}	
 
 	    return $result;
+	}
+
+	private function compare_words($word,$value) {
+		$word = mb_strtolower(trim($word));
+
+		if($word == $value) {
+			return true;
+		} elseif(mb_stripos($word,$value.' ',0) === 0) {
+			return true;
+		} elseif(mb_stripos($word,' '.$value.' ',0) !== FALSE) {
+			return true;
+		} elseif(mb_stripos($word,' '.$value,0) !== FALSE and ((mb_stripos($word,$value.' ',0) - 1 ==  strlen(str_replace($value,'',$word)) - strlen($value)))) {
+			return true;
+		}
+
+		return false;
 	}
 }
