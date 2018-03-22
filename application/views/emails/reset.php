@@ -66,7 +66,7 @@
           пожелание или какие то жалобы, прошу передать мне по удобному вам способу. 
           Заранее благодарен.
         </span><br><br>
-        <a href="tel:8 495 578 20 22" value="+74955782022" target="_blank" style="font-size: 19px; color: #fe4517; text-decoration: none;"><b>8 495 578 20 22</b></a>
+        <a href="tel:+74955448864" value="+74955448864" target="_blank" style="font-size: 19px; color: #fe4517; text-decoration: none;"><b>8 495 544 88 64</b></a>
         <a href="#" style="display: inline-block; font-size: 19px; padding: 0px 0px s0 20px;"></a>
         <a href="ceo@aydaeda.ru" target="_blank" style="font-size: 19px;  color: #fe4517; text-decoration: none;"><b>ceo@aydaeda.ru</b></a>
       </center> 
