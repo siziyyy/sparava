@@ -308,7 +308,9 @@ class Main extends CI_Controller {
 
 		if(count($products_sort)) {
 			foreach ($products_sort as $product_id) {
-				$products[$product_id] = $result['products'][$product_id];
+				if(isset($result['products'][$product_id])) {
+					$products[$product_id] = $result['products'][$product_id];
+				}
 			}
 		}
 		
