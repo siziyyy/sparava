@@ -253,97 +253,57 @@
                         </div>
                     </section>*/?>
                 </div>
-                <div class="new_good_page_line_2018">
-                    <div class="content_helper">
-                        <div class="new_good_page_line_2018_header">Другие предложения от Coca-cola</div>
-                        <div class="new_good_page_line_2018_body">
-                            <div class="recomendations_in_commets">
-                                <div class="new_good_page_line_2018_banner"></div>
-                                <div class="more_from_brand_slider">
-                                    <div class="buubbubu">
-                                        <a href="/product/5506?type=" target="_blank"><img src="/assets/img/nophoto.jpg" alt="Масло сливочное 82,5%" class="g_good_photo opfoopesgf" onerror="this.src='/assets/img/nophoto.jpg'"></a>
-                                        <div class="g_good_price"><span class="g_good_price_value">55</span> р.</div>
-                                        <a href="/product/5506?type=" class="g_good_name " tabindex="0">Молоко 1,5%</a>
-                                    </div>
-                                    <div class="buubbubu">
-                                        <a href="/product/5506?type=" target="_blank"><img src="/assets/img/nophoto.jpg" alt="Масло сливочное 82,5%" class="g_good_photo opfoopesgf" onerror="this.src='/assets/img/nophoto.jpg'"></a>
-                                        <div class="g_good_price"><span class="g_good_price_value">55</span> р.</div>
-                                        <a href="/product/5506?type=" class="g_good_name " tabindex="0">Находка для сладкоежек</a>
-                                    </div>
-                                    <div class="buubbubu">
-                                        <a href="/product/5506?type=" target="_blank"><img src="/assets/img/nophoto.jpg" alt="Масло сливочное 82,5%" class="g_good_photo opfoopesgf" onerror="this.src='/assets/img/nophoto.jpg'"></a>
-                                        <div class="g_good_price"><span class="g_good_price_value">55</span> р.</div>
-                                        <a href="/product/5506?type=" class="g_good_name " tabindex="0">Молоко 1,5%</a>
-                                    </div>
-                                    <div class="buubbubu">
-                                        <a href="/product/5506?type=" target="_blank"><img src="/assets/img/nophoto.jpg" alt="Масло сливочное 82,5%" class="g_good_photo opfoopesgf" onerror="this.src='/assets/img/nophoto.jpg'"></a>
-                                        <div class="g_good_price"><span class="g_good_price_value">55</span> р.</div>
-                                        <a href="/product/5506?type=" class="g_good_name " tabindex="0">Молоко 1,5%</a>
-                                    </div>
-                                    <div class="buubbubu">
-                                        <a href="/product/5506?type=" target="_blank"><img src="/assets/img/nophoto.jpg" alt="Масло сливочное 82,5%" class="g_good_photo opfoopesgf" onerror="this.src='/assets/img/nophoto.jpg'"></a>
-                                        <div class="g_good_price"><span class="g_good_price_value">55</span> р.</div>
-                                        <a href="/product/5506?type=" class="g_good_name " tabindex="0">Молоко 1,5%</a>
-                                    </div>
-                                </div>
-                            </div>  
-                        </div>
-                    </div>
-                </div>
-                <div class="new_good_page_line_20182">
-                    <div class="content_helper">
-                        <div class="new_good_page_line_2018_header">Рекомендации от Aydaeda</div>
-                        <div class="new_good_page_line_2018_body">
-                            <div class="recomendations_in_commets tab_body" id="related_products">
-                                    <?php /* $counter = 0; ?>
-                                    <?php if(count($related_products)) { ?>
-                                        <?php foreach($related_products as $r_product) { ?>
-                                            <?php $info['product'] = $r_product; ?>
-                                            <?php $this->load->view('common/load-product',$info);?>
+                <?php if(count($related_by_brands_products)) { ?>
+                    <?php $counter = 0; ?>
+                    <div class="new_good_page_line_2018">
+                        <div class="content_helper">
+                            <div class="new_good_page_line_2018_header">Другие предложения от Coca-cola</div>
+                            <div class="new_good_page_line_2018_body">
+                                <div class="recomendations_in_commets">
+                                    <div class="new_good_page_line_2018_banner"></div>
+                                    <div class="more_from_brand_slider">
+                                        <?php foreach($related_by_brands_products as $r_product) { ?>
+                                            <div class="buubbubu">
+                                                <a href="<?php echo $r_product['href'] ?>?type=<?php echo ((isset($path) and $path) ? $path : '') ?>" class="opfoopesgflmem"><img src="/images/<?php echo $r_product['image'] ?>" alt="<?php echo $r_product['title'] ?>" class="g_good_photo" onError="this.src='/assets/img/nophoto.jpg'"></a>
+                                                <?php if(isset($r_product['old_price'])) { ?>
+                                                    <div class="g_old_good_price"><?php echo $r_product['old_price'] ?> р.</div>
+                                                <?php } ?>
+                                                <div class="g_good_price"><span class="g_good_price_value"><?php echo $r_product['price'] ?></span> р.</div>
+                                                <a href="<?php echo $r_product['href'] ?>?type=<?php echo ((isset($path) and $path) ? $path : '') ?>" class="g_good_name" tabindex="0"><?php echo $r_product['title'] ?></a>
+                                            </div>
                                             <?php $counter++; ?>
                                         <?php } ?>
-                                        <?php if($counter < 5) { ?>
-                                            <?php for($i=0;$i<(5-$counter);$i++) { ?>
-                                                <div class="g_good fl_l hide_on_mobile">&nbsp;</div>
-                                            <?php } ?>
-                                        <?php } ?>
-                                    <?php } */?>
-                                <div class="bububuuubub_cover">
-                                    <div class="buubbubu">
-                                        <a href="/product/5506?type=" target="_blank"><img src="/assets/img/nophoto.jpg" alt="Масло сливочное 82,5%" class="g_good_photo opfoopesgf" onerror="this.src='/assets/img/nophoto.jpg'"></a>
-                                        <div class="g_good_price"><span class="g_good_price_value">55</span> р.</div>
-                                        <a href="/product/5506?type=" class="g_good_name " tabindex="0">Молоко 1,5%</a>
                                     </div>
-                                    <div class="buubbubu">
-                                        <a href="/product/5506?type=" target="_blank"><img src="/assets/img/nophoto.jpg" alt="Масло сливочное 82,5%" class="g_good_photo opfoopesgf" onerror="this.src='/assets/img/nophoto.jpg'"></a>
-                                        <div class="g_good_price"><span class="g_good_price_value">55</span> р.</div>
-                                        <a href="/product/5506?type=" class="g_good_name " tabindex="0">Молоко 1,5%</a>
-                                    </div>
-                                    <div class="buubbubu">
-                                        <a href="/product/5506?type=" target="_blank"><img src="/assets/img/nophoto.jpg" alt="Масло сливочное 82,5%" class="g_good_photo opfoopesgf" onerror="this.src='/assets/img/nophoto.jpg'"></a>
-                                        <div class="g_good_price"><span class="g_good_price_value">55</span> р.</div>
-                                        <a href="/product/5506?type=" class="g_good_name " tabindex="0">Молоко 1,5%</a>
-                                    </div>
-                                    <div class="buubbubu">
-                                        <a href="/product/5506?type=" target="_blank"><img src="/assets/img/nophoto.jpg" alt="Масло сливочное 82,5%" class="g_good_photo opfoopesgf" onerror="this.src='/assets/img/nophoto.jpg'"></a>
-                                        <div class="g_good_price"><span class="g_good_price_value">55</span> р.</div>
-                                        <a href="/product/5506?type=" class="g_good_name " tabindex="0">Молоко 1,5%</a>
-                                    </div>
-                                    <div class="buubbubu">
-                                        <a href="/product/5506?type=" target="_blank"><img src="/assets/img/nophoto.jpg" alt="Масло сливочное 82,5%" class="g_good_photo opfoopesgf" onerror="this.src='/assets/img/nophoto.jpg'"></a>
-                                        <div class="g_good_price"><span class="g_good_price_value">55</span> р.</div>
-                                        <a href="/product/5506?type=" class="g_good_name " tabindex="0">Молоко 1,5%</a>
-                                    </div>
-                                    <div class="buubbubu buubbubu_last">
-                                        <a href="/product/5506?type=" target="_blank"><img src="/assets/img/nophoto.jpg" alt="Масло сливочное 82,5%" class="g_good_photo opfoopesgf" onerror="this.src='/assets/img/nophoto.jpg'"></a>
-                                        <div class="g_good_price"><span class="g_good_price_value">55</span> р.</div>
-                                        <a href="/product/5506?type=" class="g_good_name " tabindex="0">Молоко 1,5%</a>
-                                    </div>
-                                </div>
-                            </div>  
+                                </div>  
+                            </div>
                         </div>
                     </div>
-                </div>
+                <?php } ?>
+                <?php if(count($related_products)) { ?>
+                    <?php $counter = 0; ?>
+                    <div class="new_good_page_line_20182">
+                        <div class="content_helper">
+                            <div class="new_good_page_line_2018_header">Рекомендации от Aydaeda</div>
+                            <div class="new_good_page_line_2018_body">
+                                <div class="recomendations_in_commets tab_body" id="related_products">
+                                    <div class="bububuuubub_cover">
+                                        <?php foreach($related_products as $r_product) { ?>
+                                            <div class="buubbubu">
+                                                <a href="<?php echo $r_product['href'] ?>?type=<?php echo ((isset($path) and $path) ? $path : '') ?>" class="opfoopesgflmem"><img src="/images/<?php echo $r_product['image'] ?>" alt="<?php echo $r_product['title'] ?>" class="g_good_photo" onError="this.src='/assets/img/nophoto.jpg'"></a>
+                                                <?php if(isset($r_product['old_price'])) { ?>
+                                                    <div class="g_old_good_price"><?php echo $r_product['old_price'] ?> р.</div>
+                                                <?php } ?>
+                                                <div class="g_good_price"><span class="g_good_price_value"><?php echo $r_product['price'] ?></span> р.</div>
+                                                <a href="<?php echo $r_product['href'] ?>?type=<?php echo ((isset($path) and $path) ? $path : '') ?>" class="g_good_name" tabindex="0"><?php echo $r_product['title'] ?></a>
+                                            </div>
+                                            <?php $counter++; ?>
+                                        <?php } ?>
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
                 <div class="new_good_page_line_20183">
                     <div class="content_helper">
                         <div class="new_good_page_line_2018_header">
