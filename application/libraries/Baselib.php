@@ -133,9 +133,6 @@ class Baselib {
     	}
 
     	return $result;
-
-    	//$query = $this->_ci->db->select("*")->from("banner_to_page")->where('page',$page)->order_by('rand()')->limit(3)->get();
-
     }    
 
 	public function set_sort_order($type = false, $category = false, $clear_sort = false) {

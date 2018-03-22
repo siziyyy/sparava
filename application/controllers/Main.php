@@ -890,7 +890,8 @@ class Main extends CI_Controller {
 				$product['favourite'] = true;
 			}
 
-			$related_products_ids = $this->productlib->get_related_products_ids($product_id, false, $type);			
+			$related_products_ids = $this->productlib->get_related_products_ids($product_id, false, $type);
+			$related_by_brands_products = $this->productlib->get_related_products_ids_by_brand($product_id);
 
 			$data = array(
 				'header' => array(
@@ -904,8 +905,10 @@ class Main extends CI_Controller {
 				'product' => $product,
 				'comments' => $this->baselib->get_comments('product', $product_id),
 				'related_products' => $this->productlib->get_products_by_ids($related_products_ids),
+				'related_by_brands_products' => $this->productlib->get_products_by_ids($related_by_brands_products),
 				'breadcrumbs' => $this->productlib->get_breadcrumbs_for_product($product,$type),
-				'path' => $type
+				'path' => $type,
+				'banners' => $this->baselib->get_page_banners('product')
 			);
 
 			$this->load->view('product', $data);
