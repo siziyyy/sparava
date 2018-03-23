@@ -281,8 +281,8 @@ class Main extends CI_Controller {
 	public function search() {
 		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
 
-		if(!is_null($this->input->post('value'))) {
-			$value = $this->input->post('value');
+		if(!is_null($this->input->get('value'))) {
+			$value = $this->input->get('value');
 			$this->session->set_userdata('search_value',$value);
 		} else {
 			$value = $this->session->userdata('search_value');
@@ -906,7 +906,8 @@ class Main extends CI_Controller {
 				'product' => $product,
 				'comments' => $this->baselib->get_comments('product', $product_id),
 				'related_products' => $this->productlib->get_products_by_ids($related_products_ids),
-				'related_by_brands_products' => $this->productlib->get_products_by_ids($related_by_brands_products),
+				'related_by_brands_products' => $this->productlib->get_products_by_ids($related_by_brands_products['products']),
+				'related_by_brands_products_type' => $related_by_brands_products['list_type'],
 				'breadcrumbs' => $this->productlib->get_breadcrumbs_for_product($product,$type),
 				'path' => $type,
 				'banner' => $banners
