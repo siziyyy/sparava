@@ -459,13 +459,5 @@ body,html,textarea{font-family:Calibri}
 				</div>
 			</div>
 		</header>
-        <!--<div class="mobile_search">
-            <div class="f_block_search">
-                <form method="post" action="/search">
-                    <input type="text" class="f_block_search_inp" name="articul" placeholder="поиск по артикулу">
-                    <button type="submit" class="f_block_search_butt sprite"></button>
-                </form>
-            </div>
-        </div>-->
         <?php $this->load->view('common/product-edit-form');?>
         <?php $this->load->view('common/product-info');?>

@@ -317,7 +317,10 @@ class Productlib {
 	}
 
 	public function get_related_products_ids_by_brand($product_id = false) {
-		$result = array();
+		$result = array(
+			'list_type' => 'brand',
+			'products' => array()
+		);
 
 		$sql = "SELECT brand FROM products WHERE product_id = ".(int)$product_id;
 		$query = $this->_ci->db->query($sql);
@@ -332,18 +335,27 @@ class Productlib {
 
 			if ($query->num_rows() > 0) {
 				foreach ($query->result_array() as $row) {
-					$result[] = $row['product_id'];
+					if($row['product_id'] != $product_id) {
+						$result['products'][] = $row['product_id'];
+					}					
 				}
 			}
 		}
 
-		if(count($result) <= 3) {
+		if(count($result['products']) <= 3) {
+			$result = array(
+				'list_type' => 'category',
+				'products' => array()
+			);
+
 			$sql = "SELECT product_id FROM products WHERE status = 1 AND product_id IN (SELECT product_id FROM product_to_category WHERE category_id IN (SELECT category_id FROM product_to_category WHERE product_id = ".(int)$product_id.")) LIMIT 20";
 			$query = $this->_ci->db->query($sql);
 
 			if ($query->num_rows() > 0) {
 				foreach ($query->result_array() as $row) {
-					$result[] = $row['product_id'];
+					if($row['product_id'] != $product_id) {
+						$result['products'][] = $row['product_id'];
+					}
 				}
 			}
 		}

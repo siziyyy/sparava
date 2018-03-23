@@ -91,14 +91,14 @@
                                     <div class="g_admin_info fl_r" style="margin: 9px 20px 0 0">inf</div>
                                     <div class="clear"></div>
                                     <div class="share_it_faster">
-                                        <?php echo $this->baselib->get_share_links('/product/'.$product['product_id'], (is_null($product['title_full']) ? $product['title'] : $product['title_full']), $product['description'], $product['image']) ?>
+                                        <?php echo $this->baselib->get_share_links('/product/'.$product['product_id'], (empty($product['title_full']) ? $product['title'] : $product['title_full']), $product['description'], $product['image']) ?>
                                     </div>
                                 </div>
                                 <div class="clear"></div>
                             </div>
                             
                             <div class="good_modal_right_line">
-                                <div class="good_modal_name fl_l"><?php echo (is_null($product['title_full']) ? $product['title'] : $product['title_full']) ?></div>
+                                <div class="good_modal_name fl_l"><?php echo (empty($product['title_full']) ? $product['title'] : $product['title_full']) ?></div>
                                 <div class="clear"></div>
                             </div>
                             <div class="good_modal_right_line">
@@ -257,7 +257,7 @@
                     <?php $counter = 0; ?>
                     <div class="new_good_page_line_2018">
                         <div class="content_helper">
-                            <div class="new_good_page_line_2018_header">Другие предложения от Coca-cola</div>
+                            <div class="new_good_page_line_2018_header">Другие предложения <?php echo ($related_by_brands_products_type == 'category' ? 'из этой категории' : 'от '.$product['brand']) ?></div>
                             <div class="new_good_page_line_2018_body">
                                 <div class="recomendations_in_commets">
                                     <div class="new_good_page_line_2018_banner">
@@ -332,7 +332,7 @@
             <?php $show_minus = false; ?>
             <div class="g_good fl_l" data-product-id="<?php echo $product['product_id'] ?>" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>">
                 <div class="g_good_photo_block">
-                    <img src="/images/<?php echo $product['image'] ?>" alt="<?php echo (is_null($product['title_full']) ? $product['title'] : $product['title_full']) ?>" class="g_good_photo">
+                    <img src="/images/<?php echo $product['image'] ?>" alt="<?php echo (empty($product['title_full']) ? $product['title'] : $product['title_full']) ?>" class="g_good_photo">
                 </div>
                 <div class="new_good_helper_mobile">
                     <?php if(isset($product['old_price'])) { ?>
@@ -343,8 +343,8 @@
                         <?php echo ($product['type'] == 'шт' ? (!is_null($product['weight']) ? ' - '.$product['weight'] : '') : ($product['bm'] == 1 ? ' за 1 кг' : ' за 100 гр')) ?>
                     </div>
                     <div class="g_good_mobile_fav <?php echo (isset($product['favourite']) ? 'g_good_mobile_fav_orange' : '') ?> sprite send" data-type="favourite"></div>
-                    <div class="g_good_name <?php echo ($product['status'] == 0 ? 'inactive_good' : '') ?>"><?php echo (is_null($product['title_full']) ? $product['title'] : $product['title_full']) ?></div>
-                    <a href="/product/<?php echo $product['product_id'] ?>" class="g_good_name <?php echo ($product['status'] == 0 ? 'inactive_good' : '') ?>"><?php echo (is_null($product['title_full']) ? $product['title'] : $product['title_full']) ?></a>
+                    <div class="g_good_name <?php echo ($product['status'] == 0 ? 'inactive_good' : '') ?>"><?php echo (empty($product['title_full']) ? $product['title'] : $product['title_full']) ?></div>
+                    <a href="/product/<?php echo $product['product_id'] ?>" class="g_good_name <?php echo ($product['status'] == 0 ? 'inactive_good' : '') ?>"><?php echo (empty($product['title_full']) ? $product['title'] : $product['title_full']) ?></a>
                     <div class="g_good_description">
                         <?php echo $product['description'] ?>
                     </div>
