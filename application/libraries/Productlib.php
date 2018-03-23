@@ -330,7 +330,7 @@ class Productlib {
 		}
 
 		if(!empty($product['brand'])) {
-			$sql = "SELECT product_id FROM products WHERE status = 1 AND brand IN (SELECT brand FROM products WHERE product_id = ".(int)$product_id.") LIMIT 20";
+			$sql = "SELECT p.product_id FROM products AS p, product_to_category AS ptc WHERE status = 1 AND p.brand IN (SELECT brand FROM products WHERE product_id = ".(int)$product_id.") AND ptc.product_id = p.product_id AND ptc.category_id IN (SELECT category_id FROM product_to_category WHERE product_id = ".(int)$product_id.") LIMIT 20";
 			$query = $this->_ci->db->query($sql);
 
 			if ($query->num_rows() > 0) {

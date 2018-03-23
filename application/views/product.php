@@ -271,6 +271,7 @@
                                         <?php foreach($related_by_brands_products as $r_product) { ?>
                                             <div class="buubbubu">
                                                 <a href="<?php echo $r_product['href'] ?>?type=<?php echo ((isset($path) and $path) ? $path : '') ?>" class="opfoopesgflmem"><img src="/images/<?php echo $r_product['image'] ?>" alt="<?php echo $r_product['title'] ?>" class="g_good_photo" onError="this.src='/assets/img/nophoto.jpg'"></a>
+
                                                 <?php if(isset($r_product['old_price'])) { ?>
                                                     <div class="g_old_good_price"><?php echo $r_product['old_price'] ?> р.</div>
                                                 <?php } ?>
@@ -296,6 +297,13 @@
                                         <?php foreach($related_products as $r_product) { ?>
                                             <div class="buubbubu">
                                                 <a href="<?php echo $r_product['href'] ?>?type=<?php echo ((isset($path) and $path) ? $path : '') ?>" class="opfoopesgflmem"><img src="/images/<?php echo $r_product['image'] ?>" alt="<?php echo $r_product['title'] ?>" class="g_good_photo" onError="this.src='/assets/img/nophoto.jpg'"></a>
+
+                                                <div class="recommended_av_w_pack">
+                                                    <?php if(!empty($r_product['recommend'])) { ?>
+                                                        <div class="recommended_prod"></div>
+                                                    <?php } ?>
+                                                </div>
+
                                                 <?php if(isset($r_product['old_price'])) { ?>
                                                     <div class="g_old_good_price"><?php echo $r_product['old_price'] ?> р.</div>
                                                 <?php } ?>
