@@ -1841,7 +1841,7 @@ $(document).ready(function() {
 								
 								prev_product_id = obj.parents('.g_good').prev().attr('data-product-id');
 								next_product_id = obj.parents('.g_good').next().attr('data-product-id');
-							
+
 								if(!prev_product_id) {
 									prev_product_id = $('.g_good').last().attr('data-product-id');
 								}
@@ -1857,7 +1857,7 @@ $(document).ready(function() {
 									if(!product.attr('data-product-id')) {
 										product = $('.g_good').first();
 									}
-									
+															
 									product_id = product.attr('data-product-id');
 									image_url = product.find('.g_good_photo').attr('src');
 									

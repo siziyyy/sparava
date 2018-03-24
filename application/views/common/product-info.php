@@ -89,11 +89,9 @@
                 </div>
                 <div class="clear"></div>
             </div>
-            <?php if(!isset($is_search)) { ?>
-                <div class="good_modal_line2">
-                    <div class="good_modal_line2_header">следующие</div>
-                    <div class="good_modal_line2_body similar_products">
-                    </div>
+            <div class="good_modal_line2">
+                <div class="good_modal_line2_header">следующие</div>
+                <div class="good_modal_line2_body similar_products">
                 </div>
-            <?php } ?>
+            </div>
         </div>

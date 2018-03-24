@@ -64,41 +64,44 @@
 	                <? } ?>
 	            </div>
             </div>
-            <div class="banners_120218 trinity_120218">
-                <div class="content_helper">
-                    <?php $counter = 0; ?>
-                    <?php $style = ''; ?>
-                    <?php $style_used = false; ?>
+            <?php if(isset($filters_used) and !$filters_used) { ?>
+	            <div class="banners_120218 trinity_120218">
+	                <div class="content_helper">
+	                    <?php $counter = 0; ?>
+	                    <?php $style = ''; ?>
+	                    <?php $style_used = false; ?>
 
-                    <?php foreach ($banners as $banner) { ?>
-                        <?php
-                            if(!$style_used) {
-                                if($counter==1 and $banner['type']==1) {
-                                    $style = 'margin:0 18px';
-                                    $style_used = true;
-                                } elseif($counter==1 and $banner['type']==2) {
-                                    $style = 'margin-left:18px';
-                                    $style_used = true;
-                                } elseif($counter==0 and $banner['type']==2) {
-                                    $style = 'margin-right:18px';
-                                    $style_used = true;
-                                }
+	                    <?php foreach ($banners as $banner) { ?>
+	                        <?php
+	                            if(!$style_used) {
+	                                if($counter==1 and $banner['type']==1) {
+	                                    $style = 'margin:0 18px';
+	                                    $style_used = true;
+	                                } elseif($counter==1 and $banner['type']==2) {
+	                                    $style = 'margin-left:18px';
+	                                    $style_used = true;
+	                                } elseif($counter==0 and $banner['type']==2) {
+	                                    $style = 'margin-right:18px';
+	                                    $style_used = true;
+	                                }
 
-                                
-                            } else {
-                                $style = '';
-                            }
-                        ?>
-                        <a href="<?php echo $banner['href'] ?>">
-                        	<div class="banner_120218 fl_l banner_120218_5" style="<?php echo $style ?>">
-                            	<img src="<?php echo $banner['img'] ?>" alt="">
-                        	</div>
-                    	</a>
-                        <?php $counter++; ?>
-                    <?php } ?>
-	            	<div class="clear"></div>
+	                                
+	                            } else {
+	                                $style = '';
+	                            }
+	                        ?>
+	                        <a href="<?php echo $banner['href'] ?>">
+	                        	<div class="banner_120218 fl_l banner_120218_5" style="<?php echo $style ?>">
+	                            	<img src="<?php echo $banner['img'] ?>" alt="">
+	                        	</div>
+	                    	</a>
+	                        <?php $counter++; ?>
+	                    <?php } ?>
+		            	<div class="clear"></div>
+		            </div>
 	            </div>
-            </div>
+            <?php } ?>
+
             <div class="content_helper content_helper_gds">
             	<?php if($is_parent_category) { ?>
             		<?php $is_first_category = true; ?>
