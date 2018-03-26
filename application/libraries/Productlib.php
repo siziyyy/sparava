@@ -825,7 +825,7 @@ class Productlib {
 		}
 
 		foreach ($stop_words as $word) {
-			$value = str_replace($word,'',$value);
+			$value = trim(str_replace($word,'',$value));
 		}
 
 		if(empty(trim($value))) {
