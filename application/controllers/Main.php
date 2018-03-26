@@ -781,18 +781,17 @@ class Main extends CI_Controller {
 			);
 			
 			$products = $this->productlib->get_category_products($category);
-
-			$data['sort_attr'] = $this->baselib->handle_sort_attributes($products);
-			
 			$products = $this->productlib->sort_products('category',$category,$products);
 			$products = $this->productlib->filter_products_by_sort($products,$category);
+			
 			
 			$data['menu']['menu_childs'] = $menu_childs;
 			$data['menu']['attributes'] = $this->baselib->handle_attributes($products);
 			$data['menu']['filters'] = $filters;
 
 			$products_in_page = $this->filterlib->filter_products($products,$filters,$page);
-
+			$data['sort_attr'] = $this->baselib->handle_sort_attributes($products_in_page['products']);
+			
 			$empty_products = count($products_in_page['products'])%5; 
 						
 			if($empty_products > 0) {
