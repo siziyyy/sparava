@@ -740,7 +740,8 @@ class Main extends CI_Controller {
 				'weight' => (!is_null($this->input->get('weight')) ? $this->input->get('weight') : 0),
 				'pack' => (!is_null($this->input->get('pack')) ? $this->input->get('pack') : 0),
 				'composition' => (!is_null($this->input->get('composition')) ? $this->input->get('composition') : 0),
-				'price' => (!is_null($this->input->get('price')) ? $this->input->get('price') : 0)
+				'price' => (!is_null($this->input->get('price')) ? $this->input->get('price') : 0),
+				'assortiment' => (!is_null($this->input->get('assortiment')) ? $this->input->get('assortiment') : 0)
 			);
 
 			$this->baselib->save_filters($filters,$category);

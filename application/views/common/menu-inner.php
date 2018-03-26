@@ -134,6 +134,29 @@
 						</div>
 						<?php } ?>
 
+						<?php if(count($attributes['assortiments']) > 1) { ?>
+						<div class="cool_select_pack fl_l" data-type="assortiment">
+							<div class="cool_select <?php echo (isset($filters_text['assortiment']) ? 'cool_select_disabled' : '') ?>">
+								<span><?php echo (isset($filters_text['assortiment']) ? $filters_text['assortiment'] : 'ассортимент') ?></span>
+                                <span class="cool_select_arrow sprite"></span>
+                                <span class="cool_select_arrow2">×</span>
+							</div>
+                            <div class="cool_select_options">
+                                <div class="scrollbar-inner scroll_helper">
+									<?php foreach($attributes['assortiments'] as $attribute) { ?>
+										<div class="cool_select_option">
+											<label>
+												<input type="checkbox" class="cool_select_check" value="<?php echo $attribute ?>" data-name="assortiment" <?php echo (in_array($attribute,explode(';',$filters['assortiment'])) ? 'checked' : '' ) ?>>
+												<?php echo $attribute ?>
+											</label>
+										</div>
+									<?php } ?>
+                                </div>
+								<div class="cool_select_button <?php echo (!$filters_used ? '' : 'cool_select_button_ready') ?>">применить</div>
+							</div>								
+						</div>
+						<?php } ?>
+
 						<div class="cool_select_pack fl_l" data-type="price">
 							<div class="cool_select <?php echo (isset($filters_text['price']) ? 'cool_select_disabled' : '') ?>">
 								<span><?php echo (isset($filters_text['price']) ? $filters_text['price'] : 'цена') ?></span>

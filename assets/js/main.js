@@ -34,6 +34,7 @@ function listener(event) {
 		$('#product_form .product_percent').val(product.percent);
 		$('#product_form .product_pack').val(product.pack);
 		$('#product_form .product_composition').val(product.composition);
+		$('#product_form .product_assortiment').val(product.assortiment);
 		
 		$('#product_form .product_name').val(product.title);
 		$('#product_form .product_name_full').val(product.title_full);
@@ -754,7 +755,8 @@ $(document).ready(function() {
 			sr_ves: $('#product_form .product_sr_ves').val(),
 			blog: $('#product_form .product_blog').val(),
 			manufacturer: $('#product_form .product_manufacturer').val(),
-			competitors: $('#product_form .product_competitors').val()
+			competitors: $('#product_form .product_competitors').val(),
+			assortiment: $('#product_form .product_assortiment').val()
 		}
 		
 		send_data = {
