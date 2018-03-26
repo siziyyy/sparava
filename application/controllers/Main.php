@@ -743,6 +743,8 @@ class Main extends CI_Controller {
 				'price' => (!is_null($this->input->get('price')) ? $this->input->get('price') : 0)
 			);
 
+			$this->baselib->save_filters($filters,$category);
+
 			$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
 			
 			$menu = $this->baselib->get_categories($category,true);
@@ -782,15 +784,13 @@ class Main extends CI_Controller {
 			
 			$products = $this->productlib->get_category_products($category);
 			$products = $this->productlib->sort_products('category',$category,$products);
-			$products = $this->productlib->filter_products_by_sort($products,$category);
-			
+			$products_in_page = $this->filterlib->filter_products($products,$filters,$page,$category);
 			
 			$data['menu']['menu_childs'] = $menu_childs;
 			$data['menu']['attributes'] = $this->baselib->handle_attributes($products);
 			$data['menu']['filters'] = $filters;
 
-			$products_in_page = $this->filterlib->filter_products($products,$filters,$page);
-			$data['sort_attr'] = $this->baselib->handle_sort_attributes($products_in_page['products']);
+			$data['sort_attr'] = $products_in_page['sort_attr'];
 			
 			$empty_products = count($products_in_page['products'])%5; 
 						
@@ -891,6 +891,7 @@ class Main extends CI_Controller {
 
 			$related_products_ids = $this->productlib->get_related_products_ids($product_id, false, $type);
 			$related_by_brands_products = $this->productlib->get_related_products_ids_by_brand($product_id);
+
 			$banners = current($this->baselib->get_page_banners('product'));
 
 			$data = array(
@@ -905,7 +906,7 @@ class Main extends CI_Controller {
 				'product' => $product,
 				'comments' => $this->baselib->get_comments('product', $product_id),
 				'related_products' => $this->productlib->get_products_by_ids($related_products_ids),
-				'related_by_brands_products' => $this->productlib->get_products_by_ids($related_by_brands_products['products']),
+				'related_by_brands_products' => $related_by_brands_products['products'],
 				'related_by_brands_products_type' => $related_by_brands_products['list_type'],
 				'breadcrumbs' => $this->productlib->get_breadcrumbs_for_product($product,$type),
 				'path' => $type,
@@ -1913,8 +1914,7 @@ class Main extends CI_Controller {
 
 								$products = $this->productlib->get_category_products($this->input->post('category_id'));
 								$products = $this->productlib->sort_products('category',$this->input->post('category_id'),$products);
-								$products = $this->productlib->filter_products_by_sort($products,$this->input->post('category_id'));
-								$products_in_page = $this->filterlib->filter_products($products,$filters,$this->input->post('page'));
+								$products_in_page = $this->filterlib->filter_products($products,$filters,$this->input->post('page'),$this->input->post('category_id'));
 								break;
 						}
 						

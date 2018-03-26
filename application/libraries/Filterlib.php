@@ -7,7 +7,7 @@ class Filterlib {
     	$this->_ci =& get_instance();
     }
 
-	public function filter_products($products,$filters,$page) {
+	public function filter_products($products,$filters,$page,$category = false) {
 		$price_sort = array();
 		$filters_count = 0;
 		
@@ -90,6 +90,12 @@ class Filterlib {
 				$filters_used = true;
 			}			
 		}
+
+		$sort_attr = $this->_ci->baselib->handle_sort_attributes($products);
+
+		if($category) {
+			$products = $this->_ci->productlib->filter_products_by_sort($products,$category);
+		}		
 		
 		$prodcuts_in_page = array();
 		$page_start = ($page-1)*50;
@@ -140,7 +146,8 @@ class Filterlib {
 			'filters_used' => $filters_used,
 			'empty_products' => $empty_products,
 			'filters_text' => $filters_text,
-			'filters_count' => $filters_count
+			'filters_count' => $filters_count,
+			'sort_attr' => $sort_attr
 		);
 	}	
 	

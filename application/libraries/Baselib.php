@@ -133,7 +133,14 @@ class Baselib {
     	}
 
     	return $result;
-    }    
+    }  
+
+	public function save_filters($data,$category) {
+		$filters_data = $this->_ci->session->userdata('filters_data');
+		$filters_data[$category] = $data;
+
+		$this->_ci->session->set_userdata('filters_data', $filters_data);
+	}
 
 	public function set_sort_order($type = false, $category = false, $clear_sort = false) {
 		if($clear_sort) {
