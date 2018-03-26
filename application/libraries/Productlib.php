@@ -330,7 +330,7 @@ class Productlib {
 		}
 
 		if(!empty($product['brand'])) {
-			$sql = "SELECT p.product_id FROM products AS p, product_to_category AS ptc WHERE status = 1 AND p.brand IN (SELECT brand FROM products WHERE product_id = ".(int)$product_id.") AND ptc.product_id = p.product_id AND ptc.category_id IN (SELECT category_id FROM product_to_category WHERE product_id = ".(int)$product_id.") LIMIT 20";
+			$sql = "SELECT p.product_id FROM products AS p, product_to_category AS ptc WHERE status = 1 AND p.brand IN (SELECT brand FROM products WHERE product_id = ".(int)$product_id.") AND ptc.product_id = p.product_id AND ptc.category_id IN (SELECT category_id FROM product_to_category WHERE product_id = ".(int)$product_id.")";
 			$query = $this->_ci->db->query($sql);
 
 			if ($query->num_rows() > 0) {
@@ -348,7 +348,7 @@ class Productlib {
 				'products' => array()
 			);
 
-			$sql = "SELECT product_id FROM products WHERE status = 1 AND product_id IN (SELECT product_id FROM product_to_category WHERE category_id IN (SELECT category_id FROM product_to_category WHERE product_id = ".(int)$product_id.")) LIMIT 20";
+			$sql = "SELECT product_id FROM products WHERE status = 1 AND product_id IN (SELECT product_id FROM product_to_category WHERE category_id IN (SELECT category_id FROM product_to_category WHERE product_id = ".(int)$product_id."))";
 			$query = $this->_ci->db->query($sql);
 
 			if ($query->num_rows() > 0) {
@@ -357,6 +357,20 @@ class Productlib {
 						$result['products'][] = $row['product_id'];
 					}
 				}
+			}
+		}
+
+		$result['products'] = $this->_ci->productlib->get_products_by_ids($result['products']);
+
+		$sql = "SELECT category_id FROM product_to_category WHERE product_id = ".(int)$product_id;
+		$query = $this->_ci->db->query($sql);
+		if ($query->num_rows() > 0) {
+			$category_id = $query->row_array()['category_id'];
+
+			$filters_data = $this->_ci->session->userdata('filters_data');
+			if(isset($filters_data[$category_id])) {				
+				$filtered_products = $this->_ci->filterlib->filter_products($result['products'],$filters_data[$category_id],1,$category_id);
+				$result['products'] = $filtered_products['products'];
 			}
 		}
 		
