@@ -633,6 +633,7 @@ class Baselib {
 			'packs' => array(),
 			'brands' => array(),
 			'weights' => array(),
+			'assortiments' => array(),
 			'tags' => array()
 		);
 		
@@ -655,7 +656,11 @@ class Baselib {
 
 			if(!is_null($product['weight']) and !empty($product['weight'])) {
 				$attributes['weights'][] = $product['weight'];
-			}			
+			}
+
+			if(!is_null($product['assortiment']) and !empty($product['assortiment'])) {
+				$attributes['assortiments'][] = $product['assortiment'];
+			}		
 
 			$types[$product['type']] = $product['type'];
 		}
@@ -671,11 +676,13 @@ class Baselib {
 		$attributes['packs'] = array_unique($attributes['packs']);
 		$attributes['brands'] = array_unique($attributes['brands']);
 		$attributes['weights'] = array_unique($attributes['weights']);
+		$attributes['assortiments'] = array_unique($attributes['assortiments']);
 		
 		asort($attributes['countries']);
 		asort($attributes['compositions']);
 		asort($attributes['packs']);
 		asort($attributes['brands']);
+		asort($attributes['assortiments']);
 		
 		//asort($attributes['weights']);
 		$attributes['weights'] = $this->sort_weights($attributes['weights']);
@@ -1158,6 +1165,16 @@ class Baselib {
 				$word = 'поставщика';
 			} else {
 				$word = 'поставщиков';
+			}			
+		} elseif($type == 'assortiment') {
+			$number = (int)substr((string)$count, -1); 
+			
+			if($number == 1 and (int)($count) != 11) {
+				$word = 'ассортимент';
+			} elseif($number >= 2 and $number <= 4 and ((int)($count) < 10 or (int)($count) > 20)) {
+				$word = 'ассортимента';
+			} else {
+				$word = 'ассортиментов';
 			}			
 		}
 		

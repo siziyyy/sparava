@@ -12,11 +12,12 @@ class Filterlib {
 		$filters_count = 0;
 		
 		$filters_arr = array(
-			'country' => ($filters['country'] ? explode(';',$filters['country']) : 0),
-			'brand' => ($filters['brand'] ? explode(';',$filters['brand']) : 0),
-			'pack' => ($filters['pack'] ? explode(';',$filters['pack']) : 0),
-			'composition' => ($filters['composition'] ? explode(';',$filters['composition']) : 0),
-			'weight' => ($filters['weight'] ? explode(';',$filters['weight']) : 0)
+			'country' => ((isset($filters['country']) and $filters['country']) ? explode(';',$filters['country']) : 0),
+			'brand' => ((isset($filters['brand']) and $filters['brand']) ? explode(';',$filters['brand']) : 0),
+			'pack' => ((isset($filters['pack']) and $filters['pack']) ? explode(';',$filters['pack']) : 0),
+			'composition' => ((isset($filters['composition']) and $filters['composition']) ? explode(';',$filters['composition']) : 0),
+			'weight' => ((isset($filters['weight']) and $filters['weight']) ? explode(';',$filters['weight']) : 0),
+			'assortiment' => ((isset($filters['assortiment']) and $filters['assortiment']) ? explode(';',$filters['assortiment']) : 0)
 		);
 		
 		foreach($filters_arr as $key => $value) {
@@ -53,7 +54,7 @@ class Filterlib {
 				unset($products[$product_id]);
 				$filters_used = true;
 				continue;
-			}	
+			}
 			
 			if($filters_arr['pack'] and !in_array($product['pack'], $filters_arr['pack'])) {
 				unset($products[$product_id]);
@@ -72,6 +73,12 @@ class Filterlib {
 				$filters_used = true;
 				continue;
 			}
+
+			if($filters_arr['assortiment'] and !in_array($product['assortiment'], $filters_arr['assortiment'])) {
+				unset($products[$product_id]);
+				$filters_used = true;
+				continue;
+			}	
 			
 			if($filters['weight']) {				
 				if($filters['weight'] == 'raz' and $product['type'] == 'шт') {

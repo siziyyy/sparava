@@ -48,6 +48,11 @@
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_composition">
                 </label>
                 <div class="clear"></div>
+                <label>
+                    <span class="g_good_admin_info_modal_inpname">Ассортимент</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_assortiment">
+                </label>
+                <div class="clear"></div>
                 <div class="g_good_admin_info_modal_save black_small_button save_product_details">сохранить</div>
             </aside>
             <aside class="g_good_admin_info_modal_center fl_l">
