@@ -14,3 +14,4 @@
     </div> -->
 </div>
 <?php } ?>
+    <div class="minsumm_body2">минимальная сумма заказа 1000 р.</div>

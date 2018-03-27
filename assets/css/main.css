@@ -453,7 +453,8 @@ header {
 }
 .good_modal_firm {
     font-size: 16px;
-    color: #FE4517;
+    /*color: #FE4517;*/
+    color: #000;
     font-family: Calibri Bold;
     text-decoration: underline;
     margin: 20px;
@@ -1298,12 +1299,12 @@ input {
     position: relative;
     top: 10px;
 }
-.h_logo_img:hover {
+/*.h_logo_img:hover {
     opacity: .7;
     -webkit-transition: opacity .3s;
     -o-transition: opacity .3s;
     transition: opacity .3s;
-}
+}*/
 .h_cart_text {
     width: auto;
     height: 26px;
@@ -1605,7 +1606,7 @@ header .content_helper {
     margin-top: 62px;
     border-bottom: 3px solid #f5f5f5;
     padding: 0 0 0px 0;
-    height: 45px;
+    height: 35px;
 }
 .new_cool_line_of_filters_aaarrrghh_dropdown {
     width: 342px;
@@ -1641,8 +1642,9 @@ header .content_helper {
     margin: 0 30px 0 0;
 }
  .new_chto-to-tam {
-     font-size: 24px;
-         margin-bottom: -35px;
+         font-size: 24px;
+    margin-bottom: -25px;
+    margin-top: 67px;
  }
 .new_cool_line_of_filters_aaarrrghh:before{
     content: '';
@@ -3379,22 +3381,24 @@ footer {
 .buubbubu {
     width: 175px;
     margin-right: 16px;
+    vertical-align: top;
     display: inline-block;
 }
 .more_from_brand_slider .tretiy_slaider_arrow {
-    top: 111px;
+    top: 117px;
     width: 40px;
     height: 40px;
 }
 .more_from_brand_slider .tretiy_slaider_arrowright {
-    right: 0px;
+    right: -4px;
 }
 .more_from_brand_slider .tretiy_slaider_arrowleft {
-    left: -13px;
+    left: -19px;
 }
 .buubbubu .g_good_name {
     font-size: 16px;
     width: 90%;
+    white-space: normal;
 }
 .buubbubu img {
     display: block;
@@ -3402,6 +3406,7 @@ footer {
 .bububuuubub_cover {
     margin-top: 40px;
     height: 390px;
+    white-space: nowrap;
 }
 .buubbubu_last {
     margin: 0;
@@ -3419,4 +3424,14 @@ footer {
     height: 233px;
     background-color: #f7f7f8;
     float: right;
+    overflow: hidden;
+}
+.new_good_page_line_2018_banner img {
+    cursor: pointer;
+    width: 100%;
+}
+.minsumm_body2 {
+    font-size: 18px;
+    margin-top: 25px;
+    color: #fe4517;
 }

@@ -507,7 +507,7 @@ textarea.c_inners_input {
     -webkit-transition: background .3s ease;
     -o-transition: background .3s ease;
     transition: background .3s ease;
-    margin: -4px 30px -4px -59px;
+    margin: -4px -46px -4px -59px;
     z-index: +1;
     position: relative;
 }

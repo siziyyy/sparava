@@ -314,6 +314,12 @@ $(document).ready(function() {
 		$('.c_new_mobile_submenu_link_closed').toggle();
 		$('.c_new_mobile_submenu_more').toggle();
 	});
+	$('.desc_prod_page_dots').click(function() {
+		$('.good_modal_right_line_new_modal').toggle();
+	});
+	$('.new_login_message_closeawafwwaf').click(function() {
+		$('.good_modal_right_line_new_modal').toggle();
+	});
 
 	$('.new_mob_submenu_filter').click(function() {
 		target = $(this).attr('data-target');
