@@ -41,8 +41,44 @@
     }*/
 </style>
         <div class="desktop-version">
+            <div class="vce_ect">
+                <div class="content_helper">
+                    <div class="c_new_menu_line_item c_new_menu_line_itemffafawfaw rtyguhnjioklp c_new_menu_line_item_right fl_l">
+                        <span class="c_new_menu_more_icon"></span>
+                        <span class="c_new_menu_more">все категории</span>
+                    </div>
+                    <div class="c_new_menu_line_item rtyguhnjioklp inubyvt fl_l">
+                        <a href="/catalog" class="c_new_menu_link fullcatlink c_new_menu_l fl_l">Полный каталог</a>
+                        <div class="search_new_3_2018_pack search_new_3_2018_pack22222 fl_l">
+                            <form method="get" action="/search">
+                                <input type="text" class="search_new_3_2018_input" value="<?php echo (isset($value) ? $value : ''); ?>" name="value" placeholder="поиск по артикулу, названию, категории, бренду, стране, производителю, типу итд.">
+                                <button type="submit" class="search_new_3_2018_button">поиск</button>
+                            </form>
+                        </div>
+                        <div class="clear"></div>
+                    </div>      
+                    <div class="clear"></div>  
+                </div>         
+                <style>
+                    .c_new_index_menu_dropdown {
+                        top: -27px !important;
+                    }
+                    .vce_ect {
+                        margin: 9px 0 3px 0;
+                    }
+                    .c_new_menu_line_item  {
+                        display: none;
+                    } 
+                    .vce_ect .c_new_menu_line_item  {
+                        display: block;
+                    } 
+                    .index_c_new_menu {
+                        padding: 0;
+                    }
+                </style>
+            </div>
             <div class="content_helper">
-                <?php $this->load->view('common/menu', $menu);?>
+                <?php $this->load->view('common/menu', $menu); ?>
             </div>
             <div class="breadcrumbs">
                 <section class="content" style="min-height: auto;">
@@ -80,7 +116,7 @@
                                         } elseif($product['eko'] == 1) {
                                             echo 'Эко';
                                         } elseif($product['diet'] == 1) {
-                                            echo 'Диет.';
+                                            echo 'Диетическое';
                                         }
                                     ?>
                                 </div>
@@ -104,6 +140,22 @@
                             <div class="good_modal_right_line">
                                 <div class="good_modal_subhead">
                                     <?php echo $product['description'] ?>
+                                    <div class="desc_prod_page_dots">...</div>
+                                </div>
+                                <div class="good_modal_right_line_new_modal">
+                                    <div class="new_login_message_closeawafwwaf">×</div>
+                                    <div class="good_modal_right_line_new_modal_header">Печень кролика</div>
+                                    <div class="good_modal_right_line_new_modal_body">                                     
+Эта мышца из шеи мясного бычка придется вам по душе.
+Обладает ярким и насыщенным вкусом классической 
+мраморной говядины. Отлично подходит для жарки на мангале. 
+Рекомендуется средняя прожарка.
+<br><br>
+Это стейк из тонкого края. Отруб располагается в поясничной части 
+туши бычка. Отличается он своей продолговатой формой, более 
+плотными волокнами, чем у рибая и аппетитной жировой 
+прослойкой с одного края.
+                                    </div>
                                 </div>
                             </div>
                             <?php if($product['sr_ves']) { ?>
@@ -165,8 +217,10 @@
                                     <div class="g_good_count_act g_good_count_add sprite"></div>
                                 </div>
                                 <div class="g_good_to_cart">
-                                    <span class="g_good_to_cart_text"><span class="g_good_to_cart_value"><?php echo $product['default_price'] ?></span> р.</span>
-                                    <span class="g_good_added_to_cart_text"></span>                                 
+                                    <span class="g_good_to_cart_text"><span class="g_good_to_cart_value"><?php echo $product['default_price'] ?></span> р.
+                                        <span class="g_good_added_to_cart_text2">добавить в корзину</span>  
+                                    </span>
+                                    <span class="g_good_added_to_cart_text"></span>                                  
                                     <span class="g_good_to_cart_icon sprite"></span>
                                 </div>
                             </div>

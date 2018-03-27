@@ -46,6 +46,30 @@
         			</div>
         		</div>
         	</div> -->
+        	<div class="vce_ect">
+                <div class="content_helper">
+	                <div class="c_new_menu_line_item c_new_menu_line_itemffafawfaw rtyguhnjioklp c_new_menu_line_item_right fl_l">
+                        <span class="c_new_menu_more_icon"></span>
+                        <span class="c_new_menu_more">все категории</span>
+                    </div>
+                    <div class="c_new_menu_line_item rtyguhnjioklp inubyvt fl_l">
+                        <a href="/catalog" class="c_new_menu_link fullcatlink c_new_menu_l fl_l">Полный каталог</a>
+                        <div class="search_new_3_2018_pack search_new_3_2018_pack22222 fl_l">
+		                    <form method="get" action="/search">
+		                        <input type="text" class="search_new_3_2018_input" value="<?php echo (isset($value) ? $value : ''); ?>" name="value" placeholder="поиск по артикулу, названию, категории, бренду, стране, производителю, типу итд.">
+		                        <button type="submit" class="search_new_3_2018_button">поиск</button>
+		                    </form>
+			            </div>
+			            <div class="clear"></div>
+					</div>      
+                	<div class="clear"></div>  
+                </div>         
+                <style>
+	                .c_new_index_menu_dropdown {
+					    top: -27px !important;
+					}
+				</style>
+            </div>
             <div class="category_bg_helper <?php echo ($is_parent_category ? 'category_bg_helper_in_main' : '' ); ?>">
                 <div class="content_helper">
                     <?php $this->load->view('common/menu-inner', $menu);?>
@@ -141,7 +165,7 @@
     }
 </style>
 	            	<?php if(($sort_attr['razves'] and $sort_attr['pack']) or $sort_attr['bbox'] or $sort_attr['farm'] or $sort_attr['eko'] or $sort_attr['diet'] or $sort_attr['recommend']) { ?>
-                        <div class="new_chto-to-tam">Яблоко Армения</div>
+                        <div class="new_chto-to-tam">Фрукты | Яблоко | Армения</div>
 		            	<div class="new_cool_line_of_filters_aaarrrghh" data-category="<?php echo $category ?>">
 		            		<div class="new_cool_line_of_filters_aaarrrghh_item new_cool_line_of_filters_aaarrrghh_item_first send <?php echo (!$sort_order ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="clear">все</div>
 		            		

@@ -1,8 +1,31 @@
 <?php $this->load->view('common/header',$header);?>
     <div class="content_helper">
-        <div class="catalog_header_newnew">
-            <div class="catalog_header_newnew_line">ПОЛНЫЙ КАТАЛОГ</div>
-            <div class="catalog_header_newnew_subline">более 12 000 товаров в 300 категориях</div>
+        <div class="vce_ect">
+            <div class="content_helper">
+                <div class="c_new_menu_line_item rtyguhnjioklp inubyvt fl_l">
+                    <span class="c_new_menu_link fullcatlink c_new_menu_l fl_l">Полный каталог</span>
+                    <div class="search_new_3_2018_pack search_new_3_2018_pack22222 fl_r">
+                        <form method="get" action="/search">
+                            <input type="text" class="search_new_3_2018_input" value="<?php echo (isset($value) ? $value : ''); ?>" name="value" placeholder="поиск по артикулу, названию, категории, бренду, стране, производителю, типу итд.">
+                            <button type="submit" class="search_new_3_2018_button">поиск</button>
+                        </form>
+                    </div>
+                    <div class="clear"></div>
+                </div>      
+                <div class="clear"></div>  
+            </div>         
+            <style>
+                .inubyvt {
+                    margin: 0 0 0 0px !important;
+                    width: 100%;
+                }
+                .c_new_menu_line_item {
+                    cursor: default;
+                }
+                .vce_ect {
+                    margin: 6px 0 5px 0;
+                }
+            </style>
         </div>
         <div class="new_catalog_item new_cat_1 fl_l">
             <div class="new_full_cat_texts">

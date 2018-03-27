@@ -1,5 +1,29 @@
 <?php $this->load->view('common/header',$header);?>
         <section class="content">
+            <div class="vce_ect">
+                <div class="content_helper">
+                    <div class="c_new_menu_line_item c_new_menu_line_itemffafawfaw rtyguhnjioklp c_new_menu_line_item_right fl_l">
+                        <span class="c_new_menu_more_icon"></span>
+                        <span class="c_new_menu_more">все категории</span>
+                    </div>
+                    <div class="c_new_menu_line_item rtyguhnjioklp inubyvt fl_l">
+                        <a href="/catalog" class="c_new_menu_link fullcatlink c_new_menu_l fl_l">Полный каталог</a>
+                        <div class="search_new_3_2018_pack search_new_3_2018_pack22222 fl_l">
+                            <form method="get" action="/search">
+                                <input type="text" class="search_new_3_2018_input" value="<?php echo (isset($value) ? $value : ''); ?>" name="value" placeholder="поиск по артикулу, названию, категории, бренду, стране, производителю, типу итд.">
+                                <button type="submit" class="search_new_3_2018_button">поиск</button>
+                            </form>
+                        </div>
+                        <div class="clear"></div>
+                    </div>      
+                    <div class="clear"></div>  
+                </div>         
+                <style>
+                    .c_new_index_menu_dropdown {
+                        top: -27px !important;
+                    }
+                </style>
+            </div>
 			<div class="category_bg_helper category_bg_helper_country category_bg_helper_country2">
                 <div class="content_helper">
                     <div class="c_new_menu">

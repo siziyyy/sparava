@@ -2,7 +2,7 @@
                     <div class="c_new_index_menu_dropdown">
                         <?php $this->load->view('common/menu-links');?>
                     </div>
-                    <div class="c_new_menu_line_item rtyguhnjioklp c_new_menu_line_item_right fl_l">
+                    <div class="c_new_menu_line_item rtyguhnjioklp vyubinmop c_new_menu_line_item_right fl_l">
                         <span class="c_new_menu_more_icon"></span>
                         <span class="c_new_menu_more">все категории</span>
                     </div>

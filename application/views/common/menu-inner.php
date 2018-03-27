@@ -1,4 +1,4 @@
-			<div class="c_new_menu c_new_menu_hide">
+            <div class="c_new_menu c_new_menu_hide">
                 <div class="c_new_menu_line">
 					<?php if(isset($menu_childs) and count($menu_childs) > 0) { ?>
 						<?php $parent_category = true; ?>
@@ -10,10 +10,10 @@
 						<?php } ?>
 					<?php } ?>					
 					
-					<div class="c_new_menu_line_item c_new_menu_line_item_right fl_r">
+					<!--<div class="c_new_menu_line_item c_new_menu_line_item_right fl_r">
 						<span class="c_new_menu_more">другие продукты</span>
 						<span class="c_new_menu_more_icon oefgpopfegespgo"></span>
-					</div>							
+					</div>		-->					
 					<div class="clear"></div>
 					
                 </div>
