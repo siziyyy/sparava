@@ -3383,6 +3383,11 @@ footer {
     margin-right: 16px;
     vertical-align: top;
     display: inline-block;
+    position: relative;
+}
+.buubbubu .recommended_av_w_pack {
+    top: 187px;
+    bottom: auto;
 }
 .more_from_brand_slider .tretiy_slaider_arrow {
     top: 117px;
@@ -3435,3 +3440,6 @@ footer {
     margin-top: 25px;
     color: #fe4517;
 }
+.c_inners_td .c_inners_photo {
+    cursor: pointer;
+} 
