@@ -726,6 +726,7 @@ class Main extends CI_Controller {
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
 				),
 				'is_parent_category' => true,
+				'filters_used' => false,
 				'products' => $products,
 				'banners' => $this->baselib->get_page_banners('category-'.$category)
 			);
