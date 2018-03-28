@@ -6,7 +6,7 @@
                     <span class="c_new_menu_link fullcatlink c_new_menu_l fl_l">Полный каталог</span>
                     <div class="search_new_3_2018_pack search_new_3_2018_pack22222 fl_r">
                         <form method="get" action="/search">
-                            <input type="text" class="search_new_3_2018_input" value="<?php echo (isset($value) ? $value : ''); ?>" name="value" placeholder="поиск по артикулу, названию, категории, бренду, стране, производителю, типу итд.">
+                            <input type="text" class="search_new_3_2018_input" value="<?php echo (isset($value) ? $value : ''); ?>" name="value" placeholder="более 15 000 товаров в 145 категориях">
                             <button type="submit" class="search_new_3_2018_button">поиск</button>
                         </form>
                     </div>

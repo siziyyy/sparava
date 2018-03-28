@@ -3390,9 +3390,14 @@ footer {
     bottom: auto;
 }
 .more_from_brand_slider .tretiy_slaider_arrow {
-    top: 117px;
+    top: 97px;
     width: 40px;
     height: 40px;
+    -webkit-transform: scale(.8);
+       -moz-transform: scale(.8);
+        -ms-transform: scale(.8);
+         -o-transform: scale(.8);
+            transform: scale(.8);
 }
 .more_from_brand_slider .tretiy_slaider_arrowright {
     right: -4px;
