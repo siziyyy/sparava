@@ -22,6 +22,9 @@
                     .c_new_index_menu_dropdown {
                         top: -27px !important;
                     }
+                    .orange_text {
+                        color: #808080 !important;
+                    }
                 </style>
             </div>
 			<div class="category_bg_helper category_bg_helper_country category_bg_helper_country2">
