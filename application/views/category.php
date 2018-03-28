@@ -56,7 +56,7 @@
                         <a href="/catalog" class="c_new_menu_link fullcatlink c_new_menu_l fl_l">Полный каталог</a>
                         <div class="search_new_3_2018_pack search_new_3_2018_pack22222 fl_l">
 		                    <form method="get" action="/search">
-		                        <input type="text" class="search_new_3_2018_input" value="<?php echo (isset($value) ? $value : ''); ?>" name="value" placeholder="">
+		                        <input type="text" class="search_new_3_2018_input" value="<?php echo (isset($value) ? $value : ''); ?>" name="value" placeholder="более 15 000 товаров в 145 категориях">
 		                        <button type="submit" class="search_new_3_2018_button">поиск</button>
 		                    </form>
 			            </div>
@@ -68,6 +68,9 @@
 	                .c_new_index_menu_dropdown {
 					    top: -27px !important;
 					}
+                    .orange_text {
+                        color: #808080 !important;
+                    }
 				</style>
             </div>
             <div class="category_bg_helper <?php echo ($is_parent_category ? 'category_bg_helper_in_main' : '' ); ?>">
