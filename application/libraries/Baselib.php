@@ -517,9 +517,9 @@ class Baselib {
 				if(!is_null($product['sr_ves']) and !empty($product['sr_ves'])) {
 					$default_value = $product['sr_ves'];
 
-					$default_price = (int)($product['price']*$default_value);
+					$default_price = ((int)$product['price']*(int)$default_value);
 
-					if(($product['price']*$default_value) > $default_price) {
+					if(((int)$product['price']*(int)$default_value) > $default_price) {
 						$default_price++;
 					}
 
