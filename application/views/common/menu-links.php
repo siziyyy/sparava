@@ -1,5 +1,4 @@
 <div class="c_new_index_menu_dropdown_ls fl_l c_new_index_menu_dropdown_firstls">
-	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
 	<a href="/category/1" class="c_new_index_menu_dropdown_link">Мясо</a>
 	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
 	<a href="/category/2" class="c_new_index_menu_dropdown_link">Птица</a>
@@ -33,7 +32,6 @@
 	
 </div>
 <div class="c_new_index_menu_dropdown_ls fl_l c_new_index_menu_dropdown_secls">
-	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
 	<a href="/category/14" class="c_new_index_menu_dropdown_link">Фрукты, ягоды</a>
 	<a href="/category/15" class="c_new_index_menu_dropdown_link">Овощи, зелень, грибы</a>
 	<a href="/category/8" class="c_new_index_menu_dropdown_link">Заморозка</a>
@@ -60,7 +58,6 @@
 	<!--<a href="/category/276" class="c_new_index_menu_dropdown_link">Детское питание</a>	-->
 </div>
 <div class="c_new_index_menu_dropdown_ls fl_l c_new_index_menu_dropdown_thrdls">
-	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
 	<a href="/category/24" class="c_new_index_menu_dropdown_link">Чай</a>
 	<a href="/category/25" class="c_new_index_menu_dropdown_link">Кофе</a>
 	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
@@ -83,16 +80,12 @@
 	<a href="/category/301" class="c_new_index_menu_dropdown_link">Соевые продукты</a>
 </div>
 <div class="c_new_index_menu_dropdown_ls c_new_index_menu_dropdown_frthls fl_l">
-	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
 	<div class="c_new_index_menu_dropdown_head">Пробные наборы</div>
-	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
 	 <a href="/country/2" class="c_new_index_menu_dropdown_link">Универсальный</a>
 	 <a href="/country/3" class="c_new_index_menu_dropdown_link">Молочный</a>
 	 <a href="/country/4" class="c_new_index_menu_dropdown_link">Мясо и деликатесы</a>
 	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
-	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
 	<div class="c_new_index_menu_dropdown_head">Из стран мира</div>
-	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
 	 <a href="/country/2" class="c_new_index_menu_dropdown_link">Италия</a>
 	 <a href="/country/3" class="c_new_index_menu_dropdown_link">Испания</a>
 	 <a href="/country/4" class="c_new_index_menu_dropdown_link">Греция</a>
@@ -106,22 +99,18 @@
 	 <a href="/country/3" class="c_new_index_menu_dropdown_link">Жиры</a>
 </div>							
 <div class="c_new_index_menu_dropdown_ls c_new_index_menu_dropdown_ffthls fl_l">
-	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
 	<div class="c_new_index_menu_dropdown_head">Выгода</div>
-	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
 	 <a href="" class="c_new_index_menu_dropdown_link">Продукты по акции</a>
 	 <a href="/bbox" class="c_new_index_menu_dropdown_link">Большая упаковка</a>
 	 <a href="/recommend" class="c_new_index_menu_dropdown_link">Особо рекомендуем</a>
 	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
 	<div class="c_new_index_menu_dropdown_head">По назначению</div>
-	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
 	 <a href="/diet" class="c_new_index_menu_dropdown_link">Диетические</a>
 	 <a href="/farm" class="c_new_index_menu_dropdown_link">Фермерские</a>
 	 <a href="/eko" class="c_new_index_menu_dropdown_link">Эко и органик</a>
 	 <a href="/child" class="c_new_index_menu_dropdown_link">Для детей</a>
 	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
 	<div class="c_new_index_menu_dropdown_head">B2B <span class="rtcfvgyuhbnijmoknujhbyvgtfrcd">с 10 мая</span></div>
-	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
 	 <a href="/country/2" class="c_new_index_menu_dropdown_link">Для магазинов</a>
 	 <a href="/country/3" class="c_new_index_menu_dropdown_link">Для ресторанов</a>
 	 <a href="/country/4" class="c_new_index_menu_dropdown_link">Для организаций</a>
