@@ -922,7 +922,7 @@ class Productlib {
 			'third_wave' => array()
 		);
 
-		$sql = "SELECT p.product_id, p.title, p.title_full, p.brand, p.country, p.manufacturer, p.composition, p.consist, c.category_id FROM products AS p, categories AS c, product_to_category AS ptc WHERE p.status = 1 AND c.category_id = ptc.category_id AND p.product_id = ptc.product_id";
+		$sql = "SELECT p.product_id, p.title, p.title_full, p.brand, p.country, p.manufacturer, p.composition, p.consist, c.category_id,p.assortiment FROM products AS p, categories AS c, product_to_category AS ptc WHERE p.status = 1 AND c.category_id = ptc.category_id AND p.product_id = ptc.product_id";
 
 		$query = $this->_ci->db->query($sql);		
 		if ($query->num_rows() > 0) {
@@ -933,6 +933,8 @@ class Productlib {
 						$search_result['first_wave'][] = $row['product_id'];
 					} elseif($this->compare_words($row['brand'], $value) or $this->compare_words($row['country'], $value) or $this->compare_words($row['manufacturer'], $value)) {
 						$search_result['second_wave'][] = $row['product_id'];
+					} elseif($this->compare_words($row['assortiment'], $value)) {
+						$search_result['third_wave'][] = $row['product_id'];
 					}
 				} else {
 					$use_product = true;
@@ -942,6 +944,8 @@ class Productlib {
 							$use_product = 'first_wave';
 						} elseif(mb_stripos($row['brand'],$word,0,'UTF-8') !== FALSE or mb_stripos($row['country'],$word,0,'UTF-8') !== FALSE or mb_stripos($row['manufacturer'],$word,0,'UTF-8') !== FALSE) {
 							$use_product = 'second_wave';
+						} elseif(mb_stripos($row['assortiment'],$word,0,'UTF-8') !== FALSE) {
+							$use_product = 'third_wave';
 						} else {
 							$use_product = false;
 							break;
