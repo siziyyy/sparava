@@ -36,6 +36,14 @@ class Baselib {
 		$this->_related_products = $this->_ci->productlib->get_related_products_ids(false,15);
     }
 
+	public function text_limiter($text, $count) {
+		if (mb_strlen($text) > $count) {
+			$text = mb_substr($text,0,$count);
+		}
+		
+		return $text;
+	}
+
     public function get_setting_value($name) {
 
     	$query = $this->_ci->db->select("*")->from("settings")->where('name',$name)->get();
