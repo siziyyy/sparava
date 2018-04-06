@@ -21,7 +21,7 @@ class Productlib {
 			} elseif($type == 'diet') {
 				$breadcrumbs['/diet'] = 'Диетические товары';
 			} elseif($type == 'farm') {
-				$breadcrumbs['/farm'] = 'Детские товары';
+				$breadcrumbs['/farm'] = 'Фермерские товары';
 			} elseif($type == 'recommend') {
 				$breadcrumbs['/recommend'] = 'Детские товары';
 			} elseif($type == 'bbox') {

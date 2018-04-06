@@ -139,24 +139,18 @@
                             </div>
                             <div class="good_modal_right_line">
                                 <div class="good_modal_subhead">
-                                    <?php echo $product['description'] ?>
-                                    <div class="desc_prod_page_dots">...</div>
+                                    <?php echo $this->baselib->text_limiter($product['description'],240) ?>
+                                    <?php if(mb_strlen($product['description']) > 240) { ?>
+                                        <div class="desc_prod_page_dots">...</div>
+                                    <?php } ?>
                                 </div>
-                                <div class="good_modal_right_line_new_modal">
-                                    <div class="new_login_message_closeawafwwaf">×</div>
-                                    <div class="good_modal_right_line_new_modal_header">Печень кролика</div>
-                                    <div class="good_modal_right_line_new_modal_body">                                     
-Эта мышца из шеи мясного бычка придется вам по душе.
-Обладает ярким и насыщенным вкусом классической 
-мраморной говядины. Отлично подходит для жарки на мангале. 
-Рекомендуется средняя прожарка.
-<br><br>
-Это стейк из тонкого края. Отруб располагается в поясничной части 
-туши бычка. Отличается он своей продолговатой формой, более 
-плотными волокнами, чем у рибая и аппетитной жировой 
-прослойкой с одного края.
+                                <?php if(mb_strlen($product['description']) > 240) { ?>
+                                    <div class="good_modal_right_line_new_modal">
+                                        <div class="new_login_message_closeawafwwaf">×</div>
+                                        <div class="good_modal_right_line_new_modal_header">Печень кролика</div>
+                                        <div class="good_modal_right_line_new_modal_body"><?php echo $product['description'] ?></div>
                                     </div>
-                                </div>
+                                <?php } ?>
                             </div>
                             <?php if($product['sr_ves']) { ?>
                                 <div class="good_modal_right_line">
