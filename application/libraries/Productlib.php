@@ -23,7 +23,7 @@ class Productlib {
 			} elseif($type == 'farm') {
 				$breadcrumbs['/farm'] = 'Фермерские товары';
 			} elseif($type == 'recommend') {
-				$breadcrumbs['/recommend'] = 'Детские товары';
+				$breadcrumbs['/recommend'] = 'Рекомендуемые товары';
 			} elseif($type == 'bbox') {
 				$breadcrumbs['/bbox'] = 'Товары в большой упаковке';
 			} else {

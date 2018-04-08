@@ -147,7 +147,7 @@
                                 <?php if(mb_strlen($product['description']) > 240) { ?>
                                     <div class="good_modal_right_line_new_modal">
                                         <div class="new_login_message_closeawafwwaf">×</div>
-                                        <div class="good_modal_right_line_new_modal_header">Печень кролика</div>
+                                        <div class="good_modal_right_line_new_modal_header"><?php echo (empty($product['title_full']) ? $product['title'] : $product['title_full']) ?></div>
                                         <div class="good_modal_right_line_new_modal_body"><?php echo $product['description'] ?></div>
                                     </div>
                                 <?php } ?>

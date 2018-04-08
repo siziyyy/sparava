@@ -3,7 +3,7 @@
         <div class="vce_ect">
             <div class="content_helper">
                 <div class="c_new_menu_line_item rtyguhnjioklp inubyvt fl_l">
-                    <span class="c_new_menu_link fullcatlink c_new_menu_l fl_l">Полный каталог</span>
+                    <span class="c_new_menu_link fullcatlink c_new_menu_l fl_l"><a href="/">на главную</a></span>
                     <div class="search_new_3_2018_pack search_new_3_2018_pack22222 fl_r">
                         <form method="get" action="/search">
                             <input type="text" class="search_new_3_2018_input" value="<?php echo (isset($value) ? $value : ''); ?>" name="value" placeholder="более 15 000 товаров в 145 категориях">
