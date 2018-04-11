@@ -76,12 +76,13 @@
 }
 .g_old_good_price {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 16px;
     color: #FA8A75;
-    margin: 20px 0;
+    /*margin: 20px 0;*/
     position: relative;
     display: inline-block;
-    margin-right: 10px;
+    margin-right: 5px;
+    top: -1px;
 }
 .g_old_good_price:after {
     width: 100%;
@@ -91,13 +92,13 @@
     content: "";
     position: absolute;
     left: 0;
-    top: 11px;
+    top: 8px;
 }
 .g_old_good_price_date {
     display: inline-block;
     color: #808080;
     font-size: 14px;
-    margin: 0px 0 0 10px;
+    margin: 0px 0 0 6px;
     position: relative;
     top: -1px;
 }

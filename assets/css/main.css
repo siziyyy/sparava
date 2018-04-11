@@ -261,7 +261,22 @@ body,html,textarea{font-family:Calibri}
     display: inline-block;
     padding: 5px;
     position: relative;
-    top: -7px;
+    top: -9px;
+    margin: 0 11px 0 0px;
+    height: 13px;
+    line-height: 13px;
+    vertical-align: bottom;
+}
+.average_weight2 {
+    background: #20A551;
+    color: #fff;
+    font-size: 14px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    display: inline-block;
+    padding: 5px;
+    position: relative;
+    top: -9px;
     margin: 0 11px 0 0px;
     height: 13px;
     line-height: 13px;
@@ -929,7 +944,7 @@ input {
     background-position: -29px -848px;
     margin-top: -26px;
     position: absolute;
-    right: 10px;
+    right: 6px;
     transform: scale(.8);
 }
 .g_good_mobile_fav_orange {
@@ -2041,11 +2056,11 @@ footer {
 }
 .mm_modal {
     position: fixed;
-    width: 779px;
+    width: 570px;
     height: 331px;
     top: 50%;
     left: 50%;
-    margin: -165px 0 0 -389px;
+    margin: -165px 0 0 -285px;
     background: #fff;
     z-index: 100;
     padding: 71px 95px;
@@ -2053,6 +2068,12 @@ footer {
        -moz-box-sizing: border-box;
             box-sizing: border-box;
     border: 5px solid #e6e6e6;
+    color: #000;
+}
+.gyygyuygyy {
+    text-transform: none;
+}
+.gyygyuygyy a {
     color: #000;
 }
 .mm_modal_header {
