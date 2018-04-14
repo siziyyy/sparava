@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html class="no-js" lang="ru">
 	<head>
+
+        <?php if(count($this->_seo_data)) { ?>
+            <?php if($this->_seo_data['seo_keywords']) { ?>
+                <meta name="keywords" content="<?php echo $this->_seo_data['seo_keywords'] ?>"/>
+            <?php } ?>
+
+            <?php if($this->_seo_data['seo_description']) { ?>
+                <meta name="description" content="<?php echo $this->_seo_data['seo_description'] ?>"/>
+            <?php } ?>
+
+            <?php if($this->_seo_data['seo_title']) { ?>
+                <title><?php echo $this->_seo_data['seo_title'] ?></title>
+            <?php } ?>
+
+            <?php if($this->_seo_data['seo_canonical']) { ?>
+                <link rel="canonical" href="<?php echo $this->_seo_data['seo_canonical'] ?>"/>
+            <?php } ?>           
+
+            <meta name="robots" content="index,follow" />
+        <?php } else { ?>
+            <title>ай да еда - Продукты с Фуд Сити</title>
+        <?php } ?>
+
 		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>ай да еда - Продукты с Фуд Сити</title>
-		<meta name="description" content="">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">		
 		<meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">

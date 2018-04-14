@@ -3,6 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Main extends CI_Controller {
 
+	public $_seo_data = array();
+
     public function __construct() {
         parent::__construct();
 
@@ -672,6 +674,12 @@ class Main extends CI_Controller {
 	
 	public function category($category = false) {
 
+		if($category) {
+			$category = $this->baselib->get_category_id_by_param($category);
+		} else {
+			redirect(base_url('/'), 'refresh');
+		}
+
 		if(!is_null($this->input->post('token'))) {
 			if($this->baselib->check_admin_token($this->input->post('token'))) {
 				$this->load->library('excellib');
@@ -681,10 +689,6 @@ class Main extends CI_Controller {
 					return;
 				}
 			}			
-		}		
-		
-		if(!$category) {
-			redirect(base_url('/'), 'refresh');
 		}
 
 		$parent_category_id = $this->baselib->is_parent_category($category);
@@ -696,6 +700,7 @@ class Main extends CI_Controller {
 
 			$category_obj->set_id($parent_category_id);
 			$category_data = $category_obj->get_data();
+			$this->_seo_data = $this->baselib->handle_seo_data($category_data,'category');
 
 			$products = $this->productlib->get_top_five('category',$parent_category_id);
 
@@ -765,7 +770,8 @@ class Main extends CI_Controller {
 			$sort_order = $this->baselib->get_sort_order();
 
 			$category_obj->set_id($category);
-			$category_data = $category_obj->get_data();			
+			$category_data = $category_obj->get_data();
+			$this->_seo_data = $this->baselib->handle_seo_data($category_data,'category');
 			
 			$data = array(
 				'header' => array(
@@ -883,7 +889,11 @@ class Main extends CI_Controller {
 	public function product($product_id = false) {
 
 		if($product_id) {
+			
+			$product_id = $this->baselib->get_product_id_by_param($product_id);
 			$product = $this->productlib->get_product_by_id($product_id);
+			$this->_seo_data = $this->baselib->handle_seo_data($product,'product');
+
 			$products_ids = $this->baselib->get_favourites();
 			$type = (is_null($this->input->get('type')) ? false : $this->input->get('type'));
 

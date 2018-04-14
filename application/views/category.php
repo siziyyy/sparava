@@ -143,7 +143,7 @@
 		                <div class="new_goods_separator <?php echo $class ?>">
 		                    <a href="/category/<?php echo $category['info']['category_id'] ?>" class="new_goods_separator_link fl_l"><?php echo $category['info']['title'] ?></a>
 		                    <div class="new_goods_separator_count fl_l">всего товаров: <?php echo $category['products_count'] ?></div>
-		                    <a href="/category/<?php echo $category['info']['category_id'] ?>"><div class="new_goods_separator_look_all fl_r">посмотреть все</div></a>
+		                    <a href="/category/<?php echo (!empty($category['info']['seo_url']) ? $category['info']['seo_url'] : $category['info']['category_id']) ?>"><div class="new_goods_separator_look_all fl_r">посмотреть все</div></a>
 		                    <div class="clear"></div>
 		                </div>
 		                <div class="goods">
@@ -167,8 +167,11 @@
         margin: 40px 0 -20px 0;
     }
 </style>
+            		<?php if($this->_seo_data['seo_h1']) { ?>
+                    	<div class="new_chto-to-tam"><?php echo $this->_seo_data['seo_h1'] ?></div>
+                    <?php } ?>
+                    
 	            	<?php if(($sort_attr['razves'] and $sort_attr['pack']) or $sort_attr['bbox'] or $sort_attr['farm'] or $sort_attr['eko'] or $sort_attr['diet'] or $sort_attr['recommend']) { ?>
-                        <!-- <div class="new_chto-to-tam">Фрукты | Яблоко | Армения</div> -->
 		            	<div class="new_cool_line_of_filters_aaarrrghh" data-category="<?php echo $category ?>">
 		            		<div class="new_cool_line_of_filters_aaarrrghh_item new_cool_line_of_filters_aaarrrghh_item_first send <?php echo (!$sort_order ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="clear">все</div>
 		            		
