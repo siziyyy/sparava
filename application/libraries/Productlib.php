@@ -9,6 +9,8 @@ class Productlib {
 
 	public function get_breadcrumbs_for_product($product,$type = false) {
 
+		$this->_ci->load->model('Category');
+
 		$breadcrumbs = array();
 
 		if($type) {
@@ -31,13 +33,21 @@ class Productlib {
 				$breadcrumbs['/country/'.(int)$type] = $countries[$type];
 			}
 
-
-
 			$breadcrumbs['self'] = (is_null($product['title_full']) ? $product['title'] : $product['title_full']);
 		} else {
 			$breadcrumbs['/'] = 'Главная';
-			$breadcrumbs['/category/'.$product['parent_category_id']] = $product['parent_category_title'];
-			$breadcrumbs['/category/'.$product['category_id']] = $product['category_title'];
+
+			$category = new Category();
+			$category->set_id($product['parent_category_id']);
+			$category_data = $category->get_data();
+
+			$breadcrumbs['/category/'.(!empty($category_data['seo_url']) ? $category_data['seo_url'] : $category_data['category_id'] )] = $product['parent_category_title'];
+
+			$category = new Category();
+			$category->set_id($product['category_id']);
+			$category_data = $category->get_data();
+
+			$breadcrumbs['/category/'.(!empty($category_data['seo_url']) ? $category_data['seo_url'] : $category_data['category_id'] )] = $product['category_title'];
 			$breadcrumbs['self'] = (is_null($product['title_full']) ? $product['title'] : $product['title_full']);
 		}
 
@@ -429,7 +439,7 @@ class Productlib {
 		
 		$products = array();
 		
-		$category_id = $this->_ci->baselib->get_category_id($category);
+		$category_id = $this->_ci->baselib->get_category_id_by_param($category);
 		
 		$sql = 'SELECT p.*, c.bm FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND p.status = 1 AND ptc.category_id = c.category_id AND ptc.category_id = ' . (int)$category_id . ' ORDER BY product_id ASC';
 				
@@ -757,7 +767,7 @@ class Productlib {
 
 	public function filter_products_by_sort($products,$category) {
 		$sort_order = $this->_ci->baselib->get_sort_order();
-		$category_id = $this->_ci->baselib->get_category_id($category);
+		$category_id = $this->_ci->baselib->get_category_id_by_param($category);
 
 		if(count($sort_order)) {
 			if(isset($sort_order[$category_id])) {

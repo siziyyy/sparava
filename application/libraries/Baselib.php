@@ -44,6 +44,44 @@ class Baselib {
 		return $text;
 	}
 
+	public function handle_seo_data($data,$type = false) {
+		$seo_data = array(
+			'seo_url' => false,
+			'seo_title' => false,
+			'seo_h1' => false,
+			'seo_keywords' => false,
+			'seo_description' => false,
+			'seo_article' => false,
+			'seo_canonical' => false
+		);
+
+		if($type == 'category') {
+			foreach ($seo_data as $key => $value) {
+				if(isset($data[$key]) and !empty($data[$key])) {
+					$seo_data[$key] = $data[$key];
+				}
+			}			
+		} elseif($type == 'product') {
+			$seo_data['seo_url'] = $data['seo_url'];
+			$seo_data['seo_title'] = trim((empty($data['title_full']) ? $data['title'] : $data['title_full'])).' купить в Москве с доставкой на дом - интернет-магазин Ай Да Еда';
+			$seo_data['seo_description'] = trim((empty($data['title_full']) ? $data['title'] : $data['title_full'])).' в интернет магазине Ай Да Еда. Широкий ассортимент. Быстрая доставка. Звоните: +7 495 544-88-64';
+			$seo_data['seo_keywords'] = 'купить '.trim((empty($data['title_full']) ? $data['title'] : $data['title_full'])).' в Ай Да Еда';
+			$seo_data['seo_h1'] = trim((empty($data['title_full']) ? $data['title'] : $data['title_full']));
+		}
+
+		if($seo_data['seo_url']) {
+			$url = base_url();
+
+			if($type) {
+				$url = $url.$type.'/';
+			}
+
+			$seo_data['seo_canonical'] = $url.$seo_data['seo_url'];
+		}
+		
+		return $seo_data;
+	}
+
     public function get_setting_value($name) {
 
     	$query = $this->_ci->db->select("*")->from("settings")->where('name',$name)->get();
@@ -165,7 +203,7 @@ class Baselib {
 		$sort_order = $this->get_sort_order();
 
 		if($type and $category) {
-			$category_id = $this->get_category_id($category);
+			$category_id = $this->get_category_id_by_param($category);
 
 			if(isset($sort_order[$category_id])) {
 				if(isset($sort_order[$category_id][$type])) {
@@ -205,8 +243,8 @@ class Baselib {
 		return false;
     }
 
-    public function is_parent_category($category) {
-		if(!is_numeric($category)) {
+    public function get_category_id_by_param($category) {
+ 		if(!is_numeric($category)) {
 			$c_query = $this->_ci->db->get_where("categories", array("seo_url" => $category,"status" => 1));
 			if ($c_query->num_rows() > 0) {
 				$category_id = $c_query->row_array()['category_id'];
@@ -216,6 +254,27 @@ class Baselib {
 		} else {
 			$category_id = $category;
 		}
+		
+		return $category_id;
+    }
+
+    public function get_product_id_by_param($product) {
+ 		if(!is_numeric($product)) {
+			$c_query = $this->_ci->db->get_where("products", array("seo_url" => $product,"status" => 1));
+			if ($c_query->num_rows() > 0) {
+				$product_id = $c_query->row_array()['product_id'];
+			} else {
+				$product_id = 0;
+			}
+		} else {
+			$product_id = $product;
+		}
+		
+		return $product_id;
+    }
+
+    public function is_parent_category($category) {
+    	$category_id = $this->get_category_id_by_param($category);
 		
 		$sql = 'SELECT * FROM categories WHERE category_id = ' . (int)$category_id;
 				
@@ -435,7 +494,7 @@ class Baselib {
 							'title' => $category['title'],
 							'sort_order' => 0,
 							'current_category' => $mark_as_current_category,
-							'seo_url' => NULL
+							'seo_url' => $category['seo_url']
 						);
 						
 						array_unshift($categories[$line_id][$category['category_id']]['childs'],$first_element);
@@ -446,23 +505,6 @@ class Baselib {
 		
 		return $categories;
 	}
-
-
-	public function get_category_id($category) {
-		if(!is_numeric($category)) {
-			$c_query = $this->_ci->db->get_where("categories", array("seo_url" => $category,"status" => 1));
-			if ($c_query->num_rows() > 0) {
-				$category_id = $c_query->row_array()['category_id'];
-			} else {
-				$category_id = 0;
-			}
-		} else {
-			$category_id = $category;
-		}
-
-		return $category_id;
-	}
-
 	
 	public function handle_special_price($products) {
 		$favourites = $this->get_favourites();
@@ -518,7 +560,7 @@ class Baselib {
 					$products[$product_id]['favourite'] = true;
 				}
 
-				$products[$product_id]['href'] = '/product/'.$product['product_id'];
+				$products[$product_id]['href'] = '/product/'.(empty($product['seo_url']) ? $product['product_id'] : $product['seo_url']);
 
 				$default_value = false;
 
@@ -593,7 +635,7 @@ class Baselib {
 				$products['favourite'] = true;
 			}
 
-			$products['href'] = '/product/'.$products['product_id'];
+			$products['href'] = '/product/'.(empty($products['seo_url']) ? $products['product_id'] : $products['seo_url']);
 
 			$default_value = false;
 
@@ -1187,6 +1229,6 @@ class Baselib {
 		}
 		
 		return $count.' '.$word;
-	}
+	}		
 
 }
