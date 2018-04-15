@@ -3,8 +3,11 @@
 class Baselib {
 
 	private $_ci;
+	private $_seo_cahce;
+
 	public $_return_url;
 	public $_related_products;
+
 
 	public $_countries = array(
 		1 => 'Россия',
@@ -72,8 +75,18 @@ class Baselib {
 		if($seo_data['seo_url']) {
 			$url = base_url();
 
-			if($type) {
-				$url = $url.$type.'/';
+			if($this->_seo_cahce['type'] == 'category') {
+				if($this->_seo_cahce['parent_1_slug']) {
+					$url .= $this->_seo_cahce['parent_1_slug'].'/';
+				}
+			} elseif($this->_seo_cahce['type'] == 'product') {
+				if($this->_seo_cahce['parent_1_slug']) {
+					$url .= $this->_seo_cahce['parent_1_slug'].'/';
+				}
+
+				if($this->_seo_cahce['parent_2_slug']) {
+					$url .= $this->_seo_cahce['parent_2_slug'].'/';
+				}
 			}
 
 			$seo_data['seo_canonical'] = $url.$seo_data['seo_url'];
@@ -81,6 +94,80 @@ class Baselib {
 		
 		return $seo_data;
 	}
+
+    public function get_data_by_seo_url($seo_url) {
+    	$query = $this->_ci->db->select("category_id,parent_id,seo_url")->from("categories")->get();
+    	if ($query->num_rows() > 0) {
+    		foreach ($query->result_array() as $category) {
+    			$categories[$category['category_id']] = array(
+    				'category_id' => $category['category_id'],
+    				'seo_url' => $category['seo_url'],
+    				'parent_id' => $category['parent_id']
+    			);
+    		}
+    	}
+
+    	$query = $this->_ci->db->select("category_id,seo_url,parent_id")->from("categories")->where('seo_url', $seo_url)->get();
+    	if ($query->num_rows() > 0) {
+    		$category = $query->row_array();
+
+    		$data = array(
+    			'type' => 'category',
+    			'categories' => $categories,
+    			'element_id' => $category['category_id'],
+    			'seo_url' => $category['seo_url'],
+    			'parent_id' => $category['parent_id'],
+    			'parent_1_slug' => false,
+    			'parent_2_slug' => false
+    		);
+
+    		if($category['parent_id'] == '0') {
+    			$data['parent_1_slug'] = false;
+    		} else {
+    			if(isset($categories[$category['parent_id']])) {
+    				$data['parent_1_slug'] = $categories[$category['parent_id']]['seo_url'];
+    			}    			
+    		}
+
+    		$this->_seo_cahce = $data;
+
+    		return $data;
+    	} else {
+    		$query = $this->_ci->db->select("*")->from("products")->where('seo_url', $seo_url)->get();
+    		if ($query->num_rows() > 0) {
+    			$product = $query->row_array();
+
+	    		$data = array(
+	    			'type' => 'product',
+	    			'categories' => $categories,
+	    			'element_id' => $product['product_id'],
+	    			'seo_url' => $product['seo_url'],
+	    			'parent_1_slug' => false,
+	    			'parent_2_slug' => false
+	    		);
+
+	    		$query = $this->_ci->db->select("*")->from("product_to_category")->where('product_id', $product['product_id'])->get();
+	    		if ($query->num_rows() > 0) {
+	    			$category_id = $query->row_array()['category_id'];
+
+	    			if(isset($categories[$category_id])) {
+	    				$data['parent_1_slug'] = $categories[$category_id]['seo_url'];
+
+	    				if($categories[$category_id]['parent_id'] != '0' and isset($categories[$category_id]['parent_id'])) {
+	    					$data['parent_2_slug'] = $categories[$categories[$category_id]['parent_id']]['seo_url'];
+	    				}
+		    			
+	    			}
+	    		}
+
+	    		$this->_seo_cahce = $data;
+
+	    		return $data;
+	    	}
+    	}
+
+    	return false;
+    } 
 
     public function get_setting_value($name) {
 
@@ -510,6 +597,13 @@ class Baselib {
 		$favourites = $this->get_favourites();
 		
 		if(!isset($products['product_id'])) {
+			$query = $this->_ci->db->select("*")->from("product_to_category")->get();
+    		if ($query->num_rows() > 0) {
+	    		foreach ($query->result_array() as $ptc) {
+	    			$product_to_category[$ptc['product_id']] = $ptc['category_id'];
+	    		}
+    		}			
+
 			foreach($products as $product_id => $product) {
 				if($product['price'] == 0) {
 					$product['price'] = $product['cost']*(($product['percent']/100)+1);
@@ -560,7 +654,22 @@ class Baselib {
 					$products[$product_id]['favourite'] = true;
 				}
 
-				$products[$product_id]['href'] = '/product/'.(empty($product['seo_url']) ? $product['product_id'] : $product['seo_url']);
+				$href = base_url();
+
+				if(isset($product_to_category[$product_id])) {
+					$category_id = $product_to_category[$product_id];
+				}				
+
+				if(isset($this->_seo_cahce['categories'][$this->_seo_cahce['categories'][$category_id]['parent_id']])) {
+					$href .= $this->_seo_cahce['categories'][$this->_seo_cahce['categories'][$category_id]['parent_id']]['seo_url'].'/';
+				}
+
+				if(isset($this->_seo_cahce['categories'][$category_id])) {
+					$href .= $this->_seo_cahce['categories'][$category_id]['seo_url'].'/';
+				}
+			
+
+				$products[$product_id]['href'] = $href.$product['seo_url'];
 
 				$default_value = false;
 
@@ -634,6 +743,23 @@ class Baselib {
 			if(isset($favourites[$products['product_id']])) {
 				$products['favourite'] = true;
 			}
+
+			$href = '/';
+
+			$query = $this->_ci->db->select("*")->from("product_to_category")->where('product_id',$products['product_id'])->get();
+    		if ($query->num_rows() > 0) {
+	    		$category_id = $query->row_array()['category_id'];
+    		}				
+
+			if(isset($this->_seo_cahce['categories'][$this->_seo_cahce['categories'][$category_id]['parent_id']])) {
+				$href .= $this->_seo_cahce['categories'][$this->_seo_cahce['categories'][$category_id]['parent_id']]['seo_url'].'/';
+			}
+
+			if(isset($this->_seo_cahce['categories'][$category_id])) {
+				$href .= $this->_seo_cahce['categories'][$category_id]['seo_url'].'/';
+			}
+
+			$href .= $href.$products['seo_url'];
 
 			$products['href'] = '/product/'.(empty($products['seo_url']) ? $products['product_id'] : $products['seo_url']);
 

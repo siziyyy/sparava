@@ -46,7 +46,29 @@ class Main extends CI_Controller {
 
 			return true;
 		}
+
     }
+
+	public function _remap($method, $params = array()) {
+		$url_parts = parse_url($_SERVER['REQUEST_URI']);
+		$url_parts = explode('/', $url_parts['path']);
+
+		$seo_url = end($url_parts);
+
+		if(!empty($seo_url)) {
+			$data = $this->baselib->get_data_by_seo_url($seo_url);
+
+			if($data) {
+				if($data['type'] == 'category') {
+					return call_user_func_array(array($this, 'category'), array($data['element_id']));
+				} elseif($data['type'] == 'product') {
+					return call_user_func_array(array($this, 'product'), array($data['element_id']));
+				}
+			}
+		}
+
+		return call_user_func_array(array($this, $method), $params);
+	}
 
 	public function index() {
 		$banners = array(
