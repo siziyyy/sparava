@@ -1726,11 +1726,7 @@ $(document).ready(function() {
 								if(product['diet'] == 1) {
 									$('#product_info .good_modal_type').text('Диетическое');
 								}
-							}
-
-							if(product['manufacturer']) {
-									$('#product_info .product_manufacturer').text(product['manufacturer']);
-							}							
+							}						
 							
 							$('#product_info').attr('data-type',send_data.good_type);
 							
@@ -1754,13 +1750,19 @@ $(document).ready(function() {
 							$('#product_info .good_modal_video_line').empty();	
 							$('#playlist').empty();						
 
-							if(product['blog']) {
-								$('#product_info .good_modal_firm_with_link').text(product['brand']);
+							if(product['blog'] && product['manufacturer']) {
+								$('#product_info .product_manufacturer').text(product['manufacturer']);
 								$('#product_info .good_modal_firm_with_link').attr('href', product['blog']);
 								$('#product_info .good_modal_firm_with_link').show();
-							} else if (product['brand']) {
-								$('#product_info .good_modal_firm_without_link').text(product['brand']);
+							} else if(product['manufacturer']) {
+								$('#product_info .product_manufacturer').text(product['manufacturer']);
 								$('#product_info .good_modal_firm_without_link').show();
+							}	
+
+							if (product['brand']) {
+								$('#product_info .good_modal_firm').text(product['brand']);
+								$('#product_info .good_modal_firm').attr('href', 'https://aydaeda.ru/brands?brand='+encodeURIComponent(product['brand']));
+								$('#product_info .good_modal_firm').show();
 							}
 
 							if(product['blog_id']) {
