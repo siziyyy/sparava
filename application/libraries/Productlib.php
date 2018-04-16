@@ -41,13 +41,15 @@ class Productlib {
 			$category->set_id($product['parent_category_id']);
 			$category_data = $category->get_data();
 
-			$breadcrumbs['/category/'.(!empty($category_data['seo_url']) ? $category_data['seo_url'] : $category_data['category_id'] )] = $product['parent_category_title'];
+			$breadcrumbs['/'.$category_data['seo_url']] = $product['parent_category_title'];
+
+			$parent_seo_url = $category_data['seo_url'];
 
 			$category = new Category();
 			$category->set_id($product['category_id']);
 			$category_data = $category->get_data();
 
-			$breadcrumbs['/category/'.(!empty($category_data['seo_url']) ? $category_data['seo_url'] : $category_data['category_id'] )] = $product['category_title'];
+			$breadcrumbs['/'.$parent_seo_url.'/'.$category_data['seo_url']] = $product['category_title'];
 			$breadcrumbs['self'] = (is_null($product['title_full']) ? $product['title'] : $product['title_full']);
 		}
 
@@ -136,7 +138,7 @@ class Productlib {
 		$products = array();
 
 		if($type == 'category') {
-			$sql = "SELECT p.*, c.category_id, c.title AS category, c.bm, c.seo_url FROM categories AS c, product_to_category AS ptc, products AS p WHERE p.status = 1 AND c.category_id = ptc.category_id AND p.product_id = ptc.product_id AND c.parent_id = " . (int)$element_id . " ORDER BY c.sort_order ASC";
+			$sql = "SELECT p.*, c.category_id, c.title AS category, c.bm, c.seo_url AS c_seo_url FROM categories AS c, product_to_category AS ptc, products AS p WHERE p.status = 1 AND c.category_id = ptc.category_id AND p.product_id = ptc.product_id AND c.parent_id = " . (int)$element_id . " ORDER BY c.sort_order ASC";
 
 			$query = $this->_ci->db->query($sql);
 
@@ -148,7 +150,7 @@ class Productlib {
 						$products[$row['category_id']]['info'] = array(
 							'title' => $row['category'],
 							'category_id' => $row['category_id'],
-							'seo_url' => $row['seo_url']
+							'seo_url' => $row['c_seo_url']
 						);
 					}
 				}
@@ -165,7 +167,7 @@ class Productlib {
 				}
 			}
 
-			$sql = "SELECT p.*, c.title AS category, c.parent_id, c.bm, c.seo_url FROM categories AS c, product_to_category AS ptc, products AS p WHERE p.status = 1 AND c.category_id = ptc.category_id AND p.product_id = ptc.product_id";
+			$sql = "SELECT p.*, c.title AS category, c.parent_id, c.bm, c.seo_url AS c_seo_url FROM categories AS c, product_to_category AS ptc, products AS p WHERE p.status = 1 AND c.category_id = ptc.category_id AND p.product_id = ptc.product_id";
 
 			if($type == 'country') {
 				$sql .= " AND p.country = '" . $element_id . "';";
@@ -197,7 +199,7 @@ class Productlib {
 						$products[$row['parent_id']]['info'] = array(
 							'title' => $categories[$row['parent_id']]['title'],
 							'category_id' => $row['parent_id'],
-							'seo_url' => $row['seo_url']
+							'seo_url' => $row['c_seo_url']
 						);
 					}
 				}

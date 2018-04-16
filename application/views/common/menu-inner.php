@@ -4,7 +4,7 @@
 						<?php $parent_category = true; ?>
 						<?php foreach($menu_childs as $category) { ?>									
 							<div class="c_new_menu_line_item fl_l">
-								<a href="/category/<?php echo ( !empty($category['seo_url']) ? $category['seo_url'] : $category['category_id'] ) ?>" class="c_new_menu_link <?php echo ( $category['current_category'] ? 'orange_text' : '' ) ?> <?php echo ( $parent_category ? 'gray_text parent_cat' : '' ) ?>"><?php echo $category['title'] ?></a>
+								<a href="<?php echo ($parent_category ? '/' : '/'.$parent_category_seo_url.'/') ?><?php echo $category['seo_url'] ?>" class="c_new_menu_link <?php echo ( $category['current_category'] ? 'orange_text' : '' ) ?> <?php echo ( $parent_category ? 'gray_text parent_cat' : '' ) ?>"><?php echo $category['title'] ?></a>
 							</div>
 							<?php $parent_category = false; ?>
 						<?php } ?>

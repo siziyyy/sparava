@@ -740,11 +740,19 @@ class Main extends CI_Controller {
 				}
 			}
 
+			foreach ($menu_childs as $key => $value) {				
+				if(!isset($parent_category)) {
+					$parent_category = $value['seo_url'];
+					break;
+				}
+			}
+
 			$data = array(
 				'header' => array(
 					'cart' => $this->get_cart_info_for_header()
 				),
 				'menu' => $menu,
+				'parent_category_seo_url' => $parent_category,
 				'category_data' => $category_data,
 				'category' => $category,
 				'path' => false,
@@ -789,6 +797,13 @@ class Main extends CI_Controller {
 				}
 			}
 
+			foreach ($menu_childs as $key => $value) {				
+				if(!isset($parent_category)) {
+					$parent_category = $value['seo_url'];
+					break;
+				}
+			}
+
 			$sort_order = $this->baselib->get_sort_order();
 
 			$category_obj->set_id($category);
@@ -800,6 +815,7 @@ class Main extends CI_Controller {
 					'cart' => $this->get_cart_info_for_header()
 				),
 				'menu' => $menu,
+				'parent_category_seo_url' => $parent_category,
 				'category_data' => $category_data,
 				'category' => $category,
 				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
