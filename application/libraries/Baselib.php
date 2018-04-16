@@ -166,6 +166,11 @@ class Baselib {
 	    	}
     	}
 
+    	$this->_seo_cahce = array(
+    		'categories' => $categories,
+    		'type' => false
+    	);
+
     	return false;
     } 
 
@@ -658,7 +663,7 @@ class Baselib {
 
 				if(isset($product_to_category[$product_id])) {
 					$category_id = $product_to_category[$product_id];
-				}				
+				}
 
 				if(isset($this->_seo_cahce['categories'][$this->_seo_cahce['categories'][$category_id]['parent_id']])) {
 					$href .= $this->_seo_cahce['categories'][$this->_seo_cahce['categories'][$category_id]['parent_id']]['seo_url'].'/';
@@ -667,10 +672,9 @@ class Baselib {
 				if(isset($this->_seo_cahce['categories'][$category_id])) {
 					$href .= $this->_seo_cahce['categories'][$category_id]['seo_url'].'/';
 				}
-			
 
 				$products[$product_id]['href'] = $href.$product['seo_url'];
-
+		
 				$default_value = false;
 
 				if(!is_null($product['sr_ves']) and !empty($product['sr_ves'])) {
