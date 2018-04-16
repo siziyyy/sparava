@@ -284,7 +284,8 @@ class Main extends CI_Controller {
 			'claims',
 			'agreement',
 			'contacts',
-			'return'
+			'return',
+			'bbox'
 		);	
 	
 		$data = array(
@@ -556,6 +557,8 @@ class Main extends CI_Controller {
 			}			
 		}
 
+		$brand_title = $this->input->get('brand');
+
 		$products = $this->productlib->get_products(false,true);
 		
 		$filters = array(
@@ -576,7 +579,7 @@ class Main extends CI_Controller {
 		if($empty_products > 0) {
 			$empty_products = 5-$empty_products;
 		}
-		
+
 		$data = array(
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
@@ -584,6 +587,7 @@ class Main extends CI_Controller {
 			'menu' => array(
 				'filters' => $filters
 			),
+			'brand_title' => $brand_title,
 			'products' => $products_in_page['products'],
 			'current_page' => $page,
 			'pages_count' => $products_in_page['pages_count'],

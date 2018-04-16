@@ -63,16 +63,28 @@
                     </div>
                     <div class="good_modal_right_line good_modal_bbefore_wrapper">
                         <div class="good_modal_tme">
-                            <span class="good_modal_rl_header">Производитель: </span><span class="product_manufacturer clear_on_load"></span>
+                            <span class="good_modal_rl_header">Производитель: </span>
+                            <span class="product_manufacturer clear_on_load good_modal_firm_without_link"></span>
+                            <span><a href="" class="product_manufacturer clear_on_load good_modal_firm_with_link"></a></span>
                         </div>
                     </div>
-                    <div class="good_modal_right_line">
+                    <!-- <div class="good_modal_right_line">
                         <div class="good_modal_country clear_on_load fl_l"></div>
                         <a href="" class="good_modal_firm good_modal_firm_with_link clear_on_load fl_l"></a>
                         <div class="good_modal_firm good_modal_firm_without_link good_modal_firm_not_link clear_on_load fl_l"></div>
                         <a href="/" class="good_modal_ink_link good_modal_ink_link2 about_this_product">об этом товаре в блоге</a>
                         <div class="clear"></div>
+                    </div> -->
+
+
+
+
+                    <div class="good_modal_right_line">
+                        <div class="good_modal_country clear_on_load fl_l"></div>
+                        <a href="" class="good_modal_firm clear_on_load fl_l"></a>
+                        <div class="clear"></div>
                     </div>
+                    
                     <div class="good_modal_right_line actions_holder">
 						<div class="g_good_count">
 							<div class="g_good_count_act g_good_count_rem sprite"></div>

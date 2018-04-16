@@ -1121,6 +1121,15 @@ class Baselib {
 		
 		if($pages_count > 2) {
 			$dots_used = false;
+
+			if($page > 1) {
+				$pages[0] = array(
+					'page' => $page-1,
+					'current_page' => false,
+					'dots' => false,
+					'back_button' => true
+				);
+			}
 			
 			for( $i = 1 ; $i <= $pages_count ; $i++ ) {
 				if($i == 1) {
@@ -1155,6 +1164,15 @@ class Baselib {
 				}
 			}
 		} else {
+			if($page > 1) {
+				$pages[0] = array(
+					'page' => $page-1,
+					'current_page' => false,
+					'dots' => false,
+					'back_button' => true
+				);
+			}
+
 			for( $i = 1 ; $i <= $pages_count ; $i++ ) {
 				$pages[] = array(
 					'page' => $i,

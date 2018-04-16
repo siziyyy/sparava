@@ -57,7 +57,7 @@
 				<?php } ?>
 			<?php } else { ?>
 				<?php if($product['bm'] == 1) { ?>
-					 за 1 кг <a href="/information/" class="g_old_good_price_date_alm">≈</a>
+					 за 1 кг <a href="/information/bbox" class="g_old_good_price_date_alm">≈</a>
 				<?php } else { ?>
 					 за 100 гр
 				<?php } ?>

@@ -198,7 +198,7 @@
                                 <?php if(!empty($product['country'])) { ?>
                                     <div class="good_modal_country fl_l"><?php echo $product['country'] ?></div>
                                 <?php } ?>
-                                <span class="good_modal_firm good_modal_firm_not_link fl_l"><?php echo $product['brand'] ?></span>
+                                <span class="good_modal_firm good_modal_firm_not_link fl_l"><a href="https://aydaeda.ru/brands?brand=<?php echo urlencode($product['brand']) ?>"><?php echo $product['brand'] ?></a></span>
                                 <?php if(!is_null($product['blog_id'])) { ?>
                                     <a href="/blogs/<?php echo $product['blog_id'] ?>" class="good_modal_ink_link">об этом товаре в блоге</a>
                                 <?php } ?>

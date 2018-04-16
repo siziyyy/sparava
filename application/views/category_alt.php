@@ -122,7 +122,11 @@
     								<?php if ($page['dots']) { ?>
     									<div class="c_page_dots">...</div>
     								<?php } else { ?>
-    									<div class="c_page <?php echo ($page['current_page'] ? 'c_current_page' : '') ?>" data-page="<?php echo $page['page'] ?>"><?php echo $page['page'] ?></div>
+										<?php if(isset($page['back_button'])) { ?>
+											<div class="c_page" data-page="<?php echo $page['page'] ?>"><</div>
+										<?php } else { ?>
+											<div class="c_page <?php echo ($page['current_page'] ? 'c_current_page' : '') ?>" data-page="<?php echo $page['page'] ?>"><?php echo $page['page'] ?></div>
+										<?php } ?>
     								<?php } ?>
     							<?php } ?>
     						</div>
