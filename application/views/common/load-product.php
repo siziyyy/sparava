@@ -46,7 +46,6 @@
 		<?php if(isset($product['old_price'])) { ?>
 			<div class="g_old_good_price"><?php echo $product['old_price'] ?> р.</div>
 		<?php } ?>
-			<div class="g_old_good_price"><?php echo $product['price'] ?> р.</div>
 		<div class="g_good_price"><span class="g_good_price_value"><?php echo $product['price'] ?></span> р.</div>
 		<div class="g_old_good_price_date">
 			<!-- <?php echo ($product['type'] == 'шт' ? (!is_null($product['weight']) ? ' - '.$product['weight'] : '') : ($product['bm'] == 1 ? ' за 1 кг' : ' за 100 гр')) ?> <a href="/information/" class="g_old_good_price_date_alm">≈</a> -->

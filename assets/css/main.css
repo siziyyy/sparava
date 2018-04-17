@@ -466,7 +466,7 @@ header {
 .blog_header_left_link:hover {
     color: #000;
 }
-.good_modal_firm {
+.good_modal_firm, .good_modal_firm a {
     font-size: 16px;
     /*color: #FE4517;*/
     color: #000;
