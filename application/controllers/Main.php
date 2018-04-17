@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Main extends CI_Controller {
 
 	public $_seo_data = array();
+	public $_is_mobile = false;
 
     public function __construct() {
         parent::__construct();
@@ -47,6 +48,8 @@ class Main extends CI_Controller {
 			return true;
 		}
 
+		$this->_is_mobile = $this->devdetectlib->is_mobile();
+		var_dump($this->_is_mobile);die();
     }
 
 	public function _remap($method, $params = array()) {
