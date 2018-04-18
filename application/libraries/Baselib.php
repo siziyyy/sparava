@@ -7,7 +7,7 @@ class Baselib {
 
 	public $_return_url;
 	public $_related_products;
-
+	public $_categories_list;
 
 	public $_countries = array(
 		1 => 'Россия',
@@ -27,16 +27,20 @@ class Baselib {
     	$this->_ci =& get_instance();
     	$this->_ci->load->library('productlib');
     	$this->_ci->load->library('filterlib');
-
-    	if(!is_null($this->_ci->session->userdata('return_url'))) {
-    		$this->_return_url = $this->_ci->session->userdata('return_url');
-    	} else {
-    		$this->_return_url = '/';
-    	}
-
-		$this->_ci->session->set_userdata('return_url',$_SERVER['REQUEST_URI']);
-
 		$this->_related_products = $this->_ci->productlib->get_related_products_ids(false,15);
+
+    	$this->_categories_list = $this->_ci->cache->file->get('categories_list');
+
+    	if(!$this->_categories_list) {
+	    	$query = $this->_ci->db->select("*")->from("categories")->where('status',1)->order_by('sort_order', 'ASC')->get();
+	    	if ($query->num_rows() > 0) {
+	    		foreach ($query->result_array() as $row) {
+	    			$this->_categories_list[$row['category_id']] = $row;
+	    		}
+	    	}
+
+    		$this->_ci->cache->file->save('categories_list', $this->_categories_list, 3600);
+	    }
     }
 
 	public function text_limiter($text, $count) {
@@ -96,16 +100,16 @@ class Baselib {
 	}
 
     public function get_data_by_seo_url($seo_url) {
-    	$query = $this->_ci->db->select("category_id,parent_id,seo_url")->from("categories")->get();
-    	if ($query->num_rows() > 0) {
-    		foreach ($query->result_array() as $category) {
-    			$categories[$category['category_id']] = array(
-    				'category_id' => $category['category_id'],
-    				'seo_url' => $category['seo_url'],
-    				'parent_id' => $category['parent_id']
-    			);
-    		}
-    	}
+
+	    $categories = array();
+
+		foreach ($this->_categories_list as $category) {
+			$categories[$category['category_id']] = array(
+				'category_id' => $category['category_id'],
+				'seo_url' => $category['seo_url'],
+				'parent_id' => $category['parent_id']
+			);
+		}
 
     	$query = $this->_ci->db->select("category_id,seo_url,parent_id")->from("categories")->where('seo_url', $seo_url)->get();
     	if ($query->num_rows() > 0) {
@@ -498,103 +502,63 @@ class Baselib {
 		return $share_links;
 	}	
 	
-	public function get_all_categories() {
-		
-		$categories = array();
-		$query = $this->_ci->db->select("*")->from("categories")->where('status',1)->order_by('sort_order','ASC')->get();
-		
-		if ($query->num_rows() > 0) {
-			foreach ($query->result_array() as $row) {				
-				$categories[$row['category_id']] = $row;
-			}
-		}
-		
-		return $categories;
+	public function get_all_categories() {		
+		return $this->_categories_list;
 	}
 	
-	public function get_categories($current_category = false,$all_in_first_line = false) {
-		
+	public function get_categories($category_id) {
 		$categories = array();
-		$query = $this->_ci->db->select("*")->from("categories")->where('status',1)->order_by('sort_order', 'ASC')->get();
-		
-		if ($query->num_rows() > 0) {
-			foreach ($query->result_array() as $row) {				
-				$result[$row['category_id']] = $row;
-			}
-			
-			foreach ($result as $row) {
 
-				if($current_category) {
-					if($row['seo_url'] == $current_category or $row['category_id'] == $current_category) {
+		if($this->_categories_list[$category_id]['parent_id'] == 0) {
+			$categories[] = array(
+				'category_id' => $category_id,
+				'title' => $this->_categories_list[$category_id]['title'],
+				'sort_order' => 0,
+				'current_category' => true,
+				'seo_url' => $this->_categories_list[$category_id]['seo_url']
+			);
+
+			foreach ($this->_categories_list as $category) {
+				if($category['parent_id'] == $category_id) {
+					$categories[] = array(
+						'category_id' => $category['category_id'],
+						'title' => $category['title'],
+						'sort_order' => $category['sort_order'],
+						'current_category' => false,
+						'seo_url' => $category['seo_url']
+					);
+				}
+			}
+		} else {
+			$parent_id = $this->_categories_list[$category_id]['parent_id'];
+
+			$categories[] = array(
+				'category_id' => $parent_id,
+				'title' => $this->_categories_list[$parent_id]['title'],
+				'sort_order' => 0,
+				'current_category' => false,
+				'seo_url' => $this->_categories_list[$parent_id]['seo_url']
+			);
+
+			foreach ($this->_categories_list as $category) {
+				if($category['parent_id'] == $parent_id) {
+					if($category['category_id'] == $category_id) {
 						$mark_as_current_category = true;
 					} else {
 						$mark_as_current_category = false;
 					}
-				} else {
-					$mark_as_current_category = false;
-				}
-			
-				if($row['parent_id'] == 0) {
-					if($all_in_first_line) {
-						$line = 'categories_first_line';
-					} else {
-						$line = ($row['first_line'] == 1 ? 'categories_first_line' : 'categories_second_line');
-					}
-					
-					if(isset($categories[$line][$row['category_id']])) {
-						if(!isset($categories[$line][$row['category_id']]['current_category']) or !$categories[$line][$row['category_id']]['current_category']) {
-							$row['current_category'] = $mark_as_current_category;
-						}
-						
-						$categories[$line][$row['category_id']] = array_merge($categories[$line][$row['category_id']],$row);
-					} else {
-						if(!isset($categories[$line][$row['category_id']]['current_category']) or !$categories[$line][$row['category_id']]['current_category']) {
-							$row['current_category'] = $mark_as_current_category;
-						}
-						
-						$categories[$line][$row['category_id']] = $row;
-					}
-				} else {
-					if($all_in_first_line) {
-						$line = 'categories_first_line';
-					} else {
-						$line = ($result[$row['parent_id']]['first_line'] == 1 ? 'categories_first_line' : 'categories_second_line');
-					}
-					
-					$row['current_category'] = $mark_as_current_category;
-					$categories[$line][$row['parent_id']]['childs'][$row['category_id']] = $row;
-					
-					if(!isset($categories[$line][$row['parent_id']]['current_category']) or !$categories[$line][$row['parent_id']]['current_category']) {
-						$categories[$line][$row['parent_id']]['current_category'] = $mark_as_current_category;
-					}
-				}
-			}
-			
-			$mark_as_current_category = true;
-			
-			foreach($categories as $line_id => $line) {
-				foreach($line as $category_id => $category) {
-					if($category['current_category'] and isset($category['childs'])) {
-						foreach($category['childs'] as $child) {
-							if($child['current_category']) {
-								$mark_as_current_category = false;
-							}
-						}
-						
-						$first_element = array(
-							'category_id' => $category['category_id'],
-							'title' => $category['title'],
-							'sort_order' => 0,
-							'current_category' => $mark_as_current_category,
-							'seo_url' => $category['seo_url']
-						);
-						
-						array_unshift($categories[$line_id][$category['category_id']]['childs'],$first_element);
-					}
+
+					$categories[] = array(
+						'category_id' => $category['category_id'],
+						'title' => $category['title'],
+						'sort_order' => $category['sort_order'],
+						'current_category' => $mark_as_current_category,
+						'seo_url' => $category['seo_url']
+					);
 				}
 			}
 		}
-		
+
 		return $categories;
 	}
 	

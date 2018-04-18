@@ -21,7 +21,6 @@ class Main extends CI_Controller {
 					'header' => array(
 						'cart' => $this->get_cart_info_for_header()
 					),
-					'menu' => $this->baselib->get_categories(false,true),
 					'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 					'footer' => array(
 						'account_confirm' => $this->baselib->get_account_data_for_confirm()
@@ -49,7 +48,6 @@ class Main extends CI_Controller {
 		}
 
 		$this->_is_mobile = $this->devdetectlib->is_mobile();
-		var_dump($this->_is_mobile);die();
     }
 
 	public function _remap($method, $params = array()) {
@@ -132,7 +130,6 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
-			'menu' => $this->baselib->get_categories(false,true),
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
@@ -140,7 +137,12 @@ class Main extends CI_Controller {
 			'banners' => $banners
 		);
 		
-		$this->load->view('main', $data);
+		if($this->_is_mobile) {
+			$this->load->view('mobile/main', $data);
+		} else {
+			$this->load->view('main', $data);
+		}
+		
 	}
 
 	public function callme() {		
@@ -148,14 +150,17 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
-			'menu' => $this->baselib->get_categories(false,true),
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
 		);
 		
-		$this->load->view('callme', $data);
+		if($this->_is_mobile) {
+			$this->load->view('mobile/callme', $data);
+		} else {
+			$this->load->view('callme', $data);
+		}
 	}
 
 	public function callmeform($subject) {
@@ -175,15 +180,18 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
-			'menu' => $this->baselib->get_categories(false,true),
 			'subject' => $subject_title,
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
 		);
-		
-		$this->load->view('callmeform', $data);
+
+		if($this->_is_mobile) {
+			$this->load->view('mobile/callmeform', $data);
+		} else {
+			$this->load->view('callmeform', $data);
+		}
 	}
 
 	public function providers_blogs($blog_id = false) {
@@ -378,7 +386,6 @@ class Main extends CI_Controller {
 			'path' => false,
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'value' => $value,
-			'menu' => $this->baselib->get_categories()
 		);
 		
 		$this->load->view('search', $data);
@@ -401,7 +408,6 @@ class Main extends CI_Controller {
 				'cart' => $this->get_cart_info_for_header()
 			),
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
-			'menu' => $this->baselib->get_categories()
 		);
 		
 		$this->load->view('cart/checkout_success', $data);
@@ -733,33 +739,13 @@ class Main extends CI_Controller {
 
 			$products = $this->productlib->get_top_five('category',$parent_category_id);
 
-			$menu = $this->baselib->get_categories($category,true);
-			$menu_childs = array();
-			
-			
-			foreach($menu as $line) {
-				foreach($line as $lcategory) {
-					if($lcategory['current_category']) {
-						if(isset($lcategory['childs'])) {
-							$menu_childs = $lcategory['childs'];
-						}
-					}
-				}
-			}
-
-			foreach ($menu_childs as $key => $value) {				
-				if(!isset($parent_category)) {
-					$parent_category = $value['seo_url'];
-					break;
-				}
-			}
+			$menu_childs = $this->baselib->get_categories($category);
 
 			$data = array(
 				'header' => array(
 					'cart' => $this->get_cart_info_for_header()
 				),
-				'menu' => $menu,
-				'parent_category_seo_url' => $parent_category,
+				'parent_category_seo_url' => $menu_childs[0]['seo_url'],
 				'category_data' => $category_data,
 				'category' => $category,
 				'path' => false,
@@ -791,25 +777,7 @@ class Main extends CI_Controller {
 
 			$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
 			
-			$menu = $this->baselib->get_categories($category,true);
-			$menu_childs = array();			
-			
-			foreach($menu as $line) {
-				foreach($line as $lcategory) {
-					if($lcategory['current_category']) {
-						if(isset($lcategory['childs'])) {
-							$menu_childs = $lcategory['childs'];
-						}
-					}
-				}
-			}
-
-			foreach ($menu_childs as $key => $value) {				
-				if(!isset($parent_category)) {
-					$parent_category = $value['seo_url'];
-					break;
-				}
-			}
+			$menu_childs = $this->baselib->get_categories($category);
 
 			$sort_order = $this->baselib->get_sort_order();
 
@@ -821,8 +789,7 @@ class Main extends CI_Controller {
 				'header' => array(
 					'cart' => $this->get_cart_info_for_header()
 				),
-				'menu' => $menu,
-				'parent_category_seo_url' => $parent_category,
+				'parent_category_seo_url' => $menu_childs[0]['seo_url'],
 				'category_data' => $category_data,
 				'category' => $category,
 				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
@@ -922,8 +889,6 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
-			'menu' => $this->baselib->get_categories(false,true),
-			'category' => $this->baselib->get_categories(false,true),
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array()
 		);
@@ -956,7 +921,6 @@ class Main extends CI_Controller {
 					'cart' => $this->get_cart_info_for_header(),
 					'fb_share' => $this->baselib->craete_fb_share('/product/'.$product['product_id'],$product['title'],$product['description'],$product['image'])
 				),
-				'menu' => $this->baselib->get_categories(false,true),
 				'footer' => array(
 					'videos' => $product['youtube']
 				),
@@ -1427,7 +1391,6 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
-			'menu' => $this->baselib->get_categories(),
 			'cart_content' => array(
 				'products' => $products
 			),

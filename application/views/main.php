@@ -8,7 +8,7 @@
         }
     </style>
     <div class="content_helper">
-        <?php $this->load->view('common/menu', $menu);?>
+        <?php $this->load->view('common/menu');?>
     </div>
 	<div class="content_helper">
         <section class="banner2018 b_slider">
