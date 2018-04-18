@@ -74,7 +74,7 @@
                 </style>
             </div>
             <div class="content_helper">
-                <?php $this->load->view('common/menu', $menu); ?>
+                <?php $this->load->view('common/menu'); ?>
             </div>
             <div class="breadcrumbs">
                 <section class="content" style="min-height: auto;">

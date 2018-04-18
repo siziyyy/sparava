@@ -11,7 +11,7 @@
 </style>
         <section class="content">
             <div class="content_helper">
-                <?php $this->load->view('common/menu', $menu);?>
+                <?php $this->load->view('common/menu');?>
             </div>
             <div class="c_new_mobile_menu noscrlbr">
                 <a href="/category/1" class="c_mobile_menu_link">Мясо</a>

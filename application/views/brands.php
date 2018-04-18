@@ -57,7 +57,7 @@
             </div>-->
             <div class="content_helper">
                 <div class="content_helper">
-                    <?php $this->load->view('common/menu', $menu);?>
+                    <?php $this->load->view('common/menu');?>
                 </div>
                 <div class="brand_page_brand_name">
                     <?php if(!empty($brand_title)) { ?>
