@@ -59,7 +59,7 @@
                 </div>
             </div> */ ?>
             <div class="content_helper">
-                <?php $this->load->view('common/menu', $menu);?>
+                <?php $this->load->view('common/menu');?>
             </div>
             <div class="content_helper">
                 <?php if(count($products) == 0) { ?>

@@ -75,7 +75,7 @@
             </div>
             <div class="category_bg_helper <?php echo ($is_parent_category ? 'category_bg_helper_in_main' : '' ); ?>">
                 <div class="content_helper">
-                    <?php $this->load->view('common/menu-inner', $menu);?>
+                    <?php $this->load->view('common/menu-inner');?>
 	                <?php if($is_parent_category and isset($category_data) and count($category_data['tags'])) { ?>
 						<div class="line_for_common_menu_inner">
                             <style>
