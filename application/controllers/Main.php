@@ -47,7 +47,7 @@ class Main extends CI_Controller {
 			return true;
 		}
 
-		if($this->devdetectlib->is_mobile() and !$this->devdetectlib->is_tablet()) {
+		if($this->devdetectlib->is_mobile()) {
 			$this->_is_mobile = true;
 		}		
     }
@@ -1205,9 +1205,9 @@ class Main extends CI_Controller {
 			$filters = array(
 				'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
 			);
-			
+		
 			$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
-			
+
 			$products = $this->productlib->get_products_with_categories(false,'eko');
 			$products = $this->productlib->sort_products('category','eko',$products);
 			

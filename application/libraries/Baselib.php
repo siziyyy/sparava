@@ -629,12 +629,17 @@ class Baselib {
 					$category_id = $product_to_category[$product_id];
 				}
 
-				if(isset($this->_seo_cahce['categories'][$this->_seo_cahce['categories'][$category_id]['parent_id']])) {
-					$href .= $this->_seo_cahce['categories'][$this->_seo_cahce['categories'][$category_id]['parent_id']]['seo_url'].'/';
+				if(!isset($this->_categories_list[$category_id]) or !isset($this->_categories_list[$this->_categories_list[$category_id]['parent_id']])) {
+					unset($products[$product_id]);
+					continue;
 				}
 
-				if(isset($this->_seo_cahce['categories'][$category_id])) {
-					$href .= $this->_seo_cahce['categories'][$category_id]['seo_url'].'/';
+				if(isset($this->_categories_list[$this->_categories_list[$category_id]['parent_id']])) {
+					$href .= $this->_categories_list[$this->_categories_list[$category_id]['parent_id']]['seo_url'].'/';
+				}
+
+				if(isset($this->_categories_list[$category_id])) {
+					$href .= $this->_categories_list[$category_id]['seo_url'].'/';
 				}
 
 				$products[$product_id]['href'] = $href.$product['seo_url'];
@@ -719,12 +724,12 @@ class Baselib {
 	    		$category_id = $query->row_array()['category_id'];
     		}				
 
-			if(isset($this->_seo_cahce['categories'][$this->_seo_cahce['categories'][$category_id]['parent_id']])) {
-				$href .= $this->_seo_cahce['categories'][$this->_seo_cahce['categories'][$category_id]['parent_id']]['seo_url'].'/';
+			if(isset($this->_categories_list[$this->_categories_list[$category_id]['parent_id']])) {
+				$href .= $this->_categories_list[$this->_categories_list[$category_id]['parent_id']]['seo_url'].'/';
 			}
 
-			if(isset($this->_seo_cahce['categories'][$category_id])) {
-				$href .= $this->_seo_cahce['categories'][$category_id]['seo_url'].'/';
+			if(isset($this->_categories_list[$category_id])) {
+				$href .= $this->_categories_list[$category_id]['seo_url'].'/';
 			}
 
 			$href .= $href.$products['seo_url'];
