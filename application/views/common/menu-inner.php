@@ -86,8 +86,6 @@
 						</div>
 						<?php } ?>
 
-
-
 						<?php if(count($attributes['weights']) > 1) { ?>
 						<div class="cool_select_pack fl_l" data-type="weight">
 							<div class="cool_select <?php echo (isset($filters_text['weight']) ? 'cool_select_disabled' : '') ?>">

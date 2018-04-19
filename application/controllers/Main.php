@@ -822,7 +822,7 @@ class Main extends CI_Controller {
 			$products = $this->productlib->get_category_products($category);
 			$products = $this->productlib->sort_products('category',$category,$products);
 			$products_in_page = $this->filterlib->filter_products($products,$filters,$page,$category);
-			
+
 			$data['menu_childs'] = $menu_childs;
 			$data['attributes'] = $this->baselib->handle_attributes($products);
 			$data['filters'] = $filters;
@@ -845,7 +845,11 @@ class Main extends CI_Controller {
 			$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);
 			$data['empty_products'] = $empty_products;
 
-			$this->load->view('category', $data);
+			if($this->_is_mobile) {
+				$this->load->view('mobile/category', $data);
+			} else {
+				$this->load->view('category', $data);
+			}			
 		}
 	}
 	
@@ -1027,7 +1031,11 @@ class Main extends CI_Controller {
 			$data['empty_products'] = $empty_products;
 		}
 
-		$this->load->view('category_alt', $data);
+		if($this->_is_mobile) {
+			$this->load->view('mobile/category', $data);
+		} else {
+			$this->load->view('category_alt', $data);
+		}
 	}
 
 	public function recommend() {
@@ -2049,7 +2057,11 @@ class Main extends CI_Controller {
 							'product' => $product
 						);
 						
-						$html .= $this->load->view('common/load-product', $data, true);
+						if($this->input->post('dev_type') == 'mobile') {
+							$html .= $this->load->view('mobile/common/load-product', $data, true);
+						} else {
+							$html .= $this->load->view('common/load-product', $data, true);
+						}
 					}
 					
 					$json['success'] = $html;					
