@@ -1,3 +1,6 @@
+var block_send_button = false;
+var current_page = 1;
+
 $(document).ready(function() {
     /** CATEGORY CHANGE VIEW**/
     $('.category_content_header_button_view').click(function() {
@@ -125,5 +128,183 @@ $(document).ready(function() {
         };
     })).observe(document.getElementById('indicator')); */
     /** END OF DOCUMENT.READY **/
+
+    $(document).on('click','.show_more_products',function(e) {
+        e.preventDefault();
+        
+        current_page++;
+        tail = window.location.search;  
+        params = URLToArray(tail);
+        
+        send_data = {
+            type : 'load_products',
+            page : current_page,
+            filters : JSON.stringify(params),
+            dev_type : 'mobile'
+        }
+        
+        if($( this ).attr('data-category-id')) {
+            send_data.category_id = $( this ).attr('data-category-id');
+        } else if($( this ).attr('data-country-id')) {
+            send_data.country_id = $( this ).attr('data-country-id');
+        } else if($( this ).attr('data-provider-id')) {
+            send_data.provider_id = $( this ).attr('data-provider-id');
+        } else if($( this ).attr('data-provider-full-id')) {
+            send_data.provider_full_id = $( this ).attr('data-provider-full-id');
+        } else if($( this ).attr('data-brands-id')) {
+            send_data.brands_id = $( this ).attr('data-brands-id');
+        }
+
+        $.ajax({
+            url: '/ajax_handler',
+            type: 'post',
+            data: send_data,
+            dataType: 'json',
+            success: function(json) {
+                if(json['success']) {
+                    $( "#wrapper_for_product_load" ).append(json['success']);
+                    
+                    if(json['load_status'] == 'hide') {
+                        $( ".show_more_products" ).hide();
+                    }
+                }   
+            }
+        });
+    });
+
+    $('.filters_button').click(function() {
+        tail = window.location.search;  
+        params = URLToArray(tail);
+        
+        $(this).parents('.filters_form').find('.filters_form_label_checkbox').each(function() {
+            name = $(this).attr('data-name');
+            value = $(this).val();
+            values = params[name];
+
+            if(values) {
+                values = values.split(';');
+            } else {
+                values = [];
+            }
+         
+            index = values.indexOf(value);
+            
+            if ( $(this).prop("checked") && index < 0 ) {
+                values.push(value);
+            } else if( !$(this).prop("checked") && index >= 0 ) {
+                values.splice(index, 1);
+            }
+ 
+            params[name] = values.join(';');
+
+            if(values.length == 0) {
+                delete params[name];
+            }
+        });
+        
+        delete params['page'];
+        
+        window.location.href = window.location.origin+window.location.pathname+'?'+ArrayToURL(params);
+    });
+
+    $('.filters_reset').click(function(e) {
+        e.preventDefault();
+        tail = window.location.search; 
+        params = URLToArray(tail);
+
+        send_data = {
+            type : $(this).attr('data-type'),
+            sort : $(this).attr('data-sort'),
+            category : $(this).parents('.filters_body').attr('data-category')
+        }
+
+        $.ajax({
+            type: "POST", 
+            url: '/ajax_handler',
+            dataType: 'json',
+            data: send_data
+        });
+
+        for(var i in params) {
+            delete params[i];
+        }
+        
+        window.location.href = window.location.origin+window.location.pathname+'?'+ArrayToURL(params);
+    });
+
+
+    $(document).on('click','.send',function(e) {
+        e.preventDefault();
+    
+        if(block_send_button) {
+            return;
+        } else {
+            block_send_button = true;
+        }
+        
+        send_data = new Object();
+        type = $(this).attr('data-type');
+        error = false;
+        obj = $(this);
+        
+        switch(type) {
+            case 'sort':
+                send_data = {
+                    type : type,
+                    sort : obj.attr('data-sort'),
+                    category : $(this).parents('.filters_body').attr('data-category')
+                }
+                
+                break;           
+                
+            default:
+                alert('Put that cookie down!');
+                break;
+        }
+
+        if(error) {
+            block_send_button = false;
+            return;
+        }
+        
+        $.ajax({
+            type: "POST", 
+            url: '/ajax_handler',
+            dataType: 'json',
+            data: send_data,
+            success: function(json) {
+                if(json) {
+                    if(json['success']) {
+                        if(send_data.type == 'sort') {
+                            location.reload();
+                        }
+                    }
+                }
+            },
+            complete: function() {
+                block_send_button = false;
+            }
+        });
+    });
 });
 
+function URLToArray(url) {
+    var request = {};
+    var pairs = url.substring(url.indexOf('?') + 1).split('&');
+    for (var i = 0; i < pairs.length; i++) {
+        if(!pairs[i])
+            continue;
+        var pair = pairs[i].split('=');
+        request[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+     }
+     return request;
+}
+
+function ArrayToURL(array) {
+  var pairs = [];
+  for (var key in array)
+    if (array.hasOwnProperty(key))
+
+      pairs.push(encodeURIComponent(key) + '=' + encodeURIComponent(array[key]));
+  return pairs.join('&');
+}

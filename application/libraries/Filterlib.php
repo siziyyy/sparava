@@ -98,6 +98,13 @@ class Filterlib {
 			}			
 		}
 
+
+		if($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'asc') {
+			array_multisort($price_sort,SORT_ASC, $products);
+		} elseif($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'desc') {
+			array_multisort($price_sort,SORT_DESC, $products);
+		}
+
 		$sort_attr = $this->_ci->baselib->handle_sort_attributes($products);
 
 		if($category) {
@@ -112,12 +119,6 @@ class Filterlib {
 		
 		if(count($products)%50 > 0)  {
 			$pages_count++;
-		}
-
-		if($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'asc') {
-			array_multisort($price_sort,SORT_ASC, $products);
-		} elseif($filters['price'] and count($price_sort) > 0 and $filters['price'] == 'desc') {
-			array_multisort($price_sort,SORT_DESC, $products);
 		}
 		
 		foreach($products as $product_id => $product) {
