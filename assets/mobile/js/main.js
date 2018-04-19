@@ -55,8 +55,8 @@ $(document).ready(function() {
     $('.products_menu_tab_content_line').click(function(e) {
         if($(this).hasClass('products_menu_tab_content_line_header')) {
             e.preventDefault();
-        } else if($(this).hasClass('products_menu_tab_content_line_header')) {
-
+        } else if($(this).hasClass('products_menu_tab_content_line_more_link')) {
+            return true;
         }
 
         $('.products_menu_tab_content_line_more_links').hide();

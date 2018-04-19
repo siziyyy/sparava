@@ -707,7 +707,13 @@ class Productlib {
 		
 		$products = array();
 		
-		$sql = 'SELECT p.*, c.bm, c.title FROM products AS p, product_to_category AS ptc, categories AS c, providers AS pr WHERE p.product_id = ptc.product_id AND ptc.category_id = c.category_id AND p.status = 1';
+		$sql = 'SELECT p.*, c.bm, c.title FROM products AS p, product_to_category AS ptc, categories AS c';
+
+		if(!$type) {
+			$sql .= ', providers AS pr';
+		}
+
+		$sql .= ' WHERE p.product_id = ptc.product_id AND ptc.category_id = c.category_id AND p.status = 1';
 
 		if(!$type) {
 			$sql .= ' AND pr.store = p.provider AND pr.provider_id = ' . (int)$provider_id;
@@ -724,9 +730,9 @@ class Productlib {
 		} elseif($type == 'bbox') {
 			$sql .= ' AND (p.bbox = 1 OR p.bbox_n = 1)';
 		}
-		
+
 		$query = $this->_ci->db->query($sql);
-		
+
 		if ($query->num_rows() > 0) {
 			foreach ($query->result_array() as $row) {
 				$products[$row['product_id']] = $row;
