@@ -26,7 +26,7 @@
 
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">		
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="194x194" href="/favicon-194x194.png">
