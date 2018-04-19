@@ -47,7 +47,9 @@ class Main extends CI_Controller {
 			return true;
 		}
 
-		$this->_is_mobile = $this->devdetectlib->is_mobile();
+		if($this->devdetectlib->is_mobile() and !$this->devdetectlib->is_tablet()) {
+			$this->_is_mobile = true;
+		}		
     }
 
 	public function _remap($method, $params = array()) {
@@ -130,6 +132,7 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
+			'categories_struct' => $this->productlib->get_categories_struct(),
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
@@ -150,6 +153,7 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
+			'categories_struct' => $this->productlib->get_categories_struct(),
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
@@ -180,6 +184,7 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
+			'categories_struct' => $this->productlib->get_categories_struct(),
 			'subject' => $subject_title,
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
@@ -217,6 +222,7 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
+			'categories_struct' => $this->productlib->get_categories_struct(),
 			'blogs' => $blogs['blogs'],
 			'counter' => $blogs['counter'],
 			'months' => $months,
@@ -256,6 +262,7 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
+			'categories_struct' => $this->productlib->get_categories_struct(),
 			'blogs' => $blogs['blogs'],
 			'counter' => $blogs['counter'],
 			'months' => $months,
@@ -303,6 +310,7 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
+			'categories_struct' => $this->productlib->get_categories_struct(),
 			'first_block' => $page,
 			'blocks' => $blocks,
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
@@ -376,6 +384,7 @@ class Main extends CI_Controller {
 
 		$data = array(
 			'current_page' => $page,
+			'categories_struct' => $this->productlib->get_categories_struct(),
 			'pages_count' => $pages_count,
 			'pages' => $this->baselib->create_pager($pages_count,$page),
 			'cart' => $this->get_cart_info_for_header(),
@@ -407,6 +416,7 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
+			'categories_struct' => $this->productlib->get_categories_struct(),
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 		);
 		
@@ -424,6 +434,7 @@ class Main extends CI_Controller {
 				'header' => array(
 					'cart' => $this->get_cart_info_for_header()
 				),
+				'categories_struct' => $this->productlib->get_categories_struct(),
 				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 				'footer' => array(
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
@@ -462,6 +473,7 @@ class Main extends CI_Controller {
 				'menu' => array(
 					'filters' => $filters
 				),
+				'categories_struct' => $this->productlib->get_categories_struct(),
 				'products' => $products_in_page['products'],
 				'current_page' => $page,
 				'pages_count' => $products_in_page['pages_count'],
@@ -529,6 +541,7 @@ class Main extends CI_Controller {
 			'menu' => array(
 				'filters' => $filters
 			),
+			'categories_struct' => $this->productlib->get_categories_struct(),
 			'products' => $products_in_page['products'],
 			'current_page' => $page,
 			'pages_count' => $products_in_page['pages_count'],
@@ -596,6 +609,7 @@ class Main extends CI_Controller {
 			'menu' => array(
 				'filters' => $filters
 			),
+			'categories_struct' => $this->productlib->get_categories_struct(),
 			'brand_title' => $brand_title,
 			'products' => $products_in_page['products'],
 			'current_page' => $page,
@@ -622,6 +636,7 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
+			'categories_struct' => $this->productlib->get_categories_struct(),
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
@@ -671,6 +686,7 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
+			'categories_struct' => $this->productlib->get_categories_struct(),
 			'menu' => array(
 				'filters' => $filters
 			),
@@ -753,13 +769,13 @@ class Main extends CI_Controller {
 				'footer' => array(
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
 				),
+				'categories_struct' => $this->productlib->get_categories_struct(),
 				'is_parent_category' => true,
 				'filters_used' => false,
 				'products' => $products,
-				'banners' => $this->baselib->get_page_banners('category-'.$category)
+				'banners' => $this->baselib->get_page_banners('category-'.$category),
+				'menu_childs' => $menu_childs
 			);
-
-			$data['menu']['menu_childs'] = $menu_childs;
 
 			$this->load->view('category', $data);
 		} else {			
@@ -789,6 +805,7 @@ class Main extends CI_Controller {
 				'header' => array(
 					'cart' => $this->get_cart_info_for_header()
 				),
+				'categories_struct' => $this->productlib->get_categories_struct(),
 				'parent_category_seo_url' => $menu_childs[0]['seo_url'],
 				'category_data' => $category_data,
 				'category' => $category,
@@ -806,9 +823,9 @@ class Main extends CI_Controller {
 			$products = $this->productlib->sort_products('category',$category,$products);
 			$products_in_page = $this->filterlib->filter_products($products,$filters,$page,$category);
 			
-			$data['menu']['menu_childs'] = $menu_childs;
-			$data['menu']['attributes'] = $this->baselib->handle_attributes($products);
-			$data['menu']['filters'] = $filters;
+			$data['menu_childs'] = $menu_childs;
+			$data['attributes'] = $this->baselib->handle_attributes($products);
+			$data['filters'] = $filters;
 
 			$data['sort_attr'] = $products_in_page['sort_attr'];
 			
@@ -824,7 +841,7 @@ class Main extends CI_Controller {
 			$data['filters_text'] = $products_in_page['filters_text'];
 			$data['filters_count'] = $products_in_page['filters_count'];
 			$data['current_page'] = $page;
-			$data['menu']['products_count'] = $products_in_page['products_count'];
+			$data['products_count'] = $products_in_page['products_count'];
 			$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);
 			$data['empty_products'] = $empty_products;
 
@@ -889,6 +906,7 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
+			'categories_struct' => $this->productlib->get_categories_struct(),
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array()
 		);
@@ -921,6 +939,7 @@ class Main extends CI_Controller {
 					'cart' => $this->get_cart_info_for_header(),
 					'fb_share' => $this->baselib->craete_fb_share('/product/'.$product['product_id'],$product['title'],$product['description'],$product['image'])
 				),
+				'categories_struct' => $this->productlib->get_categories_struct(),
 				'footer' => array(
 					'videos' => $product['youtube']
 				),
@@ -946,6 +965,7 @@ class Main extends CI_Controller {
 				'header' => array(
 					'cart' => $this->get_cart_info_for_header()
 				),
+				'categories_struct' => $this->productlib->get_categories_struct(),
 				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 				'footer' => array(
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
@@ -973,6 +993,7 @@ class Main extends CI_Controller {
 				'header' => array(
 					'cart' => $this->get_cart_info_for_header()
 				),
+				'categories_struct' => $this->productlib->get_categories_struct(),
 				'category' => 'child',
 				'path' => 'child',
 				'is_first_page' => false,
@@ -1018,6 +1039,7 @@ class Main extends CI_Controller {
 				'header' => array(
 					'cart' => $this->get_cart_info_for_header()
 				),
+				'categories_struct' => $this->productlib->get_categories_struct(),
 				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 				'footer' => array(
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
@@ -1045,6 +1067,7 @@ class Main extends CI_Controller {
 				'header' => array(
 					'cart' => $this->get_cart_info_for_header()
 				),
+				'categories_struct' => $this->productlib->get_categories_struct(),
 				'category' => 'recommend',
 				'path' => 'recommend',
 				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
@@ -1090,6 +1113,7 @@ class Main extends CI_Controller {
 				'header' => array(
 					'cart' => $this->get_cart_info_for_header()
 				),
+				'categories_struct' => $this->productlib->get_categories_struct(),
 				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 				'footer' => array(
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
@@ -1117,6 +1141,7 @@ class Main extends CI_Controller {
 				'header' => array(
 					'cart' => $this->get_cart_info_for_header()
 				),
+				'categories_struct' => $this->productlib->get_categories_struct(),
 				'category' => 'bbox',
 				'path' => 'bbox',
 				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
@@ -1162,6 +1187,7 @@ class Main extends CI_Controller {
 				'header' => array(
 					'cart' => $this->get_cart_info_for_header()
 				),
+				'categories_struct' => $this->productlib->get_categories_struct(),
 				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 				'footer' => array(
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
@@ -1189,6 +1215,7 @@ class Main extends CI_Controller {
 				'header' => array(
 					'cart' => $this->get_cart_info_for_header()
 				),
+				'categories_struct' => $this->productlib->get_categories_struct(),
 				'category' => 'eko',
 				'path' => 'eko',
 				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
@@ -1233,6 +1260,7 @@ class Main extends CI_Controller {
 				'header' => array(
 					'cart' => $this->get_cart_info_for_header()
 				),
+				'categories_struct' => $this->productlib->get_categories_struct(),
 				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 				'footer' => array(
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
@@ -1260,6 +1288,7 @@ class Main extends CI_Controller {
 				'header' => array(
 					'cart' => $this->get_cart_info_for_header()
 				),
+				'categories_struct' => $this->productlib->get_categories_struct(),
 				'category' => 'farm',
 				'path' => 'farm',
 				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
@@ -1304,6 +1333,7 @@ class Main extends CI_Controller {
 				'header' => array(
 					'cart' => $this->get_cart_info_for_header()
 				),
+				'categories_struct' => $this->productlib->get_categories_struct(),
 				'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 				'footer' => array(
 					'account_confirm' => $this->baselib->get_account_data_for_confirm()
@@ -1330,6 +1360,7 @@ class Main extends CI_Controller {
 				'header' => array(
 					'cart' => $this->get_cart_info_for_header()
 				),
+				'categories_struct' => $this->productlib->get_categories_struct(),
 				'category' => 'diet',
 				'path' => 'diet',
 				'is_first_page' => false,
@@ -1391,6 +1422,7 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
+			'categories_struct' => $this->productlib->get_categories_struct(),
 			'cart_content' => array(
 				'products' => $products
 			),

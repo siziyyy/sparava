@@ -1338,6 +1338,16 @@ class Baselib {
 			} else {
 				$word = 'ассортиментов';
 			}			
+		} elseif($type == 'product') {
+			$number = (int)substr((string)$count, -1); 
+			
+			if($number == 1 and (int)($count) != 11) {
+				$word = 'товар';
+			} elseif($number >= 2 and $number <= 4 and ((int)($count) < 10 or (int)($count) > 20)) {
+				$word = 'товара';
+			} else {
+				$word = 'товаров';
+			}			
 		}
 		
 		return $count.' '.$word;

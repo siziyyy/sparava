@@ -1709,13 +1709,7 @@ footer {
 .products_menu_tab_content {
     display: none;
 }
-.goods_active .products_menu_tab_content_goods {
-    display: block;
-}
-.countries_active .products_menu_tab_content_countries {
-    display: block;
-}
-.assignment_active .products_menu_tab_content_assignment {
+.products_menu_tab_content.active {
     display: block;
 }
 .products_menu_body {
