@@ -46,11 +46,27 @@ $(document).ready(function() {
     });
     $('.products_menu_tab').click(function() {
         $('.products_menu_tab').removeClass('active');
+        $('.products_menu_tab_content').removeClass('active');
+
+        target = $(this).attr('data-target');
         $(this).addClass('active');
+        $('#'+target).addClass('active');
     });
-    $('.products_menu_tab_content_line_more').click(function() {
-        $('.products_menu_tab_content_line_more_links').toggle();
-        $(this).toggleClass('active');
+    $('.products_menu_tab_content_line').click(function(e) {
+        if($(this).hasClass('products_menu_tab_content_line_header')) {
+            e.preventDefault();
+        } else if($(this).hasClass('products_menu_tab_content_line_header')) {
+
+        }
+
+        $('.products_menu_tab_content_line_more_links').hide();
+
+        if($(this).find('.products_menu_tab_content_line_more').hasClass('active')) {
+            $(this).find('.products_menu_tab_content_line_more').removeClass('active');
+        } else {
+            $(this).find('.products_menu_tab_content_line_more').addClass('active');
+            $(this).find('.products_menu_tab_content_line_more_links').show();
+        }
     });
     /** CABINET SETTINGS **/
     $('.cabinet_settings_body_line_item').click(function() {

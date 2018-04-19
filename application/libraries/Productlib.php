@@ -2,9 +2,150 @@
 
 class Productlib {
 	private $_ci;
+	public $_countries = array(
+		1 => 'Россия',
+		2 => 'Италия',
+		3 => 'Испания',
+		4 => 'Греция',
+		5 => 'Швейцария',
+		6 => 'Армения',
+		7 => 'Узбекистан',
+		8 => 'Азербайджан',
+		9 => 'Молдова',
+		10 => 'Беларусь',
+		11 => 'Турция'
+	);		
 
  	function __construct() {
     	$this->_ci =& get_instance();
+    }
+
+    public function get_categories_struct() {
+		$categories_struct = $this->_ci->cache->file->get('categories_struct');
+
+		if(!$categories_struct) {
+	    	$categories = $this->_ci->cache->file->get('categories_list');
+	    	$result = array();
+
+			$sql = "SELECT p.*, c.category_id, c.parent_id FROM categories AS c, product_to_category AS ptc, products AS p WHERE p.status = 1 AND c.category_id = ptc.category_id AND p.product_id = ptc.product_id AND c.parent_id > 0 ORDER BY c.sort_order ASC";
+
+			$query = $this->_ci->db->query($sql);
+
+			if ($query->num_rows() > 0) {
+				foreach ($query->result_array() as $row) {
+					if(!isset($result['categories'][$row['parent_id']])) {
+						$result['categories'][$row['parent_id']]['info'] = $categories[$row['parent_id']];
+
+						foreach ($categories as $category) {
+							if($category['parent_id'] == $row['parent_id']) {
+								$result['categories'][$row['parent_id']]['childs'][$category['category_id']] = $category;
+							}
+						}
+
+						$result['categories'][$row['parent_id']]['count'] = 1;
+					} else {
+						$result['categories'][$row['parent_id']]['count']++;
+					}
+
+					if($row['eko']) {
+						if(isset($result['types']['eko']['count'])) {
+							$result['types']['eko']['count']++;
+						} else {
+							$result['types']['eko']['count'] = 1;
+						}
+
+						if(!isset($result['types']['eko'][$row['parent_id']])) {
+							$result['types']['eko']['categories'][$row['parent_id']] = $categories[$row['parent_id']];
+							$result['types']['eko']['title'] = 'Эко и органик';
+						}
+					}
+
+					if($row['farm']) {
+						if(isset($result['types']['farm']['count'])) {
+							$result['types']['farm']['count']++;
+						} else {
+							$result['types']['farm']['count'] = 1;
+						}
+
+						if(!isset($result['types']['farm'][$row['parent_id']])) {
+							$result['types']['farm']['categories'][$row['parent_id']] = $categories[$row['parent_id']];
+							$result['types']['farm']['title'] = 'Фермерские';
+						}
+					}
+
+					if($row['diet']) {
+						if(isset($result['types']['diet']['count'])) {
+							$result['types']['diet']['count']++;
+						} else {
+							$result['types']['diet']['count'] = 1;
+						}
+
+						if(!isset($result['types']['diet'][$row['parent_id']])) {
+							$result['types']['diet']['categories'][$row['parent_id']] = $categories[$row['parent_id']];
+							$result['types']['diet']['title'] = 'Диетические';
+						}
+					}
+
+					if($row['child']) {
+						if(isset($result['types']['child']['count'])) {
+							$result['types']['child']['count']++;
+						} else {
+							$result['types']['child']['count'] = 1;
+						}
+
+						if(!isset($result['types']['child'][$row['parent_id']])) {
+							$result['types']['child']['categories'][$row['parent_id']] = $categories[$row['parent_id']];
+							$result['types']['child']['title'] = 'Для детей';
+						}
+					}
+
+					if($row['recommend']) {
+						if(isset($result['types']['recommend']['count'])) {
+							$result['types']['recommend']['count']++;
+						} else {
+							$result['types']['recommend']['count'] = 1;
+						}
+
+						if(!isset($result['types']['recommend'][$row['parent_id']])) {
+							$result['types']['recommend']['categories'][$row['parent_id']] = $categories[$row['parent_id']];
+							$result['types']['recommend']['title'] = 'Особо рекомендуем';
+						}
+					}
+
+					if($row['bbox'] or $row['bbox_n']) {
+						if(isset($result['types']['bbox']['count'])) {
+							$result['types']['bbox']['count']++;
+						} else {
+							$result['types']['bbox']['count'] = 1;
+						}
+
+						if(!isset($result['types']['bbox'][$row['parent_id']])) {
+							$result['types']['bbox']['categories'][$row['parent_id']] = $categories[$row['parent_id']];
+							$result['types']['bbox']['title'] = 'Большая упаковка';
+						}
+					}
+
+					if(in_array($row['country'],$this->_countries)) {
+						if(isset($result['countries'][$row['country']]['count'])) {
+							$result['countries'][$row['country']]['count']++;
+						} else {
+							$result['countries'][$row['country']]['count'] = 1;
+						}
+
+						if(!isset($result['countries'][$row['country']]['categories'][$row['parent_id']]) ) {
+							$result['countries'][$row['country']]['categories'][$row['parent_id']] = $categories[$row['parent_id']];
+							$result['countries'][$row['country']]['country_id'] = array_search($row['country'], $this->_countries); ;
+						}
+					}
+				}
+			}
+
+			$this->_ci->cache->file->save('categories_struct', $result, 86400);
+
+			return $result;
+		}
+
+		return $categories_struct;
     }
 
 	public function get_breadcrumbs_for_product($product,$type = false) {
