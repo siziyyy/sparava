@@ -21,7 +21,7 @@
             <div class="blog_page_body_items">
                 <?php foreach($provider_blogs as $date => $blogs_for_date) { ?>
                     <?php foreach($blogs_for_date as $blog) { ?>
-                        <a href="/blogs/<?php echo $blog['blog_id']; ?>" class="blog_page_body_item">
+                        <a href="/providers_blogs/<?php echo $blog['blog_id']; ?>" class="blog_page_body_item">
                             <img src="<?php echo $blog['image_file_2']; ?>" alt="" class="blog_page_body_item_img">
                         </a>
                     <?php } ?>
