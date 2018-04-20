@@ -13,7 +13,7 @@
         <div class="footer_button_img sprite"></div>
         <div class="footer_button_text">магазин</div>
     </a>
-    <a href="/pages/blog" class="footer_button footer_button_img_blog fl_l"> <!-- add / remove .active -->
+    <a href="/blogs?type=m" class="footer_button footer_button_img_blog fl_l"> <!-- add / remove .active -->
         <div class="footer_button_img sprite"></div>
         <div class="footer_button_text">блог</div>
     </a>
