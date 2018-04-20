@@ -234,7 +234,7 @@ class Main extends CI_Controller {
 
 		if($blog_id) {
 			if($this->_is_mobile) {
-				$this->load->view('mobile/blog/post', $data);
+				$this->load->view('mobile/provider_blog/post', $data);
 			} else {
 				$this->load->view('provider_blog/post', $data);
 			}
@@ -325,7 +325,12 @@ class Main extends CI_Controller {
 			'contacts',
 			'return',
 			'bbox'
-		);	
+		);
+
+		if($this->_is_mobile) {
+			$blocks[] = 'vacancy';
+			$blocks[] = 'caterer';
+		}
 	
 		$data = array(
 			'header' => array(
@@ -339,8 +344,17 @@ class Main extends CI_Controller {
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			)
 		);
+
+		if($this->_is_mobile) {
+			if($page) {
+				$this->load->view('mobile/information/'.$page, $data);
+			} else {
+				$this->load->view('mobile/information', $data);
+			}
+		} else {
+			$this->load->view('information', $data);
+		}	
 		
-		$this->load->view('information', $data);
 	}
 	
 	public function search() {

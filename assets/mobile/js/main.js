@@ -21,10 +21,6 @@ $(document).ready(function() {
     $('.filters_form_more').click(function() {
         $(this).toggleClass('active');
     });
-    /** ADD TO CART **/
-    $('.category_content_item_not_double_info_footer_add_to_cart').click(function() {
-        $(this).toggleClass('active');
-    });
     /** ITEM MORE INFO **/
     $('.item_page_more_info').click(function() {
         $('.item_page_more_info_arrow').toggleClass('active');
@@ -128,6 +124,251 @@ $(document).ready(function() {
         };
     })).observe(document.getElementById('indicator')); */
     /** END OF DOCUMENT.READY **/
+
+    $(document).on('change','.g_good_count_input',function(e) {
+        
+        if($(this).parents('.g_good').length > 0) {
+            parent_class = '.g_good';
+        } else if($(this).parents('.single_good_page').length > 0) {
+            parent_class = '.single_good_page';
+        } else if($(this).parents('.g_good').length == 0) {
+            parent_class = '.good_modal';
+        }
+        
+        quantity = parseFloat($(this).val());
+        type_num = $(this).parents(parent_class).attr('data-type');     
+        
+        if(type_num == 0) {
+            type = 'шт';
+        } else if(type_num == 1) {
+            type = 'кг';
+        } else if(type_num == 2) {
+            type = 'кг';
+        }
+        
+        price = $(this).parents(parent_class).find(".g_good_price_value").text();
+
+        summ = parseInt(parseFloat(quantity)*price);
+
+        if((parseFloat(quantity)*price) > summ) {
+            summ++;
+        }
+
+        bonus = parseInt(summ*0.05);
+
+        $(this).parents(parent_class).find(".g_good_to_cart_value").text(summ);
+        $('.g_good_bonus_value').text(bonus);
+        
+        $(this).val(quantity+' '+type);
+    }); 
+
+    $(document).on('click','.g_good_count_add',function(e) {
+        
+        if($(this).parents('.g_good').length > 0) {
+            parent_class = '.g_good';
+        } else if($(this).parents('.single_good_page').length > 0) {
+            parent_class = '.single_good_page';
+        } else if($(this).parents('.g_good').length == 0) {
+            parent_class = '.good_modal';
+        }
+
+        $(this).parents(parent_class).find(".category_content_item_not_double_info_footer_add_to_cart").removeClass('active');
+        
+        quantity = parseFloat($(this).parents(parent_class).find('.g_good_count_input').val());
+        type_num = $(this).parents(parent_class).attr('data-type');
+
+        quantity = get_quantity_by_type(quantity,type_num,false,parent_class,$(this));
+        price = $(this).parents(parent_class).find(".g_good_price_value").text();
+
+        summ = parseInt(parseFloat(quantity)*price);
+
+        if((parseFloat(quantity)*price) > summ) {
+            summ++;
+        }
+
+        bonus = parseInt(summ*0.05);
+
+        $(this).parents(parent_class).find(".g_good_to_cart_value").text(summ);
+        $('.g_good_bonus_value').text(bonus);
+
+        $(this).parents(parent_class).find('.g_good_count_input').val(quantity);
+    });
+    
+    $(document).on('click','.g_good_count_rem',function(e) {
+        
+        if($(this).parents('.g_good').length > 0) {
+            parent_class = '.g_good';
+        } else if($(this).parents('.single_good_page').length > 0) {
+            parent_class = '.single_good_page';
+        } else if($(this).parents('.g_good').length == 0) {
+            parent_class = '.good_modal';
+        }
+        
+        $(this).parents(parent_class).find(".category_content_item_not_double_info_footer_add_to_cart").removeClass('active');
+        
+        quantity = parseFloat($(this).parents(parent_class).find('.g_good_count_input').val());
+        type_num = $(this).parents(parent_class).attr('data-type');
+        
+        quantity = get_quantity_by_type(quantity,type_num,true,parent_class,$(this));
+        price = $(this).parents(parent_class).find(".g_good_price_value").text();
+
+        summ = parseInt(parseFloat(quantity)*price);
+
+        if((parseFloat(quantity)*price) > summ) {
+            summ++;
+        }
+
+        bonus = parseInt(summ*0.05);
+
+        $(this).parents(parent_class).find(".g_good_to_cart_value").text(summ);
+        $('.g_good_bonus_value').text(bonus);
+        
+        $(this).parents(parent_class).find('.g_good_count_input').val(quantity);
+    });
+
+    function get_quantity_by_type(quantity,type_num,minus,parent_class,obj) {
+        if(minus) {
+            if(type_num == 0) {
+                obj.parents(parent_class).find('.g_good_count_rem').removeClass('g_good_count_act_disable');
+                type = 'шт';
+                quantity--;
+                
+                
+                if(quantity <= 1) {
+                    quantity = 1;
+                    obj.parents(parent_class).find('.g_good_count_rem').addClass('g_good_count_act_disable');
+                }
+                
+                return quantity+' '+type;
+            } else if(type_num == 1) {
+                obj.parents(parent_class).find('.g_good_count_rem').removeClass('g_good_count_act_disable');
+                type = 'кг';
+                
+                if(quantity > 1) {
+                    quantity = quantity - 0.5;
+                    return quantity+' '+type;
+                }           
+                
+                quantity = quantity - 0.01;
+                
+                if(quantity > 0.8) {
+                    quantity = 0.8;
+                } else if(quantity > 0.5) {
+                    quantity = 0.5;
+                } else if(quantity > 0.3) {
+                    quantity = 0.3;
+                    obj.parents(parent_class).find('.g_good_count_rem').addClass('g_good_count_act_disable');
+                } else if(quantity < 0.3) {
+                    quantity = 0.3;
+                    obj.parents(parent_class).find('.g_good_count_rem').addClass('g_good_count_act_disable');
+                }
+                
+                return quantity+' '+type;
+            } else if(type_num == 2) {
+                type = 'кг';
+                obj.parents(parent_class).find('.g_good_count_rem').removeClass('g_good_count_act_disable');
+                
+                if(quantity > 1) {
+                    quantity = quantity - 0.5;
+                    return quantity+' '+type;
+                }           
+                
+                quantity = quantity - 0.01;
+                
+                if(quantity > 0.8) {
+                    quantity = 0.8;
+                } else if(quantity > 0.5) {
+                    quantity = 0.5;
+                } else if(quantity > 0.3) {
+                    quantity = 0.3;
+                } else if(quantity > 0.1) {
+                    quantity = 0.1;
+                    obj.parents(parent_class).find('.g_good_count_rem').addClass('g_good_count_act_disable');
+                } else if(quantity < 0.1) {
+                    quantity = 0.1;
+                    obj.parents(parent_class).find('.g_good_count_rem').addClass('g_good_count_act_disable');
+                }
+                    
+                return quantity+' '+type;
+            }           
+        } else {
+            if(type_num == 0) {
+                obj.parents(parent_class).find('.g_good_count_rem').removeClass('g_good_count_act_disable');
+                type = 'шт';
+                quantity++;
+                
+                if(quantity <= 1) {
+                    quantity = 1;
+                    obj.parents(parent_class).find('.g_good_count_rem').addClass('g_good_count_act_disable');
+                }               
+                
+                return quantity+' '+type;
+            } else if(type_num == 1) {
+                type = 'кг';
+                obj.parents(parent_class).find('.g_good_count_rem').removeClass('g_good_count_act_disable');
+                
+                if(quantity >= 1) {
+                    quantity = quantity + 0.5;
+                    return quantity+' '+type;
+                }           
+                
+                quantity = quantity + 0.01;
+                
+                if(quantity < 0.3) {
+                    quantity = 0.3;
+                    obj.parents(parent_class).find('.g_good_count_rem').addClass('g_good_count_act_disable');
+                } else if(quantity < 0.5) {
+                    quantity = 0.5;
+                } else if(quantity < 0.8) {
+                    quantity = 0.8;
+                } else if(quantity < 1) {
+                    quantity = 1;
+                }
+                    
+                return quantity+' '+type;
+            } else if(type_num == 2) {
+                type = 'кг';
+                obj.parents(parent_class).find('.g_good_count_rem').removeClass('g_good_count_act_disable');
+                
+                if(quantity >= 1) {
+                    quantity = quantity + 0.5;
+                    return quantity+' '+type;
+                }           
+                
+                quantity = quantity + 0.01;
+                
+                if(quantity < 0.1) {
+                    quantity = 0.1;
+                    obj.parents(parent_class).find('.g_good_count_rem').addClass('g_good_count_act_disable');
+                } else if(quantity < 0.3) {
+                    quantity = 0.3;
+                } else if(quantity < 0.5) {
+                    quantity = 0.5;
+                } else if(quantity < 0.8) {
+                    quantity = 0.8;
+                } else if(quantity < 1) {
+                    quantity = 1;
+                }
+                    
+                return quantity+' '+type;
+            }
+        }
+    }
+
+    $(document).on('click','.g_good_to_cart',function(e) {
+        
+        if($(this).parents('.g_good').length > 0) {
+            parent_class = '.g_good';
+        } else if($(this).parents('.single_good_page').length > 0) {
+            parent_class = '.single_good_page';
+        } else if($(this).parents('.g_good').length == 0) {
+            parent_class = '.good_modal';
+        }
+        
+        quantity = $(this).parents(parent_class).find('.g_good_count_input').val();
+        product_id = $(this).parents(parent_class).attr('data-product-id');
+        cart.add(product_id, parseFloat(quantity),parent_class,$(this));
+    });
 
     $(document).on('click','.show_more_products',function(e) {
         e.preventDefault();
@@ -307,4 +548,48 @@ function ArrayToURL(array) {
 
       pairs.push(encodeURIComponent(key) + '=' + encodeURIComponent(array[key]));
   return pairs.join('&');
+}
+
+var cart = {
+    'add': function(product_id, quantity, parent_class, obj = false) {
+        $.ajax({
+            url: '/cart_ajax',
+            type: 'post',
+            data: 'action=update&product_id=' + product_id + '&quantity=' + (typeof(quantity) != 'undefined' ? quantity : 1),
+            dataType: 'json',
+            success: function(json) {
+                if(json['success']) {
+                    yaCounter46865034.reachGoal('cart-add');
+
+                    if(obj) {
+                        obj.addClass('active');
+                    }
+                }
+            }
+        });
+    },
+    'update': function(product_id, quantity) {
+        $.ajax({
+            url: '/cart_ajax',
+            type: 'post',
+            data: 'action=update&product_id=' + product_id + '&quantity=' + (typeof(quantity) != 'undefined' ? quantity : 1),
+            dataType: 'json',
+            success: function(json) {
+                if(json['success']) {
+                    location.reload();
+                }
+            }
+        });
+    },
+    'remove': function(product_id) {
+        $.ajax({
+            url: '/cart_ajax',
+            type: 'post',
+            data: 'action=remove&product_id=' + product_id,
+            dataType: 'json',
+            success: function(json) {
+                location.reload();
+            }
+        });
+    }
 }

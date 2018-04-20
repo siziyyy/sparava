@@ -1,6 +1,6 @@
 <?php $this->load->view('mobile/common/header',$header);?>
         <div class="blog_posts_page blog_single_post">
-            <a href="/blogs" class="item_page_back sprite"></a>
+            <a href="/providers_blogs" class="item_page_back sprite"></a>
             <div class="blog_posts_page_item">
                 <div class="content">
                     <img src="<?php echo $blogs['image_file_3']; ?>" alt="" class="blog_page_body_item_img">

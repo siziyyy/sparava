@@ -1,4 +1,4 @@
-            <div class="category_content_item">
+            <div class="category_content_item g_good" data-product-id="<?php echo $product['product_id'] ?>" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>">
                 <div class="content">
                     <a href="<?php echo $product['href'] ?>?type=<?php echo ((isset($path) and $path) ? $path : '') ?>">
                         <img src="/images/<?php echo $product['image'] ?>" onerror="this.src='/assets/mobile/img/goods/nophoto.jpg'" class="category_content_item_img" alt="<?php echo $product['title'] ?>">
@@ -28,7 +28,7 @@
                                     <div class="category_content_item_not_double_info_header_left_name"><?php echo $product['title'] ?></div>
                                 </div>
                                 <div class="category_content_item_not_double_info_header_right fl_r">
-                                    <div class="category_content_item_not_double_info_header_left_price">₽&nbsp;<?php echo $product['price'] ?></div>
+                                    <div class="category_content_item_not_double_info_header_left_price">₽&nbsp;<span class="g_good_price_value"><?php echo $product['price'] ?></span></div>
                                     <div class="category_content_item_not_double_info_header_left_weight">
                                         <?php if($product['type'] == 'шт') { ?>
                                             <?php if(!is_null($product['weight']) and !empty($product['weight'])) { ?>
@@ -54,11 +54,11 @@
                         </div>
                     </a>
                     <div class="category_content_item_not_double_info_footer">
-                        <a href="#" class="category_content_item_not_double_info_footer_minus sprite <?php echo ( ($product['type'] == 'шт' or $product['bm'] == 0) ? 'g_good_count_act_disable' : '' ) ?>"></a>
-                        <input type="text" class="category_content_item_not_double_info_footer_input" value="<?php echo $product['default_value'] ?>">
-                        <a href="#" class="category_content_item_not_double_info_footer_plus sprite"></a>
-                        <a href="#" class="category_content_item_not_double_info_footer_add_to_cart fl_l"> <!-- add / remove .active -->
-                            <div class="category_content_item_not_double_info_footer_add_to_cart_text fl_l"><?php echo $product['default_price'] ?> ₽</div>
+                        <a href="#" class="category_content_item_not_double_info_footer_minus g_good_count_rem sprite <?php echo ( ($product['type'] == 'шт' or $product['bm'] == 0) ? 'g_good_count_act_disable' : '' ) ?>"></a>
+                        <input type="text" class="category_content_item_not_double_info_footer_input g_good_count_input" value="<?php echo $product['default_value'] ?>">
+                        <a href="#" class="category_content_item_not_double_info_footer_plus g_good_count_add sprite"></a>
+                        <a href="#" class="category_content_item_not_double_info_footer_add_to_cart fl_l g_good_to_cart"> <!-- add / remove .active -->
+                            <div class="category_content_item_not_double_info_footer_add_to_cart_text fl_l"><span class="g_good_to_cart_value"><?php echo $product['default_price'] ?></span> ₽</div>
                             <div class="category_content_item_not_double_info_footer_add_to_cart_icon fl_r sprite"></div>
                             <div class="clear"></div>
                         </a>
