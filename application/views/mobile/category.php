@@ -72,7 +72,7 @@
             <?php $info['product'] = $product; ?>
             <?php $this->load->view('mobile/common/load-product',$info);?>                 
         <?php } ?>
-        <div id="wrapper_for_product_load"></div>
+        <span id="wrapper_for_product_load"></span>
     </div>
     <?php if($pages_count > 1) { ?>
         <?php if(isset($country_id)) { ?>

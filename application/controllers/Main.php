@@ -475,6 +475,7 @@ class Main extends CI_Controller {
 				),
 				'categories_struct' => $this->productlib->get_categories_struct(),
 				'products' => $products_in_page['products'],
+				'products_count' => $products_in_page['products_count'],
 				'current_page' => $page,
 				'pages_count' => $products_in_page['pages_count'],
 				'country_id' => $country_id,
@@ -495,7 +496,11 @@ class Main extends CI_Controller {
 			);			
 		}
 
-		$this->load->view('country',$data);
+		if($this->_is_mobile) {
+			$this->load->view('mobile/category', $data);
+		} else {
+			$this->load->view('country',$data);
+		}		
 	}
 	
 	public function provider() {
@@ -1109,7 +1114,11 @@ class Main extends CI_Controller {
 			$data['empty_products'] = $empty_products;
 		}
 			
-		$this->load->view('category_alt', $data);
+		if($this->_is_mobile) {
+			$this->load->view('mobile/category', $data);
+		} else {
+			$this->load->view('category_alt', $data);
+		}
 	}
 
 	public function bbox() {
@@ -1183,7 +1192,11 @@ class Main extends CI_Controller {
 			$data['empty_products'] = $empty_products;
 		}
 			
-		$this->load->view('category_alt', $data);
+		if($this->_is_mobile) {
+			$this->load->view('mobile/category', $data);
+		} else {
+			$this->load->view('category_alt', $data);
+		}
 	}
 	
 	public function eko() {
@@ -1257,7 +1270,11 @@ class Main extends CI_Controller {
 			$data['empty_products'] = $empty_products;
 		}
 			
-		$this->load->view('category_alt', $data);
+		if($this->_is_mobile) {
+			$this->load->view('mobile/category', $data);
+		} else {
+			$this->load->view('category_alt', $data);
+		}
 	}
 
 	public function farm() {
@@ -1330,7 +1347,11 @@ class Main extends CI_Controller {
 			$data['empty_products'] = $empty_products;
 		}
 		
-		$this->load->view('category_alt', $data);
+		if($this->_is_mobile) {
+			$this->load->view('mobile/category', $data);
+		} else {
+			$this->load->view('category_alt', $data);
+		}
 	}
 	
 	public function diet() {
@@ -1402,7 +1423,11 @@ class Main extends CI_Controller {
 			$data['empty_products'] = $empty_products;
 		}
 		
-		$this->load->view('category_alt', $data);
+		if($this->_is_mobile) {
+			$this->load->view('mobile/category', $data);
+		} else {
+			$this->load->view('category_alt', $data);
+		}
 	}	
 	
 	public function cart() {
