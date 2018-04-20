@@ -233,10 +233,18 @@ class Main extends CI_Controller {
 		);
 
 		if($blog_id) {
-			$this->load->view('provider_blog/post', $data);
+			if($this->_is_mobile) {
+				$this->load->view('mobile/blog/post', $data);
+			} else {
+				$this->load->view('provider_blog/post', $data);
+			}
 		} else {
-			$this->load->view('provider_blog/list', $data);
-		}
+			if($this->_is_mobile) {
+				$this->load->view('mobile/blog/list', $data);								
+			} else {
+				$this->load->view('provider_blog/list', $data);
+			}
+		}	
 	}	
 	
 	public function blogs($blog_id = false) {
@@ -262,9 +270,10 @@ class Main extends CI_Controller {
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
-			'categories_struct' => $this->productlib->get_categories_struct(),
+			'type' => (is_null($this->input->get('type')) ? false : true),
 			'blogs' => $blogs['blogs'],
 			'counter' => $blogs['counter'],
+			'provider_blogs' => $this->baselib->get_blogs($blog_id,'provider')['blogs'],
 			'months' => $months,
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
@@ -278,10 +287,22 @@ class Main extends CI_Controller {
 			if($product) {
 				$data['price'] = $product['price'];
 			}
-			
-			$this->load->view('blog/post', $data);
+
+			if($this->_is_mobile) {
+				$this->load->view('mobile/blog/post', $data);
+			} else {
+				$this->load->view('blog/post', $data);
+			}			
 		} else {
-			$this->load->view('blog/list', $data);
+			if($this->_is_mobile) {
+				if(is_null($this->input->get('type'))) {
+					$this->load->view('mobile/blog/list', $data);
+				} else {
+					$this->load->view('mobile/blog/index', $data);
+				}				
+			} else {
+				$this->load->view('blog/list', $data);
+			}			
 		}
 	}
 
