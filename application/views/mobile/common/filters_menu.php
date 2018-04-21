@@ -3,11 +3,10 @@
         <div class="filters_header">
             <div class="filters_header_icon sprite"></div>
         </div>
-        <div class="filters_body" data-category="<?php echo $category ?>">
-
-            <?php if(isset($sort_attr)) { ?>
-                <a href="#" class="filters_reset" data-type="sort" data-sort="clear">Сбросить все фильтры<span class="filters_reset_icon">&times;</span></a>
-                <form class="filters_body_cats filters_form">
+        <div class="filters_body" data-category="<?php echo (isset($category) ? $category : '') ?>">            
+            <a href="#" class="filters_reset" data-type="sort" data-sort="clear">Сбросить все фильтры<span class="filters_reset_icon">&times;</span></a>
+            <form class="filters_body_cats filters_form">
+                <?php if(isset($sort_attr)) { ?>
                     <?php if(($sort_attr['razves'] and $sort_attr['pack']) or $sort_attr['bbox'] or $sort_attr['farm'] or $sort_attr['eko'] or $sort_attr['diet'] or $sort_attr['recommend']) { ?>
                         <div class="filters_form_part">
                             <?php if($sort_attr['razves'] and $sort_attr['pack']) { ?>
@@ -33,6 +32,26 @@
                             <?php } ?>
                         </div>
                     <?php } ?>
+                <?php } ?>
+
+
+                <?php if(isset($categories)) { ?>
+                    <?php if(count($categories) >= 1) { ?>
+                        <div class="filters_form_part">
+                            <div class="filters_form_header">Категории</div>
+                            <?php foreach($categories as $category) { ?>
+                                <div class="cool_select_option">
+                                    <label>
+                                        <input type="checkbox" class="filters_form_label_checkbox" value="<?php echo $category['title'] ?>" data-name="category" <?php echo (in_array($category['title'],explode(';',$menu['filters']['category'])) ? 'checked' : '' ) ?>>
+                                        <?php echo $category['title'] ?>
+                                    </label>
+                                </div>
+                            <?php } ?>
+                            <div class="filters_form_more">еще<span class="filters_form_more_icon sprite"></span></div>
+                        </div>
+                    <?php } ?>
+
+                    <a href="#" class="filters_button">применить</a>
                 <?php } ?>
 
                 <?php if(isset($attributes)) { ?>
@@ -123,24 +142,5 @@
                     <a href="#" class="filters_button">применить</a>
                 <?php } ?>
             </form>
-            <!--<form class="filters_form">
-                <label class="filters_form_label">
-                    <input type="checkbox" class="filters_form_label_checkbox">
-                    <span class="filters_form_label_text">Деликатесы</span>
-                </label>
-                <label class="filters_form_label">
-                    <input type="checkbox" class="filters_form_label_checkbox">
-                    <span class="filters_form_label_text">Бакалея</span>
-                </label>
-                <label class="filters_form_label">
-                    <input type="checkbox" class="filters_form_label_checkbox">
-                    <span class="filters_form_label_text">Консервация</span>
-                </label>
-                <label class="filters_form_label">
-                    <input type="checkbox" class="filters_form_label_checkbox">
-                    <span class="filters_form_label_text">Соусы</span>
-                </label>
-                <button class="filters_button">применить</button>
-            </form>-->
         </div>
     </aside>

@@ -32,13 +32,20 @@
                     <div class="clear"></div>
                 </div>
             <?php } ?>
-            <div class="cart_page_summ"><?php echo $cart_info['summ'] ?> ₽</div>
-            <div class="cart_page_summ_text">итого, без суммы доставки</div>
 
-            <?php if($cart_info['summ'] < 1000) { ?>
-                <div class="cart_page_summ_text">минимальная сумма заказа 1000 руб</div>
+            <?php if(count($cart_content['products']) > 0) { ?>
+                <div class="cart_page_summ"><?php echo $cart_info['summ'] ?> ₽</div>
+                <div class="cart_page_summ_text">итого, без суммы доставки</div>
+
+                <?php if($cart_info['summ'] < 1000) { ?>
+                    <div class="cart_page_summ_text">минимальная сумма заказа 1000 руб</div>
+                <?php } else { ?>
+                    <a href="/pages/cart/delivery/" class="cart_page_next inactive">оформить</a> <!-- add / remove .inactive -->
+                <?php } ?>
             <?php } else { ?>
-                <a href="/pages/cart/delivery/" class="cart_page_next inactive">оформить</a> <!-- add / remove .inactive -->
+                <div class="">
+                    Корзина пуста
+                </div>
             <?php } ?>
         </div>
 <?php $this->load->view('mobile/common/footer'); ?>

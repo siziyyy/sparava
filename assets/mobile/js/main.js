@@ -124,6 +124,10 @@ $(document).ready(function() {
     })).observe(document.getElementById('indicator')); */
     /** END OF DOCUMENT.READY **/
 
+    if($('#uLogin').length) {
+        uLogin.customInit('uLogin');
+    } 
+
     $( ".c_inners_count_delete" ).click(function() {
         product_id = $(this).parents('.c_inners_side_tr').attr('data-product-id');
         cart.remove(product_id);
@@ -548,7 +552,23 @@ $(document).ready(function() {
                     category : $(this).parents('.filters_body').attr('data-category')
                 }
                 
-                break;           
+                break;  
+
+            case 'favourite':
+                if($(this).parents('.g_good').length > 0) {
+                    parent_object = $(this).parents('.g_good');
+                } else if($(this).parents('.single_good_page').length > 0) {
+                    parent_object = $(this).parents('.single_good_page');
+                } else if($(this).parents('.good_modal').length > 0) {
+                    parent_object = $(this).parents('.good_modal');
+                }
+                
+                send_data = {
+                    type : type,
+                    product_id : parent_object.attr('data-product-id')
+                }
+                
+                break;
                 
             default:
                 alert('Put that cookie down!');
@@ -570,6 +590,12 @@ $(document).ready(function() {
                     if(json['success']) {
                         if(send_data.type == 'sort') {
                             location.reload();
+                        } else if(send_data.type == 'favourite') {
+                            parent_object.find('.category_content_item_not_double_info_footer_star').addClass('g_good_mobile_fav_orange');
+                        }
+                    } else if(json['remove']) {
+                        if(send_data.type == 'favourite') {
+                            parent_object.find('.category_content_item_not_double_info_footer_star').removeClass('g_good_mobile_fav_orange');
                         }
                     }
                 }
