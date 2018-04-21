@@ -994,10 +994,15 @@ class Main extends CI_Controller {
 				'related_by_brands_products_type' => $related_by_brands_products['list_type'],
 				'breadcrumbs' => $this->productlib->get_breadcrumbs_for_product($product,$type),
 				'path' => $type,
-				'banner' => $banners
+				'banner' => $banners,
+				'body_class' => 'body_single_product'
 			);
 
-			$this->load->view('product', $data);
+			if($this->_is_mobile) {
+				$this->load->view('mobile/product', $data);
+			} else {
+				$this->load->view('product', $data);
+			}
 		}
 	}		
 
@@ -1507,8 +1512,12 @@ class Main extends CI_Controller {
 		if($summ < 1000) {
 			$data['cart_info']['need'] = 1000 - $summ;
 			$data['cart_info_tpl'] = 'cart_low';
-			
-			$this->load->view('cart/cart', $data);
+
+			if($this->_is_mobile) {
+				$this->load->view('mobile/cart/cart', $data);
+			} else {
+				$this->load->view('cart/cart', $data);
+			}
 			
 			return;
 		}
@@ -1526,8 +1535,12 @@ class Main extends CI_Controller {
 			if(!is_null($this->input->post('shipping_form_submit'))) {
 				$data['cart_info']['shipping_form_submit_error'] = true;
 			}
-			
-			$this->load->view('cart/cart', $data);
+
+			if($this->_is_mobile) {
+				$this->load->view('mobile/cart/'.$data['cart_info_tpl'], $data);
+			} else {
+				$this->load->view('cart/cart', $data);
+			}
 			
 			return;
 		} elseif(!is_null($this->input->post('shipping_method'))) {
@@ -1540,8 +1553,12 @@ class Main extends CI_Controller {
 		if(!$this->baselib->is_logged()) {
 			
 			$data['cart_info_tpl'] = 'login_register';
-			
-			$this->load->view('cart/cart', $data);
+
+			if($this->_is_mobile) {
+				$this->load->view('mobile/cart/'.$data['cart_info_tpl'], $data);
+			} else {
+				$this->load->view('cart/cart', $data);
+			}		
 			
 			return;
 		}

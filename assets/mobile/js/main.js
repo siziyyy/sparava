@@ -32,10 +32,7 @@ $(document).ready(function() {
         $('.item_page_recs_and_comments_link').toggleClass('active');
         $('.item_page_recs_and_comments').toggleClass('item_page_recs_and_comments_show_recs');
     });
-    /** CART DELIVERY **/
-    $('.cart_delivery_line_button').click(function() {
-        $(this).toggleClass('active');
-    });
+
     /** PRODUCTS MENU **/
     $('.header_icon_hamburger').click(function() {
         $('body').addClass('opened_products');
@@ -72,24 +69,26 @@ $(document).ready(function() {
         $(this).toggleClass('active');
     });
     /** MAIN PAGE SLIDER **/
-    var sudoSlider = $(".main_page_partial_slider").sudoSlider({
-        continuous:true,
-        prevNext: false,
-        touch: true,
-        numeric: false,
-        updateBefore: true,
-        beforeAnimation: function (t, slider, speed) {
-            $(this).fadeTo(speed, 1);
-            slider.find(".slide").not($(this)).fadeTo(speed, 1);
-        },
-        initCallback: function () {
-            var currentSlide = this.getSlide(this.getValue("currentSlide"));
-            currentSlide.fadeTo(0, 1);
-            this.find(".slide").not(currentSlide).fadeTo(0, 1);
+    if($('.main_page_partial_slider').length > 0) {
+        var sudoSlider = $(".main_page_partial_slider").sudoSlider({
+            continuous:true,
+            prevNext: false,
+            touch: true,
+            numeric: false,
+            updateBefore: true,
+            beforeAnimation: function (t, slider, speed) {
+                $(this).fadeTo(speed, 1);
+                slider.find(".slide").not($(this)).fadeTo(speed, 1);
+            },
+            initCallback: function () {
+                var currentSlide = this.getSlide(this.getValue("currentSlide"));
+                currentSlide.fadeTo(0, 1);
+                this.find(".slide").not(currentSlide).fadeTo(0, 1);
 
-            this.css("overflow", "visible");
-        }
-    });
+                this.css("overflow", "visible");
+            }
+        });
+    }
     /** STICKY **/
     if($('.sticky').length > 0) {
         var $sticky = $('.sticky'),
@@ -124,6 +123,44 @@ $(document).ready(function() {
         };
     })).observe(document.getElementById('indicator')); */
     /** END OF DOCUMENT.READY **/
+
+    $( ".c_inners_count_delete" ).click(function() {
+        product_id = $(this).parents('.c_inners_side_tr').attr('data-product-id');
+        cart.remove(product_id);
+    });
+
+    $( ".cart_delivery_tab_select" ).click(function() {
+        $('.cart_delivery_tab').hide();
+
+        $(".cart_delivery_tab_select").removeClass('active');
+        $(this).addClass('active');
+        target = $(this).attr('data-target');
+        $('#'+target).show();        
+    });
+
+    $( ".cart_delivery_shipping_method_select" ).click(function() {
+        $(".cart_delivery_shipping_method_select").removeClass('active');
+        id = $(this).attr('data-id');
+        price = $(this).attr('data-price');
+        summ = $('.cart_page_summ').attr('data-summ');
+
+        summ = parseFloat(summ) + parseFloat(price);
+
+        $('.cart_page_summ_value').text(summ);
+        $(this).addClass('active');
+        $("input[name=shipping_method]").val(id);
+    });
+
+    $( ".c_inners_count_input" ).change(function() {
+        quantity = $(this).val();
+        
+        if(quantity <= 0) {
+            quantity = 1;
+        }
+        
+        product_id = $(this).parents('.c_inners_side_tr').attr('data-product-id');
+        cart.update(product_id, quantity);
+    });
 
     $(document).on('change','.g_good_count_input',function(e) {
         
@@ -413,6 +450,21 @@ $(document).ready(function() {
         });
     });
 
+    $(document).on('click','.link_to_product',function(e) {
+        e.preventDefault();
+        
+        url = $(this).attr('data-url');
+        window.open(url, "product_iframe");
+        
+        $('.fullscreen').show();
+    });
+
+    $(document).on('click','.item_page_back',function(e) {
+        e.preventDefault();        
+        parent.closeIFrame();
+    });
+ 
+
     $('.filters_button').click(function() {
         tail = window.location.search;  
         params = URLToArray(tail);
@@ -528,6 +580,15 @@ $(document).ready(function() {
         });
     });
 });
+
+function closeIFrame() {
+    $('.fullscreen').remove(); 
+
+    $('<iframe>', {
+       class:  'fullscreen product_iframe',
+       name: 'product_iframe'
+       }).appendTo('.product_iframe_wrapper'); 
+}
 
 function URLToArray(url) {
     var request = {};

@@ -2129,3 +2129,19 @@ footer {
     margin-bottom: 6px;
 }
 .g_good_count_act_disable {opacity:.7}
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    background: #fff;
+    border: 0;
+    display: none;
+}
+.cart_delivery_tab {
+    display: none;
+}
