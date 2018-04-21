@@ -44,10 +44,77 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0;">
     </head>
 
-    <body>
+    <?php
+        $method = $this->router->fetch_method();
+
+        if($method == 'blogs') {
+            $class = 'blog_header';
+        } elseif($method == 'information') {
+            $class = 'info_header';
+        } elseif($method == 'cart') {
+            $class = 'cart_header';
+        } elseif($method == 'account') {
+            $class = 'cabinet_header';
+        } elseif(isset($body_class)) {
+            $class = 'post_and_item_header';
+        } else {
+            $class = '';
+        }
+    ?>
+
+    <body class="<?php echo (isset($body_class) ? $body_class : '') ?>">
+        <!-- Facebook Pixel Code -->
+        <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window,document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+         fbq('init', '298862557184301'); 
+        fbq('track', 'PageView');
+        </script>
+        <noscript>
+         <img height="1" width="1" 
+        src="https://www.facebook.com/tr?id=298862557184301&ev=PageView
+        &noscript=1"/>
+        </noscript>
+        <!-- End Facebook Pixel Code -->    
+        
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript" >
+            (function (d, w, c) {
+                (w[c] = w[c] || []).push(function() {
+                    try {
+                        w.yaCounter46865034 = new Ya.Metrika({
+                            id:46865034,
+                            clickmap:true,
+                            trackLinks:true,
+                            accurateTrackBounce:true
+                        });
+                    } catch(e) { }
+                });
+
+                var n = d.getElementsByTagName("script")[0],
+                    s = d.createElement("script"),
+                    f = function () { n.parentNode.insertBefore(s, n); };
+                s.type = "text/javascript";
+                s.async = true;
+                s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+                if (w.opera == "[object Opera]") {
+                    d.addEventListener("DOMContentLoaded", f, false);
+                } else { f(); }
+            })(document, window, "yandex_metrika_callbacks");
+        </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/46865034" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->    
+        
         <div class="pixel_perfect"></div>
         <section class="page_scrollbar_helper">
-            <header class=""> <!-- add / remove .blog_header / .cart_header / .info_header / .cabinet_header / .post_and_item_header-->
+            <header class="<?php echo $class ?>"> <!-- add / remove .blog_header / .cart_header / .info_header / .cabinet_header / .post_and_item_header-->
                 <div class="content">
                     <div class="header_icons_left fl_l">
                         <a href="#" class="header_icon sprite header_icon_hamburger fl_l"></a>

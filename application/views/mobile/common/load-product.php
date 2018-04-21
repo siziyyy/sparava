@@ -1,6 +1,6 @@
             <div class="category_content_item g_good" data-product-id="<?php echo $product['product_id'] ?>" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>">
                 <div class="content">
-                    <a href="<?php echo $product['href'] ?>?type=<?php echo ((isset($path) and $path) ? $path : '') ?>">
+                    <a href="#" data-url="<?php echo $product['href'] ?>?type=<?php echo ((isset($path) and $path) ? $path : '') ?>" class="link_to_product">
                         <img src="/images/<?php echo $product['image'] ?>" onerror="this.src='/assets/mobile/img/goods/nophoto.jpg'" class="category_content_item_img" alt="<?php echo $product['title'] ?>">
                         <div class="category_content_item_double_info">
                             <div class="category_content_item_price_line">
