@@ -308,7 +308,7 @@ class Main extends CI_Controller {
 
 	public function logout() {		
 		$this->baselib->logout();
-		redirect(base_url($this->baselib->_return_url), 'refresh');
+		redirect(base_url(), 'refresh');
 	}	
 	
 	public function information($page = false) {	
@@ -455,7 +455,11 @@ class Main extends CI_Controller {
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 		);
 		
-		$this->load->view('cart/checkout_success', $data);
+		if($this->_is_mobile) {
+			$this->load->view('mobile/cart/checkout_success', $data);
+		} else {
+			$this->load->view('cart/checkout_success', $data);
+		}
 	}
 	
 	public function country($country_id) {
@@ -760,7 +764,13 @@ class Main extends CI_Controller {
 			$data['empty_products'] = $products_in_page['empty_products'];
 		}
 		
-		$this->load->view('favourites',$data);
+		if($this->_is_mobile) {
+			$this->load->view('mobile/favourites', $data);
+		} else {
+			$this->load->view('favourites',$data);
+		}
+		
+		
 	}	
 	
 	public function category($category = false) {
@@ -1469,8 +1479,111 @@ class Main extends CI_Controller {
 			$this->load->view('category_alt', $data);
 		}
 	}	
+
+	public function account($type = false) {
+		$this->load->model('account');
+
+		$data = array(
+			'header' => array(
+				'cart' => $this->get_cart_info_for_header()
+			)
+		);
+
+		if($type == 'restore') {
+			if(!empty($this->input->post('password_restore_form'))) {				
+				if(!empty($this->input->post('email'))) {
+					$email = $this->input->post('email');
+					
+					if(!valid_email($email)) {
+						$data['error'] = 'Укажите корректный email';
+					} else {
+						$account = new Account();
+						
+						if(!$account->set_id_by_email($email)) {
+							$data['error'] = 'Данный email не зарегистрирован';
+						} else {
+							$account->reset_password();
+
+							$this->load->view('mobile/account/password_restore_final');
+							return;
+						}
+					}
+				} else {
+					$data['error'] = 'Укажите email';
+				}
+			}
+
+			$this->load->view('mobile/account/password_restore', $data);				
+			return;
+		}
+
+		if(!empty($this->input->post('login_form'))) {
+			if(!empty($this->input->post('email')) and !empty($this->input->post('password'))) {
+
+				$email = $this->input->post('email');
+				$password = $this->input->post('password');
+
+				$account = new Account();
+				
+				if($account->set_id_by_email($email)) {
+					if(!$account->login($password)) {
+						$data['error'] = 'Неправильный логин или пароль';
+					}
+				} else {
+					$data['error'] = 'Неправильный логин или пароль';
+				}
+			} else {
+				$data['error'] = 'Введите логин и пароль';
+			}
+		}
+
+		if(!empty($this->input->post('email')) and !empty($this->input->post('register_form'))) {
+			$info = array(
+				'email' => $this->input->post('email'),
+				'name' => $this->input->post('name'),
+				'phone' => $this->input->post('phone')
+			);
+			
+			if(!valid_email($info['email'])) {
+				$data['error'] = 'Укажите корректный email';
+			} else {
+				$account = new Account();
+				
+				if($account->set_id_by_email($info['email'])) {
+					$data['error'] = 'Данный email уже занят';
+				} else {
+					$account->set_data($info);
+					
+					if($account->add()) {
+						$account->login_without_data();
+					}
+				}
+			}
+		}
+
+		if(!$this->baselib->is_logged()) {			
+			$this->load->view('mobile/account/login_register', $data);				
+			return;
+		} elseif(!is_null($this->session->userdata('return_to_cart_after_login'))) {
+			$this->session->unset_userdata('return_to_cart_after_login');
+			redirect(base_url('/cart'), 'refresh');
+			return;
+		}
+	}
 	
-	public function cart() {
+	public function cart($action = false) {
+
+		if($action == 'logout') {
+			$this->baselib->logout();
+			redirect(base_url('/cart'), 'refresh');
+			return;
+		}
+
+		if($action == 'renew_shipping') {
+			$this->session->unset_userdata('shipping_method');
+			redirect(base_url('/cart'), 'refresh');
+			return;
+		}		
 		
 		$this->load->model('account');
 		$products = $this->baselib->get_cart();		
@@ -1555,7 +1668,8 @@ class Main extends CI_Controller {
 			$data['cart_info_tpl'] = 'login_register';
 
 			if($this->_is_mobile) {
-				$this->load->view('mobile/cart/'.$data['cart_info_tpl'], $data);
+				$this->session->set_userdata('return_to_cart_after_login', 1);
+				redirect(base_url('/account'), 'refresh');
 			} else {
 				$this->load->view('cart/cart', $data);
 			}		
@@ -1599,9 +1713,36 @@ class Main extends CI_Controller {
 		$data['cart_info']['shipping_methods'] = $shipping_gruops;
 		$data['totals']['totals'] = $this->baselib->get_totals_for_cart($data['totals']['totals']);
 
-		$data['cart_info_tpl'] = 'account';		
-		
-		$this->load->view('cart/cart', $data);
+		$data['cart_info_tpl'] = 'account';
+
+		if($this->_is_mobile and (!empty($this->input->post('account_details_name')) or !empty($this->input->post('account_details_phone')))) {
+			$info = array(
+				'name' => $this->input->post('account_details_name'),
+				'phone' => $this->input->post('account_details_phone')
+			);
+			
+			if(!is_null($account_id)) {
+				$this->load->model("account");
+				$account = new Account();
+
+				$account->set_id($account_id);
+				$account->set_data($info);
+				$account->update();
+			}
+		}
+
+		if($this->_is_mobile) {
+			if(!is_null($this->input->post('checkout_order'))) {
+					$this->load->model('order');
+					$order = new Order();					
+					$order->create();
+					$this->checkout_success();
+			} else {
+				$this->load->view('mobile/cart/'.$data['cart_info_tpl'], $data);
+			}
+		} else {
+			$this->load->view('cart/cart', $data);
+		}
 		
 		return;
 	}	

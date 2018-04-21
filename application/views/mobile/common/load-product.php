@@ -62,7 +62,7 @@
                             <div class="category_content_item_not_double_info_footer_add_to_cart_icon fl_r sprite"></div>
                             <div class="clear"></div>
                         </a>
-                        <a href="#" class="category_content_item_not_double_info_footer_star sprite"></a>
+                        <a href="#" class="category_content_item_not_double_info_footer_star sprite <?php echo (isset($product['favourite']) ? 'g_good_mobile_fav_orange' : '') ?> send" data-type="favourite"></a>
                         <div class="clear"></div>
                     </div>
                 </div>

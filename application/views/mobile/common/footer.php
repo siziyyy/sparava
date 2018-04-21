@@ -28,7 +28,7 @@
                     <div class="footer_button_img sprite"></div>
                     <div class="footer_button_text">корзина</div>
                 </a>
-                <a href="/" class="footer_button footer_button_img_my fl_l <?php echo ($current_element == 'account' ? 'active' : '') ?>"> <!-- add / remove .active -->
+                <a href="/account" class="footer_button footer_button_img_my fl_l <?php echo ($current_element == 'account' ? 'active' : '') ?>"> <!-- add / remove .active -->
                     <div class="footer_button_img sprite"></div>
                     <div class="footer_button_text">моё</div>
                 </a>
@@ -49,6 +49,7 @@
         <?php } ?>
         <script type="text/javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
         <script src="/assets/mobile/js/slider.js"></script><!-- ONLY ON INDEX ! -->
+        <script src="//ulogin.ru/js/ulogin.js"></script>
         <script src="/assets/mobile/js/main.js"></script>
     </body>
 
