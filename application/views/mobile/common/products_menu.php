@@ -11,13 +11,15 @@
         <div class="products_menu_tab_content active" id="tab_products">
             <?php foreach($categories_struct['categories'] as $parent_category) { ?>
                 <div class="products_menu_tab_content_line">
-                    <a class="products_menu_tab_content_line_header"><?php echo $parent_category['info']['title'] ?></a>
-                    <div class="products_menu_tab_content_line_subheader"><!-- парное и замороженное мясо --></div>
-                    <div class="products_menu_tab_content_line_count">
-                        <?php echo $this->baselib->get_filter_text('product',$parent_category['count']) ?>
-                        <span class="products_menu_tab_content_line_count_img sprite"></span>
-                    </div>
-                    <a href="#" class="products_menu_tab_content_line_more sprite"></a>
+                    <a href="#" class="products_menu_tab_content_line_more_links_show">
+                        <span class="products_menu_tab_content_line_header"><?php echo $parent_category['info']['title'] ?></span>
+                        <div class="products_menu_tab_content_line_subheader"><!-- парное и замороженное мясо --></div>
+                        <div class="products_menu_tab_content_line_count">
+                            <?php echo $this->baselib->get_filter_text('product',$parent_category['count']) ?>
+                            <span class="products_menu_tab_content_line_count_img sprite"></span>
+                        </div>
+                        <span href="#" class="products_menu_tab_content_line_more sprite"></span>
+                    </a>
                     <div class="products_menu_tab_content_line_more_links">
                         <?php foreach($parent_category['childs'] as $category) { ?>
                             <a href="/<?php echo $parent_category['info']['seo_url'] ?>/<?php echo $category['seo_url'] ?>" class="products_menu_tab_content_line_more_link"><?php echo $category['title'] ?></a>
