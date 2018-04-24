@@ -3,44 +3,44 @@ var current_page = 1;
 
 $(document).ready(function() {
     /** CATEGORY CHANGE VIEW**/
-    $('.category_content_header_button_view').click(function() {
+    $('.category_content_header_button_view').bind("touchstart", function() {
         $('.category_content_header_button_view').toggleClass('active');
         $('.category_content').toggleClass('category_content_view_by_double');
     });
     /** CATEGORY OPEN FILTERS **/
-    $('.category_content_header_button_filters').click(function() {
+    $('.category_content_header_button_filters').bind("touchstart", function() {
         $('body').toggleClass('opened_filters');
     });
-    $('.filters_mask').click(function() {
+    $('.filters_mask').bind("touchstart", function() {
         $('body').removeClass('opened_filters');
     });
-    $('.filters_header').click(function() {
+    $('.filters_header').bind("touchstart", function() {
         $('body').removeClass('opened_filters');
     });
     /** CATEGORY MORE FILTERS **/
-    $('.filters_form_more').click(function() {
+    $('.filters_form_more').bind("touchstart", function() {
         $(this).toggleClass('active');
     });
     /** ITEM MORE INFO **/
-    $('.item_page_more_info').click(function() {
+    $('.item_page_more_info').bind("touchstart", function() {
         $('.item_page_more_info_arrow').toggleClass('active');
          $('.item_page_more_info_text').html($('.item_page_more_info_text').html() == 'еще информация' ? 'закрыть' : 'еще информация');
         $('.item_page_more_info_pack').toggle()
     });
     /** ITEM RECOMENDATIONS AND COMMENTS **/
-    $('.item_page_recs_and_comments_link').click(function() {
+    $('.item_page_recs_and_comments_link').bind("touchstart", function() {
         $('.item_page_recs_and_comments_link').toggleClass('active');
         $('.item_page_recs_and_comments').toggleClass('item_page_recs_and_comments_show_recs');
     });
 
     /** PRODUCTS MENU **/
-    $('.header_icon_hamburger').click(function() {
+    $('.header_icon_hamburger').bind("touchstart", function() {
         $('body').addClass('opened_products');
     });
-    $('.products_menu_header_icon').click(function() {
+    $('.products_menu_header_icon').bind("touchstart", function() {
         $('body').removeClass('opened_products');
     });
-    $('.products_menu_tab').click(function() {
+    $('.products_menu_tab').bind("touchstart", function() {
         $('.products_menu_tab').removeClass('active');
         $('.products_menu_tab_content').removeClass('active');
 
@@ -48,24 +48,25 @@ $(document).ready(function() {
         $(this).addClass('active');
         $('#'+target).addClass('active');
     });
-    $('.products_menu_tab_content_line').click(function(e) {
-        if($(this).hasClass('products_menu_tab_content_line_header')) {
+    $('.products_menu_tab_content_line_more_links_show').bind("touchstart", function(e) {
+        e.preventDefault();
+        /* if($(this).hasClass('products_menu_tab_content_line_header')) {
             e.preventDefault();
         } else if($(this).hasClass('products_menu_tab_content_line_more_link')) {
             return true;
-        }
+        } */
 
         $('.products_menu_tab_content_line_more_links').hide();
 
-        if($(this).find('.products_menu_tab_content_line_more').hasClass('active')) {
-            $(this).find('.products_menu_tab_content_line_more').removeClass('active');
+        if($(this).parents('.products_menu_tab_content_line').find('.products_menu_tab_content_line_more').hasClass('active')) {
+            $(this).parents('.products_menu_tab_content_line').find('.products_menu_tab_content_line_more').removeClass('active');
         } else {
-            $(this).find('.products_menu_tab_content_line_more').addClass('active');
-            $(this).find('.products_menu_tab_content_line_more_links').show();
+            $(this).parents('.products_menu_tab_content_line').find('.products_menu_tab_content_line_more').addClass('active');
+            $(this).parents('.products_menu_tab_content_line').find('.products_menu_tab_content_line_more_links').show();
         }
     });
     /** CABINET SETTINGS **/
-    $('.cabinet_settings_body_line_item').click(function() {
+    $('.cabinet_settings_body_line_item').bind("touchstart", function() {
         $(this).toggleClass('active');
     });
     /** MAIN PAGE SLIDER **/
@@ -128,12 +129,12 @@ $(document).ready(function() {
         uLogin.customInit('uLogin');
     } 
 
-    $( ".c_inners_count_delete" ).click(function() {
+    $( ".c_inners_count_delete" ).bind("touchstart", function() {
         product_id = $(this).parents('.c_inners_side_tr').attr('data-product-id');
         cart.remove(product_id);
     });
 
-    $( ".cart_delivery_tab_select" ).click(function() {
+    $( ".cart_delivery_tab_select" ).bind("touchstart", function() {
         $('.cart_delivery_tab').hide();
 
         $(".cart_delivery_tab_select").removeClass('active');
@@ -142,7 +143,7 @@ $(document).ready(function() {
         $('#'+target).show();        
     });
 
-    $( ".cart_delivery_shipping_method_select" ).click(function() {
+    $( ".cart_delivery_shipping_method_select" ).bind("touchstart", function() {
         $(".cart_delivery_shipping_method_select").removeClass('active');
         id = $(this).attr('data-id');
         price = $(this).attr('data-price');
@@ -203,7 +204,7 @@ $(document).ready(function() {
         $(this).val(quantity+' '+type);
     }); 
 
-    $(document).on('click','.g_good_count_add',function(e) {
+    $( ".g_good_count_add" ).bind("touchstart", function(e) {
         
         if($(this).parents('.g_good').length > 0) {
             parent_class = '.g_good';
@@ -236,7 +237,7 @@ $(document).ready(function() {
         $(this).parents(parent_class).find('.g_good_count_input').val(quantity);
     });
     
-    $(document).on('click','.g_good_count_rem',function(e) {
+    $( ".g_good_count_rem" ).bind("touchstart", function(e) {
         
         if($(this).parents('.g_good').length > 0) {
             parent_class = '.g_good';
@@ -398,7 +399,7 @@ $(document).ready(function() {
         }
     }
 
-    $(document).on('click','.g_good_to_cart',function(e) {
+    $( ".g_good_to_cart" ).bind("touchstart", function(e) {
         
         if($(this).parents('.g_good').length > 0) {
             parent_class = '.g_good';
@@ -413,7 +414,7 @@ $(document).ready(function() {
         cart.add(product_id, parseFloat(quantity),parent_class,$(this));
     });
 
-    $(document).on('click','.show_more_products',function(e) {
+    $( ".show_more_products" ).bind("touchstart", function(e) {
         e.preventDefault();
         
         current_page++;
@@ -456,7 +457,7 @@ $(document).ready(function() {
         });
     });
 
-    $(document).on('click','.link_to_product',function(e) {
+    $( ".link_to_product" ).bind("touchstart", function(e) {
         e.preventDefault();
         
         url = $(this).attr('data-url');
@@ -465,16 +466,16 @@ $(document).ready(function() {
         $('.fullscreen').show();
     });
 
-    $(document).on('click','.item_page_back',function(e) {
+    $( ".item_page_back" ).bind("touchstart", function(e) {
         e.preventDefault();        
         parent.closeIFrame();
     });
 
-    $(document).on('click','.g_good_added_to_cart',function(e) {
+    $( ".g_good_added_to_cart" ).bind("touchstart", function(e) {
         window.location = '/cart';
     }); 
 
-    $('.filters_button').click(function() {
+    $( ".filters_button" ).bind("touchstart", function(e) {
         tail = window.location.search;  
         params = URLToArray(tail);
         
@@ -509,7 +510,7 @@ $(document).ready(function() {
         window.location.href = window.location.origin+window.location.pathname+'?'+ArrayToURL(params);
     });
 
-    $('.filters_reset').click(function(e) {
+    $( ".filters_reset" ).bind("touchstart", function(e) {
         e.preventDefault();
         tail = window.location.search; 
         params = URLToArray(tail);
@@ -534,8 +535,7 @@ $(document).ready(function() {
         window.location.href = window.location.origin+window.location.pathname+'?'+ArrayToURL(params);
     });
 
-
-    $(document).on('click','.send',function(e) {
+    $( ".send" ).bind("touchstart", function(e) {
         e.preventDefault();
     
         if(block_send_button) {
