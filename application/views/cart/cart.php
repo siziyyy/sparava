@@ -14,32 +14,32 @@
                 <?php $this->load->view('common/menu');?>
             </div>
             <div class="c_new_mobile_menu noscrlbr">
-                <a href="/category/1" class="c_mobile_menu_link">Мясо</a>
-                <a href="/category/2" class="c_mobile_menu_link">Птица</a>
-                <a href="/category/3" class="c_mobile_menu_link">Рыба</a>
-                <a href="/category/4" class="c_mobile_menu_link">Морепродукты</a>
-                <a href="/category/5" class="c_mobile_menu_link">Деликатесы</a>
-                <a href="/category/6" class="c_mobile_menu_link">Полуфабрикаты</a>
-                <a href="/category/7" class="c_mobile_menu_link">Кулинария</a>
-                <a href="/category/8" class="c_mobile_menu_link">Заморзка</a>
-                <a href="/category/9" class="c_mobile_menu_link">Бакалея</a>
-                <a href="/category/10" class="c_mobile_menu_link">Консервация</a>
-                <a href="/category/11" class="c_mobile_menu_link">Соления</a>
-                <a href="/category/12" class="c_mobile_menu_link">Соусы</a>
-                <a href="/category/13" class="c_mobile_menu_link">Молочные продукты</a>
-                <a href="/category/14" class="c_mobile_menu_link">Фрукты</a>
-                <a href="/category/15" class="c_mobile_menu_link">Овощи, зелень, грибы</a>
-                <a href="/category/17" class="c_mobile_menu_link">Приправы</a>
-                <a href="/category/18" class="c_mobile_menu_link">Растительные масла</a>
-                <a href="/category/19" class="c_mobile_menu_link">Хлеб и лаваш</a>
-                <a href="/category/20" class="c_mobile_menu_link">Хлебцы и снеки</a>
-                <a href="/category/21" class="c_mobile_menu_link">Сладости</a>
-                <a href="/category/22" class="c_mobile_menu_link">Торты и пирожные</a>
-                <a href="/category/23" class="c_mobile_menu_link">Мед</a>
-                <a href="/category/24" class="c_mobile_menu_link">Чай</a>
-                <a href="/category/25" class="c_mobile_menu_link">Кофе</a>
-                <a href="/category/26" class="c_mobile_menu_link">Вода и напитки</a>
-                <a href="/category/27" class="c_mobile_menu_link">Соки и компоты</a>
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(1) ?>" class="c_mobile_menu_link">Мясо</a>
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(2) ?>" class="c_mobile_menu_link">Птица</a>
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(3) ?>" class="c_mobile_menu_link">Рыба</a>
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(4) ?>" class="c_mobile_menu_link">Морепродукты</a>
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(5) ?>" class="c_mobile_menu_link">Деликатесы</a>
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(6) ?>" class="c_mobile_menu_link">Полуфабрикаты</a>
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(7) ?>" class="c_mobile_menu_link">Кулинария</a>
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(8) ?>" class="c_mobile_menu_link">Заморзка</a>
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(9) ?>" class="c_mobile_menu_link">Бакалея</a>
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(10) ?>" class="c_mobile_menu_link">Консервация</a>
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(11) ?>" class="c_mobile_menu_link">Соления</a>
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(12) ?>" class="c_mobile_menu_link">Соусы</a>
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(13) ?>" class="c_mobile_menu_link">Молочные продукты</a>
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(14) ?>" class="c_mobile_menu_link">Фрукты</a>
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(15) ?>" class="c_mobile_menu_link">Овощи, зелень, грибы</a>
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(17) ?>" class="c_mobile_menu_link">Приправы</a>
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(18) ?>" class="c_mobile_menu_link">Растительные масла</a>
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(19) ?>" class="c_mobile_menu_link">Хлеб и лаваш</a>
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(20) ?>" class="c_mobile_menu_link">Хлебцы и снеки</a>
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(21) ?>" class="c_mobile_menu_link">Сладости</a>
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(22) ?>" class="c_mobile_menu_link">Торты и пирожные</a>
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(23) ?>" class="c_mobile_menu_link">Мед</a>
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(24) ?>" class="c_mobile_menu_link">Чай</a>
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(25) ?>" class="c_mobile_menu_link">Кофе</a>
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(26) ?>" class="c_mobile_menu_link">Вода и напитки</a>
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(27) ?>" class="c_mobile_menu_link">Соки и компоты</a>
             </div>
             <div class="cart_mob_menu_bg"></div>
             <div class="content_helper">

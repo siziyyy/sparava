@@ -11,10 +11,9 @@
         <div class="info_page_inner_contacts_address_name">Агрокластер Фуд Сити</div>
         <div class="info_page_inner_contacts_address_point">2 - 017 офис</div>
         <div class="info_page_inner_footer">
-            <a href="/pages/info/delivery/" class="info_page_inner_footer_link">Доставка</a>
-            <a href="/pages/info/delivery/" class="info_page_inner_footer_link">Гарантия качества</a>
-            <a href="/pages/info/delivery/" class="info_page_inner_footer_link">Прием заказа, обмен, возврат</a>
-            <a href="/pages/info/delivery/" class="info_page_inner_footer_link">Условия доставки</a>
+            <a href="/information/" class="info_page_inner_footer_link">О нас</a>
+            <a href="/information/testimonials" class="info_page_inner_footer_link">Отзывы о нас</a>
+            <a href="/information/contacts" class="info_page_inner_footer_link">Контакты</a>
         </div>
     </div>
 <?php $this->load->view('mobile/common/footer',$footer);?>

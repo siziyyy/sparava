@@ -1075,7 +1075,7 @@ $(document).ready(function() {
 		$(this).val(quantity+' '+type);
 	});
 	
-	$(document).on('click','.g_good_count_add',function(e) {
+	$(document).on('click,touchstart','.g_good_count_add',function(e) {
 		
 		if($(this).parents('.g_good').length > 0) {
 			parent_class = '.g_good';

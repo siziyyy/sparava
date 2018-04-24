@@ -9,16 +9,16 @@
 					<div class="c_new_menu_line_item rtyguhnjioklp fl_r">
                         <a href="/catalog" class="c_new_menu_link fullcatlink c_new_menu_l">Полный каталог</a>
                         <a class="search_new_3_2018_icon"></a>
-                        <a href="/category/1" class="c_new_menu_link c_new_menu_l">Мясо</a>
-                        <a href="/category/2" class="c_new_menu_link c_new_menu_l">Птица</a>
-                        <a href="/category/3" class="c_new_menu_link c_new_menu_l">Рыба</a>
-                        <a href="/category/13" class="c_new_menu_link c_new_menu_l">Молочка</a>
-                        <a href="/category/15" class="c_new_menu_link c_new_menu_l">Овощи</a>
-                        <a href="/category/14" class="c_new_menu_link c_new_menu_l">Фрукты</a>
-                        <a href="/category/16" class="c_new_menu_link c_new_menu_l">Орехи и сухофрукты</a>
-                        <a href="/category/24" class="c_new_menu_link c_new_menu_l">Чай</a>
-                        <a href="/category/25" class="c_new_menu_link c_new_menu_l">Кофе</a>
-                        <a href="/category/23" class="c_new_menu_link c_new_menu_l adwgsage" style="margin:0 !important">Мёд</a>
+                        <a href="<?php echo $this->baselib->get_seo_url_by_category_id(1) ?>" class="c_new_menu_link c_new_menu_l">Мясо</a>
+                        <a href="<?php echo $this->baselib->get_seo_url_by_category_id(2) ?>" class="c_new_menu_link c_new_menu_l">Птица</a>
+                        <a href="<?php echo $this->baselib->get_seo_url_by_category_id(3) ?>" class="c_new_menu_link c_new_menu_l">Рыба</a>
+                        <a href="<?php echo $this->baselib->get_seo_url_by_category_id(13) ?>" class="c_new_menu_link c_new_menu_l">Молочка</a>
+                        <a href="<?php echo $this->baselib->get_seo_url_by_category_id(15) ?>" class="c_new_menu_link c_new_menu_l">Овощи</a>
+                        <a href="<?php echo $this->baselib->get_seo_url_by_category_id(14) ?>" class="c_new_menu_link c_new_menu_l">Фрукты</a>
+                        <a href="<?php echo $this->baselib->get_seo_url_by_category_id(16) ?>" class="c_new_menu_link c_new_menu_l">Орехи и сухофрукты</a>
+                        <a href="<?php echo $this->baselib->get_seo_url_by_category_id(24) ?>" class="c_new_menu_link c_new_menu_l">Чай</a>
+                        <a href="<?php echo $this->baselib->get_seo_url_by_category_id(25) ?>" class="c_new_menu_link c_new_menu_l">Кофе</a>
+                        <a href="<?php echo $this->baselib->get_seo_url_by_category_id(23) ?>" class="c_new_menu_link c_new_menu_l adwgsage" style="margin:0 !important">Мёд</a>
 					</div>
                     <div class="clear"></div>
               </div>

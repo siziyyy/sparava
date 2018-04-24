@@ -17,10 +17,9 @@
             <br><a href="mailto:rabota@aydaeda.ru" class="for_blogers_phone">rabota@aydaeda.ru</a>
         </div>
         <div class="info_page_inner_footer">
-            <a href="/pages/info/delivery/" class="info_page_inner_footer_link">Доставка</a>
-            <a href="/pages/info/delivery/" class="info_page_inner_footer_link">Гарантия качества</a>
-            <a href="/pages/info/delivery/" class="info_page_inner_footer_link">Прием заказа, обмен, возврат</a>
-            <a href="/pages/info/delivery/" class="info_page_inner_footer_link">Условия доставки</a>
+            <a href="/information/caterer" class="info_page_inner_footer_link">Поставщики</a>
+            <a href="/information/vacancy" class="info_page_inner_footer_link">Работа</a>
+            <a href="/information/bloger" class="info_page_inner_footer_link">Блогерам</a>
         </div>
     </div>
 <?php $this->load->view('mobile/common/footer',$footer);?>

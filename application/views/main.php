@@ -39,22 +39,22 @@
             <?php } ?>
 
             <div class="myasnoy_ryad_line fl_l">
-                <a href="/category/29" class="mew_1_link"><div class="myasnoy_ryad_line_item new_1_2 fl_l">
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(29) ?>" class="mew_1_link"><div class="myasnoy_ryad_line_item new_1_2 fl_l">
                     <div class="myasnoy_ryad_item_text_vert">Говядина</div>
                 </div></a>
-                <a href="/category/30" class="mew_1_link"><div class="myasnoy_ryad_line_item new_1_3 fl_l">
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(30) ?>" class="mew_1_link"><div class="myasnoy_ryad_line_item new_1_3 fl_l">
                     <div class="myasnoy_ryad_item_text_vert">Мраморная говядина</div>
                 </div></a>
-                <a href="/category/33" class="mew_1_link"><div class="myasnoy_ryad_line_item new_1_4 fl_l">
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(33) ?>" class="mew_1_link"><div class="myasnoy_ryad_line_item new_1_4 fl_l">
                     <div class="myasnoy_ryad_item_text_vert">Свинина</div>
                 </div></a>
-                <a href="/category/32" class="mew_1_link"><div class="myasnoy_ryad_line_item new_1_5 fl_l">
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(32) ?>" class="mew_1_link"><div class="myasnoy_ryad_line_item new_1_5 fl_l">
                     <div class="myasnoy_ryad_item_text_vert">Баранина</div>
                 </div></a>
-                <a href="/category/171" class="mew_1_link"><div class="myasnoy_ryad_line_item new_1_6 fl_l">
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(171) ?>" class="mew_1_link"><div class="myasnoy_ryad_line_item new_1_6 fl_l">
                     <div class="myasnoy_ryad_item_text_vert">Мясо кролика</div>
                 </div></a>
-                <a href="/" class="mew_1_link"><div class="myasnoy_ryad_line_item myasnoy_ryad_line_item_last new_1_7 fl_l">
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(38) ?>" class="mew_1_link"><div class="myasnoy_ryad_line_item myasnoy_ryad_line_item_last new_1_7 fl_l">
                     <div class="myasnoy_ryad_item_text_vert">Гусь</div>
                 </div></a>
                 <div class="clear"></div>
