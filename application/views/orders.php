@@ -5,7 +5,7 @@
                     <div class="c_new_menu">
                         <div class="c_new_menu_line c_new_menu_line_country filters_holder">
                             <div class="c_new_menu_line_item fl_l">
-                                <a href="/category/" class="c_new_menu_link c_new_menu_link_country">заказы</a>
+                                <a href="/orders" class="c_new_menu_link c_new_menu_link_country">заказы</a>
                             </div>
 							<?php if(isset($orders)) { ?>
 								<div class="cool_select_pack cool_select_country_pack fl_l">

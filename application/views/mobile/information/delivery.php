@@ -22,5 +22,10 @@
             </div>
             <img src="/assets/img/commons/payments.jpg" class="info_page_inner_payments_img" alt="">
         </div>
+        <div class="info_page_inner_footer">
+            <a href="/information/delivery" class="info_page_inner_footer_link">Доставка и способы оплаты</a>
+            <a href="/information/return" class="info_page_inner_footer_link">Прием заказа, обмен и возврат</a>
+            <a href="/information/agreement" class="info_page_inner_footer_link">Гарантия качества</a>
+        </div>
     </div>
 <?php $this->load->view('mobile/common/footer',$footer);?>

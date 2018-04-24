@@ -37,11 +37,27 @@ class Baselib {
 	    		foreach ($query->result_array() as $row) {
 	    			$this->_categories_list[$row['category_id']] = $row;
 	    		}
+
+	    		foreach ($this->_categories_list as $category_id => $category) {
+	    			if($category['parent_id'] > 0 and isset($this->_categories_list[$category['parent_id']])) {
+	    				$this->_categories_list[$category_id]['full_seo_url'] = '/'.$this->_categories_list[$category['parent_id']]['seo_url'].'/'.$category['seo_url'];
+	    			} else {
+	    				$this->_categories_list[$category_id]['full_seo_url'] = '/'.$category['seo_url'];
+	    			}
+	    		}
 	    	}
 
     		$this->_ci->cache->file->save('categories_list', $this->_categories_list, 3600);
 	    }
     }
+
+	public function get_seo_url_by_category_id($category_id) {
+		if(isset($this->_categories_list[$category_id])) {
+			return $this->_categories_list[$category_id]['full_seo_url'];
+		}
+		
+		return false;
+	}
 
 	public function text_limiter($text, $count) {
 		if (mb_strlen($text) > $count) {

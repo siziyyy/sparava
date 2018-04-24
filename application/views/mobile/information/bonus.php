@@ -10,10 +10,9 @@
             Эти балы Вы можете использовать в дальнейших покупках. 
         </div>
         <div class="info_page_inner_footer">
-            <a href="/pages/info/delivery/" class="info_page_inner_footer_link">Доставка</a>
-            <a href="/pages/info/delivery/" class="info_page_inner_footer_link">Гарантия качества</a>
-            <a href="/pages/info/delivery/" class="info_page_inner_footer_link">Прием заказа, обмен, возврат</a>
-            <a href="/pages/info/delivery/" class="info_page_inner_footer_link">Условия доставки</a>
+            <a href="/information/" class="info_page_inner_footer_link">Преимущество первого заказа</a>
+            <a href="/information/bonus" class="info_page_inner_footer_link">Бонусная система</a>
+            <a href="/information/claims" class="info_page_inner_footer_link">Претензии и предложения</a>
         </div>
     </div>
 <?php $this->load->view('mobile/common/footer',$footer);?>

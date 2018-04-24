@@ -69,8 +69,12 @@ class Main extends CI_Controller {
 				}
 			}
 		}
-
-		return call_user_func_array(array($this, $method), $params);
+		
+		if(is_callable(array($this, $method))) {
+			return call_user_func_array(array($this, $method), $params);
+		} else {
+			show_404();
+		}		
 	}
 
 	public function index() {
