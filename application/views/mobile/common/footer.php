@@ -47,7 +47,8 @@
                 <div class="clear"></div>
             </footer>
         <?php } ?>
-        <script type="text/javascript" src="/assets/mobile/js/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="/assets/mobile/js/jquery-1.11.2.min.js"></script>                
+        <script src="/assets/mobile/js/jquery.tap.js"></script>
         <script src="/assets/mobile/js/slider.js"></script><!-- ONLY ON INDEX ! -->
         <script src="//ulogin.ru/js/ulogin.js"></script>
         <script src="/assets/mobile/js/main.js"></script>
