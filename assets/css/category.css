@@ -93,6 +93,79 @@ a.g_good_name{display:block}
 .count_cool_select_opened .count_cool_select:after{display:block;content:"";position:absolute;margin:-2px 6px 0;height:1px;background:#e0e0e0;width:28px;z-index:99999}
 .g_admin_info{display:none;font-size:12px;cursor:pointer;text-decoration:underline;float:right;margin:23px 46px 0 0;color:#666}
 .g_good_admin_info_modal{width:985px;height:910px;background:#FFF;position:fixed;top:50%;left:50%;z-index:9999;border:5px solid #e6e6e6;display:none;transform:translate(-50%,-50%)}
+.g_good_secondary_inner_modal {
+        width: 329px;
+    height: 816px;
+    background: #FFF;
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 9999;
+    border: 5px solid #e6e6e6;
+    display: none;
+}
+.g_good_secondary_inner_modal_closer {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 25px;
+}
+.g_good_secondary_inner_modal_opener {
+        background: #FF3F2C;
+    display: inline-block;
+    color: #fff;
+    font-size: 25px;
+    height: 30px;
+    width: 30px;
+    margin: 32px 0 0 0;
+    float: right;
+    font-family: Calibri Bold;
+    border-radius: 3px;
+    text-align: center;
+    line-height: 28px;
+    cursor: pointer;
+}
+.g_good_secondary_inner_modal_line {
+    width: auto;
+    margin: 25px auto 0;
+    text-align: center;
+}
+.g_good_secondary_inner_modal_label {
+    display: inline-block;
+    text-align: left;
+}
+.g_good_secondary_inner_modal_input {
+    width: 73px;
+    height: 30px;
+    display: block;
+    margin: 0 20px 0 0;
+    border: 1px solid #ccc;
+}
+.g_good_secondary_inner_modal_input_short {
+    width: 38px;
+    margin: 0;
+}
+.g_good_secondary_inner_modal_label_text {
+    font-size: 16px;
+    font-family: Calibri Bold;
+    margin-bottom: 5px;
+    display: block;
+}
+.g_good_secondary_inner_modal_button {
+     background: #FF3F2C;
+    display: block;
+    color: #fff;
+    font-size: 25px;
+    height: 30px;
+    width: 30px;
+    margin: 34px 0 0 44px;
+    font-family: Calibri Bold;
+    border-radius: 3px;
+    text-align: center;
+    line-height: 28px;
+    cursor: pointer;
+}
 .g_good_admin_info_modal_save{margin:33px 0 0!important}
 .close_product_details{display:block;position:absolute;right:20px;top:13px;font-size:24px;cursor:pointer}
 .product_cko_label{margin:0 0 0 12px}

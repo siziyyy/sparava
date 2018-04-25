@@ -140,6 +140,7 @@
                         -ms-transition: filter .3s ease;
                          -o-transition: filter .3s ease;
                             transition: filter .3s ease;
+                    overflow: hidden;
             }
             .new_1_<?= $i; ?>:hover {
                 filter: contrast(1.2);
