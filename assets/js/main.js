@@ -2,10 +2,7 @@ var block_send_button = false;
 var current_page = 1;
 var show_admin_info = false;
 var wrong_category = false;
-
-function send_msg(msg) {
-	window.frames['admin'].postMessage(send_data, "https://admin.aydaeda.ru");
-}
+element_id = 1;
 
 function listener(event) {
 	if (event.origin != 'https://admin.aydaeda.ru') {
@@ -64,11 +61,25 @@ function listener(event) {
 		$('#product_form .product_providers').empty();
 
 		if(product['providers'].length > 0) {
-			for (k in product['providers']) {
+			for (var k in product['providers']) {
 				html = '<a href="/provider?provider='+product['providers'][k]['store']+'">'+product['providers'][k]['cmo']+'/'+product['providers'][k]['cko']+' '+product['providers'][k]['store']+'</a><br>';
 				$('#product_form .product_providers').append(html);
 			}
-		}			
+		}
+
+		$('#connected_products_wrapper').empty();
+
+		if(product['connected_products'].length > 0) {
+			for (var k in product['connected_products']) {
+				html = $('#template_connected_products').html();
+				$('#product_form #connected_products_wrapper').append(html);
+
+				last = $('#connected_products_wrapper .g_good_secondary_inner_modal_line').last()
+				last.find('.connected_product_id').val(product['connected_products'][k]['dst_product_id']);
+				last.find('.connected_product_count').val(product['connected_products'][k]['count']);
+				last.find('.connected_product_percent').val(product['connected_products'][k]['percent']);
+			}
+		}
 
 		$('#product_form .product_eko').prop('checked', false);
 		if(product.eko > 0) {
@@ -196,6 +207,23 @@ $(document).ready(function() {
 				}
 			}
 		});		
+	});	
+
+	$(document).on('click','.g_good_secondary_inner_modal_opener',function(e) {
+		e.preventDefault();
+		$('.g_good_secondary_inner_modal').show();
+	});	
+
+	$(document).on('click','.g_good_secondary_inner_modal_closer',function(e) {
+		e.preventDefault();
+		$('.g_good_secondary_inner_modal').hide();
+	});	
+
+	$(document).on('click','.g_good_secondary_inner_modal_button',function(e) {
+		e.preventDefault();
+
+		html = $( "#template_connected_products" ).html();
+		$('#connected_products_wrapper').append(html);
 	});	
 
 	$(document).on('click','.brand_admin',function(e) {
@@ -764,7 +792,21 @@ $(document).ready(function() {
 			competitors: $('#product_form .product_competitors').val(),
 			assortiment: $('#product_form .product_assortiment').val()
 		}
-		
+
+		connected_products = {};
+
+		$('#connected_products_wrapper .g_good_secondary_inner_modal_line').each(function(i) {
+			if($(this).find('.connected_product_id').val().length > 1) {
+				connected_products[i] = {
+					id : $(this).find('.connected_product_id').val(),
+					count : $(this).find('.connected_product_count').val(),
+					percent : $(this).find('.connected_product_percent').val()
+				}
+			}
+		});
+
+		product.connected_products = connected_products;
+
 		send_data = {
 			type : 'save_product',
 			data : product
@@ -784,8 +826,9 @@ $(document).ready(function() {
 	});
 */	
 	$(document).on('click','.admin_window_closer,.close_product_details',function(e) {
+		$('.g_good_secondary_inner_modal').hide();	
 		$('#product_form').hide();
-		$('.admin_window_closer').hide();		
+		$('.admin_window_closer').hide();
 	});
 	
 	$(document).on('click','.g_admin_info',function(e) {
@@ -1837,7 +1880,7 @@ $(document).ready(function() {
 							
 							if(product['favourite']) {
 								$('#product_info .good_modal_fav').addClass('good_modal_fav_ylw');
-							}							
+							}
 							
 							$('#product_info .actions_holder').empty();
 							
@@ -2183,4 +2226,12 @@ function play_video(video_id) {
 
 function onPlayerReady(event) {
 	event.target.playVideo();
+}
+
+String.prototype.replaceAll = function(search, replace){
+	return this.split(search).join(replace);
+}
+
+function send_msg(msg) {
+	window.frames['admin'].postMessage(send_data, "https://admin.aydaeda.ru");
 }

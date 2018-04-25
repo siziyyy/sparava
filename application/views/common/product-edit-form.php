@@ -211,22 +211,23 @@
             <div class="clear"></div>
             <div class="g_good_secondary_inner_modal">
                 <div class="g_good_secondary_inner_modal_closer">&times;</div>
-                <? for ($i=0; $i < 9; $i++) { ?>
-                <div class="g_good_secondary_inner_modal_line">
-                    <label class="g_good_secondary_inner_modal_label">
-                        <span class="g_good_secondary_inner_modal_label_text">артикул</span>
-                        <input type="text" class="g_good_secondary_inner_modal_input">
-                    </label>
-                    <label class="g_good_secondary_inner_modal_label">
-                        <span class="g_good_secondary_inner_modal_label_text">х шт.</span>
-                        <input type="text" class="g_good_secondary_inner_modal_input">
-                    </label>
-                    <label class="g_good_secondary_inner_modal_label">
-                        <span class="g_good_secondary_inner_modal_label_text">- %</span>
-                        <input type="text" class="g_good_secondary_inner_modal_input g_good_secondary_inner_modal_input_short">
-                    </label>
-                </div>
-                <? } ?>
+                <span id="connected_products_wrapper"></span>
                 <div class="g_good_secondary_inner_modal_button">+</div>
+            </div>
+        </div>
+        <div id="template_connected_products">
+            <div class="g_good_secondary_inner_modal_line">
+                <label class="g_good_secondary_inner_modal_label">
+                    <span class="g_good_secondary_inner_modal_label_text">артикул</span>
+                    <input type="text" class="g_good_secondary_inner_modal_input connected_product_id">
+                </label>
+                <label class="g_good_secondary_inner_modal_label">
+                    <span class="g_good_secondary_inner_modal_label_text">х шт.</span>
+                    <input type="text" class="g_good_secondary_inner_modal_input connected_product_count">
+                </label>
+                <label class="g_good_secondary_inner_modal_label">
+                    <span class="g_good_secondary_inner_modal_label_text">- %</span>
+                    <input type="text" class="g_good_secondary_inner_modal_input g_good_secondary_inner_modal_input_short connected_product_percent">
+                </label>
             </div>
         </div>
