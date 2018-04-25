@@ -54,6 +54,7 @@
                 </label>
                 <div class="clear"></div>
                 <div class="g_good_admin_info_modal_save black_small_button save_product_details">сохранить</div>
+                <div class="g_good_secondary_inner_modal_opener">+</div>
             </aside>
             <aside class="g_good_admin_info_modal_center fl_l">
                 <label>
@@ -208,4 +209,24 @@
                 </label>
             </aside>
             <div class="clear"></div>
+            <div class="g_good_secondary_inner_modal">
+                <div class="g_good_secondary_inner_modal_closer">&times;</div>
+                <? for ($i=0; $i < 9; $i++) { ?>
+                <div class="g_good_secondary_inner_modal_line">
+                    <label class="g_good_secondary_inner_modal_label">
+                        <span class="g_good_secondary_inner_modal_label_text">артикул</span>
+                        <input type="text" class="g_good_secondary_inner_modal_input">
+                    </label>
+                    <label class="g_good_secondary_inner_modal_label">
+                        <span class="g_good_secondary_inner_modal_label_text">х шт.</span>
+                        <input type="text" class="g_good_secondary_inner_modal_input">
+                    </label>
+                    <label class="g_good_secondary_inner_modal_label">
+                        <span class="g_good_secondary_inner_modal_label_text">- %</span>
+                        <input type="text" class="g_good_secondary_inner_modal_input g_good_secondary_inner_modal_input_short">
+                    </label>
+                </div>
+                <? } ?>
+                <div class="g_good_secondary_inner_modal_button">+</div>
+            </div>
         </div>
