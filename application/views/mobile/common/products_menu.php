@@ -31,13 +31,15 @@
         <div class="products_menu_tab_content" id="tab_countries">
             <?php foreach($categories_struct['countries'] as $country => $country_data) { ?>
                 <div class="products_menu_tab_content_line">
-                    <a href="#" class="products_menu_tab_content_line_header"><?php echo $country ?></a>
-                    <div class="products_menu_tab_content_line_subheader"><!-- парное и замороженное мясо --></div>
-                    <div class="products_menu_tab_content_line_count">
-                        <?php echo $this->baselib->get_filter_text('product',$country_data['count']) ?>
-                        <span class="products_menu_tab_content_line_count_img sprite"></span>
-                    </div>
-                    <a href="#" class="products_menu_tab_content_line_more sprite"></a>
+                    <a href="#" class="products_menu_tab_content_line_more_links_show">
+                        <span href="#" class="products_menu_tab_content_line_header"><?php echo $country ?></span>
+                        <div class="products_menu_tab_content_line_subheader"><!-- парное и замороженное мясо --></div>
+                        <div class="products_menu_tab_content_line_count">
+                            <?php echo $this->baselib->get_filter_text('product',$country_data['count']) ?>
+                            <span class="products_menu_tab_content_line_count_img sprite"></span>
+                        </div>
+                        <span href="#" class="products_menu_tab_content_line_more sprite"></span>
+                    </a>
                     <div class="products_menu_tab_content_line_more_links">
                         <?php foreach($country_data['categories'] as $category) { ?>
                             <a href="/country/<?php echo $country_data['country_id'] ?>?category=<?php echo $category['title'] ?>" class="products_menu_tab_content_line_more_link"><?php echo $category['title'] ?></a>
@@ -49,13 +51,15 @@
         <div class="products_menu_tab_content" id="tab_assignments">
             <?php foreach($categories_struct['types'] as $type_title => $type) { ?>
                 <div class="products_menu_tab_content_line">
-                    <a href="#" class="products_menu_tab_content_line_header"><?php echo $type['title'] ?></a>
-                    <div class="products_menu_tab_content_line_subheader"><!-- парное и замороженное мясо --></div>
-                    <div class="products_menu_tab_content_line_count">
-                        <?php echo $this->baselib->get_filter_text('product',$type['count']) ?>
-                        <span class="products_menu_tab_content_line_count_img sprite"></span>
-                    </div>
-                    <a href="#" class="products_menu_tab_content_line_more sprite"></a>
+                    <a href="#" class="products_menu_tab_content_line_more_links_show">
+                        <span href="#" class="products_menu_tab_content_line_header"><?php echo $type['title'] ?></span>
+                        <div class="products_menu_tab_content_line_subheader"><!-- парное и замороженное мясо --></div>
+                        <div class="products_menu_tab_content_line_count">
+                            <?php echo $this->baselib->get_filter_text('product',$type['count']) ?>
+                            <span class="products_menu_tab_content_line_count_img sprite"></span>
+                        </div>
+                        <span href="#" class="products_menu_tab_content_line_more sprite"></span>
+                    </a>
                     <div class="products_menu_tab_content_line_more_links">
                         <?php foreach($type['categories'] as $category) { ?>
                             <a href="/<?php echo $type_title ?>?category=<?php echo $category['title'] ?>" class="products_menu_tab_content_line_more_link"><?php echo $category['title'] ?></a>
