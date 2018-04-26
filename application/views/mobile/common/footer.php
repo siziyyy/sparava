@@ -12,7 +12,7 @@
             } elseif($method == 'cart') {
                 $current_element = 'cart';
                 $class = 'footer_button_line_cart';
-            } elseif($method == 'account') {
+            } elseif($method == 'account' or $method == 'orders' or $method == 'favourites') {
                 $current_element = 'account';
                 $class = 'footer_button_line_my';
             } else {
