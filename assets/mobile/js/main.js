@@ -557,8 +557,15 @@ $(document).ready(function() {
             return true;
         }
 
-        e.preventDefault();        
-        parent.closeIFrame();
+        e.preventDefault();  
+
+        var iFrameDetection = (window === window.parent) ? false : true;
+
+        if(iFrameDetection) {
+            parent.closeIFrame();
+        } else {
+            window.location = '/';
+        }
     });
 
     $(document).on('touchend','.g_good_added_to_cart',function(e) {
