@@ -706,7 +706,6 @@ class Main extends CI_Controller {
 			}
 			
 			$products_ids = $this->productlib->get_order_products($order_id);
-			
 			$products = $this->productlib->get_products_by_ids($products_ids);
 			
 			$empty_products = count($products)%5; 
@@ -720,8 +719,13 @@ class Main extends CI_Controller {
 			$data['empty_products'] = $empty_products;
 			$data['order_id'] = $order_id;
 		}
+
+		if($this->_is_mobile) {
+			$this->load->view('mobile/orders', $data);
+		} else {
+			$this->load->view('orders',$data);
+		}	
 		
-		$this->load->view('orders',$data);
 	}	
 	
 	public function favourites() {
@@ -1573,6 +1577,8 @@ class Main extends CI_Controller {
 			redirect(base_url('/cart'), 'refresh');
 			return;
 		}
+
+		redirect(base_url('/orders'), 'refresh');
 	}
 	
 	public function cart($action = false) {

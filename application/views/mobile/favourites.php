@@ -3,9 +3,9 @@
     <div class="cabinet_page_header">
         <a href="#" class="cabinet_page_exit">выйти</a>
         <div class="cabinet_page_header_tabs">
-            <a href="/pages/cabinet/orders/" class="cabinet_page_header_tab">Мои заказы</a>
-            <a href="/pages/cabinet/favorites/" class="cabinet_page_header_tab active">Избранное</a>
-            <a href="/pages/cabinet/settings/" class="cabinet_page_header_tab">Настройки</a>
+            <a href="/orders/" class="cabinet_page_header_tab">Мои заказы</a>
+            <a href="/favourites/" class="cabinet_page_header_tab active">Избранное</a>
+            <!-- <a href="/pages/cabinet/settings/" class="cabinet_page_header_tab">Настройки</a> -->
         </div>
     </div>
     <div class="sticky stickyTo">

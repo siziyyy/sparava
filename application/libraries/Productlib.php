@@ -536,7 +536,7 @@ class Productlib {
 		$query = $this->_ci->db->select("*")->from("order_inners")->where("order_id",$order_id)->get();
 		
 		if ($query->num_rows() > 0) {
-			foreach ($query->result_array() as $row) {				
+			foreach ($query->result_array() as $row) {
 				$result[] = $row['product_id'];
 			}
 		}
