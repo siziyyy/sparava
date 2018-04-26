@@ -39,14 +39,16 @@
                     <?php if(count($categories) >= 1) { ?>
                         <div class="filters_form_part">
                             <div class="filters_form_header">Категории</div>
-                            <?php foreach($categories as $category) { ?>
-                                <div class="cool_select_option">
-                                    <label>
-                                        <input type="checkbox" class="filters_form_label_checkbox" value="<?php echo $category['title'] ?>" data-name="category" <?php echo (in_array($category['title'],explode(';',$menu['filters']['category'])) ? 'checked' : '' ) ?>>
-                                        <?php echo $category['title'] ?>
-                                    </label>
-                                </div>
-                            <?php } ?>
+                            <div class="filters_form_wrapper filters_form_wrapper_hide">
+                                <?php foreach($categories as $category) { ?>
+                                    <div class="cool_select_option">
+                                        <label>
+                                            <input type="checkbox" class="filters_form_label_checkbox" value="<?php echo $category['title'] ?>" data-name="category" <?php echo (in_array($category['title'],explode(';',$menu['filters']['category'])) ? 'checked' : '' ) ?>>
+                                            <?php echo $category['title'] ?>
+                                        </label>
+                                    </div>
+                                <?php } ?>
+                            </div>
                             <div class="filters_form_more">еще<span class="filters_form_more_icon sprite"></span></div>
                         </div>
                     <?php } ?>
@@ -58,72 +60,84 @@
                     <?php if(count($attributes['countries']) > 1) { ?>
                         <div class="filters_form_part">
                             <div class="filters_form_header">Страна</div>
-                            <?php foreach($attributes['countries'] as $attribute) { ?>
-                                <label class="filters_form_label">
-                                    <input type="checkbox" class="filters_form_label_checkbox" value="<?php echo $attribute ?>" <?php echo (in_array($attribute,explode(';',$filters['country'])) ? 'checked' : '' ) ?> data-name="country" >
-                                    <span class="filters_form_label_text"><?php echo $attribute ?></span>
-                                </label>
-                            <?php } ?>
+                            <div class="filters_form_wrapper filters_form_wrapper_hide">
+                                <?php foreach($attributes['countries'] as $attribute) { ?>
+                                    <label class="filters_form_label">
+                                        <input type="checkbox" class="filters_form_label_checkbox" value="<?php echo $attribute ?>" <?php echo (in_array($attribute,explode(';',$filters['country'])) ? 'checked' : '' ) ?> data-name="country" >
+                                        <span class="filters_form_label_text"><?php echo $attribute ?></span>
+                                    </label>
+                                <?php } ?>
+                            </div>
                             <div class="filters_form_more">еще<span class="filters_form_more_icon sprite"></span></div>
                         </div>
                     <?php } ?>
                     <?php if(count($attributes['brands']) > 1) { ?>
                         <div class="filters_form_part">
                             <div class="filters_form_header">Бренд</div>
-                            <?php foreach($attributes['brands'] as $attribute) { ?>
-                                <label class="filters_form_label">
-                                    <input type="checkbox" class="filters_form_label_checkbox" value="<?php echo $attribute ?>" <?php echo (in_array($attribute,explode(';',$filters['brand'])) ? 'checked' : '' ) ?> data-name="brand" >
-                                    <span class="filters_form_label_text"><?php echo $attribute ?></span>
-                                </label>
-                            <?php } ?>
+                            <div class="filters_form_wrapper filters_form_wrapper_hide">
+                                <?php foreach($attributes['brands'] as $attribute) { ?>
+                                    <label class="filters_form_label">
+                                        <input type="checkbox" class="filters_form_label_checkbox" value="<?php echo $attribute ?>" <?php echo (in_array($attribute,explode(';',$filters['brand'])) ? 'checked' : '' ) ?> data-name="brand" >
+                                        <span class="filters_form_label_text"><?php echo $attribute ?></span>
+                                    </label>
+                                <?php } ?>
+                            </div>
                             <div class="filters_form_more">еще<span class="filters_form_more_icon sprite"></span></div>
                         </div>
                     <?php } ?>
                     <?php if(count($attributes['compositions']) > 1) { ?>
                         <div class="filters_form_part">
                             <div class="filters_form_header">Состав</div>
-                            <?php foreach($attributes['compositions'] as $attribute) { ?>
-                                <label class="filters_form_label">
-                                    <input type="checkbox" class="filters_form_label_checkbox" value="<?php echo $attribute ?>" <?php echo (in_array($attribute,explode(';',$filters['composition'])) ? 'checked' : '' ) ?> data-name="composition" >
-                                    <span class="filters_form_label_text"><?php echo $attribute ?></span>
-                                </label>
-                            <?php } ?>
+                            <div class="filters_form_wrapper filters_form_wrapper_hide">
+                                <?php foreach($attributes['compositions'] as $attribute) { ?>
+                                    <label class="filters_form_label">
+                                        <input type="checkbox" class="filters_form_label_checkbox" value="<?php echo $attribute ?>" <?php echo (in_array($attribute,explode(';',$filters['composition'])) ? 'checked' : '' ) ?> data-name="composition" >
+                                        <span class="filters_form_label_text"><?php echo $attribute ?></span>
+                                    </label>
+                                <?php } ?>
+                            </div>
                             <div class="filters_form_more">еще<span class="filters_form_more_icon sprite"></span></div>
                         </div>
                     <?php } ?>
                     <?php if(count($attributes['weights']) > 1) { ?>
                         <div class="filters_form_part">
                             <div class="filters_form_header">Вес</div>
-                            <?php foreach($attributes['weights'] as $attribute) { ?>
-                                <label class="filters_form_label">
-                                    <input type="checkbox" class="filters_form_label_checkbox" value="<?php echo $attribute ?>" <?php echo (in_array($attribute,explode(';',$filters['weight'])) ? 'checked' : '' ) ?> data-name="weight" >
-                                    <span class="filters_form_label_text"><?php echo $attribute ?></span>
-                                </label>
-                            <?php } ?>
+                            <div class="filters_form_wrapper filters_form_wrapper_hide">
+                                <?php foreach($attributes['weights'] as $attribute) { ?>
+                                    <label class="filters_form_label">
+                                        <input type="checkbox" class="filters_form_label_checkbox" value="<?php echo $attribute ?>" <?php echo (in_array($attribute,explode(';',$filters['weight'])) ? 'checked' : '' ) ?> data-name="weight" >
+                                        <span class="filters_form_label_text"><?php echo $attribute ?></span>
+                                    </label>
+                                <?php } ?>
+                            </div>
                             <div class="filters_form_more">еще<span class="filters_form_more_icon sprite"></span></div>
                         </div>
                     <?php } ?>
                     <?php if(count($attributes['packs']) > 1) { ?>
                         <div class="filters_form_part">
                             <div class="filters_form_header">Упаковка</div>
-                            <?php foreach($attributes['packs'] as $attribute) { ?>
-                                <label class="filters_form_label">
-                                    <input type="checkbox" class="filters_form_label_checkbox" value="<?php echo $attribute ?>" <?php echo (in_array($attribute,explode(';',$filters['pack'])) ? 'checked' : '' ) ?> data-name="pack" >
-                                    <span class="filters_form_label_text"><?php echo $attribute ?></span>
-                                </label>
-                            <?php } ?>
+                            <div class="filters_form_wrapper filters_form_wrapper_hide">
+                                <?php foreach($attributes['packs'] as $attribute) { ?>
+                                    <label class="filters_form_label">
+                                        <input type="checkbox" class="filters_form_label_checkbox" value="<?php echo $attribute ?>" <?php echo (in_array($attribute,explode(';',$filters['pack'])) ? 'checked' : '' ) ?> data-name="pack" >
+                                        <span class="filters_form_label_text"><?php echo $attribute ?></span>
+                                    </label>
+                                <?php } ?>
+                            </div>
                             <div class="filters_form_more">еще<span class="filters_form_more_icon sprite"></span></div>
                         </div>
                     <?php } ?>
                     <?php if(count($attributes['assortiments']) > 1) { ?>
                         <div class="filters_form_part">
                             <div class="filters_form_header">Ассортимент</div>
-                            <?php foreach($attributes['assortiments'] as $attribute) { ?>
-                                <label class="filters_form_label">
-                                    <input type="checkbox" class="filters_form_label_checkbox" value="<?php echo $attribute ?>" <?php echo (in_array($attribute,explode(';',$filters['assortiment'])) ? 'checked' : '' ) ?> data-name="assortiment" >
-                                    <span class="filters_form_label_text"><?php echo $attribute ?></span>
-                                </label>
-                            <?php } ?>
+                            <div class="filters_form_wrapper filters_form_wrapper_hide">
+                                <?php foreach($attributes['assortiments'] as $attribute) { ?>
+                                    <label class="filters_form_label">
+                                        <input type="checkbox" class="filters_form_label_checkbox" value="<?php echo $attribute ?>" <?php echo (in_array($attribute,explode(';',$filters['assortiment'])) ? 'checked' : '' ) ?> data-name="assortiment" >
+                                        <span class="filters_form_label_text"><?php echo $attribute ?></span>
+                                    </label>
+                                <?php } ?>
+                            </div>
                             <div class="filters_form_more">еще<span class="filters_form_more_icon sprite"></span></div>
                         </div>
                     <?php } ?>
