@@ -2162,7 +2162,7 @@ footer {
     width: 100%;
     right: 0;
     bottom: 0;
-    z-index: 999;
+    z-index: 8;
     background: #fff;
     border: 0;
     display: none;
@@ -2203,4 +2203,45 @@ a.products_menu_tab_content_line_more_links_show {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+}
+.search_button {
+    background: var(--blue);
+    color: #FFF;
+    font-size: 17px;
+    border: 2px solid #003BDE;
+    display: block;
+    margin: 28px auto 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    width: 143px;
+    text-align: center;
+    height: 39px;
+    line-height: 33px;
+}
+.search_input {
+    border-bottom: 1px solid #ccc;
+    width: 90%;
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    text-align: center;
+    font-size: 16px;
+    color: #000;
+    padding-bottom: 5px;
+    margin: 0 auto 0;
+    display: block;
+}
+.search_pack {
+    margin-top: 70px;
+}
+.search_result {
+    margin-top: 40px;
+}
+.search_result_error {
+    text-align: center;
+    margin: 85px 0 0 0;
+    line-height: 1.1;
 }
