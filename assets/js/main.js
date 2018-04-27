@@ -2071,12 +2071,12 @@ $('.cool_select_button,.new_mob_submenu_filter_button').click(function() {
 	$(this).parents('.filters_holder').find('.cool_select_check').each(function() {
 		name = $(this).attr('data-name');
 		value = $(this).val();
-		values = params[name];
 
-		if(values) {
-			values = values.split(';');
+		if(typeof params[name] === 'undefined') {
+			values = [];			
 		} else {
-			values = [];
+			values = decodeURIComponent(params[name]);
+			values = values.split(';');
 		}
 		
 		index = values.indexOf(value);
@@ -2087,13 +2087,12 @@ $('.cool_select_button,.new_mob_submenu_filter_button').click(function() {
 			values.splice(index, 1);
 		}
 
-		params[name] = values.join(';');
+		params[name] = encodeURIComponent(values.join(';'));
 
 		if(values.length == 0) {
 			delete params[name];
 		}
 	});
-	
 	delete params['page'];
 	
 	window.location = window.location.origin+window.location.pathname+'?'+ArrayToURL(params); 
