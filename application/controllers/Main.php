@@ -496,7 +496,7 @@ class Main extends CI_Controller {
 			$products = $this->productlib->sort_products('country',$country,$products);
 			
 			$filters = array(
-				'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
+				'category' => urldecode((!is_null($this->input->get('category')) ? $this->input->get('category') : 0))
 			);
 			
 			$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
@@ -569,7 +569,7 @@ class Main extends CI_Controller {
 		$products = $this->productlib->get_products(false,true);
 		
 		$filters = array(
-			'provider' => (!is_null($this->input->get('provider')) ? $this->input->get('provider') : 0)
+			'provider' => urldecode((!is_null($this->input->get('provider')) ? $this->input->get('provider') : 0))
 		);
 		
 		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
@@ -633,7 +633,7 @@ class Main extends CI_Controller {
 		
 		$filters = array(
 			'country' => 0,
-			'brand' => (!is_null($this->input->get('brand')) ? $this->input->get('brand') : 0),
+			'brand' => urldecode((!is_null($this->input->get('brand')) ? $this->input->get('brand') : 0)),
 			'weight' => 0,
 			'pack' => 0,
 			'composition' => 0,
@@ -731,7 +731,7 @@ class Main extends CI_Controller {
 	public function favourites() {
 		
 		$filters = array(
-			'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
+			'category' => urldecode((!is_null($this->input->get('category')) ? $this->input->get('category') : 0))
 		);
 		
 		$data = array(
@@ -838,13 +838,13 @@ class Main extends CI_Controller {
 			$this->load->view('category', $data);
 		} else {			
 			$filters = array(
-				'country' => (!is_null($this->input->get('country')) ? $this->input->get('country') : 0),
-				'brand' => (!is_null($this->input->get('brand')) ? $this->input->get('brand') : 0),
-				'weight' => (!is_null($this->input->get('weight')) ? $this->input->get('weight') : 0),
-				'pack' => (!is_null($this->input->get('pack')) ? $this->input->get('pack') : 0),
-				'composition' => (!is_null($this->input->get('composition')) ? $this->input->get('composition') : 0),
-				'price' => (!is_null($this->input->get('price')) ? $this->input->get('price') : 0),
-				'assortiment' => (!is_null($this->input->get('assortiment')) ? $this->input->get('assortiment') : 0)
+				'country' => urldecode((!is_null($this->input->get('country')) ? $this->input->get('country') : 0)),
+				'brand' => urldecode((!is_null($this->input->get('brand')) ? $this->input->get('brand') : 0)),
+				'weight' => urldecode((!is_null($this->input->get('weight')) ? $this->input->get('weight') : 0)),
+				'pack' => urldecode((!is_null($this->input->get('pack')) ? $this->input->get('pack') : 0)),
+				'composition' => urldecode((!is_null($this->input->get('composition')) ? $this->input->get('composition') : 0)),
+				'price' => urldecode((!is_null($this->input->get('price')) ? $this->input->get('price') : 0)),
+				'assortiment' => urldecode((!is_null($this->input->get('assortiment')) ? $this->input->get('assortiment') : 0))
 			);
 
 			$this->baselib->save_filters($filters,$category);
@@ -918,7 +918,7 @@ class Main extends CI_Controller {
 		}
 		
 		$filters = array(
-			'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
+			'category' => urldecode((!is_null($this->input->get('category')) ? $this->input->get('category') : 0))
 		);
 
 		$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
@@ -1048,7 +1048,7 @@ class Main extends CI_Controller {
 		} else {		
 		
 			$filters = array(
-				'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
+				'category' => urldecode((!is_null($this->input->get('category')) ? $this->input->get('category') : 0))
 			);
 			
 			$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
@@ -1126,7 +1126,7 @@ class Main extends CI_Controller {
 		} else {
 		
 			$filters = array(
-				'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
+				'category' => urldecode((!is_null($this->input->get('category')) ? $this->input->get('category') : 0))
 			);
 			
 			$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
@@ -1204,7 +1204,7 @@ class Main extends CI_Controller {
 		} else {
 		
 			$filters = array(
-				'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
+				'category' => urldecode((!is_null($this->input->get('category')) ? $this->input->get('category') : 0))
 			);
 			
 			$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
@@ -1282,7 +1282,7 @@ class Main extends CI_Controller {
 		} else {
 		
 			$filters = array(
-				'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
+				'category' => urldecode((!is_null($this->input->get('category')) ? $this->input->get('category') : 0))
 			);
 		
 			$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
@@ -1359,7 +1359,7 @@ class Main extends CI_Controller {
 		} else {		
 		
 			$filters = array(
-				'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
+				'category' => urldecode((!is_null($this->input->get('category')) ? $this->input->get('category') : 0))
 			);
 			
 			$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
@@ -1435,7 +1435,7 @@ class Main extends CI_Controller {
 			);
 		} else {		
 			$filters = array(
-				'category' => (!is_null($this->input->get('category')) ? $this->input->get('category') : 0)
+				'category' => urldecode((!is_null($this->input->get('category')) ? $this->input->get('category') : 0))
 			);
 			
 			$page = (!is_null($this->input->get('page')) ? $this->input->get('page') : 1);
@@ -2123,7 +2123,7 @@ class Main extends CI_Controller {
 							case 'bbox':
 
 								$filters = array(
-									'category' => (isset($filters_post->category) ? $filters_post->category : 0)
+									'category' => urldecode((isset($filters_post->category) ? $filters_post->category : 0))
 								);
 
 								$products = $this->productlib->get_products_with_categories(false,'bbox');
@@ -2135,7 +2135,7 @@ class Main extends CI_Controller {
 							case 'recommend':
 
 								$filters = array(
-									'category' => (isset($filters_post->category) ? $filters_post->category : 0)
+									'category' => urldecode((isset($filters_post->category) ? $filters_post->category : 0))
 								);
 
 								$products = $this->productlib->get_products_with_categories(false,'recommend');
@@ -2147,7 +2147,7 @@ class Main extends CI_Controller {
 							case 'eko':
 
 								$filters = array(
-									'category' => (isset($filters_post->category) ? $filters_post->category : 0)
+									'category' => urldecode((isset($filters_post->category) ? $filters_post->category : 0))
 								);
 
 								$products = $this->productlib->get_products_with_categories(false,'eko');
@@ -2159,7 +2159,7 @@ class Main extends CI_Controller {
 							case 'farm':
 
 								$filters = array(
-									'category' => (isset($filters_post->category) ? $filters_post->category : 0)
+									'category' => urldecode((isset($filters_post->category) ? $filters_post->category : 0))
 								);
 
 								$products = $this->productlib->get_products_with_categories(false,'farm');
@@ -2170,7 +2170,7 @@ class Main extends CI_Controller {
 							case 'diet':
 
 								$filters = array(
-									'category' => (isset($filters_post->category) ? $filters_post->category : 0)
+									'category' => urldecode((isset($filters_post->category) ? $filters_post->category : 0))
 								);
 
 								$products = $this->productlib->get_products_with_categories(false,'diet');
@@ -2181,7 +2181,7 @@ class Main extends CI_Controller {
 							case 'child':
 
 								$filters = array(
-									'category' => (isset($filters_post->category) ? $filters_post->category : 0)
+									'category' => urldecode((isset($filters_post->category) ? $filters_post->category : 0))
 								);
 
 								$products = $this->productlib->get_products_with_categories(false,'child');
@@ -2192,12 +2192,12 @@ class Main extends CI_Controller {
 							default:
 
 								$filters = array(
-									'country' => (isset($filters_post->country) ? $filters_post->country : 0),
-									'weight' => (isset($filters_post->weight) ? $filters_post->weight : 0),
-									'pack' => (isset($filters_post->pack) ? $filters_post->pack : 0),
-									'composition' => (isset($filters_post->composition) ? $filters_post->composition : 0),
-									'price' => (isset($filters_post->price) ? $filters_post->price : 0),
-									'brand' => (isset($filters_post->brand) ? $filters_post->brand : 0)
+									'country' => urldecode((isset($filters_post->country) ? $filters_post->country : 0)),
+									'weight' => urldecode((isset($filters_post->weight) ? $filters_post->weight : 0)),
+									'pack' => urldecode((isset($filters_post->pack) ? $filters_post->pack : 0)),
+									'composition' => urldecode((isset($filters_post->composition) ? $filters_post->composition : 0)),
+									'price' => urldecode((isset($filters_post->price) ? $filters_post->price : 0)),
+									'brand' => urldecode((isset($filters_post->brand) ? $filters_post->brand : 0))
 								);
 
 								$products = $this->productlib->get_category_products($this->input->post('category_id'));
@@ -2218,7 +2218,7 @@ class Main extends CI_Controller {
 						$filters_post = json_decode($this->input->post('filters'));
 						
 						$filters = array(
-							'category' => (isset($filters_post->category) ? $filters_post->category : 0)
+							'category' => urldecode((isset($filters_post->category) ? $filters_post->category : 0))
 						);
 
 						$page = (!is_null($this->input->post('page')) ? $this->input->post('page') : 1);
@@ -2231,7 +2231,7 @@ class Main extends CI_Controller {
 						$filters_post = json_decode($this->input->post('filters'));
 						
 						$filters = array(
-							'provider' => (isset($filters_post->provider) ? $filters_post->provider : 0)
+							'provider' => urldecode((isset($filters_post->provider) ? $filters_post->provider : 0))
 						);
 						
 						$page = (!is_null($this->input->post('page')) ? $this->input->post('page') : 1);
@@ -2244,7 +2244,7 @@ class Main extends CI_Controller {
 						
 						$filters = array(
 							'country' => 0,
-							'brand' => (isset($filters_post->brand) ? $filters_post->brand : 0),
+							'brand' => urldecode((isset($filters_post->brand) ? $filters_post->brand : 0)),
 							'weight' => 0,
 							'pack' => 0,
 							'composition' => 0,
@@ -2262,13 +2262,13 @@ class Main extends CI_Controller {
 						$filters_post = json_decode($this->input->post('filters'));
 						
 						$filters = array(
-							'country' => (isset($filters_post->country) ? $filters_post->country : 0),
-							'weight' => (isset($filters_post->weight) ? $filters_post->weight : 0),
-							'pack' => (isset($filters_post->pack) ? $filters_post->pack : 0),
-							'composition' => (isset($filters_post->composition) ? $filters_post->composition : 0),
-							'price' => (isset($filters_post->price) ? $filters_post->price : 0),
-							'brand' => (isset($filters_post->brand) ? $filters_post->brand : 0),
-							'category' => (isset($filters_post->category) ? $filters_post->category : 0)
+							'country' => urldecode((isset($filters_post->country) ? $filters_post->country : 0)),
+							'weight' => urldecode((isset($filters_post->weight) ? $filters_post->weight : 0)),
+							'pack' => urldecode((isset($filters_post->pack) ? $filters_post->pack : 0)),
+							'composition' => urldecode((isset($filters_post->composition) ? $filters_post->composition : 0)),
+							'price' => urldecode((isset($filters_post->price) ? $filters_post->price : 0)),
+							'brand' => urldecode((isset($filters_post->brand) ? $filters_post->brand : 0)),
+							'category' => urldecode((isset($filters_post->category) ? $filters_post->category : 0))
 						);
 						
 						$page = (!is_null($this->input->post('page')) ? $this->input->post('page') : 1);
