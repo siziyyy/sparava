@@ -327,7 +327,7 @@ footer {
     border-bottom: 1px solid #e0e0e0;
     padding: 28px 0 0 0;
     background: #FFF;
-    z-index: 4;
+    z-index: 1;
     position: relative;
     -webkit-box-shadow: 0 5px 45px -12px rgba(0,0,0, .1);
             box-shadow: 0 5px 45px -12px rgba(0,0,0, .1);
