@@ -1,7 +1,7 @@
 <?php $this->load->view('mobile/common/header',$header);?>
         <div class="category_content item_page single_good_page" style="min-height: auto" data-product-id="<?php echo $product['product_id'] ?>" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>">
             <a href="#" class="item_page_back sprite"></a>
-            <div class="category_content_item">
+            <div class="category_content_item no_margin_for_content">
                 <div class="content">
                     <img src="/images/<?php echo $product['image'] ?>" class="good_page_photo" onerror="this.src='/assets/mobile/img/goods/nophoto.jpg'" class="category_content_item_img" alt="">
                     <div class="category_content_item_not_double_info">
