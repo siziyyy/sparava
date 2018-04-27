@@ -44,13 +44,12 @@ $(document).ready(function() {
         if(is_not_click()) {
             return true;
         }
-
         if($(this).parents('.filters_form_part').find('.filters_form_wrapper').hasClass('filters_form_wrapper_hide')) {
             $(this).parents('.filters_form_part').find('.filters_form_wrapper').removeClass('filters_form_wrapper_hide');
             $(this).removeClass('active');
         } else {
             $(this).parents('.filters_form_part').find('.filters_form_wrapper').addClass('filters_form_wrapper_hide');
-            $(this).addClass('active');           
+            $(this).addClass('active');   
         }
     });
     /** ITEM MORE INFO **/

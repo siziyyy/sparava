@@ -125,7 +125,7 @@
                     <div class="cart_header_text">Корзина</div>
                     <div class="header_icons_right fl_r">
                         <a href="/callme" class="header_icon sprite header_icon_phone fl_r"></a>
-                        <a href="/favourites" class="header_icon sprite header_icon_favorite fl_r"></a>
+                        <a href="/favourites" class="header_icon sprite header_icon_favorite header_icon_favorite_active fl_r"></a><!-- .header_icon_favorite_active-->
                         <div class="clear"></div>
                     </div>
                     <div class="clear"></div>
