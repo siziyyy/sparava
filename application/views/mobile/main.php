@@ -6,7 +6,7 @@
 	<div style="width: 100%;overflow: hidden; margin-top: 17px"">
 	   <div style="position:relative;width: calc(100% - 34px); margin: 0 auto;">
 		  <div class="main_page_partial_slider" style="width: 100%;overflow: visible !important;">
-            <?php foreach($banners['slider'] as $banner) { ?>
+            <?php foreach($banners['slider_mobile'] as $banner) { ?>
                 <a href="<?php echo $banner['url'] ?>">
                     <img src="<?php echo $banner['image'] ?>" alt="image description" style="width: 100%;"/>
                 </a>
@@ -83,17 +83,4 @@
 			</div>
 		</div>
 	</div>
-	<? /* <div class="search_page content">
-        <div class="search_pack">
-            <div class="search_input_pack">
-                <input type="text" class="search_input">
-                <a href="#" class="search_button">поиск</a>
-            </div>
-            <div class="search_result">
-            	<!-- сюда товар -->
-            	<div class="search_result_error">по запросу ничего<br>не найдено</div>
-            </div>
-        </div>
-    </div>
-    */?>
 <?php $this->load->view('mobile/common/footer',$footer);?>

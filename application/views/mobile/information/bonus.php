@@ -11,7 +11,6 @@
         </div>
         <div class="info_page_inner_footer">
             <a href="/information/" class="info_page_inner_footer_link">Преимущество первого заказа</a>
-            <a href="/information/bonus" class="info_page_inner_footer_link">Бонусная система</a>
             <a href="/information/claims" class="info_page_inner_footer_link">Претензии и предложения</a>
         </div>
     </div>

@@ -80,6 +80,7 @@ class Main extends CI_Controller {
 	public function index() {
 		$banners = array(
 			'slider' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_slider'))),
+			'slider_mobile' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_slider_mobile'))),
 			'banner_1' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_banner_1'))),
 			'banner_2' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_banner_2'))),
 			'category' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_category'))),
@@ -378,7 +379,7 @@ class Main extends CI_Controller {
 			'products' => array()
 		);
 
-		if(empty($value)) {
+		if(empty($value) and !$this->_is_mobile) {
 			redirect(base_url('/'), 'refresh');
 		} elseif(is_numeric(trim($value))) {
 			$product_id = $this->productlib->get_product_id_from_articul($value);
@@ -436,7 +437,11 @@ class Main extends CI_Controller {
 			'value' => $value,
 		);
 		
-		$this->load->view('search', $data);
+		if($this->_is_mobile) {
+			$this->load->view('mobile/search', $data);
+		} else {
+			$this->load->view('search', $data);
+		}		
 	}	
 	
 	public function checkout_success() {	
@@ -677,6 +682,11 @@ class Main extends CI_Controller {
 	}	
 	
 	public function orders() {
+
+		if(!$this->baselib->is_logged()) {
+			redirect(base_url('/'), 'refresh');
+			return;
+		}
 		
 		$order_id = (!is_null($this->input->get('order_id')) ? $this->input->get('order_id') : 0);
 		
@@ -699,7 +709,7 @@ class Main extends CI_Controller {
 		
 		$orders = $this->baselib->get_account_orders($account_id);
 
-		if(count($orders) > 0) {
+		if(count($orders) > 0 and ($order_id == 0 or isset($orders[$order_id]))) {
 			
 			if($order_id == 0) {
 				$order_id = key($orders);

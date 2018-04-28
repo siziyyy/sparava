@@ -18,7 +18,6 @@
         </div>
         <div class="info_page_inner_footer">
             <a href="/information/caterer" class="info_page_inner_footer_link">Поставщики</a>
-            <a href="/information/vacancy" class="info_page_inner_footer_link">Работа</a>
             <a href="/information/bloger" class="info_page_inner_footer_link">Блогерам</a>
         </div>
     </div>

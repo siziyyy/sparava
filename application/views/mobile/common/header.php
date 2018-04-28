@@ -118,14 +118,14 @@
                 <div class="content">
                     <div class="header_icons_left fl_l">
                         <a href="#" class="header_icon sprite header_icon_hamburger fl_l"></a>
-                        <a href="#" class="header_icon sprite header_icon_search fl_l"></a>
+                        <a href="/search" class="header_icon sprite header_icon_search fl_l"></a>
                         <div class="clear"></div>
                     </div>
                     <a href="/" class="header_logo sprite blog_logo"></a>
                     <div class="cart_header_text">Корзина</div>
                     <div class="header_icons_right fl_r">
                         <a href="/callme" class="header_icon sprite header_icon_phone fl_r"></a>
-                        <a href="/favourites" class="header_icon sprite header_icon_favorite header_icon_favorite_active fl_r"></a><!-- .header_icon_favorite_active-->
+                        <a href="/favourites" class="header_icon sprite header_icon_favorite fl_r"></a><!-- .header_icon_favorite_active-->
                         <div class="clear"></div>
                     </div>
                     <div class="clear"></div>

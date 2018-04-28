@@ -498,12 +498,12 @@ $(document).ready(function() {
         $(this).parents('.filters_form').find('.filters_form_label_checkbox').each(function() {
             name = $(this).attr('data-name');
             value = $(this).val();
-            values = params[name];
-
-            if(values) {
-                values = values.split(';');
+            
+            if(typeof params[name] === 'undefined') {
+                values = [];            
             } else {
-                values = [];
+                values = decodeURIComponent(params[name]);
+                values = values.split(';');
             }
          
             index = values.indexOf(value);
@@ -514,7 +514,7 @@ $(document).ready(function() {
                 values.splice(index, 1);
             }
  
-            params[name] = values.join(';');
+            params[name] = encodeURIComponent(values.join(';'));
 
             if(values.length == 0) {
                 delete params[name];
@@ -613,11 +613,11 @@ $(document).ready(function() {
                         if(send_data.type == 'sort') {
                             location.reload();
                         } else if(send_data.type == 'favourite') {
-                            parent_object.find('.category_content_item_not_double_info_footer_star').addClass('g_good_mobile_fav_orange');
+                            parent_object.find('.category_content_item_not_double_info_footer_star').addClass('header_icon_favorite_active');
                         }
                     } else if(json['remove']) {
                         if(send_data.type == 'favourite') {
-                            parent_object.find('.category_content_item_not_double_info_footer_star').removeClass('g_good_mobile_fav_orange');
+                            parent_object.find('.category_content_item_not_double_info_footer_star').removeClass('header_icon_favorite_active');
                         }
                     }
                 }

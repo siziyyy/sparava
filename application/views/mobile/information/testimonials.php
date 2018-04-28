@@ -28,7 +28,6 @@
         </div>
         <div class="info_page_inner_footer">
             <a href="/information/" class="info_page_inner_footer_link">О нас</a>
-            <a href="/information/testimonials" class="info_page_inner_footer_link">Отзывы о нас</a>
             <a href="/information/contacts" class="info_page_inner_footer_link">Контакты</a>
         </div>
     </div>
