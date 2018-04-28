@@ -864,13 +864,13 @@ class Baselib {
 
 		foreach($values as $id => $value) {
 			if(mb_stripos($value, 'кг') !== FALSE) {
-				$kilo[(float)$value] = $value;
+				$kilo[$value] = $value;
 				unset($values[$id]);
 			} elseif(mb_stripos($value, 'г') !== FALSE) {
-				$gram[(float)$value] = $value;
+				$gram[$value] = $value;
 				unset($values[$id]);
 			} elseif(mb_stripos($value, 'л') !== FALSE) {
-				$litr[(float)$value] = $value;
+				$litr[$value] = $value;
 				unset($values[$id]);
 			}
 		}

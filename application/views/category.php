@@ -167,9 +167,6 @@
         margin: 40px 0 -20px 0;
     }
 </style>
-            		<?php if($this->_seo_data['seo_h1']) { ?>
-                    	<div class="new_chto-to-tam"><?php echo $this->_seo_data['seo_h1'] ?></div>
-                    <?php } ?>
                     
 	            	<?php if(($sort_attr['razves'] and $sort_attr['pack']) or $sort_attr['bbox'] or $sort_attr['farm'] or $sort_attr['eko'] or $sort_attr['diet'] or $sort_attr['recommend']) { ?>
 		            	<div class="new_cool_line_of_filters_aaarrrghh" data-category="<?php echo $category ?>">
