@@ -432,7 +432,7 @@ class Main extends CI_Controller {
 			'show_categories' => false,
 			'empty_products' => $empty_products,
 			'is_search' => true,
-			'path' => false,
+			'path' => 'search',
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'value' => $value,
 		);
@@ -997,12 +997,37 @@ class Main extends CI_Controller {
 			$products_ids = $this->baselib->get_favourites();
 			$type = (is_null($this->input->get('type')) ? false : $this->input->get('type'));
 
+			$related_products_ids = $this->productlib->get_related_products_ids($product_id, false, $type);
+
 			if(in_array($product_id, $products_ids)) {
 				$product['favourite'] = true;
 			}
 
-			$related_products_ids = $this->productlib->get_related_products_ids($product_id, false, $type);
-			$related_by_brands_products = $this->productlib->get_related_products_ids_by_brand($product_id);
+			if($type == 'search') {
+				if(!is_null($this->input->get('value'))) {
+					$value = $this->input->get('value');
+					$this->session->set_userdata('search_value',$value);
+				} else {
+					$value = $this->session->userdata('search_value');
+				}
+
+				$result = $this->productlib->search_products(trim($value));
+				$products_sort = $result['products'];
+				$result['products'] = $this->productlib->get_products_by_ids($result['products'],true);
+
+				if(count($products_sort)) {
+					foreach ($products_sort as $product_id) {
+						if(isset($result['products'][$product_id])) {
+							$products[$product_id] = $result['products'][$product_id];
+						}
+					}
+				}				
+
+				$related_by_brands_products['products'] = $products;
+				$related_by_brands_products['list_type'] = 'search';
+			} else {
+				$related_by_brands_products = $this->productlib->get_related_products_ids_by_brand($product_id);
+			}
 
 			$banners = current($this->baselib->get_page_banners('product'));
 

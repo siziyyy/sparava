@@ -169,6 +169,16 @@ class Productlib {
 				$breadcrumbs['/recommend'] = 'Рекомендуемые товары';
 			} elseif($type == 'bbox') {
 				$breadcrumbs['/bbox'] = 'Товары в большой упаковке';
+			} elseif($type == 'search') {
+
+				if(!is_null($this->_ci->input->get('value'))) {
+					$value = $this->_ci->input->get('value');
+					$this->_ci->session->set_userdata('search_value',$value);
+				} else {
+					$value = $this->_ci->session->userdata('search_value');
+				}
+
+				$breadcrumbs['/search?value='.$value] = 'Поиск';
 			} else {
 				$countries = $this->_ci->baselib->_countries;
 				$breadcrumbs['/country/'.(int)$type] = $countries[$type];
@@ -421,7 +431,7 @@ class Productlib {
 				$sql .= " AND child = 1";
 			} elseif($type == 'farm') {
 				$sql .= " AND farm = 1";
-			} elseif($type == 'recommend') {
+			} elseif($type == 'recommend' or $type == 'search') {
 				$sql .= " AND recommend = 1";
 			} elseif($type == 'bbox') {
 				$sql .= " AND (bbox = 1 OR bbox_n = 1)";

@@ -1105,7 +1105,7 @@ $(document).ready(function() {
 		$(this).val(quantity+' '+type);
 	});
 	
-	$(document).on('click,touchstart','.g_good_count_add',function(e) {
+	$(document).on('click','.g_good_count_add',function(e) {
 		
 		if($(this).parents('.g_good').length > 0) {
 			parent_class = '.g_good';
@@ -1114,7 +1114,7 @@ $(document).ready(function() {
 		} else if($(this).parents('.g_good').length == 0) {
 			parent_class = '.good_modal';
 		}
-
+		
 		$(this).parents(parent_class).find(".g_good_added_to_cart_text").hide();
 		$(this).parents(parent_class).find(".g_good_to_cart_text").show();
 		$(this).parents(parent_class).find(".g_good_added_to_cart").removeClass('g_good_added_to_cart');
