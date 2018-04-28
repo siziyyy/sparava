@@ -197,77 +197,6 @@ body,html,textarea{font-family:Calibri}
                     <a href="/favourites"><div class="m_h_fav new_sprite fl_r"></div></a>
                     <div class="clear"></div>
                 </div>
-				<?php if(!$this->baselib->is_logged()) { ?>
-					<div class="mobile_modal">
-						<div class="mobile_auth login_form3">
-							<div class="mobile_auth_line">
-								<input type="text" class="mobile_auth_input check_email3" placeholder="логин">
-							</div>
-							<div class="mobile_auth_line">
-								<input type="password" class="mobile_auth_input check_password3" placeholder="пароль">
-							</div>
-							<div class="new_green_small_button mobgb send" data-type="check_login3">войти</div>
-							<div class="clear"></div>
-							<div class="respasmob">забыл пароль</div>							<div class="regmob_link">зарегистрироваться <span class="regmob_link_arr">></span></div>
-							<div class="regmob">
-								<div class="mobile_auth_line">
-									<input type="text" class="mobile_auth_input register_email3" placeholder="почта">
-								</div>
-								<div class="mobile_auth_line">
-									<input type="text" class="mobile_auth_input register_phone3" placeholder="телефон">
-								</div>
-								<div class="mobile_auth_line">
-									<input type="text" class="mobile_auth_input register_name3" placeholder="имя">
-								</div>
-								<div class="mobgb new_orange_small_button send" data-type="register3">зарегистрироваться</div>
-							</div>
-						</div>
-						<div class="mobile_restore">
-							<div class="mobile_restore_header">
-								Восстановление пароля
-								<div class="mobile_modal_close sprite"></div>
-							</div>
-							<div class="mobile_restore_subheader">
-								Для восстановления пароля введите 
-								<br>вашу почту
-							</div>
-							<div class="mobile_auth_line">
-								<input type="text" class="mobile_restore_input remind_email4" placeholder="почта">
-							</div>
-							<div class="mobile_restore_subheader">
-								Если Вы забили пароль попросите и мы 
-								<br>отправим повторно
-							</div>
-							<div class="new_green_small_button mobgb mobgb2 send" data-type="remind4">восстановить пароль</div>
-						</div>
-					</div>	
-					<div class="mobile_fav">
-						<div class="mobile_modal_close_fav sprite"></div>
-						Чтобы использовать функцию
-						<br>избранное надо авторизоваться 
-					</div>	
-					<div class="mobile_fav login_error_4">
-						<div class="mobile_modal_close_fav sprite"></div>
-						Неправильные данные для входа в систему
-					</div>
-					<div class="mobile_fav register_error_busy4">
-						<div class="mobile_modal_close_fav sprite"></div>
-						Данный e-mail уже зарегистрирован в системе
-					</div>
-					<div class="mobile_fav mobile_restore_success">
-						<div class="mobile_modal_close_fav sprite"></div>
-						На вашу почту было выслано письмо с 
-						<br>дальнейшими инструкциями
-					</div>
-					<div class="mobile_fav remind_error4">
-						<div class="mobile_modal_close_fav sprite"></div>
-						 Данный e-mail не зарегистрирован в системе
-					</div>
-					<div class="mobile_fav register_succes_4">
-						На вашу почту было выслано письмо
-						<br>с данными для входа<br><br><a href="">войти</a>
-					</div>
-				<?php } ?>
 				<div class="main_header">
 					<a href="/">
                         <!-- <div class="h_logo fl_l">-->
@@ -312,26 +241,15 @@ body,html,textarea{font-family:Calibri}
                         <a href="/blogs" class="h_link green_text dirty_link">наш вкусный блог</a>
                     <?php } ?>
                     <a class="h_link show_new_inform_menu">вся информация</a>
-                    <?php if($this->baselib->is_logged()) { ?>
-                        <!--<a href="/orders" class="new_h_link new_h_link_fst h_link">мои заказы</a>-->
-                    <?php } else { ?>
-                    <!--<div class="morder_pack">
-                        <a class="new_h_link new_h_link_fst h_link morder">мои заказы</a>
-                        <div class="morder_dropdown">
-                            <div class="morder_dropdown_close">&times;</div>
-                            чтобы посмотреть заказы 
-                            <br>авторизируйтесь
-                        </div>
-                    </div>-->
-                    <? } ?>
-                    <!--<a href="/favourites" class="new_h_link h_link">избранное</a>-->
                     <div class="morder_pack22">
-                        <a class="morder new_header_icons new_header_icons_hamb"></a>
-                        <div class="morder_dropdown">
+                        <?php if($this->baselib->is_logged()) { ?>
+                            <a href="/orders" class="morder new_header_icons new_header_icons_hamb"></a>
+                        <?php } ?>
+                        <!-- <div class="morder_dropdown">
                             <div class="morder_dropdown_close">&times;</div>
                             чтобы посмотреть заказы 
                             <br>авторизируйтесь
-                        </div>
+                        </div> -->
                         <a href="/favourites" class="new_header_icons new_header_icons_fav"></a>
                         <a href="/favourites" class="new_header_icons new_header_icons_set"></a>
                         <?php if($this->baselib->is_logged()) { ?>

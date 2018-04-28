@@ -97,7 +97,7 @@ header {
     margin-right: 24px;
 }
 .header_icon_favorite_active {
-    background-position: -318px -99px;
+    background-position: -318px -99px !important;;
 }
 .header_icon_phone {
     background-position: -173px -27px;

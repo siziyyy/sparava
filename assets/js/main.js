@@ -250,19 +250,6 @@ $(document).ready(function() {
 		send_msg(send_data);
 	});	
 	/********************************************/
-	$('.morder').click(function() {
-		$('.morder_dropdown').toggle();
-		$('.morder_closer').toggle();
-	});
-	$('.morder_closer').click(function() {
-		$('.morder_dropdown').toggle();
-		$('.morder_closer').toggle();
-	});
-	$('.morder_dropdown_close').click(function() {
-		$('.morder_dropdown').toggle();
-		$('.morder_closer').toggle();
-	});
-	/********************************************/
 	$('.mag_or_blog_alt_filters_line_right').click(function() {
 		$('.mag_or_blog_alt_filters_line_dropdown').toggle();
 		$('body').toggleClass('fmfilter');
