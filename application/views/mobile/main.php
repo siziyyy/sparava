@@ -25,46 +25,48 @@
 	<div class="content">
 		<div class="main_page_mosaic">
 			<div class="main_page_mosaic_line">
-				<a href="/pages/category/"><div class="main_page_mosaic_line_vert main_page_mosaic_line_vert_wide fl_l">
-					<img src="/assets/mobile/img/main/mosaic/1.jpg" class="main_page_mosaic_img" alt="">
+
+				<a href="<?php echo $banners['category_mobile'][1]['url'] ?>"><div class="main_page_mosaic_line_vert main_page_mosaic_line_vert_wide fl_l">
+					<img src="<?php echo $banners['category_mobile'][1]['image'] ?>" class="main_page_mosaic_img" alt="">
 				</div></a>
+
 				<div class="main_page_mosaic_line_vert main_page_mosaic_line_vert_center fl_l">
-					<a href="/pages/category/"><div class="main_page_mosaic_line_vert_item main_page_mosaic_line_vert_item_short">
-						<img src="/assets/mobile/img/main/mosaic/2.jpg" class="main_page_mosaic_img" alt="">
+					<a href="<?php echo $banners['category_mobile'][2]['url'] ?>"><div class="main_page_mosaic_line_vert_item main_page_mosaic_line_vert_item_short">
+						<img src="<?php echo $banners['category_mobile'][2]['image'] ?>" class="main_page_mosaic_img" alt="">
 					</div></a>
-					<a href="/pages/category/"><div class="main_page_mosaic_line_vert_item">
-						<img src="/assets/mobile/img/main/mosaic/4.jpg" class="main_page_mosaic_img" alt="">
+					<a href="<?php echo $banners['category_mobile'][4]['url'] ?>"><div class="main_page_mosaic_line_vert_item">
+						<img src="<?php echo $banners['category_mobile'][4]['image'] ?>" class="main_page_mosaic_img" alt="">
 					</div></a>
 				</div>
 				<div class="main_page_mosaic_line_vert fl_l">
-					<a href="/pages/category/"><div class="main_page_mosaic_line_vert_item">
-						<img src="/assets/mobile/img/main/mosaic/3.jpg" class="main_page_mosaic_img" alt="">
+					<a href="<?php echo $banners['category_mobile'][3]['url'] ?>"><div class="main_page_mosaic_line_vert_item">
+						<img src="<?php echo $banners['category_mobile'][3]['image'] ?>" class="main_page_mosaic_img" alt="">
 					</div></a>
-					<a href="/pages/category/"><div class="main_page_mosaic_line_vert_item main_page_mosaic_line_vert_item_short">
-						<img src="/assets/mobile/img/main/mosaic/5.jpg" class="main_page_mosaic_img" alt="">
+					<a href="<?php echo $banners['category_mobile'][5]['url'] ?>"><div class="main_page_mosaic_line_vert_item main_page_mosaic_line_vert_item_short">
+						<img src="<?php echo $banners['category_mobile'][5]['image'] ?>" class="main_page_mosaic_img" alt="">
 					</div></a>
 				</div>
 				<div class="clear"></div>
 			</div>
 			<div class="main_page_mosaic_line">
 				<div class="main_page_mosaic_line_vert fl_l">
-					<a href="/pages/category/"><div class="main_page_mosaic_line_vert_item">
-						<img src="/assets/mobile/img/main/mosaic/6.jpg" class="main_page_mosaic_img" alt="">
+					<a href="<?php echo $banners['category_mobile'][6]['url'] ?>"><div class="main_page_mosaic_line_vert_item">
+						<img src="<?php echo $banners['category_mobile'][6]['image'] ?>" class="main_page_mosaic_img" alt="">
 					</div></a>
-					<a href="/pages/category/"><div class="main_page_mosaic_line_vert_item main_page_mosaic_line_vert_item_short">
-						<img src="/assets/mobile/img/main/mosaic/9.jpg" class="main_page_mosaic_img" alt="">
+					<a href="<?php echo $banners['category_mobile'][9]['url'] ?>"><div class="main_page_mosaic_line_vert_item main_page_mosaic_line_vert_item_short">
+						<img src="<?php echo $banners['category_mobile'][9]['image'] ?>" class="main_page_mosaic_img" alt="">
 					</div></a>
 				</div>
 				<div class="main_page_mosaic_line_vert main_page_mosaic_line_vert_center fl_l">
-					<a href="/pages/category/"><div class="main_page_mosaic_line_vert_item main_page_mosaic_line_vert_item_short">
-						<img src="/assets/mobile/img/main/mosaic/7.jpg" class="main_page_mosaic_img" alt="">
+					<a href="<?php echo $banners['category_mobile'][7]['url'] ?>"><div class="main_page_mosaic_line_vert_item main_page_mosaic_line_vert_item_short">
+						<img src="<?php echo $banners['category_mobile'][7]['image'] ?>" class="main_page_mosaic_img" alt="">
 					</div></a>
-					<a href="/pages/category/"><div class="main_page_mosaic_line_vert_item">
-						<img src="/assets/mobile/img/main/mosaic/10.jpg" class="main_page_mosaic_img" alt="">
+					<a href="<?php echo $banners['category_mobile'][8]['url'] ?>"><div class="main_page_mosaic_line_vert_item">
+						<img src="<?php echo $banners['category_mobile'][8]['image'] ?>" class="main_page_mosaic_img" alt="">
 					</div></a>
 				</div>
-				<a href="/pages/category/"><div class="main_page_mosaic_line_vert main_page_mosaic_line_vert_wide fl_l">
-					<img src="/assets/mobile/img/main/mosaic/8.jpg" class="main_page_mosaic_img" alt="">
+				<a href="<?php echo $banners['category_mobile'][10]['url'] ?>"><div class="main_page_mosaic_line_vert main_page_mosaic_line_vert_wide fl_l">
+					<img src="<?php echo $banners['category_mobile'][10]['image'] ?>" class="main_page_mosaic_img" alt="">
 				</div></a>
 				<div class="clear"></div>
 			</div>

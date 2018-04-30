@@ -301,7 +301,7 @@
                     <?php $counter = 0; ?>
                     <div class="new_good_page_line_2018">
                         <div class="content_helper">
-                            <div class="new_good_page_line_2018_header">Другие предложения <?php echo ($related_by_brands_products_type == 'category' ? 'из этой категории' : 'от '.$product['brand']) ?></div>
+                            <div class="new_good_page_line_2018_header">Другие предложения <?php echo ($related_by_brands_products_type == 'category' ? 'из этой категории' : '') ?><?php echo ($related_by_brands_products_type == 'brand' ? 'от '.$product['brand'] : '') ?></div>
                             <div class="new_good_page_line_2018_body">
                                 <div class="recomendations_in_commets">
                                     <div class="new_good_page_line_2018_banner">

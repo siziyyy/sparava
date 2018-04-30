@@ -84,13 +84,14 @@ class Main extends CI_Controller {
 			'banner_1' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_banner_1'))),
 			'banner_2' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_banner_2'))),
 			'category' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_category'))),
+			'category_mobile' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_category_mobile'))),
 			'banner_3' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_banner_3'))),
 			'banner_4' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_banner_4'))),
 			'banner_5' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_banner_5'))),
 			'instagram' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_instagram'))),
 			'products' => unserialize(base64_decode($this->baselib->get_setting_value('front_page_products'))),
 		);
-
+		
 		shuffle($banners['banner_1']);
 		shuffle($banners['category']);
 		shuffle($banners['banner_3']);
@@ -1004,6 +1005,8 @@ class Main extends CI_Controller {
 			}
 
 			if($type == 'search') {
+				$products = array();
+
 				if(!is_null($this->input->get('value'))) {
 					$value = $this->input->get('value');
 					$this->session->set_userdata('search_value',$value);
