@@ -2245,3 +2245,9 @@ a.products_menu_tab_content_line_more_links_show {
     margin: 85px 0 0 0;
     line-height: 1.1;
 }
+.good_page_photo {
+    width: 100%;
+}
+.footer_button_wrapper {
+    display: none;
+}

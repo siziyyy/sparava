@@ -713,6 +713,7 @@ class Main extends CI_Controller {
 		if(count($orders) > 0 and ($order_id == 0 or isset($orders[$order_id]))) {
 			
 			if($order_id == 0) {
+				end($orders);
 				$order_id = key($orders);
 			}
 			

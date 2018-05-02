@@ -35,7 +35,7 @@
                             <?php echo $blogs['content']; ?>
                         </div>
 						<?php if(isset($price)) { ?>
-							<a href="/product/<?php echo $blogs['linked_product_id']; ?>" type="submit" class="buy_this_stuff">Купить этот товар у нас за <?php echo $price ?> руб.</a>
+							<a href="/product/<?php echo $blogs['linked_product_id']; ?>" class="buy_this_stuff">Купить этот товар у нас за <?php echo $price ?> руб.</a>
 						<?php } ?>
                     </div>
                     <div class="clear"></div>
