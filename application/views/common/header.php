@@ -210,7 +210,7 @@ body,html,textarea{font-family:Calibri}
                             <div class="new_inform_menu_col_header">Доставка</div>
                             <a href="/information/delivery" class="new_inform_menu_col_link">Доставка и способы оплаты</a>
                             <a href="/information/return" class="new_inform_menu_col_link">Прием заказа, обмен и возврат</a>
-                            <a href="/information/agreement" class="new_inform_menu_col_link">Гарантия качества</a>
+                            <a href="/information/guarantee" class="new_inform_menu_col_link">Гарантия качества</a>
                             <div class="new_inform_menu_col_link_sepp"></div>
                         </div>
                         <div class="new_inform_menu_col new_inform_menu_col_sec fl_l">
@@ -229,8 +229,8 @@ body,html,textarea{font-family:Calibri}
                         </div>
                         <div class="new_inform_menu_col new_inform_menu_col_last fl_l">
                             <div class="new_inform_menu_col_header">Сотрудничество и работа</div>
-                            <a href="/information" class="new_inform_menu_col_link">Поставщики</a>
-                            <a href="/information" class="new_inform_menu_col_link">Работа</a>
+                            <a href="/information/caterer" class="new_inform_menu_col_link">Поставщики</a>
+                            <a href="/information/vacancy" class="new_inform_menu_col_link">Работа</a>
                             <a href="/information/bloger" class="new_inform_menu_col_link">Блогерам</a>
                             <div class="new_inform_menu_col_link_sepp"></div>
                         </div>

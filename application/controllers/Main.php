@@ -327,16 +327,13 @@ class Main extends CI_Controller {
 			'testimonials',
 			'bloger',
 			'claims',
-			'agreement',
 			'contacts',
 			'return',
-			'bbox'
+			'bbox',
+			'vacancy',
+			'caterer',
+			'guarantee'
 		);
-
-		if($this->_is_mobile) {
-			$blocks[] = 'vacancy';
-			$blocks[] = 'caterer';
-		}
 	
 		$data = array(
 			'header' => array(

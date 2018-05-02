@@ -139,12 +139,12 @@ class Filterlib {
 		
 		foreach($filters_arr as $key => $value) {
 			if(isset($filters_arr[$key]) and $filters_arr[$key]) {
-				$filters_text[$key] = $this->_ci->baselib->get_filter_text($key,count($filters_arr[$key]));
+				$filters_text[$key] = $this->get_filter_text($key,$filters_arr[$key]);
 			}
 		}
 		
 		if($filters['price']) {
-			$filters_text['price'] = $this->_ci->baselib->get_filter_text('price',$filters['price']);
+			$filters_text['price'] = $this->get_filter_text('price',$filters['price']);
 		}
 		
 		return array(
@@ -239,7 +239,7 @@ class Filterlib {
 		
 		foreach($filters_arr as $key => $value) {
 			if(isset($filters_arr[$key]) and $filters_arr[$key]) {
-				$filters_text[$key] = $this->_ci->baselib->get_filter_text($key,count($filters_arr[$key]));
+				$filters_text[$key] = $this->get_filter_text($key,$filters_arr[$key]);
 			}
 		}
 		
@@ -294,7 +294,9 @@ class Filterlib {
 		if(is_array($filters_arr['provider'])) {
 			foreach($all_products as $product_id => $product) {
 				if(in_array($product['store'],$filters_arr['provider'])) {
-					$products[$product_id] = $input_products[$product_id];
+					if(isset($input_products[$product_id])) {
+						$products[$product_id] = $input_products[$product_id];
+					}					
 				}
 			}
 		} else {
@@ -329,7 +331,7 @@ class Filterlib {
 		
 		foreach($filters_arr as $key => $value) {
 			if(isset($filters_arr[$key]) and $filters_arr[$key]) {
-				$filters_text[$key] = $this->_ci->baselib->get_filter_text($key,count($filters_arr[$key]));
+				$filters_text[$key] = $this->get_filter_text($key,$filters_arr[$key]);
 			}
 		}		
 		
@@ -427,7 +429,7 @@ class Filterlib {
 		
 		foreach($filters_arr as $key => $value) {
 			if(isset($filters_arr[$key]) and $filters_arr[$key]) {
-				$filters_text[$key] = $this->_ci->baselib->get_filter_text($key,count($filters_arr[$key]));
+				$filters_text[$key] = $this->get_filter_text($key,$filters_arr[$key]);
 			}
 		}
 		
@@ -522,7 +524,7 @@ class Filterlib {
 		
 		foreach($filters_arr as $key => $value) {
 			if(isset($filters_arr[$key]) and $filters_arr[$key]) {
-				$filters_text[$key] = $this->_ci->baselib->get_filter_text($key,count($filters_arr[$key]));
+				$filters_text[$key] = $this->get_filter_text($key,$filters_arr[$key]);
 			}
 		}	
 		
@@ -535,4 +537,126 @@ class Filterlib {
 			'filters_text' => $filters_text
 		);
 	}
+	
+	public function get_filter_text($type,$filter_array) {
+		$count = count($filter_array);
+
+		if($count == 1) {
+			return current($filter_array);
+		}
+
+		if($type == 'country') {
+			$number = (int)substr((string)$count, -1); 
+			
+			if($number == 1) {
+				$word = 'страна';
+			} elseif($number >= 2 and $number <= 4) {
+				$word = 'страны';
+			} else {
+				$word = 'стран';
+			}
+		} elseif($type == 'brand') {
+			$number = (int)substr((string)$count, -1); 
+			
+			if($number == 1 and (int)($count) != 11) {
+				$word = 'бренд';
+			} elseif($number >= 2 and $number <= 4 and ((int)($count) < 10 or (int)($count) > 20)) {
+				$word = 'бренда';
+			} else {
+				$word = 'брендов';
+			}			
+		} elseif($type == 'weight') {
+			$number = (int)substr((string)$count, -1); 
+			
+			if($number == 1 and (int)($count) != 11) {
+				$word = 'вес';
+			} elseif($number >= 2 and $number <= 4 and ((int)($count) < 10 or (int)($count) > 20)) {
+				$word = 'веса';
+			} else {
+				$word = 'весов';
+			}			
+		} elseif($type == 'composition') {
+			$number = (int)substr((string)$count, -1); 
+			
+			if($number == 1 and (int)($count) != 11) {
+				$word = 'состав';
+			} elseif($number >= 2 and $number <= 4 and ((int)($count) < 10 or (int)($count) > 20)) {
+				$word = 'состава';
+			} else {
+				$word = 'составов';
+			}			
+		} elseif($type == 'pack') {
+			$number = (int)substr((string)$count, -1); 
+			
+			if($number == 1 and (int)($count) != 11) {
+				$word = 'упаковка';
+			} elseif($number >= 2 and $number <= 4 and ((int)($count) < 10 or (int)($count) > 20)) {
+				$word = 'упаковки';
+			} else {
+				$word = 'упаковок';
+			}			
+		} elseif($type == 'price') {
+			$word = 'цена';
+
+			if($count == 'asc') {
+				$word = 'по возрастанию';
+			} elseif($count == 'desc') {
+				$word = 'по убыванию';
+			}
+
+			return $word;
+		} elseif($type == 'weight') {
+			$word = 'упаковка';
+			
+			if($count == 'raz') {
+				$word = 'на развес';
+			} elseif($count == 'upa') {
+				$word = 'в упаковке';
+			}
+
+			return $word;			
+		} elseif($type == 'category') {
+			$number = (int)substr((string)$count, -1); 
+			
+			if($number == 1 and (int)($count) != 11) {
+				$word = 'категория';
+			} elseif($number >= 2 and $number <= 4 and ((int)($count) < 10 or (int)($count) > 20)) {
+				$word = 'категории';
+			} else {
+				$word = 'категорий';
+			}			
+		} elseif($type == 'provider') {
+			$number = (int)substr((string)$count, -1); 
+			
+			if($number == 1 and (int)($count) != 11) {
+				$word = 'поставщик';
+			} elseif($number >= 2 and $number <= 4 and ((int)($count) < 10 or (int)($count) > 20)) {
+				$word = 'поставщика';
+			} else {
+				$word = 'поставщиков';
+			}			
+		} elseif($type == 'assortiment') {
+			$number = (int)substr((string)$count, -1); 
+			
+			if($number == 1 and (int)($count) != 11) {
+				$word = 'ассортимент';
+			} elseif($number >= 2 and $number <= 4 and ((int)($count) < 10 or (int)($count) > 20)) {
+				$word = 'ассортимента';
+			} else {
+				$word = 'ассортиментов';
+			}			
+		} elseif($type == 'product') {
+			$number = (int)substr((string)$count, -1); 
+			
+			if($number == 1 and (int)($count) != 11) {
+				$word = 'товар';
+			} elseif($number >= 2 and $number <= 4 and ((int)($count) < 10 or (int)($count) > 20)) {
+				$word = 'товара';
+			} else {
+				$word = 'товаров';
+			}			
+		}
+		
+		return $count.' '.$word;
+	}		
 }

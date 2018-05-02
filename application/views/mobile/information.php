@@ -7,7 +7,7 @@
             <div class="info_page_body_header">Доставка</div>
             <a href="/information/delivery" class="info_page_body_link">Доставка и способы оплаты</a>
             <a href="/information/return" class="info_page_body_link">Прием заказа, обмен и возврат</a>
-            <a href="/information/agreement" class="info_page_body_link">Гарантия качества</a>
+            <a href="/information/guarantee" class="info_page_body_link">Гарантия качества</a>
         </div>
         <div class="info_page_body">
             <div class="info_page_body_header">Программы лояльности</div>

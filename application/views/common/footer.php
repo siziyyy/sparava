@@ -27,7 +27,7 @@
 					<div class="f_block_header">Доставка, гарантия<br>качества, обмен, возврат </div>
 					<div><a href="/information/delivery" class="f_block_link">Доставка и способы оплаты</a></div>
 					<div><a href="/information/return" class="f_block_link">Прием заказа, обмен и возврат</a></div>
-					<div><a href="/information/agreement" class="f_block_link">Гарантия качества</a></div>
+					<div><a href="/information/guarantee" class="f_block_link">Гарантия качества</a></div>
 				</div>
 				<div class="f_block">
 					<div class="f_block_header">Программы <br>лояльности</div>
@@ -43,8 +43,8 @@
 				</div>
 				<div class="f_block">
 					<div class="f_block_header">Сотрудничество <br>и работа</div>
-					<div><a href="/information/" class="f_block_link">Поставщики</a></div>
-					<div><a href="/information/" class="f_block_link">Работы</a></div>
+					<div><a href="/information/caterer" class="f_block_link">Поставщики</a></div>
+					<div><a href="/information/vacancy" class="f_block_link">Работы</a></div>
 					<div><a href="/information/bloger" class="f_block_link">Блогерам</a></div>
 				</div>
 				<!--<div class="f_block">
