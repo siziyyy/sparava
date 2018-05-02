@@ -20,7 +20,7 @@
                 - наличный расчет курьеру
                 <br>- банковской картой курьеру
             </div>
-            <img src="/assets/img/commons/payments.jpg" class="info_page_inner_payments_img" alt="">
+            <img src="/assets/mobile/img/commons/payments.jpg" class="info_page_inner_payments_img" alt="">
         </div>
         <div class="info_page_inner_footer">
             <a href="/information/return" class="info_page_inner_footer_link">Прием заказа, обмен и возврат</a>

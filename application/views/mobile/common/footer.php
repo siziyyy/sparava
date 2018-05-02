@@ -21,8 +21,8 @@
             }
         ?>
 
-        <?php if(!isset($body_class)) { ?>
-            <footer>
+        <?php if(!isset($body_class) or $method == 'product') { ?>
+            <footer class="footer_button_wrapper">
                 <div class="footer_button_current <?php echo $class ?>"></div>
                 <a href="/cart" class="footer_button footer_button_img_cart fl_l <?php echo ($current_element == 'cart' ? 'active' : '') ?>">
                     <div class="footer_button_img sprite"></div>

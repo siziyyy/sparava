@@ -1,6 +1,7 @@
 var block_send_button = false;
 var current_page = 1;
 var time_counter = 0;
+var iFrameDetection = (window === window.parent) ? false : true;
 
 $(document).ready(function() {
 
@@ -475,10 +476,8 @@ $(document).ready(function() {
         $('.fullscreen').show();
     });
 
-    $(document).on('tap','.item_page_back',function(e) {
-        e.preventDefault();  
-
-        var iFrameDetection = (window === window.parent) ? false : true;
+    $(document).on('tap','.close_product_iframe',function(e) {
+        e.preventDefault();
 
         if(iFrameDetection) {
             parent.closeIFrame();
@@ -486,6 +485,10 @@ $(document).ready(function() {
             window.location = '/';
         }
     });
+
+    if(!iFrameDetection) {
+        $('.footer_button_wrapper').show();
+    }    
 
     $(document).on('tap','.g_good_added_to_cart',function(e) {
         window.location = '/cart';
