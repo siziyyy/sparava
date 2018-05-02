@@ -1,4 +1,23 @@
                     <div class="section">
+                        <div class="c_inners_header contacts_new_h">Гарантия качества</div>
+                        <div class="c_contacts_line">
+                                <div id="anch1"></div>
+                            <div class="c_contacts_line_left fl_l">
+                                <div class="c_contacts_about_text">                
+                                    Вся продукция которая, продается в Фуд Сити сертифицирована и подвергается жесткому 
+                                    контролю. Кроме этого aydaeda.ru имеет свой отдел за контролем качества - мы тщательно 
+                                    проверяем свежесть и срок годности каждого товара, перед тем как доставить его Вам.  
+                                </div>
+                            </div>
+                            <div class="c_contacts_line_right fl_r">
+                                <div class="vuhbijnkml_header">Все жалобы</div>
+                                <a href="mailto:jaloba@aydaeda.ru" class="vuhbijnkml_link">jaloba@aydaeda.ru</a>
+                            </div>
+                            <div class="clear" id="second_order"></div>
+                        </div>
+                    </div>
+					
+                    <div class="section">
                         <div class="c_inners_header contacts_new_h">Публичная оферта</div>
                         <div class="c_contacts_line">
                             <div class="c_contacts_line_left fl_l">
