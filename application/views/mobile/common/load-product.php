@@ -7,6 +7,10 @@
                         </div>
                         <div class="category_content_item_double_info">
                             <div class="category_content_item_price_line">
+                                <div class="category_content_item_price_old">
+                                    <span>&nbsp;₽</span>
+                                    <?php echo $product['price'] ?>
+                                </div>
                                 <div class="category_content_item_price"><?php echo $product['price'] ?> ₽</div>
                                 <div class="category_content_item_weight">
                                     <?php if($product['type'] == 'шт') { ?>
@@ -31,6 +35,12 @@
                                     <div class="category_content_item_not_double_info_header_left_name"><?php echo $product['title'] ?></div>
                                 </div>
                                 <div class="category_content_item_not_double_info_header_right fl_r">
+                                    <div class="category_content_item_not_double_info_header_left_price_old">
+                                        ₽&nbsp;
+                                        <span class="g_good_price_value">
+                                            <?php echo $product['price'] ?>
+                                        </span>
+                                    </div>
                                     <div class="category_content_item_not_double_info_header_left_price">₽&nbsp;<span class="g_good_price_value"><?php echo $product['price'] ?></span></div>
                                     <div class="category_content_item_not_double_info_header_left_weight">
                                         <?php if($product['type'] == 'шт') { ?>

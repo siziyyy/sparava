@@ -11,7 +11,7 @@
                                 <div class="category_content_item_not_double_info_header_left_name"><?php echo (empty($product['title_full']) ? $product['title'] : $product['title_full']) ?></div>
                             </div>
                             <div class="category_content_item_not_double_info_header_right fl_r">
-                                <div class="category_content_item_not_double_info_header_left_price">₽&nbsp;<span class="g_good_price_value"><?php echo $product['price'] ?></div>
+                                <div class="category_content_item_not_double_info_header_left_price">₽&nbsp;<span class="g_good_price_value"><?php echo $product['price'] ?></span></div>
                                 <div class="category_content_item_not_double_info_header_left_weight">
                                     <?php if($product['type'] == 'шт') { ?>
                                         <?php if(!is_null($product['weight']) and !empty($product['weight'])) { ?>
