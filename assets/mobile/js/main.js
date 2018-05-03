@@ -1,12 +1,24 @@
 var block_send_button = false;
 var current_page = 1;
-var time_counter = 0;
 var iFrameDetection = (window === window.parent) ? false : true;
 
 $(document).ready(function() {
 
-    $(document).on('touchstart',function(e) {
-        time_counter = (new Date).getTime();
+    set_account_personal_data();
+
+    $(document).on('tap','.settings_select',function(e) {
+        e.preventDefault();
+
+        $(this).parents('.cabinet_settings_body_line').find('.settings_select').each(function() {
+            $(this).removeClass('active');
+        });
+
+        $(this).addClass('active');
+
+        target = $(this).attr('data-name');
+        value = $(this).attr('data-value');
+
+        $('#'+target).val(value);
     });
     
     /** CATEGORY CHANGE VIEW**/
@@ -77,10 +89,6 @@ $(document).ready(function() {
             $(this).parents('.products_menu_tab_content_line').find('.products_menu_tab_content_line_more').addClass('active');
             $(this).parents('.products_menu_tab_content_line').find('.products_menu_tab_content_line_more_links').show();
         }
-    });
-    /** CABINET SETTINGS **/
-    $(document).on('tap','.cabinet_settings_body_line_item',function(e) {
-        $(this).toggleClass('active');
     });
     /** MAIN PAGE SLIDER **/
     if($('.main_page_partial_slider').length > 0) {
@@ -670,6 +678,20 @@ function is_not_click() {
     } else {
         return true;
     }
+}
+
+function set_account_personal_data() {
+    sex = $('#sex').val();
+    $('.settings_select[data-name="sex"][data-value="'+sex+'"]').addClass('active');
+
+    preferred_food = $('#preferred_food').val();
+    $('.settings_select[data-name="preferred_food"][data-value="'+preferred_food+'"]').addClass('active');
+
+    cost = $('#cost').val();
+    $('.settings_select[data-name="cost"][data-value="'+cost+'"]').addClass('active');
+
+    family = $('#family').val();
+    $('.settings_select[data-name="family"][data-value="'+family+'"]').addClass('active');
 }
 
 var cart = {

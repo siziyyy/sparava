@@ -175,6 +175,24 @@ if (window.addEventListener) {
 }
 
 $(document).ready(function() {
+	
+	set_account_personal_data();
+
+	$(document).on('click','.settings_select',function(e) {
+		e.preventDefault();
+
+		$(this).parents('.settings_right_form_label').find('.settings_select').each(function() {
+			$(this).removeClass('settings_right_form_input_selected');
+		});
+
+		$(this).addClass('settings_right_form_input_selected');
+
+		target = $(this).attr('data-name');
+		value = $(this).attr('data-value');
+
+		$('#'+target).val(value);
+	});
+
 	if($('input[data-name="brand"]:checked').length == 1) {
 		$('.brand_admin').show();
 	}
@@ -2222,4 +2240,19 @@ String.prototype.replaceAll = function(search, replace){
 
 function send_msg(msg) {
 	window.frames['admin'].postMessage(send_data, "https://admin.aydaeda.ru");
+}
+
+
+function set_account_personal_data() {
+	sex = $('#sex').val();
+	$('.settings_select[data-name="sex"][data-value="'+sex+'"]').addClass('settings_right_form_input_selected');
+
+	preferred_food = $('#preferred_food').val();
+	$('.settings_select[data-name="preferred_food"][data-value="'+preferred_food+'"]').addClass('settings_right_form_input_selected');
+
+	cost = $('#cost').val();
+	$('.settings_select[data-name="cost"][data-value="'+cost+'"]').addClass('settings_right_form_input_selected');
+
+	family = $('#family').val();
+	$('.settings_select[data-name="family"][data-value="'+family+'"]').addClass('settings_right_form_input_selected');
 }
