@@ -15,7 +15,7 @@
                         <span class="products_menu_tab_content_line_header"><?php echo $parent_category['info']['title'] ?></span>
                         <div class="products_menu_tab_content_line_subheader"><!-- парное и замороженное мясо --></div>
                         <div class="products_menu_tab_content_line_count">
-                            <?php echo $this->productlib->get_filter_text('product',$parent_category['count']) ?>
+                            <?php echo $this->filterlib->get_filter_text('product',$parent_category['count']) ?>
                             <span class="products_menu_tab_content_line_count_img sprite"></span>
                         </div>
                         <span href="#" class="products_menu_tab_content_line_more sprite"></span>
@@ -35,7 +35,7 @@
                         <span href="#" class="products_menu_tab_content_line_header"><?php echo $country ?></span>
                         <div class="products_menu_tab_content_line_subheader"><!-- парное и замороженное мясо --></div>
                         <div class="products_menu_tab_content_line_count">
-                            <?php echo $this->productlib->get_filter_text('product',$country_data['count']) ?>
+                            <?php echo $this->filterlib->get_filter_text('product',$country_data['count']) ?>
                             <span class="products_menu_tab_content_line_count_img sprite"></span>
                         </div>
                         <span href="#" class="products_menu_tab_content_line_more sprite"></span>
@@ -55,7 +55,7 @@
                         <span href="#" class="products_menu_tab_content_line_header"><?php echo $type['title'] ?></span>
                         <div class="products_menu_tab_content_line_subheader"><!-- парное и замороженное мясо --></div>
                         <div class="products_menu_tab_content_line_count">
-                            <?php echo $this->productlib->get_filter_text('product',$type['count']) ?>
+                            <?php echo $this->filterlib->get_filter_text('product',$type['count']) ?>
                             <span class="products_menu_tab_content_line_count_img sprite"></span>
                         </div>
                         <span href="#" class="products_menu_tab_content_line_more sprite"></span>

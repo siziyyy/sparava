@@ -214,10 +214,15 @@ class Account extends Fruitcrm {
 	}	
 	
 	public function update() {
-		$data = array(
-			'name' => $this->_data['name'],
-			'phone' => $this->_data['phone']
-		);
+		$data = array();
+
+		$data['name'] = (isset($this->_data['name']) ? $this->_data['name'] : NULL);
+		$data['phone'] = (isset($this->_data['phone']) ? $this->_data['phone'] : NULL);
+		$data['email'] = (isset($this->_data['email']) ? $this->_data['email'] : NULL);
+		$data['phone_2'] = (isset($this->_data['phone_2']) ? $this->_data['phone_2'] : NULL);
+		$data['prefered_shipping_address'] = (isset($this->_data['prefered_shipping_address']) ? $this->_data['prefered_shipping_address'] : NULL);
+		$data['prefered_shipping_metro'] = (isset($this->_data['prefered_shipping_metro']) ? $this->_data['prefered_shipping_metro'] : NULL);
+		$data['prefered_shipping_time'] = (isset($this->_data['prefered_shipping_time']) ? $this->_data['prefered_shipping_time'] : NULL);
 		
 		if ($this->db->update("accounts", $data, array("account_id" => $this->_id)))  {
 			return true;

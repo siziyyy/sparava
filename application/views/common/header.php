@@ -252,7 +252,9 @@ body,html,textarea{font-family:Calibri}
                             <br>авторизируйтесь
                         </div> -->
                         <a href="/favourites" class="new_header_icons new_header_icons_fav"></a>
-                        <a href="/favourites" class="new_header_icons new_header_icons_set"></a>
+                        <?php if($this->baselib->is_logged()) { ?>
+                            <a href="/account/settings" class="new_header_icons new_header_icons_set"></a>
+                        <?php } ?>
                         <?php if($this->baselib->is_logged()) { ?>
                             <a href="/logout" class="new_h_link h_link kmoijnuhybuh">выйти</a>
                         <?php } ?>

@@ -987,6 +987,19 @@ class Productlib {
 		$stop_words = $this->_ci->baselib->get_setting_value('search_stop_words');
 		$stop_words = unserialize(base64_decode($stop_words));
 
+		$minus_words = $this->_ci->baselib->get_setting_value('search_minus_words');
+		$minus_words = unserialize(base64_decode($minus_words));
+
+		foreach ($minus_words as $wid => $word) {
+			$word = trim($word);
+
+			$minus_words[$wid] = $word;
+			
+			if(empty($word)) {
+				unset($minus_words[$wid]);
+			}
+		}
+
 		foreach ($stop_words as $wid => $word) {
 			$word = trim($word);
 
@@ -1027,9 +1040,17 @@ class Productlib {
 		if(in_array($value,$exp_words)) {
 			$stemmed = $search_words;
 		} else {
+			if(count($search_words) > 1) {
+				foreach ($search_words as $wid => $word) {
+					if(in_array($word,$minus_words)) {
+						unset($search_words[$wid]);
+					}
+				}
+			}
+
 			$fixed_words = false;
 
-			foreach ($words as $word) {
+			foreach ($search_words as $word) {
 				$stemmed[] = $this->_ci->stemmlib->clear_value($word);
 			}
 		}
