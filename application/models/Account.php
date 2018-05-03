@@ -18,6 +18,8 @@ class Account extends Fruitcrm {
 						$this->_data['shipping_address'] = '';
 						$this->_data['shipping_metro'] = '';
 					}
+
+					$this->_data['personal_data'] = unserialize(base64_decode($this->_data['personal_data']));
 				}
 			}
 			return $this->_data;
@@ -223,6 +225,7 @@ class Account extends Fruitcrm {
 		$data['prefered_shipping_address'] = (isset($this->_data['prefered_shipping_address']) ? $this->_data['prefered_shipping_address'] : NULL);
 		$data['prefered_shipping_metro'] = (isset($this->_data['prefered_shipping_metro']) ? $this->_data['prefered_shipping_metro'] : NULL);
 		$data['prefered_shipping_time'] = (isset($this->_data['prefered_shipping_time']) ? $this->_data['prefered_shipping_time'] : NULL);
+		$data['personal_data'] = (isset($this->_data['personal_data']) ? base64_encode(serialize($this->_data['personal_data'])) : NULL);
 		
 		if ($this->db->update("accounts", $data, array("account_id" => $this->_id)))  {
 			return true;

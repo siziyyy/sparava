@@ -1571,7 +1571,8 @@ class Main extends CI_Controller {
 					'phone_2' => $this->input->post('phone_2'),
 					'prefered_shipping_address' => $this->input->post('prefered_shipping_address'),
 					'prefered_shipping_metro' => $this->input->post('prefered_shipping_metro'),
-					'prefered_shipping_time' => $this->input->post('prefered_shipping_time')
+					'prefered_shipping_time' => $this->input->post('prefered_shipping_time'),
+					'personal_data' => $this->input->post()
 				);
 
 				$account = new Account();
@@ -1581,7 +1582,13 @@ class Main extends CI_Controller {
 			}
 
 			$data['account'] = $this->baselib->is_logged();
-			$this->load->view('account/settings', $data);				
+
+			if($this->_is_mobile) {
+				$this->load->view('mobile/account/settings', $data);
+			} else {
+				$this->load->view('account/settings', $data);	
+			}
+						
 			return;
 		}
 
