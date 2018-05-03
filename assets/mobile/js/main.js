@@ -448,6 +448,8 @@ $(document).ready(function() {
             send_data.provider_full_id = $( this ).attr('data-provider-full-id');
         } else if($( this ).attr('data-brands-id')) {
             send_data.brands_id = $( this ).attr('data-brands-id');
+        } else if($( this ).attr('data-search-word')) {
+            send_data.search_word = $( this ).attr('data-search-word');
         }
 
         $.ajax({

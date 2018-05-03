@@ -7,41 +7,43 @@
             </div>
             <div class="content_helper yvuhbnimoklp">
                 <div class="settings_left fl_l">
-                    <div class="settings_left_email">emilia1987@mail.ru</div>
+                    <div class="settings_left_email"><?php echo $account['email'] ?></div>
                     <div class="settings_left_email_text">
                         Aydaeda.ru обязуется не передавать полученную от Клиента 
                         <br>информацию третьим лицам и использовать только для выполнения
                         <br>заказов и улучшении обслуживание
                     </div>
-                    <form class="settings_left_form">
+                    <form class="settings_left_form" method="post">
+                        <input type="hidden" value="1" name="save_account_info">
                         <label class="settings_left_form_label">
                             <div class="settings_left_form_label_text">Имя</div>
-                            <input type="text" class="settings_left_form_input" value="Эмилия Миронова">
+                            <input type="text" class="settings_left_form_input" value="<?php echo $account['name'] ?>" name="name">
                         </label>
                         <label class="settings_left_form_label">
                             <div class="settings_left_form_label_text">Телефон</div>
-                            <input type="text" class="settings_left_form_input" value="8 910 495 60 20">
+                            <input type="text" class="settings_left_form_input" value="<?php echo $account['phone'] ?>" name="phone">
                         </label>
                         <label class="settings_left_form_label">
                             <div class="settings_left_form_label_text">Второй телефон</div>
-                            <input type="text" class="settings_left_form_input">
+                            <input type="text" class="settings_left_form_input" value="<?php echo $account['phone_2'] ?>" name="phone_2">
                         </label>
                         <label class="settings_left_form_label">
-                            <div class="settings_left_form_label_text">Метро</div>
-                            <input type="text" class="settings_left_form_input">
+                            <div class="settings_left_form_label_text">Предпочитаемая станция метро</div>
+                            <input type="text" class="settings_left_form_input" value="<?php echo $account['prefered_shipping_metro'] ?>" name="prefered_shipping_metro">
                         </label>
                         <label class="settings_left_form_label">
-                            <div class="settings_left_form_label_text">Адрес доставки</div>
-                            <input type="text" class="settings_left_form_input">
+                            <div class="settings_left_form_label_text">Предпочитаемый адрес доставки</div>
+                            <input type="text" class="settings_left_form_input" value="<?php echo $account['prefered_shipping_address'] ?>" name="prefered_shipping_address">
                         </label>
                         <label class="settings_left_form_label">
                             <div class="settings_left_form_label_text">Предпочитаемое время доставки</div>
-                            <input type="text" class="settings_left_form_input">
+                            <input type="text" class="settings_left_form_input" value="<?php echo $account['prefered_shipping_time'] ?>" name="prefered_shipping_time">
                         </label>
-                        <div class="settings_left_form_send">сохранить</div>
-                        <div class="settings_left_form_cancel">отменить</div>
+                        <button class="settings_left_form_send" type="submit">сохранить</button>
+                        <a href="/" class="settings_left_form_cancel">отменить</a>
                     </form>
                 </div>
+                <!--
                 <div class="settings_right fl_l">
                     <div class="settings_right_header">Помогите нам стать еще удобнее для Вас </div>
                     <div class="settings_right_subheader">
@@ -83,8 +85,8 @@
                         <div class="settings_right_form_input njibubuhbub1 fl_l">Семья +3</div>
                         <div class="clear"></div>
                     </label>
-                </div>
+                </div> -->
                 <div class="clear"></div>
             </div>
         </section>
-<?php $this->load->view('common/footer',$footer);?>
+<?php $this->load->view('common/footer');?>

@@ -1561,6 +1561,30 @@ class Main extends CI_Controller {
 			return;
 		}
 
+		if($type == 'settings') {
+			if(!empty($this->input->post('save_account_info'))) {
+				$account_id = $this->baselib->is_logged()['account_id'];
+
+				$info = array(
+					'name' => $this->input->post('name'),
+					'phone' => $this->input->post('phone'),
+					'phone_2' => $this->input->post('phone_2'),
+					'prefered_shipping_address' => $this->input->post('prefered_shipping_address'),
+					'prefered_shipping_metro' => $this->input->post('prefered_shipping_metro'),
+					'prefered_shipping_time' => $this->input->post('prefered_shipping_time')
+				);
+
+				$account = new Account();
+				$account->set_id($account_id);
+				$account->set_data($info);
+				$account->update();
+			}
+
+			$data['account'] = $this->baselib->is_logged();
+			$this->load->view('account/settings', $data);				
+			return;
+		}
+
 		if(!empty($this->input->post('login_form'))) {
 			if(!empty($this->input->post('email')) and !empty($this->input->post('password'))) {
 
@@ -2148,7 +2172,7 @@ class Main extends CI_Controller {
 
 			case 'load_products':
 			
-				if((!is_null($this->input->post('category_id')) or !is_null($this->input->post('country_id')) or !is_null($this->input->post('provider_id')) or !is_null($this->input->post('provider_full_id')) or !is_null($this->input->post('brands_id'))) and !is_null($this->input->post('page'))) {
+				if((!is_null($this->input->post('category_id')) or !is_null($this->input->post('country_id')) or !is_null($this->input->post('provider_id')) or !is_null($this->input->post('provider_full_id')) or !is_null($this->input->post('brands_id')) or !is_null($this->input->post('search_word'))) and !is_null($this->input->post('page'))) {
 
 					if(!is_null($this->input->post('category_id'))) {
 					
@@ -2310,6 +2334,50 @@ class Main extends CI_Controller {
 						$page = (!is_null($this->input->post('page')) ? $this->input->post('page') : 1);
 
 						$products_in_page = $this->filterlib->filter_products_for_providers_full($products,$filters,$page);
+					} elseif(!is_null($this->input->post('search_word'))) {
+
+						$page = (!is_null($this->input->post('page')) ? $this->input->post('page') : 1);
+
+						$products = array();
+						
+						$result = $this->productlib->search_products(trim($this->input->post('search_word')));
+						$products_sort = $result['products'];
+						$products_data = $this->productlib->get_products_by_ids($result['products'],true);
+
+						if(count($products_sort)) {
+							foreach ($products_sort as $product_id) {
+								if(isset($products_data[$product_id])) {
+									$products[$product_id] = $products_data[$product_id];
+								}
+							}
+						}						
+
+						$prodcuts_in_page = array();
+						$page_start = ($page-1)*50;
+						$page_end = $page*50;
+						$i = 0;
+						$pages_count = (int)(count($products)/50);
+						
+						if(count($products)%50 > 0)  {
+							$pages_count++;
+						}
+						
+						foreach($products as $product_id => $product) {
+							if($i >= $page_start and $i <$page_end) {
+								$prodcuts_in_page[] = $product;
+							}
+							
+							$i++;
+						}
+
+						$empty_products = count($prodcuts_in_page)%5; 
+									
+						if($empty_products > 0) {
+							$empty_products = 5-$empty_products;
+						}
+
+						$products_in_page['products'] = $prodcuts_in_page;
+						$products_in_page['empty_products'] = $empty_products;
 					}
 					
 					
