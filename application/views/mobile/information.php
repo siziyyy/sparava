@@ -8,10 +8,12 @@
             <a href="/information/delivery" class="info_page_body_link">Доставка и способы оплаты</a>
             <a href="/information/return" class="info_page_body_link">Прием заказа, обмен и возврат</a>
             <a href="/information/guarantee" class="info_page_body_link">Гарантия качества</a>
+            <a href="/information/" class="info_page_body_link">Публичная оферта</a>
         </div>
         <div class="info_page_body">
             <div class="info_page_body_header">Программы лояльности</div>
-            <a href="/information/" class="info_page_body_link">Преимущество первого заказа</a>
+            <a href="/information/" class="info_page_body_link">Преимущество первого и второго заказа</a>
+            <a href="/information/" class="info_page_body_link">Знак ≈</a>
             <a href="/information/bonus" class="info_page_body_link">Бонусная система</a>
 			<a href="/information/claims" class="info_page_body_link">Претензии и предложения</a>
         </div>
