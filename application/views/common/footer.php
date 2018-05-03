@@ -15,13 +15,13 @@
 							<img src="/assets/img/h_logo.png" alt="aydaeda" style="width: 195px;">
 						</div>
 					</a>
-					<div class="f_block_search_header">Поиск товара по артикулу</div>
+					<!--<div class="f_block_search_header">Поиск товара по артикулу</div>
 					<div class="f_block_search">
 						<form method="post" action="/search">
 							<input type="text" class="f_block_search_inp" name="value">
 							<button type="submit" class="f_block_search_butt">найти</button>
 						</form>
-					</div>
+					</div>-->
 				</div>
 				<div class="f_block">
 					<div class="f_block_header">Доставка, гарантия<br>качества, обмен, возврат </div>
@@ -34,6 +34,7 @@
 					<div><a href="/information/first" class="f_block_link">Преимущества первого заказа</a></div>
 					<div><a href="/information/bonus" class="f_block_link">Бонусная система</a></div>
 					<div><a href="/information/claims" class="f_block_link">Претензии и предложения</a></div>
+					<div><a href="/information/agreement" class="f_block_link">Публичная оферта</a></div>
 				</div>
 				<div class="f_block">
 					<div class="f_block_header">Информация <br>о нас</div>

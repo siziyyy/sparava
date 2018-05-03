@@ -7,7 +7,33 @@
 		<div class="c_inners_left_side_text_h">
 			Доставка
 		</div>
-		<form method="post" action="">
+		<div class="new_shipping">
+			<div class="new_shipping_header">Обычная доставка</div>
+			<div class="new_shipping_button new_shipping_button_act fl_l">Москва - 199 р.</div>
+			<div class="new_shipping_button fl_l">МO - 350 р.</div>
+			<div class="clear"></div>
+			<div class="new_shipping_buttons_small_pack">
+				<div class="new_shipping_button_small">13:00 - 19:00</div>
+				<div class="new_shipping_button_small new_shipping_button_small_act">13:00 - 19:00</div>
+				<div class="new_shipping_button_small">13:00 - 19:00</div>
+				<div class="new_shipping_button_small">13:00 - 19:00</div>
+			</div>
+			<div class="new_shipping_header">Экспресс доставка</div>
+			<div class="new_shipping_button fl_l">Москва - 299 р.</div>
+			<div class="new_shipping_button fl_l">МO - 500 р.</div>
+			<div class="clear"></div>
+			<div class="new_shipping_buttons_small_pack">
+				<div class="new_shipping_button_small">13:00 - 19:00</div>
+				<div class="new_shipping_button_small">13:00 - 19:00</div>
+				<div class="new_shipping_button_small">13:00 - 19:00</div>
+				<div class="new_shipping_button_small">13:00 - 19:00</div>
+			</div>
+			<div class="c_inners_left_side_text_b">
+				Минимальная сумма заказа 1000 руб.
+			</div>
+			<button type="submit" class="c_inners_left_side_button black_small_button new_hlp">далее</button>
+		</div>
+		<?/*<form method="post" action="">
 			<input type="hidden" value="1" name="shipping_form_submit">
 			<?php foreach($shipping_methods as $group) { ?>
 				<div class="c_inners_left_side_text_deliv">
@@ -36,7 +62,7 @@
 			<?php if(isset($shipping_form_submit_error)) { ?>
 				<span class="deliv_error">Вы не выбрали способ доставки</span>
 			<?php } ?>
-		</form>
+		</form>*/?>
 	</div>	
 	<?php $this->load->view('cart/related_products'); ?>
 </aside>
