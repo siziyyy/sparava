@@ -654,7 +654,7 @@ header .content_helper{padding:15px}
 	background-color: #9499A3;
 	color: #fff;
 }
-.new_shipping_button_small {
+.new_shipping_button_small,.new_shipping_button_small_date {
 	color: #9499A3;
 	background-color: #EEF0F5;
 	font-size: 13px;
@@ -673,7 +673,7 @@ header .content_helper{padding:15px}
 	        transition: all .3s ease;
 	display: inline-block;
 }
-.new_shipping_button_small:hover {
+.new_shipping_button_small:hover,.new_shipping_button_small_date:hover {
 	color: #676B73;
 	background-color: #E7E9F0;
 	-webkit-transition: all .3s ease;
