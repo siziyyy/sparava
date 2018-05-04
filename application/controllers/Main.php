@@ -1718,11 +1718,11 @@ class Main extends CI_Controller {
 			$shipping_gruops[$group_id]['methods'] = $this->baselib->get_shipping_methods($group_id);
 		}
 
-		if(is_null($this->session->userdata('shipping_method')) and is_null($this->input->post('shipping_method'))) {
+		if(empty($this->session->userdata('shipping_method')) and empty($this->input->post('shipping_method'))) {
 			$data['cart_info']['shipping_methods'] = $shipping_gruops;
 			$data['cart_info_tpl'] = 'shipping_methods';
 			
-			if(!is_null($this->input->post('shipping_form_submit'))) {
+			if(!empty($this->input->post('shipping_form_submit'))) {
 				$data['cart_info']['shipping_form_submit_error'] = true;
 			}
 
@@ -1735,6 +1735,8 @@ class Main extends CI_Controller {
 			return;
 		} elseif(!is_null($this->input->post('shipping_method'))) {
 			$this->session->set_userdata('shipping_method', (int)$this->input->post('shipping_method'));
+			$this->session->set_userdata('shipping_date', $this->input->post('shipping_date'));
+			$this->session->set_userdata('shipping_time', $this->input->post('shipping_time'));
 		}
 	
 		$data['totals']['totals'] = $this->baselib->get_totals_for_cart($data['totals']['totals']);

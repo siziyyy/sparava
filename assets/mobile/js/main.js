@@ -4,6 +4,63 @@ var iFrameDetection = (window === window.parent) ? false : true;
 
 $(document).ready(function() {
 
+    $(document).on('change','.select_shipping_date_input',function(e) {
+        e.preventDefault();
+
+        target = $(this).attr('data-name');
+        value = $(this).val();
+        
+        $('.select_shipping_date').removeClass('new_shipping_button_small_act');
+
+        $('#'+target).val(value);
+    });
+
+    $(document).on('click','.select_shipping_date',function(e) {
+        e.preventDefault();
+
+        target = $(this).attr('data-name');
+        value = $(this).attr('data-value');
+
+        $(this).addClass('new_shipping_button_small_act');
+
+        $('#'+target).val(value);
+    });
+
+    $(document).on('click','.new_shipping_button',function(e) {
+        e.preventDefault();
+
+        $(this).parents('.new_shipping').find('.new_shipping_button').each(function() {
+            $(this).removeClass('new_shipping_button_act');
+        });
+
+        $(this).parents('.new_shipping').find('.new_shipping_button_small').each(function() {
+            $(this).removeClass('new_shipping_button_small_act');
+        });
+
+        $(this).addClass('new_shipping_button_act');
+
+        target = $(this).attr('data-name');
+        value = $(this).attr('data-value');
+
+        $('#'+target).val(value);
+    });
+
+    $(document).on('click','.new_shipping_button_small',function(e) {
+        e.preventDefault();
+
+        target = $(this).attr('data-name');
+        value = $(this).attr('data-value');
+
+        $(this).parents('.cart_delivery_tab').find('.new_shipping_button_small').each(function() {
+            $(this).removeClass('new_shipping_button_small_act');
+        });
+
+        $(this).addClass('new_shipping_button_small_act');
+
+        $('#'+target).val(value);
+    });
+
+
     set_account_personal_data();
 
     $(document).on('tap','.settings_select',function(e) {

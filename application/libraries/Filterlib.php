@@ -539,10 +539,12 @@ class Filterlib {
 	}
 	
 	public function get_filter_text($type,$filter_array) {
-		$count = count($filter_array);
+		if($type != 'product') {
+			$count = count($filter_array);
 
-		if($count == 1) {
-			return current($filter_array);
+			if($count == 1) {
+				return current($filter_array);
+			}
 		}
 
 		if($type == 'country') {
@@ -646,6 +648,8 @@ class Filterlib {
 				$word = 'ассортиментов';
 			}			
 		} elseif($type == 'product') {
+			$count = $filter_array;
+
 			$number = (int)substr((string)$count, -1); 
 			
 			if($number == 1 and (int)($count) != 11) {

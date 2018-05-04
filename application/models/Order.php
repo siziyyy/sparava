@@ -44,9 +44,16 @@ class Order extends Fruitcrm {
 				'shipping_method_id' => $shipping_method,
 				'shipping_comment' => $this->session->userdata('shipping_comment'),
 				'shipping_price' => $shipping_methods[$shipping_method]['price'],
+				'shipping_time' => $this->session->userdata('shipping_time'),
+				'shipping_date' => $this->session->userdata('shipping_date'),
 				'used_bonus' => ( $use_bonus ? $account->get_data()['bonus'] : 0 ),
 				'create_date' => time()
 			);
+
+			if($shipping_method == 3 or $shipping_method == 4) {
+				$data['shipping_time'] = NULL;
+				$data['shipping_date'] = NULL;
+			}
 			
 			if(is_null($this->session->userdata('shipping_metro'))) {
 				$data['shipping_metro'] = $account->get_data()['shipping_metro'];

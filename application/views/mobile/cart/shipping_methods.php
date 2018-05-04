@@ -18,6 +18,20 @@
                             </div>
                         </a> <!-- add / remove .active -->
                     <?php } ?>
+                    <?php if($group['shipping_gropu_id'] != 2) { ?>
+                        Дата доставки:<br>
+                        <div class="new_shipping_button_small_date select_shipping_date" data-value="<?php echo date('j',time()+86400) ?>" data-name="shipping_date">Завтра</div>&nbsp;
+                        <input type="text" value="" data-name="shipping_date" class="select_shipping_date_input">
+                        <div class="clear"></div>
+                        Время доставки:<br>
+                    
+                        <div class="new_shipping_buttons_small_pack">
+                            <div class="new_shipping_button_small" data-value="1" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">13:00 - 19:00</div>
+                            <div class="new_shipping_button_small" data-value="2" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">13:00 - 19:00</div>
+                            <div class="new_shipping_button_small" data-value="3" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">13:00 - 19:00</div>
+                            <div class="new_shipping_button_small" data-value="4" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">13:00 - 19:00</div>
+                        </div>
+                    <?php } ?>
                 </span>
             <?php } ?>
             <div class="cart_page_summ" data-summ="<?php echo $cart_info['summ'] ?>"><span class="cart_page_summ_value"><?php echo $cart_info['summ'] ?></span> ₽</div>
@@ -31,8 +45,10 @@
 
 
             <form method="post" action="">
+                <input type="hidden" value="" name="shipping_method" id="shipping_method">
+                <input type="hidden" value="" name="shipping_date" id="shipping_date">
+                <input type="hidden" value="" name="shipping_time" id="shipping_time">
                 <input type="hidden" value="1" name="shipping_form_submit">
-                <input type="hidden" value="" name="shipping_method">
                 <button type="submit" class="cart_page_next">далее</button> <!-- add / remove .inactive -->
             </form>
         </div>
