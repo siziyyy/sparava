@@ -21,18 +21,20 @@
 					<?php } ?>
 					<div class="clear"></div>
 					<?php if($group['shipping_gropu_id'] != 2) { ?>
-						Дата доставки:<br>
-						<div class="new_shipping_button_small_date select_shipping_date" data-value="<?php echo date('j',time()+86400) ?>" data-name="shipping_date">Завтра</div>
-						&nbsp;
-						<input type="text" value="" data-name="shipping_date" class="select_shipping_date_input">
-						<div class="clear"></div>
-						Время доставки:<br>
-					
-						<div class="new_shipping_buttons_small_pack">
-							<div class="new_shipping_button_small" data-value="1" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">13:00 - 19:00</div>
-							<div class="new_shipping_button_small" data-value="2" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">13:00 - 19:00</div>
-							<div class="new_shipping_button_small" data-value="3" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">13:00 - 19:00</div>
-							<div class="new_shipping_button_small" data-value="4" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">13:00 - 19:00</div>
+						<div class="new_shipping_button_tommorow">
+							<div class="new_shipping_button fl_l select_shipping_date" data-value="<?php echo date('j',time()+86400) ?>" data-name="shipping_date">Завтра</div>
+							<label class="select_shipping_date_label">
+								<span class="select_shipping_date_text">на другое число</span>
+								<input type="text" value="" data-name="shipping_date" class="select_shipping_date_input">
+							
+							</label>
+							<div class="clear"></div>					
+							<div class="new_shipping_buttons_small_pack">
+								<div class="new_shipping_button_small" data-value="1" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">13:00 - 19:00</div>
+								<div class="new_shipping_button_small" data-value="2" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">13:00 - 19:00</div>
+								<div class="new_shipping_button_small" data-value="3" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">13:00 - 19:00</div>
+								<div class="new_shipping_button_small" data-value="4" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">13:00 - 19:00</div>
+							</div>
 						</div>
 					<?php } ?>
 				<?php } ?>

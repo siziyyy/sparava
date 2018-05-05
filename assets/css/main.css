@@ -694,3 +694,26 @@ header .content_helper{padding:15px}
 	background-color: #9499A3;
 	color: #fff;
 }
+.new_shipping_button_tommorow {
+	margin-top: 20px;
+}
+.select_shipping_date_label {
+	float: left;
+}
+.select_shipping_date_text {
+	font-size: 13px;
+	display: inline-block;
+	color: #9499A3;
+}
+.select_shipping_date_input {
+	display: inline-block;
+	width: 57px;
+	height: 25px;
+	border: 1px solid #ccc;
+	text-align: center;
+	color: #9499A3;
+	font-size: 13px;
+	margin: 0 0 0 10px;
+	-webkit-border-radius: 3px;
+	        border-radius: 3px;
+}

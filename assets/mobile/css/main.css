@@ -1336,6 +1336,26 @@ footer {
 .cart_delivery_line_button_header {
     padding: 17px 0 13px;
 }
+.cart_delivery_line_button_date {
+    background: #EEF0F5;
+    color: #9499a3;
+    -webkit-border-radius: 5px;
+            border-radius: 5px;
+    display: block;
+    width: calc(50% - 11px);
+    padding: 18px 0;
+    margin: 0 0 20px 0;
+}
+.cart_delivery_line_button_date_oth {
+    width: calc(24% - 11px) !important;
+    margin-right: 19px !important;
+}
+.cart_delivery_line_button_date_oth_last {
+    margin-right: 0 !important;
+}
+.cart_date_time {
+    margin-top: 10px;
+}
 /** CART AUTH **/
 .cart_auth {
     text-align: center;
