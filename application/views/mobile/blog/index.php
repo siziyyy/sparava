@@ -2,7 +2,7 @@
     <div class="blog_page">
         <div class="blog_page_header">
             <div class="blog_page_avatar" style="background-image: url('/assets/mobile/img/peoples/3.jpg')"></div>
-            <div class="blog_page_name">Ирина Понарошко</div>
+            <div class="blog_page_name">Ольга Куликова</div>
         </div>
         <div class="blog_page_body">
             <div class="blog_page_body_header">Вкусный блог</div>

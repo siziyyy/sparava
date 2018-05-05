@@ -18,14 +18,11 @@
                             </div>
                         </a> <!-- add / remove .active -->
                     <?php } ?>
-                    <?php if($group['shipping_gropu_id'] != 2) { ?>
-                            <div class="cart_date_time">
-                            Дата доставки:<br>
+                    <?php /* if($group['shipping_gropu_id'] != 2) { ?>
+                        <div class="cart_date_time">
                             <div class="new_shipping_button_small_date select_shipping_date" data-value="<?php echo date('j',time()+86400) ?>" data-name="shipping_date">Завтра</div>&nbsp;
                             <input type="text" value="" data-name="shipping_date" class="select_shipping_date_input">
                             <div class="clear"></div>
-                            Время доставки:<br>
-                        
                             <div class="new_shipping_buttons_small_pack">
                                 <div class="new_shipping_button_small" data-value="1" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">13:00 - 19:00</div>
                                 <div class="new_shipping_button_small" data-value="2" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">13:00 - 19:00</div>
@@ -33,7 +30,31 @@
                                 <div class="new_shipping_button_small" data-value="4" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">13:00 - 19:00</div>
                             </div>
                         </div>
-                    <?php } ?>
+                    <?php } */?>
+                    <div class="cart_date_time cart_delivery_line">
+                        <a href="#" class="cart_delivery_line_button_date fl_l">Завтра</a>
+                        <a href="#" class="cart_delivery_line_button_date fl_r">Другое число</a>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="cart_date_time cart_delivery_line cart_delivery_line_for_oth_date">
+                        <a href="#" class="cart_delivery_line_button_date cart_delivery_line_button_date_oth fl_l">10</a>
+                        <a href="#" class="cart_delivery_line_button_date cart_delivery_line_button_date_oth fl_l">11</a>
+                        <a href="#" class="cart_delivery_line_button_date cart_delivery_line_button_date_oth fl_l">12</a>
+                        <a href="#" class="cart_delivery_line_button_date cart_delivery_line_button_date_oth cart_delivery_line_button_date_oth_last fl_l">13</a>
+                        <div class="clear"></div>
+                        <a href="#" class="cart_delivery_line_button_date cart_delivery_line_button_date_oth fl_l">12</a>
+                        <a href="#" class="cart_delivery_line_button_date cart_delivery_line_button_date_oth fl_l">13</a>
+                        <a href="#" class="cart_delivery_line_button_date fl_r">Еще позже</a>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="cart_date_time cart_delivery_line cart_delivery_line_for_time">
+                        <a href="#" class="cart_delivery_line_button_date fl_l">7:00 - 9:00</a>
+                        <a href="#" class="cart_delivery_line_button_date fl_r">13:00 - 19:00 </a>
+                        <div class="clear"></div>
+                        <a href="#" class="cart_delivery_line_button_date fl_l">9:00 - 13:00</a>
+                        <a href="#" class="cart_delivery_line_button_date fl_r">19:00 - 23:00</a>
+                        <div class="clear"></div>
+                    </div>
                 </span>
             <?php } ?>
             <div class="cart_page_summ" data-summ="<?php echo $cart_info['summ'] ?>"><span class="cart_page_summ_value"><?php echo $cart_info['summ'] ?></span> ₽</div>
