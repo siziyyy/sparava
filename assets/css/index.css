@@ -419,7 +419,20 @@ html,body{/*-ms-overflow-x:hidden;overflow-x:hidden;*/max-width:100%;width:100%;
 .instagram_line_item_last{margin:0}
 .myasnoy_ryad_item_text_vert{left:125%}
 }*/
-@media all and (max-width: 1200px){body{zoom: .86;
+@media all and (max-width: 1200px){body{
+	-webkit-transform: scale(.86);
+	   -moz-transform: scale(.86);
+	    -ms-transform: scale(.86);
+	     -o-transform: scale(.86);
+	        transform: scale(.86);
+    -webkit-transform-origin: top left;
+       -moz-transform-origin: top left;
+        -ms-transform-origin: top left;
+         -o-transform-origin: top left;
+            transform-origin: top left;
+	    position: absolute;
+	    left: 17px;
+	    top: 0;
     overflow-x: hidden;
     width: 100%;}}
 .new_full_cat_texts_upheader{font-size:12px;color:gray;margin-top:30px;margin-bottom:-20px}
