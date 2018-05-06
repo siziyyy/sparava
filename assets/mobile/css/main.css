@@ -2202,7 +2202,7 @@ footer {
     display: block;
     margin: 0 auto;
 }
-.main_page_partial_slider img {
+.main_page_partial_slider a {
     margin: 0 10px 0 0 !important;
 }
 .main_page_mosaic_img, .main_page_banner_one_image, .main_page_banner_instagram_img {

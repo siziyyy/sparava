@@ -7,7 +7,7 @@
 	   <div style="position:relative;width: calc(100% - 34px); margin: 0 auto;">
 		  <div class="main_page_partial_slider" style="width: 100%;overflow: visible !important;">
             <?php foreach($banners['slider_mobile'] as $banner) { ?>
-                <a href="<?php echo $banner['url'] ?>">
+                <a href="<?php echo $banner['url'] ?>" class="">
                     <img src="<?php echo $banner['image'] ?>" alt="image description" style="width: 100%;"/>
                 </a>
             <?php } ?>
