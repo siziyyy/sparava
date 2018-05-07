@@ -6,9 +6,14 @@
                                     <div class="c_contacts_line_left_deliv_l fl_l">
                                         <div class="c_contacts_line_right_header">Обычная доставка</div>
                                         <div class="c_contacts_line_right_coolheader">
-                                            Доставим завтра в любое удобное 
-                                            <br>Вам время с интервалом на два часа, 
-                                            <br>с 10:00 до 21:00
+                                            Доставим уже завтра или любой другой день в 
+                                            <br>удобное Вам время в интервалах
+                                            <div class="c_contacts_line_right_coolheader_sub">
+                                                <div class="c_contacts_line_right_coolheader_subor">7:00 - 9:00</div>
+                                                <div class="c_contacts_line_right_coolheader_subor">9:00 - 13:00 </div>
+                                                <div class="c_contacts_line_right_coolheader_subor">13:00 - 19:00</div>
+                                                <div class="c_contacts_line_right_coolheader_subor">19:00 - 23:00 </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="c_contacts_line_left_deliv_r fl_l">
@@ -22,8 +27,10 @@
                                     <div class="c_contacts_line_left_deliv_l fl_l">
                                         <div class="c_contacts_line_right_header">Экспресс доставка</div>
                                         <div class="c_contacts_line_right_coolheader">
-                                            Доставим в течении трех часов,
-                                            <br>с 10:00 до 21:00
+                                            Доставим в течении трех часов
+                                            <div class="c_contacts_line_right_coolheader_sub">
+                                                <div class="c_contacts_line_right_coolheader_subor">с 10:00  до 21:00</div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="c_contacts_line_left_deliv_r fl_l">

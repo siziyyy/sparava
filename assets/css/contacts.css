@@ -344,16 +344,17 @@
     background-position: 5px 4px;
 } 
 .c_contacts_line_left_deliv_l {
-    width: 50%;
+    width: 53%;
 }
 .c_contacts_line_left_deliv_r {
-    width: 50%;
+    width: 44%;
     background: #f7f7f8;
-    padding: 0 0 20px 50px;
+    padding: 0 0 0 0;
     -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
-    max-width: 356px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 8px 0 29px 28px;
 }
 .bl_fw_c_c_ll_deliv {
     font-size: 18px;
