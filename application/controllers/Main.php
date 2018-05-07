@@ -1696,7 +1696,8 @@ class Main extends CI_Controller {
 				'totals' => $totals
 			),
 			'related_products' => $this->productlib->get_products_by_ids($related_products),
-			'banner' => $banners
+			'banner' => $banners,
+			'summ' => $summ
 		);
 		
 		if($summ < 1000) {
@@ -1812,10 +1813,10 @@ class Main extends CI_Controller {
 
 		if($this->_is_mobile) {
 			if(!is_null($this->input->post('checkout_order'))) {
-					$this->load->model('order');
-					$order = new Order();					
-					$order->create();
-					$this->checkout_success();
+				$this->load->model('order');
+				$order = new Order();
+				$order->create();
+				$this->checkout_success();
 			} else {
 				$this->load->view('mobile/cart/'.$data['cart_info_tpl'], $data);
 			}

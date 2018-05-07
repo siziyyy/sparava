@@ -14,4 +14,7 @@
     </div> -->
 </div>
 <?php } ?>
+
+<?php if($summ < 1000) { ?>
     <div class="minsumm_body2">минимальная сумма заказа 1000 р.</div>
+<?php } ?>

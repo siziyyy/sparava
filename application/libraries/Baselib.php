@@ -664,14 +664,7 @@ class Baselib {
 
 				if(!is_null($product['sr_ves']) and !empty($product['sr_ves'])) {
 					$default_value = $product['sr_ves'];
-
-					$default_price = ((int)$product['price']*(int)$default_value);
-
-					if(((int)$product['price']*(int)$default_value) > $default_price) {
-						$default_price++;
-					}
-
-					$products[$product_id]['default_price'] = $default_price;
+					$products[$product_id]['default_price'] = $this->round_price($default_value,$product['price']);
 				} else {
 					$products[$product_id]['default_price'] = $products[$product_id]['price'];
 				}				

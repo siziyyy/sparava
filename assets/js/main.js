@@ -201,13 +201,9 @@ $(document).ready(function() {
 	$(document).on('click','.new_shipping_button',function(e) {
 		e.preventDefault();
 
-		$(this).parents('.new_shipping').find('.new_shipping_button').each(function() {
-			$(this).removeClass('new_shipping_button_act');
-		});
-
-		$(this).parents('.new_shipping').find('.new_shipping_button_small').each(function() {
-			$(this).removeClass('new_shipping_button_small_act');
-		});
+		$(this).parents('.new_shipping').find('.new_shipping_button').removeClass('new_shipping_button_act');
+		$(this).parents('.new_shipping').find('.new_shipping_button_small').removeClass('new_shipping_button_small_act');
+		$('.select_shipping_date').removeClass('new_shipping_button_small_act');
 
 		$(this).addClass('new_shipping_button_act');
 
@@ -223,10 +219,7 @@ $(document).ready(function() {
 		target = $(this).attr('data-name');
 		value = $(this).attr('data-value');
 
-		$(this).parents('.new_shipping').find('.new_shipping_button_small').each(function() {
-			$(this).removeClass('new_shipping_button_small_act');
-		});
-
+		$(this).parents('.new_shipping').find('.new_shipping_button_small').removeClass('new_shipping_button_small_act');
 		$(this).addClass('new_shipping_button_small_act');
 
 		$('#'+target).val(value);
@@ -1598,13 +1591,13 @@ $(document).ready(function() {
 					type : type,
 					account_details_name : ($('#account_details_name').val() || 0 ),
 					account_details_phone : ($('#account_details_phone').val() || 0 ),
-					account_details_metro : ($('#account_details_metro').val() || -1 ),
-					account_details_address : ($('#account_details_address').val() || -1 ),
-					account_details_shipping_method : ($('input[name="account_details_shipping_method"]:checked').val() || -1 )
+					account_details_metro : ($('#account_details_metro').val() || '' ),
+					account_details_address : ($('#account_details_address').val() || '' ),
+					account_details_shipping_method : ($('input[name="account_details_shipping_method"]:checked').val() || '' )
 				}
 				
 				for(var key in send_data) {
-					if(send_data[key] == 0) {
+					if(send_data[key] === 0) {
 						$('#'+key).addClass('input_error');
 						error = true;
 					}

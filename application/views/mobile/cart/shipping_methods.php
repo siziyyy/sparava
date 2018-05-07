@@ -32,27 +32,28 @@
                         </div>
                     <?php } */?>
                     <div class="cart_date_time cart_delivery_line">
-                        <a href="#" class="cart_delivery_line_button_date fl_l">Завтра</a>
-                        <a href="#" class="cart_delivery_line_button_date fl_r">Другое число</a>
+                        <a href="#" class="cart_delivery_line_button_date fl_l select_shipping_date" data-value="<?php echo date('j',time()+86400) ?>" data-name="shipping_date">Завтра</a>
+                        <a href="#" class="cart_delivery_line_button_date fl_r select_shipping_date" data-value="Другое число" data-name="shipping_date">Другое число</a>
                         <div class="clear"></div>
                     </div>
                     <div class="cart_date_time cart_delivery_line cart_delivery_line_for_oth_date">
-                        <a href="#" class="cart_delivery_line_button_date cart_delivery_line_button_date_oth fl_l">10</a>
-                        <a href="#" class="cart_delivery_line_button_date cart_delivery_line_button_date_oth fl_l">11</a>
-                        <a href="#" class="cart_delivery_line_button_date cart_delivery_line_button_date_oth fl_l">12</a>
-                        <a href="#" class="cart_delivery_line_button_date cart_delivery_line_button_date_oth cart_delivery_line_button_date_oth_last fl_l">13</a>
+                        <a href="#" class="cart_delivery_line_button_date cart_delivery_line_button_date_oth fl_l select_shipping_date" data-value="<?php echo date('j',time()+2*86400) ?>" data-name="shipping_date"><?php echo date('j',time()+2*86400) ?></a>
+                        <a href="#" class="cart_delivery_line_button_date cart_delivery_line_button_date_oth fl_l select_shipping_date" data-value="<?php echo date('j',time()+3*86400) ?>" data-name="shipping_date"><?php echo date('j',time()+3*86400) ?></a>
+                        <a href="#" class="cart_delivery_line_button_date cart_delivery_line_button_date_oth fl_l select_shipping_date" data-value="<?php echo date('j',time()+4*86400) ?>" data-name="shipping_date"><?php echo date('j',time()+4*86400) ?></a>
+                        <a href="#" class="cart_delivery_line_button_date cart_delivery_line_button_date_oth cart_delivery_line_button_date_oth_last fl_l select_shipping_date" data-value="<?php echo date('j',time()+5*86400) ?>" data-name="shipping_date"><?php echo date('j',time()+5*86400) ?></a>
                         <div class="clear"></div>
-                        <a href="#" class="cart_delivery_line_button_date cart_delivery_line_button_date_oth fl_l">12</a>
-                        <a href="#" class="cart_delivery_line_button_date cart_delivery_line_button_date_oth fl_l">13</a>
-                        <a href="#" class="cart_delivery_line_button_date fl_r">Еще позже</a>
+                        <a href="#" class="cart_delivery_line_button_date cart_delivery_line_button_date_oth fl_l select_shipping_date" data-value="<?php echo date('j',time()+6*86400) ?>" data-name="shipping_date"><?php echo date('j',time()+6*86400) ?></a>
+                        <a href="#" class="cart_delivery_line_button_date cart_delivery_line_button_date_oth fl_l select_shipping_date" data-value="<?php echo date('j',time()+7*86400) ?>" data-name="shipping_date"><?php echo date('j',time()+7*86400) ?></a>
+                        <a href="#" class="cart_delivery_line_button_date cart_delivery_line_button_date_oth fl_l select_shipping_date" data-value="<?php echo date('j',time()+8*86400) ?>" data-name="shipping_date"><?php echo date('j',time()+8*86400) ?></a>
+                        <a href="#" class="cart_delivery_line_button_date cart_delivery_line_button_date_oth cart_delivery_line_button_date_oth_last fl_l select_shipping_date" data-value="<?php echo date('j',time()+9*86400) ?>" data-name="shipping_date"><?php echo date('j',time()+9*86400) ?></a>
                         <div class="clear"></div>
                     </div>
                     <div class="cart_date_time cart_delivery_line cart_delivery_line_for_time">
-                        <a href="#" class="cart_delivery_line_button_date fl_l">7:00 - 9:00</a>
-                        <a href="#" class="cart_delivery_line_button_date fl_r">13:00 - 19:00 </a>
+                        <a href="#" class="cart_delivery_line_button_date fl_l new_shipping_button_small" data-value="1" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">7:00 - 9:00</a>
+                        <a href="#" class="cart_delivery_line_button_date fl_r new_shipping_button_small" data-value="3" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">13:00 - 19:00</a>
                         <div class="clear"></div>
-                        <a href="#" class="cart_delivery_line_button_date fl_l">9:00 - 13:00</a>
-                        <a href="#" class="cart_delivery_line_button_date fl_r">19:00 - 23:00</a>
+                        <a href="#" class="cart_delivery_line_button_date fl_l new_shipping_button_small" data-value="2" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">9:00 - 13:00</a>
+                        <a href="#" class="cart_delivery_line_button_date fl_r new_shipping_button_small" data-value="4" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">19:00 - 23:00</a>
                         <div class="clear"></div>
                     </div>
                 </span>

@@ -2324,7 +2324,7 @@ a.products_menu_tab_content_line_more_links_show {
 .footer_button_wrapper {
     display: none;
 }
-.new_shipping_button_small,.new_shipping_button_small_date {
+.new_shipping_button_small_date {
     color: #9499A3;
     background-color: #EEF0F5;
     font-size: 13px;

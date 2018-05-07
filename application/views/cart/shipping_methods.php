@@ -22,7 +22,7 @@
 					<div class="clear"></div>
 					<?php if($group['shipping_gropu_id'] != 2) { ?>
 						<div class="new_shipping_button_tommorow">
-							<div class="new_shipping_button fl_l select_shipping_date" data-value="<?php echo date('j',time()+86400) ?>" data-name="shipping_date">Завтра</div>
+							<div class="fl_l select_shipping_date" data-value="<?php echo date('j',time()+86400) ?>" data-name="shipping_date">Завтра</div>
 							<label class="select_shipping_date_label">
 								<span class="select_shipping_date_text">на другое число</span>
 								<input type="text" value="" data-name="shipping_date" class="select_shipping_date_input">
@@ -38,9 +38,6 @@
 						</div>
 					<?php } ?>
 				<?php } ?>
-				<div class="c_inners_left_side_text_b">
-					Минимальная сумма заказа 1000 руб.
-				</div>
 
 				<?php if(isset($shipping_form_submit_error)) { ?>
 					<span class="deliv_error">Вы не выбрали способ доставки</span>
