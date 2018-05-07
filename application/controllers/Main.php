@@ -697,7 +697,8 @@ class Main extends CI_Controller {
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
 			),
-			'path' => false
+			'path' => false,
+			'order_id' => false
 		);
 		
 		$account = $this->baselib->is_logged();
@@ -1825,7 +1826,25 @@ class Main extends CI_Controller {
 		}
 		
 		return;
-	}	
+	}
+
+	public function duplicate_order($order_id) {
+		$this->load->model('order');
+		$order = new Order();
+		$order->set_id($order_id);
+		$order_data = $order->get_data();
+		$cart = array();
+
+		foreach ($order_data['inners'] as $product) {
+			$cart['p-'.$product['product_id']] = array(
+				'quantity' => $product['quantity']
+			);
+		}
+
+		$this->session->set_userdata('cart', $cart);
+
+		redirect(base_url('/cart'), 'refresh');
+	}
 	
 	public function cart_ajax() {
 		$json = array();

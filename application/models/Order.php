@@ -174,5 +174,5 @@ class Order extends Fruitcrm {
 		}
 		
 		return false;
-	}	
+	}
 }

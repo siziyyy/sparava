@@ -28,6 +28,10 @@
 									</div>									
 								</div>
 							<?php } ?>
+
+							<?php if($order_id) { ?>
+								<a href="/duplicate_order/<?php echo $order_id ?>">повторить заказ</a>
+							<?php } ?>
                             <div class="c_new_menu_line_item c_new_menu_line_item_right fl_r">
                                 <span class="c_new_menu_more">другие продукты</span>
                                 <span class="c_new_menu_more_icon oefgpopfegespgo"></span>
