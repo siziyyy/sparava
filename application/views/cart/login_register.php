@@ -100,12 +100,12 @@
 						Если данная почта является Вашей, введите
 						пароль, который был отправлен на почту
 					</div>
-					<input type="password" class="email_error_input" id="remind_password2">
-					<div class="blah_blah_body">
+					<input type="password" class="email_error_input tyguhnijokpkimjnhygt" id="remind_password2">
+					<a class="c_inners_left_side_button black_small_button send pnioyuivvybunpawdfwafddwa" data-type="check_login2">войти</a>
+					<div class="blah_blah_body egsa56gewsa56egsa">
 						Если Вы забыли пароль, запросите восстановление пароля
 					</div>
-					<a class="c_inners_left_side_button black_small_button send" data-type="check_login2">войти</a>
-					<a href="" class="email_error_gimme_again send" data-type="remind2">отправить пароль</a>
+					<a class="c_inners_left_side_button black_small_button send pnioyuivvybunpawdfwafddwa1" data-type="remind2">отправить</a>
 				</div>
 				<div class="email_error2text remind_error2">
 					Логин и пароль введены неверно

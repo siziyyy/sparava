@@ -39,17 +39,6 @@
         <meta name="msapplication-TileImage" content="/mstile-144x144.png">
         <meta name="theme-color" content="#fe4517">
 		<style>
-            @media all and (max-width: 1200px) {
-                .c_new_index_menu_dropdown_incat {
-                    display: none !important;
-                }
-                .c_new_index_menu_dropdown  {
-                    display: none !important;
-                }
-                .new_menu_closer {
-                    display: none !important;
-                }
-            }
 @font-face{font-family:Calibri Bold;src:local("Calibri Bold"),url(/assets/fnt/CalibriBold.woff) format("woff"),url(/assets/fnt/CalibriBold.woff2) format("woff2")}
 @font-face{font-family:Calibri;src:local(Calibri),url(/assets/fnt/Calibri.woff) format("woff"),url(/assets/fnt/Calibri.woff2) format("woff2")}
 body,html,textarea{font-family:Calibri}
