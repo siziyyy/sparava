@@ -243,11 +243,11 @@
 				<?php } ?>
 
 				<?php if(!$is_parent_category) { ?>
-	                <div class="textbanner052018">
-	                    <?php if($this->_seo_data['seo_article']) { ?>
+					<?php if($this->_seo_data['seo_article']) { ?>
+	                	<div class="textbanner052018">
                 			<?php echo $this->_seo_data['seo_article'] ?>
-                		<?php } ?>
-                	</div>
+                		</div>
+                	<?php } ?>
            		<?php } ?>
                 <style>
                     .textbanner052018 {

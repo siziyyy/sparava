@@ -612,7 +612,7 @@ header .content_helper{padding:15px}
     font-family: Calibri Bold;
     margin: 30px 0 20px;
 }
-.new_shipping_button {
+.new_shipping_button,.select_shipping_date {
 	color: #9499A3;
 	background-color: #EEF0F5;
 	font-size: 15px;
@@ -627,7 +627,7 @@ header .content_helper{padding:15px}
 	     -o-transition: all .3s ease;
 	        transition: all .3s ease;
 }
-.new_shipping_button:hover {
+.new_shipping_button:hover,.select_shipping_date:hover {
 	color: #676B73;
 	background-color: #E7E9F0;
 	-webkit-transition: all .3s ease;
@@ -716,4 +716,7 @@ header .content_helper{padding:15px}
 	margin: 0 0 0 10px;
 	-webkit-border-radius: 3px;
 	        border-radius: 3px;
+}
+.good_page_left {
+	position: relative;
 }

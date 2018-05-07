@@ -21,6 +21,7 @@ $(document).ready(function() {
         target = $(this).attr('data-name');
         value = $(this).attr('data-value');
 
+        $('.select_shipping_date').removeClass('new_shipping_button_small_act');
         $(this).addClass('new_shipping_button_small_act');
 
         $('#'+target).val(value);

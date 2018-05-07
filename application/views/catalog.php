@@ -629,16 +629,16 @@
         </div></a>
         <div class="new_catalog_item new_cat_47 fl_l">
             <div class="new_full_cat_texts">
-                <a href="/" class="new_full_cat_texts_header">ИЗ СТРАН МИРА</a>
+                <span class="new_full_cat_texts_header">ИЗ СТРАН МИРА</span>
+
                 <div class="new_full_cat_texts_links">
                     <a href="/country/2" class="new_full_cat_texts_link">Италия</a>
                     <a href="/country/3" class="new_full_cat_texts_link">Испания</a>
                     <a href="/country/4" class="new_full_cat_texts_link">Греция</a>
+                    <a href="/country/11" class="new_full_cat_texts_link">Турция</a>
                     <a href="/country/10" class="new_full_cat_texts_link">Беларусь</a>
                     <a href="/country/6" class="new_full_cat_texts_link">Армения</a>
                     <a href="/country/8" class="new_full_cat_texts_link">Азербайджан</a>
-                    <a href="" class="new_full_cat_texts_link">Узбекистан</a>
-                    <a href="" class="new_full_cat_texts_link">Молдова</a>
                 </div>
             </div>
         </div>

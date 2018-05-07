@@ -74,7 +74,7 @@ class Account extends Fruitcrm {
 	public function add_social() {
 		if(!(empty($this->_data['email']))) {
 			if(!$this->set_id_by_email($this->_data['email'])) {
-				$password = substr(sha1(uniqid(mt_rand(), true)), 0, 10);
+				$password = mt_rand();
 				
 				$data = array(
 					'email' => $this->_data['email'],
@@ -104,7 +104,7 @@ class Account extends Fruitcrm {
 	public function add() {
 		if(!(empty($this->_data['email']))) {
 			if(!$this->set_id_by_email($this->_data['email'])) {
-				$password = substr(sha1(uniqid(mt_rand(), true)), 0, 10);
+				$password = mt_rand();
 				
 				$data = array(
 					'email' => $this->_data['email'],
@@ -129,7 +129,7 @@ class Account extends Fruitcrm {
 	}
 	
 	public function reset_password() {
-		$password = substr(sha1(uniqid(mt_rand(), true)), 0, 10);
+		$password = mt_rand();
 		
 		$data = array(
 			'password' => md5(md5( $password ))
@@ -220,7 +220,6 @@ class Account extends Fruitcrm {
 
 		$data['name'] = (isset($this->_data['name']) ? $this->_data['name'] : NULL);
 		$data['phone'] = (isset($this->_data['phone']) ? $this->_data['phone'] : NULL);
-		$data['email'] = (isset($this->_data['email']) ? $this->_data['email'] : NULL);
 		$data['phone_2'] = (isset($this->_data['phone_2']) ? $this->_data['phone_2'] : NULL);
 		$data['prefered_shipping_address'] = (isset($this->_data['prefered_shipping_address']) ? $this->_data['prefered_shipping_address'] : NULL);
 		$data['prefered_shipping_metro'] = (isset($this->_data['prefered_shipping_metro']) ? $this->_data['prefered_shipping_metro'] : NULL);
