@@ -1,4 +1,5 @@
 <?php $this->load->view('mobile/common/header',$header);?>
+    <div class="good_page">
         <div class="category_content item_page single_good_page" style="min-height: auto" data-product-id="<?php echo $product['product_id'] ?>" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>">
             <a href="#" class="item_page_back sprite close_product_iframe"></a>
             <div class="category_content_item no_margin_for_content">
@@ -86,38 +87,9 @@
                     <?php } ?>
                 <?php } ?>
             </div>
-            <div class="item_page_comms">
-                <div class="content">
-                    <!--<div class="item_page_comms_sign_in_please">
-                        Чтобы добавить отзыв, Вы должны <a href="#" class="item_page_comms_sign_in_please_link">авторизоваться</a> на сайте.
-                    </div>-->
-                    <div class="item_page_comms_add_comm">
-                        <form>
-                            <textarea class="item_page_comms_add_comm_textarea" placeholder="отзыв"></textarea>
-                            <button class="item_page_add_comm">добавить</button>
-                        </form>
-                    </div>
-                    <div class="item_page_one_comm">
-                        <div class="item_page_one_comm_img fl_l" style="background-image: url('/assets/img/peoples/1.jpg')"></div>
-                        <div class="item_page_one_comm_name_text fl_l">
-                            <div class="item_page_one_comm_name">Тимур Анреев</div>
-                            <div class="item_page_one_comm_text">
-                                Современная медицина признаёт, что свежие части кустарника имеют вяжущие, антисепти ческие и обезболивающие свойства. 
-                            </div>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="item_page_one_comm">
-                        <div class="item_page_one_comm_img fl_l" style="background-image: url('/assets/img/peoples/2.jpg')"></div>
-                        <div class="item_page_one_comm_name_text fl_l">
-                            <div class="item_page_one_comm_name">Тимур Анреев</div>
-                            <div class="item_page_one_comm_text">
-                                Современная медицина признаёт, что свежие части кустарника имеют вяжущие, антисепти ческие и обезболивающие свойства. 
-                            </div>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                </div>
+            <div class="item_page_comms"  id="mobile_comments">
+                <?php echo $comments['mobile'] ?>
             </div>
         </div>
+    </div>
 <?php $this->load->view('mobile/common/footer',$footer);?>

@@ -1500,13 +1500,13 @@ $(document).ready(function() {
 
 				if($(this).parents('.g_good').length > 0) {
 					parent_object = $(this).parents('.g_good');
-				} else if($(this).parents('.single_good_page').length > 0) {
-					parent_object = $(this).parents('.single_good_page');
+				} else if($(this).parents('.good_page').length > 0) {
+					parent_object = $(this).parents('.good_page');
 				}			
 				
 				send_data = {
 					type : type,
-					element_id : parent_object.attr('data-product-id'),
+					element_id : parent_object.find('.single_good_page').attr('data-product-id'),
 					content : parent_object.find('.comment_content').val()
 				}
 				
@@ -1751,8 +1751,6 @@ $(document).ready(function() {
 						} else if(send_data.type == 'add_product_comment') {
 							$('#desktop_comments').empty();
 							$('#desktop_comments').html(json['success']['desktop']);
-							$('#mobile_comments').empty();
-							$('#mobile_comments').html(json['success']['mobile']);
 						} else if(send_data.type == 'feedback') {
 							$('.feedback_type').val('');
 							$('.feedback_email').val('');
