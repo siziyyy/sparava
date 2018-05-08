@@ -2,3 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /provider
 Disallow: /cart
+Disallow: /orders
+Disallow: /account
+Disallow: /search
+Disallow: /favourites

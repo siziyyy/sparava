@@ -1245,7 +1245,7 @@ class Baselib {
 
 		$result = array(
 			'desktop' => $this->_ci->load->view('common/comments', $data, true),
-			'mobile' => $this->_ci->load->view('common/mobile-comments', $data, true),
+			'mobile' => $this->_ci->load->view('mobile/common/comments', $data, true),
 		);
 
 		return $result;

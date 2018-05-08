@@ -638,6 +638,23 @@ $(document).ready(function() {
         obj = $(this);
         
         switch(type) {
+
+            case 'add_product_comment':
+
+                if($(this).parents('.g_good').length > 0) {
+                    parent_object = $(this).parents('.g_good');
+                } else if($(this).parents('.good_page').length > 0) {
+                    parent_object = $(this).parents('.good_page');
+                }           
+                
+                send_data = {
+                    type : type,
+                    element_id : parent_object.find('.single_good_page').attr('data-product-id'),
+                    content : parent_object.find('.comment_content').val()
+                }
+                
+                break;
+
             case 'sort':
                 send_data = {
                     type : type,
@@ -685,7 +702,10 @@ $(document).ready(function() {
                             location.reload();
                         } else if(send_data.type == 'favourite') {
                             parent_object.find('.category_content_item_not_double_info_footer_star').addClass('header_icon_favorite_active');
-                        }
+                        } else if(send_data.type == 'add_product_comment') {
+                            $('#mobile_comments').empty();
+                            $('#mobile_comments').html(json['success']['mobile']);
+                        } 
                     } else if(json['remove']) {
                         if(send_data.type == 'favourite') {
                             parent_object.find('.category_content_item_not_double_info_footer_star').removeClass('header_icon_favorite_active');
