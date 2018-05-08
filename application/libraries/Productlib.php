@@ -1159,7 +1159,7 @@ class Productlib {
 
 		foreach ($search_result['third_wave'] as $product_id) {
 			$result['products'][] = $product_id;
-		}	
+		}
 
 	    return $result;
 	}

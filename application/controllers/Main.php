@@ -371,6 +371,8 @@ class Main extends CI_Controller {
 		}
 
 		$products_sort = array();
+		$products_middle = array();
+		$stars_sort = array();
 		$products = array();
 
 		$result = array(
@@ -391,10 +393,19 @@ class Main extends CI_Controller {
 		if(count($products_sort)) {
 			foreach ($products_sort as $product_id) {
 				if(isset($result['products'][$product_id])) {
-					$products[$product_id] = $result['products'][$product_id];
+					$products_middle[$product_id] = $result['products'][$product_id];
+					$stars_sort[$product_id] = $result['products'][$product_id]['stars'];
 				}
 			}
 		}
+
+		arsort($stars_sort);
+
+		foreach ($stars_sort as $product_id => $rating) {
+			if(isset($products_middle[$product_id])) {
+				$products[$product_id] = $products_middle[$product_id];
+			}
+		}		
 		
 		$prodcuts_in_page = array();
 		$page_start = ($page-1)*50;
