@@ -3,8 +3,15 @@
 		<div class="main_page_arrow_img"></div>
 		<div class="main_page_arrow_text">все товары здесь</div>
 	</div>
-	<div style="width: 100%;overflow: hidden; margin-top: 17px"">
-	   <div style="position:relative;width: calc(100% - 34px); margin: 0 auto;">
+	<div style="width: 100%;overflow: hidden; margin-top: 17px">
+	   <div style="
+			position:relative;
+			width: 100%;
+			width: -webkit-calc(100% - 34px);
+			width: -moz-calc(100% - 34px);
+			width: calc(100% - 34px);
+			margin: 0 auto;
+	   ">
 		  <div class="main_page_partial_slider" style="width: 100%;overflow: visible !important;">
             <?php foreach($banners['slider_mobile'] as $banner) { ?>
                 <a href="<?php echo $banner['url'] ?>" class="">

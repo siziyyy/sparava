@@ -71,6 +71,9 @@ header {
             box-sizing: border-box;
 }
 .page_scrollbar_helper {
+    height: 100%;
+    height: -webkit-calc(100% - 46px);
+    height: -moz-calc(100% - 46px);
     height: calc(100% - 46px);
     overflow-y: auto;
     -webkit-overflow-scrolling:touch;
@@ -2227,21 +2230,25 @@ footer {
 }
 .g_good_count_act_disable {opacity:.7}
 .fullscreen {
+    height: 100vh;
+    width: 100vw;
     position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
-    width: 100%;
     right: 0;
     bottom: 0;
     z-index: 8;
     background: #fff;
     border: 0;
     display: none;
-    max-width: 100%;
+    max-width: 100vw;
     /*padding: 0 17px;*/
     overflow: hidden;
-    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
 }
 /*.no_margin_for_content .content {
     padding: 0;
