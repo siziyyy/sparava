@@ -57,6 +57,7 @@ function listener(event) {
 		$('#product_form .product_manufacturer').val(product.manufacturer);
 		$('#product_form .product_blog').val(product.blog);
 		$('#product_form .product_competitors').val(product.competitors);
+		$('#product_form .product_stars').val(product.stars);
 
 		$('#product_form .product_providers').empty();
 
@@ -844,7 +845,8 @@ $(document).ready(function() {
 			blog: $('#product_form .product_blog').val(),
 			manufacturer: $('#product_form .product_manufacturer').val(),
 			competitors: $('#product_form .product_competitors').val(),
-			assortiment: $('#product_form .product_assortiment').val()
+			assortiment: $('#product_form .product_assortiment').val(),
+			stars: $('#product_form .product_stars').val(),
 		}
 
 		connected_products = {};

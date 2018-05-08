@@ -207,6 +207,10 @@
                     <span class="g_good_admin_info_modal_inpname">Конкуренты (с новой строки)</span>
                     <textarea type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_competitors"></textarea>
                 </label>
+                <label>
+                    <span class="g_good_admin_info_modal_inpname">Рейтинг поиска</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_stars">
+                </label>
             </aside>
             <div class="clear"></div>
             <div class="g_good_secondary_inner_modal">
