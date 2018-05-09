@@ -2358,3 +2358,7 @@ a.products_menu_tab_content_line_more_links_show {
 .cart_date_time {
     text-align: center;
 }
+
+.block_select_date,.block_select_time,.block_another_date {
+    display: none;
+}

@@ -35,12 +35,11 @@
                                     <div class="category_content_item_not_double_info_header_left_name"><?php echo $product['title'] ?></div>
                                 </div>
                                 <div class="category_content_item_not_double_info_header_right fl_r">
-                                    <div class="category_content_item_not_double_info_header_left_price_old">
-                                        ₽&nbsp;
-                                        <span class="g_good_price_value">
-                                            <?php echo $product['price'] ?>
-                                        </span>
-                                    </div>
+                                    <?php if(isset($product['old_price'])) { ?>
+                                        <div class="category_content_item_not_double_info_header_left_price_old">
+                                            ₽&nbsp;<?php echo $product['old_price'] ?>
+                                        </div>
+                                    <?php } ?>
                                     <div class="category_content_item_not_double_info_header_left_price">₽&nbsp;<span class="g_good_price_value"><?php echo $product['price'] ?></span></div>
                                     <div class="category_content_item_not_double_info_header_left_weight">
                                         <?php if($product['type'] == 'шт') { ?>
