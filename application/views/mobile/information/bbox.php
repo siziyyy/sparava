@@ -8,7 +8,7 @@
             Товары отмечены знаком ≈ при заказе конечный вес товара может отличаться в размере +- 20%
         </div>
         <div class="info_page_inner_footer">
-            <a href="/information/" class="info_page_inner_footer_link">Преимущество первого и второго заказа</a>
+            <a href="/information/first" class="info_page_inner_footer_link">Преимущество первого и второго заказа</a>
             <a href="/information/bonus" class="info_page_inner_footer_link">Бонусная система</a>
             <a href="/information/claims" class="info_page_inner_footer_link">Претензии и предложения</a>
         </div>

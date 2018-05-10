@@ -22,7 +22,8 @@
             </form>
         </div>
         <div class="info_page_inner_footer">
-            <a href="/information/" class="info_page_inner_footer_link">Преимущество первого заказа</a>
+            <a href="/information/first" class="info_page_inner_footer_link">Преимущество первого заказа</a>
+            <a href="/information/bbox" class="info_page_inner_footer_link">Знак ≈</a>
             <a href="/information/bonus" class="info_page_inner_footer_link">Бонусная система</a>
         </div>
     </div>
