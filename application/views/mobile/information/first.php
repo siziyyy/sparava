@@ -10,8 +10,8 @@
             <img src="/assets/mobile/img/banners/info2.jpg" alt="" class="info1_banner">
         </div>
         <div class="info_page_inner_footer">
-            <a href="/information/" class="info_page_inner_footer_link">Преимущество первого и второго заказа</a>
             <a href="/information/bonus" class="info_page_inner_footer_link">Бонусная система</a>
+            <a href="/information/bbox" class="info_page_inner_footer_link">Знак ≈</a>
             <a href="/information/claims" class="info_page_inner_footer_link">Претензии и предложения</a>
         </div>
     </div>
