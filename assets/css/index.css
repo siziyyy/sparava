@@ -467,6 +467,31 @@ html,body{/*-ms-overflow-x:hidden;overflow-x:hidden;*/max-width:100%;width:100%;
     top: 0;
     z-index: -1;
 }
+.line_for_common_menu_inner {
+	position: relative;
+}
+.line_for_common_menu_inner::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    background: #f7f7f7;
+    height: 75px;
+    left: -50%;
+    top: 0;
+    z-index: -1;
+}
+.line_for_common_menu_inner::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    background: #f7f7f7;
+    height: 75px;
+    right: -21px;
+    top: 0;
+    z-index: -1;
+}
 body {
     overflow-x: hidden;
 }
