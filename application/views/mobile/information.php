@@ -12,8 +12,8 @@
         </div>
         <div class="info_page_body">
             <div class="info_page_body_header">Программы лояльности</div>
-            <a href="/information/" class="info_page_body_link">Преимущество первого и второго заказа</a>
-            <a href="/information/" class="info_page_body_link">Знак ≈</a>
+            <a href="/information/first" class="info_page_body_link">Преимущество первого и второго заказа</a>
+            <a href="/information/bbox" class="info_page_body_link">Знак ≈</a>
             <a href="/information/bonus" class="info_page_body_link">Бонусная система</a>
 			<a href="/information/claims" class="info_page_body_link">Претензии и предложения</a>
         </div>

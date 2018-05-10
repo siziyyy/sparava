@@ -1,7 +1,7 @@
 		<div class="g_good_admin_info_modal" id="product_form">
             <div class="close_product_details">&times;</div>
             <input type="hidden" class="product_id">        
-            <div class="g_good_admin_info_modal_header"><span class="product_id_text"></span> - <span class="product_name_text"></span></div>
+            <div class="g_good_admin_info_modal_header"><a class="ipad_href" href="" target="_blank">iPad</a>&nbsp;&nbsp;&nbsp;<span class="parent_product_id_wrapper">(<span class="parent_product_id"></span>)</span> <span class="product_id_text"></span> - <span class="product_name_text"></span></div>
             <aside class="g_good_admin_info_modal_left fl_l">
                 <div class="g_good_admin_info_modal_photo">
                     <img src="" alt="" class="product_image" onError="this.src='/assets/img/nophoto.jpg'">
@@ -27,12 +27,12 @@
                 </label>
                 <div class="clear"></div>
                 <label class="fl_l">
-                    <span class="g_good_admin_info_modal_inpname">ЦМО</span>
+                    <span class="g_good_admin_info_modal_inpname">ЦН</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_cost">
                 </label>  
                 <label class="fl_l">
                     <span class="g_good_admin_info_modal_inpname proc">%</span>
-                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_percent proc_inp">
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_percent_manual proc_inp">
                 </label>
                 <label class="fl_l">
                     <span class="price_new_inf_mod final_price"></span>

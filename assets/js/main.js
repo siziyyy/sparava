@@ -28,7 +28,7 @@ function listener(event) {
 		$('#product_form .product_country').val(product.country);
 		$('#product_form .product_cost').val(product.cost);
 		$('#product_form .product_price').val(product.price);
-		$('#product_form .product_percent').val(product.percent);
+		$('#product_form .product_percent_manual').val(product.percent_manual);
 		$('#product_form .product_pack').val(product.pack);
 		$('#product_form .product_composition').val(product.composition);
 		$('#product_form .product_assortiment').val(product.assortiment);
@@ -58,6 +58,7 @@ function listener(event) {
 		$('#product_form .product_blog').val(product.blog);
 		$('#product_form .product_competitors').val(product.competitors);
 		$('#product_form .product_stars').val(product.stars);
+		$('#product_form .ipad_href').attr('href','https://admin.aydaeda.ru/pricer/category_product/'+product.product_id);
 
 		$('#product_form .product_providers').empty();
 
@@ -67,6 +68,14 @@ function listener(event) {
 				$('#product_form .product_providers').append(html);
 			}
 		}
+
+		if(product['parent_product']) {
+			$('#product_form .parent_product_id').text(product['parent_product']);
+			$('#product_form .parent_product_id_wrapper').show();
+		} else {
+			$('#product_form .parent_product_id_wrapper').hide();
+		}
+		
 
 		$('#connected_products_wrapper').empty();
 
@@ -805,7 +814,7 @@ $(document).ready(function() {
 			country: $('#product_form .product_country').val(),
 			cost: $('#product_form .product_cost').val(),
 			price: $('#product_form .product_price').val(),
-			percent: $('#product_form .product_percent').val(),
+			percent_manual: $('#product_form .product_percent_manual').val(),
 			pack: $('#product_form .product_pack').val(),
 			composition: $('#product_form .product_composition').val(),
 			title: $('#product_form .product_name').val(),
@@ -871,7 +880,7 @@ $(document).ready(function() {
 		send_msg(send_data);
 	});	
 	
-	$(document).on('change','#product_form .product_cost, #product_form .product_percent, #product_form .product_cko',function(e) {
+	$(document).on('change','#product_form .product_cost, #product_form .product_percent_manual, #product_form .product_cko',function(e) {
 		calculate_price();
 	});
 /*
@@ -2205,7 +2214,7 @@ function ArrayToURL(array) {
 }
 	
 function calculate_price() {
-	percent = $('#product_form .product_percent').val();
+	percent = $('#product_form .product_percent_manual').val();
 	cost = $('#product_form .product_cost').val();
 	
 	final_price = cost*((percent/100)+1);
