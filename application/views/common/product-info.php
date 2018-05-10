@@ -7,6 +7,14 @@
                 <div class="good_modal_photo fl_l">
                     <!--<img src="/images/1.jpg" class="g_good_modal_photo clear_on_load">-->
                     <img src="" class="g_good_modal_photo clear_on_load" onError="this.src='/assets/img/nophoto.jpg'">
+                    <div class="recommended_av_w_pack">
+                        <?php /*if(!empty($product['recommend'])) { */ ?>
+                            <div class="recommended_prod"></div>
+                        <?php /* } */ ?>
+                        <?php /*if(!empty($product['sr_ves'])) { */ ?>
+                            <div class="average_weight average_weight2">≈ <?php /*echo $product['sr_ves']*/ ?>777 гр.</div>
+                        <?php /* } */ ?>
+                    </div>
                 </div>
                 <div class="good_modal_right good_is_modal fl_r">
                     <div class="good_modal_right_line">
