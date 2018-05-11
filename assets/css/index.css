@@ -538,6 +538,12 @@ body {
 .vtoroy_slaider {
 	width: calc(100% + 13px);
 }
+.c_inners_right_footer_yep {
+	margin: -4px 0 -4px -40px;
+}
+.c_inners_right_footer_num {
+	margin-right: 55px;
+}
 }
 .new_full_cat_texts_upheader{font-size:12px;color:gray;margin-top:30px;margin-bottom:-20px}
 .new_full_cat_texts_header{color:#000;font-size:24px;font-family:Calibri Bold;display:block;margin-top:30px}
