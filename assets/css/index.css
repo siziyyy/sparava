@@ -420,18 +420,18 @@ html,body{/*-ms-overflow-x:hidden;overflow-x:hidden;*/max-width:100%;width:100%;
 .myasnoy_ryad_item_text_vert{left:125%}
 }*/
 @media all and (max-width: 1200px){body{
-	-webkit-transform: scale(.86);
-	   -moz-transform: scale(.86);
-	    -ms-transform: scale(.86);
-	     -o-transform: scale(.86);
-	        transform: scale(.86);
+	-webkit-transform: scale(.85);
+	   -moz-transform: scale(.85);
+	    -ms-transform: scale(.85);
+	     -o-transform: scale(.85);
+	        transform: scale(.85);
     -webkit-transform-origin: top left;
        -moz-transform-origin: top left;
         -ms-transform-origin: top left;
          -o-transform-origin: top left;
             transform-origin: top left;
 	    position: absolute;
-	    left: 17px;
+	    left: 2%;
 	    top: 0;
     overflow-x: hidden;
     width: 100%;}
@@ -641,3 +641,15 @@ span.fullcatlink{color:#999!important}
 .good_modal_right_line_new_modal_header{font-weight:700;font-family:Calibri Bold;margin-bottom:15px;font-size:14px}
 .good_modal_right_line_new_modal_body{font-size:14px}
 .new_login_message_closeawafwwaf{position:absolute;right:13px;top:7px;font-size:22px;color:#000;cursor:pointer}
+.do_it_black {
+	color: #000 !important;
+	-webkit-transition: color .3s ease;
+	-o-transition: color .3s ease;
+	transition: color .3s ease;
+}
+.do_it_black:hover {
+	color: #fe4517 !important;
+	-webkit-transition: color .3s ease;
+	-o-transition: color .3s ease;
+	transition: color .3s ease;
+}

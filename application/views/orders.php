@@ -1,6 +1,6 @@
 <?php $this->load->view('common/header',$header);?>
         <section class="content">
-            <div class="category_bg_helper category_bg_helper_country">
+            <div class="category_bg_helper category_bg_helper_country category_bg_helper_country2">
                 <div class="content_helper">
                     <div class="c_new_menu">
                         <div class="c_new_menu_line c_new_menu_line_country filters_holder">
@@ -30,7 +30,7 @@
 							<?php } ?>
 
 							<?php if($order_id) { ?>
-								<a href="/duplicate_order/<?php echo $order_id ?>">повторить заказ</a>
+								<a href="/duplicate_order/<?php echo $order_id ?>" class="do_it_black">повторить заказ</a>
 							<?php } ?>
                             <div class="c_new_menu_line_item c_new_menu_line_item_right fl_r">
                                 <span class="c_new_menu_more">другие продукты</span>
