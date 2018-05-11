@@ -7,7 +7,7 @@
 		<div class="c_inners_left_side_text_h">
 			Доставка
 		</div>
-		<form method="post" action="">
+		<form method="post" action="" id="shipping_submit">
 			<div class="new_shipping">
 				<input type="hidden" value="" name="shipping_method" id="shipping_method">
 				<input type="hidden" value="" name="shipping_date" id="shipping_date">
@@ -17,19 +17,21 @@
 				<?php foreach($shipping_methods as $group) { ?>
 					<div class="new_shipping_header"><?php echo $group['title'] ?></div>
 					<?php foreach($group['methods'] as $method) { ?>
-						<div class="new_shipping_button fl_l" data-value="<?php echo $method['shipping_id'] ?>" data-name="shipping_method"><?php echo $method['title'] ?> - <?php echo $method['price'] ?> р.</div>
+						<div class="new_shipping_button fl_l" data-value="<?php echo $method['shipping_id'] ?>" data-name="shipping_method" data-group="<?php echo $group['shipping_gropu_id'] ?>"><?php echo $method['title'] ?> - <?php echo $method['price'] ?> р.</div>
 					<?php } ?>
 					<div class="clear"></div>
 					<?php if($group['shipping_gropu_id'] != 2) { ?>
 						<div class="new_shipping_button_tommorow">
-							<div class="fl_l select_shipping_date" data-value="<?php echo date('j',time()+86400) ?>" data-name="shipping_date">Завтра</div>
-							<label class="select_shipping_date_label">
-								<span class="select_shipping_date_text">на другое число</span>
-								<input type="text" value="" data-name="shipping_date" class="select_shipping_date_input">
-							
-							</label>
+							<div class="select_shipping_date_wrapper">
+								<div class="fl_l select_shipping_date" data-value="<?php echo date('j',time()+86400) ?>" data-name="shipping_date">Завтра</div>
+								<label class="select_shipping_date_label">
+									<span class="select_shipping_date_text">на другое число</span>
+									<input type="text" value="" data-name="shipping_date" class="select_shipping_date_input">
+								
+								</label>
+							</div>
 							<div class="clear"></div>					
-							<div class="new_shipping_buttons_small_pack">
+							<div class="new_shipping_buttons_small_pack select_shipping_time_wrapper">
 								<div class="new_shipping_button_small" data-value="1" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">13:00 - 19:00</div>
 								<div class="new_shipping_button_small" data-value="2" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">13:00 - 19:00</div>
 								<div class="new_shipping_button_small" data-value="3" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">13:00 - 19:00</div>
@@ -43,7 +45,7 @@
 					<span class="deliv_error">Вы не выбрали способ доставки</span>
 				<?php } ?>
 
-				<button type="submit" class="c_inners_left_side_button black_small_button new_hlp">далее</button>
+				<button type="submit" class="c_inners_left_side_button black_small_button new_hlp inactive" id="shipping_submit_button">далее</button>
 			</div>
 		</form>
 	</div>	
