@@ -742,3 +742,6 @@ header .content_helper{padding:15px}
 .egsa56gewsa56egsa {
 	    margin: -4px 0 0 0;
 }
+.select_shipping_time_wrapper,.select_shipping_date_wrapper {
+	display: none;
+}

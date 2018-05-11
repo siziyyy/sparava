@@ -61,7 +61,8 @@
         </div>
         <div class="info_page_inner_footer">
             <a href="/information/delivery" class="info_page_inner_footer_link">Доставка и способы оплаты</a>
-            <a href="/information/agreement" class="info_page_inner_footer_link">Гарантия качества</a>
+            <a href="/information/guarantee" class="info_page_inner_footer_link">Гарантия качества</a>
+            <a href="/information/agreement" class="info_page_inner_footer_link">Публичная оферта</a>
         </div>
     </div>
 <?php $this->load->view('mobile/common/footer',$footer);?>

@@ -33,9 +33,8 @@ Aydaeda.ru позволяет быстро отсортировать и най�
             </div>
         </div>
         <div class="info_page_inner_footer">
-            <a href="/information/first" class="info_page_inner_footer_link">Преимущество первого и второго заказа</a>
-            <a href="/information/bonus" class="info_page_inner_footer_link">Бонусная система</a>
-            <a href="/information/claims" class="info_page_inner_footer_link">Претензии и предложения</a>
+            <a href="/information/testimonials" class="info_page_inner_footer_link">Отзывы о нас</a>
+            <a href="/information/contacts" class="info_page_inner_footer_link">Контакты</a>
         </div>
     </div>
 <?php $this->load->view('mobile/common/footer',$footer);?>

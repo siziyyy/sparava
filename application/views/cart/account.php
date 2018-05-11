@@ -1,6 +1,6 @@
 <aside class="c_inners_left_side fl_l">
 	<div class="c_inners_side_header">
-		<span class="c_inners_amount_text">сумма к оплате, с доставкой</span>
+		<span class="c_inners_amount_text">сумма к оплате, без доставки</span>
 		<span class="c_inners_amount_num"><?php echo $summ ?> р.</span>
 	</div>
 	<div class="c_inners_left_side_content">
@@ -16,7 +16,7 @@
 			<div class="c_inners_left_side_text_b2"><?php echo $account['shipping_address'] ?></div>
 			<a class="c_inners_left_side_button black_small_button send tyvguhbnjimko" data-type="create_order">далее</a>
 			<a class="c_inners_left_side_button orange_small_button tyvguhbnijm" id="change_account_details">изменить</a>
-			<a class="c_inners_left_side_button green_small_button yjbhvg" href="/logout" >это не я</a>
+			<a class="c_inners_left_side_button green_small_button yjbhvg" href="/cart/logout" >это не я</a>
 			<div class="clnm"></div>
 		</div>
 		

@@ -1,14 +1,14 @@
 <?php $this->load->view('mobile/common/header',$header);?>
     <div class="info_page content">
         <div class="info_page_header">
-            <a href="tel:+74955001020" class="info_page_phone">+7 495 500 10 20</a>
+            <a href="tel:+74955001020" class="info_page_phone">8 495 544 88 64</a>
         </div>
         <div class="info_page_body">
             <div class="info_page_body_header">Доставка</div>
             <a href="/information/delivery" class="info_page_body_link">Доставка и способы оплаты</a>
             <a href="/information/return" class="info_page_body_link">Прием заказа, обмен и возврат</a>
             <a href="/information/guarantee" class="info_page_body_link">Гарантия качества</a>
-            <a href="/information/" class="info_page_body_link">Публичная оферта</a>
+            <a href="/information/agreement" class="info_page_body_link">Публичная оферта</a>
         </div>
         <div class="info_page_body">
             <div class="info_page_body_header">Программы лояльности</div>
@@ -19,7 +19,7 @@
         </div>
         <div class="info_page_body">
             <div class="info_page_body_header">Информация о нас</div>
-            <a href="/information/" class="info_page_body_link">О нас</a>
+            <a href="/information/about" class="info_page_body_link">О нас</a>
             <a href="/information/testimonials" class="info_page_body_link">Отзывы о нас</a>
 			<a href="/information/contacts" class="info_page_body_link">Контакты</a>
         </div>

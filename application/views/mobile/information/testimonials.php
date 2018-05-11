@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="info_page_inner_footer">
-            <a href="/information/" class="info_page_inner_footer_link">О нас</a>
+            <a href="/information/about" class="info_page_inner_footer_link">О нас</a>
             <a href="/information/contacts" class="info_page_inner_footer_link">Контакты</a>
         </div>
     </div>
