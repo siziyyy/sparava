@@ -7,7 +7,7 @@
                     <img src="" alt="" class="product_image" onError="this.src='/assets/img/nophoto.jpg'">
                 </div>
                 <label>
-                    <span class="g_good_admin_info_modal_inpname">Поставщики</span>
+                    <a href="#" class="g_good_admin_info_modal_inpname g_good_admin_info_modal_inpname22">Поставщики</a>
                     <div class="product_providers">
 
                     </div>
@@ -30,16 +30,34 @@
                     <span class="g_good_admin_info_modal_inpname">ЦН</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_cost">
                 </label>  
-                <label class="fl_l">
+                <!--<label class="fl_l">
                     <span class="g_good_admin_info_modal_inpname proc">%</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_percent_manual proc_inp">
+                </label>-->
+                <label class="fl_l">
+                    <span class="g_good_admin_info_modal_inpname proc">К%</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_percent_manual proc_inp proc_inp2">
+                </label>
+                <label class="fl_l">
+                    <span class="g_good_admin_info_modal_inpname proc">Р%</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_percent_manual proc_inp proc_inp2">
+                </label>
+                <label class="fl_l">
+                    <span class="g_good_admin_info_modal_inpname proc">-%</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_percent_manual proc_inp proc_inp2">
                 </label>
                 <label class="fl_l">
                     <span class="price_new_inf_mod final_price"></span>
                 </label>
                 <div class="clear"></div>
-                <label class="fl_l">
+                <!--<label class="fl_l">
                     <span class="g_good_admin_info_modal_inpname">Цена</span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_price">
+                </label> -->
+                <div class="price_new_inf_mod_number_helper"></div>
+                <div class="fl_l price_new_inf_mod_number">180</div>
+                <label class="fl_r">
+                    <span class="g_good_admin_info_modal_inpname">Цена - за.</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_price">
                 </label> 
                 <div class="clear"></div>
@@ -217,6 +235,63 @@
                 <div class="g_good_secondary_inner_modal_closer">&times;</div>
                 <span id="connected_products_wrapper"></span>
                 <div class="g_good_secondary_inner_modal_button">+</div>
+            </div>
+            <div class="g_good_secondary_inner_modal2">
+                <div class="g_good_secondary_inner_modal_closer">&times;</div>
+                <div class="g_good_secondary_inner_modal2_body">
+                    <table class="g_good_secondary_inner_modal2_body_table">
+                        <tr class="g_good_secondary_inner_modal2_body_header">
+                            <td>поставщик</td>
+                            <td>цмо</td>
+                            <td>цко</td>
+                            <td>шт</td>
+                            <td>-%</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>ТС-1-15-18</td>
+                            <td>152<span>(420 / 3)</span></td>
+                            <td>-</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>
+                                <div class="table_squares">
+                                    <div class="table_squares_big"></div>
+                                    <div class="table_squares_small"></div>
+                                </div>
+                                <a href="">1574</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ТС-1-15-18</td>
+                            <td>152<span>(420 / 3)</span></td>
+                            <td>-</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>
+                                <div class="table_squares">
+                                    <div class="table_squares_big"></div>
+                                    <div class="table_squares_small"></div>
+                                </div>
+                                <a href="">1574</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ТС-1-15-18</td>
+                            <td>-</td>
+                            <td>152<span>(420 / 3)</span></td>
+                            <td>3</td>
+                            <td>-10</td>
+                            <td>
+                                <div class="table_squares">
+                                    <div class="table_squares_small"></div>
+                                    <div class="table_squares_big"></div>
+                                </div>
+                                <a href="">1574</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
         <div id="template_connected_products">
