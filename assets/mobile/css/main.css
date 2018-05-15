@@ -2377,7 +2377,43 @@ a.products_menu_tab_content_line_more_links_show {
 .cart_date_time {
     text-align: center;
 }
-
 .block_select_date,.block_select_time,.block_another_date {
     display: none;
+}
+/*********************/
+.auth_form {
+    display: none;
+}
+.reg_form {
+    display: none;
+}
+.auth_socials {
+    margin-top: 30px;
+    display: none;
+}
+.auth_remind_pass_link {
+    margin: 10px 0 0px;
+    padding: 12px 0 0;
+}
+.cart_auth_header_hello {
+    color: #808080;
+    font-size: 18px;
+    margin-bottom: 35px;
+}
+.cart_auth_header_hello_top {
+    color: #000;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+.cart_auth_gray_buttons_hello {
+    margin-bottom: 15px;
+}
+.restore_pass_message_bott {
+    font-size: 18px;
+    margin: 70px 0 0 0;
+}
+.restore_pass_message_bott_num {
+    font-size: 50px;
+    font-weight: 700;
+    margin: 39px 0 0 0;
 }

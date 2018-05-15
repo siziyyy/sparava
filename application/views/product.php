@@ -222,6 +222,24 @@
                                     <span class="g_good_to_cart_icon sprite"></span>
                                 </div>
                             </div>
+                            <div class="good_page_big_pack">
+                                <div class="good_page_big_pack_header">Еще дешевле в большой упаковке!</div>
+                                <div class="good_page_big_pack_left fl_l">
+                                    <div class="good_page_big_pack_left_body">
+                                        Купите данный товар ящиком<br>по более низкой цене
+                                    </div>
+                                    <a href="/" class="good_page_big_pack_left_footer">перейти</a>
+                                </div>
+                                <div class="good_page_big_pack_right fl_r">
+                                    <div class="good_page_big_pack_right_header">
+                                        - 130 р. <span class="good_page_big_pack_right_header_span"> за кг</span>
+                                    </div>
+                                    <div class="good_page_big_pack_right_footer">
+                                        10 кг х 130 руб. = 1300 руб.
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
                             <div class="good_modal_right_line good_modal_video_line">
                                 <?php foreach($product['youtube'] as $video) { ?>
                                     <div class="good_modal_video" data-video-id="<?php echo $video ?>" style="background:url('https://i1.ytimg.com/vi/<?php echo $video ?>/default.jpg')">
@@ -312,12 +330,43 @@
                             <div class="new_good_page_line_2018_header">Другие предложения <?php echo ($related_by_brands_products_type == 'category' ? 'из этой категории' : '') ?><?php echo ($related_by_brands_products_type == 'brand' ? 'от '.$product['brand'] : '') ?></div>
                             <div class="new_good_page_line_2018_body">
                                 <div class="recomendations_in_commets">
-                                    <div class="new_good_page_line_2018_banner">
+                                    <!--<div class="new_good_page_line_2018_banner">
                                         <?php if(isset($banner['img'])) { ?>
                                             <a href="<?php echo $banner['href'] ?>">
                                                 <img src="<?php echo $banner['img'] ?>">
                                             </a>
                                         <?php } ?> 
+                                    </div>-->
+                                    <div class="new_good_page_line_2018_big_pack">
+                                        <div class="new_good_page_line_2018_header">Еще дешевле!</div>
+                                        <div class="new_good_page_line_2018_big_pack_body">
+                                            <div class="buubbubu">
+                                                <a href="" class="opfoopesgflmem">
+                                                    <img src="" alt="" class="g_good_photo" onerror="this.src='/assets/img/nophoto.jpg'">
+                                                </a>
+                                                <div class="recommended_av_w_pack">
+                                                    <div class="recommended_prod"></div>
+                                                </div>
+                                                <div class="g_good_price">
+                                                    <span class="g_good_price_value">1900</span> р.
+                                                    <div class="g_good_price_bigp">5 х 120 - 10%</div>
+                                                </div>
+                                                <a href="" class="g_good_name" tabindex="0">Чак Ролл стейк</a>
+                                            </div>
+                                            <div class="buubbubu">
+                                                <a href="" class="opfoopesgflmem">
+                                                    <img src="" alt="" class="g_good_photo" onerror="this.src='/assets/img/nophoto.jpg'">
+                                                </a>
+                                                <div class="recommended_av_w_pack">
+                                                    <div class="recommended_prod"></div>
+                                                </div>
+                                                <div class="g_good_price">
+                                                    <span class="g_good_price_value">900</span> р.
+                                                    <div class="g_good_price_bigp">5 х 120</div>
+                                                </div>
+                                                <a href="" class="g_good_name" tabindex="0">Чак Ролл стейк</a>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="more_from_brand_slider">
                                         <?php foreach($related_by_brands_products as $r_product) { ?>
