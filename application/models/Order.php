@@ -79,7 +79,9 @@ class Order extends Fruitcrm {
 					$account->set_bonus($bonus);
 				}
 				
-				$this->send_order_email($account);
+				$this->load->model('mail');
+				$mail = new Mail();
+				$mail->send_order_email($this->_id);
 				
 				return true;
 			}
@@ -140,39 +142,5 @@ class Order extends Fruitcrm {
 		
 		return false;
 	}
-	
-	private function send_order_email($account) {
-		$query = $this->db->get_where("orders", array("order_id" => $this->_id));
-		if ($query->num_rows() > 0) {
-			$account_data = $account->get_data();
-			
-			$this->email->attach('assets/img/emails/logoSmall.png');
-			$this->email->attach('assets/img/emails/profile.jpg');			
 
-			$logo_cid = $this->email->attachment_cid('assets/img/emails/logoSmall.png');
-			$profile_cid = $this->email->attachment_cid('assets/img/emails/profile.jpg');
-			
-			$data = array(
-				'name' => $account_data['name'],
-				'order_id' => $this->_id,
-				'logo_cid' => $logo_cid,
-				'profile_cid' => $profile_cid
-			);
-			
-			$message = $this->load->view('emails/order', $data, true);
-			$this->load->library('email');
-			
-			$this->email->from('info@aydaeda.ru', 'aydaeda.ru');
-			$this->email->to($account_data['email']);
-
-			$this->email->subject('Заказ оформлен');
-			$this->email->message($message);	
-			
-			$this->email->send();
-			
-			return true;
-		}
-		
-		return false;
-	}
 }
