@@ -1,14 +1,47 @@
 <HTML>
 
 <HEAD>
-	<TITLE>order</TITLE>
+	<TITLE>Mail (2)</TITLE>
 	<META http-equiv="Content-Type" Content="text/html; charset=utf-8">
 	
-	<META NAME="Date" CONTENT="<?php echo date('m/d/Y') ?>">
+	<META NAME="Date" CONTENT="05/12/2018">
 
 </HEAD>
 <BODY BGCOLOR="#FFFFFF">
 <TABLE ALIGN=center BORDER=0 WIDTH=602 CELLSPACING=0 CELLPADDING=0>
+<TR ALIGN=LEFT VALIGN=TOP>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=1 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=49 HEIGHT=1><IMG SRC="" WIDTH=49 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=1 HEIGHT=1><IMG SRC="" WIDTH=1 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=23 HEIGHT=1><IMG SRC="" WIDTH=23 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=13 HEIGHT=1><IMG SRC="" WIDTH=13 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=64 HEIGHT=1><IMG SRC="" WIDTH=64 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=42 HEIGHT=1><IMG SRC="" WIDTH=42 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=18 HEIGHT=1><IMG SRC="" WIDTH=18 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=14 HEIGHT=1><IMG SRC="" WIDTH=14 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=15 HEIGHT=1><IMG SRC="" WIDTH=15 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=17 HEIGHT=1><IMG SRC="" WIDTH=17 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=37 HEIGHT=1><IMG SRC="" WIDTH=37 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=3 HEIGHT=1><IMG SRC="" WIDTH=3 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=45 HEIGHT=1><IMG SRC="" WIDTH=45 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=16 HEIGHT=1><IMG SRC="" WIDTH=16 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=48 HEIGHT=1><IMG SRC="" WIDTH=48 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=14 HEIGHT=1><IMG SRC="" WIDTH=14 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=49 HEIGHT=1><IMG SRC="" WIDTH=49 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=9 HEIGHT=1><IMG SRC="" WIDTH=9 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=6 HEIGHT=1><IMG SRC="" WIDTH=6 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=6 HEIGHT=1><IMG SRC="" WIDTH=6 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=19 HEIGHT=1><IMG SRC="" WIDTH=19 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=2 HEIGHT=1><IMG SRC="" WIDTH=2 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=20 HEIGHT=1><IMG SRC="" WIDTH=20 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=65 HEIGHT=1><IMG SRC="" WIDTH=65 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=19 HEIGHT=1><IMG SRC="" WIDTH=19 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=37 HEIGHT=1><IMG SRC="" WIDTH=37 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=1 HEIGHT=1><IMG SRC="" WIDTH=1 HEIGHT=1></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=48 HEIGHT=1><IMG SRC="" WIDTH=48 HEIGHT=1></TD>
+</TR>
+
+
 
 <TR ALIGN=LEFT VALIGN=TOP>
 	<TD COLSPAN=1 ROWSPAN=1 WIDTH=1 HEIGHT=79></TD>
@@ -25,155 +58,51 @@
 	<TD COLSPAN=1 ROWSPAN=1 WIDTH=1 HEIGHT=56></TD>
 	<TD COLSPAN=14 ROWSPAN=1 WIDTH=236 HEIGHT=56></TD>
 </TR>
+
 <tr align="LEFT" valign="TOP">
-	<td colspan="1" rowspan="1" width="1" height="135"></td>
-	<td colspan="11" rowspan="1" width="45" height="135"></td>
-	<td colspan="13" rowspan="1" width="135" height="135"><img src="cid:<?php echo $profile_cid ?>" height="135" width="135" align="TOP" border="0"></td>
-	<td colspan="18" rowspan="1" width="281" height="135"></td>
-</tr>
-<tr align="LEFT" valign="TOP">
-	<td colspan="1" rowspan="1" width="1" height="67"></td>
-	<td colspan="34" rowspan="1" width="461" height="67"></td>
-</tr>
-<tr align="LEFT" valign="TOP">
-	<td colspan="1" rowspan="1" width="1" height="32"></td>
-	<td colspan="4" rowspan="2" width="222" height="93"></td>
-	<td colspan="21" rowspan="2" width="258" height="93"><div align="CENTER">
-<font face="Calibri"><font color="#000000"><font size="5"><?php echo $name ?> спасибо за заказ #<?php echo $order_id ?></font></font></font></div>
+	<td colspan="1" rowspan="1" width="1" height="27"></td>
+	<td colspan="7" rowspan="2" width="209" height="80"></td>
+	<td colspan="18" rowspan="2" width="284" height="60"><font style="font-size:24pt" face="Calibri"><font color="#000000"><font>качество &amp; все есть!</font></font></font><br>
 </td>
-	<td colspan="15" rowspan="1" width="220" height="32"></td>
+	<td colspan="10" rowspan="1" width="207" height="40"></td>
 </tr>
 
 <TR ALIGN=LEFT VALIGN=TOP>
-	<TD COLSPAN=1 ROWSPAN=1 WIDTH=1 HEIGHT=61></TD>
-	<TD COLSPAN=15 ROWSPAN=1 WIDTH=220 HEIGHT=61></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=1 HEIGHT=30></TD>
+	<TD COLSPAN=10 ROWSPAN=1 WIDTH=207 HEIGHT=30></TD>
 </TR>
 
 <tr align="LEFT" valign="TOP">
-	<td colspan="1" rowspan="1" width="1" height="24"></td>
-	
-	<td colspan="31" rowspan="2" width="406" height="48"><div align="CENTER">
-<font face="Calibri"><font color="#000000"><font size="3"><b>Я Николай Дадин, руководитель данного проекта</b></font></font></font></div>
-</td>
-	<td colspan="9" rowspan="1" width="145" height="24"></td>
-</tr>
-
-<TR ALIGN=LEFT VALIGN=TOP>
-	<TD COLSPAN=1 ROWSPAN=1 WIDTH=1 HEIGHT=24></TD>
-	<TD COLSPAN=9 ROWSPAN=1 WIDTH=145 HEIGHT=24></TD>
-</TR>
-
-<tr align="LEFT" valign="TOP">
-	<td colspan="1" rowspan="1" width="1" height="92"></td>
-	<td colspan="2" rowspan="4" width="75" height="185"></td>
-	<td colspan="23" rowspan="2" width="552" height="119"><div align="CENTER" style="
-    font-size: 14pt;
+	<td colspan="1" rowspan="1" width="1" height="183"></td>
+	<td colspan="4" rowspan="1" width="130" height="150"></td>
+	<td colspan="21" rowspan="1" width="443" height="150"><div align="CENTER" style="
+    font-size: 16pt;
 ">
-<font face="Calibri"><font color="#000000"><font>Мария мы рады что Вы стала нашим клиентом, надеемся что мы 
-еще долго будем радовать Вам и ваших близких нашими вкусными 
-продуктами. Если у Вас есть пожелание или какие то жалобы, прошу 
-передать мне по удобному вам способу. Заранее благодарен.</font></font></font></div>
-</td>
-	<td colspan="3" rowspan="1" width="73" height="92"></td>
-</tr>
+<font face="Calibri"><font color="#000000"><font><?php echo $name ?> Ваш заказ оформлен. <br>
+Номер Вашего заказа #<?php echo $order_id ?>.
+<br><br>
+В ближайшее время наши сотрудники связаться <br>
+с Вами чтобы подтвердить заказ.
 
-<TR ALIGN=LEFT VALIGN=TOP>
-	<TD COLSPAN=1 ROWSPAN=1 WIDTH=1 HEIGHT=27></TD>
-	<TD COLSPAN=3 ROWSPAN=1 WIDTH=73 HEIGHT=27></TD>
-</TR>
-<tr align="LEFT" valign="TOP">
-	<td colspan="1" rowspan="1" width="1" height="32"></td>
-	<td colspan="4" rowspan="2" width="222" height="93"></td>
-	<td colspan="21" rowspan="2" width="258" height="93"><div align="">
-<font face="Calibri"><font color="#000000"><font style="
-    font-size: 15pt;
-    color: #999999;
-">8 495 578 20 22</font><font style="
-   font-size: 15pt;
-   margin-left: 18px;
-   color: #999999;
-">ceo@aydaeda.ru</font></font></font></div>
-</td>
-	<td rowspan="1" width="220" height="32"></td>
-</tr>
-
-
-<TR ALIGN=LEFT VALIGN=TOP>
-	<TD COLSPAN=1 ROWSPAN=1 WIDTH=1 HEIGHT=47></TD>
-	<TD COLSPAN=45 ROWSPAN=1 WIDTH=625 HEIGHT=47></TD>
-</TR>
-
-<tr align="LEFT" valign="TOP">
-	<td colspan="11" rowspan="1" width="1" height="24"></td>
-	
-	<td colspan="7" rowspan="2" width="54" height="42"><div align="CENTER">
-<font face="Calibri"><font color="#000000"><font size="3"><b>еще ...</b></font></font></font></div>
-</td>
-	<td colspan="20" rowspan="1" width="321" height="24"></td>
-</tr>
-
-<TR ALIGN=LEFT VALIGN=TOP>
-	<TD COLSPAN=1 ROWSPAN=1 WIDTH=1 HEIGHT=18></TD>
-	<TD COLSPAN=20 ROWSPAN=1 WIDTH=321 HEIGHT=18></TD>
-</TR>
-
-<?php if($bonus > 0) { ?>
-	<tr align="LEFT" valign="TOP">
-		<td colspan="1" rowspan="1" width="1" height="69"></td>
-		<td colspan="4" rowspan="2" width="123" height="107"></td>
-		<td colspan="20" rowspan="2" width="459" height="107"><div align="CENTER" style="
-	    font-size: 14pt;
-	">
-	<font face="Calibri"><font color="#000000"><font>Хочу напомнить что у Вас накопились 150 балов<br> которые 
-	равны <?php echo $bonus ?> рублей.Эти балы Вы можете использовать 
-	<br>в дальнейших покупках.</font></font></font></div>
-	</td>
-		<td colspan="8" rowspan="1" width="118" height="69"></td>
-	</tr>
-<?php } ?>
-
-<TR ALIGN=LEFT VALIGN=TOP>
-	<TD COLSPAN=1 ROWSPAN=1 WIDTH=1 HEIGHT=38></TD>
-	<TD COLSPAN=8 ROWSPAN=1 WIDTH=118 HEIGHT=38></TD>
-</TR>
-
-<tr align="LEFT" valign="TOP">
-	<td colspan="1" rowspan="1" width="1" height="24"></td>
-	<td colspan="11" rowspan="2" width="325" height="40"></td>
-	<td colspan="5" rowspan="2" width="53" height="40"><div align="CENTER">
-<font face="Calibri"><font color="#000000"><font size="3"><b>и еще </b></font></font></font></div>
-</td>
-	<td colspan="21" rowspan="1" width="322" height="24"></td>
-</tr>
-
-<TR ALIGN=LEFT VALIGN=TOP>
-	<TD COLSPAN=1 ROWSPAN=1 WIDTH=1 HEIGHT=16></TD>
-	<TD COLSPAN=21 ROWSPAN=1 WIDTH=322 HEIGHT=16></TD>
-</TR>
-
-<tr align="LEFT" valign="TOP">
-	<td colspan="1" rowspan="1" width="1" height="69"></td>
-	<td colspan="4" rowspan="2" width="118" height="145"></td>
-	<td colspan="20" rowspan="2" width="466" height="145"><div align="CENTER" style="
-    font-size: 14pt;
-">
-<font face="Calibri"><font color="#000000"><font>при втором заказе Вы гарантированно получите подарок -<br>
-набор из 6 пробников
  </font></font></font></div>
 </td>
-	<td colspan="7" rowspan="1" width="116" height="69"></td>
+	<td colspan="6" rowspan="1" width="127" height="150"></td>
 </tr>
 
-<TR ALIGN=LEFT VALIGN=TOP>
-	<TD COLSPAN=1 ROWSPAN=1 WIDTH=1 HEIGHT=76></TD>
-	<TD COLSPAN=7 ROWSPAN=1 WIDTH=116 HEIGHT=76></TD>
-</TR>
+<tr align="LEFT" valign="TOP">
+	<td colspan="1" rowspan="1" width="1" height="40"></td>
+	<td colspan="11" rowspan="1" width="296" height="100"></td>
+	<td colspan="4" rowspan="2" width="111" height="124"><div align="CENTER">
+<font face="Calibri"><font color="#000000"><font size="6">спасибо</font></font></font></div>
+</td>
+	<td colspan="15" rowspan="1" width="293" height="40"></td>
+</tr>
 
 <tr align="LEFT" valign="TOP">
 	<td colspan="1" rowspan="1" width="1" height="40"></td>
 	<td colspan="1" rowspan="1" width="116" height="100"></td>
 	<td colspan="27" rowspan="1" width="470" height="100"><div align="CENTER">
-<font style="font-size:24pt;margin-right: 34px;" face="Calibri"><font color="#5EA654"><font>Еще много вкусного, очень много!</font></font></font></div>
+<font style="font-size:24pt;margin-right: 32px;" face="Calibri"><font color="#5EA654"><font>Еще много вкусного, очень много!</font></font></font></div>
 </td>
 </tr>
 
@@ -181,6 +110,7 @@
 	<TD COLSPAN=1 ROWSPAN=1 WIDTH=1 HEIGHT=40></TD>
 	<TD COLSPAN=5 ROWSPAN=1 WIDTH=114 HEIGHT=40></TD>
 </TR>
+
 
 <TR style="font-size:12pt" ALIGN=LEFT VALIGN=TOP>
 	<TD COLSPAN=1 ROWSPAN=1 WIDTH=1 HEIGHT=20></TD>
@@ -217,7 +147,7 @@
 
 <TR ALIGN=LEFT VALIGN=TOP>
 	<TD COLSPAN=1 ROWSPAN=1 WIDTH=1 HEIGHT=11></TD>
-	<TD style="background-color:black" COLSPAN=26 ROWSPAN=1 WIDTH=600 HEIGHT=11></TD>
+	<TD style="background-color:black" COLSPAN=25 ROWSPAN=1 WIDTH=600 HEIGHT=11></TD>
 	<TD COLSPAN=1 ROWSPAN=1 WIDTH=48 HEIGHT=11></TD>
 </TR>
 
@@ -247,34 +177,35 @@
 	<td colspan="1" rowspan="1" width="1"></td>
 	<td colspan="1" rowspan="1" width="49"></td>
 	<td colspan="75" rowspan="1" width="603">
-	<div ALIGN=left style="float:left" width="299">
-		<?php if(isset($banners['banners_standart'][1])) { ?>
-			  <img style="margin-top: 5px;margin-right: 5px;" src="cid:<?php echo $banners['banners_standart'][1]['cid'] ?>" width="299" align="TOP" border="0"><br>
-		<?php } ?>
-		<?php if(isset($banners['banners_standart'][3])) { ?>
-			  <img style="margin-top: 5px;margin-right: 5px;" src="cid:<?php echo $banners['banners_standart'][3]['cid'] ?>" width="299" align="TOP" border="0"><br>
-		<?php } ?>
-		<?php if(isset($banners['banners_standart'][5])) { ?>
-			  <img style="margin-top: 5px;margin-right: 5px;" src="cid:<?php echo $banners['banners_standart'][5]['cid'] ?>" width="299" align="TOP" border="0"><br>
-		<?php } ?>
-		<?php if(isset($banners['banners_small_bottom'][0])) { ?>
-			  <img style="margin-top: 5px;margin-right: 5px;" src="cid:<?php echo $banners['banners_small_bottom'][0]['cid'] ?>" width="299" align="TOP" border="0">
-		<?php } ?>
-	</div>
-	<div align=top style="" width="299">
-		<?php if(isset($banners['banners_small_top'][0])) { ?>
-       		<img style="margin-top: 5px" src="cid:<?php echo $banners['banners_small_top'][0]['cid'] ?>" width="299" align="TOP" border="0"><br>
-       	<?php } ?>
-       	<?php if(isset($banners['banners_standart'][2])) { ?>
-	   		<img style="margin-top: 5px" src="cid:<?php echo $banners['banners_standart'][2]['cid'] ?>" width="299" align="TOP" border="0"><br>
-	   	<?php } ?>
-	   	<?php if(isset($banners['banners_standart'][4])) { ?>
-	   		<img style="margin-top: 5px" src="cid:<?php echo $banners['banners_standart'][4]['cid'] ?>" width="299" align="TOP" border="0"><br>
-	   	<?php } ?>
-	   	<?php if(isset($banners['banners_standart'][6])) { ?>
-	   		<img style="margin-top: 5px" src="cid:<?php echo $banners['banners_standart'][6]['cid'] ?>" width="299" align="TOP" border="0">
-	   	<?php } ?>
-	</div></td>
+		<div ALIGN=left style="float:left" width="301">
+			<?php if(isset($banners['banners_standart'][0])) { ?>
+				  <a href="<?php echo $banners['banners_standart'][0]['href'] ?>"><img style="margin-top: 5px;margin-right: 4px" src="cid:<?php echo $banners['banners_standart'][0]['cid'] ?>" width="297" align="TOP" border="0"></a><br>
+			<?php } ?>
+			<?php if(isset($banners['banners_standart'][2])) { ?>
+				  <a href="<?php echo $banners['banners_standart'][2]['href'] ?>"><img style="margin-top: 5px;margin-right: 4px" src="cid:<?php echo $banners['banners_standart'][2]['cid'] ?>" width="297" align="TOP" border="0"></a><br>
+			<?php } ?>
+			<?php if(isset($banners['banners_standart'][4])) { ?>
+				  <a href="<?php echo $banners['banners_standart'][4]['href'] ?>"><img style="margin-top: 5px;margin-right: 4px" src="cid:<?php echo $banners['banners_standart'][4]['cid'] ?>" width="297" align="TOP" border="0"></a><br>
+			<?php } ?>
+			<?php if(isset($banners['banners_small_bottom'][0])) { ?>
+				  <a href="<?php echo $banners['banners_small_bottom'][0]['href'] ?>"><img style="margin-top: 5px;margin-right: 4px" src="cid:<?php echo $banners['banners_small_bottom'][0]['cid'] ?>" width="297" align="TOP" border="0"></a>
+			<?php } ?>
+		</div>
+		<div align=top style="" width="297">
+			<?php if(isset($banners['banners_small_top'][0])) { ?>
+	       		<a href="<?php echo $banners['banners_small_top'][0]['href'] ?>"><img style="margin-top: 5px" src="cid:<?php echo $banners['banners_small_top'][0]['cid'] ?>" width="297" align="TOP" border="0"></a><br>
+	       	<?php } ?>
+	       	<?php if(isset($banners['banners_standart'][1])) { ?>
+		   		<a href="<?php echo $banners['banners_standart'][1]['href'] ?>"><img style="margin-top: 5px" src="cid:<?php echo $banners['banners_standart'][1]['cid'] ?>" width="297" align="TOP" border="0"></a><br>
+		   	<?php } ?>
+		   	<?php if(isset($banners['banners_standart'][3])) { ?>
+		   		<a href="<?php echo $banners['banners_standart'][3]['href'] ?>"><img style="margin-top: 5px" src="cid:<?php echo $banners['banners_standart'][3]['cid'] ?>" width="297" align="TOP" border="0"></a><br>
+		   	<?php } ?>
+		   	<?php if(isset($banners['banners_standart'][5])) { ?>
+		   		<a href="<?php echo $banners['banners_standart'][5]['href'] ?>"><img style="margin-top: 5px" src="cid:<?php echo $banners['banners_standart'][5]['cid'] ?>" width="297" align="TOP" border="0"></a>
+		   	<?php } ?>
+		</div>
+	</td>
 	<td colspan="1" rowspan="1" width="48"></td>
 </tr>
 
@@ -285,14 +216,10 @@
 </TR>
 
 <TR ALIGN=LEFT VALIGN=TOP>
-	<TD COLSPAN=1 ROWSPAN=1 WIDTH=1 HEIGHT=7></TD>
-	<TD COLSPAN=1 ROWSPAN=1 WIDTH=49 HEIGHT=7></TD>
-	<TD COLSPAN=26 ROWSPAN=1 WIDTH=603 HEIGHT=7 style="background-color:black"></TD>
-	<TD COLSPAN=1 ROWSPAN=1 WIDTH=48 HEIGHT=7></TD>
+	<TD COLSPAN=3 ROWSPAN=1 WIDTH=1 HEIGHT=4></TD>
+	<TD style="background-color:black" COLSPAN=24 ROWSPAN=1 WIDTH=600 HEIGHT=4></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=48 HEIGHT=4></TD>
 </TR>
-
-
-
 
 
 
@@ -336,7 +263,10 @@
 <TR ALIGN=LEFT VALIGN=TOP>
 	<TD COLSPAN=1 ROWSPAN=1 WIDTH=1 HEIGHT=33></TD>
 	<TD COLSPAN=6 ROWSPAN=1 WIDTH=104 HEIGHT=33></TD>
-	<TD COLSPAN=3 ROWSPAN=1 WIDTH=109 HEIGHT=33><a href="#"><IMG SRC="cid:<?php echo $social_cid ?>" HEIGHT=33 WIDTH=109 ALIGN=TOP BORDER=0></a></TD>
+	<TD COLSPAN=4 ROWSPAN=1 WIDTH=109 HEIGHT=33><a href="#"><IMG SRC="cid:<?php echo $fb_cid ?>" HEIGHT=33  ALIGN=TOP BORDER=0></a>
+	                                            <a href="#"><IMG SRC="cid:<?php echo $tw_cid ?>" style="margin-left:-4px" HEIGHT=33  ALIGN=TOP BORDER=0></a>
+												<a href="#"><IMG SRC="cid:<?php echo $vk_cid ?>" style="margin-left:-4px" HEIGHT=33  ALIGN=TOP BORDER=0></a>
+												<a href="#"><IMG SRC="cid:<?php echo $ok_cid ?>" style="margin-left:-4px" HEIGHT=33  ALIGN=TOP BORDER=0></a></TD>
 	<TD COLSPAN=13 ROWSPAN=1 WIDTH=295 HEIGHT=33></TD>
 </TR>
 
@@ -346,11 +276,9 @@
 </TR>
 
 <TR ALIGN=LEFT VALIGN=TOP>
-	<TD COLSPAN=1 ROWSPAN=1 WIDTH=1 HEIGHT=7></TD>
-	<TD COLSPAN=1 ROWSPAN=1 WIDTH=49 HEIGHT=7></TD>
-	<TD COLSPAN=5 ROWSPAN=1 WIDTH=145 HEIGHT=7 style="background-color:black"></TD>
-	<TD COLSPAN=21 ROWSPAN=1 WIDTH=460 HEIGHT=7 style="background-color:black"></TD>
-	<TD COLSPAN=1 ROWSPAN=1 WIDTH=48 HEIGHT=7></TD>
+	<TD COLSPAN=3 ROWSPAN=1 WIDTH=1 HEIGHT=4></TD>
+	<TD style="background-color:black" COLSPAN=24 ROWSPAN=1 WIDTH=600 HEIGHT=4></TD>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=48 HEIGHT=4></TD>
 </TR>
 
 <TR ALIGN=LEFT VALIGN=TOP>
@@ -360,6 +288,19 @@
 	<TD COLSPAN=22 ROWSPAN=1 WIDTH=508 HEIGHT=64></TD>
 </TR>
 
+<TR ALIGN=LEFT VALIGN=TOP>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=1 HEIGHT=21></TD>
+	<TD COLSPAN=8 ROWSPAN=2 WIDTH=224 HEIGHT=80></TD>
+	<TD COLSPAN=10 ROWSPAN=2 WIDTH=253 HEIGHT=80><DIV style="font-size:12pt" ALIGN="CENTER">
+<FONT FACE="Calibri"><a style="text-decoration:none" href="#"><FONT COLOR="#000000"><FONT >Ссылка для отказа от рассылки <U>здесь</U></FONT></FONT></FONT></a></DIV>
+</TD>
+	<TD COLSPAN=10 ROWSPAN=1 WIDTH=223 HEIGHT=21></TD>
+</TR>
+
+<TR ALIGN=LEFT VALIGN=TOP>
+	<TD COLSPAN=1 ROWSPAN=1 WIDTH=1 HEIGHT=80></TD>
+	<TD COLSPAN=10 ROWSPAN=1 WIDTH=223 HEIGHT=80></TD>
+</TR>
 
 </TABLE>
 </BODY>
