@@ -125,6 +125,24 @@ body,html,textarea{font-family:Calibri}
                 display: none;
             }*/
         </style>
+        <div class="new_modal_and_mask_05_18">
+            <div class="new_mask_05_18"></div>
+            <div class="new_modal_05_18">
+                <div class="new_modal_05_18_text_flex">
+                    <!--<div class="new_modal_05_18_text">
+                        При оформлении заказа<br>Вы получите скидку
+                    </div>-->
+                    <div class="new_modal_05_18_text">
+                        Ваш подарок уже добавлен<br>в корзину
+                    </div>
+                    <!--<div class="new_modal_05_18_text_red">10%</div>
+                    <div class="new_modal_05_18_text2">
+                        + 200 руб. при следующем заказе
+                    </div>-->
+                </div>
+                <div class="new_modal_05_18_bg"></div>
+            </div>
+        </div>
         <div class="closer blah_closer"></div>
         <div class="closer g_g_desc_closer"></div>
         <div class="closer new_menu_closer"></div>
