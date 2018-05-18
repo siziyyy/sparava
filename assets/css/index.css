@@ -666,6 +666,7 @@ span.fullcatlink{color:#999!important}
 	top: 0;
 	left: 0;
 	z-index: 999999;
+	display: none;
 }
 .new_mask_05_18 {
 	position: fixed;
