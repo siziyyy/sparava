@@ -454,23 +454,13 @@ class Main extends CI_Controller {
 	}	
 	
 	public function checkout_success() {	
-
-		$session = array(
-			'shipping_method' => NULL,
-			'use_bonus' => NULL,
-			'shipping_metro' => NULL,
-			'shipping_address' => NULL,
-			'cart' => NULL
-		);
-		
-		$this->session->set_userdata($session);
-	
 		$data = array(
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
 			'categories_struct' => $this->productlib->get_categories_struct(),
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
+			'order_id' => $this->session->userdata('last_order_id')
 		);
 		
 		if($this->_is_mobile) {
@@ -478,6 +468,21 @@ class Main extends CI_Controller {
 		} else {
 			$this->load->view('cart/checkout_success', $data);
 		}
+
+		$session = array(
+			'shipping_method' => NULL,
+			'shipping_comment' => NULL,
+			'shipping_date' => NULL,
+			'shipping_time' => NULL,
+			'shipping_metro' => NULL,
+			'shipping_address' => NULL,
+			'use_bonus' => NULL,
+			'return_to_cart_after_login' => NULL,
+			'cart' => NULL,
+			'last_order_id' => NULL
+		);
+
+		$this->session->set_userdata($session);
 	}
 	
 	public function country($country_id) {
@@ -1723,8 +1728,96 @@ class Main extends CI_Controller {
 			}
 			
 			return;
+		} elseif($this->_is_mobile and empty($this->input->post('mobile_continue_to_login')) and !$this->baselib->is_logged()) {
+			$this->load->view('mobile/cart/cart', $data);
+			return;
 		}
-		
+
+		if(!$this->baselib->is_logged()) {
+
+			$data['cart_info_tpl'] = 'login_register';
+
+			if($this->_is_mobile) {
+				$this->session->set_userdata('return_to_cart_after_login', 1);
+				redirect(base_url('/account'), 'refresh');
+			} else {
+				$this->load->view('cart/cart', $data);
+			}		
+			
+			return;
+
+		} elseif(is_null($this->input->post('confirm_account_data')) and is_null($this->input->post('checkout_order'))) {		
+			if(!is_null($this->input->post('shipping_metro'))) {
+				$this->session->set_userdata('shipping_metro', $this->input->post('shipping_metro'));
+			}
+				
+			if(!is_null($this->input->post('shipping_address'))) {
+				$this->session->set_userdata('shipping_address', $this->input->post('shipping_address'));
+			}
+
+			if(!is_null($this->input->post('shipping_comment'))) {
+				$this->session->set_userdata('shipping_comment', $this->input->post('shipping_comment'));
+			}
+
+			$account_id = $this->session->userdata('account_id');		
+			
+			$account = new Account();
+			$account->set_id($account_id);
+			
+			$data['cart_info']['account'] = $account->get_data();
+			//$data['cart_info']['orders'] = $account->get_account_orders();
+
+			if(!is_null($this->session->userdata('shipping_metro'))) {
+				$data['cart_info']['account']['shipping_metro'] = $this->session->userdata('shipping_metro');
+			}
+			
+			if(!is_null($this->session->userdata('shipping_address'))) {
+				$data['cart_info']['account']['shipping_address'] = $this->session->userdata('shipping_address');
+			}
+			
+			$data['totals']['totals'] = $this->baselib->get_totals_for_cart($data['totals']['totals']);
+
+			$data['cart_info_tpl'] = 'account';	
+
+			if($this->_is_mobile) {
+				$this->load->view('mobile/cart/account', $data);
+			} else {
+				$this->load->view('cart/cart', $data);
+			}
+
+			return;
+		}		
+
+		if($this->_is_mobile and (!empty($this->input->post('account_details_name')) or !empty($this->input->post('account_details_phone')))) {
+			if(!is_null($this->input->post('shipping_metro'))) {
+				$this->session->set_userdata('shipping_metro', $this->input->post('shipping_metro'));
+			}
+				
+			if(!is_null($this->input->post('shipping_address'))) {
+				$this->session->set_userdata('shipping_address', $this->input->post('shipping_address'));
+			}
+
+			if(!is_null($this->input->post('shipping_comment'))) {
+				$this->session->set_userdata('shipping_comment', $this->input->post('shipping_comment'));
+			}
+
+			$account_id = $this->session->userdata('account_id');
+
+			$info = array(
+				'name' => $this->input->post('account_details_name'),
+				'phone' => $this->input->post('account_details_phone')
+			);
+			
+			if(!is_null($account_id)) {
+				$this->load->model("account");
+				$account = new Account();
+
+				$account->set_id($account_id);
+				$account->set_data($info);
+				$account->update();
+			}
+		}
+
 		$shipping_gruops = $this->baselib->get_shipping_gropus();
 		
 		foreach($shipping_gruops as $group_id => $group) {
@@ -1746,97 +1839,28 @@ class Main extends CI_Controller {
 			}
 			
 			return;
-		} elseif(!is_null($this->input->post('shipping_method'))) {
-			$this->session->set_userdata('shipping_method', (int)$this->input->post('shipping_method'));
-			$this->session->set_userdata('shipping_date', $this->input->post('shipping_date'));
-			$this->session->set_userdata('shipping_time', $this->input->post('shipping_time'));
-		}
-	
-		$data['totals']['totals'] = $this->baselib->get_totals_for_cart($data['totals']['totals']);
-		$data['cart_info']['summ'] = $data['totals']['totals']['with_shipping']['value'];
-		
-		if(!$this->baselib->is_logged()) {
-			
-			$data['cart_info_tpl'] = 'login_register';
-
-			if($this->_is_mobile) {
-				$this->session->set_userdata('return_to_cart_after_login', 1);
-				redirect(base_url('/account'), 'refresh');
-			} else {
-				$this->load->view('cart/cart', $data);
-			}		
-			
-			return;
-		}
-		
-		if(!is_null($this->input->post('shipping_metro'))) {
-			$this->session->set_userdata('shipping_metro', $this->input->post('shipping_metro'));
-		}
-			
-		if(!is_null($this->input->post('shipping_address'))) {
-			$this->session->set_userdata('shipping_address', $this->input->post('shipping_address'));
-		}
-
-		if(!is_null($this->input->post('shipping_comment'))) {
-			$this->session->set_userdata('shipping_comment', $this->input->post('shipping_comment'));
-		}
-
-		$account_id = $this->session->userdata('account_id');
-		
-		
-		$account = new Account();
-		$account->set_id($account_id);
-		
-		$data['cart_info']['account'] = $account->get_data();
-		//$data['cart_info']['orders'] = $account->get_account_orders();
-
-		if(!is_null($this->session->userdata('shipping_metro'))) {
-			$data['cart_info']['account']['shipping_metro'] = $this->session->userdata('shipping_metro');
-		}
-		
-		if(!is_null($this->session->userdata('shipping_address'))) {
-			$data['cart_info']['account']['shipping_address'] = $this->session->userdata('shipping_address');
-		}	
-
-		if(!is_null($this->session->userdata('shipping_method'))) {
-			$data['cart_info']['account']['shipping_method'] = $this->session->userdata('shipping_method');
-		}
-		
-		$data['cart_info']['shipping_methods'] = $shipping_gruops;
-		$data['totals']['totals'] = $this->baselib->get_totals_for_cart($data['totals']['totals']);
-
-		$data['cart_info_tpl'] = 'account';
-
-		if($this->_is_mobile and (!empty($this->input->post('account_details_name')) or !empty($this->input->post('account_details_phone')))) {
-			$info = array(
-				'name' => $this->input->post('account_details_name'),
-				'phone' => $this->input->post('account_details_phone')
-			);
-			
-			if(!is_null($account_id)) {
-				$this->load->model("account");
-				$account = new Account();
-
-				$account->set_id($account_id);
-				$account->set_data($info);
-				$account->update();
-			}
 		}
 
 		if($this->_is_mobile) {
 			if(!is_null($this->input->post('checkout_order'))) {
+				if(!is_null($this->input->post('shipping_method'))) {
+					$this->session->set_userdata('shipping_method', $this->input->post('shipping_method'));
+				}
+					
+				if(!is_null($this->input->post('shipping_date'))) {
+					$this->session->set_userdata('shipping_date', $this->input->post('shipping_date'));
+				}
+
+				if(!is_null($this->input->post('shipping_time'))) {
+					$this->session->set_userdata('shipping_time', $this->input->post('shipping_time'));
+				}
+
 				$this->load->model('order');
 				$order = new Order();
 				$order->create();
 				$this->checkout_success();
-			} else {
-				$this->load->view('mobile/cart/'.$data['cart_info_tpl'], $data);
 			}
-		} else {
-			$this->load->view('cart/cart', $data);
 		}
-		
-		return;
 	}
 
 	public function duplicate_order($order_id) {
@@ -2097,10 +2121,6 @@ class Main extends CI_Controller {
 							
 							if(!is_null($this->input->post('account_details_metro'))) {
 								$this->session->set_userdata('shipping_metro', $this->input->post('account_details_metro'));
-							}
-
-							if(!is_null($this->input->post('account_details_shipping_method'))) {
-								$this->session->set_userdata('shipping_method', $this->input->post('account_details_shipping_method'));
 							}							
 							
 							$json['redirect'] = '/cart';
@@ -2132,6 +2152,14 @@ class Main extends CI_Controller {
 			case 'create_order':
 			
 				if(!is_null($this->input->post('create_order'))) {
+					if(!empty($this->input->post('shipping_method'))) {
+						$this->session->set_userdata('shipping_method', (int)$this->input->post('shipping_method'));
+						$this->session->set_userdata('shipping_date', $this->input->post('shipping_date'));
+						$this->session->set_userdata('shipping_time', $this->input->post('shipping_time'));
+					} else {
+						return false;
+					}
+
 					$this->load->model('order');
 					$order = new Order();
 					

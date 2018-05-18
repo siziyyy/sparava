@@ -63,7 +63,7 @@
                 <input type="hidden" value="" name="shipping_method" id="shipping_method">
                 <input type="hidden" value="" name="shipping_date" id="shipping_date">
                 <input type="hidden" value="" name="shipping_time" id="shipping_time">
-                <input type="hidden" value="1" name="shipping_form_submit">
+                <input type="hidden" value="1" name="checkout_order">
                 <button type="submit" class="cart_page_next inactive" id="shipping_submit_button">далее</button>
             </form>
         </div>

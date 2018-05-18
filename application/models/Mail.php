@@ -200,9 +200,9 @@ class Mail extends Fruitcrm {
 		$message = $this->load->view('emails/reset', $data, true);
 
 		if($this->send_email($account_data['email'],$subject,$message)) {
-			//return true;
+			return true;
 		}
-die();
+
 		return false;
 	}	
 

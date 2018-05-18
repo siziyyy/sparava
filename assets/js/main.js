@@ -29,6 +29,7 @@ function listener(event) {
 		$('#product_form .product_cost').val(product.cost);
 		$('#product_form .product_price').val(product.price);
 		$('#product_form .product_percent_manual').val(product.percent_manual);
+		$('#product_form .product_category_percent').text(product.category_percent);
 		$('#product_form .product_pack').val(product.pack);
 		$('#product_form .product_composition').val(product.composition);
 		$('#product_form .product_assortiment').val(product.assortiment);
@@ -257,14 +258,6 @@ $(document).ready(function() {
 
 		activate_shipping_cotinue_button();
 	});
-
-    $(document).on('click','#shipping_submit_button',function(e) {
-        e.preventDefault();
-
-        if(!$(this).hasClass('inactive')) {
-            $('#shipping_submit').submit();
-        }
-    });
 	
 	set_account_personal_data();
 
@@ -1657,10 +1650,16 @@ $(document).ready(function() {
 				break;
 				
 			case 'create_order':
+		        if($(this).hasClass('inactive')) {
+		           return; 
+		        }
 				
 				send_data = {
 					type : type,
-					create_order : 1
+					create_order : 1,
+					shipping_method : ($('#shipping_method').val() || 0),
+					shipping_date : ($('#shipping_date').val() || 0),
+					shipping_time : ($('#shipping_time').val() || 0)
 				}
 				
 				break;	

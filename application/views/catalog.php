@@ -345,7 +345,7 @@
         </div>
         <div class="new_catalog_item new_cat_22 fl_l">
             <div class="new_full_cat_texts">
-                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(7) ?>" class="new_full_cat_texts_header">КУЛИНАРИЯ</a>
+                <a href="<?php echo $this->baselib->get_seo_url_by_category_id(335) ?>" class="new_full_cat_texts_header">ГОТОВЫЕ БЛЮДА</a>
                 <div class="new_full_cat_texts_links">
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(224) ?>" class="new_full_cat_texts_link">Супы</a>
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(225) ?>" class="new_full_cat_texts_link">Готовые обеды</a>

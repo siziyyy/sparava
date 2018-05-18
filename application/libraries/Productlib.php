@@ -14,7 +14,9 @@ class Productlib {
 		9 => 'Молдова',
 		10 => 'Беларусь',
 		11 => 'Турция'
-	);		
+	);
+
+	private $_blacklist = array('.','_','(',')','/','\\',',','!','-',':',';','@','#','$','%','^','&','*','=','+','|','№','?','<','>','[',']','{','}','"');
 
  	function __construct() {
     	$this->_ci =& get_instance();
@@ -27,7 +29,7 @@ class Productlib {
 	    	$categories = $this->_ci->cache->file->get('categories_list');
 	    	$result = array();
 
-			$sql = "SELECT p.*, c.category_id, c.parent_id FROM categories AS c, product_to_category AS ptc, products AS p WHERE p.status = 1 AND c.category_id = ptc.category_id AND p.product_id = ptc.product_id AND c.parent_id > 0 ORDER BY c.sort_order ASC";
+			$sql = "SELECT p.*, c.category_id, c.parent_id FROM categories AS c, product_to_category AS ptc, products AS p WHERE p.status = 1 AND c.category_id = ptc.category_id AND p.product_id = ptc.product_id AND c.parent_id > 0 ORDER BY c.category_id ASC,c.sort_order ASC";
 
 			$query = $this->_ci->db->query($sql);
 
@@ -980,6 +982,7 @@ class Productlib {
 		$value = trim(preg_replace("/[^а-яА-Яa-zA-z0-9\-\s]/ui", "%", $value));
 
 		$value = mb_strtolower($value);
+		$value = str_replace($this->_blacklist,'',$value);
 
 		$exp_words = $this->_ci->baselib->get_setting_value('search_exp_words');
 		$exp_words = unserialize(base64_decode($exp_words));
@@ -1066,7 +1069,7 @@ class Productlib {
 
 		if ($query->num_rows() > 0) {
 			foreach ($query->result_array() as $row) {
-				if(mb_strtolower($row['title'], 'UTF-8') == $value) {
+				if(str_replace($this->_blacklist,'',mb_strtolower($row['title'], 'UTF-8')) == $value) {
 					if($row['parent_id'] == '0') {
 						$search_result['second_wave'][] = $row['category_id'];
 					} else {
@@ -1076,7 +1079,7 @@ class Productlib {
 					$description = explode(PHP_EOL,$row['description']);
 
 					foreach ($description as $descr) {
-						if(mb_strtolower(trim($descr), 'UTF-8') == $value) {
+						if(str_replace($this->_blacklist,'',mb_strtolower(trim($descr), 'UTF-8')) == $value) {
 							if($row['parent_id'] == '0') {
 								$search_result['second_wave'][] = $row['category_id'];
 							} else {
@@ -1163,9 +1166,10 @@ class Productlib {
 
 	    return $result;
 	}
-
+	
 	private function compare_words($word,$value) {
 		$word = mb_strtolower(trim($word));
+		//$word = str_replace($this->_blacklist,'',$word);
 
 		if($word == $value) {
 			return true;

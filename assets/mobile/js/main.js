@@ -4,6 +4,20 @@ var iFrameDetection = (window === window.parent) ? false : true;
 
 $(document).ready(function() {
 
+    $(document).on('tap','.account_tab_select',function(e) {
+        e.preventDefault();
+
+        $('.cart_delivery_line_button').removeClass('active');
+        $(this).addClass('active');
+
+        target = $(this).attr('data-target');       
+
+        $('.account_form').hide();
+        $('.auth_socials').show();
+        
+        $('#'+target).show();
+    });
+
     $(document).on('change','.select_shipping_date_input',function(e) {
         e.preventDefault();
 
