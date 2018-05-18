@@ -39,7 +39,7 @@ input[type=text], input[type=submit], textarea{
     width: 100%;
     height: 500%;
     position: fixed;
-    top: 0px;
+    top: -220px;
     left: 0;
     background-image: url(/assets/mobile/img/commons/pixelperfect.jpg);
     -webkit-background-size: 100%;
@@ -2416,4 +2416,33 @@ a.products_menu_tab_content_line_more_links_show {
     font-size: 50px;
     font-weight: 700;
     margin: 39px 0 0 0;
+}
+.item_page_big_pack {
+    margin: 8px 0 0 0;
+}
+.item_page_big_pack .category_content_item_not_double_info_body {
+    padding: 0;
+    margin: 19px 0 10px 0;
+}
+.item_page_big_pack_link {
+    color: #458016;
+    display: block;
+    margin: 16px 0 42px 0;
+    font-size: 14px;
+}
+.item_page_big_pack_text_one, .item_page_big_pack_text_two, .item_page_big_pack_text_three {
+    display: inline-block;
+}
+.item_page_big_pack_text_one {
+    font-weight: 700;
+    color: #000;
+    font-size: 24px;
+}
+.item_page_big_pack_text_two {
+    margin: 0 0 0 3px;
+}
+.item_page_big_pack_text_three {
+    margin: 0 0 0 19px;
+    font-size: 14px;
+    color: #808080;
 }

@@ -18,3 +18,9 @@
 <?php if($summ < 1000) { ?>
     <div class="minsumm_body2">минимальная сумма заказа 1000 р.</div>
 <?php } ?>
+<div class="new_cool_text_and_arrow_in_cart_with_arrow fl_r">
+	<div class="new_cool_text_in_cart_with_arrow fl_r">оформить заказ</div>
+	<div class="new_cool_arrow_in_cart_with_arrow fl_r"></div>
+	<div class="clear"></div>
+</div>
+<div class="clear"></div>

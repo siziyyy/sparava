@@ -77,6 +77,20 @@
                 </div>
             </div>
         </div>
+        <div class="item_page_big_pack">
+            <div class="content">
+                <div class="category_content_item_not_double_info_header_left_name">Еще дешевле в большой упаковке!</div>
+                <div class="category_content_item_not_double_info_body">
+                    Купите данный товар в большой упаковке по<br>более низкой цене
+                </div>
+                <div class="item_page_big_pack_text">
+                    <div class="item_page_big_pack_text_one">- 130&nbsp;₽</div>
+                    <div class="item_page_big_pack_text_two">за кг</div>
+                    <div class="item_page_big_pack_text_three">10 кг х 130 руб. = 1300 руб.</div>
+                </div>
+                <a href="/" class="item_page_big_pack_link">перейти</a>
+            </div>
+        </div>
         <div class="item_page_recs_and_comments item_page_recs_and_comments_show_recs">
             <div class="content">
                 <a href="#" class="item_page_recs_and_comments_link item_page_recs_link active">Рекомендации от Aydaeda</a>

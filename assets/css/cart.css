@@ -179,3 +179,24 @@ textarea.c_inners_input{resize:none;height:70px;padding-top:5px;padding-bottom:5
 .blah_blah{font-size:11px;height:auto;max-height:100%}
 .blah_blah_accept_agreement_text{font-size:11px}
 }*/
+.c_c_inners_left_side_text_sh_bb_new_img {
+	width: 328px;
+	margin-bottom: 15px;
+	cursor: pointer;
+}
+.new_cool_arrow_in_cart_with_arrow {
+	width: 50px;
+	height: 21px;
+	-webkit-background-size: 50px;
+	     -o-background-size: 50px;
+	        background-size: 50px;
+	background-image: url('/assets/img/cart_arrow.jpg');
+}
+.new_cool_text_in_cart_with_arrow {
+	font-size: 24px;
+	color: #999;
+	margin: 4px 0 0 16px;
+}
+.new_cool_text_and_arrow_in_cart_with_arrow {
+	margin: 70px 0 0 0;
+}

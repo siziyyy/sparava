@@ -539,7 +539,7 @@ body {
 	width: calc(100% + 13px);
 }
 .c_inners_right_footer_yep {
-	margin: -4px 0 -4px -40px;
+	margin: -4px 0 -4px -40px !important;
 }
 .c_inners_right_footer_num {
 	margin-right: 55px;
