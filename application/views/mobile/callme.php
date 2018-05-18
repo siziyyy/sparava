@@ -1,5 +1,5 @@
 <?php $this->load->view('mobile/common/header',$header);?>
-    <a href="tel:+74955001020" class="callpage_phone_link">+7 495 500 10 20</a>
+    <a href="tel:+74955448864" class="callpage_phone_link">8 495 544 88 64</a>
     <div class="callpage_phone_subtext">
         Вы хотите чтобы мы позвонили Вам<br>по вопросу
     </div>

@@ -31,7 +31,6 @@ class Order extends Fruitcrm {
 		$use_bonus = $this->session->userdata('use_bonus');
 		$products = $this->baselib->get_cart();
 		
-
 		if(!is_null($account_id) and !is_null($shipping_method) and !is_null($use_bonus) and count($products) > 0) {
 
 			$this->load->model('Account');
@@ -69,6 +68,8 @@ class Order extends Fruitcrm {
 
 			if ($this->db->insert("orders", $data))  {
 				$this->_id = $this->db->insert_id();
+
+				$this->session->set_userdata('last_order_id',$this->_id);
 				
 				$this->write_order_inners();
 				

@@ -12,7 +12,7 @@
 	<a href="<?php echo $this->baselib->get_seo_url_by_category_id(274) ?>" class="c_new_index_menu_dropdown_link">Сосиски, сардельки</a>
 	<a href="<?php echo $this->baselib->get_seo_url_by_category_id(5) ?>" class="c_new_index_menu_dropdown_link">Мясные деликатесы</a>
 	<a href="<?php echo $this->baselib->get_seo_url_by_category_id(6) ?>" class="c_new_index_menu_dropdown_link">Полуфабрикаты</a>
-	<a href="<?php echo $this->baselib->get_seo_url_by_category_id(225) ?>" class="c_new_index_menu_dropdown_link">Готовые блюда</a>
+	<a href="<?php echo $this->baselib->get_seo_url_by_category_id(335) ?>" class="c_new_index_menu_dropdown_link">Готовые блюда</a>
 	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>
 	<a href="<?php echo $this->baselib->get_seo_url_by_category_id(7) ?>" class="c_new_index_menu_dropdown_link">Авторская кулинария</a>
 	<div class="c_new_index_menu_dropdown_mar">&nbsp;</div>

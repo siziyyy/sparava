@@ -40,7 +40,10 @@
                 <?php if($cart_info['summ'] < 1000) { ?>
                     <div class="cart_page_summ_text">минимальная сумма заказа 1000 руб</div>
                 <?php } else { ?>
-                    <a href="/pages/cart/delivery/" class="cart_page_next inactive">оформить</a> <!-- add / remove .inactive -->
+                    <form method="post">
+                        <input type="hidden" name="mobile_continue_to_login" value="1">
+                        <button type="submit" href="/pages/cart/delivery/" class="cart_page_next">оформить</button> <!-- add / remove .inactive -->
+                    </form>
                 <?php } ?>
             <?php } else { ?>
                 <div class="">

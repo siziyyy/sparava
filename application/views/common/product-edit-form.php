@@ -36,7 +36,7 @@
                 </label>-->
                 <label class="fl_l">
                     <span class="g_good_admin_info_modal_inpname proc">К%</span>
-                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_percent_manual proc_inp proc_inp2">
+                    <span class="price_new_inf_mod product_category_percent"></span>
                 </label>
                 <label class="fl_l">
                     <span class="g_good_admin_info_modal_inpname proc">Р%</span>
@@ -44,10 +44,7 @@
                 </label>
                 <label class="fl_l">
                     <span class="g_good_admin_info_modal_inpname proc">-%</span>
-                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_percent_manual proc_inp proc_inp2">
-                </label>
-                <label class="fl_l">
-                    <span class="price_new_inf_mod final_price"></span>
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short proc_inp proc_inp2">
                 </label>
                 <div class="clear"></div>
                 <!--<label class="fl_l">
@@ -55,7 +52,7 @@
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_price">
                 </label> -->
                 <div class="price_new_inf_mod_number_helper"></div>
-                <div class="fl_l price_new_inf_mod_number">180</div>
+                <div class="fl_l price_new_inf_mod_number final_price"></div>
                 <label class="fl_r">
                     <span class="g_good_admin_info_modal_inpname">Цена - за.</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_price">

@@ -222,33 +222,35 @@
                                     <span class="g_good_to_cart_icon sprite"></span>
                                 </div>
                             </div>
-                            <div class="good_page_big_pack">
-                                <div class="good_page_big_pack_header">Еще дешевле в большой упаковке!</div>
-                                <div class="good_page_big_pack_left fl_l">
-                                    <div class="good_page_big_pack_left_body">
-                                        Купите данный товар ящиком<br>по более низкой цене
+                            <?php if(false) { ?>
+                                <div class="good_page_big_pack">
+                                    <div class="good_page_big_pack_header">Еще дешевле в большой упаковке!</div>
+                                    <div class="good_page_big_pack_left fl_l">
+                                        <div class="good_page_big_pack_left_body">
+                                            Купите данный товар ящиком<br>по более низкой цене
+                                        </div>
+                                        <a href="/" class="good_page_big_pack_left_footer">перейти</a>
                                     </div>
-                                    <a href="/" class="good_page_big_pack_left_footer">перейти</a>
-                                </div>
-                                <div class="good_page_big_pack_right fl_r">
-                                    <div class="good_page_big_pack_right_header">
-                                        - 130 р. <span class="good_page_big_pack_right_header_span"> за кг</span>
-                                    </div>
-                                    <div class="good_page_big_pack_right_footer">
-                                        10 кг х 130 руб. = 1300 руб.
-                                    </div>
-                                </div>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="good_modal_right_line good_modal_video_line">
-                                <?php foreach($product['youtube'] as $video) { ?>
-                                    <div class="good_modal_video" data-video-id="<?php echo $video ?>" style="background:url('https://i1.ytimg.com/vi/<?php echo $video ?>/default.jpg')">
-                                        <div class="good_modal_video_play">
-                                            <img src="/assets/img/yt_play.png" alt="" style="width:100%;">
+                                    <div class="good_page_big_pack_right fl_r">
+                                        <div class="good_page_big_pack_right_header">
+                                            - 130 р. <span class="good_page_big_pack_right_header_span"> за кг</span>
+                                        </div>
+                                        <div class="good_page_big_pack_right_footer">
+                                            10 кг х 130 руб. = 1300 руб.
                                         </div>
                                     </div>
-                                <?php } ?>
-                            </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="good_modal_right_line good_modal_video_line">
+                                    <?php foreach($product['youtube'] as $video) { ?>
+                                        <div class="good_modal_video" data-video-id="<?php echo $video ?>" style="background:url('https://i1.ytimg.com/vi/<?php echo $video ?>/default.jpg')">
+                                            <div class="good_modal_video_play">
+                                                <img src="/assets/img/yt_play.png" alt="" style="width:100%;">
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                            <?php } ?>
                         </div>
                         <div class="good_page_side fl_r">
                             <div class="good_page_side_first">
