@@ -332,13 +332,14 @@
                             <div class="new_good_page_line_2018_header">Другие предложения <?php echo ($related_by_brands_products_type == 'category' ? 'из этой категории' : '') ?><?php echo ($related_by_brands_products_type == 'brand' ? 'от '.$product['brand'] : '') ?></div>
                             <div class="new_good_page_line_2018_body">
                                 <div class="recomendations_in_commets">
-                                    <!--<div class="new_good_page_line_2018_banner">
+                                    <div class="new_good_page_line_2018_banner">
                                         <?php if(isset($banner['img'])) { ?>
                                             <a href="<?php echo $banner['href'] ?>">
                                                 <img src="<?php echo $banner['img'] ?>">
                                             </a>
                                         <?php } ?> 
-                                    </div>-->
+                                    </div>
+                                    <!--
                                     <div class="new_good_page_line_2018_big_pack">
                                         <div class="new_good_page_line_2018_header">Еще дешевле!</div>
                                         <div class="new_good_page_line_2018_big_pack_body">
@@ -370,6 +371,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    -->
                                     <div class="more_from_brand_slider">
                                         <?php foreach($related_by_brands_products as $r_product) { ?>
                                             <div class="buubbubu">
