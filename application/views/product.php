@@ -29,12 +29,14 @@
     }
     @media all and (max-width: 1200px) {
         .breadcrumbs::before {
-            right: -157px;
+            right: -185px;
         }
-    }
-    @media all and (max-width: 1023px) {
-        .breadcrumbs::before {
-            right: -192px;
+        body {
+            -webkit-transform: scale(.83);
+            -moz-transform: scale(.83);
+            -ms-transform: scale(.83);
+            -o-transform: scale(.83);
+            transform: scale(.83);
         }
     }
     .c_new_menu_line {
