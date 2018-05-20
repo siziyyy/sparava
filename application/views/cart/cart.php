@@ -5,6 +5,15 @@
         position: relative;
         padding-bottom: 37px;
     }
+    @media all and (max-width: 1200px) {
+        body {
+            -webkit-transform: scale(.83);
+            -moz-transform: scale(.83);
+            -ms-transform: scale(.83);
+            -o-transform: scale(.83);
+            transform: scale(.83);
+        }
+    }
     /*.c_new_menu_line_item_right {
         color: #569c1d;
     }*/
