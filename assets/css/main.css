@@ -745,3 +745,7 @@ header .content_helper{padding:15px}
 .select_shipping_time_wrapper,.select_shipping_date_wrapper {
 	display: none;
 }
+.brandnewadminlink {
+	margin: 0 !important;
+    font-size: 16px !important;
+}

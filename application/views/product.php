@@ -27,6 +27,16 @@
             display: block;
         }
     }
+    @media all and (max-width: 1200px) {
+        .breadcrumbs::before {
+            right: -157px;
+        }
+    }
+    @media all and (max-width: 1023px) {
+        .breadcrumbs::before {
+            right: -192px;
+        }
+    }
     .c_new_menu_line {
         padding-top: 8px;
         position: relative;

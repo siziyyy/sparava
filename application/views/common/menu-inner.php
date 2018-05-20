@@ -183,7 +183,7 @@
 						<div class="cool_select_goods_count fl_r">всего товаров: <?php echo $products_count ?>
 							<div class="admmminnns">
                                 <a href="#" class="downlaod_excel">XLS</a>
-                    			<a href="https://admin.aydaeda.ru/importexport" target="_blank" class="g_admin_info">admin</a>
+                    			<a href="https://admin.aydaeda.ru/importexport" target="_blank" class="g_admin_info brandnewadminlink">admin</a>
 							   	<form id="xls_download_form" method="POST">
                     				<input type="hidden" value="" name="token" id="xls_download_token" />
                     			</form> 
