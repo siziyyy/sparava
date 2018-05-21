@@ -32,7 +32,7 @@
                 <label class="auth_label">
                     <input type="text" class="auth_input" placeholder="имя" name="name">
                 </label>
-                <button class="auth_button" type="submit">зарегистрироваться</button>
+                <button class="auth_button" type="submit">Далее</button>
             </form>
             <div class="auth_socials">
                 <div class="auth_socials_header">войти через социальные сети</div>
