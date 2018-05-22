@@ -8,11 +8,13 @@ class Mail extends Fruitcrm {
 	}
 
 	private function get_banners_by_lead_id($lead_id) {
+		$banners = array();
+
 		$query = $this->db->get_where("letters", array("lead_id" => $lead_id));
 		if ($query->num_rows() > 0) {
 			$letter = $query->row_array();
 			$pre_banners = array();
-			$banners = array();
+			
 			$sort_order = array();
 
 			$places = array(
@@ -53,9 +55,9 @@ class Mail extends Fruitcrm {
 					}
 				}
 			}
-
-			return $banners;
 		}
+
+		return $banners;
 	}
 	
 	public function send_order_email($order_id) {
