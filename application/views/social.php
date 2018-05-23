@@ -9,6 +9,7 @@
                     <input type="hidden" name="identity" value="<?php echo $user['identity'] ?>">
                     <input type="hidden" name="network" value="<?php echo $user['network'] ?>">
                     <input type="hidden" name="profile" value="<?php echo $user['profile'] ?>">
+                    <input type="hidden" name="token" value="<?php echo $token ?>">
 
                     <label class="callme_label">
                         имя
@@ -22,6 +23,9 @@
                         почта
                         <input type="text" class="callme_input social_email" name="email" value="" />
                         <div class="social_email_error callme_label">Данный email занят</div>
+                        <?php if(isset($error)) { ?>
+                            <div class="callme_label"><?php echo $error ?></div>  
+                        <?php } ?>
                     </label>
                     <input type="submit" class="callme_button_send" value="отправить" name="social_register" />
                 </form>
