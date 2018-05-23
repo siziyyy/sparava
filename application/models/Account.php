@@ -19,7 +19,13 @@ class Account extends Fruitcrm {
 						$this->_data['shipping_metro'] = '';
 					}
 
-					$this->_data['personal_data'] = unserialize(base64_decode($this->_data['personal_data']));
+					if(!empty($this->_data['personal_data'])) {
+						$this->_data['personal_data'] = unserialize(base64_decode($this->_data['personal_data']));
+					}
+
+					if(!empty($this->_data['link_data'])) {
+						$this->_data['link_data'] = unserialize(base64_decode($this->_data['link_data']));
+					}
 				}
 			}
 			return $this->_data;
@@ -49,6 +55,7 @@ class Account extends Fruitcrm {
 		if(array_key_exists("account_id" , $this->_data)) {
 			if(md5(md5($password)) == $this->_data['password']) {
 				$this->session->set_userdata('account_id', $this->_data['account_id']);
+
 				$this->session->set_userdata('is_login_confirmed',time());
 				return true;
 			}
@@ -63,8 +70,8 @@ class Account extends Fruitcrm {
 			$this->_data = $query->row_array();
 
 			$this->session->set_userdata('account_id', $this->_data['account_id']);
+
 			$this->session->set_userdata('is_login_confirmed',time());			
-			
 			return true;
 		}
 		
@@ -181,10 +188,20 @@ class Account extends Fruitcrm {
 			return true;
 		}
 	}
+
+	public function set_link_data($data) {
+
+		$data = base64_encode(serialize($data));
+
+		if ($this->db->update("accounts", array("link_data" => $data), array("account_id" => $this->_id)))  {
+			return true;
+		}
+	}
 	
 	public function login_without_data() {
 		if(!(empty($this->_id))) {
 			$this->session->set_userdata('account_id', $this->_id);
+			
 			return true;
 		}
 		

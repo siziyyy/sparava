@@ -49,7 +49,34 @@ class Main extends CI_Controller {
 
 		if($this->devdetectlib->is_mobile()) {
 			$this->_is_mobile = true;
+		}
+
+		if(!empty($this->input->get('link_id'))) {
+			$this->baselib->get_link_data($this->input->get('link_id'));
+		}	
+/*
+		if(!empty($this->input->get('link_id'))) {
+			$link_data = $this->baselib->get_link_data();
+
+			if(isset($link_data['is_used']) and !$link_data['is_used']) {
+				$link_data_insert = array(
+					'link_id' => $this->input->get('link_id'),
+					'count' => $link_data['count'],
+					'is_used' => false
+				);
+				
+				$this->session->set_userdata('link_data',$link_data_insert);
+			} else {
+				$link_data_insert = array(
+					'link_id' => $this->input->get('link_id'),
+					'count' => 0,
+					'is_used' => false
+				);
+var_dump($link_data_insert);die();
+				$this->session->set_userdata('link_data',$link_data_insert);
+			}
 		}		
+*/		
     }
 
 	public function _remap($method, $params = array()) {
@@ -1732,6 +1759,8 @@ class Main extends CI_Controller {
 			$this->load->view('mobile/cart/cart', $data);
 			return;
 		}
+
+		$data['totals']['totals'] = $this->baselib->get_totals_for_cart($data['totals']['totals']);
 
 		if(!$this->baselib->is_logged()) {
 

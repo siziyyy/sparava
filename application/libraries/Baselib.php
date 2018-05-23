@@ -58,7 +58,72 @@ class Baselib {
 		
 		return false;
 	}
+	
+	public function get_link_data($link_id = false) {
+		$account = $this->is_logged();
+		
+		if(isset($account['link_data']['is_used']) and $account['link_data']['is_used']) {
+			$this->_ci->session->set_userdata('link_data',NULL);
+			return false;
+		} elseif(isset($account['link_data']['count']) and $account['link_data']['count'] > 0 and $account['link_data']['link_id'] == 2) {
+			$link_data_insert = array(
+				'link_id' => $account['link_data']['link_id'],
+				'count' => $account['link_data']['count'],
+				'value' => $account['link_data']['value'],
+				'product_id' => 0
+			);
 
+			$this->_ci->session->set_userdata('link_data',$link_data_insert);
+
+			return $link_data_insert;			
+		}
+
+		if($link_id) {
+
+			$query = $this->_ci->db->select("*")->from("links")->where('link_id',$link_id)->get();
+	    	if ($query->num_rows() > 0) {
+	    		$link_data = $query->row_array();
+
+				$link_data_insert = array(
+					'link_id' => $link_data['link_id'],
+					'count' => $link_data['count'],
+					'value' => $link_data['value'],
+					'product_id' => $link_data['product_id']
+				);
+
+				$this->_ci->session->set_userdata('link_data',$link_data_insert);
+
+				return $link_data_insert;
+	    	}
+		} else {
+			$link_data = $this->_ci->session->userdata('link_data');
+			if(isset($link_data['link_id'])) {
+				return $link_data;
+			}
+		}
+
+		return false;
+	}
+/*
+	public function get_link_data() {
+		$link_data = $this->_ci->session->userdata('link_data');
+
+		if(isset($link_data['link_id']) and !$link_data['is_used']) {
+			$account = $this->is_logged();
+
+			if(isset($account['link_data']['is_used']) and $account['link_data']['is_used']) {
+				return false;
+			}
+
+			$query = $this->_ci->db->select("*")->from("links")->where('link_id',$link_data['link_id'])->get();
+	    	if ($query->num_rows() > 0) {
+	    		return $query->row_array();
+	    	}
+		}
+		
+		return false;
+	}
+*/
 	public function text_limiter($text, $count) {
 		if (mb_strlen($text) > $count) {
 			$text = mb_substr($text,0,$count);
@@ -986,12 +1051,37 @@ class Baselib {
 			$cart = $this->_ci->session->userdata('cart');
 		}
 		
+		$link_data = $this->get_link_data();
+
+		if($link_data) {
+			if($link_data['link_id'] >= 3) {
+				$cart['p-'.$link_data['product_id']]['quantity'] = 1;
+			} elseif($link_data['link_id'] == 2) {
+				$skidka = $link_data['value']/$link_data['count'];
+			}
+		}
+
 		foreach($cart as $element_id => $element) {
 			$product_id = explode('-',$element_id)[1];
 			$product = $this->_ci->productlib->get_product_by_id($product_id);
 
 			if($product) {
-				$products[$product['product_id']] = $product;
+				$products[$product['product_id']] = $product;				
+
+				if($link_data) {
+					if($link_data['product_id'] == $product['product_id']) {
+						$products[$product['product_id']]['price'] = $link_data['value'];
+						$products[$product['product_id']]['quantity_in_cart'] = $link_data['value'];
+					} elseif($link_data['link_id'] == 2) {
+						if($skidka <= ($products[$product['product_id']]['price']*$element['quantity'])) {
+							$products[$product['product_id']]['price'] = $products[$product['product_id']]['price'] - (int)($skidka/$element['quantity']);
+						} else {
+							$skidka = $skidka - ($products[$product['product_id']]['price']*$element['quantity']);
+							$products[$product['product_id']]['price'] = 0;
+						}
+					}
+				}
+
 				$products[$product['product_id']]['quantity_in_cart'] = $element['quantity'];
 			} else {
 				unset($cart[$element_id]);
@@ -1180,18 +1270,41 @@ class Baselib {
 
 	public function get_totals_for_cart($totals) {
 		if(!is_null($this->_ci->session->userdata('shipping_method'))) {
-			
+
 			$shipping_methods = $this->get_shipping_methods();
 			
 			$totals['shipping'] = array(
 				'title' => 'доставка',
 				'value' => $shipping_methods[$this->_ci->session->userdata('shipping_method')]['price']
 			);
+
+			$link_data = $this->get_link_data();
 			
+			if($link_data['link_id'] == 1) {
+				$totals['shipping']['value'] == 0;
+			}
+
 			$totals['with_shipping'] = array(
 				'title' => 'с доставкой',
 				'value' => $totals['summ']['value'] + $totals['shipping']['value']
 			);
+		}
+
+		$link_data = $this->get_link_data();
+
+		if($link_data) {
+			if($link_data['link_id'] == 2) {
+				$skidka = $link_data['value']/$link_data['count'];
+				$totals['skidka'] = array(
+					'title' => 'скидка',
+					'value' => (int)$skidka
+				);				
+			} elseif($link_data['link_id'] == 1) {
+				$totals['shipping'] = array(
+					'title' => 'бесплатная доставка',
+					'value' => 0
+				);				
+			}
 		}
 		
 		if(!is_null($this->_ci->session->userdata('account_id'))) {

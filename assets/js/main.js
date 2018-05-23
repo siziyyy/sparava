@@ -2244,8 +2244,15 @@ function ArrayToURL(array) {
 }
 	
 function calculate_price() {
-	percent = $('#product_form .product_percent_manual').val();
+	category_percent = parseInt($('#product_form .product_category_percent').text());
+	manual_percent = parseInt($('#product_form .product_percent_manual').val());
 	cost = $('#product_form .product_cost').val();
+
+	if(manual_percent > 0) {
+		percent = manual_percent;
+	} else {
+		percent = category_percent;
+	}
 	
 	final_price = cost*((percent/100)+1);
 	

@@ -49,6 +49,14 @@ class Order extends Fruitcrm {
 				'create_date' => time()
 			);
 
+			$link_data = $this->baselib->get_link_data();
+
+			if($link_data) {				
+				if($link_data['link_id'] == 1) {
+					$data['shipping_price'] = 0;
+				}
+			}
+
 			if($shipping_method == 3 or $shipping_method == 4) {
 				$data['shipping_time'] = NULL;
 				$data['shipping_date'] = NULL;
@@ -72,6 +80,24 @@ class Order extends Fruitcrm {
 				$this->session->set_userdata('last_order_id',$this->_id);
 				
 				$this->write_order_inners();
+
+				if($link_data) {
+					$link_insert = array(
+						'link_id' => $link_data['link_id'],
+						'value' => $link_data['value']
+					);
+
+					if($link_data['count'] == 1) {
+						$link_insert['is_used'] = true;
+						$link_insert['count'] = $link_data['count']-1;
+					} else {
+						$link_insert['value'] = $link_data['value'] - ($link_data['value']/$link_data['count']);
+						$link_insert['count'] = $link_data['count']-1;
+						$link_insert['is_used'] = false;
+					}
+
+					$account->set_link_data($link_insert);
+				}
 				
 				if( $use_bonus ) {
 					$account->clear_bonus();
@@ -103,7 +129,7 @@ class Order extends Fruitcrm {
 				'quantity' => $product['quantity_in_cart'],
 				'price' => $product['price']
 			);
-			
+	
 			$this->db->insert("order_inners", $data);
 			
 			$query = $this->db->get_where("products", array("product_id" => $product['product_id']));

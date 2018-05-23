@@ -36,7 +36,7 @@
                 </label>-->
                 <label class="fl_l">
                     <span class="g_good_admin_info_modal_inpname proc">К%</span>
-                    <span class="price_new_inf_mod product_category_percent"></span>
+                    <span class="price_new_inf_mod product_category_percent price_new_inf_mod_percent"></span>
                 </label>
                 <label class="fl_l">
                     <span class="g_good_admin_info_modal_inpname proc">Р%</span>
