@@ -9,7 +9,12 @@ class Main extends CI_Controller {
     public function __construct() {
         parent::__construct();
 
-		if(!is_null($this->input->post('token'))) {
+
+		if($this->devdetectlib->is_mobile()) {
+			$this->_is_mobile = true;
+		}
+
+		if(!is_null($this->input->post('token')) and !valid_email($this->input->post('email'))) {
 			$s = file_get_contents('http://ulogin.ru/token.php?token=' . $_POST['token'] . '&host=' . $_SERVER['HTTP_HOST']);
             $user = json_decode($s, true);
 
@@ -26,10 +31,20 @@ class Main extends CI_Controller {
 						'account_confirm' => $this->baselib->get_account_data_for_confirm()
 					),
 					'return_url' => $_SERVER['REQUEST_URI'],
-					'user' => $user
+					'user' => $user,
+					'token' => $this->input->post('token')
 				);
+
+				if(!empty($this->input->post('email')) and !valid_email($this->input->post('email'))) {
+					$data['error'] = 'Введите правильный email';
+				}
 				
-				$this->load->view('social', $data);
+				if($this->_is_mobile) {
+					$this->load->view('mobile/social', $data);
+				} else {
+					$this->load->view('social', $data);
+				}
+				
 
 				return true;
 			}
@@ -42,14 +57,17 @@ class Main extends CI_Controller {
 			$account->add_social();
 			$account->social_login($this->input->post('identity'),$this->input->post('network'));
 
-			redirect(base_url($this->input->post('return_url')), 'refresh');
+			if(!is_null($this->session->userdata('return_to_cart_after_login'))) {
+				$this->session->unset_userdata('return_to_cart_after_login');
+				redirect(base_url('/cart'), 'refresh');
+				return;
+			} else {
+				redirect(base_url($this->input->post('return_url')), 'refresh');
+			}
 
 			return true;
 		}
 
-		if($this->devdetectlib->is_mobile()) {
-			$this->_is_mobile = true;
-		}
 
 		if(!empty($this->input->get('link_id'))) {
 			$this->baselib->get_link_data($this->input->get('link_id'));
@@ -95,6 +113,10 @@ var_dump($link_data_insert);die();
 					return call_user_func_array(array($this, 'product'), array($data['element_id']));
 				}
 			}
+		}
+
+		if(!is_null($this->input->post('token'))) {
+			return false;
 		}
 		
 		if(is_callable(array($this, $method))) {

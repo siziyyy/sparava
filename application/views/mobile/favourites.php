@@ -1,7 +1,7 @@
 <?php $this->load->view('mobile/common/header',$header);?>
     <?php $this->load->view('mobile/common/filters_menu'); ?>
     <div class="cabinet_page_header">
-        <a href="#" class="cabinet_page_exit">выйти</a>
+        <a href="/cart/logout" class="cabinet_page_exit">выйти</a>
         <div class="cabinet_page_header_tabs">
             <a href="/orders/" class="cabinet_page_header_tab">Мои заказы</a>
             <a href="/favourites/" class="cabinet_page_header_tab active">Избранное</a>

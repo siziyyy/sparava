@@ -1,8 +1,8 @@
 <?php $this->load->view('mobile/common/header',$header); ?>
-        <?php if(isset($error)) { ?>
-            <div class=""><?php echo $error ?></div>
-        <?php } ?>
         <div class="content cart_auth">
+            <?php if(isset($error)) { ?>
+                <div class="cart_auth_header_hello_top"><?php echo $error ?></div>
+            <?php } ?>
             <a href="/pages/cart/delivery/" class="cart_auth_back">обратно в доставку</a>
             <div class="cart_auth_gray_buttons cart_delivery_line">
                 <a href="#" class="cart_delivery_line_button account_tab_select fl_l" data-target="register_form">Я первый раз</a> <!-- add / remove .active -->
