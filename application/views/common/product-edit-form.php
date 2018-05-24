@@ -7,11 +7,9 @@
                     <img src="" alt="" class="product_image" onError="this.src='/assets/img/nophoto.jpg'">
                 </div>
                 <label>
-                    <a href="#" class="g_good_admin_info_modal_inpname g_good_admin_info_modal_inpname22">Поставщики</a>
-                    <div class="product_providers">
-
-                    </div>
+                    <a href="#" class="g_good_admin_info_modal_inpname g_good_admin_info_modal_inpname22 open_provider_modal">Поставщики</a>
                 </label>
+                <div class="clear"></div>
                 <label class="fl_l">
                     <span class="g_good_admin_info_modal_inpname">Мера</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short product_type">
@@ -233,60 +231,21 @@
                 <span id="connected_products_wrapper"></span>
                 <div class="g_good_secondary_inner_modal_button">+</div>
             </div>
-            <div class="g_good_secondary_inner_modal2">
-                <div class="g_good_secondary_inner_modal_closer">&times;</div>
+            <div class="g_good_secondary_inner_modal2 product_providers_modal">
+                <div class="g_good_secondary_inner_modal_closer close_provider_modal">&times;</div>
                 <div class="g_good_secondary_inner_modal2_body">
-                    <table class="g_good_secondary_inner_modal2_body_table">
-                        <tr class="g_good_secondary_inner_modal2_body_header">
-                            <td>поставщик</td>
-                            <td>цмо</td>
-                            <td>цко</td>
-                            <td>шт</td>
-                            <td>-%</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>ТС-1-15-18</td>
-                            <td>152<span>(420 / 3)</span></td>
-                            <td>-</td>
-                            <td>3</td>
-                            <td></td>
-                            <td>
-                                <div class="table_squares">
-                                    <div class="table_squares_big"></div>
-                                    <div class="table_squares_small"></div>
-                                </div>
-                                <a href="">1574</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>ТС-1-15-18</td>
-                            <td>152<span>(420 / 3)</span></td>
-                            <td>-</td>
-                            <td>3</td>
-                            <td></td>
-                            <td>
-                                <div class="table_squares">
-                                    <div class="table_squares_big"></div>
-                                    <div class="table_squares_small"></div>
-                                </div>
-                                <a href="">1574</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>ТС-1-15-18</td>
-                            <td>-</td>
-                            <td>152<span>(420 / 3)</span></td>
-                            <td>3</td>
-                            <td>-10</td>
-                            <td>
-                                <div class="table_squares">
-                                    <div class="table_squares_small"></div>
-                                    <div class="table_squares_big"></div>
-                                </div>
-                                <a href="">1574</a>
-                            </td>
-                        </tr>
+                    <table class="g_good_secondary_inner_modal2_body_table product_providers">
+                        <thead>
+                            <tr class="g_good_secondary_inner_modal2_body_header">
+                                <td>поставщик</td>
+                                <td>цмо</td>
+                                <td>цко</td>
+                                <td>шт</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           
+                        </tbody>
                     </table>
                 </div>
             </div>

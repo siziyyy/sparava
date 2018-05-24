@@ -61,12 +61,16 @@ function listener(event) {
 		$('#product_form .product_stars').val(product.stars);
 		$('#product_form .ipad_href').attr('href','https://admin.aydaeda.ru/pricer/category_product/'+product.product_id);
 
-		$('#product_form .product_providers').empty();
+		$('#product_form .product_providers tbody').empty();
 
 		if(product['providers'].length > 0) {
 			for (var k in product['providers']) {
-				html = '<a href="/provider?provider='+product['providers'][k]['store']+'">'+product['providers'][k]['cmo']+'/'+product['providers'][k]['cko']+' '+product['providers'][k]['store']+'</a><br>';
-				$('#product_form .product_providers').append(html);
+				//html = '<a href="/provider?provider='+product['providers'][k]['store']+'">'+product['providers'][k]['cmo']+'/'+product['providers'][k]['cko']+' '+product['providers'][k]['store']+'</a><br>';
+				html = '<tr><td><a href="/provider?provider='+product['providers'][k]['store']+'">'+product['providers'][k]['store']+'</a></td>'+
+				'<td>'+product['providers'][k]['cmo']+'</td>'+
+				'<td>'+product['providers'][k]['cko']+'<span>('+product['providers'][k]['box']+'/'+product['providers'][k]['kol']+')</span></td>'+
+				'<td>'+product['providers'][k]['kol']+'</td></tr>';
+				$('#product_form .product_providers tbody').append(html);				
 			}
 		}
 
@@ -186,6 +190,19 @@ if (window.addEventListener) {
 }
 
 $(document).ready(function() {
+
+	$(document).on('click','.open_provider_modal',function(e) {
+		e.preventDefault();
+
+		$('.product_providers_modal').show();
+	});
+
+	$(document).on('click','.close_provider_modal',function(e) {
+		e.preventDefault();
+
+		$('.product_providers_modal').hide();
+	});
+
 
 	$(document).on('change','.select_shipping_date_input',function(e) {
 		e.preventDefault();
