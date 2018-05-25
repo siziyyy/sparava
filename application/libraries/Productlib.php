@@ -399,7 +399,7 @@ class Productlib {
 
 		foreach($products as $category_id => $category) {
 			$products[$category_id]['products'] = $this->_ci->baselib->handle_special_price($category['products']);
-			shuffle($products[$category_id]['products']);
+			//shuffle($products[$category_id]['products']);
 
 			while(count($products[$category_id]['products']) > 5) {
 				array_pop($products[$category_id]['products']);
