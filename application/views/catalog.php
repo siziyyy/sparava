@@ -29,7 +29,7 @@
         </div>
         <div class="new_catalog_item new_cat_1 fl_l">
             <div class="new_full_cat_texts">
-                <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 <a href="<?php echo $this->baselib->get_seo_url_by_category_id(1) ?>" class="new_full_cat_texts_header">МЯСО</a>
                 <div class="new_full_cat_texts_links">
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(29) ?>" class="new_full_cat_texts_link">Говядина</a>
@@ -45,7 +45,7 @@
         </div>
         <div class="new_catalog_item new_cat_2 fl_l">
             <div class="new_full_cat_texts">
-                <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 <a href="<?php echo $this->baselib->get_seo_url_by_category_id(5) ?>" class="new_full_cat_texts_header">МЯСНЫЕ<br>ДЕЛИКАТЕСЫ</a>
                 <div class="new_full_cat_texts_links">
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(58) ?>" class="new_full_cat_texts_link">Копчености</a>
@@ -60,7 +60,7 @@
         </div>
         <div class="new_catalog_item new_cat_3 fl_l">
             <div class="new_full_cat_texts">
-                <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 <a href="<?php echo $this->baselib->get_seo_url_by_category_id(213) ?>" class="new_full_cat_texts_header">КОЛБАСЫ</a>
                 <div class="new_full_cat_texts_links">
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(270) ?>" class="new_full_cat_texts_link">Варёно-копчёные</a>
@@ -76,7 +76,7 @@
         </div>
         <div class="new_catalog_item new_cat_4 new_catalog_item_4 fl_l">
             <div class="new_full_cat_texts">
-                <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 <a href="<?php echo $this->baselib->get_seo_url_by_category_id(274) ?>" class="new_full_cat_texts_header">СОСИСКИ,<br>САРДЕЛЬКИ</a>
                 <div class="new_full_cat_texts_links">
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(178) ?>" class="new_full_cat_texts_link">Сосиски</a>
@@ -96,7 +96,7 @@
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(46) ?>" class="new_full_cat_texts_link">Слабосоленая</a>
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(239) ?>" class="new_full_cat_texts_link">Пресервы</a>
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(48) ?>" class="new_full_cat_texts_link">Вяленая</a>
-                    <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                    <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 </div>
             </div>
         </div>
@@ -129,7 +129,7 @@
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(42) ?>" class="new_full_cat_texts_link">Фазан</a>
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(43) ?>" class="new_full_cat_texts_link">Другая птица</a>
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(278) ?>" class="new_full_cat_texts_link">Субпродукты птицы</a>
-                    <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                    <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 </div>
             </div>
         </div>
@@ -140,7 +140,7 @@
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(306) ?>" class="new_full_cat_texts_link">Яйцо куриное</a>
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(307) ?>" class="new_full_cat_texts_link">Яйцо цесарки</a>
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(308) ?>" class="new_full_cat_texts_link">Перепелиное яйцо</a>
-                    <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                    <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 </div>
             </div>
         </div>
@@ -153,7 +153,7 @@
         </div></a>
         <div class="new_catalog_item new_cat_9 fl_l">
             <div class="new_full_cat_texts">
-                <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 <a href="<?php echo $this->baselib->get_seo_url_by_category_id(14) ?>" class="new_full_cat_texts_header">ФРУКТЫ</a>
                 <div class="new_full_cat_texts_links">
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(100) ?>" class="new_full_cat_texts_link">Разные фрукты</a>
@@ -170,13 +170,13 @@
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(104) ?>" class="new_full_cat_texts_link">Зелень</a>
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(105) ?>" class="new_full_cat_texts_link">Салаты</a>
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(106) ?>" class="new_full_cat_texts_link">Грибы</a>
-                    <!--<div class="new_full_cat_texts_upheader">Более 150 товаров</div>-->
+                    <!--<!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->-->
                 </div>
             </div>
         </div>
         <div class="new_catalog_item new_cat_11 fl_l">
             <div class="new_full_cat_texts">
-                <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 <a href="<?php echo $this->baselib->get_seo_url_by_category_id(16) ?>" class="new_full_cat_texts_header">ОРЕХИ И<br>СУХОФРУКТЫ</a>
                 <div class="new_full_cat_texts_links">
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(107) ?>" class="new_full_cat_texts_link">Орехи</a>
@@ -191,7 +191,7 @@
         </div>
         <div class="new_catalog_item new_cat_12 new_catalog_item_4 fl_l">
             <div class="new_full_cat_texts">
-                <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 <a href="<?php echo $this->baselib->get_seo_url_by_category_id(17) ?>" class="new_full_cat_texts_header">СПЕЦИИ<br>ПРИПРАВЫ</a>
                 <div class="new_full_cat_texts_links">
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(243) ?>" class="new_full_cat_texts_link">Смеси</a>
@@ -220,7 +220,7 @@
         </div>
         <div class="new_catalog_item new_cat_14 fl_l">
             <div class="new_full_cat_texts">
-                <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 <a href="<?php echo $this->baselib->get_seo_url_by_category_id(251) ?>" class="new_full_cat_texts_header">КИСЛОМОЛОЧНЫЕ<br>ПРОДУКТЫ</a>
                 <div class="new_full_cat_texts_links">
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(253) ?>" class="new_full_cat_texts_link">Кефир</a>
@@ -235,7 +235,7 @@
         </div>
         <div class="new_catalog_item new_cat_15 fl_l">
             <div class="new_full_cat_texts">
-                <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 <a href="<?php echo $this->baselib->get_seo_url_by_category_id(226) ?>" class="new_full_cat_texts_header">СЫРЫ</a>
                 <div class="new_full_cat_texts_links">
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(236) ?>" class="new_full_cat_texts_link">Твердые</a>
@@ -252,7 +252,7 @@
         </div>
         <div class="new_catalog_item new_cat_16 new_catalog_item_4 fl_l">
             <div class="new_full_cat_texts">
-                <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 <a href="<?php echo $this->baselib->get_seo_url_by_category_id(279) ?>" class="new_full_cat_texts_header">ОЛИВКИ<br>И МАСЛИНЫ</a>
                 <div class="new_full_cat_texts_links">
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(283) ?>" class="new_full_cat_texts_link">Оливки</a>
@@ -279,13 +279,13 @@
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(309) ?>" class="new_full_cat_texts_link">Панировка</a>
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(310) ?>" class="new_full_cat_texts_link">Дрожжи</a>
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(311) ?>" class="new_full_cat_texts_link">Крахмал</a>
-                    <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                    <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 </div>
             </div>
         </div>
         <div class="new_catalog_item new_cat_18 fl_l">
             <div class="new_full_cat_texts">
-                <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 <a href="<?php echo $this->baselib->get_seo_url_by_category_id(10) ?>" class="new_full_cat_texts_header">КОНСЕРВАЦИЯ</a>
                 <div class="new_full_cat_texts_links">
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(77) ?>" class="new_full_cat_texts_link">Овощная</a>
@@ -299,7 +299,7 @@
         </div>
         <div class="new_catalog_item new_cat_19 fl_l">
             <div class="new_full_cat_texts">
-                <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 <a href="<?php echo $this->baselib->get_seo_url_by_category_id(18) ?>" class="new_full_cat_texts_header">РАСТИТЕЛЬНЫЕ<br>МАСЛА</a>
                 <div class="new_full_cat_texts_links">
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(117) ?>" class="new_full_cat_texts_link">Оливковое</a>
@@ -313,7 +313,7 @@
         </div>
         <div class="new_catalog_item new_cat_20 new_catalog_item_4 fl_l">
             <div class="new_full_cat_texts">
-                <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 <a href="<?php echo $this->baselib->get_seo_url_by_category_id(12) ?>" class="new_full_cat_texts_header">СОУСЫ</a>
                 <div class="new_full_cat_texts_links">
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(89) ?>" class="new_full_cat_texts_link">Майонез</a>
@@ -330,7 +330,7 @@
         </div>
         <div class="new_catalog_item new_cat_21 fl_l">
             <div class="new_full_cat_texts">
-                <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 <a href="<?php echo $this->baselib->get_seo_url_by_category_id(6) ?>" class="new_full_cat_texts_header">ПОЛУФАБРИКАТЫ</a>
                 <div class="new_full_cat_texts_links">
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(228) ?>" class="new_full_cat_texts_link">Блинчики</a>
@@ -350,7 +350,7 @@
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(224) ?>" class="new_full_cat_texts_link">Супы</a>
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(225) ?>" class="new_full_cat_texts_link">Готовые обеды</a>
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(325) ?>" class="new_full_cat_texts_link">Бульоны</a>
-                    <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                    <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 </div>
             </div>
         </div>
@@ -368,7 +368,7 @@
         </div>
         <div class="new_catalog_item new_cat_24 new_catalog_item_4 fl_l">
             <div class="new_full_cat_texts">
-                <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 <a href="<?php echo $this->baselib->get_seo_url_by_category_id(11) ?>" class="new_full_cat_texts_header">СОЛЕНИЯ</a>
                 <div class="new_full_cat_texts_links">
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(82) ?>" class="new_full_cat_texts_link">Разные соления</a>
@@ -409,7 +409,7 @@
         </div>
         <div class="new_catalog_item new_cat_27 fl_l">
             <div class="new_full_cat_texts">
-                <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 <a href="<?php echo $this->baselib->get_seo_url_by_category_id(23) ?>" class="new_full_cat_texts_header">МЕД</a>
                 <div class="new_full_cat_texts_links">
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(142) ?>" class="new_full_cat_texts_link">Мед в ассортименте</a>
@@ -424,7 +424,7 @@
         </div>
         <div class="new_catalog_item new_cat_28 new_catalog_item_4 fl_l">
             <div class="new_full_cat_texts">
-                <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 <a href="<?php echo $this->baselib->get_seo_url_by_category_id(286) ?>" class="new_full_cat_texts_header">ВАРЕНЬЕ<br>И ДЖЕМЫ</a>
                 <div class="new_full_cat_texts_links">
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(81) ?>" class="new_full_cat_texts_link">Варенье</a>
@@ -443,13 +443,13 @@
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(209) ?>" class="new_full_cat_texts_link">Конфеты в упаковках</a>
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(177) ?>" class="new_full_cat_texts_link">Конфеты в коробках</a>
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(132) ?>" class="new_full_cat_texts_link">Шоколадная плитка</a>
-                    <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                    <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 </div>
             </div>
         </div>
         <div class="new_catalog_item new_cat_30 fl_l">
             <div class="new_full_cat_texts">
-                <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 <a href="<?php echo $this->baselib->get_seo_url_by_category_id(22) ?>" class="new_full_cat_texts_header">ТОРТЫ<br>И ПИРОЖНЫЕ</a>
                 <div class="new_full_cat_texts_links">
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(138) ?>" class="new_full_cat_texts_link">Торты</a>
@@ -471,13 +471,13 @@
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(195) ?>" class="new_full_cat_texts_link">Халва</a>
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(207) ?>" class="new_full_cat_texts_link">Чучхела</a>
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(196) ?>" class="new_full_cat_texts_link">Нуга</a>
-                    <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                    <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 </div>
             </div>
         </div>
         <div class="new_catalog_item new_cat_32 new_catalog_item_4 fl_l">
             <div class="new_full_cat_texts">
-                <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 <a href="<?php echo $this->baselib->get_seo_url_by_category_id(321) ?>" class="new_full_cat_texts_header">ПЕЧЕНЬЕ, ВАФЛИ,<br>ПРЯНИКИ</a>
                 <div class="new_full_cat_texts_links">
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(136) ?>" class="new_full_cat_texts_link">Печенье</a>
@@ -496,13 +496,13 @@
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(200) ?>" class="new_full_cat_texts_link">Сухарики</a>
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(198) ?>" class="new_full_cat_texts_link">Попкорн</a>
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(210) ?>" class="new_full_cat_texts_link">Снэки</a>
-                    <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                    <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 </div>
             </div>
         </div>
         <div class="new_catalog_item new_cat_34 fl_l">
             <div class="new_full_cat_texts">
-                <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 <a href="<?php echo $this->baselib->get_seo_url_by_category_id(21) ?>" class="new_full_cat_texts_header">ДРУГИЕ СЛАДОСТИ</a>
                 <div class="new_full_cat_texts_links">
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(317) ?>" class="new_full_cat_texts_link">Козинаки</a>
@@ -518,7 +518,7 @@
         </div>
         <div class="new_catalog_item new_cat_35 fl_l">
             <div class="new_full_cat_texts">
-                <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 <a href="<?php echo $this->baselib->get_seo_url_by_category_id(19) ?>" class="new_full_cat_texts_header">ХЛЕБ, ЛАВАШ</a>
                 <div class="new_full_cat_texts_links">
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(122) ?>" class="new_full_cat_texts_link">Хлеб</a>
@@ -543,13 +543,13 @@
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(300) ?>" class="new_full_cat_texts_link">Каша</a>
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(302) ?>" class="new_full_cat_texts_link">Макароны ЗОЖ</a>
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(312) ?>" class="new_full_cat_texts_link">Чипсы ЗОЖ</a>
-                    <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                    <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 </div>
             </div>
         </div>
         <div class="new_catalog_item new_cat_37 fl_l">
             <div class="new_full_cat_texts">
-                <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 <a href="<?php echo $this->baselib->get_seo_url_by_category_id(295) ?>" class="new_full_cat_texts_header">ПРОДУКТЫ<br>БЕЗ САХАРА</a>
                 <div class="new_full_cat_texts_links">
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(296) ?>" class="new_full_cat_texts_link">Сиропы</a>
@@ -571,7 +571,7 @@
         </div>
         <div class="new_catalog_item new_cat_39 fl_l">
             <div class="new_full_cat_texts">
-                <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 <a href="<?php echo $this->baselib->get_seo_url_by_category_id(27) ?>" class="new_full_cat_texts_header">СОКИ<br>И КОМПОТЫ</a>
                 <div class="new_full_cat_texts_links">
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(164) ?>" class="new_full_cat_texts_link">Соки</a>
@@ -583,7 +583,7 @@
         </div>
         <div class="new_catalog_item new_cat_40 new_catalog_item_4 fl_l">
             <div class="new_full_cat_texts">
-                <div class="new_full_cat_texts_upheader">Более 150 товаров</div>
+                <!-- <div class="new_full_cat_texts_upheader">Более 150 товаров</div> -->
                 <a href="<?php echo $this->baselib->get_seo_url_by_category_id(26) ?>" class="new_full_cat_texts_header">ВОДА И НАПИТКИ</a>
                 <div class="new_full_cat_texts_links">
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(159) ?>" class="new_full_cat_texts_link">Питьевая</a>

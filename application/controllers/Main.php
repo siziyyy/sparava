@@ -697,7 +697,7 @@ var_dump($link_data_insert);die();
 
 		$brand_title = $this->input->get('brand');
 
-		$products = $this->productlib->get_products(false,true);
+		$products = $this->productlib->get_products();
 		
 		$filters = array(
 			'country' => 0,
@@ -716,6 +716,11 @@ var_dump($link_data_insert);die();
 					
 		if($empty_products > 0) {
 			$empty_products = 5-$empty_products;
+		}
+
+		if(!count($products_in_page['products'])) {
+			redirect(base_url(), 'refresh');
+			return true;
 		}
 
 		$data = array(
