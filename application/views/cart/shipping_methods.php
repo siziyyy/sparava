@@ -49,5 +49,5 @@
 			</div>
 		</form>
 	</div>	
-	<?php $this->load->view('cart/related_products'); ?>
+	<?php $this->load->view('cart/left-banners'); ?>
 </aside>

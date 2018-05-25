@@ -1766,7 +1766,7 @@ var_dump($link_data_insert);die();
 			'totals' => array(
 				'totals' => $totals
 			),
-			'related_products' => $this->productlib->get_products_by_ids($related_products),
+			'left_banners' => $this->baselib->get_page_banners('cart-left'),
 			'banner' => $banners,
 			'summ' => $summ
 		);

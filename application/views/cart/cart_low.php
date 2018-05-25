@@ -12,5 +12,5 @@
 		</div>
 		<!--<a href="/" class="c_inners_left_side_button black_small_button vniz_na_20_px_aaaarggh"><span class="lt">&lt;</span> добрать</a>-->
 	</div>
-	<?php $this->load->view('cart/related_products'); ?>
+	<?php $this->load->view('cart/left-banners'); ?>
 </aside>
