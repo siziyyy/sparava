@@ -44,7 +44,7 @@
 		</div>
 		
 	</div>
-	<?php $this->load->view('cart/related_products'); ?>
+	<?php $this->load->view('cart/left-banners'); ?>
 	<?php if(false) { ?>
 		<div class="c_inners_left_side_content c_inners_left_side_content_after">
 			<div class="c_inners_left_side_text_h3">
