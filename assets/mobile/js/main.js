@@ -135,15 +135,17 @@ $(document).ready(function() {
     /** CATEGORY OPEN FILTERS **/
     $(document).on('tap','.category_content_header_button_filters',function(e) {
 		$('body').toggleClass('opened_filters');
-		console.log('1');
+        setTimeout(function() { 
+            $('.filters_mask').show(); 
+        }, 300);
     });
     $(document).on('tap','.filters_mask',function(e) {
         $('body').removeClass('opened_filters');
-		console.log('2');
+        $('.filters_mask').hide();
     });
     $(document).on('tap','.filters_header',function(e) {
         $('body').removeClass('opened_filters');
-		console.log('3');
+        $('.filters_mask').hide();
     });
     /** CATEGORY MORE FILTERS **/
     $(document).on('tap','.filters_form_more',function(e) {
