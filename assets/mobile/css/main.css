@@ -477,7 +477,7 @@ footer {
             transition: right .3s ease;
 }
 .opened_filters .filters_mask {
-    display: block;
+    /* display: block; */
 }
 .opened_filters .page_scrollbar_helper {
     overflow: hidden;

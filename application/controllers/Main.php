@@ -68,33 +68,9 @@ class Main extends CI_Controller {
 			return true;
 		}
 
-
 		if(!empty($this->input->get('link_id'))) {
 			$this->baselib->get_link_data($this->input->get('link_id'));
 		}	
-/*
-		if(!empty($this->input->get('link_id'))) {
-			$link_data = $this->baselib->get_link_data();
-
-			if(isset($link_data['is_used']) and !$link_data['is_used']) {
-				$link_data_insert = array(
-					'link_id' => $this->input->get('link_id'),
-					'count' => $link_data['count'],
-					'is_used' => false
-				);
-				
-				$this->session->set_userdata('link_data',$link_data_insert);
-			} else {
-				$link_data_insert = array(
-					'link_id' => $this->input->get('link_id'),
-					'count' => 0,
-					'is_used' => false
-				);
-var_dump($link_data_insert);die();
-				$this->session->set_userdata('link_data',$link_data_insert);
-			}
-		}		
-*/		
     }
 
 	public function _remap($method, $params = array()) {
@@ -724,6 +700,7 @@ var_dump($link_data_insert);die();
 		}
 
 		$data = array(
+			'products_count' => $products_in_page['products_count'],
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
 			),
@@ -732,10 +709,11 @@ var_dump($link_data_insert);die();
 			),
 			'categories_struct' => $this->productlib->get_categories_struct(),
 			'brand_title' => $brand_title,
+			'current_category_title' => $brand_title,
 			'products' => $products_in_page['products'],
 			'current_page' => $page,
 			'pages_count' => $products_in_page['pages_count'],
-			'attributes' => $this->baselib->handle_brands_attributes($products),
+			//'attributes' => $this->baselib->handle_brands_attributes($products),
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
@@ -746,7 +724,11 @@ var_dump($link_data_insert);die();
 			'path' => false
 		);
 
-		$this->load->view('brands',$data);
+		if($this->_is_mobile) {
+			$this->load->view('mobile/category', $data);
+		} else {
+			$this->load->view('brands',$data);
+		}
 	}	
 	
 	public function orders() {

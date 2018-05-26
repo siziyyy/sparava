@@ -3,14 +3,18 @@
                     <a href="#" data-url="<?php echo $product['href'] ?>?type=<?php echo ((isset($path) and $path) ? $path : '') ?>" class="link_to_product">
                         <div class="category_content_item_img_pack">
                             <img src="/images/<?php echo $product['image'] ?>" onerror="this.src='/assets/mobile/img/goods/nophoto.jpg'" class="category_content_item_img" alt="<?php echo $product['title'] ?>">
-                            <div class="good_page_photo_av_weight">≈ 400 г</div>
+                            <?php if(!empty($product['sr_ves'])) { ?>
+                                <div class="good_page_photo_av_weight">≈ <?php echo $product['sr_ves'] ?></div>
+                            <?php } ?>
                         </div>
                         <div class="category_content_item_double_info">
                             <div class="category_content_item_price_line">
-                                <div class="category_content_item_price_old">
-                                    <span>&nbsp;₽</span>
-                                    <?php echo $product['price'] ?>
-                                </div>
+                                <?php if(isset($product['old_price'])) { ?>
+                                    <div class="category_content_item_price_old">
+                                        <span>&nbsp;₽</span>
+                                        <?php echo $product['price'] ?>
+                                    </div>
+                                <?php } ?>
                                 <div class="category_content_item_price"><?php echo $product['price'] ?> ₽</div>
                                 <div class="category_content_item_weight">
                                     <?php if($product['type'] == 'шт') { ?>
