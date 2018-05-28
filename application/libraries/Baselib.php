@@ -1068,7 +1068,19 @@ class Baselib {
 			if($product) {
 				$products[$product['product_id']] = $product;				
 
-				if($link_data) {
+				if(isset($element['box'])) {
+					$where = array(
+						'product_id' => $product['product_id'],
+						'provider_id' => $element['box']
+					);
+
+					$query = $this->_ci->db->select("*")->from("product_to_provider")->where($where)->get();
+		    		if ($query->num_rows() > 0) {
+		    			$provider_data = $query->row_array();
+
+			    		$products[$product['product_id']]['price'] = (int)($provider_data['box']+($provider_data['box']*15)/100);
+		    		}	
+				} elseif($link_data) {
 					if($link_data['product_id'] == $product['product_id']) {
 						$products[$product['product_id']]['price'] = $link_data['value'];
 						$products[$product['product_id']]['quantity_in_cart'] = $link_data['value'];

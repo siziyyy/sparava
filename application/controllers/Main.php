@@ -1953,6 +1953,11 @@ class Main extends CI_Controller {
 				);
 			} elseif($this->input->post('action') == 'remove') {
 				unset($cart['p-'.$this->input->post('product_id')]);
+			}if($this->input->post('action') == 'box') {
+				$cart['p-'.$this->input->post('product_id')] = array(
+					'quantity' => $quantity_in_request + $quantity,
+					'box' => $this->input->post('provider_id')
+				);
 			}
 
 			$this->session->set_userdata('cart', $cart);
