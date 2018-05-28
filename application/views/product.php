@@ -344,46 +344,37 @@
                             <div class="new_good_page_line_2018_header">Другие предложения <?php echo ($related_by_brands_products_type == 'category' ? 'из этой категории' : '') ?><?php echo ($related_by_brands_products_type == 'brand' ? 'от '.$product['brand'] : '') ?></div>
                             <div class="new_good_page_line_2018_body">
                                 <div class="recomendations_in_commets">
-                                    <div class="new_good_page_line_2018_banner">
-                                        <?php if(isset($banner['img'])) { ?>
-                                            <a href="<?php echo $banner['href'] ?>">
-                                                <img src="<?php echo $banner['img'] ?>">
-                                            </a>
-                                        <?php } ?> 
-                                    </div>
-                                    <!--
-                                    <div class="new_good_page_line_2018_big_pack">
-                                        <div class="new_good_page_line_2018_header">Еще дешевле!</div>
-                                        <div class="new_good_page_line_2018_big_pack_body">
-                                            <div class="buubbubu">
-                                                <a href="" class="opfoopesgflmem">
-                                                    <img src="" alt="" class="g_good_photo" onerror="this.src='/assets/img/nophoto.jpg'">
-                                                </a>
-                                                <div class="recommended_av_w_pack">
-                                                    <div class="recommended_prod"></div>
+
+                                    <?php if(isset($product['box_kol'])) { ?>
+                                        <div class="new_good_page_line_2018_big_pack">
+                                            <div class="new_good_page_line_2018_header">Еще дешевле!</div>
+                                            <div class="new_good_page_line_2018_big_pack_body">
+                                                <div class="buubbubu">
+                                                    <a href="" class="opfoopesgflmem">
+                                                        <img src="/images/<?php echo $product['image'] ?>" alt="" class="g_good_photo" onerror="this.src='/assets/img/nophoto.jpg'">
+                                                    </a>
+                                                    <div class="recommended_av_w_pack">
+                                                        <div class="recommended_prod"></div>
+                                                    </div>
+                                                    <div class="g_good_price">
+                                                        <span class="g_good_price_value"><?php echo $product['box_price'] ?></span> р.
+                                                        <div class="g_good_price_bigp"><?php echo $product['box_kol'] ?> х <?php echo (int)($product['box_price']/$product['box_kol']) ?></div>
+                                                    </div>
+                                                    <a href="" class="g_good_name" tabindex="0"><?php echo $product['title'] ?></a><br>
+                                                    <a href="#" class="box_add_to_cart" data-kol="1" data-provider-id="<?php echo $product['box_provider'] ?>" data-product-id="<?php echo $product['product_id'] ?>">Добавить в корзину</a>
                                                 </div>
-                                                <div class="g_good_price">
-                                                    <span class="g_good_price_value">1900</span> р.
-                                                    <div class="g_good_price_bigp">5 х 120 - 10%</div>
-                                                </div>
-                                                <a href="" class="g_good_name" tabindex="0">Чак Ролл стейк</a>
-                                            </div>
-                                            <div class="buubbubu">
-                                                <a href="" class="opfoopesgflmem">
-                                                    <img src="" alt="" class="g_good_photo" onerror="this.src='/assets/img/nophoto.jpg'">
-                                                </a>
-                                                <div class="recommended_av_w_pack">
-                                                    <div class="recommended_prod"></div>
-                                                </div>
-                                                <div class="g_good_price">
-                                                    <span class="g_good_price_value">900</span> р.
-                                                    <div class="g_good_price_bigp">5 х 120</div>
-                                                </div>
-                                                <a href="" class="g_good_name" tabindex="0">Чак Ролл стейк</a>
                                             </div>
                                         </div>
-                                    </div>
-                                    -->
+                                    <?php } else { ?>
+                                        <div class="new_good_page_line_2018_banner">
+                                            <?php if(isset($banner['img'])) { ?>
+                                                <a href="<?php echo $banner['href'] ?>">
+                                                    <img src="<?php echo $banner['img'] ?>">
+                                                </a>
+                                            <?php } ?> 
+                                        </div>
+                                    <?php } ?>
+
                                     <div class="more_from_brand_slider">
                                         <?php foreach($related_by_brands_products as $r_product) { ?>
                                             <div class="buubbubu">

@@ -1165,6 +1165,14 @@ $(document).ready(function() {
 		product_id = $(this).attr('data-product-id');
 		$('.g_good[data-product-id="'+product_id+'"]').find('.quick_view').click();
 	});
+
+	$(document).on('click','.box_add_to_cart',function(e) {
+		quantity = $(this).attr('data-kol');
+		provider_id = $(this).attr('data-provider-id');
+		product_id = $(this).attr('data-product-id');
+
+		cart.box(product_id, parseInt(quantity),provider_id);
+	});	
 	
 	$(document).on('click','.g_good_to_cart',function(e) {
 		
@@ -2116,6 +2124,23 @@ var cart = {
 						obj.parents(parent_class).find(".g_good_added_to_cart_text").show();
 						obj.parents(parent_class).find(".g_good_to_cart_text").hide();
 					}
+				}
+			}
+		});
+	},
+	'box': function(product_id, quantity, provider_id) {
+		$.ajax({
+			url: '/cart_ajax',
+			type: 'post',
+			data: 'action=box&product_id=' + product_id + '&quantity=' + (typeof(quantity) != 'undefined' ? quantity : 1) +'&provider_id=' + provider_id,
+			dataType: 'json',
+			success: function(json) {
+				if(json['success']) {
+					yaCounter46865034.reachGoal('cart-add');
+					
+					$('#h_cart_text_summ').text(json['success']['summ']);
+					$('#h_cart_text_word').text(json['success']['word']);
+					$('#h_cart_text_total').text(json['success']['total']);
 				}
 			}
 		});
