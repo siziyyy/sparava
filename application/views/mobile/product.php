@@ -77,20 +77,35 @@
                 </div>
             </div>
         </div>
-        <div class="item_page_big_pack">
-            <div class="content">
-                <div class="category_content_item_not_double_info_header_left_name">Еще дешевле в большой упаковке!</div>
-                <div class="category_content_item_not_double_info_body">
-                    Купите данный товар в большой упаковке по<br>более низкой цене
+        <?php if(isset($product['box_kol'])) { ?>
+            <div class="item_page_big_pack">
+                <div class="content">
+                    <div class="category_content_item_not_double_info_header_left_name">Еще дешевле в большой упаковке!</div>
+                    <div class="category_content_item_not_double_info_body">
+                        Купите данный товар в большой упаковке по<br>более низкой цене
+                    </div>
+                    <div class="item_page_big_pack_text">
+                        <?php if($product['type'] == 'шт') { ?>
+                            <?php $box_type = '1 шт' ?>
+                            <?php $box_clean_type = 'шт' ?>
+                        <?php } elseif($product['bm'] == 1) { ?>
+                            <?php $box_type = '1 кг' ?>
+                            <?php $box_clean_type = 'кг' ?>
+                        <?php } else { ?>
+                            <?php $box_type = '100 гр' ?>
+                            <?php $box_clean_type = false; ?>
+                        <?php } ?>
+
+                        <div class="item_page_big_pack_text_one">- <?php echo $product['box_price'] ?>&nbsp;₽</div>
+                        <div class="item_page_big_pack_text_two">за <?php echo $box_type ?></div>
+                        <div class="item_page_big_pack_text_three">
+                            <?php echo $product['box_kol'] ?> <?php echo ($box_clean_type ? $box_clean_type : '') ?> х <?php echo $product['box_price'] ?> руб. = <?php echo (int)($product['box_price']*$product['box_kol']) ?> руб.
+                        </div>
+                    </div>
+                    <a href="#" class="item_page_big_pack_link box_add_to_cart" data-kol="1" data-provider-id="<?php echo $product['box_provider'] ?>" data-product-id="<?php echo $product['product_id'] ?>">добавить в корзину</a>
                 </div>
-                <div class="item_page_big_pack_text">
-                    <div class="item_page_big_pack_text_one">- 130&nbsp;₽</div>
-                    <div class="item_page_big_pack_text_two">за кг</div>
-                    <div class="item_page_big_pack_text_three">10 кг х 130 руб. = 1300 руб.</div>
-                </div>
-                <a href="/" class="item_page_big_pack_link">перейти</a>
             </div>
-        </div>
+        <?php } ?>
         <div class="item_page_recs_and_comments item_page_recs_and_comments_show_recs">
             <div class="content">
                 <a href="#" class="item_page_recs_and_comments_link item_page_recs_link active">Рекомендации от Aydaeda</a>

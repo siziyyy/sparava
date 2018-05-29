@@ -591,18 +591,17 @@ class Main extends CI_Controller {
 	}
 	
 	public function provider() {
-
-		if(!is_null($this->input->post('token'))) {
-			if($this->baselib->check_admin_token($this->input->post('token'))) {
+		if(!is_null($this->input->post('admin_token'))) {
+			if($this->baselib->check_admin_token($this->input->post('admin_token'))) {
 				$this->load->library('excellib');
 				$where = array();
 
 				foreach(explode(';',$this->input->get('provider')) as $provider) {
 					if(!empty(trim($provider))) {
-						$where[] = $provider;
+						$where[] = urldecode($provider);
 					}
 				}
-
+				
 				if(count($where)) {
 					$this->excellib->download_products_in_excel('provider',$where);
 					return;
@@ -653,8 +652,8 @@ class Main extends CI_Controller {
 
 	public function brands() {
 
-		if(!is_null($this->input->post('token'))) {
-			if($this->baselib->check_admin_token($this->input->post('token'))) {
+		if(!is_null($this->input->post('admin_token'))) {
+			if($this->baselib->check_admin_token($this->input->post('admin_token'))) {
 				$this->load->library('excellib');
 				$where = array();
 
@@ -851,8 +850,8 @@ class Main extends CI_Controller {
 			redirect(base_url('/'), 'refresh');
 		}
 
-		if(!is_null($this->input->post('token'))) {
-			if($this->baselib->check_admin_token($this->input->post('token'))) {
+		if(!is_null($this->input->post('admin_token'))) {
+			if($this->baselib->check_admin_token($this->input->post('admin_token'))) {
 				$this->load->library('excellib');
 
 				if($category) {
@@ -1930,9 +1929,14 @@ class Main extends CI_Controller {
 			}
 			
 			$quantity = 0;
+			$box = false;		
 			
 			if(isset($cart['p-'.$this->input->post('product_id')])) {
 				$quantity = $cart['p-'.$this->input->post('product_id')]['quantity'];
+
+				if(isset($cart['p-'.$this->input->post('product_id')]['box'])) {
+					$box = $cart['p-'.$this->input->post('product_id')]['box'];
+				}
 			}
 			
 			$quantity_in_request = 0;
@@ -1958,6 +1962,10 @@ class Main extends CI_Controller {
 					'quantity' => $quantity_in_request + $quantity,
 					'box' => $this->input->post('provider_id')
 				);
+			}
+
+			if(isset($cart['p-'.$this->input->post('product_id')]) and $this->input->post('action') != 'box') {
+				$cart['p-'.$this->input->post('product_id')]['box'] = $box;
 			}
 
 			$this->session->set_userdata('cart', $cart);

@@ -234,25 +234,40 @@
                                     <span class="g_good_to_cart_icon sprite"></span>
                                 </div>
                             </div>
-                            <?php if(false) { ?>
+                            
+                            <?php if(isset($product['box_kol'])) { ?>
                                 <div class="good_page_big_pack">
                                     <div class="good_page_big_pack_header">Еще дешевле в большой упаковке!</div>
                                     <div class="good_page_big_pack_left fl_l">
                                         <div class="good_page_big_pack_left_body">
                                             Купите данный товар ящиком<br>по более низкой цене
                                         </div>
-                                        <a href="/" class="good_page_big_pack_left_footer">перейти</a>
+                                        <a href="#" class="good_page_big_pack_left_footer box_add_to_cart" data-kol="1" data-provider-id="<?php echo $product['box_provider'] ?>" data-product-id="<?php echo $product['product_id'] ?>">добавить в корзину</a>
                                     </div>
                                     <div class="good_page_big_pack_right fl_r">
                                         <div class="good_page_big_pack_right_header">
-                                            - 130 р. <span class="good_page_big_pack_right_header_span"> за кг</span>
+                                            <?php if($product['type'] == 'шт') { ?>
+                                                <?php $box_type = '1 шт' ?>
+                                                <?php $box_clean_type = 'шт' ?>
+                                            <?php } elseif($product['bm'] == 1) { ?>
+                                                <?php $box_type = '1 кг' ?>
+                                                <?php $box_clean_type = 'кг' ?>
+                                            <?php } else { ?>
+                                                <?php $box_type = '100 гр' ?>
+                                                <?php $box_clean_type = false; ?>
+                                            <?php } ?>
+
+
+                                            - <?php echo $product['box_price'] ?> р. <span class="good_page_big_pack_right_header_span"> за <?php echo $box_type ?></span>
                                         </div>
                                         <div class="good_page_big_pack_right_footer">
-                                            10 кг х 130 руб. = 1300 руб.
+                                            <?php echo $product['box_kol'] ?> <?php echo ($box_clean_type ? $box_clean_type : '') ?> х <?php echo $product['box_price'] ?> руб. = <?php echo (int)($product['box_price']*$product['box_kol']) ?> руб.
                                         </div>
                                     </div>
                                     <div class="clear"></div>
                                 </div>
+                            <?php } ?>
+                            <?php if(false) { ?>
                                 <div class="good_modal_right_line good_modal_video_line">
                                     <?php foreach($product['youtube'] as $video) { ?>
                                         <div class="good_modal_video" data-video-id="<?php echo $video ?>" style="background:url('https://i1.ytimg.com/vi/<?php echo $video ?>/default.jpg')">
@@ -344,36 +359,13 @@
                             <div class="new_good_page_line_2018_header">Другие предложения <?php echo ($related_by_brands_products_type == 'category' ? 'из этой категории' : '') ?><?php echo ($related_by_brands_products_type == 'brand' ? 'от '.$product['brand'] : '') ?></div>
                             <div class="new_good_page_line_2018_body">
                                 <div class="recomendations_in_commets">
-
-                                    <?php if(isset($product['box_kol'])) { ?>
-                                        <div class="new_good_page_line_2018_big_pack">
-                                            <div class="new_good_page_line_2018_header">Еще дешевле!</div>
-                                            <div class="new_good_page_line_2018_big_pack_body">
-                                                <div class="buubbubu">
-                                                    <a href="" class="opfoopesgflmem">
-                                                        <img src="/images/<?php echo $product['image'] ?>" alt="" class="g_good_photo" onerror="this.src='/assets/img/nophoto.jpg'">
-                                                    </a>
-                                                    <div class="recommended_av_w_pack">
-                                                        <div class="recommended_prod"></div>
-                                                    </div>
-                                                    <div class="g_good_price">
-                                                        <span class="g_good_price_value"><?php echo $product['box_price'] ?></span> р.
-                                                        <div class="g_good_price_bigp"><?php echo $product['box_kol'] ?> х <?php echo (int)($product['box_price']/$product['box_kol']) ?></div>
-                                                    </div>
-                                                    <a href="" class="g_good_name" tabindex="0"><?php echo $product['title'] ?></a><br>
-                                                    <a href="#" class="box_add_to_cart" data-kol="1" data-provider-id="<?php echo $product['box_provider'] ?>" data-product-id="<?php echo $product['product_id'] ?>">Добавить в корзину</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    <?php } else { ?>
-                                        <div class="new_good_page_line_2018_banner">
-                                            <?php if(isset($banner['img'])) { ?>
-                                                <a href="<?php echo $banner['href'] ?>">
-                                                    <img src="<?php echo $banner['img'] ?>">
-                                                </a>
-                                            <?php } ?> 
-                                        </div>
-                                    <?php } ?>
+                                    <div class="new_good_page_line_2018_banner">
+                                        <?php if(isset($banner['img'])) { ?>
+                                            <a href="<?php echo $banner['href'] ?>">
+                                                <img src="<?php echo $banner['img'] ?>">
+                                            </a>
+                                        <?php } ?> 
+                                    </div>
 
                                     <div class="more_from_brand_slider">
                                         <?php foreach($related_by_brands_products as $r_product) { ?>

@@ -18,6 +18,15 @@ $(document).ready(function() {
         $('#'+target).show();
     });
 
+    $(document).on('tap','.box_add_to_cart',function(e) {
+        e.preventDefault();
+        quantity = $(this).attr('data-kol');
+        provider_id = $(this).attr('data-provider-id');
+        product_id = $(this).attr('data-product-id');
+
+        cart.box(product_id, parseInt(quantity),provider_id);
+    }); 
+
     $(document).on('change','.select_shipping_date_input',function(e) {
         e.preventDefault();
 
@@ -884,6 +893,19 @@ var cart = {
                         obj.addClass('g_good_added_to_cart');
                         obj.addClass('active');
                     }
+                }
+            }
+        });
+    },
+    'box': function(product_id, quantity, provider_id) {
+        $.ajax({
+            url: '/cart_ajax',
+            type: 'post',
+            data: 'action=box&product_id=' + product_id + '&quantity=' + (typeof(quantity) != 'undefined' ? quantity : 1) +'&provider_id=' + provider_id,
+            dataType: 'json',
+            success: function(json) {
+                if(json['success']) {
+                    yaCounter46865034.reachGoal('cart-add');
                 }
             }
         });

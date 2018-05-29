@@ -8,6 +8,7 @@ class Category extends Fruitcrm {
 				$query = $this->db->get_where("categories", array("category_id" => $this->_id));
 				if ($query->num_rows() > 0) {
 					$this->_data = $query->row_array();
+					$this->_data['seo_article'] = htmlspecialchars_decode($this->_data['seo_article']);
 
 					if(!is_null($this->_data['tags']) and !empty($this->_data['tags'])) {
 						$tags = base64_decode($this->_data['tags']);

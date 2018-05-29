@@ -1167,6 +1167,7 @@ $(document).ready(function() {
 	});
 
 	$(document).on('click','.box_add_to_cart',function(e) {
+		e.preventDefault();
 		quantity = $(this).attr('data-kol');
 		provider_id = $(this).attr('data-provider-id');
 		product_id = $(this).attr('data-product-id');
