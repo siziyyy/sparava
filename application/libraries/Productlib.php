@@ -857,16 +857,23 @@ class Productlib {
 				$product['blog_id'] = NULL;
 			}
 
- 			$sql = 'SELECT * FROM `product_to_provider` WHERE `product_id` = '.$product['product_id'].' AND `kol` > 0 AND `box` > 0 ORDER BY `kol` ASC LIMIT 1';
+			$product = $this->_ci->baselib->handle_special_price($product);
+
+ 			$sql = 'SELECT * FROM `product_to_provider` WHERE `product_id` = '.$product['product_id'].' AND `kol` > 1 AND `cko` > 0 ORDER BY `kol` ASC, `cko` ASC LIMIT 1';
 			$query = $this->_ci->db->query($sql);
 			if ($query->num_rows() > 0) {
 				$provider_data = $query->row_array();
-				$product['box_price'] = (int)($provider_data['box']+($provider_data['box']*15)/100);
-				$product['box_kol'] = $provider_data['kol'];
-				$product['box_provider'] = $provider_data['provider_id'];
+
+				$price = ((int)($provider_data['cko']+($provider_data['cko']*15)/100)) + 1;
+
+				if($price < $product['price']) {
+					$product['box_price'] = $price;
+					$product['box_kol'] = $provider_data['kol'];
+					$product['box_provider'] = $provider_data['provider_id'];
+				}
 			}
 
-			return $this->_ci->baselib->handle_special_price($product);
+			return $product;
 		}
 		
 		return false;

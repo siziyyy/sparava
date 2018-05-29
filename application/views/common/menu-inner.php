@@ -185,7 +185,7 @@
                                 <a href="#" class="downlaod_excel">XLS</a>
                     			<a href="https://admin.aydaeda.ru/importexport" target="_blank" class="g_admin_info brandnewadminlink">admin</a>
 							   	<form id="xls_download_form" method="POST">
-                    				<input type="hidden" value="" name="token" id="xls_download_token" />
+                    				<input type="hidden" value="" name="admin_token" id="xls_download_token" />
                     			</form> 
                             </div>
                 		</div> 

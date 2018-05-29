@@ -7,7 +7,7 @@
                         	<a href="#" class="downlaod_excel">XLS</a>
                         	<a href="https://admin.aydaeda.ru/importexport" target="_blank">admin</a>
                         	<form id="xls_download_form" method="POST">
-                        		<input type="hidden" value="" name="token" id="xls_download_token" />
+                        		<input type="hidden" value="" name="admin_token" id="xls_download_token" />
                         	</form>
                             <div class="cool_select_pack cool_select_country_pack fl_l">
                                 <div class="cool_select cool_select_country <?php echo (isset($filters_text['provider']) ? 'cool_select_disabled' : '') ?>">
