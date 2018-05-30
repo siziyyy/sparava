@@ -859,13 +859,28 @@ class Productlib {
 
 			$product = $this->_ci->baselib->handle_special_price($product);
 
- 			$sql = 'SELECT * FROM `product_to_provider` WHERE `product_id` = '.$product['product_id'].' AND `kol` > 1 AND `cko` > 0 ORDER BY `kol` ASC, `cko` ASC LIMIT 1';
+			$provider_prices = array();
+
+ 			$sql = 'SELECT * FROM `product_to_provider` WHERE `product_id` = '.$product['product_id'].' AND `kol` > 1 AND `cko` > 0 ORDER BY `kol` ASC';
 			$query = $this->_ci->db->query($sql);
 			if ($query->num_rows() > 0) {
-				$provider_data = $query->row_array();
+				foreach ($query->result_array() as $row) {
+					$provider_prices[] = $row;
+				}
+			}
 
-				$price = ((int)($provider_data['cko']+($provider_data['cko']*15)/100)) + 1;
+			if(count($provider_prices)) {
+				$price = 0;
 
+				foreach ($provider_prices as $provider) {
+					$pre_price = ((int)($provider['cko']+($provider['cko']*15)/100)) + 1;
+
+					if($price == 0 or $pre_price < $price) {
+						$price = $pre_price;
+						$provider_data = $provider;
+					}
+				}
+				
 				if($price < $product['price']) {
 					$product['box_price'] = $price;
 					$product['box_kol'] = $provider_data['kol'];
