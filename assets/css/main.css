@@ -613,8 +613,8 @@ header .content_helper{padding:15px}
     margin: 30px 0 20px;
 }
 .new_shipping_button,.select_shipping_date {
-	color: #9499A3;
-	background-color: #EEF0F5;
+	color: #666;
+	background-color: #e6e6e6;
 	font-size: 15px;
 	padding: 7px 20px;
 	-webkit-border-radius: 3px;
@@ -628,7 +628,7 @@ header .content_helper{padding:15px}
 	        transition: all .3s ease;
 }
 .new_shipping_button:hover,.select_shipping_date:hover {
-	color: #676B73;
+	color: #666;
 	background-color: #E7E9F0;
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
@@ -655,8 +655,8 @@ header .content_helper{padding:15px}
 	color: #fff;
 }
 .new_shipping_button_small,.new_shipping_button_small_date {
-	color: #9499A3;
-	background-color: #EEF0F5;
+	color: #666;
+	background-color: #e6e6e6;
 	font-size: 13px;
 	width: 84px;
 	text-align: center;
@@ -673,8 +673,11 @@ header .content_helper{padding:15px}
 	        transition: all .3s ease;
 	display: inline-block;
 }
+.new_shipping_button_small_wide {
+	width: 174px;
+}
 .new_shipping_button_small:hover,.new_shipping_button_small_date:hover {
-	color: #676B73;
+	color: #666;
 	background-color: #E7E9F0;
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
