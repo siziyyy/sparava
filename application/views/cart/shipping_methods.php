@@ -32,6 +32,7 @@
 							</div>
 							<div class="clear"></div>					
 							<div class="new_shipping_buttons_small_pack select_shipping_time_wrapper">
+								<div class="new_shipping_button_small new_shipping_button_small_wide" data-value="1" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">в любое время суток</div>
 								<div class="new_shipping_button_small" data-value="1" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">7:00 - 9:00</div>
 								<div class="new_shipping_button_small" data-value="2" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">9:00 - 13:00</div>
 								<div class="new_shipping_button_small" data-value="3" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">13:00 - 19:00</div>

@@ -39,6 +39,7 @@
                             <div class="clear"></div>
                         </div>
                         <div class="cart_date_time cart_delivery_line cart_delivery_line_for_time block_select_time" id="block_select_time">
+                            <a href="#" class="cart_delivery_line_button_date fl_l new_shipping_button_small new_shipping_button_small_wide" data-value="1" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">в любое время суток</a>
                             <a href="#" class="cart_delivery_line_button_date fl_l new_shipping_button_small" data-value="1" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">7:00 - 9:00</a>
                             <a href="#" class="cart_delivery_line_button_date fl_r new_shipping_button_small" data-value="3" data-name="shipping_time" data-method="<?php echo current($group['methods'])['shipping_id'] ?>">13:00 - 19:00</a>
                             <div class="clear"></div>
