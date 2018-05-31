@@ -347,10 +347,11 @@ textarea.product_description{height:139px}
 .good_page_big_pack_header {
     color: #F2593A;
     font-size: 16px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    font-weight: 700;/**/
 }
 .good_page_big_pack_left_body {
-    font-size: 16px;
+    font-size: 14px;/* 16 */
     margin: 0px 0 12px 0;
     padding-right: 25px;
 }
