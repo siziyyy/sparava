@@ -1897,6 +1897,7 @@ $(document).ready(function() {
 							
 							$('#product_info .about_this_product').hide();
 							$('#product_info .good_modal_sr_ves_wrapper').hide();
+							$('#product_info .good_modal_recommend_wrapper').hide();
 							$('#product_info .good_modal_consist_wrapper').hide();
 							$('#product_info .good_modal_bbefore_wrapper').hide();
 							$('#product_info .good_modal_firm_with_link').hide();
@@ -1937,6 +1938,10 @@ $(document).ready(function() {
 							if(product['sr_ves']) {
 								$('#product_info .good_modal_sr_ves').text(product['sr_ves']);
 								$('#product_info .good_modal_sr_ves_wrapper').show();
+							}
+
+							if(product['recommend']) {
+								$('#product_info .good_modal_recommend_wrapper').show();
 							}
 
 							if(product['consist']) {
