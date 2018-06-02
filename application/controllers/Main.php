@@ -1582,7 +1582,8 @@ class Main extends CI_Controller {
 		$data = array(
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
-			)
+			),
+			'return_to_cart_after_login' => (!is_null($this->session->userdata('return_to_cart_after_login')) ? true : false )
 		);
 
 		if($type == 'restore') {

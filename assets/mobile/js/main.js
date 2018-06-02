@@ -753,7 +753,18 @@ $(document).ready(function() {
                     category : $(this).parents('.filters_body').attr('data-category')
                 }
                 
-                break;  
+                break;
+
+            case 'feedback':
+                send_data = {
+                    type : type,
+                    feedback_subject : $('.feedback_name').val(),
+                    feedback_name : $('.feedback_name').val(),
+                    feedback_phone : $('.feedback_phone').val(),
+                    feedback_email : $('.feedback_email').val()                    
+                }
+                
+                break;
 
             case 'favourite':
                 if($(this).parents('.g_good').length > 0) {
@@ -796,7 +807,9 @@ $(document).ready(function() {
                         } else if(send_data.type == 'add_product_comment') {
                             $('#mobile_comments').empty();
                             $('#mobile_comments').html(json['success']['mobile']);
-                        } 
+                        } else if(send_data.type == 'feedback') {
+                            $('.feedback_success').show();
+                        }  
                     } else if(json['remove']) {
                         if(send_data.type == 'favourite') {
                             parent_object.find('.category_content_item_not_double_info_footer_star').removeClass('header_icon_favorite_active');
