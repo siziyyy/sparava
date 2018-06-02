@@ -3,7 +3,11 @@
             <?php if(isset($error)) { ?>
                 <div class="cart_auth_header_hello_top"><?php echo $error ?></div>
             <?php } ?>
-            <a href="/pages/cart/delivery/" class="cart_auth_back">обратно в доставку</a>
+            
+            <?php if($return_to_cart_after_login) { ?>
+                <a href="/pages/cart/delivery/" class="cart_auth_back">обратно в доставку</a>
+            <?php } ?>
+            
             <div class="cart_auth_gray_buttons cart_delivery_line">
                 <a href="#" class="cart_delivery_line_button account_tab_select fl_l" data-target="register_form">Я первый раз</a> <!-- add / remove .active -->
                 <a href="#" class="cart_delivery_line_button account_tab_select fl_r" data-target="login_form">Войти</a> <!-- add / remove .active -->
