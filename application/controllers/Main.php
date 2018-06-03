@@ -14,12 +14,21 @@ class Main extends CI_Controller {
 			$this->_is_mobile = true;
 		}
 
-		if(!is_null($this->input->post('token')) and !valid_email($this->input->post('email'))) {
+
+
+		if(!empty($this->input->post('email'))) {
+			$this->load->model('account');
+			$account = new Account();
+			
+			if(!valid_email($this->input->post('email')) or $account->set_id_by_email($this->input->post('email'))) {
+				$proceed_to_social_login = true;
+			}			
+		}
+
+		if(!is_null($this->input->post('token')) and isset($proceed_to_social_login)) {
+
 			$s = file_get_contents('http://ulogin.ru/token.php?token=' . $_POST['token'] . '&host=' . $_SERVER['HTTP_HOST']);
             $user = json_decode($s, true);
-
-            $this->load->model('account');
-			$account = new Account();
 
 			if(!isset($user['error']) and !$account->social_login($user['identity'],$user['network'])) {
 				$data = array(
@@ -38,20 +47,21 @@ class Main extends CI_Controller {
 				if(!empty($this->input->post('email')) and !valid_email($this->input->post('email'))) {
 					$data['error'] = 'Введите правильный email';
 				}
-				
-				if($this->_is_mobile) {
-					$this->load->view('mobile/social', $data);
-				} else {
-					$this->load->view('social', $data);
+
+				if(!empty($this->input->post('email')) and valid_email($this->input->post('email')) and $account->set_id_by_email($this->input->post('email'))) {
+					$data['error'] = 'Данный email уже занят';
 				}
-				
 
-				return true;
+				if($this->_is_mobile) {
+					$html = $this->load->view('mobile/social', $data, true);
+				} else {
+					$html = $this->load->view('social', $data, true);
+				}
+
+				echo $html;
+				die();
 			}
-		} elseif(!is_null($this->input->post('profile')) and !is_null($this->input->post('network'))) {
-
-            $this->load->model('account');
-			$account = new Account(); 			
+		} elseif(!is_null($this->input->post('profile')) and !is_null($this->input->post('network'))) { 			
 
 			$account->set_data($this->input->post());
 			$account->add_social();
@@ -91,10 +101,6 @@ class Main extends CI_Controller {
 			}
 		}
 
-		if(!is_null($this->input->post('token'))) {
-			return false;
-		}
-		
 		if(is_callable(array($this, $method))) {
 			return call_user_func_array(array($this, $method), $params);
 		} else {
