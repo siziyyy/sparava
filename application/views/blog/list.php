@@ -9,18 +9,14 @@
 		}
 	}
 </style>
-                <div class="mobile_blog_header">
-                	<a href="/blogs" class="cyvguhbijnokml cyvguhbijnokml_cur">Вкусный блог</a>
-                	<a href="/providers_blogs" class="cyvguhbijnokml">Информация о поставщиках</a>
-                	<div class="clear"></div>
-                </div>
         <section class="content">
             <div class="content_helper">
                 <div class="blog_header">
-                    <div class="blog_header_left fl_l">Вкусный блог <a href="/providers_blogs" class="blog_header_left_link">Информация о поставщиках</a></div>
-                    <!--<div class="blog_header_right fl_r">
-						<?php /* echo $counter */ ?> публикаций					
-					</div>-->
+                	<?php if($this->router->fetch_method() == 'blogs') { ?>
+                		<div class="blog_header_left fl_l">Вкусный блог <a href="/providers_blogs" class="blog_header_left_link">Информация о поставщиках</a></div>
+                	<?php } else { ?>
+                     <div class="blog_header_left fl_l">Информация о поставщиках <a href="/blogs" class="blog_header_left_link">Вкусный блог</a></div>
+                    <?php } ?>
                     <div class="clear"></div>
                 </div>
 				<?php foreach($blogs as $date => $blogs_for_date) { ?>

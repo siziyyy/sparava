@@ -254,7 +254,7 @@ class Main extends CI_Controller {
 		);
 
 		$blogs = $this->baselib->get_blogs($blog_id,'provider');
-		
+
 		$data = array(
 			'header' => array(
 				'cart' => $this->get_cart_info_for_header()
