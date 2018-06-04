@@ -908,7 +908,8 @@ var cart = {
                 if(json['success']) {
                     yaCounter46865034.reachGoal('cart-add');
                     $('.total_in_cart').text(json['success']['total']);
-                    $('.total_in_cart_wrapper').show();
+                    $('.total_in_cart').removeClass('total_in_cart_hide');
+                    $('.footer_button_img_cart').addClass('orange_cart');                    
 
                     if(obj) {
                         obj.addClass('g_good_added_to_cart');
@@ -926,8 +927,9 @@ var cart = {
             dataType: 'json',
             success: function(json) {
                 $('.total_in_cart').text(json['success']['total']);
-                $('.total_in_cart_wrapper').show();
-                
+                $('.total_in_cart').removeClass('total_in_cart_hide');
+                $('.footer_button_img_cart').addClass('orange_cart'); 
+
                 if(json['success']) {
                     yaCounter46865034.reachGoal('cart-add');
                 }

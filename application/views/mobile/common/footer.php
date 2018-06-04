@@ -24,9 +24,9 @@
         <?php if(!isset($body_class) or $method == 'product') { ?>
             <footer class="footer_button_wrapper">
                 <div class="footer_button_current <?php echo $class ?>"></div>
-                <a href="/cart" class="footer_button footer_button_img_cart orange_cart fl_l <?php echo ($current_element == 'cart' ? 'active' : '') ?>">
+                <a href="/cart" class="footer_button footer_button_img_cart <?php echo ($header['cart']['total'] > 0 ? 'orange_cart' : ''); ?> fl_l <?php echo ($current_element == 'cart' ? 'active' : '') ?>">
                     <div class="footer_button_img sprite">
-                        <div class="cart_circle total_in_cart"></div>
+                        <div class="cart_circle total_in_cart <?php echo ($header['cart']['total'] > 0 ? '' : 'total_in_cart_hide'); ?>"><?php echo $header['cart']['total']; ?></div>
                     </div>
                     <div class="footer_button_text">корзина</div>
                 </a>
