@@ -26,7 +26,7 @@
                 <div class="footer_button_current <?php echo $class ?>"></div>
                 <a href="/cart" class="footer_button footer_button_img_cart orange_cart fl_l <?php echo ($current_element == 'cart' ? 'active' : '') ?>">
                     <div class="footer_button_img sprite">
-                        <div class="cart_circle">15</div>
+                        <div class="cart_circle total_in_cart"></div>
                     </div>
                     <div class="footer_button_text">корзина</div>
                 </a>

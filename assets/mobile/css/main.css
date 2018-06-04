@@ -2473,6 +2473,6 @@ a.products_menu_tab_content_line_more_links_show {
     font-size: 14px;
     color: #808080;
 }
-.feedback_success {
+.feedback_success, .total_in_cart {
     display: none;
 }

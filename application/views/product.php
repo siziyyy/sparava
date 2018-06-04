@@ -240,7 +240,7 @@
                                     <div class="good_page_big_pack_header">Еще дешевле в большой упаковке!</div>
                                     <div class="good_page_big_pack_left fl_l">
                                         <div class="good_page_big_pack_left_body">
-                                            Купите данный товар ящиком<br>по более низкой цене
+                                            Купите данный товар<br>в большой упаковке
                                         </div>
                                         <a href="#" class="good_page_big_pack_left_footer box_add_to_cart" data-kol="1" data-provider-id="<?php echo $product['box_provider'] ?>" data-product-id="<?php echo $product['product_id'] ?>">добавить в корзину</a>
                                     </div>
