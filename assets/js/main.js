@@ -1676,6 +1676,7 @@ $(document).ready(function() {
 				break;
 				
 			case 'create_order':
+				console.log('here');
 		        if($(this).hasClass('inactive')) {
 		           return; 
 		        }
@@ -2405,7 +2406,7 @@ function activate_shipping_cotinue_button() {
     shipping_time = parseInt($('#shipping_time').val());
     shipping_date = parseInt($('#shipping_date').val());
     group = $('.new_shipping_button.new_shipping_button_act').attr('data-group');
-
+/*
     if(shipping_method > 0 && shipping_time > 0 && shipping_date > 0) {
         $('#shipping_submit_button').removeClass('inactive');
     } else if(group == '2' && shipping_method > 0) {
@@ -2413,4 +2414,10 @@ function activate_shipping_cotinue_button() {
     } else {
         $('#shipping_submit_button').addClass('inactive');
     }
+    */
+	if(shipping_method > 0) {
+	    $('#shipping_submit_button').removeClass('inactive');
+	} else {
+	    $('#shipping_submit_button').addClass('inactive');
+	}   
 }

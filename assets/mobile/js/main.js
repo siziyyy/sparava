@@ -881,7 +881,7 @@ function activate_shipping_cotinue_button() {
     shipping_time = parseInt($('#shipping_time').val());
     shipping_date = parseInt($('#shipping_date').val());
     target = $('.cart_delivery_tab_select.active').attr('data-target');
-
+/*
     if(shipping_method > 0 && shipping_time > 0 && shipping_date > 0) {
         $('#shipping_submit_button').removeClass('inactive');
     } else if(target == 'tab-2' && shipping_method > 0) {
@@ -889,6 +889,12 @@ function activate_shipping_cotinue_button() {
     } else {
         $('#shipping_submit_button').addClass('inactive');
     }
+*/
+    if(shipping_method > 0) {
+        $('#shipping_submit_button').removeClass('inactive');
+    } else {
+        $('#shipping_submit_button').addClass('inactive');
+    }  
 }
 
 var cart = {
@@ -901,6 +907,8 @@ var cart = {
             success: function(json) {
                 if(json['success']) {
                     yaCounter46865034.reachGoal('cart-add');
+                    $('.total_in_cart').text(json['success']['total']);
+                    $('.total_in_cart_wrapper').show();
 
                     if(obj) {
                         obj.addClass('g_good_added_to_cart');
@@ -917,6 +925,9 @@ var cart = {
             data: 'action=box&product_id=' + product_id + '&quantity=' + (typeof(quantity) != 'undefined' ? quantity : 1) +'&provider_id=' + provider_id,
             dataType: 'json',
             success: function(json) {
+                $('.total_in_cart').text(json['success']['total']);
+                $('.total_in_cart_wrapper').show();
+                
                 if(json['success']) {
                     yaCounter46865034.reachGoal('cart-add');
                 }

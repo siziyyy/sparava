@@ -1708,7 +1708,6 @@ class Main extends CI_Controller {
 	}
 	
 	public function cart($action = false) {
-
 		if($action == 'logout') {
 			$this->baselib->logout();
 			redirect(base_url('/cart'), 'refresh');
@@ -1904,6 +1903,8 @@ class Main extends CI_Controller {
 				$order->create();
 				$this->checkout_success();
 			}
+		} else {
+			redirect(base_url('/checkout_success'), 'refresh');
 		}
 	}
 
