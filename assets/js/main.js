@@ -1676,9 +1676,9 @@ $(document).ready(function() {
 				break;
 				
 			case 'create_order':
-				console.log('here');
 		        if($(this).hasClass('inactive')) {
-		           return; 
+		           error = true;
+		           break;
 		        }
 				
 				send_data = {
@@ -1689,7 +1689,7 @@ $(document).ready(function() {
 					shipping_time : ($('#shipping_time').val() || 0)
 				}
 				
-				break;	
+				break;
 
 			case 'confirm_account_in_modal':
 				
