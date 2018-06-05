@@ -1675,12 +1675,7 @@ $(document).ready(function() {
 				
 				break;
 				
-			case 'create_order':
-		        if($(this).hasClass('inactive')) {
-		           error = true;
-		           break;
-		        }
-				
+			case 'create_order':				
 				send_data = {
 					type : type,
 					create_order : 1,

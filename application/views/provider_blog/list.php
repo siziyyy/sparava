@@ -29,7 +29,7 @@
 						<?php $large_post = array_shift($blogs_for_date); ?>
 						<div class="blog_item">
 							<a href="/providers_blogs/<?php echo $large_post['blog_id']; ?>">
-								<div class="blog_img" style="background: url('/assets/img/blogs/<?php echo $large_post['image_file_1']; ?>');"></div>
+								<div class="blog_img" style="background: url('/assets/img/blogs/<?php echo $large_post['image_file_3']; ?>');"></div>
 							</a>
 							<div class="clog_date"><?php echo date('d.m',$large_post['create_date']); ?></div>
 							<a href="/providers_blogs/<?php echo $large_post['blog_id']; ?>" class="blog_name_link">
@@ -50,7 +50,7 @@
 							<div class="blog_item">
 								<a href="/providers_blogs/<?php echo $blog['blog_id']; ?>">
 									<div class="blog_img">
-										<img src="<?php echo $blog['image_file_2']; ?>" class="blog_img_img">
+										<img src="<?php echo $blog['image_file_3']; ?>" class="blog_img_img provider_blog_img">
 									</div>
 								</a>
 								<div class="clog_date"><?php echo date('d.m',$blog['create_date']); ?></div>

@@ -29,7 +29,7 @@
         </div>
         <div class="new_catalog_item new_cat_1 fl_l">
             <div class="new_full_cat_texts">
-                <div class="new_full_cat_texts_upheader"></div>
+                <div class="new_full_cat_texts_upheader"></div><br>
                 <a href="<?php echo $this->baselib->get_seo_url_by_category_id(1) ?>" class="new_full_cat_texts_header">МЯСО</a>
                 <div class="new_full_cat_texts_links">
                     <a href="<?php echo $this->baselib->get_seo_url_by_category_id(29) ?>" class="new_full_cat_texts_link">Говядина</a>

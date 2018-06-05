@@ -1054,7 +1054,7 @@ class Baselib {
 		$link_data = $this->get_link_data();
 
 		if($link_data) {
-			if($link_data['link_id'] >= 3) {
+			if($link_data['link_id'] >= 4) {
 				$cart['p-'.$link_data['product_id']]['quantity'] = 1;
 			} elseif($link_data['link_id'] == 2) {
 				$skidka = $link_data['value']/$link_data['count'];
@@ -1095,6 +1095,8 @@ class Baselib {
 							$skidka = $skidka - ($products[$product['product_id']]['price']*$element['quantity']);
 							$products[$product['product_id']]['price'] = 0;
 						}
+					} elseif($link_data['link_id'] == 3) {
+						$products[$product['product_id']]['price'] = $products[$product['product_id']]['price'] - (int)(($products[$product['product_id']]['price']*$link_data['value'])/100);
 					}
 				}
 
@@ -1319,6 +1321,11 @@ class Baselib {
 				$totals['shipping'] = array(
 					'title' => 'бесплатная доставка',
 					'value' => 0
+				);				
+			} elseif($link_data['link_id'] == 3) {
+				$totals['skidka'] = array(
+					'title' => 'скидка %',
+					'value' => (int)$link_data['value']
 				);				
 			}
 		}

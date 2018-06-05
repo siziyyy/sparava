@@ -9,7 +9,7 @@
 		</div>
 		<form method="post" action="" id="shipping_submit">
 			<div class="new_shipping">
-				<input type="hidden" value="" name="shipping_method" id="shipping_method">
+				<input type="hidden" value="1" name="shipping_method" id="shipping_method">
 				<input type="hidden" value="" name="shipping_date" id="shipping_date">
 				<input type="hidden" value="" name="shipping_time" id="shipping_time">
 				<input type="hidden" value="1" name="shipping_form_submit">
@@ -46,7 +46,7 @@
 					<span class="deliv_error">Вы не выбрали способ доставки</span>
 				<?php } ?>
 
-				<button type="submit" class="c_inners_left_side_button black_small_button new_hlp inactive send" data-type="create_order" id="shipping_submit_button">далее</button>
+				<button type="submit" class="c_inners_left_side_button black_small_button new_hlp send" data-type="create_order" id="shipping_submit_button">далее</button>
 			</div>
 		</form>
 	</div>	
