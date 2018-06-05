@@ -14,21 +14,22 @@ class Main extends CI_Controller {
 			$this->_is_mobile = true;
 		}
 
-
-
 		if(!empty($this->input->post('email'))) {
 			$this->load->model('account');
 			$account = new Account();
 			
 			if(!valid_email($this->input->post('email')) or $account->set_id_by_email($this->input->post('email'))) {
 				$proceed_to_social_login = true;
-			}			
+			}
 		}
 
-		if(!is_null($this->input->post('token')) and isset($proceed_to_social_login)) {
+		if((!is_null($this->input->post('token')) and is_null($this->input->post('profile'))) or isset($proceed_to_social_login)) {
 
 			$s = file_get_contents('http://ulogin.ru/token.php?token=' . $_POST['token'] . '&host=' . $_SERVER['HTTP_HOST']);
             $user = json_decode($s, true);
+
+			$this->load->model('account');
+			$account = new Account();
 
 			if(!isset($user['error']) and !$account->social_login($user['identity'],$user['network'])) {
 				$data = array(
@@ -63,6 +64,8 @@ class Main extends CI_Controller {
 			}
 		} elseif(!is_null($this->input->post('profile')) and !is_null($this->input->post('network'))) { 			
 
+
+		
 			$account->set_data($this->input->post());
 			$account->add_social();
 			$account->social_login($this->input->post('identity'),$this->input->post('network'));
