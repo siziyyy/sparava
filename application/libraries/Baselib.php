@@ -70,6 +70,7 @@ class Baselib {
 				'link_id' => $account['link_data']['link_id'],
 				'count' => $account['link_data']['count'],
 				'value' => $account['link_data']['value'],
+				'type' => $account['link_data']['type'],
 				'product_id' => 0
 			);
 
@@ -88,6 +89,7 @@ class Baselib {
 					'link_id' => $link_data['link_id'],
 					'count' => $link_data['count'],
 					'value' => $link_data['value'],
+					'type' => $link_data['type'],
 					'product_id' => $link_data['product_id']
 				);
 
@@ -104,26 +106,7 @@ class Baselib {
 
 		return false;
 	}
-/*
-	public function get_link_data() {
-		$link_data = $this->_ci->session->userdata('link_data');
 
-		if(isset($link_data['link_id']) and !$link_data['is_used']) {
-			$account = $this->is_logged();
-
-			if(isset($account['link_data']['is_used']) and $account['link_data']['is_used']) {
-				return false;
-			}
-
-			$query = $this->_ci->db->select("*")->from("links")->where('link_id',$link_data['link_id'])->get();
-	    	if ($query->num_rows() > 0) {
-	    		return $query->row_array();
-	    	}
-		}
-		
-		return false;
-	}
-*/
 	public function text_limiter($text, $count) {
 		if (mb_strlen($text) > $count) {
 			$text = mb_substr($text,0,$count);
@@ -1054,9 +1037,9 @@ class Baselib {
 		$link_data = $this->get_link_data();
 
 		if($link_data) {
-			if($link_data['link_id'] >= 4) {
+			if($link_data['type'] == 4) {
 				$cart['p-'.$link_data['product_id']]['quantity'] = 1;
-			} elseif($link_data['link_id'] == 2) {
+			} elseif($link_data['type'] == 2) {
 				$skidka = $link_data['value']/$link_data['count'];
 			}
 		}
@@ -1088,14 +1071,14 @@ class Baselib {
 					if($link_data['product_id'] == $product['product_id']) {
 						$products[$product['product_id']]['price'] = $link_data['value'];
 						$products[$product['product_id']]['quantity_in_cart'] = $link_data['value'];
-					} elseif($link_data['link_id'] == 2) {
+					} elseif($link_data['type'] == 2) {
 						if($skidka <= ($products[$product['product_id']]['price']*$element['quantity'])) {
 							$products[$product['product_id']]['price'] = $products[$product['product_id']]['price'] - (int)($skidka/$element['quantity']);
 						} else {
 							$skidka = $skidka - ($products[$product['product_id']]['price']*$element['quantity']);
 							$products[$product['product_id']]['price'] = 0;
 						}
-					} elseif($link_data['link_id'] == 3) {
+					} elseif($link_data['type'] == 3) {
 						$products[$product['product_id']]['price'] = $products[$product['product_id']]['price'] - (int)(($products[$product['product_id']]['price']*$link_data['value'])/100);
 					}
 				}
