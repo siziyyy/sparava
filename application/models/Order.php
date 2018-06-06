@@ -52,7 +52,7 @@ class Order extends Fruitcrm {
 			$link_data = $this->baselib->get_link_data();
 
 			if($link_data) {				
-				if($link_data['link_id'] == 1) {
+				if($link_data['type'] == 1) {
 					$data['shipping_price'] = 0;
 				}
 			}
@@ -84,6 +84,7 @@ class Order extends Fruitcrm {
 				if($link_data) {
 					$link_insert = array(
 						'link_id' => $link_data['link_id'],
+						'type' => $link_data['type'],
 						'value' => $link_data['value']
 					);
 
