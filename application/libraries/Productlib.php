@@ -861,7 +861,7 @@ class Productlib {
 
 			$provider_prices = array();
 
- 			$sql = 'SELECT * FROM `product_to_provider` WHERE `product_id` = '.$product['product_id'].' AND `kol` > 1 AND `cko` > 0 ORDER BY `kol` ASC';
+ 			$sql = 'SELECT * FROM `product_to_provider` WHERE `product_id` = '.$product['product_id'].' AND `kol` > 1 AND `cko` > 0 AND `status` > 0 ORDER BY `kol` ASC';
 			$query = $this->_ci->db->query($sql);
 			if ($query->num_rows() > 0) {
 				foreach ($query->result_array() as $row) {
