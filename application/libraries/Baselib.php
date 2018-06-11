@@ -1273,10 +1273,17 @@ class Baselib {
 		if(!is_null($this->_ci->session->userdata('shipping_method'))) {
 
 			$shipping_methods = $this->get_shipping_methods();
+
+			if((int)$totals['summ']['value'] < 23800) {
+				$shipping_price = 1190;
+			} else {
+				$shipping_price = (int)$totals['summ']['value'] + ((int)$totals['summ']['value']*5)/100;
+			}
+			
 			
 			$totals['shipping'] = array(
 				'title' => 'доставка',
-				'value' => $shipping_methods[$this->_ci->session->userdata('shipping_method')]['price']
+				'value' => $shipping_price
 			);
 
 			$link_data = $this->get_link_data();
@@ -1287,7 +1294,7 @@ class Baselib {
 
 			$totals['with_shipping'] = array(
 				'title' => 'с доставкой',
-				'value' => $totals['summ']['value'] + $totals['shipping']['value']
+				'value' => $totals['summ']['value'] + $shipping_price
 			);
 		}
 
@@ -1311,30 +1318,10 @@ class Baselib {
 					'value' => (int)$link_data['value']
 				);				
 			}
-		}
-		
-		if(!is_null($this->_ci->session->userdata('account_id'))) {
-			
-			$account = new Account();
-			$account->set_id($this->_ci->session->userdata('account_id'));
-			$account = $account->get_data();
-			
-			$totals['bonus'] = array(
-				'title' => 'потратить бонусы на',
-				'value' => $account['bonus']
-			);
-			
-			if(!is_null($this->_ci->session->userdata('use_bonus'))) {
-				$totals['bonus']['use_bonus'] = $this->_ci->session->userdata('use_bonus');
-			} else {
-				$this->_ci->session->set_userdata('use_bonus',0);
-				$totals['bonus']['use_bonus'] = 0;
-			}
 		}		
 		
 		$payment_summ = $totals['summ']['value'] + 
-		( isset($totals['shipping']) ? $totals['shipping']['value'] : 0 ) -
-		( isset($totals['bonus']) ? ( $totals['bonus']['use_bonus'] ? $totals['bonus']['value'] : 0 ) : 0 );
+		( isset($totals['shipping']) ? $totals['shipping']['value'] : 0 );
 
 		$totals['payment'] = array(
 			'title' => 'к оплате',
