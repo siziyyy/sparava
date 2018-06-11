@@ -42,7 +42,7 @@ class Order extends Fruitcrm {
 				'shipping_method' => $shipping_methods[$shipping_method]['title'],
 				'shipping_method_id' => $shipping_method,
 				'shipping_comment' => $this->session->userdata('shipping_comment'),
-				'shipping_price' => $shipping_methods[$shipping_method]['price'],
+				'shipping_price' => 0,
 				'shipping_time' => $this->session->userdata('shipping_time'),
 				'shipping_date' => $this->session->userdata('shipping_date'),
 				'used_bonus' => ( $use_bonus ? $account->get_data()['bonus'] : 0 ),
@@ -106,6 +106,18 @@ class Order extends Fruitcrm {
 					$bonus = $this->get_order_summ(true)*0.05;
 					$account->set_bonus($bonus);
 				}
+
+				if($link_data['type'] != 1) {
+					$summ = $this->get_order_summ(true);
+
+					if((int)$summ < 23800) {
+						$shipping_price = 1190;
+					} else {
+						$shipping_price = (int)$summ + ((int)$summ*5)/100;
+					}		
+					
+					$this->db->update("orders", array('shipping_price' => $shipping_price), array("order_id" => $this->_id));
+				}				
 				
 				$this->load->model('mail');
 				$mail = new Mail();
