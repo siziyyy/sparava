@@ -17,7 +17,7 @@
 				<?php foreach($shipping_methods as $group) { ?>
 					<div class="new_shipping_header"><?php echo $group['title'] ?></div>
 					<?php foreach($group['methods'] as $method) { ?>
-						<div class="new_shipping_button fl_l" data-value="<?php echo $method['shipping_id'] ?>" data-name="shipping_method" data-group="<?php echo $group['shipping_gropu_id'] ?>"><?php echo $method['title'] ?> - <?php echo $method['price'] ?> р.</div>
+						<div class="new_shipping_button fl_l" data-value="<?php echo $method['shipping_id'] ?>" data-name="shipping_method" data-group="<?php echo $group['shipping_gropu_id'] ?>"><?php echo $method['title'] ?></div>
 					<?php } ?>
 					<div class="clear"></div>
 					<?php if($group['shipping_gropu_id'] != 2) { ?>

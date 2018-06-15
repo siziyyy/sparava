@@ -107,34 +107,6 @@ class Filterlib {
 
 		$sort_attr = $this->_ci->baselib->handle_sort_attributes($products);
 
-		if($category) {
-			$products = $this->_ci->productlib->filter_products_by_sort($products,$category);
-		}		
-		
-		$prodcuts_in_page = array();
-		$page_start = ($page-1)*50;
-		$page_end = $page*50;
-		$i = 0;
-		$pages_count = (int)(count($products)/50);
-		
-		if(count($products)%50 > 0)  {
-			$pages_count++;
-		}
-		
-		foreach($products as $product_id => $product) {
-			if($i >= $page_start and $i <$page_end) {
-				$prodcuts_in_page[] = $product;
-			}
-			
-			$i++;
-		}
-		
-		$empty_products = count($prodcuts_in_page)%5; 
-					
-		if($empty_products > 0) {
-			$empty_products = 5-$empty_products;
-		}
-		
 		$filters_text = array();
 		
 		foreach($filters_arr as $key => $value) {
@@ -146,17 +118,111 @@ class Filterlib {
 		if($filters['price']) {
 			$filters_text['price'] = $this->get_filter_text('price',$filters['price']);
 		}
-		
-		return array(
-			'products' => $prodcuts_in_page,
-			'pages_count' => $pages_count,
-			'products_count' => count($products),
-			'filters_used' => $filters_used,
-			'empty_products' => $empty_products,
-			'filters_text' => $filters_text,
-			'filters_count' => $filters_count,
-			'sort_attr' => $sort_attr
-		);
+
+		if($category) {
+			$pre_products = $this->_ci->productlib->filter_products_by_sort($products,$category);
+			$result_array = array();
+
+			$this->_ci->load->model('category');
+			$category_obj = new Category();
+			$category_obj->set_id($category);
+			$category_data = $category_obj->get_data();
+
+			if($category_data['view_type'] == '0') {
+				foreach ($pre_products as $product) {
+					$result_array[$product['assortiment']][] = $product;
+				}
+			} elseif($category_data['view_type'] == '1') {
+				foreach ($pre_products as $product) {
+					$result_array[$product['brand']][] = $product;
+				}
+			} elseif($category_data['view_type'] == '2') {
+				foreach ($pre_products as $product) {
+					$result_array[$product['composition']][] = $product;
+				}
+			}
+
+			$sort_array = array();
+
+			foreach ($result_array as $index => $products) {
+				$sort_array[$index] = count($products);
+			}
+
+			array_multisort($sort_array, SORT_DESC, SORT_NUMERIC, $result_array);
+
+			foreach ($result_array as $index => $products) {
+				if(!empty($index) and count($products) < 3) {
+					foreach ($products as $product) {
+						$result_array['Остальные товары'][] = $product;
+					}
+
+					unset($result_array[$index]);
+				} elseif(empty($index)) {
+					foreach ($products as $product) {
+						$result_array['Остальные товары'][] = $product;
+					}
+
+					unset($result_array[$index]);					
+				}
+			}
+
+			foreach ($result_array as $index => $products) {
+				$empty_products = count($products)%5; 
+							
+				if($empty_products > 0) {
+					$empty_products = 5-$empty_products;
+				}
+
+				for($i=0;$i<$empty_products;$i++) {
+					$result_array[$index][] = '';
+				}
+			}
+			
+			return array(
+				'products' => $result_array,
+				'products_count' => count($pre_products),
+				'filters_used' => $filters_used,
+				'empty_products' => $empty_products,
+				'filters_text' => $filters_text,
+				'filters_count' => $filters_count,
+				'sort_attr' => $sort_attr
+			);	
+		} else {
+			$prodcuts_in_page = array();
+			$page_start = ($page-1)*50;
+			$page_end = $page*50;
+			$i = 0;
+			$pages_count = (int)(count($products)/50);
+			
+			if(count($products)%50 > 0)  {
+				$pages_count++;
+			}
+			
+			foreach($products as $product_id => $product) {
+				if($i >= $page_start and $i <$page_end) {
+					$prodcuts_in_page[] = $product;
+				}
+				
+				$i++;
+			}
+			
+			$empty_products = count($prodcuts_in_page)%5; 
+						
+			if($empty_products > 0) {
+				$empty_products = 5-$empty_products;
+			}
+			
+			return array(
+				'products' => $prodcuts_in_page,
+				'pages_count' => $pages_count,
+				'products_count' => count($products),
+				'filters_used' => $filters_used,
+				'empty_products' => $empty_products,
+				'filters_text' => $filters_text,
+				'filters_count' => $filters_count,
+				'sort_attr' => $sort_attr
+			);			
+		}
 	}	
 	
 	public function filter_products_for_country($products,$filters,$page) {

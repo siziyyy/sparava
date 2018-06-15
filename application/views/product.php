@@ -369,6 +369,9 @@
 
                                     <div class="more_from_brand_slider">
                                         <?php foreach($related_by_brands_products as $r_product) { ?>
+                                            <?php if(empty($r_product)) { ?>
+                                                <?php continue; ?>
+                                            <?php } ?>
                                             <div class="buubbubu">
                                                 <a href="<?php echo $r_product['href'] ?>?type=<?php echo ((isset($path) and $path) ? $path : '') ?>" class="opfoopesgflmem"><img src="/images/<?php echo $r_product['image'] ?>" alt="<?php echo $r_product['title'] ?>" class="g_good_photo" onError="this.src='/assets/img/nophoto.jpg'"></a>
 

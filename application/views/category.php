@@ -167,80 +167,24 @@
         margin: 40px 0 -20px 0;
     }
 </style>
-                    
-	            	<?php if(($sort_attr['razves'] and $sort_attr['pack']) or $sort_attr['bbox'] or $sort_attr['farm'] or $sort_attr['eko'] or $sort_attr['diet'] or $sort_attr['recommend']) { ?>
-		            	<div class="new_cool_line_of_filters_aaarrrghh" data-category="<?php echo $category ?>">
-		            		<div class="new_cool_line_of_filters_aaarrrghh_item new_cool_line_of_filters_aaarrrghh_item_first send <?php echo (!$sort_order ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="clear">все</div>
-		            		
-		            		<?php if(($sort_attr['razves'] and $sort_attr['pack']) or $sort_attr['bbox']) { ?>
-		            			<div class="new_cool_line_of_filters_aaarrrghh_separator"></div>
-			            		<?php if($sort_attr['razves'] and $sort_attr['pack']) { ?>
-			            			<div class="new_cool_line_of_filters_aaarrrghh_item send <?php echo (isset($sort_order['razves']) ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="razves">на развес</div>
-			            		<?php } ?>
-			            		<?php if($sort_attr['pack'] and $sort_attr['razves']) { ?>
-			            			<div class="new_cool_line_of_filters_aaarrrghh_item send <?php echo (isset($sort_order['pack']) ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="pack">упаковка</div>
-			            		<?php } ?>
-			            		<?php if($sort_attr['bbox']) { ?>
-			            			<div class="new_cool_line_of_filters_aaarrrghh_item send <?php echo (isset($sort_order['bbox']) ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="bbox"><span class="harder_better_faster_stronger">еще дешевле! - </span>большая упаковка</div>
-			            		<?php } ?>
-		            		<?php } ?>
-
-		            		<?php if($sort_attr['farm'] or $sort_attr['eko'] or $sort_attr['diet'] or $sort_attr['recommend']) { ?>
-			            		<div class="new_cool_line_of_filters_aaarrrghh_separator"></div>
-			            		<?php if($sort_attr['farm']) { ?>
-			            			<div class="new_cool_line_of_filters_aaarrrghh_item send <?php echo (isset($sort_order['farm']) ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="farm">фермерское</div>
-			            		<?php } ?>
-			            		<?php if($sort_attr['eko']) { ?>
-			            			<div class="new_cool_line_of_filters_aaarrrghh_item send <?php echo (isset($sort_order['eko']) ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="eko">эко / органик</div>
-			            		<?php } ?>
-			            		<?php if($sort_attr['diet']) { ?>
-			            			<div class="new_cool_line_of_filters_aaarrrghh_item send <?php echo (isset($sort_order['diet']) ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="diet">диетическое</div>
-			            		<?php } ?>
-			            		<?php if($sort_attr['recommend']) { ?>
-			            			<div class="new_cool_line_of_filters_aaarrrghh_item send <?php echo (isset($sort_order['recommend']) ? 'new_cool_line_of_filters_aaarrrghh_item_current' : '') ?>" data-type="sort" data-sort="recommend">особо рекомендуем</div>
-			            		<?php } ?>
-		            		<?php } ?>
-		            		<div class="vgyhunjimko"></div>
-		            	</div>
+					<?php foreach($products as $view_type => $products_group) { ?>
+	                    <h2><?php echo $view_type ?></h2>
+		                <div class="goods">
+		                	<?php
+			                	foreach($products_group as $product) {
+		                    		if(!empty($product)) {
+		                    			$info['product'] = $product;
+										$this->load->view('common/load-product',$info);
+		                    		} else {
+		                    			echo '<div class="g_good fl_l hide_on_mobile">&nbsp;</div>';
+		                    		}
+		                    	}
+			                ?>
+							<div id="wrapper_for_product_load"></div>
+		                    <div class="clear"></div>
+		                </div>
 		            <?php } ?>
-	                <div class="goods">
-	                    <?php foreach($products as $product) { ?>
-							<?php $info['product'] = $product; ?>
-							<?php $this->load->view('common/load-product',$info);?>					
-	                    <?php } ?>
-						
-						<?php if($empty_products) { ?>
-							<?php for($i=0;$i<$empty_products;$i++) { ?>
-								<div class="g_good fl_l hide_on_mobile">&nbsp;</div>
-							<?php } ?>
-						<?php } ?>
-						<div id="wrapper_for_product_load"></div>
-	                    <div class="clear"></div>
-	                </div>
 	            <?php } ?>
-
-                <?php if(!$is_parent_category) { ?>
-					<?php if($pages_count > 1) { ?>
-						<div class="c_paginator">
-							<?php if($current_page == 1) { ?>
-								<div class="c_show_more_goods" data-category-id="<?php echo $category ?>">показать еще</div>
-							<?php } ?>
-							<div class="c_pages">
-								<?php foreach($pages as $page) { ?>
-									<?php if ($page['dots']) { ?>
-										<div class="c_page_dots">...</div>
-									<?php } else { ?>
-										<?php if(isset($page['back_button'])) { ?>
-											<div class="c_page" data-page="<?php echo $page['page'] ?>"><</div>
-										<?php } else { ?>
-											<div class="c_page <?php echo ($page['current_page'] ? 'c_current_page' : '') ?>" data-page="<?php echo $page['page'] ?>"><?php echo $page['page'] ?></div>
-										<?php } ?>
-									<?php } ?>
-								<?php } ?>
-							</div>
-						</div>
-					<?php } ?>
-				<?php } ?>
 
 				<?php if(!$is_parent_category) { ?>
 					<?php if($this->_seo_data['seo_article']) { ?>

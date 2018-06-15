@@ -36,7 +36,7 @@ function listener(event) {
 		
 		$('#product_form .product_name').val(product.title);
 		$('#product_form .product_name_full').val(product.title_full);
-		$('#product_form .product_image_src').val(product.image);
+		$('#product_form .product_image_src').text(product.image);
 		$('#product_form .product_category').val(product.category);
 		$('#product_form .product_brand').val(product.brand);
 		$('#product_form .product_status').val(product.status);
@@ -82,6 +82,8 @@ function listener(event) {
 			$('#product_form .parent_product_id_wrapper').hide();
 		}
 		
+		$('#product_form .product_upload_image_main').val('');
+		$('#product_form .product_upload_image').val('');
 
 		$('#connected_products_wrapper').empty();
 
@@ -168,16 +170,50 @@ function listener(event) {
 		}
 		
 		calculate_price();
+
+		send_data = {
+			type : 'create_admin_token'
+		}
+
+		send_msg(send_data);		
 		
 		$('.admin_window_closer').show();
 		$('#product_form').show();
 	} else if (event.data.type == 'save_product' && event.data.data == 'success') {
+
+		data = new FormData();
+		data.append('admin_upload_token', $('#admin_upload_token').val());
+		data.append('product_id', $('#product_form .product_id').val());
+		data.append('type', 'product_upload_image');
+
+		$('#product_form .product_upload_image').each(function(i) {
+			data.append('product_upload_image'+i, $(this).prop('files')[0]);
+		});
+
+		$('#product_form .product_upload_image_main').each(function(i) {
+			data.append('product_upload_image_main', $(this).prop('files')[0]);
+		});	
+
+		$.ajax({
+			url: '/ajax_handler',
+			type: 'POST',
+			data: data,
+			processData: false,
+			contentType: false,
+			dataType: 'json'
+		});
+
 		$('.admin_window_closer').hide();
 		$('#product_form').hide();
 	} else if (event.data.type == 'create_admin_token') {
 		token = event.data.data;
-		$('#xls_download_token').val(token);
-		$('#xls_download_form').submit();
+
+		if($('#product_form:visible').length > 0) {
+			$('#admin_upload_token').val(token);
+		} else {
+			$('#xls_download_token').val(token);
+			$('#xls_download_form').submit();
+		}		
 	} else if (event.data.type == 'get_brand_id') {
 		url = 'https://admin.aydaeda.ru/brands/data/'+event.data.data;
 		var win = window.open(url, '_blank');
@@ -343,6 +379,13 @@ $(document).ready(function() {
 
 		html = $( "#template_connected_products" ).html();
 		$('#connected_products_wrapper').append(html);
+	});	
+
+	$(document).on('click','.add_photo_to_product',function(e) {
+		e.preventDefault();
+
+		html = '<br><input class="product_upload_image" type="file">';
+		$('#product_upload_image_wrapper').append(html);	
 	});	
 
 	$(document).on('click','.brand_admin',function(e) {
@@ -861,7 +904,7 @@ $(document).ready(function() {
 			composition: $('#product_form .product_composition').val(),
 			title: $('#product_form .product_name').val(),
 			title_full: $('#product_form .product_name_full').val(),
-			image: $('#product_form .product_image_src').val(),
+			//image: $('#product_form .product_image_src').val(),
 			category: $('#product_form .product_category').val(),
 			brand: $('#product_form .product_brand').val(),
 			status: $('#product_form .product_status').val(),
@@ -874,8 +917,8 @@ $(document).ready(function() {
 			jiri: $('#product_form .product_jiri').val(),
 			uglevodi: $('#product_form .product_uglevodi').val(),
 			gi: $('#product_form .product_gi').val(),
-			video_1: $('#product_form .product_video_1').val(),
-			video_2: $('#product_form .product_video_2').val(),
+			video_1: ($('#product_form .product_video_1').val() || ''),
+			video_2: ($('#product_form .product_video_2').val() || ''),
 			eko: eko,
 			farm: farm,
 			diet: diet,
