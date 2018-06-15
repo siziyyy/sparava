@@ -1083,6 +1083,25 @@ class Baselib {
 					}
 				}
 
+				if(!empty($product['weight'])) {
+					if((float)$product['weight'] > 1) {
+						$ppkg = $products[$product['product_id']]['price']/$product['weight'];
+					} else {
+						$ppkg = $products[$product['product_id']]['price']*(1/(float)$product['weight']);
+					}
+
+					if((float)$ppkg < 50) {
+						$ppkg = (float)$ppkg + 2;
+
+						if((float)$product['weight'] > 1) {
+							$products[$product['product_id']]['price'] = (int)($ppkg*$product['weight']) + 1;
+						} else {
+							$products[$product['product_id']]['price'] = (int)($ppkg/(1/(float)$product['weight'])) + 1;
+						}
+						
+					}
+				}
+
 				$products[$product['product_id']]['quantity_in_cart'] = $element['quantity'];
 			} else {
 				unset($cart[$element_id]);
@@ -1270,33 +1289,23 @@ class Baselib {
 	}
 
 	public function get_totals_for_cart($totals) {
-		if(!is_null($this->_ci->session->userdata('shipping_method'))) {
 
-			$shipping_methods = $this->get_shipping_methods();
-
-			if((int)$totals['summ']['value'] < 23800) {
-				$shipping_price = 1190;
-			} else {
-				$shipping_price = (int)$totals['summ']['value'] + ((int)$totals['summ']['value']*5)/100;
-			}
-			
-			
-			$totals['shipping'] = array(
-				'title' => 'доставка',
-				'value' => $shipping_price
-			);
-
-			$link_data = $this->get_link_data();
-			
-			if($link_data['link_id'] == 1) {
-				$totals['shipping']['value'] == 0;
-			}
-
-			$totals['with_shipping'] = array(
-				'title' => 'с доставкой',
-				'value' => $totals['summ']['value'] + $shipping_price
-			);
+		if((int)$totals['summ']['value'] < 23800) {
+			$shipping_price = 1190;
+		} else {
+			$shipping_price = (int)$totals['summ']['value'] + ((int)$totals['summ']['value']*5)/100;
 		}
+
+		$totals['shipping'] = array(
+			'title' => 'доставка',
+			'value' => $shipping_price
+		);
+
+		$totals['with_shipping'] = array(
+			'title' => 'с доставкой',
+			'value' => $totals['summ']['value'] + $shipping_price
+		);
+
 
 		$link_data = $this->get_link_data();
 
@@ -1355,5 +1364,9 @@ class Baselib {
 		);
 
 		return $result;
+	}
+
+	public function get_random_str_32() {
+		return substr(sha1(uniqid(mt_rand(), true)), 0, 32);
 	}
 }

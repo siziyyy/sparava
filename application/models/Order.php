@@ -28,10 +28,9 @@ class Order extends Fruitcrm {
 		$account_id = $this->session->userdata('account_id');
 		$shipping_methods = $this->baselib->get_shipping_methods();
 		$shipping_method = $this->session->userdata('shipping_method');
-		$use_bonus = $this->session->userdata('use_bonus');
 		$products = $this->baselib->get_cart();
-		
-		if(!is_null($account_id) and !is_null($shipping_method) and !is_null($use_bonus) and count($products) > 0) {
+
+		if(!is_null($account_id) and !is_null($shipping_method) and count($products) > 0) {
 
 			$this->load->model('Account');
 			$account = new Account();
@@ -45,7 +44,7 @@ class Order extends Fruitcrm {
 				'shipping_price' => 0,
 				'shipping_time' => $this->session->userdata('shipping_time'),
 				'shipping_date' => $this->session->userdata('shipping_date'),
-				'used_bonus' => ( $use_bonus ? $account->get_data()['bonus'] : 0 ),
+				'used_bonus' => 0,
 				'create_date' => time()
 			);
 
@@ -98,13 +97,6 @@ class Order extends Fruitcrm {
 					}
 
 					$account->set_link_data($link_insert);
-				}
-				
-				if( $use_bonus ) {
-					$account->clear_bonus();
-				} else {
-					$bonus = $this->get_order_summ(true)*0.05;
-					$account->set_bonus($bonus);
 				}
 
 				if($link_data['type'] != 1) {

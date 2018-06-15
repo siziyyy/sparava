@@ -1,6 +1,7 @@
 		<div class="g_good_admin_info_modal" id="product_form">
             <div class="close_product_details">&times;</div>
-            <input type="hidden" class="product_id">        
+            <input type="hidden" class="product_id">
+            <input type="hidden" id="admin_upload_token">
             <div class="g_good_admin_info_modal_header"><a class="ipad_href" href="" target="_blank">iPad</a>&nbsp;&nbsp;&nbsp;<span class="parent_product_id_wrapper">(<span class="parent_product_id"></span>)</span> <span class="product_id_text"></span> - <span class="product_name_text"></span></div>
             <aside class="g_good_admin_info_modal_left fl_l">
                 <div class="g_good_admin_info_modal_photo">
@@ -77,10 +78,18 @@
                 <label>
                     <span class="g_good_admin_info_modal_inpname nom">Название полное</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_name_full check_length">
-                </label>                
+                </label>
                 <label>
-                    <span class="g_good_admin_info_modal_inpname">Фото</span>
-                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_image_src">
+                    <span class="g_good_admin_info_modal_inpname">Загрузить главное фото</span>
+                    <input class="product_upload_image_main" type="file">
+                </label>
+                <label>
+                    <span class="g_good_admin_info_modal_inpname">Загрузить дополнительное фото 
+                        <span class="add_photo_to_product">+</span>
+                    </span>
+                    <span id="product_upload_image_wrapper">
+                        <input class="product_upload_image" type="file">
+                    </span>
                 </label>
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Подкатегория</span>
@@ -133,14 +142,14 @@
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_short2 nom2 product_special_end">
                 </label>
                 <div class="clear"></div>
-                <label>
+                <!--<label>
                     <span class="g_good_admin_info_modal_inpname">Видео 1</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_video_1">
                 </label>
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Видео 2</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_video_2">
-                </label>				
+                </label> -->
                 <div class="clear"></div>
             </aside>
             <aside class="g_good_admin_info_modal_right fl_r">

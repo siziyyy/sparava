@@ -957,21 +957,12 @@ class Main extends CI_Controller {
 
 			$data['sort_attr'] = $products_in_page['sort_attr'];
 			
-			$empty_products = count($products_in_page['products'])%5; 
-						
-			if($empty_products > 0) {
-				$empty_products = 5-$empty_products;
-			}
-			
 			$data['products'] = $products_in_page['products'];
-			$data['pages_count'] = $products_in_page['pages_count'];
 			$data['filters_used'] = $products_in_page['filters_used'];
 			$data['filters_text'] = $products_in_page['filters_text'];
 			$data['filters_count'] = $products_in_page['filters_count'];
 			$data['current_page'] = $page;
 			$data['products_count'] = $products_in_page['products_count'];
-			$data['pages'] = $this->baselib->create_pager($products_in_page['pages_count'],$page);
-			$data['empty_products'] = $empty_products;
 
 			if($this->_is_mobile) {
 				$this->load->view('mobile/category', $data);
@@ -1724,18 +1715,23 @@ class Main extends CI_Controller {
 		}		
 		
 		$this->load->model('account');
-		$products = $this->baselib->get_cart();		
+		$products = $this->baselib->get_cart();
 		
 		$summ = 0;
 		
 		foreach($products as $product) {			
 			$summ = $summ + $this->baselib->round_price($product['quantity_in_cart'],$product['price']);
 		}
+
+		if($summ == 0) {
+			redirect(base_url('/'), 'refresh');
+			return;
+		}
 		
 		$totals = array(
 			'summ' => array(
 				'title' => 'итого',
-				'value' => $summ				
+				'value' => $summ
 			)
 		);
 
@@ -1761,18 +1757,7 @@ class Main extends CI_Controller {
 			'summ' => $summ
 		);
 		
-		if($summ < 1000) {
-			$data['cart_info']['need'] = 1000 - $summ;
-			$data['cart_info_tpl'] = 'cart_low';
-
-			if($this->_is_mobile) {
-				$this->load->view('mobile/cart/cart', $data);
-			} else {
-				$this->load->view('cart/cart', $data);
-			}
-			
-			return;
-		} elseif($this->_is_mobile and empty($this->input->post('mobile_continue_to_login')) and !$this->baselib->is_logged()) {
+		if($this->_is_mobile and empty($this->input->post('mobile_continue_to_login')) and !$this->baselib->is_logged()) {
 			$this->load->view('mobile/cart/cart', $data);
 			return;
 		}
@@ -2010,6 +1995,24 @@ class Main extends CI_Controller {
 	
 	public function ajax_handler() {
 		switch ($this->input->post('type')) {
+			case 'product_upload_image':
+
+				if(!is_null($this->input->post('admin_upload_token'))) {
+					if(!$this->baselib->check_admin_token($this->input->post('admin_upload_token'))) {
+						return false;
+					}
+				}
+
+				$this->load->model('product');
+				$product = new Product();
+				$product->set_id($this->input->post('product_id'));
+
+				foreach($_FILES as $name => $file) {
+					$product->upload_image($name,$file);
+				}
+
+				break;
+
 			case 'sort':
 
 				$data = array(

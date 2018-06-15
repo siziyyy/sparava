@@ -535,7 +535,10 @@ class Productlib {
 			$filters_data = $this->_ci->session->userdata('filters_data');
 			if(isset($filters_data[$category_id])) {				
 				$filtered_products = $this->_ci->filterlib->filter_products($result['products'],$filters_data[$category_id],1,$category_id);
-				$result['products'] = $filtered_products['products'];
+
+
+
+				$result['products'] = current($filtered_products['products']);
 			}
 		}
 		
@@ -873,14 +876,14 @@ class Productlib {
 				$price = 0;
 
 				foreach ($provider_prices as $provider) {
-					$pre_price = ((int)($provider['cko']+($provider['cko']*15)/100)) + 1;
+					$pre_price = (int)$provider['cko'];
 
 					if($price == 0 or $pre_price < $price) {
 						$price = $pre_price;
 						$provider_data = $provider;
 					}
 				}
-				
+			
 				if($price < $product['price']) {
 					$product['box_price'] = $price;
 					$product['box_kol'] = $provider_data['kol'];
