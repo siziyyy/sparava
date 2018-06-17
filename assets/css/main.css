@@ -755,3 +755,6 @@ header .content_helper{padding:15px}
 .post_img.provider_blog_img_post {
     height: 275px;
 }
+.product_uploaded_images_element img {
+	width: 80px;
+}

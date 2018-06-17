@@ -39,5 +39,17 @@ class Product extends Fruitcrm {
 				$this->db->insert("product_images", $data);
 			}			
 		}
+	}
+
+	public function delete_image($image_id) {
+		$upload_path = getcwd().'/images/';
+		$query = $this->db->get_where("product_images", array("product_id" => $this->_id,"image_id" => $image_id));
+		if ($query->num_rows() > 0) {
+			$image_data = $query->row_array();
+
+			$this->db->delete('product_images', array('product_id' => $this->_id,"image_id" => $image_id));
+
+			unlink($upload_path.$image_data['url']);
+		}
 	}	
 }

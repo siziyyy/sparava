@@ -92,6 +92,11 @@
                     </span>
                 </label>
                 <label>
+                    <span class="product_uploaded_images_wrapper">
+
+                    </span>
+                </label>
+                <label>
                     <span class="g_good_admin_info_modal_inpname">Подкатегория</span>
                     <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_category">
                 </label>

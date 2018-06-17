@@ -71,7 +71,33 @@ class Order extends Fruitcrm {
 				$data['shipping_address'] = $account->get_data()['shipping_address'];
 			} else {
 				$data['shipping_address'] = $this->session->userdata('shipping_address');
-			}		
+			}
+
+			$add = 0;
+
+			$cart = $this->baselib->get_cart();
+
+			foreach ($cart as $product_id => $product) {
+				if(!empty($product['weight'])) {
+					if((float)$product['weight'] > 1) {
+						$ppkg = $product['price']/$product['weight'];
+					} else {
+						$ppkg = $product['price']*(1/(float)$product['weight']);
+					}
+
+					if((float)$ppkg < 50) {
+						$ppkg = (float)$ppkg + 2;
+
+						if((float)$product['weight'] > 1) {
+							$p_add = ((int)($ppkg*$product['weight']) + 1);
+						} else {
+							$p_add = ((int)($ppkg/(1/(float)$product['weight'])) + 1);
+						}
+						
+						$add = $add + (($p_add-$product['price'])*$product['quantity_in_cart']);
+					}
+				}
+			}
 
 			if ($this->db->insert("orders", $data))  {
 				$this->_id = $this->db->insert_id();
@@ -106,7 +132,9 @@ class Order extends Fruitcrm {
 						$shipping_price = 1190;
 					} else {
 						$shipping_price = (int)$summ + ((int)$summ*5)/100;
-					}		
+					}
+
+					$shipping_price = $shipping_price+$add;
 					
 					$this->db->update("orders", array('shipping_price' => $shipping_price), array("order_id" => $this->_id));
 				}				

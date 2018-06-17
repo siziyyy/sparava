@@ -178,6 +178,130 @@ class Excellib extends PHPExcel {
     	return false;
     } 
 
+    public function download_price_list($type,$ids) {
+
+    	if($type == 'category') {
+
+			if(!is_numeric($ids)) {
+				$c_query = $this->_ci->db->get_where("categories", array("seo_url" => $ids,"status" => 1));
+				if ($c_query->num_rows() > 0) {
+					$category_id = $c_query->row_array()['category_id'];
+				} else {
+					$category_id = 0;
+				}
+			} else {
+				$category_id = $ids;
+			}
+
+			$data = array();
+
+			$sql = 'SELECT p.*, c.bm FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND p.status > 0 AND ptc.category_id = c.category_id AND ptc.category_id = ' . (int)$category_id . ' ORDER BY product_id ASC';
+					
+			$query = $this->_ci->db->query($sql);
+
+			if ($query->num_rows() > 0) {
+    			foreach($query->result_array() as $row) {
+    				$products[$row['product_id']] = $row;
+	    		}
+
+    			$products = $this->_ci->baselib->handle_special_price($products);
+
+    			foreach ($products as $product) {
+    				$data[] = array(
+    					'articul' => $product['product_id'],
+    					'title' => $this->_ci->baselib->text_limiter($product['title_full'],80),
+    					'price' => $product['price']
+    				);
+    			}
+    		}
+    	} elseif($type == 'provider') {
+
+    		$data = array();
+
+    		foreach ($ids as $store) {
+	    		$sql = 'SELECT p.* FROM products AS p, product_to_provider AS ptp, providers AS pr WHERE p.product_id = ptp.product_id AND ptp.provider_id = pr.provider_id AND pr.store = "' . $store . '" ORDER BY product_id ASC';
+
+				$query = $this->_ci->db->query($sql);
+
+				if ($query->num_rows() > 0) {
+	    			foreach($query->result_array() as $row) {
+	    				$data[$row['product_id']] = $row;
+		    		}
+	    		}
+	    	}
+
+    	} else {
+    		$query = $this->_ci->db->select("*")->from("products")->where_in($type,$ids)->order_by('product_id', 'ASC')->get();
+
+    		if ($query->num_rows() > 0) {
+    			$data = $query->result_array();
+    		}
+    	}
+
+    	if ($query->num_rows() > 0) {
+
+			$fields = array(
+				'Артикул',
+				'Наименование',
+				'шт.цена'
+			);
+
+			$this->setActiveSheetIndex(0);
+			$this->getActiveSheet()->setTitle("products");
+
+			$this->getActiveSheet()->mergeCells('A1:F1');
+			$this->getActiveSheet()->setCellValue('A1', 'AYDAEDA.RU');
+			$this->getActiveSheet()->getStyle('A1')->getFont()->setSize(24);
+
+			$this->getActiveSheet()->mergeCells('A2:F2');
+			$this->getActiveSheet()->setCellValue('A2', 'Площадка оптовой торговли по ценам крупных поставщиков и производителей, без наценки. Оперативная доставка.');
+			$this->getActiveSheet()->getStyle('A2')->getFont()->setSize(12);
+			$this->getActiveSheet()->getStyle('A2')->getFont()->setBold(true);	
+
+			$this->getActiveSheet()->mergeCells('A4:F4');
+			$this->getActiveSheet()->setCellValue('A4', 'URL: aydaeda.ru    Email: info@aydaeda.ru    Телефон: +7 495 544 88 64   График работы 9 - 19:00  График работы 9 - 19:00, без выходных.');
+
+			
+		
+			$j = 6;
+			
+			for($i = 0 ; $i < count($fields) ; $i++ ) {
+				$this->getActiveSheet()->setCellValue($this->_chars[$i].$j, $fields[$i]);
+				
+				$this->getActiveSheet()->getColumnDimension( $this->_chars[$i] )->setAutoSize( true );
+				$this->getActiveSheet()->getStyle($this->_chars[$i].$j)->getFont()->setSize(13);
+				$this->getActiveSheet()->getStyle($this->_chars[$i].$j)->getFont()->setBold(true);	
+				$this->getActiveSheet()->getStyle($this->_chars[$i].$j)->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setRGB('cccccc');
+			}
+
+			if(isset($data)) {
+				$j++;
+				foreach($data as $row) {
+					$i = 0;
+					
+					foreach($row as $cell) {
+						$this->getActiveSheet()->setCellValue($this->_chars[$i].$j, $cell);					
+						$i++;
+					}
+					
+					$j++;
+				}
+			}			
+
+			$filename = substr(sha1(uniqid(mt_rand(), true)), 0, 32).'.xls';
+
+			header('Content-Type: application/vnd.ms-excel'); //mime type
+			header('Content-Disposition: attachment;filename="'.$filename.'"'); //tell browser what's the file name
+			header('Cache-Control: max-age=0'); //no cache	
+			
+			$objWriter = PHPExcel_IOFactory::createWriter($this, 'Excel5');
+			$objWriter->save('php://output');				
+
+    	}
+
+    	return false;
+    } 
+
     private $_chars = array(
 		'0' => 'A',
 		'1' => 'B',
