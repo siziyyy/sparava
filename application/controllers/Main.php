@@ -868,6 +868,13 @@ class Main extends CI_Controller {
 					return;
 				}
 			}			
+		} elseif(!is_null($this->input->post('download_price_list'))) {
+			$this->load->library('excellib');
+
+			if($category) {
+				$this->excellib->download_price_list('category',$category);
+				return;
+			}			
 		}
 
 		$parent_category_id = $this->baselib->is_parent_category($category);
@@ -1730,7 +1737,7 @@ class Main extends CI_Controller {
 		
 		$totals = array(
 			'summ' => array(
-				'title' => 'итого',
+				'title' => 'сумма заказа без наценки (подробно)',
 				'value' => $summ
 			)
 		);
@@ -2009,6 +2016,26 @@ class Main extends CI_Controller {
 
 				foreach($_FILES as $name => $file) {
 					$product->upload_image($name,$file);
+				}
+
+				break;
+
+			case 'delete_uploaded_images':
+
+				if(!is_null($this->input->post('admin_upload_token'))) {
+					if(!$this->baselib->check_admin_token($this->input->post('admin_upload_token'))) {
+						return false;
+					}
+				}
+
+				$this->load->model('product');
+				$product = new Product();
+				$product->set_id($this->input->post('product_id'));
+
+				if(!empty($this->input->post('images'))) {
+					foreach($this->input->post('images') as $image_id) {
+						$product->delete_image($image_id);
+					}
 				}
 
 				break;

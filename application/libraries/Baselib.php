@@ -1083,25 +1083,6 @@ class Baselib {
 					}
 				}
 
-				if(!empty($product['weight'])) {
-					if((float)$product['weight'] > 1) {
-						$ppkg = $products[$product['product_id']]['price']/$product['weight'];
-					} else {
-						$ppkg = $products[$product['product_id']]['price']*(1/(float)$product['weight']);
-					}
-
-					if((float)$ppkg < 50) {
-						$ppkg = (float)$ppkg + 2;
-
-						if((float)$product['weight'] > 1) {
-							$products[$product['product_id']]['price'] = (int)($ppkg*$product['weight']) + 1;
-						} else {
-							$products[$product['product_id']]['price'] = (int)($ppkg/(1/(float)$product['weight'])) + 1;
-						}
-						
-					}
-				}
-
 				$products[$product['product_id']]['quantity_in_cart'] = $element['quantity'];
 			} else {
 				unset($cart[$element_id]);
@@ -1296,15 +1277,43 @@ class Baselib {
 			$shipping_price = (int)$totals['summ']['value'] + ((int)$totals['summ']['value']*5)/100;
 		}
 
+		$add = 0;
+
+		$cart = $this->get_cart();
+
+		foreach ($cart as $product_id => $product) {
+			if(!empty($product['weight'])) {
+				if((float)$product['weight'] > 1) {
+					$ppkg = $product['price']/$product['weight'];
+				} else {
+					$ppkg = $product['price']*(1/(float)$product['weight']);
+				}
+
+				if((float)$ppkg < 50) {
+					$ppkg = (float)$ppkg + 2;
+
+					if((float)$product['weight'] > 1) {
+						$p_add = ((int)($ppkg*$product['weight']) + 1);
+					} else {
+						$p_add = ((int)($ppkg/(1/(float)$product['weight'])) + 1);
+					}
+					
+					$add = $add + (($p_add-$product['price'])*$product['quantity_in_cart']);
+				}
+			}
+		}
+
 		$totals['shipping'] = array(
-			'title' => 'доставка',
+			'title' => 'расход на сборку и отправку заказа 5 %, но не менее 1190 руб.',
 			'value' => $shipping_price
 		);
 
-		$totals['with_shipping'] = array(
-			'title' => 'с доставкой',
-			'value' => $totals['summ']['value'] + $shipping_price
-		);
+		if($add > 0) {
+			$totals['small'] = array(
+				'title' => 'наценка на доставку товаров цена/габарит (подробно)',
+				'value' => $add
+			);
+		}
 
 
 		$link_data = $this->get_link_data();
@@ -1330,10 +1339,10 @@ class Baselib {
 		}		
 		
 		$payment_summ = $totals['summ']['value'] + 
-		( isset($totals['shipping']) ? $totals['shipping']['value'] : 0 );
+		( isset($totals['shipping']) ? $totals['shipping']['value'] : 0 ) + $add;
 
 		$totals['payment'] = array(
-			'title' => 'к оплате',
+			'title' => 'итого к оплате',
 			'value' => $payment_summ
 		);
 		

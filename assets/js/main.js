@@ -99,6 +99,18 @@ function listener(event) {
 			}
 		}
 
+		$('.product_uploaded_images_wrapper').empty();
+
+		if(product['product_images'].length > 0) {
+			for (var k in product['product_images']) {
+				html = '<span class="product_uploaded_images_element">'+
+					'<img class="product_uploaded_image" src="/images/'+product['product_images'][k]['url']+'" />'+
+					'<input type="checkbox" class="product_uploaded_image" data-id="'+product['product_images'][k]['image_id']+'">'+
+				'</span>'
+				$('#product_form .product_uploaded_images_wrapper').append(html);
+			}
+		}
+
 		$('#product_form .product_eko').prop('checked', false);
 		if(product.eko > 0) {
 			$('#product_form .product_eko').prop('checked', true);
@@ -203,6 +215,27 @@ function listener(event) {
 			dataType: 'json'
 		});
 
+		data = new FormData();
+		data.append('admin_upload_token', $('#admin_upload_token').val());
+		data.append('product_id', $('#product_form .product_id').val());
+		data.append('type', 'delete_uploaded_images');
+
+		$('#product_form .product_uploaded_image').each(function(i) {
+			if($(this).prop("checked")) {
+				image_id = $(this).attr('data-id');
+				data.append('images[]', image_id);				
+			}
+		});
+
+		$.ajax({
+			url: '/ajax_handler',
+			type: 'POST',
+			data: data,
+			processData: false,
+			contentType: false,
+			dataType: 'json'
+		});
+
 		$('.admin_window_closer').hide();
 		$('#product_form').hide();
 	} else if (event.data.type == 'create_admin_token') {
@@ -227,6 +260,12 @@ if (window.addEventListener) {
 }
 
 $(document).ready(function() {
+
+	$(document).on('click','.doanload_price_list',function(e) {
+		e.preventDefault();
+
+		$('#download_price_list_form').submit();
+	});
 
 	$(document).on('click','.open_provider_modal',function(e) {
 		e.preventDefault();
@@ -942,20 +981,6 @@ $(document).ready(function() {
 			assortiment: $('#product_form .product_assortiment').val(),
 			stars: $('#product_form .product_stars').val(),
 		}
-
-		connected_products = {};
-
-		$('#connected_products_wrapper .g_good_secondary_inner_modal_line').each(function(i) {
-			if($(this).find('.connected_product_id').val().length > 1) {
-				connected_products[i] = {
-					id : $(this).find('.connected_product_id').val(),
-					count : $(this).find('.connected_product_count').val(),
-					percent : $(this).find('.connected_product_percent').val()
-				}
-			}
-		});
-
-		product.connected_products = connected_products;
 
 		send_data = {
 			type : 'save_product',
