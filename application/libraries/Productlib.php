@@ -820,7 +820,7 @@ class Productlib {
 	}
 
 
-	public function get_product_by_id($product_id) {
+	public function get_product_by_id($product_id,$with_box_price = false) {
 		
 		$sql = 'SELECT p.*, c.bm, c.category_id, c.title AS category_title FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND ptc.category_id = c.category_id AND p.product_id = "'.$product_id.'" LIMIT 1';
 
@@ -870,6 +870,10 @@ class Productlib {
 				foreach ($query->result_array() as $row) {
 					$provider_prices[] = $row;
 				}
+			} else {
+				$product['box_price'] = 0;
+				$product['box_kol'] = 0;
+				$product['box_provider'] = 0;
 			}
 
 			if(count($provider_prices)) {
@@ -884,7 +888,7 @@ class Productlib {
 					}
 				}
 			
-				if($price < $product['price']) {
+				if($price < $product['price'] or $with_box_price) {
 					$product['box_price'] = $price;
 					$product['box_kol'] = $provider_data['kol'];
 					$product['box_provider'] = $provider_data['provider_id'];
