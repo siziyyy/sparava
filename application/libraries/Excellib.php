@@ -207,7 +207,7 @@ class Excellib extends PHPExcel {
     			foreach ($products as $product) {
     				$data[] = array(
     					'articul' => $product['product_id'],
-    					'title' => $this->_ci->baselib->text_limiter($product['title_full'],80),
+    					'title' => $this->_ci->baselib->text_limiter($product['title_full'],65),
     					'price' => $product['price'],
     					'box_price' => $product['box_price'],
     					'box_kol' => $product['box_kol'],
@@ -242,7 +242,7 @@ class Excellib extends PHPExcel {
     	if ($query->num_rows() > 0) {
 
 			$fields = array(
-				'Артикул',
+				'№',
 				'Наименование',
 				'шт.цена',
 				'короб. цена',
@@ -255,18 +255,15 @@ class Excellib extends PHPExcel {
 
 			$this->getActiveSheet()->mergeCells('A1:H1');
 			$this->getActiveSheet()->setCellValue('A1', 'AYDAEDA.RU');
-			$this->getActiveSheet()->getColumnDimension( 'A' )->setAutoSize( true );
 			$this->getActiveSheet()->getStyle('A1')->getFont()->setSize(24);
 
 			$this->getActiveSheet()->mergeCells('A2:H2');
 			$this->getActiveSheet()->setCellValue('A2', 'Площадка оптовой торговли по ценам крупных поставщиков и производителей, без наценки. Оперативная доставка.');
-			$this->getActiveSheet()->getColumnDimension( 'A' )->setAutoSize( true );
 			$this->getActiveSheet()->getStyle('A2')->getFont()->setSize(12);
 			$this->getActiveSheet()->getStyle('A2')->getFont()->setBold(true);	
 
 			$this->getActiveSheet()->mergeCells('A4:H4');
 			$this->getActiveSheet()->setCellValue('A4', 'URL: aydaeda.ru    Email: info@aydaeda.ru    Телефон: +7 495 544 88 64   График работы 9 - 19:00  График работы 9 - 19:00, без выходных.');
-			$this->getActiveSheet()->getColumnDimension( 'A' )->setAutoSize( true );
 
 			
 		
