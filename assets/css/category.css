@@ -380,3 +380,102 @@ textarea.product_description{height:139px}
 .g_good_added_to_cart_text2 {
     cursor: pointer;
 }
+.new_goods_separator_brand{
+    width: 100%;
+}
+.new_goods_separator_brand_text {
+    font-size: 36px;
+    color: #000;
+    font-family: Calibri Bold;
+}
+.new_goods_separator_brand_text_small{
+    font-size: 16px;
+    color: #000;
+    font-family: Calibri;
+    margin-left: 15px;
+    position: relative;
+    top: -5px;
+}
+.new_goods_separator_brand_link {
+    font-size: 16px;
+    color: #36a0db;
+    line-height: 36px;
+}
+.more_photos {
+    width: 100%;
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+.more_photo{
+    width: 72px;
+    display: block;
+    border: 2px solid #e6e6e6;
+    margin-right: 15px;
+    cursor: pointer;
+}
+.more_good_page_photo {
+    width: 100%;
+    cursor: pointer;
+}
+.g_good_price_radio {
+    margin: 0px 10px 0 0px;
+    position: relative;
+    width: 15px;
+    height: 15px;
+    top: -3px;
+}
+.cgood_modal_price_header {
+    font-size: 16px;
+    margin: 0px 0 15px 0;
+}
+.good_modal_new_price_block_com {
+    font-size: 18px;
+    color: #1a1a1a;
+    font-family: Calibri;
+    margin-left: 5px;
+}
+.optovaya {
+    color: #468711;
+}
+.new_deliv_block {
+    font-size: 20px;
+    color: #333;
+    margin-top: 15px;
+    line-height: 22px;
+}
+.new_deliv_select {
+    display: inline-block;
+    width: 257px;
+    margin-right: 25px;
+    height: 31px;
+    box-sizing: border-box;
+    padding-left: 10px;
+    font-size: 16px;
+}
+.new_deliv_selects {
+    margin: 25px 0;
+}
+.c_contacts_line_right_subheader {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+.c_contacts_line_right_time {
+    font-size: 16px;
+    color: #F78C76;
+    margin-right: 16px;
+}
+.c_contacts_line_right_time_last {
+    margin-right: 0
+}
+.c_contacts_big_phone {
+    margin-bottom: 0 !important;
+}
+.c_contacts_line_right_phone {
+    margin-top: 15px !important;
+}
+.c_contacts_about_text {
+    max-width: 100% !important;
+}
