@@ -3,7 +3,7 @@
                         <div class="c_contacts_line c_contacts_line_first">
                             <div class="c_contacts_line_left fl_l">
                                 <a href="tel:+74955448864" class="c_contacts_big_phone">8 495 544 88 64</a>
-                                <div class="po_konkretnym_voprosam">
+                                <!--<div class="po_konkretnym_voprosam">
                                     <div class="po_konkretnym_voprosam_header">По конкретным вопросам</div>
                                     <div class="po_konkretnym_voprosam_content">
                                         <div class="po_konkretnym_voprosam_content_column fl_l">
@@ -54,7 +54,7 @@
                                         </div>
                                         <div class="clear"></div>
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                             <div class="c_contacts_line_right fl_r">
                                 <div class="c_contacts_line_right_header">Другие способы связи</div>

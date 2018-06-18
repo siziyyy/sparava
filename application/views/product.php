@@ -115,12 +115,23 @@
                                     <div class="average_weight average_weight2">≈ <?php echo $product['sr_ves'] ?></div>
                                 <?php } ?>
                             </div>
+                            <div class="more_photos">
+                                <a class="more_photo fl_l">
+                                    <img src="/images/1.jpg" class="more_good_page_photo" onError="this.src='/assets/img/nophoto.jpg'">
+                                </a>
+                                <a class="more_photo fl_l">
+                                    <img src="/images/1.jpg" class="more_good_page_photo" onError="this.src='/assets/img/nophoto.jpg'">
+                                </a>
+                                <div class="clear"></div>
+                            </div>
                         </div>
                         <div class="good_page_right fl_l">
                             <div class="good_modal_right_line">
-                                <div class="cgood_modal_price fl_l">                 
-                                    <span class="cgood_modal_price_value g_good_price_value"><?php echo $product['price'] ?></span> р.
-                                    <?php if(isset($product['old_price'])) { ?>
+                                <div class="cgood_modal_price fl_l"> <!-- добавь класс optovaya для оптовой цены -->
+                                    <label>            
+                                        <span class="cgood_modal_price_value g_good_price_value"><input type="radio" class="g_good_price_radio" name=""><?php echo $product['price'] ?></span> р. <span class="good_modal_new_price_block_com">х 1 шт.</span>
+                                        <?php if(isset($product['old_price'])) { ?>
+                                    </label>
                                     <div class="g_old_good_price g_old_good_price_mod"><?php echo $product['old_price'] ?> р.</div>
                                     <?php } ?>               
                                 </div>                  
@@ -148,7 +159,15 @@
                                 </div>
                                 <div class="clear"></div>
                             </div>
-                            
+                            <div class="good_modal_right_line">
+                                <div class="cgood_modal_price_header">Еще дешевле в большой упаковке!</div>
+                                <div class="optovaya good_modal_new_price_block cgood_modal_price fl_l">
+                                    <label>
+                                        <span class="cgood_modal_price_value g_good_price_value"><input type="radio" class="g_good_price_radio" name=""><?php echo $product['price'] ?></span> р. <span class="good_modal_new_price_block_com">х 12 шт. = 1475</span>
+                                    </label>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
                             <div class="good_modal_right_line">
                                 <div class="good_modal_name fl_l"><?php echo (empty($product['title_full']) ? $product['title'] : $product['title_full']) ?></div>
                                 <div class="clear"></div>
@@ -236,7 +255,7 @@
                             </div>
                             
                             <?php if(isset($product['box_kol'])) { ?>
-                                <div class="good_page_big_pack">
+                                <!--<div class="good_page_big_pack">
                                     <div class="good_page_big_pack_header">Еще дешевле в большой упаковке!</div>
                                     <div class="good_page_big_pack_left fl_l">
                                         <div class="good_page_big_pack_left_body">
@@ -265,7 +284,7 @@
                                         </div>
                                     </div>
                                     <div class="clear"></div>
-                                </div>
+                                </div>-->
                             <?php } ?>
                             <?php if(false) { ?>
                                 <div class="good_modal_right_line good_modal_video_line">

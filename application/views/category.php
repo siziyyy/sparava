@@ -140,11 +140,18 @@
 	            				$is_first_category = false;
 	            			}
 	            		?>
-		                <div class="new_goods_separator <?php echo $class ?>">
+		                <!--<div class="new_goods_separator <?php echo $class ?>">
 		                    <a href="<?php echo '/'.$parent_category_seo_url.'/'.$category['info']['seo_url'] ?>" class="new_goods_separator_link fl_l"><?php echo $category['info']['title'] ?></a>
 		                    <div class="new_goods_separator_count fl_l">всего товаров: <?php echo $category['products_count'] ?></div>
 		                    <a href="<?php echo '/'.$parent_category_seo_url.'/'.$category['info']['seo_url'] ?>"><div class="new_goods_separator_look_all fl_r">посмотреть все</div></a>
 		                    <div class="clear"></div>
+		                </div>-->
+		                <div class="new_goods_separator_brand">
+		                	<div class="new_goods_separator_brand_text fl_l">
+		                		Cirio <span class="new_goods_separator_brand_text_small">Италия</span>
+		                	</div>
+		                	<a class="new_goods_separator_brand_link fl_r">все предложения от данного бренда</a>
+		                	<div class="clear"></div>
 		                </div>
 		                <div class="goods">
 		                    <?php foreach($category['products'] as $product) { ?>
