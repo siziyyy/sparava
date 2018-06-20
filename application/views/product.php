@@ -116,12 +116,11 @@
                                 <?php } ?>
                             </div>
                             <div class="more_photos">
-                                <a class="more_photo fl_l">
-                                    <img src="/images/1.jpg" class="more_good_page_photo" onError="this.src='/assets/img/nophoto.jpg'">
-                                </a>
-                                <a class="more_photo fl_l">
-                                    <img src="/images/1.jpg" class="more_good_page_photo" onError="this.src='/assets/img/nophoto.jpg'">
-                                </a>
+                                <?php foreach($product['add_images'] as $add_image) { ?>
+                                    <a class="more_photo fl_l">
+                                        <img src="/images/<?php echo $add_image ?>" class="more_good_page_photo select_add_image" onError="this.src='/assets/img/nophoto.jpg'">
+                                    </a>
+                                <?php } ?>
                                 <div class="clear"></div>
                             </div>
                         </div>

@@ -7,7 +7,7 @@ class Filterlib {
     	$this->_ci =& get_instance();
     }
 
-	public function filter_products($products,$filters,$page,$category = false) {
+	public function filter_products($products,$filters,$page,$category = false,$is_mobile = false) {
 		$price_sort = array();
 		$filters_count = 0;
 		
@@ -119,7 +119,7 @@ class Filterlib {
 			$filters_text['price'] = $this->get_filter_text('price',$filters['price']);
 		}
 
-		if($category) {
+		if($category and !$is_mobile) {
 			$pre_products = $this->_ci->productlib->filter_products_by_sort($products,$category);
 			$result_array = array();
 
@@ -165,6 +165,14 @@ class Filterlib {
 					unset($result_array[$index]);					
 				}
 			}
+
+			if(count($result_array) == 1 and isset($result_array['Остальные товары'])) {
+				$result_array = array(
+					'' => $result_array['Остальные товары']
+				);
+			}
+
+			$empty_products = 0;
 
 			foreach ($result_array as $index => $products) {
 				$empty_products = count($products)%5; 

@@ -355,8 +355,8 @@ class Main extends CI_Controller {
 
 		$blocks = array(
 			'delivery',
-			'first',
-			'bonus',
+			//'first',
+			//'bonus',
 			'about',
 			'testimonials',
 			'bloger',
@@ -956,13 +956,14 @@ class Main extends CI_Controller {
 			
 			$products = $this->productlib->get_category_products($category);
 			$products = $this->productlib->sort_products('category',$category,$products);
-			$products_in_page = $this->filterlib->filter_products($products,$filters,$page,$category);
+			$products_in_page = $this->filterlib->filter_products($products,$filters,$page,$category,$this->_is_mobile);
 
 			$data['menu_childs'] = $menu_childs;
 			$data['attributes'] = $this->baselib->handle_attributes($products);
 			$data['filters'] = $filters;
 
 			$data['sort_attr'] = $products_in_page['sort_attr'];
+			$data['category_view_type'] = $category_data['view_type'];
 			
 			$data['products'] = $products_in_page['products'];
 			$data['filters_used'] = $products_in_page['filters_used'];

@@ -223,8 +223,6 @@ body,html,textarea{font-family:Calibri}
                         </div>
                         <div class="new_inform_menu_col new_inform_menu_col_sec fl_l">
                             <div class="new_inform_menu_col_header">Программы лояльности</div>
-                            <a href="/information/first" class="new_inform_menu_col_link">Преимущество первого заказа</a>
-                            <a href="/information/bonus" class="new_inform_menu_col_link">Бонусная система</a>
                             <a href="/information/claims" class="new_inform_menu_col_link">Претензии и предложения</a>
                             <div class="new_inform_menu_col_link_sepp"></div>
                         </div>
