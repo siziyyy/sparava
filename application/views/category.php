@@ -140,18 +140,11 @@
 	            				$is_first_category = false;
 	            			}
 	            		?>
-		                <!--<div class="new_goods_separator <?php echo $class ?>">
+		                <div class="new_goods_separator <?php echo $class ?>">
 		                    <a href="<?php echo '/'.$parent_category_seo_url.'/'.$category['info']['seo_url'] ?>" class="new_goods_separator_link fl_l"><?php echo $category['info']['title'] ?></a>
 		                    <div class="new_goods_separator_count fl_l">всего товаров: <?php echo $category['products_count'] ?></div>
 		                    <a href="<?php echo '/'.$parent_category_seo_url.'/'.$category['info']['seo_url'] ?>"><div class="new_goods_separator_look_all fl_r">посмотреть все</div></a>
 		                    <div class="clear"></div>
-		                </div>-->
-		                <div class="new_goods_separator_brand">
-		                	<div class="new_goods_separator_brand_text fl_l">
-		                		Cirio <span class="new_goods_separator_brand_text_small">Италия</span>
-		                	</div>
-		                	<a class="new_goods_separator_brand_link fl_r">все предложения от данного бренда</a>
-		                	<div class="clear"></div>
 		                </div>
 		                <div class="goods">
 		                    <?php foreach($category['products'] as $product) { ?>
@@ -175,7 +168,22 @@
     }
 </style>
 					<?php foreach($products as $view_type => $products_group) { ?>
-	                    <h2><?php echo $view_type ?></h2>
+		                <div class="new_goods_separator_brand">
+		                	<div class="new_goods_separator_brand_text fl_l">
+		                		<?php echo $view_type ?> 
+		                		<span class="new_goods_separator_brand_text_small">
+		                			<?php 
+		                				if($category_view_type == '1' and $view_type != 'Остальные товары') {
+		                					echo current($products_group)['country'];
+		                				}
+		                			?>
+		                		</span>
+		                	</div>
+		                	<?php if($category_view_type == '1' and $view_type != 'Остальные товары') { ?>
+		                		<a href="https://aydaeda.ru/brands?brand=<?php echo urlencode($view_type) ?>" class="new_goods_separator_brand_link fl_r">все предложения от данного бренда</a>
+		                	<?php } ?>
+		                	<div class="clear"></div>
+		                </div>
 		                <div class="goods">
 		                	<?php
 			                	foreach($products_group as $product) {

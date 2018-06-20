@@ -718,6 +718,15 @@ $(document).ready(function() {
 		$('.blaah').show();
 		$('.blah_closer').show();
 	});
+
+	$(document).on('click','.select_add_image',function(e) {
+		e.preventDefault();
+		selected_image = $(this).attr('src');
+		old_image = $('.good_page_photo').attr('src');
+		$(this).attr('src',old_image);
+		$('.good_page_photo').attr('src',selected_image);
+	});
+
 	
 	$(document).on('click','.good_modal_video',function(e) {
 		e.preventDefault();

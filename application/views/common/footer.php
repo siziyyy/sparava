@@ -31,8 +31,6 @@
 				</div>
 				<div class="f_block">
 					<div class="f_block_header">Программы <br>лояльности</div>
-					<div><a href="/information/first" class="f_block_link">Преимущества первого заказа</a></div>
-					<div><a href="/information/bonus" class="f_block_link">Бонусная система</a></div>
 					<div><a href="/information/claims" class="f_block_link">Претензии и предложения</a></div>
 					<div><a href="/information/agreement" class="f_block_link">Публичная оферта</a></div>
 				</div>

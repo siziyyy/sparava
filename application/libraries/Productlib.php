@@ -895,6 +895,16 @@ class Productlib {
 				}
 			}
 
+			$product['add_images'] = array();
+
+ 			$sql = 'SELECT * FROM `product_images` WHERE `product_id` = '.$product['product_id'];
+			$query = $this->_ci->db->query($sql);
+			if ($query->num_rows() > 0) {
+				foreach ($query->result_array() as $row) {
+					$product['add_images'][$row['image_id']] = $row['url'];
+				}
+			}
+
 			return $product;
 		}
 		

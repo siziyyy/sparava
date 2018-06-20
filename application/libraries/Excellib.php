@@ -253,17 +253,17 @@ class Excellib extends PHPExcel {
 			$this->setActiveSheetIndex(0);
 			$this->getActiveSheet()->setTitle("products");
 
-			$this->getActiveSheet()->mergeCells('A1:H1');
+			$this->getActiveSheet()->mergeCells('A1:F1');
 			$this->getActiveSheet()->setCellValue('A1', 'AYDAEDA.RU');
 			$this->getActiveSheet()->getStyle('A1')->getFont()->setSize(24);
 
-			$this->getActiveSheet()->mergeCells('A2:H2');
+			$this->getActiveSheet()->mergeCells('A2:F2');
 			$this->getActiveSheet()->setCellValue('A2', 'Площадка оптовой торговли по ценам крупных поставщиков и производителей, без наценки. Оперативная доставка.');
-			$this->getActiveSheet()->getStyle('A2')->getFont()->setSize(12);
+			$this->getActiveSheet()->getStyle('A2')->getFont()->setSize(11);
 			$this->getActiveSheet()->getStyle('A2')->getFont()->setBold(true);	
 
-			$this->getActiveSheet()->mergeCells('A4:H4');
-			$this->getActiveSheet()->setCellValue('A4', 'URL: aydaeda.ru    Email: info@aydaeda.ru    Телефон: +7 495 544 88 64   График работы 9 - 19:00  График работы 9 - 19:00, без выходных.');
+			$this->getActiveSheet()->mergeCells('A4:F4');
+			$this->getActiveSheet()->setCellValue('A4', 'aydaeda.ru   Email: info@aydaeda.ru   Телефон: +7 495 544 88 64   График работы 9 - 19:00  График работы 9 - 19:00, без выходных.');
 
 			
 		
@@ -272,7 +272,12 @@ class Excellib extends PHPExcel {
 			for($i = 0 ; $i < count($fields) ; $i++ ) {
 				$this->getActiveSheet()->setCellValue($this->_chars[$i].$j, $fields[$i]);
 				
-				$this->getActiveSheet()->getColumnDimension( $this->_chars[$i] )->setAutoSize( true );
+				if($this->_chars[$i] == 'B') {
+					$this->getActiveSheet()->getColumnDimension( $this->_chars[$i] )->setWidth(60);
+				} else {
+					$this->getActiveSheet()->getColumnDimension( $this->_chars[$i] )->setAutoSize( true );
+				}
+				
 				$this->getActiveSheet()->getStyle($this->_chars[$i].$j)->getFont()->setSize(13);
 				$this->getActiveSheet()->getStyle($this->_chars[$i].$j)->getFont()->setBold(true);	
 				$this->getActiveSheet()->getStyle($this->_chars[$i].$j)->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setRGB('cccccc');
@@ -290,7 +295,15 @@ class Excellib extends PHPExcel {
 					
 					$j++;
 				}
-			}			
+			}
+
+		    $style = array(
+		        'alignment' => array(
+		            'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_CENTER,
+		        )
+		    );
+
+		    $this->getActiveSheet()->getStyle("C7:F".($j-1))->applyFromArray($style);			
 
 			$filename = substr(sha1(uniqid(mt_rand(), true)), 0, 32).'.xls';
 
