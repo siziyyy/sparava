@@ -77,7 +77,7 @@
                 </label>
                 <label>
                     <span class="g_good_admin_info_modal_inpname nom">Название полное</span>
-                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_name_full check_length">
+                    <input type="text" class="g_good_admin_info_modal_input g_good_admin_info_modal_input_long product_name_full check_length" data-length="60">
                 </label>
                 <label>
                     <span class="g_good_admin_info_modal_inpname">Загрузить главное фото</span>

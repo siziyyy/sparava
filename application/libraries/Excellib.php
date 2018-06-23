@@ -195,19 +195,20 @@ class Excellib extends PHPExcel {
 
 			$data = array();
 
-			$sql = 'SELECT p.*, c.bm FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND p.status > 0 AND ptc.category_id = c.category_id AND ptc.category_id = ' . (int)$category_id . ' ORDER BY product_id ASC';
+			$sql = 'SELECT p.*, c.bm,c.title as category_title FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND p.status > 0 AND ptc.category_id = c.category_id AND ptc.category_id = ' . (int)$category_id . ' ORDER BY product_id ASC';
 					
 			$query = $this->_ci->db->query($sql);
 
 			if ($query->num_rows() > 0) {
     			foreach($query->result_array() as $row) {
+    				$category_title = $row['category_title'];
     				$products[$row['product_id']] = $this->_ci->productlib->get_product_by_id($row['product_id'],true);
 	    		}
 
     			foreach ($products as $product) {
     				$data[] = array(
     					'articul' => $product['product_id'],
-    					'title' => $this->_ci->baselib->text_limiter($product['title_full'],65),
+    					'title' => $this->_ci->baselib->text_limiter($product['title_full'],60),
     					'price' => (isset($product['price']) ? $product['price'] : 0 ),
     					'box_price' => (isset($product['box_price']) ? $product['box_price'] : 0),
     					'box_kol' => (isset($product['box_kol']) ? $product['box_kol'] : 0),
@@ -305,7 +306,7 @@ class Excellib extends PHPExcel {
 
 		    $this->getActiveSheet()->getStyle("C7:F".($j-1))->applyFromArray($style);			
 
-			$filename = substr(sha1(uniqid(mt_rand(), true)), 0, 32).'.xls';
+			$filename = $category_title.'.xls';
 
 			header('Content-Type: application/vnd.ms-excel'); //mime type
 			header('Content-Disposition: attachment;filename="'.$filename.'"'); //tell browser what's the file name

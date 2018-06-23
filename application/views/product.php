@@ -273,20 +273,23 @@
                                 <?php } ?>
                                 <div class="clear"></div>
                             </div>
-                            <div class="good_modal_right_line actions_holder">
-                                <div class="g_good_count">
-                                    <div class="g_good_count_act g_good_count_rem sprite <?php echo ( ($product['type'] == 'шт' or $product['bm'] == 0) ? 'g_good_count_act_disable' : '' ) ?>"></div>
-                                    <input type="text" class="g_good_count_input" value="<?php echo $product['default_value'] ?>">
-                                    <div class="g_good_count_act g_good_count_add sprite"></div>
+
+                            <?php if($product['price']>0 or isset($product['box_kol'])) { ?>
+                                <div class="good_modal_right_line actions_holder">
+                                    <div class="g_good_count">
+                                        <div class="g_good_count_act g_good_count_rem sprite <?php echo ( ($product['type'] == 'шт' or $product['bm'] == 0) ? 'g_good_count_act_disable' : '' ) ?>"></div>
+                                        <input type="text" class="g_good_count_input" value="<?php echo $product['default_value'] ?>">
+                                        <div class="g_good_count_act g_good_count_add sprite"></div>
+                                    </div>
+                                    <div class="g_good_to_cart" data-pack-quantity="<?php echo (isset($product['box_kol']) ? $product['box_kol'] : '') ?>">
+                                        <span class="g_good_to_cart_text"><span class="g_good_to_cart_value"><?php echo ($product['price'] <= 0 ? $product['box_kol']*$product['default_price'] : $product['default_price']) ?></span> р.
+                                            <span class="g_good_added_to_cart_text2">добавить в корзину</span>  
+                                        </span>
+                                        <span class="g_good_added_to_cart_text"></span>                                  
+                                        <span class="g_good_to_cart_icon sprite"></span>
+                                    </div>
                                 </div>
-                                <div class="g_good_to_cart" data-pack-quantity="<?php echo (isset($product['box_kol']) ? $product['box_kol'] : '') ?>">
-                                    <span class="g_good_to_cart_text"><span class="g_good_to_cart_value"><?php echo ($product['price'] <= 0 ? $product['box_kol']*$product['default_price'] : $product['default_price']) ?></span> р.
-                                        <span class="g_good_added_to_cart_text2">добавить в корзину</span>  
-                                    </span>
-                                    <span class="g_good_added_to_cart_text"></span>                                  
-                                    <span class="g_good_to_cart_icon sprite"></span>
-                                </div>
-                            </div>
+                            <?php } ?>
  
                             <?php if(false) { ?>
                                 <div class="good_modal_right_line good_modal_video_line">
