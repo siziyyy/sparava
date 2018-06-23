@@ -726,6 +726,51 @@ class Baselib {
 				}
 
 				$products[$product_id]['bonus'] = $this->get_bonus_from_summ($products[$product_id]['default_price']);
+
+				$provider_prices = array();
+
+	 			$sql = 'SELECT * FROM `product_to_provider` WHERE `product_id` = '.$product_id.' AND `kol` > 1 AND `cko` > 0 AND `status` > 0 ORDER BY `kol` ASC';
+				$query = $this->_ci->db->query($sql);
+				if ($query->num_rows() > 0) {
+					foreach ($query->result_array() as $row) {
+						$provider_prices[] = $row;
+					}
+				}
+
+				if(count($provider_prices)) {
+					$price = 0;
+
+					foreach ($provider_prices as $provider) {
+						$pre_price = (int)$provider['cko'];
+
+						if($price == 0 or $pre_price < $price) {
+							$price = $pre_price;
+							$provider_data = $provider;
+						}
+					}
+				
+					if($price < $products[$product_id]['price'] or $products[$product_id]['price']==0) {
+						$products[$product_id]['box_price'] = $price;
+						$products[$product_id]['box_kol'] = $provider_data['kol'];
+						$products[$product_id]['box_provider'] = $provider_data['provider_id'];
+					}
+
+
+					if($products[$product_id]['default_price'] == 0 and isset($products[$product_id]['box_price'])) {
+						$products[$product_id]['default_price'] = $products[$product_id]['box_price'];
+						$products[$product_id]['default_value'] = '1 уп';
+					}
+				}
+
+				if($products[$product_id]['price'] == 0 and isset($products[$product_id]['box_price'])) {
+					$products[$product_id]['input_type'] = 3;
+				} elseif($products[$product_id]['type'] == 'шт') {
+					$products[$product_id]['input_type'] = 0;
+				} elseif($products[$product_id]['bm'] == 1) {
+					$products[$product_id]['input_type'] = 1;
+				} else {
+					$products[$product_id]['input_type'] = 2;
+				}
 			}
 		} else {
 			
@@ -811,6 +856,50 @@ class Baselib {
 			}
 
 			$products['bonus'] = $this->get_bonus_from_summ($products['default_price']);
+
+			$provider_prices = array();
+
+ 			$sql = 'SELECT * FROM `product_to_provider` WHERE `product_id` = '.$products['product_id'].' AND `kol` > 1 AND `cko` > 0 AND `status` > 0 ORDER BY `kol` ASC';
+			$query = $this->_ci->db->query($sql);
+			if ($query->num_rows() > 0) {
+				foreach ($query->result_array() as $row) {
+					$provider_prices[] = $row;
+				}
+			}
+
+			if(count($provider_prices)) {
+				$price = 0;
+
+				foreach ($provider_prices as $provider) {
+					$pre_price = (int)$provider['cko'];
+
+					if($price == 0 or $pre_price < $price) {
+						$price = $pre_price;
+						$provider_data = $provider;
+					}
+				}
+			
+				if($price < $products['price'] or $products['price']==0) {
+					$products['box_price'] = $price;
+					$products['box_kol'] = $provider_data['kol'];
+					$products['box_provider'] = $provider_data['provider_id'];
+				}
+
+				if($products['default_price'] == 0 and isset($products['box_price'])) {
+					$products['default_price'] = $products['box_price'];
+					$products['default_value'] = '1 уп';
+				}
+			}
+
+			if($products['price'] == 0 and isset($products['box_price'])) {
+				$products['input_type'] = 3;
+			} elseif($products['type'] == 'шт') {
+				$products['input_type'] = 0;
+			} elseif($products['bm'] == 1) {
+				$products['input_type'] = 1;
+			} else {
+				$products['input_type'] == 2;
+			}
 		}
 		
 		return $products;
@@ -1052,21 +1141,8 @@ class Baselib {
 				$products[$product['product_id']] = $product;				
 
 				if(isset($element['box'])) {
-					$where = array(
-						'product_id' => $product['product_id'],
-						'provider_id' => $element['box'],
-						'cko >' => 0
-					);
-
-					$query = $this->_ci->db->select("*")->from("product_to_provider")->where($where)->get();
-		    		if ($query->num_rows() > 0) {
-		    			$provider_data = $query->row_array();
-
-		    			$cko = (int)($provider_data['cko']+($provider_data['cko']*15)/100) + 1;
-			    		$products[$product['product_id']]['price'] = (int)($cko * $provider_data['kol']);
-		    		} else {
-		    			unset($cart[$element_id]);
-		    		}
+			    	$products[$product['product_id']]['price'] = (int)($product['box_price'] * $product['box_kol']);
+			    	$products[$product['product_id']]['box'] = 1;
 				} elseif($link_data) {
 					if($link_data['product_id'] == $product['product_id']) {
 						$products[$product['product_id']]['price'] = $link_data['value'];

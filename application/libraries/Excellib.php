@@ -208,10 +208,10 @@ class Excellib extends PHPExcel {
     				$data[] = array(
     					'articul' => $product['product_id'],
     					'title' => $this->_ci->baselib->text_limiter($product['title_full'],65),
-    					'price' => $product['price'],
-    					'box_price' => $product['box_price'],
-    					'box_kol' => $product['box_kol'],
-    					'box_summ' => $product['box_kol']*$product['box_price']
+    					'price' => (isset($product['price']) ? $product['price'] : 0 ),
+    					'box_price' => (isset($product['box_price']) ? $product['box_price'] : 0),
+    					'box_kol' => (isset($product['box_kol']) ? $product['box_kol'] : 0),
+    					'box_summ' => (isset($product['box_kol']) ? $product['box_kol']*$product['box_price'] : 0)
     				);
     			}
     		}

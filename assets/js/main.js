@@ -1265,7 +1265,16 @@ $(document).ready(function() {
 		
 		quantity = $(this).parents(parent_class).find('.g_good_count_input').val();
 		product_id = $(this).parents(parent_class).attr('data-product-id');
-		cart.add(product_id, parseFloat(quantity),parent_class,$(this));
+
+		type_num = $(this).parents(parent_class).attr('data-type');
+
+		type_num = is_pack_type_3(parent_class,type_num);
+
+		if(type_num == 3) {
+			cart.box(product_id, parseFloat(quantity),parent_class,$(this));
+		} else {
+			cart.add(product_id, parseFloat(quantity),parent_class,$(this));
+		}
 
 		$(this).parents(parent_class).find('.g_good_added_to_cart_text').text(quantity+' в ');
 	});
@@ -1273,9 +1282,55 @@ $(document).ready(function() {
 	$(document).on('click','.g_good_added_to_cart',function(e) {
 		window.location = '/cart';
 	});
-	
-	$(document).on('change','.g_good_count_input',function(e) {
+
+	$(document).on('click','input[name="select_price"]',function(e) {
+
+		if($(this).parents('.g_good').length > 0) {
+			parent_class = '.g_good';
+		} else if($(this).parents('.single_good_page').length > 0) {
+			parent_class = '.single_good_page';
+		} else if($(this).parents('.g_good').length == 0) {
+			parent_class = '.good_modal';
+		}
+
+		price = $(this).parents('.g_good_price_value_wrapper').find('.g_good_price_value').text();
+
+		if($('input[name="select_price"]:checked').val() == 'cko') {			
+			kol = $(this).parents(parent_class).find('.g_good_to_cart').attr('data-pack-quantity');
+			$(this).parents(parent_class).find('.g_good_to_cart_value').text(kol*price);
+		} else {
+			$(this).parents(parent_class).find('.g_good_to_cart_value').text(price);
+		}
 		
+	});
+
+	function is_pack_type_3(parent_class,type_num) {
+		if(parent_class == '.single_good_page') {
+			if($('input[name="select_price"]').length > 0) {
+				type = $('input[name="select_price"]:checked').val();
+
+				if(type == 'cko') {
+					return 3;
+				}
+
+				return false;
+			} else {
+				return 3;
+			}
+		} else {
+			return type_num;
+		}
+	}
+
+	function get_price_value(parent_class) {
+		if($('input[name="select_price"]').length > 0) {
+			return $('input[name="select_price"]:checked').parents('.g_good_price_value_wrapper').find(".g_good_price_value").text();
+		} else {
+			return $(parent_class).find(".g_good_price_value").text();
+		}
+	}
+	
+	$(document).on('change','.g_good_count_input',function(e) {		
 		if($(this).parents('.g_good').length > 0) {
 			parent_class = '.g_good';
 		} else if($(this).parents('.single_good_page').length > 0) {
@@ -1285,7 +1340,13 @@ $(document).ready(function() {
 		}
 		
 		quantity = parseFloat($(this).val());
-		type_num = $(this).parents(parent_class).attr('data-type');		
+		type_num = $(this).parents(parent_class).attr('data-type');
+
+		is_3_type = is_pack_type_3(parent_class,type_num);
+
+		if(is_3_type) {
+			type_num = is_3_type;
+		}
 		
 		if(type_num == 0) {
 			type = 'шт';
@@ -1293,9 +1354,11 @@ $(document).ready(function() {
 			type = 'кг';
 		} else if(type_num == 2) {
 			type = 'кг';
+		} else if(type_num == 3) {
+			type = 'уп';
 		}
 		
-		price = $(this).parents(parent_class).find(".g_good_price_value").text();
+		price = get_price_value(parent_class);
 
 		summ = parseInt(parseFloat(quantity)*price);
 
@@ -1329,11 +1392,23 @@ $(document).ready(function() {
 		type_num = $(this).parents(parent_class).attr('data-type');
 
 		quantity = get_quantity_by_type(quantity,type_num,false,parent_class,$(this));
-		price = $(this).parents(parent_class).find(".g_good_price_value").text();
+		price = get_price_value(parent_class);
 
-		summ = parseInt(parseFloat(quantity)*price);
+		is_3_type = is_pack_type_3(parent_class,type_num);
 
-		if((parseFloat(quantity)*price) > summ) {
+		if(is_3_type) {
+			type_num = is_3_type;
+		}		
+
+		if(type_num == 3) {
+			kol = $(this).parents(parent_class).find('.g_good_to_cart').attr('data-pack-quantity');
+		} else {
+			kol = 1;
+		}
+
+		summ = parseInt(parseFloat(quantity)*kol*price);
+
+		if((parseFloat(quantity)*kol*price) > summ) {
 			summ++;
 		}
 
@@ -1363,11 +1438,23 @@ $(document).ready(function() {
 		type_num = $(this).parents(parent_class).attr('data-type');
 		
 		quantity = get_quantity_by_type(quantity,type_num,true,parent_class,$(this));
-		price = $(this).parents(parent_class).find(".g_good_price_value").text();
+		price = get_price_value(parent_class);
 
-		summ = parseInt(parseFloat(quantity)*price);
+		is_3_type = is_pack_type_3(parent_class,type_num);
 
-		if((parseFloat(quantity)*price) > summ) {
+		if(is_3_type) {
+			type_num = is_3_type;
+		}		
+
+		if(type_num == 3) {
+			kol = $(this).parents(parent_class).find('.g_good_to_cart').attr('data-pack-quantity');
+		} else {
+			kol = 1;
+		}
+
+		summ = parseInt(parseFloat(quantity)*kol*price);
+
+		if((parseFloat(quantity)*kol*price) > summ) {
 			summ++;
 		}
 
@@ -1381,10 +1468,21 @@ $(document).ready(function() {
 		
 	
 	function get_quantity_by_type(quantity,type_num,minus,parent_class,obj) {
+		is_3_type = is_pack_type_3(parent_class,type_num);
+
+		if(is_3_type) {
+			type_num = is_3_type;
+		}
+
 		if(minus) {
-			if(type_num == 0) {
+			if(type_num == 0 || type_num == 3) {
 				obj.parents(parent_class).find('.g_good_count_rem').removeClass('g_good_count_act_disable');
-				type = 'шт';
+				
+				if(type_num == 3) {
+					type = 'уп';
+				} else {
+					type = 'шт';
+				}
 				quantity--;
 				
 				
@@ -1446,9 +1544,15 @@ $(document).ready(function() {
 				return quantity+' '+type;
 			}			
 		} else {
-			if(type_num == 0) {
+			if(type_num == 0 || type_num == 3) {
 				obj.parents(parent_class).find('.g_good_count_rem').removeClass('g_good_count_act_disable');
-				type = 'шт';
+
+				if(type_num == 3) {
+					type = 'уп';
+				} else {
+					type = 'шт';
+				}
+
 				quantity++;
 				
 				if(quantity <= 1) {
@@ -2208,11 +2312,11 @@ var cart = {
 			}
 		});
 	},
-	'box': function(product_id, quantity, provider_id) {
+	'box': function(product_id, quantity, parent_class, obj = false) {
 		$.ajax({
 			url: '/cart_ajax',
 			type: 'post',
-			data: 'action=box&product_id=' + product_id + '&quantity=' + (typeof(quantity) != 'undefined' ? quantity : 1) +'&provider_id=' + provider_id,
+			data: 'action=box&product_id=' + product_id + '&quantity=' + (typeof(quantity) != 'undefined' ? quantity : 1),
 			dataType: 'json',
 			success: function(json) {
 				if(json['success']) {
@@ -2221,6 +2325,12 @@ var cart = {
 					$('#h_cart_text_summ').text(json['success']['summ']);
 					$('#h_cart_text_word').text(json['success']['word']);
 					$('#h_cart_text_total').text(json['success']['total']);
+					
+					if(obj) {
+						obj.addClass('g_good_added_to_cart');
+						obj.parents(parent_class).find(".g_good_added_to_cart_text").show();
+						obj.parents(parent_class).find(".g_good_to_cart_text").hide();
+					}
 				}
 			}
 		});

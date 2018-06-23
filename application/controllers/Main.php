@@ -146,9 +146,11 @@ class Main extends CI_Controller {
 			if(isset($products[$banner['id']])) {
 				$banners['products'][$id]['price'] = $products[$banner['id']]['price'];
 				$banners['products'][$id]['title'] = $products[$banner['id']]['title'];
+			} else {
+				unset($banners['products'][$id]);
 			}
 		}
-
+		
 		$banners_to_shuffle = array();
 
 		foreach ($banners['banner_4'] as $banner) {
@@ -1090,6 +1092,8 @@ class Main extends CI_Controller {
 				$related_by_brands_products = $this->productlib->get_related_products_ids_by_brand($product_id);
 			}
 
+
+
 			$banners = current($this->baselib->get_page_banners('product'));
 
 			$data = array(
@@ -1961,16 +1965,16 @@ class Main extends CI_Controller {
 				);
 			} elseif($this->input->post('action') == 'remove') {
 				unset($cart['p-'.$this->input->post('product_id')]);
-			}if($this->input->post('action') == 'box') {
+			} elseif($this->input->post('action') == 'box') {
 				$cart['p-'.$this->input->post('product_id')] = array(
 					'quantity' => $quantity_in_request + $quantity,
-					'box' => $this->input->post('provider_id')
+					'box' => 1
 				);
 			}
 
-			if(isset($cart['p-'.$this->input->post('product_id')]) and $this->input->post('action') != 'box') {
-				$cart['p-'.$this->input->post('product_id')]['box'] = $box;
-			}
+			//if(isset($cart['p-'.$this->input->post('product_id')]) and $this->input->post('action') != 'box') {
+				//$cart['p-'.$this->input->post('product_id')]['box'] = $box;
+			//}
 
 			$this->session->set_userdata('cart', $cart);
 			
