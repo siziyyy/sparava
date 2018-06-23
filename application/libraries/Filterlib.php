@@ -7,7 +7,7 @@ class Filterlib {
     	$this->_ci =& get_instance();
     }
 
-	public function filter_products($products,$filters,$page,$category = false,$is_mobile = false) {
+	public function filter_products($products,$filters,$page,$category = false,$save_struct = false) {
 		$price_sort = array();
 		$filters_count = 0;
 		
@@ -119,7 +119,7 @@ class Filterlib {
 			$filters_text['price'] = $this->get_filter_text('price',$filters['price']);
 		}
 
-		if($category and !$is_mobile) {
+		if($category and !$save_struct) {
 			$pre_products = $this->_ci->productlib->filter_products_by_sort($products,$category);
 			$result_array = array();
 

@@ -47,17 +47,17 @@
 			</div>
 			<div class="c_inners_td fl_l c_inners_second_td no_on_mob"><?php echo $product['price'] ?> р.
 			<span class="for_price_cart">за 
-				<?php
-					if($product['type'] == 'шт') {
-						echo '1 шт';
-					} else {
-						if($product['bm'] == 1) {
-							echo '1 кг';
-						} else {
-							echo '100 гр';
-						}
-					}
-				?>
+						<?php if(isset($product['box'])) { ?>
+							<?php $box_type = '1 уп' ?>
+                        <?php } elseif($product['type'] == 'шт') { ?>
+                            <?php $box_type = '1 шт' ?>
+                        <?php } elseif($product['bm'] == 1) { ?>
+                            <?php $box_type = '1 кг' ?>
+                        <?php } else { ?>
+                            <?php $box_type = '100 гр' ?>
+                        <?php } ?>
+
+                        <?php echo $box_type ?>
 			</span></div>
 			<div class="c_inners_td fl_l c_inners_third_td no_on_mob">
 				<div class="c_inners_count">

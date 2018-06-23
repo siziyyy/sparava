@@ -103,7 +103,7 @@
                 </section>
             </div>
             <div class="good_page" >
-                <section class="content single_good_page" style="min-height: auto" data-product-id="<?php echo $product['product_id'] ?>" data-type="<?php echo ($product['type'] == 'шт' ? 0 : ($product['bm'] == 1 ? 1 : 2)) ?>">
+                <section class="content single_good_page" style="min-height: auto" data-product-id="<?php echo $product['product_id'] ?>" data-type="<?php echo $product['input_type'] ?>">
                     <div class="content_helper">
                         <div class="good_page_left fl_l">
                             <img src="/images/<?php echo $product['image'] ?>" class="good_page_photo" onError="this.src='/assets/img/nophoto.jpg'">
@@ -124,14 +124,35 @@
                                 <div class="clear"></div>
                             </div>
                         </div>
+
+                        <?php if($product['type'] == 'шт') { ?>
+                            <?php $box_type = '1 шт' ?>
+                            <?php $box_clean_type = 'шт' ?>
+                        <?php } elseif($product['bm'] == 1) { ?>
+                            <?php $box_type = '1 кг' ?>
+                            <?php $box_clean_type = 'кг' ?>
+                        <?php } else { ?>
+                            <?php $box_type = '100 гр' ?>
+                            <?php $box_clean_type = false; ?>
+                        <?php } ?>
+
                         <div class="good_page_right fl_l">
                             <div class="good_modal_right_line">
                                 <div class="cgood_modal_price fl_l"> <!-- добавь класс optovaya для оптовой цены -->
-                                    <label>            
-                                        <span class="cgood_modal_price_value g_good_price_value"><input type="radio" class="g_good_price_radio" name=""><?php echo $product['price'] ?></span> р. <span class="good_modal_new_price_block_com">х 1 шт.</span>
-                                        <?php if(isset($product['old_price'])) { ?>
-                                    </label>
-                                    <div class="g_old_good_price g_old_good_price_mod"><?php echo $product['old_price'] ?> р.</div>
+                                    <?php if($product['price'] > 0) { ?>
+                                        <label>            
+                                            <span class="cgood_modal_price_value g_good_price_value_wrapper">
+                                                <?php if(isset($product['box_kol'])) { ?>
+                                                    <input type="radio" class="g_good_price_radio" name="select_price" value="cmo" checked="checked">
+                                                <?php } ?>
+                                                <span class="g_good_price_value">
+                                                    <?php echo $product['price'] ?>
+                                                </span>
+                                            </span> р. <span class="good_modal_new_price_block_com">х <?php echo $box_type ?></span>                                        
+                                        </label>
+                                    <?php } ?>
+                                    <?php if(isset($product['old_price'])) { ?>
+                                        <div class="g_old_good_price g_old_good_price_mod"><?php echo $product['old_price'] ?> р.</div>
                                     <?php } ?>               
                                 </div>                  
                                 <div class="good_modal_weight fl_l"><?php echo $product['weight'] ?></div>
@@ -158,15 +179,29 @@
                                 </div>
                                 <div class="clear"></div>
                             </div>
-                            <div class="good_modal_right_line">
-                                <div class="cgood_modal_price_header">Еще дешевле в большой упаковке!</div>
-                                <div class="optovaya good_modal_new_price_block cgood_modal_price fl_l">
-                                    <label>
-                                        <span class="cgood_modal_price_value g_good_price_value"><input type="radio" class="g_good_price_radio" name=""><?php echo $product['price'] ?></span> р. <span class="good_modal_new_price_block_com">х 12 шт. = 1475</span>
-                                    </label>
+                            <?php if(isset($product['box_kol'])) { ?>
+
+
+                                <div class="good_modal_right_line">
+                                    <?php if($product['price'] > 0) { ?>
+                                        <div class="cgood_modal_price_header">Еще дешевле в большой упаковке!</div>
+                                    <?php } ?>
+                                    <div class="optovaya good_modal_new_price_block cgood_modal_price fl_l">
+                                        <label>
+                                            <span class="cgood_modal_price_value g_good_price_value_wrapper">
+                                                <?php if($product['price'] > 0) { ?>
+                                                    <input type="radio" class="g_good_price_radio" name="select_price" value="cko">
+                                                <?php } ?>
+                                                <span class="g_good_price_value">
+                                                    <?php echo $product['box_price'] ?>
+                                                </span>
+                                            </span> р. 
+                                            <span class="good_modal_new_price_block_com">х <?php echo $product['box_kol'] ?> <?php echo ($box_clean_type ? $box_clean_type : '') ?> = <?php echo (int)($product['box_price']*$product['box_kol']) ?> руб.</span>
+                                        </label>
+                                    </div>
+                                    <div class="clear"></div>
                                 </div>
-                                <div class="clear"></div>
-                            </div>
+                            <?php } ?>
                             <div class="good_modal_right_line">
                                 <div class="good_modal_name fl_l"><?php echo (empty($product['title_full']) ? $product['title'] : $product['title_full']) ?></div>
                                 <div class="clear"></div>
@@ -244,47 +279,15 @@
                                     <input type="text" class="g_good_count_input" value="<?php echo $product['default_value'] ?>">
                                     <div class="g_good_count_act g_good_count_add sprite"></div>
                                 </div>
-                                <div class="g_good_to_cart">
-                                    <span class="g_good_to_cart_text"><span class="g_good_to_cart_value"><?php echo $product['default_price'] ?></span> р.
+                                <div class="g_good_to_cart" data-pack-quantity="<?php echo (isset($product['box_kol']) ? $product['box_kol'] : '') ?>">
+                                    <span class="g_good_to_cart_text"><span class="g_good_to_cart_value"><?php echo ($product['price'] <= 0 ? $product['box_kol']*$product['default_price'] : $product['default_price']) ?></span> р.
                                         <span class="g_good_added_to_cart_text2">добавить в корзину</span>  
                                     </span>
                                     <span class="g_good_added_to_cart_text"></span>                                  
                                     <span class="g_good_to_cart_icon sprite"></span>
                                 </div>
                             </div>
-                            
-                            <?php if(isset($product['box_kol'])) { ?>
-                                <!--<div class="good_page_big_pack">
-                                    <div class="good_page_big_pack_header">Еще дешевле в большой упаковке!</div>
-                                    <div class="good_page_big_pack_left fl_l">
-                                        <div class="good_page_big_pack_left_body">
-                                            Купите данный товар<br>в большой упаковке
-                                        </div>
-                                        <a href="#" class="good_page_big_pack_left_footer box_add_to_cart" data-kol="1" data-provider-id="<?php echo $product['box_provider'] ?>" data-product-id="<?php echo $product['product_id'] ?>">добавить в корзину</a>
-                                    </div>
-                                    <div class="good_page_big_pack_right fl_r">
-                                        <div class="good_page_big_pack_right_header">
-                                            <?php if($product['type'] == 'шт') { ?>
-                                                <?php $box_type = '1 шт' ?>
-                                                <?php $box_clean_type = 'шт' ?>
-                                            <?php } elseif($product['bm'] == 1) { ?>
-                                                <?php $box_type = '1 кг' ?>
-                                                <?php $box_clean_type = 'кг' ?>
-                                            <?php } else { ?>
-                                                <?php $box_type = '100 гр' ?>
-                                                <?php $box_clean_type = false; ?>
-                                            <?php } ?>
-
-
-                                            - <?php echo $product['box_price'] ?> р. <span class="good_page_big_pack_right_header_span"> за <?php echo $box_type ?></span>
-                                        </div>
-                                        <div class="good_page_big_pack_right_footer">
-                                            <?php echo $product['box_kol'] ?> <?php echo ($box_clean_type ? $box_clean_type : '') ?> х <?php echo $product['box_price'] ?> руб. = <?php echo (int)($product['box_price']*$product['box_kol']) ?> руб.
-                                        </div>
-                                    </div>
-                                    <div class="clear"></div>
-                                </div>-->
-                            <?php } ?>
+ 
                             <?php if(false) { ?>
                                 <div class="good_modal_right_line good_modal_video_line">
                                     <?php foreach($product['youtube'] as $video) { ?>
@@ -396,7 +399,7 @@
                                                 <?php if(isset($r_product['old_price'])) { ?>
                                                     <div class="g_old_good_price"><?php echo $r_product['old_price'] ?> р.</div>
                                                 <?php } ?>
-                                                <div class="g_good_price"><span class="g_good_price_value"><?php echo $r_product['price'] ?></span> р.</div>
+                                                <div class="g_good_price"><?php echo $r_product['price'] ?> р.</div>
                                                 <a href="<?php echo $r_product['href'] ?>?type=<?php echo ((isset($path) and $path) ? $path : '') ?>" class="g_good_name" tabindex="0"><?php echo $r_product['title'] ?></a>
                                             </div>
                                             <?php $counter++; ?>
@@ -428,7 +431,7 @@
                                                 <?php if(isset($r_product['old_price'])) { ?>
                                                     <div class="g_old_good_price"><?php echo $r_product['old_price'] ?> р.</div>
                                                 <?php } ?>
-                                                <div class="g_good_price"><span class="g_good_price_value"><?php echo $r_product['price'] ?></span> р.</div>
+                                                <div class="g_good_price"><?php echo $r_product['price'] ?> р.</div>
                                                 <a href="<?php echo $r_product['href'] ?>?type=<?php echo ((isset($path) and $path) ? $path : '') ?>" class="g_good_name" tabindex="0"><?php echo $r_product['title'] ?></a>
                                             </div>
                                             <?php $counter++; ?>

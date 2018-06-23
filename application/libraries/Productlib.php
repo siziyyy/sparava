@@ -534,11 +534,9 @@ class Productlib {
 
 			$filters_data = $this->_ci->session->userdata('filters_data');
 			if(isset($filters_data[$category_id])) {				
-				$filtered_products = $this->_ci->filterlib->filter_products($result['products'],$filters_data[$category_id],1,$category_id);
+				$filtered_products = $this->_ci->filterlib->filter_products($result['products'],$filters_data[$category_id],1,$category_id,true);
 
-
-
-				$result['products'] = current($filtered_products['products']);
+				$result['products'] = $filtered_products['products'];
 			}
 		}
 		
@@ -820,7 +818,7 @@ class Productlib {
 	}
 
 
-	public function get_product_by_id($product_id,$with_box_price = false) {
+	public function get_product_by_id($product_id) {
 		
 		$sql = 'SELECT p.*, c.bm, c.category_id, c.title AS category_title FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND ptc.category_id = c.category_id AND p.product_id = "'.$product_id.'" LIMIT 1';
 
@@ -861,39 +859,6 @@ class Productlib {
 			}
 
 			$product = $this->_ci->baselib->handle_special_price($product);
-
-			$provider_prices = array();
-
- 			$sql = 'SELECT * FROM `product_to_provider` WHERE `product_id` = '.$product['product_id'].' AND `kol` > 1 AND `cko` > 0 AND `status` > 0 ORDER BY `kol` ASC';
-			$query = $this->_ci->db->query($sql);
-			if ($query->num_rows() > 0) {
-				foreach ($query->result_array() as $row) {
-					$provider_prices[] = $row;
-				}
-			} else {
-				$product['box_price'] = 0;
-				$product['box_kol'] = 0;
-				$product['box_provider'] = 0;
-			}
-
-			if(count($provider_prices)) {
-				$price = 0;
-
-				foreach ($provider_prices as $provider) {
-					$pre_price = (int)$provider['cko'];
-
-					if($price == 0 or $pre_price < $price) {
-						$price = $pre_price;
-						$provider_data = $provider;
-					}
-				}
-			
-				if($price < $product['price'] or $with_box_price) {
-					$product['box_price'] = $price;
-					$product['box_kol'] = $provider_data['kol'];
-					$product['box_provider'] = $provider_data['provider_id'];
-				}
-			}
 
 			$product['add_images'] = array();
 
