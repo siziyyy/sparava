@@ -26,7 +26,22 @@ class Product extends Fruitcrm {
 				$url = 'upload/'.$file_name_whithout_ex.'.'.$extension;
 			} while(file_exists($file_name));
 
-			file_put_contents($file_name, file_get_contents($file['tmp_name']));
+			if(copy($file['tmp_name'], $file_name)) {
+				list($width, $height, $type, $attr) = getimagesize($file_name);
+				
+				if($width > 400) {
+					$img = array(
+						'image_library' => 'gd2',
+						'source_image' => $file_name,
+						'maintain_ratio' => TRUE,
+						'width' => 400,
+						'height' => 1000
+					);
+					
+					$this->load->library('image_lib', $img, 'img_to_400');
+					$this->img_to_400->resize();
+				}
+			}
 
 			if($name == 'product_upload_image_main') {
 				$this->db->update("products", array('image' => $url), array("product_id" => $this->_id));

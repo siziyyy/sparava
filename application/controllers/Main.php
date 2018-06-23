@@ -968,6 +968,7 @@ class Main extends CI_Controller {
 			$data['category_view_type'] = $category_data['view_type'];
 			
 			$data['products'] = $products_in_page['products'];
+			$data['pages_count'] = (isset($products_in_page['pages_count']) ? $products_in_page['pages_count'] : 0);
 			$data['filters_used'] = $products_in_page['filters_used'];
 			$data['filters_text'] = $products_in_page['filters_text'];
 			$data['filters_count'] = $products_in_page['filters_count'];

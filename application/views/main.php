@@ -98,16 +98,6 @@
             <?php } ?>
             <div class="clear"></div>
         </section>
-        <section class="tretiy_slaider">
-            <?php foreach($banners['products'] as $banner) { ?>
-                <a href="/product/<?php echo $banner['id'] ?>" class="tretiy_slaider_item">
-                    <img class="tretiy_slaider_item_img" src="<?php echo $banner['image'] ?>" alt="<?php echo $banner['title'] ?>">
-                    <div class="tretiy_slaider_item_text"><?php echo $banner['title'] ?></div>
-                    <div class="tretiy_slaider_item_textlarge"><?php echo $banner['description'] ?></div>
-                    <div class="tretiy_slaider_item_price">- <?php echo $banner['price'] ?> <span class="rouble">o</span></div>
-                </a>
-            <?php } ?>
-        </section>
         <section class="instagram_line">
             <?php $counter = 0; ?>
             <?php foreach($banners['instagram'] as $banner) { ?>
