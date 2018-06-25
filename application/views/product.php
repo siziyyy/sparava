@@ -306,22 +306,27 @@
                         <div class="good_page_side fl_r">
                             <div class="good_page_side_first">
                                 Гарантия качества и 
-                                <br>стерильной доставки
+                                <br>доставки в срок
                             </div>
                             <div class="good_page_side_sep"></div>
                             <div class="good_page_side_second">
-                                <div class="good_page_side_second_helper">Гарантия до 15 дней</div> 
-                                <a href="/information/return" class="good_page_side_link">на обмен и возврат</a>
+                                <div class="good_page_side_second_helper">Данный товар мы можем
+                                <br>доставить</div> 
+                                <a href="/information/return" class="good_page_side_link">уже завтра</a>
                             </div>
                             <div class="good_page_side_sep"></div>
                             <div class="good_page_side_second">
-                                <div class="good_page_side_second_helper">Стоимость доставки</div> 
-                                <div class="good_page_side_second_subheader">Москва</div>
-                                <div class="good_page_side_second_body">Завтра - 199 р, сегодня - 399 р.</div>
-                                <div class="good_page_side_second_subheader">Московская область</div>
-                                <div class="good_page_side_second_body">Завтра - 350 р, сегодня - 399 р.</div>
+                                <div class="good_page_side_second_helper">Стоимость логистики</div> 
+                                <div class="good_page_side_second_subheader">
+                                Все товары представленные на 
+                                сайте продаются по ценам крупных 
+                                поставщиков и производителей,
+                                без наценки.
+                                Наша прибыль формируется только 
+                                от услуг логистики!</div>
+                                <span class="obuvefoieswvgo">Логистический расход 5%</span>
                             </div>
-                            <div class="good_page_side_sep"></div>
+                            <!--<div class="good_page_side_sep"></div>
                             <div class="good_page_side_second">
                                 <div class="good_page_side_second_helper">Минимальная сумма заказа</div> 
                                 <div class="good_page_side_second_body">1000 р.</div>
@@ -333,6 +338,19 @@
                                     Эта покупка Вам принесет
                                     <br><span class="g_good_bonus_value"><?php echo $product['bonus'] ?></span> балов (<span class="g_good_bonus_value"><?php echo $product['bonus'] ?></span> руб.)
                                 </div>
+                            </div>-->
+                        </div>
+                        <div class="good_page_side_new fl_r">
+                            <div class="uifbabuiefbuiwfa">
+                                Айдаеда для совместных
+                                <br>и корпоративных покупок
+                            </div>
+                            <div class="uifbabuiefbuiwfaawfwfa">
+                                При сумме заказа от 5000 руб., даже
+                                при стоимости доставки 1190 руб.,
+                                Вы будете экономить в среднем 
+                                20% (от суммы покупки в розничном
+                                ресурсе). 
                             </div>
                         </div>
                         <div class="clear"></div>

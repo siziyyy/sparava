@@ -761,6 +761,78 @@ header .content_helper{padding:15px}
 .doanload_price_list {
 	color: #000;
 }
+.new_price_2018 {
+	margin: 19px 0 0 0 ;
+}
+.new_price_2018_label {
+	display: block !important;
+	margin: 0px 0 10px 0 !important;
+}
+.new_price_2018_radio {
+	display: inline-block;
+	margin: 0 2px 0px 0 !important;
+}
+.new_price_2018_optovaya .new_price_2018_price {
+	color: #468711 !important;
+}
+.new_price_2018_desc {
+	font-size: 12px;
+	margin-left: 5px;
+	color: #1a1a1a;
+	position: relative;
+	top: -2px;
+	font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif;
+}
+.g_good_mobile_fav {
+	margin-top: -62px;
+}
+.new_desc_2018 {
+	font-size: 12px;
+	color: #4d4d4d;
+	margin: -12px 0 0 0;
+	font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif;
+}
+.g_good {
+	height: 545px !important;
+}
+.new_price_2018_label_empty {
+	font-size: 12px;
+	color: #808080;
+	font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif;
+}
 #shipping_rates_mo {
 	display: none;
+}
+.obuvefoieswvgo {
+	font-size: 13px;
+	color: #fe4517;
+}
+.good_page_side {
+	height: auto !important;
+	padding: 20px !important;
+}
+.good_page_side_new {
+	height: auto !important;
+	padding: 20px !important;
+	background-color: #F7FAFC;
+	border: 1px solid #E4EDF2;
+	    width: 227px;
+	    -webkit-box-sizing: border-box;
+	       -moz-box-sizing: border-box;
+	            box-sizing: border-box;
+	    margin-top: 15px;
+}
+.uifbabuiefbuiwfa {
+	color: #458016;
+	font-size: 16px;
+	    font-family: Calibri Bold;
+}
+.uifbabuiefbuiwfaawfwfa {
+	font-size: 12px;
+	margin-top: 15px;
+    line-height: 1.2;
+}
+.good_page_side_second_subheader {
+    line-height: 1.2;
+    margin-top: 15px;
 }

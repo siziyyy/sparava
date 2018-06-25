@@ -429,13 +429,15 @@ textarea.product_description{height:139px}
 }
 .cgood_modal_price_header {
     font-size: 16px;
-    margin: 0px 0 15px 0;
+    margin: 10px 0 15px 0;
 }
 .good_modal_new_price_block_com {
     font-size: 18px;
     color: #1a1a1a;
     font-family: Calibri;
     margin-left: 5px;
+        position: relative;
+    top: -5px;
 }
 .optovaya {
     color: #468711;
