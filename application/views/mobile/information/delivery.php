@@ -3,8 +3,8 @@
         <div class="info_page_inner_back_pack">
             <a href="/information" class="info_page_inner_back sprite"></a>
         </div>
-        <div class="info_page_inner_header info_page_inner_header_deliv">Доставка</div>
-        <div class="info_page_inner_body">
+        <div class="info_page_inner_header">Доставка</div>
+        <!--<div class="info_page_inner_body">
             <div class="info_page_inner_body_heading info_page_inner_body_heading_deliv">Обычная доставка</div>
             <div class="info_page_inner_body_text">Москва - 199 руб.</div>
             <div class="info_page_inner_body_text"><br>МO (до 25 км от мкада) - 350 руб.</div>
@@ -21,6 +21,27 @@
                 <br>- банковской картой курьеру
             </div>
             <img src="/assets/mobile/img/commons/payments.jpg" class="info_page_inner_payments_img" alt="">
+        </div>-->
+        <div class="info_page_inner_body">
+            Стоимость нашей услуги составляет 5% от 
+            сумы заказа, но не менее чем 1190 руб. 
+            (для Москвы). При доставке товаров, цена 
+            которых ниже чем 50 руб. за килограмм 
+            или литр, к стоимости доставки добавляется 
+            2 руб. за килограмм.
+            <br><br>
+            Информация о стоимости доставки по 
+            городам
+            <br><br>
+        </div>
+        <form action="">
+            <input type="text" class="info_page_inner_body_deliv_inp" placeholder="Город">
+            <input type="submit" class="filters_button filters_button_search" value="найти">
+        </form>
+        <div class="info_page_inner_body info_page_inner_body_result">
+            <div class="tyvuibnoubyvtrc">Лобня</div>
+            Стоимость нашей услуги составляет 5% от 
+            сумы заказа, но не менее чем 1190 руб. 
         </div>
         <div class="info_page_inner_footer">
             <a href="/information/return" class="info_page_inner_footer_link">Прием заказа, обмен и возврат</a>
