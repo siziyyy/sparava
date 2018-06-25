@@ -671,7 +671,7 @@ class Productlib {
 		return $this->_ci->baselib->handle_special_price($products);
 	}		
 	
-	public function get_products($type = false,$show_hidden = false) {
+	public function get_products($type = false, $show_hidden = false, $filters = array()) {
 		
 		$products = array();
 		
@@ -687,6 +687,12 @@ class Productlib {
 			$sql .= ' AND p.eko = 1';
 		} elseif($type == 'diet') {
 			$sql .= ' AND p.diet = 1';
+		}
+
+		if(count($filters)) {
+			foreach ($filters as $type => $value) {
+				$sql .= ' AND p.'.$type.' = "'.$value.'"';
+			}
 		}
 		
 		if($show_hidden) {

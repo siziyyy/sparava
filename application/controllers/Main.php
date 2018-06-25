@@ -378,6 +378,7 @@ class Main extends CI_Controller {
 			'categories_struct' => $this->productlib->get_categories_struct(),
 			'first_block' => $page,
 			'blocks' => $blocks,
+			'shipping_rates' => $this->baselib->get_shipping_rates(),
 			'related_products' => $this->productlib->get_products_by_ids($this->baselib->_related_products),
 			'footer' => array(
 				'account_confirm' => $this->baselib->get_account_data_for_confirm()
@@ -683,8 +684,8 @@ class Main extends CI_Controller {
 
 		$brand_title = $this->input->get('brand');
 
-		$products = $this->productlib->get_products();
-		
+		$products = $this->productlib->get_products(false,false,array('brand' => $this->input->get('brand')));
+
 		$filters = array(
 			'country' => 0,
 			'brand' => urldecode((!is_null($this->input->get('brand')) ? $this->input->get('brand') : 0)),
@@ -2464,8 +2465,6 @@ class Main extends CI_Controller {
 
 						$products_in_page = $this->filterlib->filter_products_for_provider($products,$filters,$page);
 					} elseif(!is_null($this->input->post('brands_id'))) {
-						$products = $this->productlib->get_products(false,true);
-
 						$filters_post = json_decode($this->input->post('filters'));
 						
 						$filters = array(
@@ -2476,6 +2475,8 @@ class Main extends CI_Controller {
 							'composition' => 0,
 							'price' => 0
 						);
+
+						$products = $this->productlib->get_products(false,true,array('brand' => $filters['brand']));
 						
 						$page = (!is_null($this->input->post('page')) ? $this->input->post('page') : 1);
 

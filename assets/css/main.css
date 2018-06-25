@@ -761,3 +761,6 @@ header .content_helper{padding:15px}
 .doanload_price_list {
 	color: #000;
 }
+#shipping_rates_mo {
+	display: none;
+}

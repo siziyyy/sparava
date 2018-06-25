@@ -304,7 +304,17 @@ class Excellib extends PHPExcel {
 		        )
 		    );
 
-		    $this->getActiveSheet()->getStyle("C7:F".($j-1))->applyFromArray($style);			
+		    $this->getActiveSheet()->getStyle("C7:F".($j-1))->applyFromArray($style);
+
+			$borders = array(
+				'borders' => array(
+					'allborders' => array(
+						'style' => PHPExcel_Style_Border::BORDER_THIN
+					)
+				)
+			);
+
+			 $this->getActiveSheet()->getStyle("A1:F".($j-1))->applyFromArray($borders);
 
 			$filename = $category_title.'.xls';
 

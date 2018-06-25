@@ -898,7 +898,7 @@ class Baselib {
 			} elseif($products['bm'] == 1) {
 				$products['input_type'] = 1;
 			} else {
-				$products['input_type'] == 2;
+				$products['input_type'] = 2;
 			}
 		}
 		
@@ -1259,6 +1259,19 @@ class Baselib {
 		}
 		
 		return $shipping_methods;
+	}
+
+	public function get_shipping_rates() {
+		$shipping_rates = array();
+		$query = $this->_ci->db->select("*")->from("shipping_rates")->get();
+		
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $row) {				
+				$shipping_rates[$row['place_id']] = $row;
+			}
+		}
+		
+		return $shipping_rates;
 	}
 	
 	public function create_pager($pages_count,$page) {
