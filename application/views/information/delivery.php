@@ -10,15 +10,21 @@
                                     <br>
                                     <br>Информация о стоимости доставки по городам
                                     <div class="new_deliv_selects">
-                                        <select class="new_deliv_select">
-                                            <option>Москва и область</option>
+                                        <select class="new_deliv_select select_rate_group">
+                                            <option data-target="shipping_rates_moscow" data-rate="Стоимость нашей услуги составляет 5% от сумы заказа, но не менее чем 1190 руб.">Москва</option>
+                                            <option data-target="shipping_rates_mo">Московская область</option>
+                                            <option data-target="shipping_rates_russia" data-rate="Стоимость логистики до пункта отправки составляет 5% от суммы заказа, но не менее чем 1190 руб. Стоимость отправки рассчитывается отдельно.">Россия</option>
                                         </select>
-                                        <select class="new_deliv_select">
-                                            <option>Москва</option>
+                                        <select class="new_deliv_select rate_group" id="shipping_rates_mo">
+                                            <option></option>
+                                            <?php foreach($shipping_rates as $value) { ?>
+                                                <option data-rate="Стоимость нашей услуги составляет 5% от сумы заказа + <?php  echo $value['delivery'] ?> руб., но не менее чем <?php  echo $value['cost'] ?> руб." >
+                                                    <?php echo $value['title'] ?>
+                                                </option>
+                                            <?php } ?>
                                         </select>
                                     </div>
-                                    Стоимость нашей услуги составляет 5% от сумы заказа, 
-                                    <br>но не менее чем 1190 руб. 
+                                    <span class="shipping_rates_value">Стоимость нашей услуги составляет 5% от сумы заказа, но не менее чем 1190 руб.</span>
                                 </div>
                             </div>
                             <div class="c_contacts_line_right c_contacts_line_right_about fl_r">

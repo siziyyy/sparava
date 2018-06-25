@@ -849,6 +849,26 @@ $(document).ready(function() {
 		product_id = $(this).attr('data-product-id');
 		$( ".g_good[data-product-id='"+product_id+"']" ).find('.send').click();
 	});
+
+	$(document).on('change','.select_rate_group',function(e) {
+		target_rate_group = $('.select_rate_group option:selected').attr('data-target');
+
+		$('#shipping_rates_mo').hide();
+		$('#'+target_rate_group).show();
+
+		if(target_rate_group == 'shipping_rates_russia' || target_rate_group == 'shipping_rates_moscow') {
+			rate = $('.select_rate_group option:selected').attr('data-rate');
+			$('.shipping_rates_value').text(rate);			
+		} else {
+			$('.shipping_rates_value').text('');
+		}
+	});
+
+	$(document).on('change','.rate_group',function(e) {
+		rate = $('.rate_group option:selected').attr('data-rate');
+
+		$('.shipping_rates_value').text(rate);
+	});
 	
 	$(document).on('click','.save_product_details',function(e) {
 
