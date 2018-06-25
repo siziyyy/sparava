@@ -1313,16 +1313,17 @@ $(document).ready(function() {
 			parent_class = '.good_modal';
 		}
 
-		price = $(this).parents('.g_good_price_value_wrapper').find('.g_good_price_value').text();
-		
-
 		if($(this).parents(parent_class).find('input[name="select_price"]:checked').val() == 'cko') {			
 			kol = $(this).parents(parent_class).find('.g_good_to_cart').attr('data-pack-quantity');
+			price = $(this).parents('.g_good_price_value_wrapper').find('.g_good_price_value').text();	
+
 			$(this).parents(parent_class).find('.g_good_to_cart_value').text(kol*price);
 			$(this).parents(parent_class).find('.g_good_count_input').val('1 уп');
 		} else {
-			$(this).parents(parent_class).find('.g_good_to_cart_value').text(price);
 			quantity = $(this).parents(parent_class).find('.g_good_count_input').attr('data-default-value');
+			price = $(this).parents(parent_class).find('.g_good_count_input').attr('data-default-price');
+
+			$(this).parents(parent_class).find('.g_good_to_cart_value').text(price);
 			$(this).parents(parent_class).find('.g_good_count_input').val(quantity);
 		}
 		
@@ -1338,8 +1339,10 @@ $(document).ready(function() {
 				}
 
 				return false;
-			} else {
+			} else if(obj.parents(parent_class).find('.g_good_price_value_wrapper').attr('data-type') == 'cko') {
 				return 3;
+			} else {
+				return type_num;
 			}
 		} else {
 			return type_num;

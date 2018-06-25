@@ -141,7 +141,7 @@
                                 <div class="cgood_modal_price fl_l"> <!-- добавь класс optovaya для оптовой цены -->
                                     <?php if($product['price'] > 0) { ?>
                                         <label>            
-                                            <span class="cgood_modal_price_value g_good_price_value_wrapper">
+                                            <span class="cgood_modal_price_value g_good_price_value_wrapper" data-type="cmo">
                                                 <?php if(isset($product['box_kol'])) { ?>
                                                     <input type="radio" class="g_good_price_radio" name="select_price" value="cmo" checked="checked">
                                                 <?php } ?>
@@ -188,7 +188,7 @@
                                     <?php } ?>
                                     <div class="optovaya good_modal_new_price_block cgood_modal_price fl_l">
                                         <label>
-                                            <span class="cgood_modal_price_value g_good_price_value_wrapper">
+                                            <span class="cgood_modal_price_value g_good_price_value_wrapper"  data-type="cko">
                                                 <?php if($product['price'] > 0) { ?>
                                                     <input type="radio" class="g_good_price_radio" name="select_price" value="cko">
                                                 <?php } ?>
@@ -278,7 +278,7 @@
                                 <div class="good_modal_right_line actions_holder">
                                     <div class="g_good_count">
                                         <div class="g_good_count_act g_good_count_rem sprite <?php echo ( ($product['type'] == 'шт' or $product['bm'] == 0) ? 'g_good_count_act_disable' : '' ) ?>"></div>
-                                        <input type="text" class="g_good_count_input" value="<?php echo $product['default_value'] ?>" data-default-value="<?php echo $product['default_value'] ?>">
+                                        <input type="text" class="g_good_count_input" value="<?php echo $product['default_value'] ?>" data-default-value="<?php echo $product['default_value'] ?>" data-default-price="<?php echo $product['default_price'] ?>">
                                         <div class="g_good_count_act g_good_count_add sprite"></div>
                                     </div>
                                     <div class="g_good_to_cart" data-pack-quantity="<?php echo (isset($product['box_kol']) ? $product['box_kol'] : '') ?>">
