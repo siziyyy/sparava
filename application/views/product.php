@@ -278,7 +278,7 @@
                                 <div class="good_modal_right_line actions_holder">
                                     <div class="g_good_count">
                                         <div class="g_good_count_act g_good_count_rem sprite <?php echo ( ($product['type'] == 'шт' or $product['bm'] == 0) ? 'g_good_count_act_disable' : '' ) ?>"></div>
-                                        <input type="text" class="g_good_count_input" value="<?php echo $product['default_value'] ?>">
+                                        <input type="text" class="g_good_count_input" value="<?php echo $product['default_value'] ?>" data-default-value="<?php echo $product['default_value'] ?>">
                                         <div class="g_good_count_act g_good_count_add sprite"></div>
                                     </div>
                                     <div class="g_good_to_cart" data-pack-quantity="<?php echo (isset($product['box_kol']) ? $product['box_kol'] : '') ?>">

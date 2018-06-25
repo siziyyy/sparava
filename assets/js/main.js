@@ -1288,7 +1288,7 @@ $(document).ready(function() {
 
 		type_num = $(this).parents(parent_class).attr('data-type');
 
-		type_num = is_pack_type_3(parent_class,type_num);
+		type_num = is_pack_type_3(parent_class,type_num,$(this));
 
 		if(type_num == 3) {
 			cart.box(product_id, parseFloat(quantity),parent_class,$(this));
@@ -1314,20 +1314,24 @@ $(document).ready(function() {
 		}
 
 		price = $(this).parents('.g_good_price_value_wrapper').find('.g_good_price_value').text();
+		
 
-		if($('input[name="select_price"]:checked').val() == 'cko') {			
+		if($(this).parents(parent_class).find('input[name="select_price"]:checked').val() == 'cko') {			
 			kol = $(this).parents(parent_class).find('.g_good_to_cart').attr('data-pack-quantity');
 			$(this).parents(parent_class).find('.g_good_to_cart_value').text(kol*price);
+			$(this).parents(parent_class).find('.g_good_count_input').val('1 уп');
 		} else {
 			$(this).parents(parent_class).find('.g_good_to_cart_value').text(price);
+			quantity = $(this).parents(parent_class).find('.g_good_count_input').attr('data-default-value');
+			$(this).parents(parent_class).find('.g_good_count_input').val(quantity);
 		}
 		
 	});
 
-	function is_pack_type_3(parent_class,type_num) {
-		if(parent_class == '.single_good_page') {
-			if($('input[name="select_price"]').length > 0) {
-				type = $('input[name="select_price"]:checked').val();
+	function is_pack_type_3(parent_class,type_num,obj) {
+		if(parent_class == '.single_good_page' || parent_class == '.g_good') {
+			if(obj.parents(parent_class).find('input[name="select_price"]').length > 0) {
+				type = obj.parents(parent_class).find('input[name="select_price"]:checked').val();
 
 				if(type == 'cko') {
 					return 3;
@@ -1342,11 +1346,11 @@ $(document).ready(function() {
 		}
 	}
 
-	function get_price_value(parent_class) {
-		if($('input[name="select_price"]').length > 0) {
-			return $('input[name="select_price"]:checked').parents('.g_good_price_value_wrapper').find(".g_good_price_value").text();
+	function get_price_value(parent_class,obj) {
+		if(obj.parents(parent_class).find('input[name="select_price"]').length > 0) {
+			return obj.parents(parent_class).find('input[name="select_price"]:checked').parents('.g_good_price_value_wrapper').find(".g_good_price_value").text();
 		} else {
-			return $(parent_class).find(".g_good_price_value").text();
+			return obj.parents(parent_class).find(".g_good_price_value").text();
 		}
 	}
 	
@@ -1362,12 +1366,12 @@ $(document).ready(function() {
 		quantity = parseFloat($(this).val());
 		type_num = $(this).parents(parent_class).attr('data-type');
 
-		is_3_type = is_pack_type_3(parent_class,type_num);
+		is_3_type = is_pack_type_3(parent_class,type_num,$(this));
 
 		if(is_3_type) {
 			type_num = is_3_type;
 		}
-		
+
 		if(type_num == 0) {
 			type = 'шт';
 		} else if(type_num == 1) {
@@ -1377,12 +1381,18 @@ $(document).ready(function() {
 		} else if(type_num == 3) {
 			type = 'уп';
 		}
+
+		if(type_num == 3) {
+			kol = $(this).parents(parent_class).find('.g_good_to_cart').attr('data-pack-quantity');
+		} else {
+			kol = 1;
+		}
 		
-		price = get_price_value(parent_class);
+		price = get_price_value(parent_class,$(this));
 
-		summ = parseInt(parseFloat(quantity)*price);
+		summ = parseInt(parseFloat(quantity)*price*kol);
 
-		if((parseFloat(quantity)*price) > summ) {
+		if((parseFloat(quantity)*price*kol) > summ) {
 			summ++;
 		}
 
@@ -1412,9 +1422,9 @@ $(document).ready(function() {
 		type_num = $(this).parents(parent_class).attr('data-type');
 
 		quantity = get_quantity_by_type(quantity,type_num,false,parent_class,$(this));
-		price = get_price_value(parent_class);
+		price = get_price_value(parent_class,$(this));
 
-		is_3_type = is_pack_type_3(parent_class,type_num);
+		is_3_type = is_pack_type_3(parent_class,type_num,$(this));
 
 		if(is_3_type) {
 			type_num = is_3_type;
@@ -1458,9 +1468,9 @@ $(document).ready(function() {
 		type_num = $(this).parents(parent_class).attr('data-type');
 		
 		quantity = get_quantity_by_type(quantity,type_num,true,parent_class,$(this));
-		price = get_price_value(parent_class);
+		price = get_price_value(parent_class,$(this));
 
-		is_3_type = is_pack_type_3(parent_class,type_num);
+		is_3_type = is_pack_type_3(parent_class,type_num,$(this));
 
 		if(is_3_type) {
 			type_num = is_3_type;
@@ -1488,7 +1498,7 @@ $(document).ready(function() {
 		
 	
 	function get_quantity_by_type(quantity,type_num,minus,parent_class,obj) {
-		is_3_type = is_pack_type_3(parent_class,type_num);
+		is_3_type = is_pack_type_3(parent_class,type_num,obj);
 
 		if(is_3_type) {
 			type_num = is_3_type;
