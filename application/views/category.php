@@ -175,6 +175,8 @@
 		                			<?php 
 		                				if($category_view_type == '1' and $view_type != 'Остальные товары') {
 		                					echo current($products_group)['country'];
+		                				} else {
+		                					echo '&nbsp;';
 		                				}
 		                			?>
 		                		</span>
