@@ -76,7 +76,7 @@
 
 		<div class="new_price_2018">
 			<form>
-				<label class="g_good_price new_price_2018_label g_good_price_value_wrapper">
+				<label class="g_good_price new_price_2018_label g_good_price_value_wrapper" data-type="cmo">
 					<?php if($product['price'] > 0) { ?>
 						<input type="radio" class="new_price_2018_radio" name="select_price" value="cmo" checked="checked">
 						<span class="new_price_2018_price"><span class="g_good_price_value"><?php echo $product['price'] ?></span> р.</span>
@@ -87,7 +87,7 @@
 					<?php } ?>
 				</label>
 				<?php if(isset($product['box_kol'])) { ?>
-					<label class="g_good_price new_price_2018_label new_price_2018_optovaya g_good_price_value_wrapper">
+					<label class="g_good_price new_price_2018_label new_price_2018_optovaya g_good_price_value_wrapper" data-type="cko">
 						<?php if($product['price'] > 0) { ?>
 							<input type="radio" class="new_price_2018_radio" name="select_price" value="cko">
 						<?php } ?>
@@ -139,7 +139,7 @@
 		<div class="g_good_actions actions_holder">
 			<div class="g_good_count">
 				<div class="g_good_count_act g_good_count_rem sprite <?php echo ( ($product['type'] == 'шт' or $product['bm'] == 0) ? 'g_good_count_act_disable' : '' ) ?>"></div>
-				<input type="text" class="g_good_count_input" value="<?php echo $product['default_value'] ?>" data-default-value="<?php echo $product['default_value'] ?>">
+				<input type="text" class="g_good_count_input" value="<?php echo $product['default_value'] ?>" data-default-value="<?php echo $product['default_value'] ?>" data-default-price="<?php echo $product['default_price'] ?>">
 				<div class="g_good_count_act g_good_count_add sprite"></div>
 			</div>
 			<div class="g_good_to_cart" data-pack-quantity="<?php echo (isset($product['box_kol']) ? $product['box_kol'] : '') ?>">
