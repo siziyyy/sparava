@@ -314,7 +314,7 @@ class Excellib extends PHPExcel {
 				)
 			);
 
-			 $this->getActiveSheet()->getStyle("A1:F".($j-1))->applyFromArray($borders);
+			 $this->getActiveSheet()->getStyle("A6:F".($j-1))->applyFromArray($borders);
 
 			$filename = $category_title.'.xls';
 

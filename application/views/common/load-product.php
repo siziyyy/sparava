@@ -62,19 +62,40 @@
 				<?php } ?>
 			<?php } ?>
 		</div> -->
+
+        <?php if($product['type'] == 'шт') { ?>
+            <?php $box_type = '1 шт' ?>
+            <?php $box_clean_type = 'шт' ?>
+        <?php } elseif($product['bm'] == 1) { ?>
+            <?php $box_type = '1 кг' ?>
+            <?php $box_clean_type = 'кг' ?>
+        <?php } else { ?>
+            <?php $box_type = '100 гр' ?>
+            <?php $box_clean_type = false; ?>
+        <?php } ?>
+
 		<div class="new_price_2018">
-			<label class="g_good_price new_price_2018_label">
-				<input type="radio" class="new_price_2018_radio">
-				<span class="g_good_price_value new_price_2018_price"><?php echo $product['price'] ?> р.</span>
-				<!--<span class="new_price_2018_label_empty">
-					Только в большой упаковке
-				</span>-->
-			</label>
-			<label class="g_good_price new_price_2018_label new_price_2018_optovaya">
-				<input type="radio" class="new_price_2018_radio">
-				<span class="g_good_price_value new_price_2018_price"><?php echo $product['price'] ?> р.</span>
-				<span class="new_price_2018_desc">х 12 шт. = 1475</span>
-			</label>
+			<form>
+				<label class="g_good_price new_price_2018_label g_good_price_value_wrapper">
+					<?php if($product['price'] > 0) { ?>
+						<input type="radio" class="new_price_2018_radio" name="select_price" value="cmo" checked="checked">
+						<span class="new_price_2018_price"><span class="g_good_price_value"><?php echo $product['price'] ?></span> р.</span>
+					<?php } else { ?>
+						<span class="new_price_2018_label_empty">
+							Только в большой упаковке
+						</span>
+					<?php } ?>
+				</label>
+				<?php if(isset($product['box_kol'])) { ?>
+					<label class="g_good_price new_price_2018_label new_price_2018_optovaya g_good_price_value_wrapper">
+						<?php if($product['price'] > 0) { ?>
+							<input type="radio" class="new_price_2018_radio" name="select_price" value="cko">
+						<?php } ?>
+						<span class="new_price_2018_price"><span class="g_good_price_value"><?php echo $product['box_price'] ?></span> р.</span>
+						<span class="new_price_2018_desc">х <?php echo $product['box_kol'] ?> <?php echo ($box_clean_type ? $box_clean_type : '') ?> = <?php echo (int)($product['box_price']*$product['box_kol']) ?> руб.</span>
+					</label>
+				<?php } ?>
+			</form>
 		</div>
 		<div class="g_good_mobile_fav <?php echo (isset($product['favourite']) ? 'g_good_mobile_fav_orange' : '') ?> sprite send" data-type="favourite"></div>
 		<div class="g_admin_info">inf</div>
@@ -114,16 +135,18 @@
 			Вес - единица 250 гр, упаковка 4,2 кг
 		</div>
 	</div>
-	<div class="g_good_actions actions_holder">
-		<div class="g_good_count">
-			<div class="g_good_count_act g_good_count_rem sprite <?php echo ( ($product['type'] == 'шт' or $product['bm'] == 0) ? 'g_good_count_act_disable' : '' ) ?>"></div>
-			<input type="text" class="g_good_count_input" value="<?php echo $product['default_value'] ?>">
-			<div class="g_good_count_act g_good_count_add sprite"></div>
+	<?php if(isset($product['box_kol'])) { ?>
+		<div class="g_good_actions actions_holder">
+			<div class="g_good_count">
+				<div class="g_good_count_act g_good_count_rem sprite <?php echo ( ($product['type'] == 'шт' or $product['bm'] == 0) ? 'g_good_count_act_disable' : '' ) ?>"></div>
+				<input type="text" class="g_good_count_input" value="<?php echo $product['default_value'] ?>" data-default-value="<?php echo $product['default_value'] ?>">
+				<div class="g_good_count_act g_good_count_add sprite"></div>
+			</div>
+			<div class="g_good_to_cart" data-pack-quantity="<?php echo (isset($product['box_kol']) ? $product['box_kol'] : '') ?>">
+				<span class="g_good_to_cart_text"><span class="g_good_to_cart_value"><?php echo ($product['price'] <= 0 ? $product['box_kol']*$product['default_price'] : $product['default_price']) ?></span> р.</span>
+				<span class="g_good_added_to_cart_text"></span>									
+				<span class="g_good_to_cart_icon sprite"></span>
+			</div>
 		</div>
-		<div class="g_good_to_cart" data-pack-quantity="<?php echo (isset($product['box_kol']) ? $product['box_kol'] : '') ?>">
-			<span class="g_good_to_cart_text"><span class="g_good_to_cart_value"><?php echo $product['default_price'] ?></span> р.</span>
-			<span class="g_good_added_to_cart_text"></span>									
-			<span class="g_good_to_cart_icon sprite"></span>
-		</div>
-	</div>
+	<?php } ?>
 </div>    
