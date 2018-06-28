@@ -1261,17 +1261,27 @@ class Baselib {
 		return $shipping_methods;
 	}
 
-	public function get_shipping_rates() {
-		$shipping_rates = array();
-		$query = $this->_ci->db->select("*")->from("shipping_rates")->get();
-		
-		if ($query->num_rows() > 0) {
-			foreach ($query->result_array() as $row) {				
-				$shipping_rates[$row['place_id']] = $row;
+	public function get_shipping_rates($search_value = false) {
+		if($search_value) {
+			$query = $this->_ci->db->select("*")->from("shipping_rates")->where('title',$search_value)->get();
+
+			if ($query->num_rows() > 0) {
+				return $query->row_array();
 			}
+
+			return false;
+		} else {
+			$shipping_rates = array();
+			$query = $this->_ci->db->select("*")->from("shipping_rates")->get();
+			
+			if ($query->num_rows() > 0) {
+				foreach ($query->result_array() as $row) {
+					$shipping_rates[$row['place_id']] = $row;
+				}
+			}
+			
+			return $shipping_rates;
 		}
-		
-		return $shipping_rates;
 	}
 	
 	public function create_pager($pages_count,$page) {

@@ -312,7 +312,7 @@
                             <div class="good_page_side_second">
                                 <div class="good_page_side_second_helper">Данный товар мы можем
                                 <br>доставить</div> 
-                                <a href="/information/return" class="good_page_side_link">уже завтра</a>
+                                <a href="/information/delivery" class="good_page_side_link">уже завтра</a>
                             </div>
                             <div class="good_page_side_sep"></div>
                             <div class="good_page_side_second">
