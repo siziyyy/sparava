@@ -385,6 +385,10 @@ class Main extends CI_Controller {
 			)
 		);
 
+		if(!empty($this->input->post('search_for_shipping_rate'))) {
+			$data['shipping_rate'] = $this->baselib->get_shipping_rates($this->input->post('shipping_rate_search'));
+		}
+
 		if($this->_is_mobile) {
 			if($page) {
 				$this->load->view('mobile/information/'.$page, $data);
@@ -2429,7 +2433,7 @@ class Main extends CI_Controller {
 
 								$products = $this->productlib->get_category_products($this->input->post('category_id'));
 								$products = $this->productlib->sort_products('category',$this->input->post('category_id'),$products);
-								$products_in_page = $this->filterlib->filter_products($products,$filters,$this->input->post('page'),$this->input->post('category_id'));
+								$products_in_page = $this->filterlib->filter_products($products,$filters,$this->input->post('page'),$this->input->post('category_id'),$this->_is_mobile);
 								break;
 						}
 						

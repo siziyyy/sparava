@@ -243,11 +243,11 @@ class Excellib extends PHPExcel {
     	if ($query->num_rows() > 0) {
 
 			$fields = array(
-				'№',
+				'Арт',
 				'Наименование',
 				'шт.цена',
 				'короб. цена',
-				'шт в уп.',
+				'кол в упаковке',
 				'цена уп.'
 			);
 
@@ -259,16 +259,19 @@ class Excellib extends PHPExcel {
 			$this->getActiveSheet()->getStyle('A1')->getFont()->setSize(24);
 
 			$this->getActiveSheet()->mergeCells('A2:F2');
-			$this->getActiveSheet()->setCellValue('A2', 'Площадка оптовой торговли по ценам крупных поставщиков и производителей, без наценки. Оперативная доставка.');
-			$this->getActiveSheet()->getStyle('A2')->getFont()->setSize(11);
-			$this->getActiveSheet()->getStyle('A2')->getFont()->setBold(true);	
+			$this->getActiveSheet()->setCellValue('A2', $category_title.' - '.date('d/m/Y'));
 
-			$this->getActiveSheet()->mergeCells('A4:F4');
-			$this->getActiveSheet()->setCellValue('A4', 'aydaeda.ru   Email: info@aydaeda.ru   Телефон: +7 495 544 88 64   График работы 9 - 19:00  График работы 9 - 19:00, без выходных.');
+			$this->getActiveSheet()->mergeCells('A3:F3');
+			$this->getActiveSheet()->setCellValue('A3', 'Площадка оптовой торговли по ценам крупных поставщиков и производителей, без наценки. Оперативная доставка.');
+			$this->getActiveSheet()->getStyle('A3')->getFont()->setSize(11);
+			$this->getActiveSheet()->getStyle('A3')->getFont()->setBold(true);	
+
+			$this->getActiveSheet()->mergeCells('A5:F5');
+			$this->getActiveSheet()->setCellValue('A5', 'aydaeda.ru   Email: info@aydaeda.ru   Телефон: +7 495 544 88 64  График работы 9 - 19:00, без выходных.');
 
 			
 		
-			$j = 6;
+			$j = 7;
 			
 			for($i = 0 ; $i < count($fields) ; $i++ ) {
 				$this->getActiveSheet()->setCellValue($this->_chars[$i].$j, $fields[$i]);

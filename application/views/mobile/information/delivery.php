@@ -34,15 +34,23 @@
             городам
             <br><br>
         </div>
-        <form action="">
-            <input type="text" class="info_page_inner_body_deliv_inp" placeholder="Город">
-            <input type="submit" class="filters_button filters_button_search" value="найти">
+        <form method="post">
+            <input type="text" class="info_page_inner_body_deliv_inp" placeholder="Город" name="shipping_rate_search">
+            <input type="submit" class="filters_button filters_button_search" value="найти" name="search_for_shipping_rate">
         </form>
-        <div class="info_page_inner_body info_page_inner_body_result">
-            <div class="tyvuibnoubyvtrc">Лобня</div>
-            Стоимость нашей услуги составляет 5% от 
-            сумы заказа, но не менее чем 1190 руб. 
-        </div>
+
+        <?php if(isset($shipping_rate)) { ?>
+            <?php if($shipping_rate) { ?>
+                <div class="info_page_inner_body info_page_inner_body_result">
+                    <div class="tyvuibnoubyvtrc"><?php echo $shipping_rate['title'] ?></div>
+                    Стоимость нашей услуги составляет 5% от суммы заказа + <?php echo $shipping_rate['delivery'] ?> руб., но не менее чем <?php echo $shipping_rate['cost'] ?> руб.
+                </div>
+            <?php } else { ?>
+                <div class="info_page_inner_body info_page_inner_body_result">
+                    <div class="tyvuibnoubyvtrc">По Вашему запросу ничего не найдено</div>
+                </div>
+            <?php } ?>
+        <?php } ?>
         <div class="info_page_inner_footer">
             <a href="/information/return" class="info_page_inner_footer_link">Прием заказа, обмен и возврат</a>
             <a href="/information/guarantee" class="info_page_inner_footer_link">Гарантия качества</a>

@@ -132,10 +132,21 @@
 			<?php } ?>
 		</div>
 		<div class="new_desc_2018">
-			Вес - единица 250 гр, упаковка 4,2 кг
+			<?php if(!empty($product['weight'])) { ?>
+				Вес - <?php echo $product['weight']; ?>
+				<?php if(isset($product['box_kol'])) { ?>
+					, упаковка <?php echo ($product['box_kol']*$product['weight']) ?> кг
+				<?php } ?>
+			<?php } elseif(isset($product['box_kol'])) { ?>
+				<?php if($product['bm'] == 1) { ?>
+		            Упаковка <?php echo $product['box_kol'] ?> кг
+		        <?php } else { ?>
+		            Упаковка <?php echo $product['box_kol']*0.1 ?> кг
+		        <?php } ?>
+			<?php } ?>
 		</div>
 	</div>
-	<?php if(isset($product['box_kol'])) { ?>
+	<?php if(isset($product['box_kol']) or $product['price'] > 0) { ?>
 		<div class="g_good_actions actions_holder">
 			<div class="g_good_count">
 				<div class="g_good_count_act g_good_count_rem sprite <?php echo ( ($product['type'] == 'шт' or $product['bm'] == 0) ? 'g_good_count_act_disable' : '' ) ?>"></div>
