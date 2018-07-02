@@ -66,7 +66,13 @@ function listener(event) {
 		if(product['providers'].length > 0) {
 			for (var k in product['providers']) {
 				if(product['providers'][k]['status'] > 0) {
-					html = '<tr><td><a href="/provider?provider='+encodeURIComponent(product['providers'][k]['store'])+'">'+product['providers'][k]['store']+'</a></td>'+
+					html = '<tr><td><a href="/provider?provider='+encodeURIComponent(product['providers'][k]['store'])+'">'+product['providers'][k]['store']+'</a>';
+
+					if(product['providers'][k]['info']) {
+						html = html+' ('+product['providers'][k]['info']['contact_1']+' '+product['providers'][k]['info']['phone_1']+')'
+					}
+
+					html = html+'</td>'+
 					'<td>'+product['providers'][k]['cmo']+'</td>'+
 					'<td>'+product['providers'][k]['cko']+'<span>('+product['providers'][k]['box']+'/'+product['providers'][k]['kol']+')</span></td>'+
 					'<td>'+product['providers'][k]['kol']+'</td></tr>';
@@ -86,18 +92,6 @@ function listener(event) {
 		$('#product_form .product_upload_image').val('');
 
 		$('#connected_products_wrapper').empty();
-
-		if(product['connected_products'].length > 0) {
-			for (var k in product['connected_products']) {
-				html = $('#template_connected_products').html();
-				$('#product_form #connected_products_wrapper').append(html);
-
-				last = $('#connected_products_wrapper .g_good_secondary_inner_modal_line').last()
-				last.find('.connected_product_id').val(product['connected_products'][k]['dst_product_id']);
-				last.find('.connected_product_count').val(product['connected_products'][k]['count']);
-				last.find('.connected_product_percent').val(product['connected_products'][k]['percent']);
-			}
-		}
 
 		$('.product_uploaded_images_wrapper').empty();
 
@@ -2326,7 +2320,7 @@ var cart = {
 		$.ajax({
 			url: '/cart_ajax',
 			type: 'post',
-			data: 'action=update&product_id=' + product_id + '&quantity=' + (typeof(quantity) != 'undefined' ? quantity : 1),
+			data: 'action=add&product_id=' + product_id + '&quantity=' + (typeof(quantity) != 'undefined' ? quantity : 1),
 			dataType: 'json',
 			success: function(json) {
 				if(json['success']) {

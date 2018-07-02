@@ -1942,15 +1942,10 @@ class Main extends CI_Controller {
 				$cart = $this->session->userdata('cart');
 			}
 			
-			$quantity = 0;
-			$box = false;		
+			$quantity = 0;	
 			
 			if(isset($cart['p-'.$this->input->post('product_id')])) {
 				$quantity = $cart['p-'.$this->input->post('product_id')]['quantity'];
-
-				if(isset($cart['p-'.$this->input->post('product_id')]['box'])) {
-					$box = $cart['p-'.$this->input->post('product_id')]['box'];
-				}
 			}
 			
 			$quantity_in_request = 0;
@@ -1966,21 +1961,19 @@ class Main extends CI_Controller {
 					'quantity' => $quantity_in_request + $quantity
 				);
 			} elseif($this->input->post('action') == 'update') {
-				$cart['p-'.$this->input->post('product_id')] = array(
-					'quantity' => $quantity_in_request
-				);
+				$cart['p-'.$this->input->post('product_id')]['quantity'] = $quantity_in_request;
 			} elseif($this->input->post('action') == 'remove') {
 				unset($cart['p-'.$this->input->post('product_id')]);
 			} elseif($this->input->post('action') == 'box') {
+				if(isset($cart['p-'.$this->input->post('product_id')]) and !isset($cart['p-'.$this->input->post('product_id')]['box'])) {
+					unset($cart['p-'.$this->input->post('product_id')]);
+				}
+
 				$cart['p-'.$this->input->post('product_id')] = array(
 					'quantity' => $quantity_in_request + $quantity,
 					'box' => 1
 				);
 			}
-
-			//if(isset($cart['p-'.$this->input->post('product_id')]) and $this->input->post('action') != 'box') {
-				//$cart['p-'.$this->input->post('product_id')]['box'] = $box;
-			//}
 
 			$this->session->set_userdata('cart', $cart);
 			

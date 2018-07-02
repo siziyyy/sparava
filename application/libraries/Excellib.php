@@ -195,7 +195,7 @@ class Excellib extends PHPExcel {
 
 			$data = array();
 
-			$sql = 'SELECT p.*, c.bm,c.title as category_title FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND p.status > 0 AND ptc.category_id = c.category_id AND ptc.category_id = ' . (int)$category_id . ' ORDER BY product_id ASC';
+			$sql = 'SELECT p.*, c.bm,c.title as category_title FROM products AS p, product_to_category AS ptc, categories AS c WHERE p.product_id = ptc.product_id AND p.status > 0 AND ptc.category_id = c.category_id AND ptc.category_id = ' . (int)$category_id . ' ORDER BY title_full ASC';
 					
 			$query = $this->_ci->db->query($sql);
 
@@ -247,7 +247,7 @@ class Excellib extends PHPExcel {
 				'Наименование',
 				'шт.цена',
 				'короб. цена',
-				'кол в упаковке',
+				'кол. в уп.',
 				'цена уп.'
 			);
 
