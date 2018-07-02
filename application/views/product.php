@@ -156,17 +156,6 @@
                                     <?php } ?>               
                                 </div>                  
                                 <div class="good_modal_weight fl_l"><?php echo $product['weight'] ?></div>
-                                <div class="good_modal_off fl_l">
-                                    <?php 
-                                        if($product['farm'] == 1) {
-                                            echo 'Фермер.';
-                                        } elseif($product['eko'] == 1) {
-                                            echo 'Эко';
-                                        } elseif($product['diet'] == 1) {
-                                            echo 'Диетическое';
-                                        }
-                                    ?>
-                                </div>
                                 <div class="good_modal_header_actions fl_r">
                                     <div class="good_modal_share fl_r sprite"></div>
                                     <div class="good_modal_fav fl_r <?php echo (isset($product['favourite']) ? 'g_good_mobile_fav_orange' : '') ?> sprite send" data-type="favourite"></div>
