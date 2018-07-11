@@ -693,7 +693,7 @@ class Baselib {
 					$category_id = $product_to_category[$product_id];
 				}
 
-				if(!isset($this->_categories_list[$category_id]) or !isset($this->_categories_list[$this->_categories_list[$category_id]['parent_id']])) {
+				if(!isset($product_to_category[$product_id]) or !isset($this->_categories_list[$category_id]) or !isset($this->_categories_list[$this->_categories_list[$category_id]['parent_id']])) {
 					unset($products[$product_id]);
 					continue;
 				}

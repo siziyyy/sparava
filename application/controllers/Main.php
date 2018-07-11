@@ -625,7 +625,7 @@ class Main extends CI_Controller {
 			}			
 		}
 
-		$products = $this->productlib->get_products(false,true);
+		$products = $this->productlib->get_products(false,true,array(),true);
 		
 		$filters = array(
 			'provider' => urldecode((!is_null($this->input->get('provider')) ? $this->input->get('provider') : 0))
@@ -649,7 +649,7 @@ class Main extends CI_Controller {
 				'filters' => $filters
 			),
 			'categories_struct' => $this->productlib->get_categories_struct(),
-			'products' => $products_in_page['products'],
+			'products' => $this->baselib->handle_special_price($products_in_page['products']),
 			'current_page' => $page,
 			'pages_count' => $products_in_page['pages_count'],
 			'providers' => $products_in_page['providers_for_provider'],

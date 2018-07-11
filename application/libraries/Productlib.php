@@ -671,7 +671,7 @@ class Productlib {
 		return $this->_ci->baselib->handle_special_price($products);
 	}		
 	
-	public function get_products($type = false, $show_hidden = false, $filters = array()) {
+	public function get_products($type = false, $show_hidden = false, $filters = array(), $skip_handle = false) {
 		
 		$products = array();
 		
@@ -707,7 +707,11 @@ class Productlib {
 			}
 		}
 
-		return $this->_ci->baselib->handle_special_price($products);
+		if(!$skip_handle) {
+			$products = $this->_ci->baselib->handle_special_price($products);
+		}
+
+		return $products;
 	}
 	
 	public function get_products_with_categories($provider_id = false, $type = false) {
